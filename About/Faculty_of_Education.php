@@ -1,0 +1,87 @@
+﻿<?php
+$page_title = 'Faculty of Education - SSSUTMS';
+$banner_title = 'Faculty of Education';
+$banner_category = 'About';
+
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/topbar.php';
+require_once __DIR__ . '/../includes/navbar.php';
+require_once __DIR__ . '/../includes/page-banner.php';
+?>
+
+<section class="subpage-main-section py-4 bg-light">
+  <div class="container-fluid px-lg-5">
+    <div class="row g-4 align-items-start">
+      
+      <!-- Main Content Area (Left) -->
+      <div class="col-lg-8 col-xl-9">
+        <div class="content-card">
+          <div class="content-card-body">
+            <div class="text-center mb-10" style="box-sizing: border-box; margin: 0px 0px 40px; padding: 0px; border: 0px solid #e2e8f0; text-align: center; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: oklch(0.985 0.002 247.839); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="10:8-18:14" data-source-name="div">
+<h1 class="text-3xl md:text-4xl font-bold text-gray-800" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 36px; font-weight: bold; line-height: 1.11111; --tw-font-weight: 700; color: oklch(0.278 0.033 256.848);" data-source-pos="11:10-13:15" data-source-name="h1">Faculty of Education</h1>
+<p class="text-lg md:text-xl text-gray-600 mt-2" style="box-sizing: border-box; margin: 8px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 20px; line-height: 1.4; color: oklch(0.446 0.03 256.802);" data-source-pos="14:10-16:14" data-source-name="p">Sri Satya Sai University of Technology and Medical Sciences</p>
+<div class="shrink-0 bg-border h-[1px] w-full mt-6" style="box-sizing: border-box; margin: 24px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; height: 1px; width: 784px; flex-shrink: 0; background-color: #e2e8f0;" role="none" data-orientation="horizontal" data-source-pos="17:10-17:40" data-source-name="Separator">&nbsp;</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); align-items: flex-start; gap: 32px; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: oklch(0.985 0.002 247.839); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="21:8-63:14" data-source-name="div">
+<div class="border bg-card text-card-foreground md:col-span-1 shadow-lg rounded-2xl" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; grid-column: span 1 / span 1;" data-source-pos="23:10-37:17" data-source-name="Card">
+<div class="p-6 text-center" style="box-sizing: border-box; margin: 0px; padding: 24px; border: 0px solid #e2e8f0; text-align: center;" data-source-pos="24:12-36:26" data-source-name="CardContent"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-02-10_at_12.55.44_PM_10022026_0101.jpg" alt=""  height="298" /></div>
+<div class="p-6 text-center" style="box-sizing: border-box; margin: 0px; padding: 24px; border: 0px solid #e2e8f0; text-align: center;" data-source-pos="24:12-36:26" data-source-name="CardContent">
+<h2 class="text-xl font-semibold text-gray-800 mt-4" style="box-sizing: border-box; margin: 16px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 20px; font-weight: 600; line-height: 1.4; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="30:14-32:19" data-source-name="h2">Principal</h2>
+<p class="text-sm text-gray-600" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 14px; line-height: 1.42857; color: oklch(0.446 0.03 256.802);" data-source-pos="33:14-35:18" data-source-name="p"><a href="https://www.sssutms.co.in/cms/Admin/Pages/Edit/193" target="_blank" rel="noopener">Faculty of Education</a></p>
+</div>
+</div>
+<div class="border bg-card text-card-foreground md:col-span-2 shadow-lg rounded-2xl" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; grid-column: span 2 / span 2;" data-source-pos="40:10-62:17" data-source-name="Card">
+<div class="p-6 md:p-8" style="box-sizing: border-box; margin: 0px; padding: 32px; border: 0px solid #e2e8f0; text-align: justify;" data-source-pos="41:12-61:26" data-source-name="CardContent">
+<h3 class="text-2xl font-semibold text-gray-800 mb-4" style="box-sizing: border-box; margin: 0px 0px 16px; padding: 0px; border: 0px solid #e2e8f0; font-size: 24px; font-weight: 600; line-height: 1.33333; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="42:14-44:19" data-source-name="h3">Message from the Principal</h3>
+<p style="text-align: justify;" data-start="581" data-end="713">At the Faculty of Education, our goal is to prepare future educators who can shape young minds and contribute positively to society.</p>
+<p style="text-align: justify;" data-start="715" data-end="943">We believe that teaching is a noble profession that requires knowledge, patience, ethics, and dedication. Our B.A. B.Ed. integrated program is designed to provide strong academic foundations along with practical teaching skills.</p>
+<p style="text-align: justify;" data-start="945" data-end="1095">We focus on modern teaching methodologies, classroom management, and value-based education so that our students become confident and capable teachers.</p>
+<p style="text-align: justify;" data-start="1097" data-end="1284">With experienced faculty, practical training, and a supportive learning environment, we are committed to developing skilled educators who can meet the demands of today&rsquo;s education system.</p>
+<p style="text-align: justify;" data-start="1286" data-end="1404">Our mission is to create passionate teachers who inspire learning and bring positive change in the field of education.</p>
+</div>
+</div>
+</div>
+<div class="border bg-card text-card-foreground shadow-lg rounded-2xl mb-12" style="box-sizing: border-box; margin: 0px 0px 48px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="64:8-88:15" data-source-name="Card">
+<div class="p-6 md:p-8" style="box-sizing: border-box; margin: 0px; padding: 32px; border: 0px solid #e2e8f0;" data-source-pos="65:10-87:24" data-source-name="CardContent">
+<h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center" style="box-sizing: border-box; margin: 0px 0px 24px; padding: 0px; border: 0px solid #e2e8f0; font-size: 24px; font-weight: 600; text-align: center; line-height: 1.33333; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="66:12-68:17" data-source-name="h3">Courses Offered</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: grid; grid-template-columns: repeat(2, minmax(0px, 1fr)); gap: 24px;" data-source-pos="69:12-86:18" data-source-name="div">
+<div class="p-4 border rounded-xl text-center bg-white shadow-sm" style="box-sizing: border-box; margin: 0px; padding: 16px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; text-align: center; --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;" data-source-pos="70:14-73:20" data-source-name="div">
+<h4 class="font-semibold text-gray-800" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: inherit; font-weight: 600; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="71:16-71:85" data-source-name="h4"><strong style="box-sizing: border-box; font-weight: bold; color: #000000; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: #d3dfee; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><span style="box-sizing: border-box; font-size: 14pt;">&nbsp; &nbsp;Bachelor of Arts Bachelor of Education</span></strong></h4>
+<h4 class="font-semibold text-gray-800" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: inherit; font-weight: 600; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="71:16-71:85" data-source-name="h4">B. A. B. Ed</h4>
+</div>
+<div class="p-4 border rounded-xl text-center bg-white shadow-sm" style="box-sizing: border-box; margin: 0px; padding: 16px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; text-align: center; --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;" data-source-pos="74:14-77:20" data-source-name="div">
+<h4 class="font-semibold text-gray-800" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: inherit; font-weight: 600; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="83:16-83:84" data-source-name="h4">Research&nbsp;</h4>
+
+</div>
+</div>
+</div>
+</div>
+
+<h2 style="text-align: center;"><span style="text-decoration: underline; color: #240ae2;">NCTE Regulation 2014 Clause 7(14)</span></h2>
+
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;</strong></span></span><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" /><span style="font-size: 18pt;">&nbsp; &nbsp; &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/intake.pdf" target="_blank" rel="noopener">&nbsp;Annual Intake&nbsp;</a></span></strong></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; </strong></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BABED_ITEP_STAFF_LIST_2026_final_19052026_0207.pdf" target="_blank" rel="noopener"><span style="color: #e67e23;"><strong>Teaching Faculity</strong></span></a></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BABED_ITEP_STAFF_LIST_2026_final_-_join_last_quterly_23052026_1116.xlsx" target="_blank" rel="noopener">Join in the last Quarter</a></strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; &nbsp;</strong></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/students_list__22052026_0410.pdf" target="_blank" rel="noopener"><span style="color: #e67e23;"><strong>Students Admitted</strong></span></a></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/fee structure.pdf" target="_blank" rel="noopener">&nbsp;</a></strong></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/fee structure.pdf" target="_blank" rel="noopener"><span style="color: #e67e23;"><strong>Fee Structure</strong></span></a></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; &nbsp;</strong></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/NCTE Regulation 2014 Clouse 7(14)F infra .pdf" target="_blank" rel="noopener"><span style="color: #e67e23;"><strong>Infrastructural Facilities</strong></span></a></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; &nbsp;</strong></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Library_Information_18052026_0134.pdf" target="_blank" rel="noopener"><span style="color: #e67e23;"><strong>Library Information</strong></span></a></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Affidavit__22052026_0411.pdf" target="_blank" rel="noopener">Affidavit</a></strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/mandatory disc%3Bosre.pdf" target="_blank" rel="noopener">Mandatory Disclosure</a></strong></span></span></p>
+<p style="text-align: left;"><span style="font-size: 18pt;"><span style="color: #e67e23;"><strong>&nbsp;<img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ARROW_09022026_0329.jpg" alt=""  height="15" />&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/audit report.pdf" target="_blank" rel="noopener">Audit Report&nbsp;</a></strong></span></span></p>
+
+</div>
+        </div>
+      </div>
+
+      <!-- Sticky Category Sidebar (Right) -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

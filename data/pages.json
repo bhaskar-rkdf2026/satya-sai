@@ -1,0 +1,94 @@
+{
+  "about": {
+    "Background": {
+      "title": "University Background & History",
+      "category": "About University",
+      "content": "Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS) was established in 2013 under the Madhya Pradesh Niji Vishwavidyalaya (Sthapana Evam Sanchalan) Adhiniyam. The university integrates several established pioneering institutes that have been imparting high quality technical and medical education since 1999 across a 100+ acre lush green campus in Sehore (Bhopal corridor)."
+    },
+    "Institutes": {
+      "title": "Institutes & Constituent Colleges",
+      "category": "About University",
+      "content": "The university comprises premier constituent colleges including Sri Satya Sai Institute of Science & Technology, School of Pharmacy, School of Ayurveda & Siddha Medicine, Homoeopathy Medical College & Hospital, College of Nursing, School of Management, and School of Law."
+    },
+    "Chancellor": {
+      "title": "Hon'ble Chancellor Message & Profile",
+      "category": "University Officials",
+      "content": "Our Hon'ble Chancellor is a visionary educationist devoted to elevating rural and national youth through accessible, affordable, and world-class technological, pharmaceutical, and healthcare education."
+    },
+    "ViceChancellor": {
+      "title": "Vice Chancellor's Desk",
+      "category": "University Officials",
+      "content": "Dr. Mukesh Tiwari, Vice Chancellor of SSSUTMS, leads the academic and research vision of the university. SSSUTMS continuously aspires to be a breeding ground for progressive ideas and emerge as a symbol of openness of thoughts, cultural pluralism, and celebrating diversity."
+    },
+    "Registrar": {
+      "title": "Office of the Registrar",
+      "category": "University Officials",
+      "content": "The Registrar is the chief administrative custodian of the university, overseeing admissions, human resources, statutory compliances with UGC, AICTE, PCI, NCISM, NCH, and state regulatory authorities."
+    },
+    "Finance_Officer": {
+      "title": "Finance & Accounts Department",
+      "category": "University Officials",
+      "content": "The Finance Officer manages institutional financial planning, budget allocations, government scholarship distributions, statutory audits, and financial governance."
+    },
+    "Exam_Controller": {
+      "title": "Office of Controller of Examinations",
+      "category": "University Officials",
+      "content": "Responsible for conducting fair and transparent semester examinations, entrance examinations (CEET), evaluation, timely declaration of results, degree issuance, and document verification."
+    },
+    "Chief_Vigilance_Officer": {
+      "title": "Chief Vigilance Officer & Proctorial Board",
+      "category": "University Officials",
+      "content": "Ensures zero tolerance towards ragging, maintains high campus discipline, integrity, anti-corruption standards, and oversees university security and proctorial squads."
+    },
+    "GoverningBody": {
+      "title": "Governing Body of SSSUTMS",
+      "category": "Governance",
+      "content": "The apex statutory body governing administrative, financial, and strategic directions of the University as per MP Private University Regulatory Commission norms."
+    },
+    "BoardOfManagement": {
+      "title": "Board of Management",
+      "category": "Governance",
+      "content": "Oversees the academic and administrative management of the University, appointment of faculties, and execution of educational policies."
+    },
+    "Approvals": {
+      "title": "Statutory Approvals & Accreditations",
+      "category": "Approvals & Ordinances",
+      "content": "Approved and recognized by University Grants Commission (UGC) under Section 2(f), AICTE New Delhi, Pharmacy Council of India (PCI), National Commission for Indian System of Medicine (NCISM), National Commission for Homoeopathy (NCH), Indian Nursing Council (INC), and Bar Council of India (BCI)."
+    },
+    "Ordinances": {
+      "title": "University Ordinances & Regulations",
+      "category": "Approvals & Ordinances",
+      "content": "Comprehensive published ordinances governing course curriculum, examination schemes, credit-based semester systems, attendance requirements, and degree awards."
+    },
+    "VisionAndMission": {
+      "title": "Vision & Mission Statement",
+      "category": "About University",
+      "content": "Vision: To emerge as a premier center of multidisciplinary academic excellence and research. Mission: To impart value-based education, foster clinical acumen, and develop compassionate global leaders."
+    },
+    "Transportation": {
+      "title": "Transportation Fleet & Bus Routes",
+      "category": "Amenities",
+      "content": "A fleet of 40+ buses connecting Bhopal, Sehore, Ashta, Shujalpur, and neighboring regions with GPS-enabled tracking and trained drivers."
+    },
+    "Hostel": {
+      "title": "On-Campus Student Residential Hostels",
+      "category": "Amenities",
+      "content": "Separate hostels for boys and girls with furnished rooms, 24/7 security, high-speed Wi-Fi, hygienic dining mess, and recreational indoor game rooms."
+    },
+    "Library": {
+      "title": "Central Digital Library & E-Resources",
+      "category": "Amenities",
+      "content": "Houses over 50,000 volumes, international print journals, DELNET subscription, IEEE digital access, and spacious air-conditioned reading halls."
+    },
+    "MedicalFacility": {
+      "title": "Hospital & Medical Healthcare Centre",
+      "category": "Amenities",
+      "content": "On-campus 100+ bed Ayurvedic and Allopathic multi-specialty teaching hospital offering 24/7 emergency care, clinical laboratories, and ambulance services."
+    },
+    "Public_Self_Disclosure": {
+      "title": "Public Self Disclosure (UGC & State Norms)",
+      "category": "Statutory Disclosures",
+      "content": "Mandatory institutional self-disclosure including land documents, faculty details, physical infrastructure, fee committees, and balance sheets."
+    }
+  }
+}

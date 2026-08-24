@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Examination Notification (Paramedical Courses) Sep-2026",
+    "category": "notices",
+    "date": "2026-08-15",
+    "file": "paramedical_notification.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "First Professional Supplementary BAMS (2024-25 Batch) Examination September - 2026",
+    "category": "timetable",
+    "date": "2026-08-12",
+    "file": "bams_sep_2026.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "Examination Notification BAMS II Professional (2023-24 Batch)",
+    "category": "notices",
+    "date": "2026-08-10",
+    "file": "bams_ii_notice.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "title": "Supplementary Examination BHMS Aug-2026 (Time Table)",
+    "category": "timetable",
+    "date": "2026-08-08",
+    "file": "bhms_timetable_aug.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 5,
+    "title": "Examination Notification of BAMS I Professional Supplementary Exam - Aug 2026",
+    "category": "notices",
+    "date": "2026-08-05",
+    "file": "bams_supp_aug.pdf",
+    "is_new": false,
+    "link": "#"
+  },
+  {
+    "id": 6,
+    "title": "Online Enrollment Form Open for Session 2026-27 (All UG/PG Programmes)",
+    "category": "admission",
+    "date": "2026-07-28",
+    "file": "enrollment_2026_27.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 7,
+    "title": "Ph.D. Entrance Examination (CEET 2026) Schedule and Online Application Extension",
+    "category": "admission",
+    "date": "2026-07-25",
+    "file": "phd_ceet_2026.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 8,
+    "title": "B.A. B.Ed. VII Semester (Regular) Examination Results Declared",
+    "category": "results",
+    "date": "2026-07-20",
+    "file": "results_babed_vii.pdf",
+    "is_new": true,
+    "link": "#"
+  },
+  {
+    "id": 9,
+    "title": "MBBS Supplementary Examination Feb-2026 Results Announced",
+    "category": "results",
+    "date": "2026-07-15",
+    "file": "mbbs_results.pdf",
+    "is_new": false,
+    "link": "#"
+  },
+  {
+    "id": 10,
+    "title": "National Education Policy (NEP 2020-27) Implementation Guidelines for University Departments",
+    "category": "notices",
+    "date": "2026-07-10",
+    "file": "nep_2020_guidelines.pdf",
+    "is_new": false,
+    "link": "#"
+  },
+  {
+    "id": 11,
+    "title": "B.A.M.S. 3rd Year Professional Examination July-2026 Time Table",
+    "category": "timetable",
+    "date": "2026-07-02",
+    "file": "bams_3yr_july.pdf",
+    "is_new": false,
+    "link": "#"
+  },
+  {
+    "id": 12,
+    "title": "Bachelor of Homoeopathic Medicine & Surgery (BHMS) III Year Examination Notification",
+    "category": "notices",
+    "date": "2026-06-25",
+    "file": "bhms_iii_yr.pdf",
+    "is_new": false,
+    "link": "#"
+  }
+]

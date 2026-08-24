@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html>
+
+<!-- Mirrored from sssutms.co.in/erp/Home/Dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2026 08:57:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="../UniversityImage/logo/logo.jpg">
+    <title>University Management System | Dashboard</title>
+    
+    <link href="../Content/NewLayout/dist-assets/css/plugins/perfect-scrollbar.min46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/normalize46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/icon46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/bootstrap.min46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/bootstrap-glyphicons46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/font-awesome.min46cf.css?ver=4.21227" rel="stylesheet" />
+    
+    <link href="../Content/NewLayout/dist-assets/css/plugins/sweetalert2.min46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/Uniksys.min46cf.css?ver=4.21227" rel="stylesheet" />
+    <link href="../Content/NewLayout/dist-assets/css/themes/lite-purple.min46cf.css?ver=4.21227" rel="stylesheet" />
+    
+    
+    <link href="../Content/NewSelect2/select246cf.css?ver=4.21227" rel="stylesheet" />
+    
+    
+    <link href="../Content/loadingbox/loadingbox46cf.css?ver=4.21227" rel="stylesheet" />
+
+
+</head>
+<body class="text-left">
+    <div class="app-admin-wrap layout-sidebar-large">
+        <style>
+            .headerCss {
+                color: white;
+                font-size: 30px;
+                font-weight: 800;
+                content: "Reference ";
+            }
+
+            @media only screen and (max-width:1100px) {
+                .headerCss::after {
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+                .fullHeader {
+                    display: none;
+                }
+
+                .shortHeader {
+                    display: block;
+                }
+            }
+        </style>
+        <div class="main-header">
+            <div class="logo">
+                <a title="Home" href="Dashboard-2.html"><img src="../UniversityImage/logo/logo.jpg" alt=""></a>
+
+            </div>
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="d-flex align-items-center">
+                <h3 class="headerCss">
+                    <strong class="fullHeader"> Sri Satya Sai University of Technology and Medical Sciences, Sehore</strong>
+                    <strong class="shortHeader" style="display:none"> SATYA SAI UNIVERSITY</strong>
+                </h3>
+            </div>
+            <div style="margin: auto"></div>
+            <div class="header-part-right">
+                <!-- Full screen toggle -->
+                <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen=""></i>
+                <!-- Grid menu Dropdown -->
+                <!-- Notificaiton -->
+                
+                <!-- Notificaiton End -->
+                <!-- User avatar dropdown -->
+                
+            </div>
+        </div>
+        
+<div id="leftpanel" class="sidebar-left-secondary rtl-ps-none ps leftpanel" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+    <div class="sidebar-left rtl-ps-none ps ps--active-y open" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+        <ul class="navigation-left" id="menuID_js">
+            <li class="nav-item active" data-item="dashboard">
+                <a class="nav-item-hold" href="#"><i class="nav-icon i-University"></i><span class="nav-text">Verification</span></a>
+                <div class="triangle"></div>
+            </li>
+          
+        </ul>
+
+    </div>
+    <ul class="childNav" data-parent="dashboard">
+        
+        <li class="nav-item"><a href="MarksheetVerification.html" title="Document Verification"><i class="nav-icon i-Target"></i><span class="item-name">Apply</span></a></li>
+        <li class="nav-item"><a href="VerificationStatus.html" title="Payment"><i class="nav-icon i-Credit-Card"></i><span class="item-name">Pay Now</span></a></li>
+        <li class="nav-item"><a href="VerificationStatus.html" title="Verification Status"><i class="nav-icon i-Stamp"></i><span class="item-name">View Details</span></a></li>
+    </ul>
+    </div>
+    <script>
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("MenuSearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementsByClassName("childNav");
+            for (var j = 0; j < ul.length; j++) {
+                li = ul[j].getElementsByTagName("li");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
+        <!-- =============== Left side End ================-->
+
+    <div class="main-content-wrap sidenav-close d-flex flex-column sidenav-open">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 text-center   center-block">
+                <div class="sparkline13-list card card-header  col-md-12">
+                    <div class=" form-inline  center-block">
+                        <label class="btn btn-primary  col-sm-12 padding-10 mr-1 col-md-3">  <input type="radio" name="page" value="1" />Apply</label>
+                        <label class="btn btn-primary col-sm-12 padding-10 mr-1 col-md-3"><input type="radio" name="page" value="2" />Pay Now </label>
+                        <label class="btn btn-primary col-sm-12 padding-10  col-md-4"> <input type="radio" name="page" value="3" />View Details</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="rednerBody" class="col-sm-12 col-md-12 col-sm-12 col-xs-12 text-center   center-block">
+                
+
+
+<div class="main-content">
+    <div class="breadcrumbs kbr-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <span style="padding-left:10px;cursor:pointer;" data-targetsrc="2/6338">Home</span>
+            </li>
+            <li>
+                <a>
+                    <i class="menu-icon fa fa-file-text" aria-hidden="true"></i> DashBoard <span></span>
+                </a>
+            </li>`
+            <li>
+                <span>Document Verification</span>
+            </li>
+            <li class="" title="Help">
+                <a class="closebtn help_button pop">
+                    <i class="kbr-icon fa fa-question icon-animated-vertical" style="font-size:15px;margin-top:10px;"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- /.breadcrumb -->
+    </div>
+    <div style="margin-top:100px">
+        <h3 class="text-info">Welcome at University Document Verification Panel</h3>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+    <script src="../Content/NewLayout/dist-assets/js/plugins/jquery-3.3.1.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/plugins/bootstrap.bundle.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/plugins/perfect-scrollbar.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/script.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/sidebar.large.script.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/plugins/echarts.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/echart.options.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/dashboard.v1.script.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/plugins/datatables.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/card.metrics.script.min46cf.js?ver=4.21227"></script>
+
+    
+    <script src="../Content/NewLayout/dist-assets/js/plugins/sweetalert2.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/sweetalert.script.min46cf.js?ver=4.21227"></script>
+    
+    
+    <link href="../Content/NewLayout/dist-assets/css/plugins/toastr46cf.css?ver=4.21227" rel="stylesheet" />
+    <script src="../Content/NewLayout/dist-assets/js/plugins/toastr.min46cf.js?ver=4.21227"></script>
+    <script src="../Content/NewLayout/dist-assets/js/scripts/toastr.script.min46cf.js?ver=4.21227"></script>
+    
+    
+    <script src="../Content/NewSelect2/Select246cf.js?ver=4.21227"></script>
+    
+    
+    <script src="../Content/loadingbox/msgwindow46cf.js?ver=4.21227"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".childNav li a").click(function () {
+                // gethelptext($(this).prop("title"));
+                $.showprogress('Loading', 'Loading.....', '');
+                $("#rednerBody").load($(this).attr("href"), function () {
+                    abc();
+                });
+                history.pushState({}, "", $(this).attr("href"));
+                $(document).prop("title", $(this).prop("title"));
+                function abc() {
+                    $.hideprogress();
+                }
+                return false;
+            });
+        });
+        function abc1() {
+            $(document).ready(function () {
+                $('.pop').click(function () {
+                    $('.popup').toggleClass("openPop");
+                });
+
+                $('.band').click(function () {
+                    $('.popup').toggleClass("openPop");
+                });
+            });
+        }
+    </script>
+    <script>
+        $("#leftpanel").hover(
+            function () {
+                $(this).addClass("open");
+            },
+            function () {
+                $(this).removeClass("open");
+            }
+        );
+    </script>
+
+    <script>
+    $("input[name='page']").change(function () {
+        debugger
+        var title = "Verification DashBoard";
+        var a = "/erp/Home/DashBoard";
+        if ($(this).val() == "1") {
+            a = "/erp/Home/MarksheetVerification";
+            title = "Apply for Document Verification";
+
+        } else {
+            a = "/erp/Home/VerificationStatus";
+            title = "Payment Or Verification Details";
+        }
+
+
+                    $.showprogress('Loading', 'Loading.....', '');
+        $("#rednerBody").load(a, function () {
+                        abc();
+                    });
+                    history.pushState({}, "", a);
+        $(document).prop("title", title);
+                    function abc() {
+                        $.hideprogress();
+                    }
+                    return false;
+         });
+
+
+    </script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"18cf8e2060a648d9b5170371fcca069c","r":1}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from sssutms.co.in/erp/Home/Dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2026 08:57:40 GMT -->
+</html>

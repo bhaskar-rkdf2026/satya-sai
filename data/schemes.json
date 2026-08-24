@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "course": "B.Tech / B.E. (Computer Science & Engineering)",
+    "faculty": "Engineering & Technology",
+    "scheme": "NEP-CBCS Scheme",
+    "semester": "All Semesters (I to VIII)",
+    "syllabus_file": "syllabus_be_cse.pdf",
+    "scheme_file": "scheme_be_cse.pdf",
+    "download_count": 1420
+  },
+  {
+    "id": 2,
+    "course": "B.Tech / B.E. (Mechanical Engineering)",
+    "faculty": "Engineering & Technology",
+    "scheme": "NEP-CBCS Scheme",
+    "semester": "All Semesters (I to VIII)",
+    "syllabus_file": "syllabus_be_me.pdf",
+    "scheme_file": "scheme_be_me.pdf",
+    "download_count": 890
+  },
+  {
+    "id": 3,
+    "course": "B.Tech / B.E. (Civil Engineering)",
+    "faculty": "Engineering & Technology",
+    "scheme": "NEP-CBCS Scheme",
+    "semester": "All Semesters (I to VIII)",
+    "syllabus_file": "syllabus_be_ce.pdf",
+    "scheme_file": "scheme_be_ce.pdf",
+    "download_count": 760
+  },
+  {
+    "id": 4,
+    "course": "B.Pharm (Bachelor of Pharmacy)",
+    "faculty": "Pharmacy",
+    "scheme": "PCI Regulations",
+    "semester": "Semester I to VIII",
+    "syllabus_file": "syllabus_bpharm.pdf",
+    "scheme_file": "scheme_bpharm.pdf",
+    "download_count": 2150
+  },
+  {
+    "id": 5,
+    "course": "M.Pharm (Pharmaceutics / Pharmacology)",
+    "faculty": "Pharmacy",
+    "scheme": "PCI Regulations",
+    "semester": "Semester I to IV",
+    "syllabus_file": "syllabus_mpharm.pdf",
+    "scheme_file": "scheme_mpharm.pdf",
+    "download_count": 640
+  },
+  {
+    "id": 6,
+    "course": "BAMS (Bachelor of Ayurvedic Medicine & Surgery)",
+    "faculty": "Ayurveda & Medical",
+    "scheme": "NCISM Guidelines",
+    "semester": "Professional I, II, III & IV",
+    "syllabus_file": "syllabus_bams.pdf",
+    "scheme_file": "scheme_bams.pdf",
+    "download_count": 3120
+  },
+  {
+    "id": 7,
+    "course": "BHMS (Bachelor of Homoeopathic Medicine & Surgery)",
+    "faculty": "Homeopathy",
+    "scheme": "NCH Guidelines",
+    "semester": "Year I, II, III & IV",
+    "syllabus_file": "syllabus_bhms.pdf",
+    "scheme_file": "scheme_bhms.pdf",
+    "download_count": 1890
+  },
+  {
+    "id": 8,
+    "course": "MBA (Dual Specialization - HR/Finance/Marketing)",
+    "faculty": "Management Studies",
+    "scheme": "AICTE-NEP Model",
+    "semester": "Semester I to IV",
+    "syllabus_file": "syllabus_mba.pdf",
+    "scheme_file": "scheme_mba.pdf",
+    "download_count": 1540
+  },
+  {
+    "id": 9,
+    "course": "MCA (Master of Computer Applications)",
+    "faculty": "Computer Application",
+    "scheme": "AICTE-NEP Model",
+    "semester": "Semester I to IV",
+    "syllabus_file": "syllabus_mca.pdf",
+    "scheme_file": "scheme_mca.pdf",
+    "download_count": 1120
+  },
+  {
+    "id": 10,
+    "course": "B.Sc. Nursing",
+    "faculty": "Nursing",
+    "scheme": "INC Revised Syllabus",
+    "semester": "Semester I to VIII",
+    "syllabus_file": "syllabus_nursing.pdf",
+    "scheme_file": "scheme_nursing.pdf",
+    "download_count": 2840
+  },
+  {
+    "id": 11,
+    "course": "LL.B. (Bachelor of Laws)",
+    "faculty": "Law",
+    "scheme": "BCI Regulation",
+    "semester": "Semester I to VI",
+    "syllabus_file": "syllabus_llb.pdf",
+    "scheme_file": "scheme_llb.pdf",
+    "download_count": 940
+  },
+  {
+    "id": 12,
+    "course": "Diploma in Engineering (Polytechnic)",
+    "faculty": "Engineering & Technology",
+    "scheme": "AICTE Diploma",
+    "semester": "Semester I to VI",
+    "syllabus_file": "syllabus_polytechnic.pdf",
+    "scheme_file": "scheme_polytechnic.pdf",
+    "download_count": 1670
+  }
+]

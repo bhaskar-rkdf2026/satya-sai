@@ -1,0 +1,47 @@
+[
+  {
+    "reg_no": "SSS-2026-0042",
+    "name": "Ananya Tiwari",
+    "father_name": "Ramesh Tiwari",
+    "email": "ananya.tiwari@example.com",
+    "phone": "+91 9893011223",
+    "course": "B.Tech Computer Science & Engineering",
+    "gender": "Female",
+    "dob": "2005-04-14",
+    "category": "General",
+    "state": "Madhya Pradesh",
+    "district": "Bhopal",
+    "status": "Approved",
+    "applied_date": "2026-08-14"
+  },
+  {
+    "reg_no": "SSS-2026-0058",
+    "name": "Vikas Sahu",
+    "father_name": "Mahesh Sahu",
+    "email": "vikas.sahu@example.com",
+    "phone": "+91 9755123456",
+    "course": "BAMS (Ayurveda)",
+    "gender": "Male",
+    "dob": "2004-11-20",
+    "category": "OBC",
+    "state": "Madhya Pradesh",
+    "district": "Sehore",
+    "status": "Pending",
+    "applied_date": "2026-08-18"
+  },
+  {
+    "reg_no": "SSS-2026-0081",
+    "name": "Kavita Meena",
+    "father_name": "Govind Meena",
+    "email": "kavita.meena@example.com",
+    "phone": "+91 9111223344",
+    "course": "B.Sc. Nursing",
+    "gender": "Female",
+    "dob": "2005-08-05",
+    "category": "ST",
+    "state": "Rajasthan",
+    "district": "Kota",
+    "status": "Verified",
+    "applied_date": "2026-08-21"
+  }
+]

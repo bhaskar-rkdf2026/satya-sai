@@ -1,0 +1,91 @@
+
+
+
+<script src="../Scripts/jquery.unobtrusive-ajax.js"></script>
+<div class="main-content">
+    <div class="breadcrumbs kbr-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a href="DashBoard.html">
+                    <i class="fa fa-home"></i>
+                    <span style="padding-left:10px;cursor:pointer;" data-targetsrc="2/6338">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="DashBoard.html">
+                    <i class="menu-icon fa fa-file-text" aria-hidden="true"></i> DashBoard <span></span>
+                </a>
+            </li>`
+            <li>
+                <span>Document Verification Status/Payment</span>
+            </li>
+            <li class="" title="Help">
+                <a class="closebtn help_button pop">
+                    <i class="kbr-icon fa fa-question icon-animated-vertical" style="font-size:15px;margin-top:10px;"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- /.breadcrumb -->
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-header">
+<form action="https://sssutms.co.in/erp/Home/Status?Length=18" data-ajax="true" data-ajax-begin="onAjaxBegin();" data-ajax-complete="onAjaxComplete();" data-ajax-loading="#divLoading" data-ajax-mode="replace" data-ajax-update="#searchResult" id="AjaxFormCountry" method="post">                <div class="row">
+                    <div class="col-sm-4"><label> Please Enter Reference No.</label></div>
+                    <div class="col-sm-3"><input type="text" name="REF_NO" maxlength="20" class="browser-default" required="" placeholder="REFERENCE NO." /></div>
+                    <div class="col-sm-4"><input type="submit" class="btn btn-primary" value="Search" /></div>
+                </div>
+                <div id="divloading" class="hide">
+                    <div class="center">
+                        <img src="../content/img/loading.gif" />
+                    </div>
+                </div>
+</form>        </div>
+
+        <div class="card-body">
+
+            <div id="searchResult" style="width:100%">
+                
+<script>
+       function DownloadReport(id) {
+        $.showprogress('Loading', 'Loading.....', '');
+        $.ajax({
+              url: '/erp/Home/DownloadReport',
+            method: 'post',
+            data: { Enrol_No: id },
+            success: function (result) {
+                if (result === 1) {
+                    swalNoti('Dowloading in progress......... Please wait........', 'success');
+                    window.location = 'Download.html';
+                }
+                else {
+                    swalNoti("Record not found", 'error');
+                }
+                $.hideprogress();
+            },
+            error: function (ex) {
+                $.hideprogress();
+            }
+        });
+    }
+</script>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script>
+        function onAjaxBegin() {
+            $("#divloading").removeClass("hide");
+            $("#searchResult table tbody").empty();
+        }
+
+        function onAjaxComplete() {
+            $("#divloading").addClass("hide");
+        }
+    </script>
+</div>
+
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"18cf8e2060a648d9b5170371fcca069c","r":1}' crossorigin="anonymous"></script>
