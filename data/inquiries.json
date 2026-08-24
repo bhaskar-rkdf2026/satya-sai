@@ -1,0 +1,46 @@
+[
+  {
+    "id": "INQ-1001",
+    "name": "Rahul Verma",
+    "email": "rahul.verma@example.com",
+    "phone": "+91 9826012345",
+    "course": "B.Tech Computer Science",
+    "city": "Bhopal",
+    "message": "Interested in 2026-27 admission and scholarship eligibility.",
+    "created_at": "2026-08-20 11:30:00",
+    "status": "New"
+  },
+  {
+    "id": "INQ-1002",
+    "name": "Pooja Sharma",
+    "email": "pooja.sharma@example.com",
+    "phone": "+91 9425098765",
+    "course": "BAMS (Ayurveda)",
+    "city": "Indore",
+    "message": "Please provide NEET cutoff and hostel fee details.",
+    "created_at": "2026-08-19 15:45:00",
+    "status": "Contacted"
+  },
+  {
+    "id": "INQ-1003",
+    "name": "Amit Kumar Singh",
+    "email": "amit.ks@example.com",
+    "phone": "+91 8878034567",
+    "course": "B.Pharm",
+    "city": "Sehore",
+    "message": "Enquiring regarding direct admission and PCI registration.",
+    "created_at": "2026-08-18 10:15:00",
+    "status": "Enrolled"
+  },
+  {
+    "id": "INQ-1004",
+    "name": "Neha Patel",
+    "email": "neha.patel@example.com",
+    "phone": "+91 7000123490",
+    "course": "B.Sc Nursing",
+    "city": "Jabalpur",
+    "message": "Require clinical training and campus accommodation information.",
+    "created_at": "2026-08-17 14:20:00",
+    "status": "New"
+  }
+]

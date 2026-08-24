@@ -1,0 +1,414 @@
+
+
+<div class="main-content">
+    <div class="breadcrumbs kbr-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a href="DashBoard.html">
+                    <i class="fa fa-home"></i>
+                    <span style="padding-left:10px;cursor:pointer;" data-targetsrc="2/6338">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="DashBoard.html">
+                    <i class="menu-icon fa fa-file-text" aria-hidden="true"></i> DashBoard <span></span>
+                </a>
+            </li>`
+            <li>
+                <span>Apply for Document Verification</span>
+            </li>
+            <li class="" title="Help">
+                <a class="closebtn help_button pop">
+                    <i class="kbr-icon fa fa-question icon-animated-vertical" style="font-size:15px;margin-top:10px;"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- /.breadcrumb -->
+    </div>
+
+    <div class="card text-left" id="formdiv">
+        <div class="card-header">
+            <h3>Application for Verification of Degree Certificate/Mark sheet</h3>
+        </div>
+        <div class="card-body col-lg-offset-2">
+            <form action="https://sssutms.co.in/erp/Home/MarksheetVerification" autocomplete="off" method="post" enctype="multipart/form-data">
+                <input name="__RequestVerificationToken" type="hidden" value="p2tgtSQLL2bhi9vrUjszMt9QOlzVeG2kH3SPl2ifc9SkbIJydt9jf2TKcq9L1c_HPiOodNSnqI7TL4c8DoUKmdkQ43VKGuliCVz0TTfdv641" />
+                <div class="row">
+                    <div class="col-sm-12 col-lg-10 col-xs-12 col-xl-10 border">
+                        <div class="form-group row  border mt-0 mr-0">
+                            <label for="drpCandidate" class="col-sm-4 col-form-label"><i class="glyphicon glyphicon-registration-mark"></i>Candidate Apply for</label>
+                            <div class="col-sm-8">
+                                <select name="drpCandidate" id="drpCandidate" required class="browser-default">
+                                    <option value="0">New</option>
+                                    <option value="1">Re-Apply</option>
+                                </select>
+                                <span id="RequiredCourse" style="color:Red;display:none;">*</span>
+                            </div>
+
+                        </div>
+                        <div class="form-group row  border mt-0 mr-0" id="ref">
+                            <div class="col-sm-6">
+                                <input type="hidden" name="Recheck_Ref_No" id="Recheck_Ref_No" value="" />
+                                <input name="REF_NO" type="text" autocomplete="off" id="REF_NO" class="browser-default" placeholder="REF_NO" maxlength="20" required="" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <i id="fai" class="glyphicon glyphicon-remove-sign text-danger"></i>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="submit" name="search" value="Search" class="btn btn-success" id="btnSearch" onclick="return validate()">
+                            </div>
+                        </div>
+                        <div id="ttall">
+                            <div class="form-group row">
+                                <label for="tbxApplicantName" class="col-sm-4 col-form-label"><i class="fa fa-user fa-user-circle"></i>Applicant Name</label>
+                                <div class="col-sm-8">
+                                    <input name="APPLICANT_NAME" type="text" autocomplete="off" id="tbxApplicantName" class="textEntry browser-default" placeholder="Applicant Name" maxlength="50" required="">
+                                    <span id="RequiredFieldValidator1" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ddlRelation" class="col-sm-4 col-form-label"><i class="fa fa-group"></i> Relationship with the candidate of applicant</label>
+                                <div class="col-sm-8">
+                                    <select name="RELATIONSHIP_CANDIDATE" id="ddlRelation" required class="browser-default">
+                                        <option selected="selected" value="">Select</option>
+                                        <option value="Self">Self</option>
+                                        <option value="Father/Mother">Father/Mother</option>
+                                        <option value="PvtEmployer">Private Employer</option>
+                                    </select>
+                                    <span id="RequiredCourse" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tbxEmailId" class="col-sm-4 col-form-label"><i class="fa fa-envelope"></i>Email</label>
+                                <div class="col-sm-8">
+                                    <input name="EMAILID" type="email" id="tbxEmailId" autocomplete="off" class="browser-default" placeholder="Email Id" maxlength="50" required="required">
+                                    <span id="RequiredFieldValidator11" style="color:Red;display:none;"> *Email should be official in case of (Government employer).</span>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="VERIFICATION_DETAILS" class="col-sm-4 col-form-label"><i class="fa fa-file"></i>Verification Required For</label>
+                                <div class="col-sm-8">
+                                    <select name="VERIFICATION_DETAILS" id="VERIFICATION_DETAILS" required class="browser-default">
+                                        <option selected="selected" value="">Select</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Job">Job</option>
+                                    </select>
+                                    <span id="RequiredCourse" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="FileUploadSignature" class="col-sm-4 col-form-label"><i class="fa fa-cloud-upload"></i>Verification Document </label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="browser-default files" name="VERIFYDOC" id="File1" multiple="multiple" accept="application/pdf, image/jpg, image/jpeg, image/png"><span style="font-weight:bolder;color:red;">(upload only jpg/jpeg/png)</span>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tbxMobileNo" class="col-sm-4 col-form-label"><i class="glyphicon glyphicon-phone"></i>Mobile</label>
+                                <div class="col-sm-8">
+                                    <input name="MOBILE" type="text" id="tbxMobileNo" autocomplete="off" class="numEntry browser-default" maxlength="10" placeholder="Cell no" required="">
+                                    <span id="RequiredFieldValidator4" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tbxCandidateName" class="col-sm-4 col-form-label"><i class="fa fa-user"></i>Name of Candidate Whose verification sought for</label>
+                                <div class="col-sm-8">
+                                    <input name="CANDIDATE_NAME" type="text" id="tbxCandidateName" autocomplete="off" class="textEntry browser-default" title="Candidate Name" placeholder="Candidate Name" maxlength="50" required="">
+                                    <span id="RequiredFieldValidator2" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tbxEnrollmentNo" class="col-sm-4 col-form-label"><i class="glyphicon glyphicon-check"></i>Enrollment No.</label>
+                                <div class="col-sm-8">
+                                    <input name="ENROL_NO" type="text" id="tbxEnrollmentNo" autocomplete="off" class="browser-default" placeholder="Enrollment No" maxlength="20" required="">
+                                    <span id="RequiredFieldValidator3" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tbxMarksheetNo" class="col-sm-4 col-form-label"><i class="glyphicon glyphicon-check"></i>Marksheet/Degree No.</label>
+                                <div class="col-sm-8">
+                                    <input name="MARKSHEET_NO" type="text" id="tbxMarksheetNo" class="numEntry browser-default" maxlength="10" placeholder="Mark sheet/Degree No">
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="FileUploadPhoto" class="col-sm-4 col-form-label"><i class="fa fa-cloud-upload  font-24 icon-bar"></i>Marksheet/Degree Scan Copy </label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="browser-default files1" name="DEGREE_NO" id="File2" multiple="multiple" accept="application/pdf, image/jpg, image/jpeg, image/png"><span style="font-weight:bolder;color:red;">(upload only jpg/jpeg/png)</span>
+                                    <span id="RequiredFieldValidator13" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="FileUploadSignature" class="col-sm-4 col-form-label"><i class="fa fa-cloud-upload font-24 icon-bar"></i> ID Proof of Applicant </label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="browser-default files2" name="IDPROOF" id="File3" multiple="multiple" accept="application/pdf, image/jpg, image/jpeg, image/png"><span style="font-weight:bolder;color:red;">(upload only jpg/jpeg/png)</span>
+                                    <span id="RequiredFieldValidator14" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tbxAddress" class="col-sm-4 col-form-label"><i class="glyphicon glyphicon-briefcase"></i>Address</label>
+                                <div class="col-sm-8">
+                                    <textarea name="A_ADDRESS" id="tbxAddress" placeholder="Address" class="browser-default" maxlength="250" required=""></textarea>
+                                    <span id="RequiredFieldValidator12" style="color:Red;display:none;">*</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <input type="button" name="btnSubmit" value="Submit" class="btn btn-success" id="btnSubmit" onclick="SubmitRecords(this)">
+
+                                    <input type="reset" name="btnReset" value="Reset" class="btn btn-danger" id="btnReset">
+
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+    $(document).ready(function () {
+        $("#ref").hide();
+        $("input[type=text]").on("keydown", function () {
+            var a = $(this).val().toUpperCase();
+            $(this).val(a);
+        });
+
+        $(".numEntry").on("keypress", function (event) {
+            debugger
+            if ((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 46) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+
+        $(".textEntry").on("keypress", function (event) {
+            debugger
+            if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode == 32 || event.keyCode == 8 || (event.keyCode >= 97 && event.keyCode <= 122)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+
+        $(".diventry").on("keypress", function (event) {
+            debugger
+            if (event.keyCode == 73 || event.keyCode == 49 || event.keyCode == 50 || event.keyCode == 70 || event.keyCode == 51 || event.keyCode == 41 || event.keyCode == 76 || event.keyCode == 65) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+        $(".email").on("change", function (event) {
+            debugger
+            var a = validateEmail($(this).val());
+            if (validateEmail(a)) {
+
+            }
+            else {
+                swal("Invalid Email Address");
+                $(this).val('');
+            }
+        });
+        function validateEmail(email) {
+            debugger
+            var reg = "/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{0,4}$/";
+            if (reg.test(email)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    });
+    $(document).ready(function () {
+        $("#REF_NO").removeClass("browser-default");
+        $("#ddlRelation").change(function () {
+            var empemail = $(this).children("option:selected").val();
+            if (empemail === "GovEmployer") {
+                $("#RequiredFieldValidator11").css("display", "");
+            }
+            else {
+                $("#RequiredFieldValidator11").css("display", "None");
+
+            }
+        })
+        $("#drpCandidate").change(function () {
+            debugger
+            $("#REF_NO").removeClass("browser-default");
+            var drpCandidate = $(this).children("option:selected").val();
+            if (drpCandidate === "1") {
+                $("#ref").show();
+                $("#ttall").hide();
+                $("#REF_NO").val('');
+                $("#REF_NO").removeAttr("disabled");
+                $("#REF_NO").addClass("browser-default");
+                $("#fai").removeClass("glyphicon glyphicon-check text-success");
+                $("#fai").addClass("glyphicon glyphicon-remove-sign text-danger");
+            }
+            else {
+                $("#ref").hide();
+                $("#ttall").show();
+                $("#REF_NO").val('');
+                $("#REF_NO").removeAttr("disabled");
+                $("#REF_NO").removeClass("browser-default");
+                $("#fai").removeClass("glyphicon glyphicon-check text-success");
+                $("#fai").addClass("glyphicon glyphicon-remove-sign text-danger");
+            }
+        })
+    });
+    function validate() {
+        debugger
+        var FieldVal = $("#REF_NO").val().length;
+        var REF_NO = $("#REF_NO").val();
+        if (FieldVal === 17) {
+            $.ajax({
+                type: 'GET',
+                url: '/erp/Home/ReturnStatus',
+                dataType: 'json',
+                data: {
+                    REF_NO: REF_NO
+                },
+                success: function (result) {
+                    debugger
+                    $("#Recheck_Ref_No").val('');
+                    if (result === "1") {
+                        $("#Recheck_Ref_No").val(REF_NO);
+                        $("#fai").removeClass("glyphicon glyphicon-remove-sign text-danger");
+                        $("#fai").addClass("glyphicon glyphicon-check text-success");
+                        $("#REF_NO").attr("disabled", "disabled");
+                        $("#ttall").show();
+                    }
+                    else {
+                        $("#fai").removeClass("glyphicon glyphicon-check text-success");
+                        $("#fai").addClass("glyphicon glyphicon-remove-sign text-danger");
+                        $("#REF_NO").removeAttr("disabled");
+                        $("#ttall").hide();
+                        swal("Please check the Ref No.");
+                    }
+                    // Loader();
+                },
+                error: function (ex) {
+                    // Loader();
+                    swal(ex.message);
+                }
+            });
+
+        }
+        else {
+            $("#REF_NO").removeClass("browser-default");
+            $("#fai").removeClass("fa-check-circle btn-success");
+            $("#fai").addClass("fa-times-circle btn-danger");
+            $("#REF_NO").removeAttr("disabled");
+            $("#ttall").hide();
+        }
+    }
+
+
+    function SubmitRecords(btnClicked) {
+        $(btnClicked).val("Updatting please wait.......");
+        $(btnClicked).attr("disabled","disabled");
+        var $form = $(btnClicked).parents('form');
+        var fileUpload = $(".files").get(0);
+        var files = fileUpload.files;
+        var fileUpload1 = $(".files1").get(0);
+        var files1 = fileUpload1.files;
+        var fileUpload2 = $(".files2").get(0);
+        var files2 = fileUpload2.files;
+        var formData = new FormData();
+
+        // Looping over all files and add it to FormData object
+        for (var i = 0; i < files.length; i++) {
+            console.log('(files[i].name:' + files[i].name);
+            formData.append('productImg', files[i]);
+        }
+        for (var i = 0; i < files1.length; i++) {
+            console.log('(files[i].name:' + files1[i].name);
+            formData.append('productImg1', files1[i]);
+        }
+        for (var i = 0; i < files2.length; i++) {
+            console.log('(files[i].name:' + files2[i].name);
+            formData.append('productImg2', files2[i]);
+        }
+
+        // You can update the jquery selector to use a css class if you want
+        $("input[type='text'").each(function (x, y) {
+            formData.append($(y).attr("name"), $(y).val());
+        });
+        $("input[type='hidden'").each(function (x, y) {
+            formData.append($(y).attr("name"), $(y).val());
+        });
+        $("textarea").each(function (x, y) {
+            formData.append($(y).attr("name"), $(y).val());
+        });
+        $("input[type='email'").each(function (x, y) {
+            formData.append($(y).attr("name"), $(y).val());
+        });
+        $("select").each(function (x, y) {
+            formData.append($(y).attr("name"), $(y).val());
+        });
+
+        var chk = true;
+
+        $("#formdiv input,select").each(function () {
+
+            if ($(this).prop('required') && $(this).val() === "" && !$(this).prop('disabled') ) {
+                var msg = $(this).attr('name');
+                swal("Server Error", "please fill required field (" + msg + ") value", "error");
+                $(this).focus();
+                chk = false;
+                $(btnClicked).val("Submit");
+                $(btnClicked).removeAttr("disabled");
+                return false;
+            }
+        });
+
+        if (chk) {
+
+            $.ajax({
+                type: "POST",
+                url: $form.attr('action'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                error: function (xhr, status, error) {
+                    swal("Server Error", "Some thing wrong! Please try later Or contact in university", "error");
+                },
+                success: function (response) {
+                    if (response !== "0") {
+                        swal("Success Reference No.:" + response, "Submitted Successfully Reference No have been send to your registed mobile no. !This form is valid only after fee payment If you are not Government Employer. Please pay your fee from Status Page.", "success");
+                        $(btnClicked).val("Submit");
+                        $("#ref").hide();
+                        $form.trigger("reset");
+                        $(btnClicked).removeAttr("disabled");
+                    } else {
+                        swal("Server Error", "Some thing wrong! Please try later Or contact in university", "error");
+                        $(btnClicked).val("Submit");
+                        $(btnClicked).removeAttr("disabled");
+                    }
+                }
+            });
+        }
+
+        return false;
+        // if it's a link to prevent post
+
+    }
+
+    </script>
+</div>

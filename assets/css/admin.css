@@ -1,0 +1,159 @@
+/* SSSUTMS Modern Admin Panel Stylesheet */
+
+:root {
+  --admin-primary: #0b2545;
+  --admin-sidebar: #07192f;
+  --admin-accent: #f4a261;
+  --admin-bg: #f1f5f9;
+  --admin-card: #ffffff;
+  --admin-border: #e2e8f0;
+}
+
+body {
+  background-color: var(--admin-bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #334155;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 260px;
+  background: var(--admin-sidebar);
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.admin-sidebar .sidebar-brand {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-nav {
+  padding: 15px 10px;
+  list-style: none;
+  margin: 0;
+}
+
+.admin-nav li {
+  margin-bottom: 4px;
+}
+
+.admin-nav .nav-link {
+  color: #94a3b8;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.admin-nav .nav-link:hover, .admin-nav .nav-link.active {
+  background: rgba(244, 162, 97, 0.15);
+  color: var(--admin-accent);
+}
+
+.admin-nav .nav-link i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Main Content Area */
+.admin-main {
+  margin-left: 260px;
+  padding: 25px 35px;
+  min-height: 100vh;
+}
+
+.admin-topbar {
+  background: #ffffff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border: 1px solid var(--admin-border);
+}
+
+/* Metric KPI Cards */
+.admin-stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid var(--admin-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.stat-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* Custom Table in Admin */
+.admin-table {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid var(--admin-border);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.admin-table thead {
+  background: #f8fafc;
+}
+
+.admin-table th {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table td {
+  padding: 14px 16px;
+  font-size: 13.5px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+@media (max-width: 991.98px) {
+  .admin-sidebar {
+    left: -260px;
+  }
+  .admin-sidebar.show {
+    left: 0;
+  }
+  .admin-main {
+    margin-left: 0;
+    padding: 15px;
+  }
+}

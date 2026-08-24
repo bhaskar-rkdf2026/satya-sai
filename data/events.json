@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "National Science Day - Innovation & Research Symposium 2026",
+    "date": "2026-09-15",
+    "category": "Symposium",
+    "image": "assets/images/events/scienceday.jpg",
+    "description": "Annual Science Day conference bringing leading academicians, scientists, and researchers to discuss innovations in engineering and healthcare technologies.",
+    "location": "Main Auditorium, SSSUTMS Campus"
+  },
+  {
+    "id": 2,
+    "title": "Faculty Development Program (FDP) on AI & Cloud Applications",
+    "date": "2026-09-22",
+    "category": "FDP",
+    "image": "assets/images/events/FDP.jpg",
+    "description": "Week-long intensive faculty training program on advanced machine learning algorithms, cloud pipelines, and data analytics tools.",
+    "location": "Central Computing Facility, Seminar Hall 2"
+  },
+  {
+    "id": 3,
+    "title": "Mega Campus Placement Drive & Rojgar Mela 2026",
+    "date": "2026-10-05",
+    "category": "Placement",
+    "image": "assets/images/events/rec.jpg",
+    "description": "Open campus recruitment drive with 40+ multinational tech giants and healthcare chains recruiting final year engineering, pharmacy, and management graduates.",
+    "location": "University Indoor Sports Complex"
+  },
+  {
+    "id": 4,
+    "title": "National Workshop on Cyber Security & Ethical Hacking",
+    "date": "2026-10-18",
+    "category": "Workshop",
+    "image": "assets/images/events/cyber.jpg",
+    "description": "Hands-on cyber security training covering threat analysis, network defense, penetration testing, and digital forensics for students.",
+    "location": "IT Center & Department of Computer Science"
+  },
+  {
+    "id": 5,
+    "title": "International Conference on Horizons of Ayurveda & Holistic Health",
+    "date": "2026-11-02",
+    "category": "Conference",
+    "image": "assets/images/slider/HorizonsofAyurved.jpg",
+    "description": "Global healthcare congress on integrated medical practices, Ayurvedic research, and pharmacology.",
+    "location": "School of Ayurveda & Medical Sciences"
+  }
+]
