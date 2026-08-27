@@ -18,7 +18,8 @@
       <!-- Modal Body -->
       <div class="modal-body p-4 bg-light">
         <form id="enquiryForm" method="POST" action="<?php echo BASE_URL; ?>submit-handler.php">
-          
+          <!-- Hidden field ensures the action is set even without JavaScript -->
+          <input type="hidden" name="action" value="submit_inquiry">
           <div class="mb-3">
             <label class="form-label fw-bold small text-muted">Full Name *</label>
             <div class="input-group">

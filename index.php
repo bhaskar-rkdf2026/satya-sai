@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)';
 $page_desc = 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH.';
 
@@ -179,19 +179,25 @@ $events = get_events();
             <a href="<?php echo BASE_URL; ?>Examination/ExamNotifications.php" class="badge bg-warning text-dark text-decoration-none">View All Notices</a>
           </div>
 
-          <div class="p-3" style="max-height: 230px; overflow-y: auto;">
+              <div class="p-3" style="max-height: 230px; overflow-y: auto;">
             <?php foreach (array_slice($notices, 0, 4) as $n): ?>
+              <?php
+                // Determine PDF URL: use link if not '#', else construct from file
+                $pdfLink = (!empty($n['link']) && $n['link'] !== '#')
+                  ? $n['link']
+                  : BASE_URL . 'Examination/ExamNotifications.php';
+              ?>
               <div class="p-2 mb-2 rounded bg-white bg-opacity-95 shadow-sm d-flex justify-content-between align-items-center">
                 <div class="pe-2">
                   <h6 class="fw-bold text-dark mb-1" style="font-size: 13px;">
-                    <a href="<?php echo BASE_URL; ?>Examination/ExamNotifications.php" class="text-dark text-decoration-none"><?php echo htmlspecialchars($n['title']); ?></a>
+                    <a href="<?php echo htmlspecialchars($pdfLink); ?>" class="text-dark text-decoration-none" target="<?php echo $n['link'] !== '#' ? '_blank' : '_self'; ?>"><?php echo htmlspecialchars($n['title']); ?></a>
                     <?php if (!empty($n['is_new'])): ?>
                       <span class="badge bg-danger" style="font-size: 9px;">NEW</span>
                     <?php endif; ?>
                   </h6>
                   <small class="text-muted"><i class="fa fa-clock me-1"></i> <?php echo date('d-m-Y', strtotime($n['date'])); ?></small>
                 </div>
-                <a href="<?php echo BASE_URL; ?>Examination/ExamNotifications.php" class="btn btn-sm btn-outline-primary flex-shrink-0" style="font-size: 11px;"><i class="fa fa-file-pdf text-danger me-1"></i> PDF</a>
+                <a href="<?php echo htmlspecialchars($pdfLink); ?>" class="btn btn-sm btn-outline-primary flex-shrink-0" style="font-size: 11px;" target="_blank"><i class="fa fa-file-pdf text-danger me-1"></i> PDF</a>
               </div>
             <?php endforeach; ?>
           </div>
@@ -216,7 +222,7 @@ $events = get_events();
           <h4 class="fw-bold text-dark"><i class="fa fa-star text-primary me-2"></i> Important Links</h4>
         </div>
         <div class="link-widget-group">
-          <a href="https://www.sssutms.co.in<?php echo BASE_URL; ?>assets/images/Files/Link/NEP%202020%2027%20university%2014-compressed.pdf" target="_blank" class="link-box link-box-blue">
+          <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/NEP%202020%2027%20university%2014-compressed.pdf" target="_blank" class="link-box link-box-blue">
             <i class="fa fa-link icon-theme"></i> NEP 2020-27 Policy Guidelines
           </a>
           <a href="https://samadhaan.ugc.ac.in/" target="_blank" class="link-box link-box-blue">
@@ -393,7 +399,7 @@ $events = get_events();
 <!-- ==========================================================================
      FLOATING ADMISSION BOX (Bottom Corner Popup as in original site)
      ========================================================================== -->
-<div class="floating-admission-box shadow-lg" id="floatingBox">
+<div class="floating-admission-box shadow-lg" id="floatingBox" style="display:none;">
   <button type="button" class="close-floating-btn" onclick="document.getElementById('floatingBox').style.display='none';">&times;</button>
   <h6 class="fw-bold text-primary mb-1">🎓 <u>Admission Session 2026-27</u></h6>
   <p class="small text-muted mb-2">Online applications are open for Undergraduate, Postgraduate, and Ph.D. programs.</p>
