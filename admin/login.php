@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label class="form-label small fw-bold text-muted">Admin Username</label>
         <div class="input-group">
           <span class="input-group-text bg-light"><i class="fa fa-user-shield text-primary"></i></span>
-          <input type="text" name="username" class="form-control" placeholder="admin" value="admin" required>
+          <input type="text" name="username" class="form-control" placeholder="Enter admin username" autocomplete="username" required>
         </div>
       </div>
 
@@ -61,12 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label class="form-label small fw-bold text-muted">Password</label>
         <div class="input-group">
           <span class="input-group-text bg-light"><i class="fa fa-lock text-primary"></i></span>
-          <input type="password" name="password" class="form-control" placeholder="••••••••" value="admin123" required>
+          <input type="password" name="password" class="form-control" placeholder="••••••••" autocomplete="current-password" required>
         </div>
       </div>
 
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <small class="text-muted">Default: <code>admin</code> / <code>admin123</code></small>
+        <small class="text-muted"><i class="fa fa-lock me-1 text-success"></i> Authorized Personnel Only</small>
       </div>
 
       <button type="submit" class="btn btn-primary w-100 fw-bold py-2 rounded-pill shadow-sm" style="background: var(--admin-primary); border:none;">
