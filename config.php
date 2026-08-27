@@ -120,7 +120,7 @@ function is_admin_logged_in() {
  */
 function require_admin_auth() {
     if (!is_admin_logged_in()) {
-        header('Location: login.php');
+        header('Location: ' . BASE_URL . 'admin/login.php');
         exit;
     }
 }

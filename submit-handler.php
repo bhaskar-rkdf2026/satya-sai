@@ -8,6 +8,11 @@ require_once __DIR__ . '/config.php';
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
+// Detect if this is an AJAX request (fetch / XMLHttpRequest)
+$isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) || 
+          (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false) ||
+          !empty($_SERVER['HTTP_SEC_FETCH_DEST']) && $_SERVER['HTTP_SEC_FETCH_DEST'] === 'empty';
+
 if ($action === 'submit_inquiry') {
     $name = clean_input($_POST['name'] ?? '');
     $phone = clean_input($_POST['phone'] ?? '');
@@ -37,10 +42,15 @@ if ($action === 'submit_inquiry') {
     array_unshift($inquiries, $newInquiry);
     save_json_data('inquiries.json', $inquiries);
 
-    echo json_encode([
-        'status' => 'success',
-        'message' => 'Thank you, <strong>' . htmlspecialchars($name) . '</strong>! Your admission enquiry has been submitted successfully. Reference ID: <strong>' . $newInquiry['id'] . '</strong>.'
-    ]);
+    if ($isAjax) {
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'Thank you, <strong>' . htmlspecialchars($name) . '</strong>! Your admission enquiry has been submitted successfully. Reference ID: <strong>' . $newInquiry['id'] . '</strong>.'
+        ]);
+    } else {
+        // HTML fallback: redirect back with success notice
+        header('Location: ' . BASE_URL . 'index.php?enquiry=success&ref=' . urlencode($newInquiry['id']));
+    }
     exit;
 }
 
@@ -117,5 +127,9 @@ if ($action === 'verify_marksheet') {
     exit;
 }
 
-echo json_encode(['status' => 'error', 'message' => 'Invalid action requested.']);
+if ($isAjax) {
+    echo json_encode(['status' => 'error', 'message' => 'Invalid action requested.']);
+} else {
+    header('Location: ' . BASE_URL . 'index.php');
+}
 exit;

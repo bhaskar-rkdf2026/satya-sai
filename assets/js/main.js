@@ -3,6 +3,17 @@
  * Pure Vanilla JS, High Performance, Zero Bloat
  */
 
+// Dynamically compute root base URL from the current page path
+// e.g. /sssutms/satya-sai/ — used for all fetch() calls from any subpage
+const SITE_BASE_URL = (function() {
+  const path = window.location.pathname;
+  // Find the base folder by looking for the project root marker
+  const match = path.match(/^(\/(?:sssutms\/satya-sai|satya-sai)\/)/i);
+  if (match) return window.location.origin + match[1];
+  // Fallback: assume root
+  return window.location.origin + '/';
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. High-Performance IntersectionObserver Lazy Loading
   initLazyLoading();
@@ -24,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Live Schemes / Syllabus Search Filter
   initSchemeFilter();
+
+  // 8. Floating Admission Box Auto-Show
+  initFloatingBox();
 });
 
 /* ==========================================================================
@@ -259,7 +273,7 @@ function initEnquiryForm() {
     formData.append('action', 'submit_inquiry');
 
     try {
-      const response = await fetch('submit-handler.php', {
+      const response = await fetch(SITE_BASE_URL + 'submit-handler.php', {
         method: 'POST',
         body: formData
       });
@@ -294,7 +308,39 @@ function initEnquiryForm() {
 }
 
 /* ==========================================================================
-   7. LIVE SCHEMES / SYLLABUS SEARCH FILTER
+   8. FLOATING ADMISSION BOX - DELAYED AUTO-SHOW WITH FADE-IN
+   ========================================================================== */
+function initFloatingBox() {
+  const box = document.getElementById('floatingBox');
+  if (!box) return;
+
+  // Only auto-show if user hasn't dismissed it this session
+  const dismissed = sessionStorage.getItem('floatingBoxDismissed');
+  if (dismissed) return;
+
+  // Show after 4 seconds with fade-in
+  setTimeout(() => {
+    box.style.display = 'block';
+    box.style.opacity = '0';
+    box.style.transition = 'opacity 0.5s ease-in-out';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        box.style.opacity = '1';
+      });
+    });
+  }, 4000);
+
+  // Track dismissal in session so it doesn't re-appear on navigation
+  const closeBtn = box.querySelector('.close-floating-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      sessionStorage.setItem('floatingBoxDismissed', '1');
+    });
+  }
+}
+
+/* ==========================================================================
+   9. LIVE SCHEMES / SYLLABUS SEARCH FILTER
    ========================================================================== */
 function initSchemeFilter() {
   const searchInput = document.getElementById('schemeSearchInput');
