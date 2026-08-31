@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Institutes - SSSUTMS';
 $banner_title = 'Institutes';
 $banner_category = 'About';
@@ -35,7 +35,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
 <li class="list-group-item">Polytechnic (Engineering)</li>
 <li class="list-group-item">School of Law</li>
 <li class="list-group-item"><a class="text-decoration-none" href="http://sssutms-soh.in/" target="_blank" rel="noopener">School of Homoeopathy</a></li>
-<li class="list-group-item"><a href="Faculty_of_Education.php" target="_blank" rel="noopener">Faculty of Education</a></li>
+<li class="list-group-item"><a class="text-decoration-none text-primary" href="<?php echo BASE_URL; ?>About/Faculty_of_Education.php" target="_blank" rel="noopener">Faculty of Education</a></li>
 <li class="list-group-item">School of Design</li>
 <li class="list-group-item"><a class="text-decoration-none" href="http://sssutms-soa.in/" target="_blank" rel="noopener">School of Ayurveda &amp; Siddha Studies</a></li>
 <li class="list-group-item"><a class="text-decoration-none" href="https://www.sssutms-soag.in/" target="_blank" rel="noopener">School of Agriculture</a></li>
@@ -45,10 +45,10 @@ require_once __DIR__ . '/../includes/page-banner.php';
 <!-- Pharmacy Subsection -->
 <h6 class="fw-bold text-success">Pharmacy Institutions</h6>
 <ol class="list-group list-group-numbered list-group-flush mb-4">
-<li class="list-group-item"><a class="text-decoration-none text-primary" href="College_of_pharmacy" target="_blank" rel="noopener">College of Pharmacy</a></li>
-<li class="list-group-item"><a class="text-decoration-none text-primary" href="sop.php" target="_blank" rel="noopener">School of Pharmacy</a></li>
-<li class="list-group-item"><a class="text-decoration-none text-primary" href="srkmsop" target="_blank" rel="noopener">Sri Ramnath Kapoor Memorial School Of Pharmacy</a></li>
-<li class="list-group-item"><a class="text-decoration-none text-primary" href="POLP.php" target="_blank" rel="noopener">Polytechnic Pharmacy</a></li>
+<li class="list-group-item"><a class="text-decoration-none text-primary" href="<?php echo BASE_URL; ?>About/College_of_pharmacy.php" target="_blank" rel="noopener">College of Pharmacy</a></li>
+<li class="list-group-item"><a class="text-decoration-none text-primary" href="<?php echo BASE_URL; ?>About/sop.php" target="_blank" rel="noopener">School of Pharmacy</a></li>
+<li class="list-group-item"><a class="text-decoration-none text-primary" href="<?php echo BASE_URL; ?>About/srkmsop.php" target="_blank" rel="noopener">Sri Ramnath Kapoor Memorial School Of Pharmacy</a></li>
+<li class="list-group-item"><a class="text-decoration-none text-primary" href="<?php echo BASE_URL; ?>About/POLP.php" target="_blank" rel="noopener">Polytechnic Pharmacy</a></li>
 </ol>
 </div>
 <div class="card-footer"><!-- Footer Note -->
