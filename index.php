@@ -1,6 +1,7 @@
 <?php
 $page_title = 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)';
 $page_desc = 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH.';
+$body_class = 'home-page';
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/header.php';
@@ -9,157 +10,310 @@ require_once __DIR__ . '/includes/navbar.php';
 
 $notices = get_notices('all');
 $events = get_events();
+
+$news_badge_colors = [
+  'Symposium'  => '#0284c7',
+  'FDP'        => '#7e22ce',
+  'Placement'  => '#f3752c',
+  'Workshop'   => '#059669',
+  'Conference' => '#0284c7',
+];
 ?>
 
 <!-- ==========================================================================
-     HERO SLIDER SECTION (Replicated Campus Carousel)
+     HERO SECTION (Split hero + inline Admission Enquiry Form)
      ========================================================================== -->
-<section id="home" class="hero-slider-section">
-  <div class="hero-slider-wrap">
-    
-    <!-- Slide 1 -->
-    <div class="hero-slide active">
-      <img src="<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0044.jpg" loading="eager" alt="SSSUTMS Campus" class="hero-slide-img" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
-      <div class="hero-overlay">
-        <div class="container-fluid px-lg-5">
-          <div class="hero-content">
-            <span class="hero-badge"><i class="fa fa-award me-1"></i> Premier University in Central India</span>
-            <h1 class="hero-title">Shaping Future Leaders Through Excellence & Innovation</h1>
-            <p class="hero-desc">Empowering students with world-class engineering, medical, ayurveda, pharmacy, and management education across a 100+ acre lush green campus.</p>
-            <div class="d-flex flex-wrap gap-3">
-              <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-pill shadow"><i class="fa fa-pen-nib me-1"></i> Apply Online 2026-27</a>
-              <a href="<?php echo BASE_URL; ?>About/Background.php" class="btn btn-outline-light fw-bold px-4 py-2 rounded-pill"><i class="fa fa-compass me-1"></i> Explore University</a>
-            </div>
-          </div>
+<section id="home" class="hero-v2">
+  <div style="position:absolute; inset:0; background-image:url('<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0044.jpg'); background-size:cover; background-position:center;"></div>
+  <div class="hero-v2-overlay"></div>
+  <div class="container-fluid px-lg-5 position-relative">
+    <div class="row align-items-center g-4">
+
+      <!-- Left: Headline & CTAs -->
+      <div class="col-lg-7">
+        <span class="hero-v2-badge"><span class="dot"></span> Admissions Open &mdash; Session 2026-27</span>
+        <h1 class="hero-v2-title">Shaping Future Leaders Through <span class="text-gradient-accent">Excellence &amp; Innovation</span></h1>
+        <p class="hero-v2-desc">Empowering students with world-class engineering, medical, ayurveda, pharmacy, and management education across a 100+ acre lush green campus.</p>
+        <div class="hero-v2-actions">
+          <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="btn-hero-primary"><i class="fa fa-pen-nib me-1"></i> Apply Online 2026-27</a>
+          <a href="<?php echo BASE_URL; ?>About/Background.php" class="btn-hero-outline"><i class="fa fa-compass me-1"></i> Explore University</a>
+        </div>
+        <div class="hero-v2-mini-stats">
+          <div class="item"><i class="fa fa-building-columns"></i><div class="num">14+</div><div class="lbl">Institutes</div></div>
+          <div class="item"><i class="fa fa-briefcase"></i><div class="num">100+</div><div class="lbl">Recruiters</div></div>
+          <div class="item"><i class="fa fa-award"></i><div class="num">UGC</div><div class="lbl">Approved</div></div>
         </div>
       </div>
-    </div>
 
-    <!-- Slide 2 -->
-    <div class="hero-slide">
-      <img src="<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg" loading="lazy" decoding="async" alt="Ayurveda & Medical Sciences" class="hero-slide-img" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg'">
-      <div class="hero-overlay">
-        <div class="container-fluid px-lg-5">
-          <div class="hero-content">
-            <span class="hero-badge"><i class="fa fa-hospital me-1"></i> Healthcare & Medical Sciences</span>
-            <h1 class="hero-title">School of Ayurveda (BAMS) & Homoeopathy (BHMS)</h1>
-            <p class="hero-desc">State-of-the-art multi-speciality teaching hospitals, herbal research gardens, and experiential clinical training approved by NCISM & NCH.</p>
-            <div class="d-flex flex-wrap gap-3">
-              <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/Ayurveda.php" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-pill shadow"><i class="fa fa-stethoscope me-1"></i> Medical Programs</a>
-              <button class="btn btn-outline-light fw-bold px-4 py-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#enquiryModal"><i class="fa fa-envelope me-1"></i> Enquire Now</button>
+      <!-- Right: Admission Enquiry Card -->
+      <div class="col-lg-5">
+        <div class="hero-enquiry-card">
+          <span class="hero-enquiry-eyebrow"><span class="dot"></span> Enquire Now</span>
+          <h3>Admission Enquiry Form</h3>
+          <p class="sub">Speak with our academic counselors today.</p>
+          <form id="heroEnquiryForm" method="POST" action="<?php echo BASE_URL; ?>submit-handler.php">
+            <input type="hidden" name="action" value="submit_inquiry">
+            <div class="mb-2">
+              <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
             </div>
-          </div>
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <input type="email" name="email" class="form-control" placeholder="Email *" required>
+              </div>
+              <div class="col-6">
+                <input type="tel" name="phone" class="form-control" placeholder="Mobile *" required>
+              </div>
+            </div>
+            <div class="mb-2">
+              <select name="course" class="form-select" required>
+                <option value="">Select Program of Interest</option>
+                <option value="B.Tech (Computer Science & Engg)">B.Tech (Computer Science & Engg)</option>
+                <option value="B.Tech (Mechanical / Civil / EE)">B.Tech (Mechanical / Civil / EE)</option>
+                <option value="BAMS (Ayurveda)">BAMS (Ayurveda)</option>
+                <option value="BHMS (Homeopathy)">BHMS (Homeopathy)</option>
+                <option value="B.Pharm / M.Pharm">B.Pharm / M.Pharm</option>
+                <option value="B.Sc. Nursing">B.Sc. Nursing</option>
+                <option value="MBA (Management)">MBA (Management)</option>
+                <option value="MCA (Computer Applications)">MCA (Computer Applications)</option>
+                <option value="LL.B. (Law)">LL.B. (Law)</option>
+                <option value="Ph.D. Research">Ph.D. Research Program</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <textarea name="message" class="form-control" rows="2" placeholder="Message (optional)"></textarea>
+            </div>
+            <button type="submit" class="btn-submit-enquiry"><i class="fa fa-paper-plane me-1"></i> Submit Enquiry</button>
+            <div id="heroEnquiryAlert" class="alert d-none mt-3 mb-0 py-2 small text-center"></div>
+          </form>
         </div>
       </div>
+
     </div>
-
-    <!-- Slide 3 -->
-    <div class="hero-slide">
-      <img src="<?php echo BASE_URL; ?>assets/images/slider/AARAMBH.jpg" loading="lazy" decoding="async" alt="Placements and Career" class="hero-slide-img" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg'">
-      <div class="hero-overlay">
-        <div class="container-fluid px-lg-5">
-          <div class="hero-content">
-            <span class="hero-badge"><i class="fa fa-rocket me-1"></i> Placements & Industry Connect</span>
-            <h1 class="hero-title">100+ Corporate Recruiters & Career Opportunities</h1>
-            <p class="hero-desc">Dedicated Training & Placement Cell forging careers with top tech and healthcare giants including TCS, IBM, Infosys, Wipro, and Accenture.</p>
-            <div class="d-flex flex-wrap gap-3">
-              <a href="<?php echo BASE_URL; ?>Download/OutcomeBasedCurriculum/Engineering.php" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-pill shadow"><i class="fa fa-file-arrow-down me-1"></i> Download Syllabus</a>
-              <a href="<?php echo BASE_URL; ?>gallery.php" class="btn btn-outline-light fw-bold px-4 py-2 rounded-pill"><i class="fa fa-image me-1"></i> Campus Gallery</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Slider Controls -->
-  <div class="hero-controls">
-    <button class="slider-btn slider-btn-prev" aria-label="Previous Slide"><i class="fa fa-chevron-left"></i></button>
-    <button class="slider-btn slider-btn-next" aria-label="Next Slide"><i class="fa fa-chevron-right"></i></button>
-  </div>
-
-  <!-- Slider Dots -->
-  <div class="slider-dots">
-    <span class="slider-dot active"></span>
-    <span class="slider-dot"></span>
-    <span class="slider-dot"></span>
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION 1: ABOUT, VC DESK, EVENTS, PRESS & NOTICE BOARD (Exact Website.html layout)
+     QUICK ACCESS STRIP
      ========================================================================== -->
-<section id="about" class="section-padding bg-white">
+<section class="quick-access-strip">
   <div class="container-fluid px-lg-5">
-    <div class="row g-4">
-      
-      <!-- Row 1 Left: VC Message (Col-8) -->
-      <div class="col-lg-8">
-        <div class="heading-line-bottom mb-3">
-          <h2 class="section-title mb-0">Welcome to <span style="color: #e26a2c;">Sri Satya Sai University</span></h2>
-        </div>
+    <div class="row g-3">
+      <div class="col-lg-3 col-md-6">
+        <a href="<?php echo BASE_URL; ?>Admission/UniversityAccountDetail.php" class="text-decoration-none">
+          <div class="quick-access-card">
+            <div class="quick-access-icon"><i class="fa fa-credit-card"></i></div>
+            <h6>Online Fee Payment</h6>
+            <p>Secure gateway for tuition &amp; hostel fees</p>
+            <span class="qa-link">Access &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <a href="<?php echo BASE_URL; ?>Examination/Interface.php" class="text-decoration-none">
+          <div class="quick-access-card">
+            <div class="quick-access-icon"><i class="fa fa-file-lines"></i></div>
+            <h6>Examination Portal</h6>
+            <p>Results, timetables &amp; re-evaluation</p>
+            <span class="qa-link">Access &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <a href="<?php echo BASE_URL; ?>Download/OutcomeBasedCurriculum/Engineering.php" class="text-decoration-none">
+          <div class="quick-access-card">
+            <div class="quick-access-icon"><i class="fa fa-book"></i></div>
+            <h6>Syllabus &amp; Curriculum</h6>
+            <p>Course-wise updated syllabi</p>
+            <span class="qa-link">Access &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <a href="<?php echo BASE_URL; ?>Academic/TrainingAndPlacement/TrainingAndPlacementCell.php" class="text-decoration-none">
+          <div class="quick-access-card">
+            <div class="quick-access-icon"><i class="fa fa-briefcase"></i></div>
+            <h6>Placement Records</h6>
+            <p>Recruiters, packages &amp; alumni stories</p>
+            <span class="qa-link">Access &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="p-4 rounded-3 border bg-light h-100 shadow-sm">
-          <h5 class="fw-bold mb-3" style="color: #e26a2c;"><i class="fa fa-comment-dots me-2"></i> Message From VC's Desk</h5>
-          <p class="text-justify" style="text-align: justify; line-height: 1.7; color: #475569;">
-            Since its founding in 2013 by merging of several multi-disciplinary institutions, <strong>Sri Satya Sai University of Technology and Medical Sciences Sehore, Bhopal (MP)</strong> is acclaimed for its outstanding contribution to teaching, research and service in Nation building. Today, the University stands to meet the enormous aspirations and expectations of society. Society wants us to nurture professionals and scholars of high caliber, who can offer solutions to a broad range of issues. This requires excellence in teaching and research at par with the best in the world.
-          </p>
-          <p class="text-justify" style="text-align: justify; line-height: 1.7; color: #475569;">
-            We, at Sri Satya Sai University of Technology and Medical Sciences, continuously aspire to be a breeding ground for positive ideas and emerge as a symbol of openness of thoughts, cultural pluralism and celebrating the unity in the diversity of India. We endeavour to touch the lives of every student by inculcating prudence, efficiency, creativity and compassion to work for the betterment of the marginalized sections of society. We attempt to kindle their sense of responsibility, honesty, conscience, justice and above all commitment to human values.
-          </p>
-          <p class="text-justify mb-4" style="text-align: justify; line-height: 1.7; color: #475569;">
-            We aim to expand our reach to the inaccessible regions through virtual presence and become a center of knowledge osmosis. We seek to empower every inquisitive soul with the best available human resources. We intend to intensify our endeavors to mobilize more resources and create conducive ambience for our faculty, students and staff to actualize their potential.
-          </p>
+<!-- ==========================================================================
+     STATS BAND
+     ========================================================================== -->
+<section class="stats-band-v2 mt-5">
+  <div class="container-fluid px-lg-5">
+    <div class="row">
+      <div class="col-6 col-lg-3 stat-box-v2">
+        <div class="stat-num">100<span class="plus">+</span></div>
+        <div class="stat-lbl">Acres Green Campus</div>
+      </div>
+      <div class="col-6 col-lg-3 stat-box-v2">
+        <div class="stat-num">14<span class="plus">+</span></div>
+        <div class="stat-lbl">Institutes &amp; Faculties</div>
+      </div>
+      <div class="col-6 col-lg-3 stat-box-v2">
+        <div class="stat-num">100<span class="plus">+</span></div>
+        <div class="stat-lbl">Corporate Recruiters</div>
+      </div>
+      <div class="col-6 col-lg-3 stat-box-v2">
+        <div class="stat-num">6<span class="plus">+</span></div>
+        <div class="stat-lbl">Statutory Approvals (UGC, AICTE, PCI, NCISM, INC, NCH and more)</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-            <div>
-              <h6 class="fw-bold mb-0 text-primary">Dr. Mukesh Tiwari</h6>
-              <small class="text-muted">Vice Chancellor, SSSUTMS</small>
+<!-- ==========================================================================
+     WHY SSSUTMS
+     ========================================================================== -->
+<section id="why-sssutms" class="section-padding bg-white why-section-v2">
+  <div class="container-fluid px-lg-5">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="eyebrow-v2">Why SSSUTMS</span>
+        <h2 class="section-title-v2 mb-4">A University Built on <span class="text-gradient-accent">Values, Vision &amp; Vigour</span></h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="why-feature-v2">
+              <div class="icon"><i class="fa fa-award"></i></div>
+              <div><h6>UGC &amp; AICTE Approved</h6><p>Recognized under Section 2(f) of UGC Act, 1956</p></div>
             </div>
-            <img src="<?php echo BASE_URL; ?>assets/images/logo/logo.jpg" alt="VC SSSUTMS" width="44" height="44" class="rounded-circle border">
+          </div>
+          <div class="col-md-6">
+            <div class="why-feature-v2">
+              <div class="icon"><i class="fa fa-seedling"></i></div>
+              <div><h6>100+ Acre Green Campus</h6><p>Lush, sustainable &amp; eco-friendly infrastructure</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-feature-v2">
+              <div class="icon"><i class="fa fa-building-columns"></i></div>
+              <div><h6>14 Institutes &amp; Faculties</h6><p>Engineering, Medical, Ayurveda, Pharmacy &amp; Management</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-feature-v2">
+              <div class="icon"><i class="fa fa-hospital"></i></div>
+              <div><h6>NCISM &amp; NCH Approved</h6><p>Multi-speciality teaching hospitals for BAMS &amp; BHMS</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-feature-v2">
+              <div class="icon"><i class="fa fa-briefcase"></i></div>
+              <div><h6>100% Placement Support</h6><p>Dedicated T&amp;P Cell with 100+ recruiting partners</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-feature-v2">
+              <div class="icon"><i class="fa fa-globe"></i></div>
+              <div><h6>Global Collaborations</h6><p>MoUs with universities across countries</p></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Row 1 Right: Upcoming Events Box (Col-4) -->
-      <div class="col-lg-4">
-        <div class="heading-line-bottom mb-3">
-          <h2 class="section-title mb-0">Events</h2>
+      <div class="col-lg-6">
+        <div class="why-media-wrap">
+          <div class="why-media-main">
+            <img src="<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0044.jpg" alt="SSSUTMS Campus" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
+            <div class="why-badge-float">
+              <i class="fa fa-circle-check fs-3" style="color:#10b981;"></i>
+              <div><span class="grade" style="font-size:1rem;">UGC &amp; AICTE</span><small>Approved University</small></div>
+            </div>
+          </div>
+          <div class="why-media-side"><img src="<?php echo BASE_URL; ?>assets/images/slider/IMG-20250829-WA0023.jpg" alt="Campus Life" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/AARAMBH.jpg'"></div>
+          <div class="why-media-side"><img src="<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg" alt="Campus Events" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg'"></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="card border-0 shadow-sm rounded-3 overflow-hidden bg-light h-100">
-          <div class="p-3 bg-white border-bottom d-flex justify-content-between align-items-center">
-            <span class="badge bg-danger">Upcoming Events</span>
-            <a href="<?php echo BASE_URL; ?>EVENTS.php" class="text-primary small fw-bold">View more &gt;&gt;</a>
+<!-- ==========================================================================
+     UNIVERSITY WELCOME + VC MESSAGE
+     ========================================================================== -->
+<section id="about" class="section-padding legacy-home-section campus-welcome-section">
+  <div class="container-fluid px-lg-5">
+    <div class="welcome-section-heading">
+      <span class="eyebrow-v2">About Our University</span>
+      <h2 class="section-title-v2 mb-3">Welcome to <span class="text-gradient-accent">Sri Satya Sai University</span></h2>
+      <p class="welcome-section-intro mb-0">An institution where knowledge, innovation and human values come together to shape responsible professionals.</p>
+    </div>
+
+    <div class="row g-4 g-xl-5 align-items-stretch about-primary-row">
+
+      <!-- VC Message -->
+      <div class="col-lg-7 d-flex flex-column">
+        <div class="vc-message-card flex-grow-1">
+          <div class="vc-message-header">
+            <span class="vc-message-icon" aria-hidden="true"><i class="fa fa-quote-left"></i></span>
+            <div>
+              <span class="vc-message-kicker">Leadership Message</span>
+              <h3>From the Vice Chancellor's Desk</h3>
+            </div>
           </div>
-          <div class="p-3 text-center">
-            <img src="<?php echo BASE_URL; ?>assets/images/events/scienceday.jpg" alt="National Science Day" class="img-fluid rounded shadow-sm mb-3" style="max-height: 220px; width: 100%; object-fit: cover;" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg'">
-            <h6 class="fw-bold text-dark mb-1">National Science Day Exhibition & Seminar</h6>
-            <p class="small text-muted mb-2">Innovative science working models & research papers presentation by scholars.</p>
-            <a class="btn btn-sm btn-outline-primary rounded-pill px-3" href="<?php echo BASE_URL; ?>EVENTS.php">View Event Details &gt;&gt;</a>
+          <p>
+            Since its founding in 2013 by merging of several multi-disciplinary institutions, <strong>Sri Satya Sai University of Technology and Medical Sciences Sehore, Bhopal (MP)</strong> is acclaimed for its outstanding contribution to teaching, research and service in Nation building. Today, the University stands to meet the enormous aspirations and expectations of society. Society wants us to nurture professionals and scholars of high caliber, who can offer solutions to a broad range of issues. This requires excellence in teaching and research at par with the best in the world.
+          </p>
+          <p>
+            We, at Sri Satya Sai University of Technology and Medical Sciences, continuously aspire to be a breeding ground for positive ideas and emerge as a symbol of openness of thoughts, cultural pluralism and celebrating the unity in the diversity of India. We endeavour to touch the lives of every student by inculcating prudence, efficiency, creativity and compassion to work for the betterment of the marginalized sections of society. We attempt to kindle their sense of responsibility, honesty, conscience, justice and above all commitment to human values.
+          </p>
+          <p>
+            We aim to expand our reach to the inaccessible regions through virtual presence and become a center of knowledge osmosis. We seek to empower every inquisitive soul with the best available human resources. We intend to intensify our endeavors to mobilize more resources and create conducive ambience for our faculty, students and staff to actualize their potential.
+          </p>
+
+          <div class="vc-message-signoff">
+            <div>
+              <h4>Dr. Mukesh Tiwari</h4>
+              <span>Vice Chancellor, SSSUTMS</span>
+            </div>
+            <img src="<?php echo BASE_URL; ?>assets/images/logo/logo.jpg" alt="Sri Satya Sai University emblem" width="52" height="52">
           </div>
         </div>
+      </div>
+
+      <!-- Enhanced Campus Entrance -->
+      <div class="col-lg-5 d-flex">
+        <figure class="campus-welcome-visual mb-0">
+          <div class="campus-welcome-image-wrap">
+            <img src="<?php echo BASE_URL; ?>assets/images/home/campus-entrance-enhanced.jpg" alt="Main entrance of Sri Satya Sai University of Technology and Medical Sciences" loading="lazy" decoding="async">
+            <span class="campus-location-pill"><i class="fa fa-location-dot"></i> Sehore, Madhya Pradesh</span>
+            <div class="campus-image-shade" aria-hidden="true"></div>
+          </div>
+          <figcaption class="campus-welcome-caption">
+            <span class="campus-caption-eyebrow">Discover SSSUTMS</span>
+            <h3>A welcoming campus for ambitious minds</h3>
+            <p>Purpose-built spaces for learning, research, healthcare and a vibrant student experience.</p>
+            <div class="campus-caption-facts">
+              <span><strong>100+</strong> acre campus</span>
+              <span><strong>Since 2013</strong> shaping futures</span>
+            </div>
+          </div>
+        </figure>
       </div>
 
     </div>
 
-    <!-- Row 2: Press & Media + Notice Board -->
-    <div class="row g-4 mt-3">
-      
-      <!-- Press & Media Box (Col-6) -->
+    <!-- Press & Media + Notice Board -->
+    <div class="row g-4 mt-3 home-media-row">
+
       <div class="col-lg-6">
         <div class="heading-line-bottom mb-3">
-          <h3 class="section-title mb-0"><span style="color: #e26a2c;">Press</span> &amp; Media</h3>
+          <h3 class="section-title mb-0"><span style="color: var(--accent);">Press</span> &amp; Media</h3>
         </div>
 
-        <div class="card border-0 shadow-sm rounded-3 overflow-hidden bg-white">
+        <div class="card border-0 shadow-sm rounded-3 overflow-hidden bg-white press-media-card">
           <div class="position-relative overflow-hidden" style="max-height: 280px;">
             <img src="<?php echo BASE_URL; ?>assets/images/PressAndMedia.jpg" alt="Press & Media Coverage" class="w-100 object-fit-cover" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg'">
-            <div class="position-absolute bottom-0 start-0 end-0 p-3 bg-dark bg-opacity-75 text-white d-flex justify-content-between align-items-center">
+            <div class="position-absolute bottom-0 start-0 end-0 p-3 bg-dark bg-opacity-75 text-white d-flex justify-content-between align-items-center press-media-overlay">
               <div>
-                <h6 class="mb-0 fw-bold text-white">University News & Press Releases</h6>
-                <small class="text-white-50">State & National Media Coverage</small>
+                <h6 class="mb-0 fw-bold text-white">University News &amp; Press Releases</h6>
+                <small class="text-white-50">State &amp; National Media Coverage</small>
               </div>
               <a href="<?php echo BASE_URL; ?>PressMedia.php" class="btn btn-warning btn-sm rounded-pill fw-bold text-dark">View More &gt;&gt;</a>
             </div>
@@ -167,27 +321,25 @@ $events = get_events();
         </div>
       </div>
 
-      <!-- Notice Board (Col-6) with NoticeBoard.jpg background -->
       <div class="col-lg-6">
         <div class="heading-line-bottom mb-3">
           <h3 class="section-title mb-0">Notice Board</h3>
         </div>
 
-        <div class="card border-0 shadow-sm rounded-3 overflow-hidden" style="background-image: url('<?php echo BASE_URL; ?>assets/images/NoticeBoard.jpg'); background-size: cover; background-position: center; min-height: 280px;">
-          <div class="p-3 bg-dark bg-opacity-75 text-white d-flex justify-content-between align-items-center">
+        <div class="card border-0 shadow-sm rounded-3 overflow-hidden notice-board-home-card" style="background-image: url('<?php echo BASE_URL; ?>assets/images/NoticeBoard.jpg'); background-size: cover; background-position: center; min-height: 280px;">
+          <div class="p-3 bg-dark bg-opacity-75 text-white d-flex justify-content-between align-items-center notice-board-home-header">
             <h6 class="mb-0 fw-bold text-white"><i class="fa fa-bell text-warning me-2"></i> Official University Circulars</h6>
             <a href="<?php echo BASE_URL; ?>Examination/ExamNotifications.php" class="badge bg-warning text-dark text-decoration-none">View All Notices</a>
           </div>
 
-              <div class="p-3" style="max-height: 230px; overflow-y: auto;">
+          <div class="p-3 notice-board-home-list" style="max-height: 230px; overflow-y: auto;">
             <?php foreach (array_slice($notices, 0, 4) as $n): ?>
               <?php
-                // Determine PDF URL: use link if not '#', else construct from file
                 $pdfLink = (!empty($n['link']) && $n['link'] !== '#')
                   ? $n['link']
                   : BASE_URL . 'Examination/ExamNotifications.php';
               ?>
-              <div class="p-2 mb-2 rounded bg-white bg-opacity-95 shadow-sm d-flex justify-content-between align-items-center">
+              <div class="p-2 mb-2 rounded bg-white bg-opacity-95 shadow-sm d-flex justify-content-between align-items-center notice-entry">
                 <div class="pe-2">
                   <h6 class="fw-bold text-dark mb-1" style="font-size: 13px;">
                     <a href="<?php echo htmlspecialchars($pdfLink); ?>" class="text-dark text-decoration-none" target="<?php echo $n['link'] !== '#' ? '_blank' : '_self'; ?>"><?php echo htmlspecialchars($n['title']); ?></a>
@@ -205,18 +357,211 @@ $events = get_events();
       </div>
 
     </div>
-
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION 2: IMPORTANT LINKS, QUICK LINKS, DOWNLOAD LINKS (Exact 3-Col Widget)
+     INSTITUTES THAT SHAPE CAREERS
      ========================================================================== -->
-<section class="section-padding bg-lighter" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+<section id="institutes" class="section-padding bg-white institutes-section-v2">
+  <div class="container-fluid px-lg-5">
+    <div class="text-center mb-5">
+      <span class="eyebrow-v2">Academic Excellence</span>
+      <h2 class="section-title-v2">Institutes That Shape Careers</h2>
+      <p class="section-sub-v2 mx-auto">Multi-disciplinary institutes offering UG, PG, and Ph.D. programs across engineering, medical sciences, and allied disciplines.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="institute-card-v2">
+          <div class="img-wrap"><img src="<?php echo BASE_URL; ?>assets/images/gallery/1/SSSUTMS_Building(8).jpg" alt="Engineering & Technology" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0044.jpg'"></div>
+          <div class="body">
+            <h5>Engineering &amp; Technology</h5>
+            <p>B.Tech, M.Tech across multiple branches</p>
+            <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/EngineeringAndTechnology.php" class="explore-link">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="institute-card-v2">
+          <div class="img-wrap"><img src="<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg" alt="Medical Sciences" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg'"></div>
+          <div class="body">
+            <h5>Medical Sciences</h5>
+            <p>BAMS, BHMS &amp; Allied Health (NCISM &amp; NCH approved)</p>
+            <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/Ayurveda.php" class="explore-link">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="institute-card-v2">
+          <div class="img-wrap"><img src="<?php echo BASE_URL; ?>assets/images/gallery/2/img-27.jpg" alt="Pharmacy" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20250829-WA0023.jpg'"></div>
+          <div class="body">
+            <h5>Pharmacy</h5>
+            <p>B.Pharm, M.Pharm, D.Pharm</p>
+            <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/Pharmacy.php" class="explore-link">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="institute-card-v2">
+          <div class="img-wrap"><img src="<?php echo BASE_URL; ?>assets/images/gallery/3/img-26.jpg" alt="Management" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'"></div>
+          <div class="body">
+            <h5>Management</h5>
+            <p>BBA, MBA, Executive Programs</p>
+            <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/Management.php" class="explore-link">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="institute-card-v2">
+          <div class="img-wrap"><img src="<?php echo BASE_URL; ?>assets/images/gallery/4/img-19.jpg" alt="Law" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg'"></div>
+          <div class="body">
+            <h5>Law</h5>
+            <p>BA LLB, LLM &amp; Legal Research</p>
+            <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/Law.php" class="explore-link">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="institute-card-v2">
+          <div class="img-wrap"><img src="<?php echo BASE_URL; ?>assets/images/gallery/4/img-13.jpg" alt="Computer Applications" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg'"></div>
+          <div class="body">
+            <h5>Computer Applications</h5>
+            <p>BCA, MCA, Data Science</p>
+            <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/ComputerScienceAndApplication.php" class="explore-link">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     OUR TOP RECRUITERS
+     ========================================================================== -->
+<section id="placements" class="section-padding bg-light recruiters-section-v2">
+  <div class="container-fluid px-lg-5">
+    <div class="recruiters-panel-v2">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+        <div>
+          <span class="eyebrow-v2">Career Success</span>
+          <h3 class="section-title-v2 mb-0" style="font-size: 1.6rem;"><i class="fa fa-trophy me-2"></i>Our Top Recruiters</h3>
+        </div>
+        <a href="<?php echo BASE_URL; ?>Academic/TrainingAndPlacement/TrainingAndPlacementCell.php" class="fw-bold" style="color: var(--accent);">View placement report &rarr;</a>
+      </div>
+      <div class="recruiters-marquee-v2">
+        <div class="recruiters-marquee-v2-track">
+          <?php
+            $recruiter_logos = [
+              ['TCSLogo.jpg', 'TCS'], ['IBM.jpg', 'IBM'], ['InfosysLogo.jpg', 'Infosys'],
+              ['WpiroLogo.jpg', 'Wipro'], ['Accenture.jpg', 'Accenture'], ['BajajLogo.jpg', 'Bajaj'],
+            ];
+            $loop_logos = array_merge($recruiter_logos, $recruiter_logos);
+            foreach ($loop_logos as $rl):
+          ?>
+          <div class="recruiter-box-v2" style="width:160px; flex-shrink:0;"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/<?php echo $rl[0]; ?>" alt="<?php echo htmlspecialchars($rl[1]); ?>"></div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EXPERIENCE THE CAMPUS IN PERSON
+     ========================================================================== -->
+<section id="campus-visit" class="section-padding bg-light campus-section-v2">
+  <div class="container-fluid px-lg-5">
+    <div class="campus-visit-v2 p-4 p-lg-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 text-white">
+          <span class="eyebrow-v2">Campus Visit</span>
+          <h2 class="section-title-v2 mb-3" style="color:#ffffff;">Experience the <span class="text-gradient-accent">SSSUTMS Campus</span> in Person</h2>
+          <p class="mb-4" style="color:#cbd5e1;">Walk through our 100+ acre green campus, meet faculty, tour our labs, hostels, and sports complex &mdash; schedule a personal visit and see your future unfold.</p>
+
+          <div class="row g-2 mb-4">
+            <div class="col-md-4">
+              <div class="campus-visit-info-item">
+                <i class="fa fa-location-dot"></i>
+                <span class="lbl d-block">Location</span>
+                <span class="val d-block">Sehore, Madhya Pradesh</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="campus-visit-info-item">
+                <i class="fa fa-calendar-days"></i>
+                <span class="lbl d-block">Open Days</span>
+                <span class="val d-block">Mon &ndash; Sat</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="campus-visit-info-item">
+                <i class="fa fa-clock"></i>
+                <span class="lbl d-block">Visit Slots</span>
+                <span class="val d-block">10 AM &ndash; 5 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="<?php echo BASE_URL; ?>contact.php" class="btn-hero-primary"><i class="fa fa-calendar-check me-1"></i> Schedule a Visit</a>
+            <a href="<?php echo BASE_URL; ?>gallery.php" class="btn-hero-outline"><i class="fa fa-photo-film me-1"></i> Virtual Tour</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="campus-visit-media rounded-4 overflow-hidden">
+            <span class="campus-visit-media-tag">Campus View</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/slider/AARAMBH.jpg" alt="SSSUTMS Campus View" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     LATEST UPDATES: NEWS, EVENTS & CAMPUS STORIES
+     ========================================================================== -->
+<section id="latest-updates" class="section-padding bg-white news-section-v2">
+  <div class="container-fluid px-lg-5">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-2 mb-4">
+      <div>
+        <span class="eyebrow-v2">Latest Updates</span>
+        <h2 class="section-title-v2 mb-0">News, Events &amp; Campus Stories</h2>
+      </div>
+      <a href="<?php echo BASE_URL; ?>EVENTS.php" class="fw-bold" style="color: var(--accent);">View all posts &rarr;</a>
+    </div>
+
+    <div class="row g-4">
+      <?php foreach (array_slice($events, 0, 3) as $ev):
+        $badge_color = $news_badge_colors[$ev['category']] ?? '#0b2545';
+      ?>
+      <div class="col-lg-4 col-md-6">
+        <div class="news-card-v2">
+          <div class="img-wrap">
+            <span class="news-badge-v2" style="background: <?php echo $badge_color; ?>;"><?php echo htmlspecialchars($ev['category']); ?></span>
+            <img src="<?php echo BASE_URL . htmlspecialchars($ev['image']); ?>" alt="<?php echo htmlspecialchars($ev['title']); ?>" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
+          </div>
+          <div class="body">
+            <div class="date-line"><i class="fa fa-calendar-days"></i> <?php echo date('d M Y', strtotime($ev['date'])); ?></div>
+            <h5><?php echo htmlspecialchars($ev['title']); ?></h5>
+            <a href="<?php echo BASE_URL; ?>EVENTS.php" class="read-more">Read more &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     IMPORTANT LINKS, QUICK LINKS, DOWNLOAD LINKS
+     ========================================================================== -->
+<section class="section-padding bg-white resource-links-section" style="border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4">
-      
-      <!-- Col 1: Important Links (Blue Theme #3686c9) -->
+
       <div class="col-lg-4 col-md-6">
         <div class="heading-line-bottom mb-3">
           <h4 class="fw-bold text-dark"><i class="fa fa-star text-primary me-2"></i> Important Links</h4>
@@ -232,7 +577,7 @@ $events = get_events();
             <i class="fa fa-link icon-theme"></i> B.A. B.Ed. VII Semester Examination Results
           </a>
           <a href="<?php echo BASE_URL; ?>Download/E-Content.php" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> E-Content & Digital Learning Portal
+            <i class="fa fa-link icon-theme"></i> E-Content &amp; Digital Learning Portal
           </a>
           <a href="https://unnatbharatabhiyan.gov.in:8443/new-website/" target="_blank" class="link-box link-box-blue">
             <i class="fa fa-link icon-theme"></i> Unnat Bharat Abhiyan Cell
@@ -246,7 +591,6 @@ $events = get_events();
         </div>
       </div>
 
-      <!-- Col 2: Quick Links (Green Theme #25d366) -->
       <div class="col-lg-4 col-md-6">
         <div class="heading-line-bottom mb-3">
           <h4 class="fw-bold text-dark"><i class="fa fa-bolt text-success me-2"></i> Quick Links</h4>
@@ -262,7 +606,7 @@ $events = get_events();
             <i class="fa fa-link icon-theme"></i> National Institutional Ranking (NIRF)
           </a>
           <a href="<?php echo BASE_URL; ?>Academic/Committee/AntiRagging.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> Anti-Ragging Committee & Helpline
+            <i class="fa fa-link icon-theme"></i> Anti-Ragging Committee &amp; Helpline
           </a>
           <a href="<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php" class="link-box link-box-green">
             <i class="fa fa-link icon-theme"></i> Grievance Redressal Mechanism
@@ -271,19 +615,18 @@ $events = get_events();
             <i class="fa fa-link icon-theme"></i> Internal Quality Assurance Cell (IQAC)
           </a>
           <a href="<?php echo BASE_URL; ?>About/ApprovalsAndOrdinances/Approvals.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> Statutory Approvals & Ordinances
+            <i class="fa fa-link icon-theme"></i> Statutory Approvals &amp; Ordinances
           </a>
         </div>
       </div>
 
-      <!-- Col 3: Download Links (Orange Theme #f4a261) -->
       <div class="col-lg-4 col-md-12">
         <div class="heading-line-bottom mb-3">
           <h4 class="fw-bold text-dark"><i class="fa fa-download text-warning me-2"></i> Download Links</h4>
         </div>
         <div class="link-widget-group">
           <a href="<?php echo BASE_URL; ?>Download/OutcomeBasedCurriculum/Engineering.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Curriculum Schemes & Course Syllabus
+            <i class="fa fa-download icon-theme"></i> Curriculum Schemes &amp; Course Syllabus
           </a>
           <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="link-box link-box-orange">
             <i class="fa fa-download icon-theme"></i> Migration Certificate Application Form
@@ -301,7 +644,7 @@ $events = get_events();
             <i class="fa fa-download icon-theme"></i> Common Entrance Exam (CEET 2026) Form
           </a>
           <a href="<?php echo BASE_URL; ?>Academic/PHD.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Ph.D. Coursework Syllabus & Guidelines
+            <i class="fa fa-download icon-theme"></i> Ph.D. Coursework Syllabus &amp; Guidelines
           </a>
         </div>
       </div>
@@ -311,11 +654,11 @@ $events = get_events();
 </section>
 
 <!-- ==========================================================================
-     SECTION 3: PHOTO GALLERY
+     PHOTO GALLERY
      ========================================================================== -->
-<section class="section-padding bg-white">
+<section class="section-padding bg-light home-gallery-section">
   <div class="container-fluid px-lg-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
       <h3 class="section-title mb-0">Photo Gallery</h3>
       <a href="<?php echo BASE_URL; ?>gallery.php" class="btn btn-outline-primary btn-sm rounded-pill px-3">View Full Gallery &gt;&gt;</a>
     </div>
@@ -367,37 +710,7 @@ $events = get_events();
 </section>
 
 <!-- ==========================================================================
-     SECTION 4: OUR TOP RECRUITERS
-     ========================================================================== -->
-<section class="section-padding bg-light">
-  <div class="container-fluid px-lg-5">
-    <div class="text-center mb-4">
-      <h3 class="section-title mb-1">Our Top Recruiters</h3>
-      <p class="text-muted small">Leading multinational corporate & healthcare organizations hiring from SSSUTMS</p>
-    </div>
-
-    <div class="recruiters-marquee-wrap">
-      <div class="recruiters-track">
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/TCSLogo.jpg" alt="TCS"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/IBM.jpg" alt="IBM"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/InfosysLogo.jpg" alt="Infosys"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/WpiroLogo.jpg" alt="Wipro"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/Accenture.jpg" alt="Accenture"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/BajajLogo.jpg" alt="Bajaj"></div>
-        <!-- Duplicate set for seamless continuous marquee loop -->
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/TCSLogo.jpg" alt="TCS"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/IBM.jpg" alt="IBM"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/InfosysLogo.jpg" alt="Infosys"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/WpiroLogo.jpg" alt="Wipro"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/Accenture.jpg" alt="Accenture"></div>
-        <div class="recruiter-logo-item"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/BajajLogo.jpg" alt="Bajaj"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================================
-     FLOATING ADMISSION BOX (Bottom Corner Popup as in original site)
+     FLOATING ADMISSION BOX
      ========================================================================== -->
 <div class="floating-admission-box shadow-lg" id="floatingBox" style="display:none;">
   <button type="button" class="close-floating-btn" onclick="document.getElementById('floatingBox').style.display='none';">&times;</button>
