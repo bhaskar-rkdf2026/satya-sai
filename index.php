@@ -297,59 +297,85 @@ $news_badge_colors = [
         </figure>
       </div>
 
-    </div>
 
-    <!-- Press & Media + Notice Board -->
-    <div class="row g-4 mt-3 home-media-row">
+    </div><!-- /.about-primary-row -->
 
-      <div class="col-lg-6">
-        <div class="heading-line-bottom mb-3">
-          <h3 class="section-title mb-0"><span style="color: var(--accent);">Press</span> &amp; Media</h3>
+  </div><!-- /.container-fluid -->
+</section><!-- /#about -->
+
+<!-- ==========================================================================
+     PRESS & MEDIA + NOTICE BOARD
+     ========================================================================== -->
+<section class="section-padding bg-light home-press-notice-section">
+  <div class="container-fluid px-lg-5">
+    <div class="row g-4 home-media-row-v2">
+
+      <!-- â”€â”€ Press & Media â”€â”€ -->
+      <div class="col-lg-6 d-flex flex-column">
+        <div class="hm-section-label mb-3">
+          <span class="hm-label-pill"><i class="fa fa-newspaper me-1"></i>Media</span>
+          <h3 class="hm-section-heading"><span class="hm-accent-word">Press</span> &amp; Media</h3>
         </div>
-
-        <div class="card border-0 shadow-sm rounded-3 overflow-hidden bg-white press-media-card">
-          <div class="position-relative overflow-hidden" style="max-height: 280px;">
-            <img src="<?php echo BASE_URL; ?>assets/images/PressAndMedia.jpg" alt="Press & Media Coverage" class="w-100 object-fit-cover" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg'">
-            <div class="position-absolute bottom-0 start-0 end-0 p-3 bg-dark bg-opacity-75 text-white d-flex justify-content-between align-items-center press-media-overlay">
-              <div>
-                <h6 class="mb-0 fw-bold text-white">University News &amp; Press Releases</h6>
-                <small class="text-white-50">State &amp; National Media Coverage</small>
-              </div>
-              <a href="<?php echo BASE_URL; ?>PressMedia.php" class="btn btn-warning btn-sm rounded-pill fw-bold text-dark">View More &gt;&gt;</a>
+        <div class="hm-press-card flex-grow-1">
+          <span class="hm-live-badge"><span class="hm-live-dot"></span> LIVE</span>
+          <div class="hm-press-img-wrap">
+            <img src="<?php echo BASE_URL; ?>assets/images/PressAndMedia.jpg"
+                 alt="Press &amp; Media Coverage"
+                 class="hm-press-img"
+                 onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg'">
+            <div class="hm-press-gradient"></div>
+          </div>
+          <div class="hm-press-footer">
+            <div class="hm-press-info">
+              <h6 class="hm-press-title">University News &amp; Press Releases</h6>
+              <small class="hm-press-sub">State &amp; National Media Coverage</small>
             </div>
+            <a href="<?php echo BASE_URL; ?>PressMedia.php" class="hm-view-more-btn">
+              View More <i class="fa fa-arrow-right ms-1"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-6">
-        <div class="heading-line-bottom mb-3">
-          <h3 class="section-title mb-0">Notice Board</h3>
+      <!-- â”€â”€ Notice Board â”€â”€ -->
+      <div class="col-lg-6 d-flex flex-column">
+        <div class="hm-section-label mb-3">
+          <span class="hm-label-pill hm-label-pill--alert"><i class="fa fa-bell me-1"></i>Notices</span>
+          <h3 class="hm-section-heading">Notice Board</h3>
         </div>
-
-        <div class="card border-0 shadow-sm rounded-3 overflow-hidden notice-board-home-card" style="background-image: url('<?php echo BASE_URL; ?>assets/images/NoticeBoard.jpg'); background-size: cover; background-position: center; min-height: 280px;">
-          <div class="p-3 bg-dark bg-opacity-75 text-white d-flex justify-content-between align-items-center notice-board-home-header">
-            <h6 class="mb-0 fw-bold text-white"><i class="fa fa-bell text-warning me-2"></i> Official University Circulars</h6>
-            <a href="<?php echo BASE_URL; ?>Examination/ExamNotifications.php" class="badge bg-warning text-dark text-decoration-none">View All Notices</a>
+        <div class="hm-notice-card flex-grow-1">
+          <div class="hm-notice-header">
+            <div class="hm-notice-header-left">
+              <span class="hm-notice-icon-wrap"><i class="fa fa-bullhorn"></i></span>
+              <span class="hm-notice-header-title">Official University Circulars</span>
+            </div>
+            <a href="<?php echo BASE_URL; ?>Examination/ExamNotifications.php" class="hm-view-all-btn">View All Notices</a>
           </div>
-
-          <div class="p-3 notice-board-home-list" style="max-height: 230px; overflow-y: auto;">
+          <div class="hm-notice-list">
             <?php foreach (array_slice($notices, 0, 4) as $n): ?>
               <?php
                 $pdfLink = (!empty($n['link']) && $n['link'] !== '#')
                   ? $n['link']
                   : BASE_URL . 'Examination/ExamNotifications.php';
               ?>
-              <div class="p-2 mb-2 rounded bg-white bg-opacity-95 shadow-sm d-flex justify-content-between align-items-center notice-entry">
-                <div class="pe-2">
-                  <h6 class="fw-bold text-dark mb-1" style="font-size: 13px;">
-                    <a href="<?php echo htmlspecialchars($pdfLink); ?>" class="text-dark text-decoration-none" target="<?php echo $n['link'] !== '#' ? '_blank' : '_self'; ?>"><?php echo htmlspecialchars($n['title']); ?></a>
-                    <?php if (!empty($n['is_new'])): ?>
-                      <span class="badge bg-danger" style="font-size: 9px;">NEW</span>
-                    <?php endif; ?>
-                  </h6>
-                  <small class="text-muted"><i class="fa fa-clock me-1"></i> <?php echo date('d-m-Y', strtotime($n['date'])); ?></small>
+              <div class="hm-notice-entry">
+                <div class="hm-notice-entry-dot"></div>
+                <div class="hm-notice-entry-body">
+                  <a href="<?php echo htmlspecialchars($pdfLink); ?>"
+                     class="hm-notice-entry-title"
+                     target="<?php echo $n['link'] !== '#' ? '_blank' : '_self'; ?>">
+                    <?php echo htmlspecialchars($n['title']); ?>
+                  </a>
+                  <?php if (!empty($n['is_new'])): ?>
+                    <span class="hm-new-badge">NEW</span>
+                  <?php endif; ?>
+                  <div class="hm-notice-entry-date">
+                    <i class="fa fa-clock me-1"></i><?php echo date('d-m-Y', strtotime($n['date'])); ?>
+                  </div>
                 </div>
-                <a href="<?php echo htmlspecialchars($pdfLink); ?>" class="btn btn-sm btn-outline-primary flex-shrink-0" style="font-size: 11px;" target="_blank"><i class="fa fa-file-pdf text-danger me-1"></i> PDF</a>
+                <a href="<?php echo htmlspecialchars($pdfLink); ?>" class="hm-pdf-btn" target="_blank">
+                  <i class="fa fa-file-pdf"></i> PDF
+                </a>
               </div>
             <?php endforeach; ?>
           </div>
@@ -359,6 +385,7 @@ $news_badge_colors = [
     </div>
   </div>
 </section>
+
 
 <!-- ==========================================================================
      INSTITUTES THAT SHAPE CAREERS
@@ -459,7 +486,7 @@ $news_badge_colors = [
             $loop_logos = array_merge($recruiter_logos, $recruiter_logos);
             foreach ($loop_logos as $rl):
           ?>
-          <div class="recruiter-box-v2" style="width:160px; flex-shrink:0;"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/<?php echo $rl[0]; ?>" alt="<?php echo htmlspecialchars($rl[1]); ?>"></div>
+          <div class="recruiter-box-v2"><img src="<?php echo BASE_URL; ?>assets/images/recruiters/<?php echo $rl[0]; ?>" alt="<?php echo htmlspecialchars($rl[1]); ?>"></div>
           <?php endforeach; ?>
         </div>
       </div>
@@ -544,9 +571,11 @@ $news_badge_colors = [
             <img src="<?php echo BASE_URL . htmlspecialchars($ev['image']); ?>" alt="<?php echo htmlspecialchars($ev['title']); ?>" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
           </div>
           <div class="body">
-            <div class="date-line"><i class="fa fa-calendar-days"></i> <?php echo date('d M Y', strtotime($ev['date'])); ?></div>
-            <h5><?php echo htmlspecialchars($ev['title']); ?></h5>
-            <a href="<?php echo BASE_URL; ?>EVENTS.php" class="read-more">Read more &rarr;</a>
+            <div class="news-meta-top d-flex justify-content-between align-items-center mb-2">
+              <div class="date-line mb-0"><i class="fa fa-calendar-days"></i> <?php echo date('d M Y', strtotime($ev['date'])); ?></div>
+              <a href="<?php echo BASE_URL; ?>EVENTS.php" class="read-more">Read more &rarr;</a>
+            </div>
+            <h5><a href="<?php echo BASE_URL; ?>EVENTS.php" class="news-title-link"><?php echo htmlspecialchars($ev['title']); ?></a></h5>
           </div>
         </div>
       </div>
@@ -556,96 +585,165 @@ $news_badge_colors = [
 </section>
 
 <!-- ==========================================================================
-     IMPORTANT LINKS, QUICK LINKS, DOWNLOAD LINKS
+     IMPORTANT LINKS, QUICK LINKS, DOWNLOAD LINKS (REDESIGNED)
      ========================================================================== -->
-<section class="section-padding bg-white resource-links-section" style="border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+<section class="section-padding bg-light resource-links-section-v2">
   <div class="container-fluid px-lg-5">
+    <div class="text-center mb-5">
+      <span class="eyebrow-v2">Academic &amp; Institutional Portals</span>
+      <h2 class="section-title-v2">Quick Access &amp; Resource Center</h2>
+      <p class="section-sub-v2 mx-auto">Instant access to regulatory guidelines, examination results, statutory bodies, syllabus downloads, and student portals.</p>
+    </div>
+
     <div class="row g-4">
 
-      <div class="col-lg-4 col-md-6">
-        <div class="heading-line-bottom mb-3">
-          <h4 class="fw-bold text-dark"><i class="fa fa-star text-primary me-2"></i> Important Links</h4>
-        </div>
-        <div class="link-widget-group">
-          <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/NEP%202020%2027%20university%2014-compressed.pdf" target="_blank" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> NEP 2020-27 Policy Guidelines
-          </a>
-          <a href="https://samadhaan.ugc.ac.in/" target="_blank" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> UGC e-Samadhan Portal
-          </a>
-          <a href="<?php echo BASE_URL; ?>Examination/Results.php" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> B.A. B.Ed. VII Semester Examination Results
-          </a>
-          <a href="<?php echo BASE_URL; ?>Download/E-Content.php" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> E-Content &amp; Digital Learning Portal
-          </a>
-          <a href="https://unnatbharatabhiyan.gov.in:8443/new-website/" target="_blank" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> Unnat Bharat Abhiyan Cell
-          </a>
-          <a href="http://www.mpbse.nic.in/" target="_blank" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> Madhya Pradesh Board (MPBSE)
-          </a>
-          <a href="https://www.ugc.ac.in/" target="_blank" class="link-box link-box-blue">
-            <i class="fa fa-link icon-theme"></i> University Grants Commission (UGC)
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="heading-line-bottom mb-3">
-          <h4 class="fw-bold text-dark"><i class="fa fa-bolt text-success me-2"></i> Quick Links</h4>
-        </div>
-        <div class="link-widget-group">
-          <a href="https://www.aicte-india.org/feedback/index.php" target="_blank" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> AICTE Student/Faculty Feedback
-          </a>
-          <a href="<?php echo BASE_URL; ?>Academic/NAAC/SSR.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> NAAC Self Study Report (SSR)
-          </a>
-          <a href="<?php echo BASE_URL; ?>Academic/NIRF.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> National Institutional Ranking (NIRF)
-          </a>
-          <a href="<?php echo BASE_URL; ?>Academic/Committee/AntiRagging.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> Anti-Ragging Committee &amp; Helpline
-          </a>
-          <a href="<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> Grievance Redressal Mechanism
-          </a>
-          <a href="<?php echo BASE_URL; ?>Academic/IQACCell.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> Internal Quality Assurance Cell (IQAC)
-          </a>
-          <a href="<?php echo BASE_URL; ?>About/ApprovalsAndOrdinances/Approvals.php" class="link-box link-box-green">
-            <i class="fa fa-link icon-theme"></i> Statutory Approvals &amp; Ordinances
-          </a>
+      <!-- Column 1: Important Links -->
+      <div class="col-lg-4 col-md-6 d-flex">
+        <div class="resource-card-v2 resource-card-blue flex-grow-1">
+          <div class="resource-card-header">
+            <div class="resource-header-icon"><i class="fa fa-star"></i></div>
+            <div class="resource-header-info">
+              <h5>Important Links</h5>
+              <span>Government &amp; University Portals</span>
+            </div>
+          </div>
+          <div class="resource-card-body">
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/NEP%202020%2027%20university%2014-compressed.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-shield"></i></span>
+              <span class="row-text">NEP 2020-27 Policy Guidelines</span>
+              <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
+            </a>
+            <a href="https://samadhaan.ugc.ac.in/" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-scale-balanced"></i></span>
+              <span class="row-text">UGC e-Samadhan Portal</span>
+              <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Examination/Results.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-square-poll-vertical"></i></span>
+              <span class="row-text">B.A. B.Ed. VII Semester Examination Results</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Download/E-Content.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-laptop-code"></i></span>
+              <span class="row-text">E-Content &amp; Digital Learning Portal</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="https://unnatbharatabhiyan.gov.in:8443/new-website/" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-hands-holding-child"></i></span>
+              <span class="row-text">Unnat Bharat Abhiyan Cell</span>
+              <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
+            </a>
+            <a href="http://www.mpbse.nic.in/" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-landmark"></i></span>
+              <span class="row-text">Madhya Pradesh Board (MPBSE)</span>
+              <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
+            </a>
+            <a href="https://www.ugc.ac.in/" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-building-columns"></i></span>
+              <span class="row-text">University Grants Commission (UGC)</span>
+              <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-12">
-        <div class="heading-line-bottom mb-3">
-          <h4 class="fw-bold text-dark"><i class="fa fa-download text-warning me-2"></i> Download Links</h4>
+      <!-- Column 2: Quick Links -->
+      <div class="col-lg-4 col-md-6 d-flex">
+        <div class="resource-card-v2 resource-card-green flex-grow-1">
+          <div class="resource-card-header">
+            <div class="resource-header-icon"><i class="fa fa-bolt"></i></div>
+            <div class="resource-header-info">
+              <h5>Quick Links</h5>
+              <span>Compliance, IQAC &amp; Rankings</span>
+            </div>
+          </div>
+          <div class="resource-card-body">
+            <a href="https://www.aicte-india.org/feedback/index.php" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-comments"></i></span>
+              <span class="row-text">AICTE Student/Faculty Feedback</span>
+              <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Academic/NAAC/SSR.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-award"></i></span>
+              <span class="row-text">NAAC Self Study Report (SSR)</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Academic/NIRF.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-chart-line"></i></span>
+              <span class="row-text">National Institutional Ranking (NIRF)</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Academic/Committee/AntiRagging.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-shield-halved"></i></span>
+              <span class="row-text">Anti-Ragging Committee &amp; Helpline</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-hand-holding-heart"></i></span>
+              <span class="row-text">Grievance Redressal Mechanism</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Academic/IQACCell.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-check-double"></i></span>
+              <span class="row-text">Internal Quality Assurance Cell (IQAC)</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>About/ApprovalsAndOrdinances/Approvals.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-contract"></i></span>
+              <span class="row-text">Statutory Approvals &amp; Ordinances</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+          </div>
         </div>
-        <div class="link-widget-group">
-          <a href="<?php echo BASE_URL; ?>Download/OutcomeBasedCurriculum/Engineering.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Curriculum Schemes &amp; Course Syllabus
-          </a>
-          <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Migration Certificate Application Form
-          </a>
-          <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Duplicate Marksheet Request Form
-          </a>
-          <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Provisional Degree Application Form
-          </a>
-          <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Online Admission Registration (E-Pravesh)
-          </a>
-          <a href="<?php echo BASE_URL; ?>Examination/EntranceExamAlert.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Common Entrance Exam (CEET 2026) Form
-          </a>
-          <a href="<?php echo BASE_URL; ?>Academic/PHD.php" class="link-box link-box-orange">
-            <i class="fa fa-download icon-theme"></i> Ph.D. Coursework Syllabus &amp; Guidelines
-          </a>
+      </div>
+
+      <!-- Column 3: Download Links -->
+      <div class="col-lg-4 col-md-12 d-flex">
+        <div class="resource-card-v2 resource-card-orange flex-grow-1">
+          <div class="resource-card-header">
+            <div class="resource-header-icon"><i class="fa fa-circle-down"></i></div>
+            <div class="resource-header-info">
+              <h5>Download Links</h5>
+              <span>Forms, Syllabi &amp; Registrations</span>
+            </div>
+          </div>
+          <div class="resource-card-body">
+            <a href="<?php echo BASE_URL; ?>Download/OutcomeBasedCurriculum/Engineering.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-book-bookmark"></i></span>
+              <span class="row-text">Curriculum Schemes &amp; Course Syllabus</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
+              <span class="row-text">Migration Certificate Application Form</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-lines"></i></span>
+              <span class="row-text">Duplicate Marksheet Request Form</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-graduation-cap"></i></span>
+              <span class="row-text">Provisional Degree Application Form</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-id-card"></i></span>
+              <span class="row-text">Online Admission Registration (E-Pravesh)</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Examination/EntranceExamAlert.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-pen-to-square"></i></span>
+              <span class="row-text">Common Entrance Exam (CEET 2026) Form</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Academic/PHD.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-microscope"></i></span>
+              <span class="row-text">Ph.D. Coursework Syllabus &amp; Guidelines</span>
+              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -654,55 +752,108 @@ $news_badge_colors = [
 </section>
 
 <!-- ==========================================================================
-     PHOTO GALLERY
+     PHOTO GALLERY (REDESIGNED V2)
      ========================================================================== -->
-<section class="section-padding bg-light home-gallery-section">
+<section class="section-padding bg-white home-gallery-section-v2">
   <div class="container-fluid px-lg-5">
-    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-      <h3 class="section-title mb-0">Photo Gallery</h3>
-      <a href="<?php echo BASE_URL; ?>gallery.php" class="btn btn-outline-primary btn-sm rounded-pill px-3">View Full Gallery &gt;&gt;</a>
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+      <div>
+        <span class="eyebrow-v2">Campus Life &amp; Highlights</span>
+        <h2 class="section-title-v2 mb-0">Glimpses of SSSUTMS Campus</h2>
+      </div>
+      <a href="<?php echo BASE_URL; ?>gallery.php" class="btn-gallery-explore">
+        <span>Explore Full Gallery</span> <i class="fa fa-arrow-right"></i>
+      </a>
     </div>
 
-    <div class="row g-3">
-      <div class="col-lg-2 col-md-4 col-6">
-        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-thumb-item text-decoration-none">
-          <img src="<?php echo BASE_URL; ?>assets/images/gallery/1/SSSUTMS_Building(8).jpg" alt="Building" class="img-fluid rounded shadow-sm" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0044.jpg'">
-          <div class="gallery-thumb-caption">Building</div>
+    <div class="row g-4">
+      <!-- Item 1: Building -->
+      <div class="col-lg-4 col-md-6">
+        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-card-v2">
+          <div class="gallery-card-img-wrap">
+            <span class="gallery-card-badge"><i class="fa fa-building me-1"></i> Infrastructure</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/gallery/1/SSSUTMS_Building(8).jpg" alt="Building" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0044.jpg'">
+            <div class="gallery-card-gradient"></div>
+            <div class="gallery-card-footer">
+              <h5 class="gallery-card-title">Campus Infrastructure</h5>
+              <span class="gallery-card-action"><i class="fa fa-expand"></i> View</span>
+            </div>
+          </div>
         </a>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6">
-        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-thumb-item text-decoration-none">
-          <img src="<?php echo BASE_URL; ?>assets/images/gallery/2/img-27.jpg" alt="Hostel" class="img-fluid rounded shadow-sm" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20250829-WA0023.jpg'">
-          <div class="gallery-thumb-caption">Hostel</div>
+      <!-- Item 2: Hostel -->
+      <div class="col-lg-4 col-md-6">
+        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-card-v2">
+          <div class="gallery-card-img-wrap">
+            <span class="gallery-card-badge"><i class="fa fa-hotel me-1"></i> Student Living</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/gallery/2/img-27.jpg" alt="Hostel" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20250829-WA0023.jpg'">
+            <div class="gallery-card-gradient"></div>
+            <div class="gallery-card-footer">
+              <h5 class="gallery-card-title">Hostel Facilities</h5>
+              <span class="gallery-card-action"><i class="fa fa-expand"></i> View</span>
+            </div>
+          </div>
         </a>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6">
-        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-thumb-item text-decoration-none">
-          <img src="<?php echo BASE_URL; ?>assets/images/gallery/3/img-26.jpg" alt="Laboratory" class="img-fluid rounded shadow-sm" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
-          <div class="gallery-thumb-caption">Laboratory</div>
+      <!-- Item 3: Laboratory -->
+      <div class="col-lg-4 col-md-6">
+        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-card-v2">
+          <div class="gallery-card-img-wrap">
+            <span class="gallery-card-badge"><i class="fa fa-flask me-1"></i> Research &amp; Labs</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/gallery/3/img-26.jpg" alt="Laboratory" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
+            <div class="gallery-card-gradient"></div>
+            <div class="gallery-card-footer">
+              <h5 class="gallery-card-title">Modern Laboratories</h5>
+              <span class="gallery-card-action"><i class="fa fa-expand"></i> View</span>
+            </div>
+          </div>
         </a>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6">
-        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-thumb-item text-decoration-none">
-          <img src="<?php echo BASE_URL; ?>assets/images/gallery/4/img-19.jpg" alt="Library" class="img-fluid rounded shadow-sm" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg'">
-          <div class="gallery-thumb-caption">Library</div>
+      <!-- Item 4: Library -->
+      <div class="col-lg-4 col-md-6">
+        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-card-v2">
+          <div class="gallery-card-img-wrap">
+            <span class="gallery-card-badge"><i class="fa fa-book-open me-1"></i> Knowledge Hub</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/gallery/4/img-19.jpg" alt="Library" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg'">
+            <div class="gallery-card-gradient"></div>
+            <div class="gallery-card-footer">
+              <h5 class="gallery-card-title">Central Library</h5>
+              <span class="gallery-card-action"><i class="fa fa-expand"></i> View</span>
+            </div>
+          </div>
         </a>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6">
-        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-thumb-item text-decoration-none">
-          <img src="<?php echo BASE_URL; ?>assets/images/events/rec.jpg" alt="Rojgar Mela" class="img-fluid rounded shadow-sm" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg'">
-          <div class="gallery-thumb-caption">Rojgar Mela 2026</div>
+      <!-- Item 5: Rojgar Mela -->
+      <div class="col-lg-4 col-md-6">
+        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-card-v2">
+          <div class="gallery-card-img-wrap">
+            <span class="gallery-card-badge"><i class="fa fa-briefcase me-1"></i> Placements</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/events/rec.jpg" alt="Rojgar Mela" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/HorizonsofAyurved.jpg'">
+            <div class="gallery-card-gradient"></div>
+            <div class="gallery-card-footer">
+              <h5 class="gallery-card-title">Rojgar Mela 2026</h5>
+              <span class="gallery-card-action"><i class="fa fa-expand"></i> View</span>
+            </div>
+          </div>
         </a>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6">
-        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-thumb-item text-decoration-none">
-          <img src="<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg" alt="Aarambh Fest" class="img-fluid rounded shadow-sm" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/AARAMBH.jpg'">
-          <div class="gallery-thumb-caption">Youth Festival</div>
+      <!-- Item 6: Youth Festival -->
+      <div class="col-lg-4 col-md-6">
+        <a href="<?php echo BASE_URL; ?>gallery.php" class="gallery-card-v2">
+          <div class="gallery-card-img-wrap">
+            <span class="gallery-card-badge"><i class="fa fa-masks-theater me-1"></i> Cultural Fest</span>
+            <img src="<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg" alt="Aarambh Fest" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/AARAMBH.jpg'">
+            <div class="gallery-card-gradient"></div>
+            <div class="gallery-card-footer">
+              <h5 class="gallery-card-title">Youth Festival (Aarambh)</h5>
+              <span class="gallery-card-action"><i class="fa fa-expand"></i> View</span>
+            </div>
+          </div>
         </a>
       </div>
     </div>
