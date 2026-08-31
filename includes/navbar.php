@@ -1,16 +1,21 @@
-<!-- Main Navigation Bar (100% Exact Menuzord Tree with Clean Single Arrow & Sleek Dropdowns) -->
-<nav class="navbar navbar-expand-lg main-navbar sticky-top">
+<!-- Main Navigation Bar — Single Row: Brand + Nav + Apply Button (100% Exact Menuzord Tree with Clean Single Arrow & Sleek Dropdowns) -->
+<nav class="navbar navbar-expand-xl main-navbar navbar-v2">
   <div class="container-fluid px-lg-5">
-    
-    <!-- Mobile Brand Display (Visible on small screens) -->
-    <a class="navbar-brand text-white fw-bold d-lg-none d-flex align-items-center gap-2 py-1" href="<?php echo BASE_URL; ?>index.php">
-      <img src="<?php echo BASE_URL; ?>assets/images/logo/logo.jpg" alt="SSSUTMS" height="28" class="rounded-circle border border-light">
-      <span style="font-size: 13.5px; letter-spacing: 0.5px;">SSSUTMS PORTAL</span>
+
+    <!-- Brand Lockup (always visible, all breakpoints) -->
+    <a href="<?php echo BASE_URL; ?>index.php" class="brand-lockup-v2 navbar-brand">
+      <img src="<?php echo BASE_URL; ?>assets/images/logo/logo.jpg" alt="Sri Satya Sai University of Technology & Medical Sciences">
+      <span class="brand-lockup-v2-text">
+        <h1 class="d-none d-sm-block">Sri Satya Sai University</h1>
+        <h1 class="d-sm-none">SSSUTMS</h1>
+        <span class="d-none d-sm-block">Of Technology &amp; Medical Sciences &bull; Sehore</span>
+        <span class="d-sm-none">Sehore, MP</span>
+      </span>
     </a>
 
     <!-- Hamburger Mobile Toggler Button -->
-    <button class="navbar-toggler text-white border-0 py-1 px-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fa fa-bars fs-5 text-white"></i>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="mainNavbarContent">
@@ -25,7 +30,7 @@
 
         <!-- 2. About Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
             About <span class="indicator"><i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu shadow border-0">
@@ -110,7 +115,7 @@
 
         <!-- 3. Academic Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
             Academic <span class="indicator"><i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu shadow border-0">
@@ -217,7 +222,7 @@
 
         <!-- 4. Examination Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
             Examination <span class="indicator"><i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu shadow border-0">
@@ -231,7 +236,7 @@
 
         <!-- 5. Research Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
             Research <span class="indicator"><i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu shadow border-0">
@@ -252,7 +257,7 @@
 
         <!-- 6. Admission Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
             Admission <span class="indicator"><i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu shadow border-0">
@@ -268,7 +273,7 @@
 
         <!-- 7. Download Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
             Download <span class="indicator"><i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu shadow border-0">
@@ -387,11 +392,14 @@
 
       <!-- Right Action Button -->
       <div class="d-flex align-items-center gap-2 py-1 py-lg-0">
-        <button type="button" class="btn btn-warning btn-sm fw-bold px-3 py-1 text-dark rounded-pill shadow-sm" style="font-size: 12px; background:#f4a261; border:none;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-          <i class="fa fa-paper-plane me-1"></i> Quick Enquiry
-        </button>
+        <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="btn btn-apply-pill">
+          <i class="fa fa-pen-nib me-1"></i> Apply Online
+        </a>
       </div>
 
     </div>
   </div>
 </nav>
+<div class="tricolor-bar"></div>
+</header>
+<!-- /Sticky Site Header Wrapper -->
