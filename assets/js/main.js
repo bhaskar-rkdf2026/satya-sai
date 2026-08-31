@@ -256,54 +256,55 @@ function initGalleryFilter() {
    6. INSTANT ADMISSION ENQUIRY MODAL LOGIC
    ========================================================================== */
 function initEnquiryForm() {
-  const enquiryForm = document.getElementById('enquiryForm');
-  const alertBox = document.getElementById('enquiryAlert');
+  ['enquiryForm', 'heroEnquiryForm'].forEach(formId => {
+    const enquiryForm = document.getElementById(formId);
+    if (!enquiryForm) return;
+    const alertBox = document.getElementById(formId === 'heroEnquiryForm' ? 'heroEnquiryAlert' : 'enquiryAlert');
 
-  if (!enquiryForm) return;
+    enquiryForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const submitBtn = enquiryForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
 
-  enquiryForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    const submitBtn = enquiryForm.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> Submitting...';
 
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> Submitting...';
+      const formData = new FormData(enquiryForm);
+      formData.append('action', 'submit_inquiry');
 
-    const formData = new FormData(enquiryForm);
-    formData.append('action', 'submit_inquiry');
+      try {
+        const response = await fetch(SITE_BASE_URL + 'submit-handler.php', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
 
-    try {
-      const response = await fetch(SITE_BASE_URL + 'submit-handler.php', {
-        method: 'POST',
-        body: formData
-      });
-      const result = await response.json();
+        if (alertBox) {
+          alertBox.className = `alert alert-${result.status === 'success' ? 'success' : 'danger'} d-block mt-3`;
+          alertBox.innerHTML = result.message;
+        }
 
-      if (alertBox) {
-        alertBox.className = `alert alert-${result.status === 'success' ? 'success' : 'danger'} d-block mt-3`;
-        alertBox.innerHTML = result.message;
-      }
-
-      if (result.status === 'success') {
+        if (result.status === 'success') {
+          enquiryForm.reset();
+          setTimeout(() => {
+            const modalEl = document.getElementById('enquiryModal');
+            if (modalEl && window.bootstrap) {
+              const modal = bootstrap.Modal.getInstance(modalEl);
+              if (modal) modal.hide();
+            }
+          }, 2000);
+        }
+      } catch (err) {
+        if (alertBox) {
+          alertBox.className = 'alert alert-success d-block mt-3';
+          alertBox.innerHTML = 'Thank you! Your enquiry has been recorded. Our admissions counselor will contact you shortly.';
+        }
         enquiryForm.reset();
-        setTimeout(() => {
-          const modalEl = document.getElementById('enquiryModal');
-          if (modalEl && window.bootstrap) {
-            const modal = bootstrap.Modal.getInstance(modalEl);
-            if (modal) modal.hide();
-          }
-        }, 2000);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
       }
-    } catch (err) {
-      if (alertBox) {
-        alertBox.className = 'alert alert-success d-block mt-3';
-        alertBox.innerHTML = 'Thank you! Your enquiry has been recorded. Our admissions counselor will contact you shortly.';
-      }
-      enquiryForm.reset();
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
-    }
+    });
   });
 }
 
@@ -385,14 +386,14 @@ function initSubmenuDropdowns() {
 
     // Desktop hover
     dropdown.addEventListener('mouseenter', () => {
-      if (window.innerWidth >= 992) {
+      if (window.innerWidth >= 1200) {
         menu.classList.add('show');
         toggle.setAttribute('aria-expanded', 'true');
       }
     });
 
     dropdown.addEventListener('mouseleave', () => {
-      if (window.innerWidth >= 992) {
+      if (window.innerWidth >= 1200) {
         menu.classList.remove('show');
         toggle.setAttribute('aria-expanded', 'false');
         // also hide any open submenus
@@ -402,8 +403,10 @@ function initSubmenuDropdowns() {
 
     // Click toggle for touch devices
     toggle.addEventListener('click', (e) => {
-      if (window.innerWidth < 992) {
+      if (window.innerWidth < 1200) {
         e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
         const isOpen = menu.classList.contains('show');
         document.querySelectorAll('.navbar-nav .dropdown-menu').forEach(m => m.classList.remove('show'));
         if (!isOpen) {
@@ -412,8 +415,12 @@ function initSubmenuDropdowns() {
         } else {
           toggle.setAttribute('aria-expanded', 'false');
         }
+      } else {
+        e.preventDefault();
+        menu.classList.add('show');
+        toggle.setAttribute('aria-expanded', 'true');
       }
-    });
+    }, true);
   });
 
   // 2. Nested Sub-level dropdowns (Flyouts)
@@ -425,7 +432,7 @@ function initSubmenuDropdowns() {
 
     // Mobile click toggle
     subLink.addEventListener('click', (e) => {
-      if (window.innerWidth < 992) {
+      if (window.innerWidth < 1200) {
         e.preventDefault();
         e.stopPropagation();
         const isOpen = subMenu.style.display === 'block';
@@ -439,13 +446,13 @@ function initSubmenuDropdowns() {
 
     // Desktop hover safety
     sub.addEventListener('mouseenter', () => {
-      if (window.innerWidth >= 992) {
+      if (window.innerWidth >= 1200) {
         subMenu.style.display = 'block';
       }
     });
 
     sub.addEventListener('mouseleave', () => {
-      if (window.innerWidth >= 992) {
+      if (window.innerWidth >= 1200) {
         subMenu.style.display = 'none';
       }
     });
