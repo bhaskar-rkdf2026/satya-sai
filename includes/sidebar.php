@@ -126,17 +126,17 @@ $active_menu = isset($sidebar_menus[$section]) ? $sidebar_menus[$section] : $sid
   
   <!-- Category Navigation Card -->
   <div class="card border-0 shadow-sm rounded-3 mb-4 overflow-hidden">
-    <div class="card-header bg-primary text-white py-3" style="background: linear-gradient(135deg, #0b2545 0%, #134074 100%) !important;">
+    <div class="card-header text-white py-3" style="background: var(--primary-gradient) !important;">
       <h6 class="mb-0 fw-bold d-flex align-items-center gap-2">
-        <i class="fa <?php echo $active_menu['icon']; ?> text-warning"></i> <?php echo $active_menu['title']; ?>
+        <i class="fa <?php echo $active_menu['icon']; ?>" style="color: var(--gold);"></i> <?php echo $active_menu['title']; ?>
       </h6>
     </div>
     <div class="list-group list-group-flush sidebar-nav-list p-2">
       <?php foreach ($active_menu['links'] as $label => $link): ?>
-        <?php 
+        <?php
           $is_active = (strpos($current_uri, basename($link)) !== false);
         ?>
-        <a href="<?php echo BASE_URL . $link; ?>" class="list-group-item list-group-item-action border-0 rounded-2 py-2 px-3 d-flex align-items-center justify-content-between <?php echo $is_active ? 'active fw-bold' : 'text-dark'; ?>" style="<?php echo $is_active ? 'background: #e76f51; color: #fff !important;' : ''; ?>">
+        <a href="<?php echo BASE_URL . $link; ?>" class="list-group-item list-group-item-action border-0 rounded-2 py-2 px-3 d-flex align-items-center justify-content-between <?php echo $is_active ? 'active fw-bold' : 'text-dark'; ?>">
           <span style="font-size: 13px;"><?php echo htmlspecialchars($label); ?></span>
           <i class="fa fa-angle-right small opacity-75"></i>
         </a>
@@ -145,20 +145,20 @@ $active_menu = isset($sidebar_menus[$section]) ? $sidebar_menus[$section] : $sid
   </div>
 
   <!-- Admission Fast Enquiry Card -->
-  <div class="card border-0 shadow-sm rounded-3 mb-4 overflow-hidden" style="background: linear-gradient(135deg, #0b2545 0%, #1e3a5f 100%); color: #fff;">
+  <div class="card border-0 shadow-sm rounded-3 mb-4 overflow-hidden" style="background: var(--primary-gradient); color: #fff;">
     <div class="card-body p-4 text-center">
       <div class="mb-2">
-        <span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold" style="font-size: 11px;">ADMISSION OPEN 2026-27</span>
+        <span class="badge px-3 py-1 rounded-pill fw-bold" style="font-size: 11px; background: rgba(255,118,38,0.15); border: 1px solid rgba(255,118,38,0.4); color: var(--gold);">ADMISSION OPEN 2026-27</span>
       </div>
       <h5 class="fw-bold text-white mb-2">Need Guidance?</h5>
       <p class="small text-white-50 mb-3">Speak with our academic counseling team for course eligibility & fee details.</p>
-      
+
       <div class="p-2 rounded bg-white bg-opacity-10 mb-3">
-        <div class="small text-warning fw-bold"><i class="fa fa-phone-volume me-1"></i> Admission Helpline</div>
+        <div class="small fw-bold" style="color: var(--gold);"><i class="fa fa-phone-volume me-1"></i> Admission Helpline</div>
         <div class="fw-bold fs-6 text-white">+91-7748900028 / 07562-292740</div>
       </div>
 
-      <button type="button" class="btn btn-warning w-100 fw-bold text-dark rounded-pill py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+      <button type="button" class="btn w-100 fw-bold rounded-pill py-2 shadow-sm border-0" style="background: var(--accent-gradient); color: #241503;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
         <i class="fa fa-comments me-1"></i> Quick Enquiry
       </button>
     </div>
