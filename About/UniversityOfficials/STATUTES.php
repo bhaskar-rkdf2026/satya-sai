@@ -84,7 +84,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-0 fs-3">UNIVERSITY STATUTES</h3>
             </div>
             <div>
-              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/Fianal Statute 12.pdf" target="_blank" rel="noopener" class="st-pdf-btn">
+              <a href="<?php echo BASE_URL; ?>assets/pdf/Fianal_Statute_12.pdf" target="_blank" rel="noopener" class="st-pdf-btn">
                 <i class="fa-solid fa-file-pdf fs-4"></i>
                 <span>Download Official Statutes (PDF)</span>
               </a>
@@ -108,7 +108,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 </div>
               </div>
               <div>
-                <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/Fianal Statute 12.pdf" target="_blank" rel="noopener" class="st-pdf-btn">
+                <a href="<?php echo BASE_URL; ?>assets/pdf/Fianal_Statute_12.pdf" target="_blank" rel="noopener" class="st-pdf-btn">
                   <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Click Here (PDF)
                 </a>
               </div>

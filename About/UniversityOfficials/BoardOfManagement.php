@@ -148,7 +148,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-0 fs-3">BOARD OF MANAGEMENT OF THE UNIVERSITY</h3>
             </div>
             <div>
-              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BOM_14062024_0501.pdf" target="_blank" rel="noopener" class="bom-pdf-btn">
+              <a href="<?php echo BASE_URL; ?>assets/pdf/BOM_14062024_0501.pdf" target="_blank" rel="noopener" class="bom-pdf-btn">
                 <i class="fa-solid fa-file-pdf fs-5"></i>
                 <span>Download Official Document (PDF)</span>
               </a>

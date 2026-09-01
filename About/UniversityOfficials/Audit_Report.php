@@ -162,13 +162,13 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                       <span class="ar-year-badge">2023-24</span>
                     </td>
                     <td class="text-center">
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/AUDIT REPORT 2023-24.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-red">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/AUDIT_REPORT_2023-24.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-red">
                         <i class="fa-solid fa-file-pdf fs-6"></i>
                         <span>Audit Report 2023-24</span>
                       </a>
                     </td>
                     <td class="text-center">
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/BALANCE SHEET 2023-24.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-blue">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/BALANCE_SHEET_2023-24.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-blue">
                         <i class="fa-solid fa-file-pdf fs-6"></i>
                         <span>Balance Sheet 2023-24</span>
                       </a>
@@ -181,13 +181,13 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                       <span class="ar-year-badge">2022-23</span>
                     </td>
                     <td class="text-center">
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/AUDIT REPORT-AYUSHMATI 2023.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-red">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/AUDIT_REPORT-AYUSHMATI_2023.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-red">
                         <i class="fa-solid fa-file-pdf fs-6"></i>
                         <span>Audit Report 2022-23</span>
                       </a>
                     </td>
                     <td class="text-center">
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/Balance Sheet 2022-23 Ayushmati.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-blue">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/Balance_Sheet_2022-23_Ayushmati.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-blue">
                         <i class="fa-solid fa-file-pdf fs-6"></i>
                         <span>Balance Sheet 2022-23</span>
                       </a>
@@ -206,7 +206,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                       </a>
                     </td>
                     <td class="text-center">
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/Balance Sheet 2021-22 Ayushmati.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-blue">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/Balance_Sheet_2021-22_Ayushmati.pdf" target="_blank" rel="noopener" class="ar-pdf-btn-blue">
                         <i class="fa-solid fa-file-pdf fs-6"></i>
                         <span>Balance Sheet 2021-22</span>
                       </a>

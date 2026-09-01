@@ -149,7 +149,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-0 fs-3">GOVERNING BODY OF THE UNIVERSITY</h3>
             </div>
             <div>
-              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/governance_13062024_0218.pdf" target="_blank" rel="noopener" class="gb-pdf-btn">
+              <a href="<?php echo BASE_URL; ?>assets/pdf/governance_13062024_0218.pdf" target="_blank" rel="noopener" class="gb-pdf-btn">
                 <i class="fa-solid fa-file-pdf fs-5"></i>
                 <span>Download Official Gazette (PDF)</span>
               </a>

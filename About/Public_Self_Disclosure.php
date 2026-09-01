@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Public Self Disclosure - SSSUTMS';
 $banner_title = 'Public Self Disclosure';
 $banner_category = 'About';
@@ -10,723 +10,729 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.disclosure-page-section {
+  background-color: #f8fafc;
+}
+.disclosure-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+.disclosure-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+}
+.disclosure-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+.disclosure-table {
+  margin-bottom: 0;
+}
+.disclosure-table thead th {
+  background-color: #0b2545;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border: none;
+  padding: 14px 16px;
+}
+.disclosure-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+.disclosure-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  border-color: #e2e8f0;
+  color: #334155;
+  font-size: 0.92rem;
+}
+.disclosure-cat-badge {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.disclosure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.disclosure-btn-primary {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+.disclosure-btn-primary:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+.disclosure-btn-danger {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+.disclosure-btn-danger:hover {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+</style>
+
+<section class="subpage-main-section disclosure-page-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <h1 class="heading" style="text-align: center;"><span style="font-size: 36pt; color: #e67e23;">Public Self-Disclosure </span></h1>
+        
+        <!-- Main Card Wrapper -->
+        <div class="disclosure-main-card mb-4">
+          
+          <!-- Banner Header -->
+          <div class="disclosure-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge bg-primary text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill">
+                <i class="fa-solid fa-file-shield me-1"></i> UGC &amp; Statutory Compliance
+              </span>
+              <h3 class="fw-bold text-white mb-0 fs-3">PUBLIC SELF-DISCLOSURE</h3>
+            </div>
+          </div>
 
-<table class="table table-bordered table-hover align-middle" style="border-collapse: collapse; width: 100.192%; height: 6198.1px; background-color: #ede8e8; border-color: #3598db; border-style: solid;">
-<tbody>
-<tr style="height: 65.1333px; border-style: solid;">
-<td style="width: 9.6807%; height: 65.1333px; border-style: solid; text-align: center;" scope="col" >
-<h3><span style="font-family: 'book antiqua', palatino, serif;"><strong><span style="font-size: 14pt;">Sr. No.</span></strong></span></h3>
-</td>
-<td style="width: 23.7177%; height: 65.1333px; border-style: solid; text-align: center;" scope="col" >
-<h3><span style="font-family: 'book antiqua', palatino, serif;"><strong><span style="font-size: 14pt;">Title</span></strong></span></h3>
-</td>
-<td style="width: 33.9792%; height: 65.1333px; border-style: solid; text-align: center;" scope="col" >
-<h3><span style="font-family: 'book antiqua', palatino, serif;"><strong><span style="font-size: 14pt;">Subtitle</span></strong></span></h3>
-</td>
-<td style="width: 33.2048%; height: 65.1333px; border-style: solid; text-align: center;" scope="col" >
-<h3><span style="font-family: 'book antiqua', palatino, serif;"><strong><span style="font-size: 14pt;">Links on Website</span></strong></span></h3>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="height: 896.333px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="11" scope="colgroup">
-<p>A)</p>
+          <!-- Body Container -->
+          <div class="p-4">
+            
+            <div class="table-responsive">
+              <table class="table table-bordered align-middle disclosure-table">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;" class="text-center">Sr. No.</th>
+                    <th style="width: 220px;">Category Title</th>
+                    <th style="width: 320px;">Information Parameter / Subtitle</th>
+                    <th style="width: 200px;" class="text-center">Action / Links</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <!-- Category A: About HEI -->
+                  <tr>
+                    <td rowspan="11" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">A</span></td>
+                    <td rowspan="4" class="fw-bold text-dark align-middle">About HEI</td>
+                    <td>Overview &amp; University Background</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Background.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Act and Statutes or MoA</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/Fianal_Statute_12.pdf" target="_blank" class="disclosure-btn disclosure-btn-danger">
+                        <i class="fa-solid fa-file-pdf"></i> <span>Statute (PDF)</span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Institutional Development Plan (IDP)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Institutional_Development_Plan.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Constituent Units &amp; Affiliated Colleges</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/ConstituentUnits.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="height: 364.7px; border-style: solid; width: 23.7177%;" rowspan="4" scope="colgroup">
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">About HEI</span></p>
+                  <tr>
+                    <td rowspan="7" class="fw-bold text-dark align-middle">Accreditation / Ranking Status</td>
+                    <td>NAAC Accreditation (SSR &amp; Criteria)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/NAAC/SSR.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>NBA Accreditation</td>
+                    <td class="text-center text-muted fw-semibold">N/A</td>
+                  </tr>
+                  <tr>
+                    <td>NIRF Ranking &amp; Data</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Research/NIRF.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Recognition &amp; Approvals (UGC 2f, Statutory Bodies)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/ApprovalsAndOrdinances/Approvals.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Annual Reports</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Annual_Reports.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Annual Accounts &amp; Audit Reports</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Audit_Report.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sponsoring Body / Society Details</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/PromotingSociety.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="width: 33.9792%; text-align: left; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">&nbsp;Overview:</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="Background.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Act and Statutes or MoA</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/About/University Officials/Fianal Statute 12.pdf" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Institutional Development Plan</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="Institutional_Development%c2%a0Plan.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 188.8px; border-style: solid;">
-<td style="width: 33.9792%; height: 188.8px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Constituent Units/ Affiliated Colleges, Affiliating University (in case of Colleges) Off-campus/Off-shore campus/Learning Support Centres under ODL mode (Wherever applicable)&nbsp;</span></p>
-</td>
-<td style="width: 33.2048%; height: 188.8px; border-style: solid; text-align: center;" scope="col"><a href="../Academic/ConstituentUnits.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></td>
-</tr>
-<tr style="height: 76.8px; border-style: solid;">
-<td style="height: 531.633px; border-style: solid; width: 23.7177%;" rowspan="7" scope="colgroup">
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">Accreditation/ Ranking Status</span></p>
+                  <!-- Category B: Administration -->
+                  <tr>
+                    <td rowspan="16" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">B</span></td>
+                    <td rowspan="16" class="fw-bold text-dark align-middle">Administration &amp; Officers Profile</td>
+                    <td>
+                      <strong>Chancellor:</strong> Mr. Siddharth Kapoor<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>chancellor@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>07562-292203</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Chancellor.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pro Chancellor:</strong> N/A</td>
+                    <td class="text-center text-muted fw-semibold">N/A</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Vice-Chancellor:</strong> Dr. Mukesh Tiwari<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>vc@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>+91-9826293590</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/ViceChancellor.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pro-Vice Chancellor:</strong> N/A</td>
+                    <td class="text-center text-muted fw-semibold">N/A</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Registrar:</strong> Dr. Hemant Sharma<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>registrar@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>+91-9826512726</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Registrar.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Deputy Registrar:</strong> Dr. Kanchan Shrivastav<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>deputyregistrar@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>+91-7477039825</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/DeputyRegistrar.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Principals / Directors</strong></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/HeadOfTheDepartment.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Finance Officer:</strong> Dr. Vimal Nath<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>fo@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>07562-292205</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Finance_Officer.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Controller of Examination:</strong> Dr. Sanjay Rathore<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>exam@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>+91-9630560005</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Exam_Controller.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Chief Vigilance Officer:</strong> Mr. H. S. Raghuvanshi<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>info@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>+91-9425039197</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Chief_Vigilance_Officer.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Profile</span> <i class="fa-solid fa-user me-1"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Ombudsperson:</strong> Prof.(Dr.) Varsha Namdeo<br />
+                      <small class="text-secondary"><i class="fa-solid fa-envelope me-1"></i>info@sssutms.co.in | <i class="fa-solid fa-phone me-1"></i>07562-292204</small>
+                    </td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Board of Governors / Governing Body</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/GoverningBody.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Board of Management</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/BoardOfManagement.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Academic Council</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/AcademicCouncil.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Finance Committee</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/FinanceCommittee.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Board of Studies</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/UniversityOfficials/Board_Of_Studies.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="width: 33.9792%; text-align: left; height: 76.8px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">&nbsp;NAAC</span></p>
-</td>
-<td style="width: 33.2048%; height: 76.8px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/NAAC/SSR.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.1333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.1333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">NBA</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.1333px; border-style: solid; text-align: center;" scope="col">--</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">NIRF</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Research/NIRF.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Recognition / Approval (2(f), 12B, etc. as applicable)</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="ApprovalsAndOrdinances/Approvals.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Annual Reports</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="Annual_Reports.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 136.533px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 136.533px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Annual Accounts Including Balance Sheet, Income and Expenditure Account, Receipts and Payments Account Along with Audit Report</span></p>
-</td>
-<td style="width: 33.2048%; height: 136.533px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/Audit_Report.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Sponsoring Body Details, if any</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="PromotingSociety.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 106.1px; border-style: solid;">
-<td style="height: 2417.13px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="24" scope="colgroup">
-<p>B)</p>
+                  <!-- Category C: Academics -->
+                  <tr>
+                    <td rowspan="9" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">C</span></td>
+                    <td rowspan="9" class="fw-bold text-dark align-middle">Academics</td>
+                    <td>Details of Academic Programs</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/EngineeringAndTechnology.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Academic Calendar</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/AcademicCalendar.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Statutes / Ordinances Pertaining to Academics</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/HEIHandbook.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Schools / Institutes / Departments</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Institutes.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Department-wise Faculty &amp; Staff Details</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Faculty_Staff_Details.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>UGC Recognized ODL / Online Programs</td>
+                    <td class="text-center text-muted fw-semibold">N/A</td>
+                  </tr>
+                  <tr>
+                    <td>Internal Quality Assurance Cell (IQAC)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/IQACCell.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Central Library Facilities</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Amenities/Library.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Academic Collaborations &amp; MoUs</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/NCC/MOU.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="height: 2417.13px; border-style: solid; width: 23.7177%;" rowspan="24" scope="colgroup">
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">&nbsp;Administration (Profiles with photographs and contact details)</span></p>
+                  <!-- Category D: Admissions & Fee -->
+                  <tr>
+                    <td rowspan="3" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">D</span></td>
+                    <td rowspan="3" class="fw-bold text-dark align-middle">Admissions &amp; Fee</td>
+                    <td>Prospectus &amp; Fee Structure for Programs</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Admission/Brochures.php" target="_blank" class="disclosure-btn disclosure-btn-primary mb-1">
+                        <span>Prospectus</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a><br />
+                      <a href="<?php echo BASE_URL; ?>Admission/FeesStructure.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>Fee Structure</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Admission Process &amp; Guidelines</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Admission/AdmissionProcedure.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Fee Refund Policy</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/Fees_Refund_Policy_04012025_0322.pdf" target="_blank" class="disclosure-btn disclosure-btn-danger">
+                        <i class="fa-solid fa-file-pdf"></i> <span>Policy (PDF)</span>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="height: 300.033px; width: 33.9792%; border-style: solid;" rowspan="4" scope="col">
+                  <!-- Category E: Research -->
+                  <tr>
+                    <td rowspan="3" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">E</span></td>
+                    <td rowspan="3" class="fw-bold text-dark align-middle">Research</td>
+                    <td>Research &amp; Development Cell (R&amp;D)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Research/RAndDCell.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Incubation Centre &amp; Entrepreneurship Cell</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/IncubationCell.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Central Instrumentation &amp; Research Facilities</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Central_Facilities.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">&nbsp; Chancellor</span></p>
+                  <!-- Category F: Student Life -->
+                  <tr>
+                    <td rowspan="12" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">F</span></td>
+                    <td rowspan="12" class="fw-bold text-dark align-middle">Student Life &amp; Amenities</td>
+                    <td>Sports &amp; Fitness Facilities</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Central_Facilities.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>National Cadet Corps (NCC)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/NCC/Activity.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>National Service Scheme (NSS)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/NSS.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Hostel Facilities (Boys &amp; Girls)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Amenities/Hostel.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Training &amp; Placement Cell</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/TrainingAndPlacement/TrainingAndPlacementCell.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Student Grievance Redressal Committee (SGRC)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Health &amp; Medical Facilities</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>About/Amenities/MedicalFacility.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Internal Complaints Committee (ICC)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/InternalComplaintCommittee.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Anti-Ragging Cell &amp; Squad</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/AntiRagging.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Equal Opportunity Cell</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/Equal_Opportunity_Cell.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Socio-Economically Disadvantaged Groups Cell (SEDG)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Academic/Committee/Equal_Opportunity_Cell.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Facilities for Differently-Abled (Barrier Free)</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Download/Barrier_Free_Environment.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="width: 33.2048%; height: 106.1px; border-style: solid;" scope="col">
-<p><strong><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name: Mr. Siddharth Kapoor</span></strong></p>
-</td>
-</tr>
-<tr style="height: 76.8px; border-style: solid;">
-<td style="width: 33.2048%; height: 76.8px; border-style: solid;" scope="col">
-<p><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp;<strong> <span style="font-family: 'times new roman', times, serif;"><a href="../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="462f2820290635353533322b35682529682f28">[email&#160;protected]</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.5667px; border-style: solid;">
-<td style="width: 33.2048%; height: 58.5667px; border-style: solid;" scope="col">
-<p><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile: 07562-292203</span></p>
-</td>
-</tr>
-<tr style="height: 58.5667px; border-style: solid;">
-<td style="width: 33.2048%; height: 58.5667px; border-style: solid;" scope="col">
-<p><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile : <a href="UniversityOfficials/Chancellor.php" target="_blank" rel="noopener"><strong><span style="color: #3598db;">Click here</span></strong></a></span></p>
-</td>
-</tr>
-<tr style="height: 58.1333px; border-style: solid;">
-<td style="text-align: left; width: 33.9792%; height: 58.1333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Pro Chancellor</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.1333px; border-style: solid;" scope="col">
-<p><span style="font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NA</span></p>
-</td>
-</tr>
-<tr style="height: 78.8px; border-style: solid;">
-<td style="text-align: left; height: 309.2px; width: 33.9792%; border-style: solid;" rowspan="4" scope="col">
+                  <!-- Category G: Alumni -->
+                  <tr>
+                    <td class="text-center align-middle bg-light"><span class="disclosure-cat-badge">G</span></td>
+                    <td class="fw-bold text-dark align-middle">Alumni</td>
+                    <td>Alumni Association &amp; Portal</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Download/Alumni.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Vice-Chancellor</span></p>
+                  <!-- Category H: Information Corner -->
+                  <tr>
+                    <td rowspan="9" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">H</span></td>
+                    <td rowspan="9" class="fw-bold text-dark align-middle">Information Corner</td>
+                    <td>Right to Information (RTI) Cell &amp; CPIO</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Download/RTI.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Circulars and Notices</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Announcements &amp; Notifications</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Newsletters &amp; Press Releases</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Events &amp; Achievements Showcase</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Job Openings &amp; Recruitment</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Career/index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Reservation Roster Guidelines</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Career/index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Details</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Study in India Portal</td>
+                    <td class="text-center">
+                      <a href="https://www.studyinindia.gov.in/admission/registrations" target="_blank" rel="noopener" class="disclosure-btn disclosure-btn-primary">
+                        <span>Portal Link</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>International Students Admission Facilities</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/pdf/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf" target="_blank" class="disclosure-btn disclosure-btn-danger">
+                        <i class="fa-solid fa-file-pdf"></i> <span>Details (PDF)</span>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-<td style="width: 33.2048%; height: 78.8px; border-style: solid;" scope="col">
-<p><strong><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name : Dr. Mukesh Tiwari</span></strong></p>
-</td>
-</tr>
-<tr style="height: 76.8px; border-style: solid;">
-<td style="width: 33.2048%; height: 76.8px; border-style: solid;" scope="col">
-<p><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp; <strong><span style="font-family: 'times new roman', times, serif;"><a href="../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="7006133003030305041d035e131f5e191e">[email&#160;protected]</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 76.8px; border-style: solid;">
-<td style="width: 33.2048%; height: 76.8px; border-style: solid;" scope="col">
-<p><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile :+91- 9826293590</span></p>
-</td>
-</tr>
-<tr style="height: 76.8px; border-style: solid;">
-<td style="width: 33.2048%; height: 76.8px; border-style: solid;" scope="col">
-<p><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile : <strong><span style="color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/ViceChancellor.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.1333px; border-style: solid;">
-<td style="text-align: left; width: 33.9792%; height: 58.1333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Pro-Vice Chancellor</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.1333px; border-style: solid;" scope="col">
-<p><span style="font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NA</span></p>
-</td>
-</tr>
-<tr style="height: 187.033px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 187.033px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Registrar</span></p>
-</td>
-<td style="width: 33.2048%; height: 187.033px; border-style: solid;" scope="col">
-<p style="text-align: left;"><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name : <strong>Dr. Hemant Sharma</strong><br /></span></p>
-<p style="text-align: left;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp;<strong> <span style="font-family: 'times new roman', times, serif;"><a href="../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="beccdbd9d7cdcaccdfccfecdcdcdcbcad3cd90ddd190d7d0">[email&#160;protected]</a></span></strong></span></p>
-<p style="text-align: left;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile:+91-9826512726</span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile : </span><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/Registrar.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 225.433px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 225.433px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Dy. Registrar</span></p>
-</td>
-<td style="width: 33.2048%; height: 225.433px; border-style: solid;" scope="col">
-<p style="text-align: left;"><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name : <strong>Dr. Kanchan Shrivastav</strong><br /></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp;<strong> <span style="font-family: 'times new roman', times, serif;"><a href="../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="7811161e380b0b0b0d0c150b561b17561116">[email&#160;protected]</a></span></strong></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile:+91-7477039825</span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile: </span><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/DeputyRegistrar.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
+                  <!-- Category I: Picture Gallery -->
+                  <tr>
+                    <td class="text-center align-middle bg-light"><span class="disclosure-cat-badge">I</span></td>
+                    <td class="fw-bold text-dark align-middle">Picture Gallery</td>
+                    <td>Campus Media &amp; Image Gallery</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>index.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Gallery</span> <i class="fa-solid fa-images"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-</tr>
-<tr style="height: 58.1333px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 58.1333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Principal</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.1333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="UniversityOfficials/HeadOfTheDepartment.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 171.033px; border-style: solid;">
-<td style="width: 33.9792%; text-align: left; height: 171.033px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Finance Officer</span></p>
-</td>
-<td style="width: 33.2048%; height: 171.033px; border-style: solid;" scope="col">
-<p style="text-align: left;"><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name : <strong>Dr. Vimal Nath</strong><br /></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email :&nbsp;<strong> <span style="font-family: 'times new roman', times, serif;"><a href="../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="f29b9c94b281818187869f81dc919ddc9b9c">[email&#160;protected]</a></span></strong></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile:07562-292205</span></p>
-<span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile: </span><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/Finance_Officer.php" target="_blank" rel="noopener">Click here</a></span></strong></span></td>
-</tr>
-<tr style="height: 225.433px; border-style: solid;">
-<td style="width: 33.9792%; height: 225.433px; text-align: left; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Controller of Examination</span></p>
-</td>
-<td style="width: 33.2048%; height: 225.433px; border-style: solid;" scope="col">
-<p style="text-align: left;"><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name :<strong> Dr. Sanjay Rathore</strong><br /></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp;<strong> </strong>exam<strong><span style="font-family: 'times new roman', times, serif;">@sssutms.co.in</span></strong></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile:+91-9630560005</span></p>
-<span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile: </span><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/Exam_Controller.php" target="_blank" rel="noopener">Click here</a></span></strong></span>
+                  <!-- Category J: Contact Us -->
+                  <tr>
+                    <td rowspan="2" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">J</span></td>
+                    <td rowspan="2" class="fw-bold text-dark align-middle">Contact Us</td>
+                    <td>Official Phone Numbers, Email &amp; Location Map</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Contact.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>Contact Page</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>University Telephone Directory</td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>Contact.php" target="_blank" class="disclosure-btn disclosure-btn-primary">
+                        <span>View Directory</span> <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </td>
+                  </tr>
 
-</td>
-</tr>
-<tr style="height: 171.033px; border-style: solid;">
-<td style="width: 33.9792%; height: 171.033px; text-align: left; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Chief Vigilance Officer</span></p>
-</td>
-<td style="width: 33.2048%; height: 171.033px; border-style: solid; text-align: left;" scope="col">
-<p style="text-align: left;"><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name : <strong>Mr H. S. Raghuvanshi&nbsp;&nbsp;</strong></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp;<strong> </strong>info<strong><span style="font-family: 'times new roman', times, serif;">@sssutms.co.in</span></strong></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile:+91- 94250 39197</span></p>
-<span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile: </span><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/Chief_Vigilance_Officer.php" target="_blank" rel="noopener">Click here</a></span></strong></span></td>
-</tr>
-<tr style="height: 224.933px; border-style: solid;">
-<td style="width: 33.9792%; height: 224.933px; text-align: left; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Ombudsperson</span></p>
-</td>
-<td style="width: 33.2048%; height: 224.933px; border-style: solid;" scope="col">
-<p style="text-align: left;"><strong><span style="font-family: 'book antiqua', palatino, serif; font-size: 14pt;">Name : </span><span style="font-size: 14pt; line-height: 200%; font-family: 'Times New Roman', 'serif';">Prof.(Dr.) Varsha Namdeo</span></strong></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Email:&nbsp;<strong> </strong>info<strong><span style="font-family: 'times new roman', times, serif;">@sssutms.co.in</span></strong></span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Mobile: 07562-292204</span></p>
-<p style="text-align: justify;"><span style="font-family: 'comic sans ms', sans-serif; font-size: 14pt;">Profile: </span><a href="../Academic/Committee/GrievanceRedressal.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Board of governors</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/GoverningBody.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Board of Management</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/BoardOfManagement.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Academic Council</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/AcademicCouncil.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Finance Committee</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/FinanceCommittee.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px;">
-<td style="width: 33.9792%; border-style: solid; height: 58.6333px;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Board of Studies<br /></span></p>
-</td>
-<td style="width: 33.2048%; border-style: solid; text-align: center; height: 58.6333px;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/Board_Of_Studies.php" target="_blank" rel="noopener">Click here</a><br /></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px;">
-<td style="width: 33.9792%; border-style: solid; height: 58.6333px;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Internal Complaint Committee</span></p>
-</td>
-<td style="width: 33.2048%; border-style: solid; text-align: center; height: 58.6333px;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/Committee/InternalComplaintCommittee.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 76.8px; border-style: solid;">
-<td style="width: 33.9792%; height: 76.8px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt; line-height: 107%; font-family: 'book antiqua', palatino, serif;">Academic Leadership (Dean/Hod of Schools/Departments/Centres)</span></p>
-</td>
-<td style="width: 33.2048%; height: 76.8px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="UniversityOfficials/HeadOfTheDepartment.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="height: 656.367px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="9" scope="colgroup">
+                </tbody>
+              </table>
+            </div>
 
-<p>C)</p>
-
-</td>
-<td style="height: 656.367px; border-style: solid; width: 23.7177%;" rowspan="9" scope="colgroup">
-
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">Academics</span></p>
-
-</td>
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Details of Academic Programs</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/FacultiesAndDepartments/EngineeringAndTechnology.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Academic Calendar</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/AcademicCalendar.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Statutes/Ordinances pertaining to Academics/Examinations</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/HEIHandbook.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Schools/Departments/Centres</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="Institutes.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 110.4px; border-style: solid;">
-<td style="width: 33.9792%; height: 110.4px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Department/School/Centre wise Faculty/Staff details with photographs</span></p>
-</td>
-<td style="width: 33.2048%; height: 110.4px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Academic/Faculty_Staff_Details.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">List of UGC-recognized ODL/Online programs</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">NA</span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Internal Quality Assurance Cell (IQAC)</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/IQACCell.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Library</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="Amenities/Library.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Academic collaborations</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="NCC/MOU.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 101.267px; border-style: solid;">
-<td style="height: 244.467px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="3" scope="colgroup">
-
-<p>D)</p>
-
-</td>
-<td style="height: 244.467px; border-style: solid; width: 23.7177%;" rowspan="3" scope="colgroup">
-
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">Admissions &amp; Fee</span></p>
-
-</td>
-<td style="width: 33.9792%; height: 101.267px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Prospectus</span></p>
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Fees Structure for various Program</span></p>
-</td>
-<td style="width: 33.2048%; height: 101.267px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Admission/Brochures.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-<p><span style="font-size: 14pt;"><strong style="font-size: 18.6667px;"><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Admission/FeesStructure.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 71.6px; border-style: solid;">
-<td style="width: 33.9792%; height: 71.6px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Admission process and guidelines</span></p>
-</td>
-<td style="width: 33.2048%; height: 71.6px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Admission/Admissions/AdmissionProcedure.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 71.6px; border-style: solid;">
-<td style="width: 33.9792%; height: 71.6px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Fee refund policy</span></p>
-</td>
-<td style="width: 33.2048%; height: 71.6px; border-style: solid; text-align: center;" scope="col">
-<p><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Fees_Refund_Policy_04012025_0322.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="height: 201.533px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="3" scope="colgroup">
-
-<p>E)</p>
-
-</td>
-<td style="height: 201.533px; border-style: solid; width: 23.7177%;" rowspan="3" scope="colgroup">
-
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">Research</span></p>
-
-</td>
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Research and Development Cell</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Research/RAndDCell.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Incubation Centre/Start-Ups/Entrepreneurship Cell</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/Committee/IncubationCell.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Central facilities</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="Central_Facilities.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="height: 781px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="12" scope="colgroup">
-<p>F)</p>
-
-</td>
-<td style="height: 781px; border-style: solid; width: 23.7177%;" rowspan="12" scope="colgroup">
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">Student Life</span></p>
-
-</td>
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Sports facilities</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="Central_Facilities.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">NCC</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="NCC/Activity.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">NSS</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="NSS.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Hostel</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="Amenities/Hostel.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Placement Cell</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/TrainingAndPlacement/TrainingAndPlacementCell.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 110.4px; border-style: solid;">
-<td style="width: 33.9792%; height: 110.4px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Student Grievance Redressal Committee (SGRC) and Ombudsperson</span></p>
-</td>
-<td style="width: 33.2048%; height: 110.4px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/Committee/GrievanceRedressal.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Health Facilities</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="Amenities/MedicalFacility.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Internal Complaint Committee</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/Committee/InternalComplaintCommittee.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Anti-Ragging Cell</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Academic/Committee/AntiRagging.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Equal Opportunity Cell</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Academic/Committee/Equal_Opportunity_Cell.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Socio-Economically Disadvantaged Groups Cell (SEDG)</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Academic/Committee/Equal_Opportunity_Cell.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Facilities for differently-abled</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Download/Barrier_Free_Environment.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 9.6807%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p>G)</p>
-</td>
-<td style="width: 23.7177%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">Alumni</span></p>
-</td>
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Alumni Association</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Download/Alumni.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 110.4px; border-style: solid;">
-<td style="height: 630.733px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="9" scope="colgroup">
-<p>H)</p>
-
-</td>
-<td style="height: 630.733px; border-style: solid; width: 23.7177%;" rowspan="9" scope="colgroup">
-<p style="padding-left: 40px;"><span style="font-size: 14pt;">&nbsp;Information Corner</span></p>
-
-</td>
-<td style="width: 33.9792%; height: 110.4px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">RTI: Details of Central Public Information Officer (CPIO) and Appellate Authority</span></p>
-</td>
-<td style="width: 33.2048%; height: 110.4px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Download/RTI.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Circulars and Notices</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../../../index.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Announcements</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Research/Announcements" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">News letters</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../PressMedia.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">News, Recent events &amp; Achievements</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../UpCommingEvents.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Job openings</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="https://www.sssutms.co.in<?php echo BASE_URL; ?>Career" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Reservation Roster</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><a href="../Career/index.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Study in India</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="https://www.studyinindia.gov.in/admission/registrations" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 84.2667px; border-style: solid;">
-<td style="width: 33.9792%; height: 84.2667px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Admission procedure and facilities provided to International Students</span></p>
-</td>
-<td style="width: 33.2048%; height: 84.2667px; border-style: solid; text-align: center;" scope="col">
-<p><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 0px; border-style: solid;">
-<td style="height: 77.7333px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="3" scope="colgroup">
-<p>I)</p>
-</td>
-<td style="height: 77.7333px; border-style: solid; width: 57.697%;" colspan="2" rowspan="3" scope="colgroup">
-<p><span style="font-size: 14pt;">&nbsp;Picture Gallery</span></p>
-</td>
-<td style="height: 77.7333px; border-style: solid; text-align: center; width: 33.2048%;" rowspan="3" scope="colgroup"><a href="../Galleries/ImageGallery/1.php" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;">Click here</span></strong></span></a></td>
-</tr>
-<tr style="height: 0px; border-style: solid;"></tr>
-<tr style="height: 77.7333px; border-style: solid;"></tr>
-<tr style="height: 110.4px; border-style: solid;">
-<td style="height: 169.033px; border-style: solid; width: 9.6807%; text-align: center;" rowspan="2" scope="colgroup">
-<p>J)</p>
-
-</td>
-<td style="height: 169.033px; border-style: solid; width: 23.7177%;" rowspan="2" scope="colgroup">
-<p><span style="font-size: 14pt;">&nbsp;Contact us</span></p>
-
-</td>
-<td style="width: 33.9792%; height: 110.4px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Details with Phone Number, Official Email ID and Address, Location map</span></p>
-</td>
-<td style="width: 33.2048%; height: 110.4px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Contact.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6333px; border-style: solid;">
-<td style="width: 33.9792%; height: 58.6333px; border-style: solid;" scope="col">
-<p style="text-align: left; padding-left: 40px;"><span style="font-size: 14pt;">Telephone Directory</span></p>
-</td>
-<td style="width: 33.2048%; height: 58.6333px; border-style: solid; text-align: center;" scope="col">
-<p><span style="font-size: 14pt;"><strong><span style="font-family: 'comic sans ms', sans-serif; color: #3598db;"><a style="color: #3598db;" href="../Contact.php" target="_blank" rel="noopener">Click here</a></span></strong></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-</div>
+          </div>
         </div>
+
       </div>
 
       <!-- Sticky Category Sidebar (Right) -->
