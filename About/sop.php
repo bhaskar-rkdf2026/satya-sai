@@ -1,6 +1,6 @@
 ﻿<?php
-$page_title = 'SOP - SSSUTMS';
-$banner_title = 'SOP';
+$page_title = 'School of Pharmacy - SSSUTMS';
+$banner_title = 'School of Pharmacy';
 $banner_category = 'About';
 
 require_once __DIR__ . '/../config.php';
@@ -10,6 +10,197 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
+<style>
+.inst-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1a3c6e 0%, #2563a8 100%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+}
+.inst-title-bar {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 8px;
+}
+.inst-title-bar::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #e87722, #f4a942);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+.principal-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(26,60,110,0.10);
+  overflow: hidden;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.principal-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,60,110,0.16); }
+.principal-img-wrap {
+  position: relative;
+  background: #fff;
+  padding: 28px 28px 0;
+  text-align: center;
+}
+.principal-img-wrap img {
+  width: 180px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(26,60,110,0.18);
+  border: 4px solid #fff;
+}
+.principal-info {
+  padding: 18px 20px 22px;
+  text-align: center !important;
+  background: #fff;
+}
+.principal-info h5 { font-size: 1.05rem; font-weight: 700; color: #1a3c6e; margin-bottom: 6px; text-align: center !important; padding-bottom: 0 !important; margin-top: 0 !important; }
+.principal-info h5::after { display: none !important; }
+.orange-line {
+  width: 36px;
+  height: 3px;
+  background: linear-gradient(90deg, #e87722, #f4a942);
+  border-radius: 2px;
+  margin: 0 auto 10px;
+}
+.principal-info p { font-size: 0.82rem; color: #6b7280; margin: 0; text-align: center !important; }
+.message-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(26,60,110,0.10);
+  border: none;
+  padding: 32px 36px;
+  height: 100%;
+}
+.message-card .quote-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, #e87722, #f4a942);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.message-card .quote-icon i { color: #fff; font-size: 1.2rem; }
+.message-card h4 { font-size: 0.92rem; font-weight: 700; color: #1a3c6e; margin-bottom: 16px; }
+.message-card p { color: #4b5563; line-height: 1.8; font-size: 0.95rem; }
+.section-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(26,60,110,0.10);
+  border: none;
+  padding: 32px 32px;
+  margin-bottom: 24px;
+}
+.section-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1a3c6e;
+  text-align: center;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.section-card-title i { color: #e87722; font-size: 1.3rem; }
+.course-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(26,60,110,0.08);
+  padding: 32px 20px 24px;
+  text-align: center;
+  border: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e87722, #f4a942);
+  border-radius: 0;
+}
+.course-card.blue-accent::before { background: linear-gradient(90deg, #2563a8, #60a5fa); }
+.course-card.green-accent::before { background: linear-gradient(90deg, #16a34a, #4ade80); }
+.course-card.purple-accent::before { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(26,60,110,0.16);
+}
+.course-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a3c6e, #2563a8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 8px 20px rgba(37,99,168,0.25);
+  transition: transform 0.35s ease;
+}
+.course-card.blue-accent .course-icon-circle { background: linear-gradient(135deg, #2563a8, #3b82f6); }
+.course-card.green-accent .course-icon-circle { background: linear-gradient(135deg, #16a34a, #22c55e); box-shadow: 0 8px 20px rgba(22,163,74,0.25); }
+.course-card.purple-accent .course-icon-circle { background: linear-gradient(135deg, #7c3aed, #9f67fa); box-shadow: 0 8px 20px rgba(124,58,237,0.25); }
+.course-card:hover .course-icon-circle { transform: scale(1.1); }
+.course-icon-circle i { color: #fff; font-size: 1.6rem; }
+.course-card h6 {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #1a3c6e !important;
+  margin-bottom: 6px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+.course-card h6::after { display: none !important; }
+.course-card .course-spec {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.course-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 50px;
+  margin: 3px;
+  letter-spacing: 0.03em;
+}
+.course-tag.orange { background: rgba(232,119,34,0.10); color: #c05b0a; border: 1.5px solid rgba(232,119,34,0.2); }
+.course-tag.blue   { background: rgba(37,99,168,0.10);  color: #1a4d8f; border: 1.5px solid rgba(37,99,168,0.2); }
+.course-tag.green  { background: rgba(22,163,74,0.10);  color: #166534; border: 1.5px solid rgba(22,163,74,0.2); }
+.course-tag.purple { background: rgba(124,58,237,0.10); color: #5b21b6; border: 1.5px solid rgba(124,58,237,0.2); }
+.course-badge.purple { background: linear-gradient(135deg, #7c3aed, #9f67fa); }
+.gallery-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(26,60,110,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-img:hover { transform: scale(1.03); box-shadow: 0 12px 36px rgba(26,60,110,0.2); }
+</style>
+
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
@@ -18,46 +209,83 @@ require_once __DIR__ . '/../includes/page-banner.php';
       <div class="col-lg-8 col-xl-9">
         <div class="content-card">
           <div class="content-card-body">
-            <div class="text-center mb-10" style="box-sizing: border-box; margin: 0px 0px 40px; padding: 0px; border: 0px solid #e2e8f0; text-align: center; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: oklch(0.985 0.002 247.839); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="10:8-18:14" data-source-name="div">
-<h1 class="text-3xl md:text-4xl font-bold text-gray-800" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 36px; font-weight: bold; line-height: 1.11111; --tw-font-weight: 700; color: oklch(0.278 0.033 256.848);" data-source-pos="11:10-13:15" data-source-name="h1"><span style="color: #3598db;">School of Pharmacy</span></h1>
-<p class="text-lg md:text-xl text-gray-600 mt-2" style="box-sizing: border-box; margin: 8px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 20px; line-height: 1.4; color: oklch(0.446 0.03 256.802);" data-source-pos="14:10-16:14" data-source-name="p"><span style="color: #843fa1;">Sri Satya Sai University of Technology and Medical Sciences</span></p>
-<div class="shrink-0 bg-border h-[1px] w-full mt-6" style="box-sizing: border-box; margin: 24px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; height: 1px; width: 784px; flex-shrink: 0; background-color: #e2e8f0;" role="none" data-orientation="horizontal" data-source-pos="17:10-17:40" data-source-name="Separator">&nbsp;</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12" style="box-sizing: border-box; margin: 0px 0px 48px; padding: 0px; border: 0px solid #e2e8f0; display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); align-items: flex-start; gap: 32px; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: oklch(0.985 0.002 247.839); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="21:8-54:14" data-source-name="div">
-<div class="border bg-card text-card-foreground md:col-span-1 shadow-lg rounded-2xl" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; grid-column: span 1 / span 1;" data-source-pos="23:10-35:17" data-source-name="Card">
-<div class="p-6 text-center" style="box-sizing: border-box; margin: 0px; padding: 24px; border: 0px solid #e2e8f0; text-align: center;" data-source-pos="24:12-34:26" data-source-name="CardContent"><img class="w-48 h-48 mx-auto rounded-2xl object-cover shadow-md" style="box-sizing: border-box; padding: 0px; border: 0px solid #e2e8f0; display: block; vertical-align: middle; max-width: 100%; height: 317px; margin-inline: auto; width: 226px; border-radius: 16px; object-fit: cover; --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px; margin: 0px;" src="<?php echo BASE_URL; ?>assets/images/Files/Link/registar_(1)_30012026_1145.jpg" alt="Principal" data-source-pos="25:14-29:16" data-source-name="img" />
-<h2 class="text-xl font-semibold text-gray-800 mt-4" style="box-sizing: border-box; margin: 16px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 20px; font-weight: 600; line-height: 1.4; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="30:14-32:19" data-source-name="h2">Principal</h2>
-<p class="text-sm text-gray-600" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 14px; line-height: 1.42857; color: oklch(0.446 0.03 256.802);" data-source-pos="33:14-33:73" data-source-name="p">School of Pharmacy</p>
-</div>
-</div>
-<div class="border bg-card text-card-foreground md:col-span-2 shadow-lg rounded-2xl" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; grid-column: span 2 / span 2;" data-source-pos="38:10-53:17" data-source-name="Card">
-<div class="p-6 md:p-8" style="box-sizing: border-box; margin: 0px; padding: 32px; border: 0px solid #e2e8f0;" data-source-pos="39:12-52:26" data-source-name="CardContent">
-<h3 class="text-2xl font-semibold text-gray-800 mb-4" style="box-sizing: border-box; margin: 0px 0px 16px; padding: 0px; border: 0px solid #e2e8f0; font-size: 24px; font-weight: 600; line-height: 1.33333; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="40:14-42:19" data-source-name="h3">Message from the Principal</h3>
-<p class="text-gray-700 leading-relaxed mb-4" style="box-sizing: border-box; margin: 0px 0px 16px; padding: 0px; border: 0px solid #e2e8f0; --tw-leading: 1.625; line-height: 1.625; color: oklch(0.373 0.034 259.733);" data-source-pos="43:14-45:18" data-source-name="p">At the School of Pharmacy, our focus is on delivering quality pharmaceutical education that integrates strong theoretical foundations with practical training.</p>
-<p class="text-gray-700 leading-relaxed mb-4" style="box-sizing: border-box; margin: 0px 0px 16px; padding: 0px; border: 0px solid #e2e8f0; --tw-leading: 1.625; line-height: 1.625; color: oklch(0.373 0.034 259.733);" data-source-pos="46:14-48:18" data-source-name="p">We aim to develop competent, ethical, and socially responsible pharmacists who can meet the evolving needs of healthcare and the pharmaceutical industry.</p>
-<p class="text-gray-700 leading-relaxed" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; --tw-leading: 1.625; line-height: 1.625; color: oklch(0.373 0.034 259.733);" data-source-pos="49:14-51:18" data-source-name="p">With experienced faculty members, modern laboratories, and a student-centric learning environment, the School of Pharmacy is committed to academic excellence and professional growth of every learner.</p>
-</div>
-</div>
-</div>
-<div class="border bg-card text-card-foreground shadow-lg rounded-2xl mb-12" style="box-sizing: border-box; margin: 0px 0px 48px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="57:8-75:15" data-source-name="Card">
-<div class="p-6 md:p-8" style="box-sizing: border-box; margin: 0px; padding: 32px; border: 0px solid #e2e8f0;" data-source-pos="58:10-74:24" data-source-name="CardContent">
-<h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center" style="box-sizing: border-box; margin: 0px 0px 24px; padding: 0px; border: 0px solid #e2e8f0; font-size: 24px; font-weight: 600; text-align: center; line-height: 1.33333; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="59:12-61:17" data-source-name="h3">Courses Offered</h3>
-<div class="flex justify-center" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: flex; justify-content: center;" data-source-pos="62:12-73:18" data-source-name="div">
-<div class="p-6 border rounded-xl text-center bg-white shadow-sm" style="box-sizing: border-box; margin: 0px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; text-align: center; --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;" data-source-pos="63:14-72:20" data-source-name="div">
-<h4 class="font-semibold text-gray-800 text-lg" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 18px; font-weight: 600; line-height: 1.55556; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="64:16-66:21" data-source-name="h4">Bachelor of Pharmacy</h4>
-<p class="text-sm text-gray-600 mt-1" style="box-sizing: border-box; margin: 4px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 14px; line-height: 1.42857; color: oklch(0.446 0.03 256.802);" data-source-pos="67:16-69:20" data-source-name="p">B. Pharmacy</p>
-<p class="text-xs text-gray-500 mt-2" style="box-sizing: border-box; margin: 8px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 12px; line-height: 1.33333; color: oklch(0.551 0.027 264.364);" data-source-pos="70:16-70:79" data-source-name="p">Duration: 4 Years</p>
-<p class="text-xs text-gray-500 mt-1" style="box-sizing: border-box; margin: 4px 0px 0px; padding: 0px; border: 0px solid #e2e8f0; font-size: 12px; line-height: 1.33333; color: oklch(0.551 0.027 264.364);" data-source-pos="71:16-71:91" data-source-name="p">Approved Intake: 100 Students</p>
-</div>
-</div>
-</div>
-</div>
-<div class="border bg-card text-card-foreground shadow-lg rounded-2xl mb-12" style="box-sizing: border-box; margin: 0px 0px 48px; padding: 0px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #0f172a; --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-source-pos="78:8-101:15" data-source-name="Card">
-<div class="p-6 md:p-8" style="box-sizing: border-box; margin: 0px; padding: 32px; border: 0px solid #e2e8f0;" data-source-pos="79:10-100:24" data-source-name="CardContent">
-<h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center" style="box-sizing: border-box; margin: 0px 0px 24px; padding: 0px; border: 0px solid #e2e8f0; font-size: 24px; font-weight: 600; text-align: center; line-height: 1.33333; --tw-font-weight: 600; color: oklch(0.278 0.033 256.848);" data-source-pos="80:12-82:17" data-source-name="h3">Campus &amp; Student Activities</h3>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: grid; grid-template-columns: repeat(3, minmax(0px, 1fr)); gap: 24px;" data-source-pos="83:12-99:18" data-source-name="div"><img class="rounded-xl shadow-md object-cover" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: block; vertical-align: middle; max-width: 100%; height: 31px; border-radius: 12px; object-fit: cover; box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;" src="../../../../web-sandbox.oaiusercontent.com/mnt/data/WhatsApp%20Image%202026-01-27%20at%203.03.35%20PM.jpeg" alt="Campus Activity"  data-source-pos="84:14-88:16" data-source-name="img" /><img class="rounded-xl shadow-md object-cover" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: block; vertical-align: middle; max-width: 100%; height: auto; border-radius: 12px; object-fit: cover; --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;" src="../../../../web-sandbox.oaiusercontent.com/mnt/data/WhatsApp%20Image%202026-01-27%20at%203.03.32%20PM%20(1).jpeg" alt="Students Group" data-source-pos="89:14-93:16" data-source-name="img" /><img class="rounded-xl shadow-md object-cover" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid #e2e8f0; display: block; vertical-align: middle; max-width: 100%; height: auto; border-radius: 12px; object-fit: cover; --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;" src="../../../../web-sandbox.oaiusercontent.com/mnt/data/WhatsApp%20Image%202026-01-27%20at%203.03.32%20PM.jpeg" alt="College Event" data-source-pos="94:14-98:16" data-source-name="img" /></div>
-</div>
-</div>
+
+            <!-- Page Header -->
+            <div class="text-center mb-4">
+              <div class="inst-hero-badge"><i class="fa fa-flask"></i> Pharmacy Excellence</div>
+              <h1 class="h2 fw-bold inst-title-bar" style="color:#1a3c6e;">School of Pharmacy</h1>
+              <p class="text-secondary mb-0" style="font-size:0.97rem; text-align: center !important;">Sri Satya Sai University of Technology and Medical Sciences</p>
+            </div>
+
+            <!-- Principal & Message -->
+            <div class="row g-4 mb-4 align-items-stretch">
+              <div class="col-md-4">
+                <div class="principal-card h-100">
+                  <div class="principal-img-wrap">
+                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/registar_(1)_30012026_1145.jpg"
+                         alt="Principal Ã¢â‚¬â€œ School of Pharmacy"
+                         onerror="this.src='<?php echo BASE_URL; ?>assets/images/Files/Link/principal_dummy_male.jpg'">
+                  </div>
+                  <div class="principal-info">
+                    <h5>Principal</h5>
+                    <div class="orange-line"></div>
+                    <p>School of Pharmacy</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="message-card">
+                  <div class="quote-icon"><i class="fa fa-quote-left"></i></div>
+                  <h4>Message from the Principal</h4>
+                  <p>At the School of Pharmacy, our focus is on delivering quality pharmaceutical education that integrates strong theoretical foundations with practical training.</p>
+                  <p>We aim to develop competent, ethical, and socially responsible pharmacists who can meet the evolving needs of healthcare and the pharmaceutical industry.</p>
+                  <p class="mb-0">With experienced faculty members, modern laboratories, and a student-centric learning environment, the School of Pharmacy is committed to academic excellence and professional growth of every learner.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Courses Offered -->
+            <div class="section-card">
+              <div class="section-card-title">
+                <i class="fa fa-graduation-cap"></i> Courses Offered
+              </div>
+              <div class="row g-4 justify-content-center">
+                <div class="col-sm-8 col-md-5">
+                  <div class="course-card">
+                    <div class="course-icon-circle"><i class="fa fa-flask"></i></div>
+                    <h6>Bachelor of Pharmacy</h6>
+                    <p class="course-spec">B. Pharmacy</p>
+                    <span class="course-tag orange">Duration: 4 Years</span>
+                    <span class="course-tag green">Intake: 100 Students</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Campus & Student Activities -->
+            <div class="section-card">
+              <div class="section-card-title">
+                <i class="fa fa-users"></i> Campus &amp; Student Activities
+              </div>
+              <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                  <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/pharmacy_campus_activity.jpg"
+                       alt="Campus Activity" class="gallery-img"
+                       onerror="this.src='<?php echo BASE_URL; ?>assets/images/gallery/3/img-26.jpg'">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/pharmacy_lab_students.jpg"
+                       alt="Students Group" class="gallery-img"
+                       onerror="this.src='<?php echo BASE_URL; ?>assets/images/gallery/4/img-19.jpg'">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/pharmacy_college_event.jpg"
+                       alt="College Event" class="gallery-img"
+                       onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg'">
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -73,3 +301,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
 </section>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
+
+
+
+
