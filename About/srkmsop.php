@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $page_title = 'Sri Ramnath Kapoor Memorial School Of Pharmacy - SSSUTMS';
 $banner_title = 'Sri Ramnath Kapoor Memorial School Of Pharmacy';
 $banner_category = 'About';
@@ -10,6 +10,196 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
+<style>
+.inst-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1a3c6e 0%, #2563a8 100%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+}
+.inst-title-bar {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 8px;
+}
+.inst-title-bar::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #e87722, #f4a942);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+.principal-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(26,60,110,0.10);
+  overflow: hidden;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.principal-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,60,110,0.16); }
+.principal-img-wrap {
+  position: relative;
+  background: #fff;
+  padding: 28px 28px 0;
+  text-align: center;
+}
+.principal-img-wrap img {
+  width: 180px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(26,60,110,0.18);
+  border: 4px solid #fff;
+}
+.principal-info {
+  padding: 18px 20px 22px;
+  text-align: center !important;
+  background: #fff;
+}
+.principal-info h5 { font-size: 1.05rem; font-weight: 700; color: #1a3c6e; margin-bottom: 6px; text-align: center !important; padding-bottom: 0 !important; margin-top: 0 !important; }
+.principal-info h5::after { display: none !important; }
+.orange-line {
+  width: 36px;
+  height: 3px;
+  background: linear-gradient(90deg, #e87722, #f4a942);
+  border-radius: 2px;
+  margin: 0 auto 10px;
+}
+.principal-info p { font-size: 0.82rem; color: #6b7280; margin: 0; text-align: center !important; }
+.message-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(26,60,110,0.10);
+  border: none;
+  padding: 32px 36px;
+  height: 100%;
+}
+.message-card .quote-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, #e87722, #f4a942);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.message-card .quote-icon i { color: #fff; font-size: 1.2rem; }
+.message-card h4 { font-size: 0.92rem; font-weight: 700; color: #1a3c6e; margin-bottom: 16px; }
+.message-card p { color: #4b5563; line-height: 1.8; font-size: 0.95rem; }
+.section-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(26,60,110,0.10);
+  border: none;
+  padding: 32px 32px;
+  margin-bottom: 24px;
+}
+.section-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1a3c6e;
+  text-align: center;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.section-card-title i { color: #e87722; font-size: 1.3rem; }
+.course-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(26,60,110,0.08);
+  padding: 32px 20px 24px;
+  text-align: center;
+  border: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e87722, #f4a942);
+  border-radius: 0;
+}
+.course-card.blue-accent::before { background: linear-gradient(90deg, #2563a8, #60a5fa); }
+.course-card.green-accent::before { background: linear-gradient(90deg, #16a34a, #4ade80); }
+.course-card.purple-accent::before { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(26,60,110,0.16);
+}
+.course-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a3c6e, #2563a8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 8px 20px rgba(37,99,168,0.25);
+  transition: transform 0.35s ease;
+}
+.course-card.blue-accent .course-icon-circle { background: linear-gradient(135deg, #2563a8, #3b82f6); }
+.course-card.green-accent .course-icon-circle { background: linear-gradient(135deg, #16a34a, #22c55e); box-shadow: 0 8px 20px rgba(22,163,74,0.25); }
+.course-card.purple-accent .course-icon-circle { background: linear-gradient(135deg, #7c3aed, #9f67fa); box-shadow: 0 8px 20px rgba(124,58,237,0.25); }
+.course-card:hover .course-icon-circle { transform: scale(1.1); }
+.course-icon-circle i { color: #fff; font-size: 1.6rem; }
+.course-card h6 {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #1a3c6e !important;
+  margin-bottom: 6px !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+.course-card h6::after { display: none !important; }
+.course-card .course-spec {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.course-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 50px;
+  margin: 3px;
+  letter-spacing: 0.03em;
+}
+.course-tag.orange { background: rgba(232,119,34,0.10); color: #c05b0a; border: 1.5px solid rgba(232,119,34,0.2); }
+.course-tag.blue   { background: rgba(37,99,168,0.10);  color: #1a4d8f; border: 1.5px solid rgba(37,99,168,0.2); }
+.course-tag.green  { background: rgba(22,163,74,0.10);  color: #166534; border: 1.5px solid rgba(22,163,74,0.2); }
+.course-tag.purple { background: rgba(124,58,237,0.10); color: #5b21b6; border: 1.5px solid rgba(124,58,237,0.2); }
+.gallery-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(26,60,110,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-img:hover { transform: scale(1.03); box-shadow: 0 12px 36px rgba(26,60,110,0.2); }
+</style>
+
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
@@ -18,90 +208,91 @@ require_once __DIR__ . '/../includes/page-banner.php';
       <div class="col-lg-8 col-xl-9">
         <div class="content-card">
           <div class="content-card-body">
-            
+
+            <!-- Page Header -->
             <div class="text-center mb-4">
-              <h1 class="h2 fw-bold text-primary mb-2">Sri Ramnath Kapoor Memorial School Of Pharmacy</h1>
-              <p class="lead text-secondary mb-0">Sri Satya Sai University of Technology and Medical Sciences</p>
-              <hr class="my-4">
+              <div class="inst-hero-badge"><i class="fa fa-flask"></i> Pharmacy Excellence</div>
+              <h1 class="h2 fw-bold inst-title-bar" style="color:#1a3c6e;">Sri Ramnath Kapoor Memorial School Of Pharmacy</h1>
+              <p class="text-secondary mb-0" style="font-size:0.97rem; text-align: center !important;">Sri Satya Sai University of Technology and Medical Sciences</p>
             </div>
 
-            <!-- Principal & Message Card Grid -->
+            <!-- Principal & Message -->
             <div class="row g-4 mb-4 align-items-stretch">
-              
-              <!-- Principal Card -->
               <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 bg-white">
-                  <div class="mb-3">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ChatGPT_Image_Feb_10,_2026,_01_15_30_PM_10022026_0120.png" alt="Principal" class="rounded-3 shadow-sm img-fluid" style="max-height: 220px; width: auto; object-fit: cover;">
+                <div class="principal-card h-100">
+                  <div class="principal-img-wrap">
+                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ChatGPT_Image_Feb_10,_2026,_01_15_30_PM_10022026_0120.png"
+                         alt="Principal Ã¢â‚¬â€œ Sri Ramnath Kapoor Memorial School of Pharmacy"
+                         onerror="this.src='<?php echo BASE_URL; ?>assets/images/Files/Link/principal_dummy_male.jpg'">
                   </div>
-                  <h5 class="fw-bold text-dark mb-1">Principal</h5>
-                  <p class="text-muted small mb-0">School of Pharmacy</p>
+                  <div class="principal-info">
+                    <h5>Principal</h5>
+                    <div class="orange-line"></div>
+                    <p>School of Pharmacy</p>
+                  </div>
                 </div>
               </div>
 
-              <!-- Principal Message -->
               <div class="col-md-8">
-                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 p-md-4 bg-white">
-                  <h4 class="fw-bold text-primary mb-3"><i class="fa fa-quote-left me-2 text-accent"></i> Message from the Principal</h4>
-                  <p class="text-secondary mb-3" style="line-height: 1.7;">
-                    At <strong>Sri Ramnath Kapoor Memorial School Of Pharmacy</strong>, we are dedicated to providing high-quality pharmaceutical education that combines strong academic knowledge with practical and clinical exposure.
-                  </p>
-                  <p class="text-secondary mb-3" style="line-height: 1.7;">
-                    Our mission is to prepare skilled, ethical, and responsible pharmacy professionals who are capable of contributing effectively to healthcare, research, and the pharmaceutical industry.
-                  </p>
-                  <p class="text-secondary mb-3" style="line-height: 1.7;">
-                    We focus on innovation in learning, hands-on laboratory training, and industry-oriented education so that our students are ready to meet real-world challenges.
-                  </p>
-                  <p class="text-secondary mb-3" style="line-height: 1.7;">
-                    With qualified faculty, well-equipped laboratories, and a supportive learning environment, our institution is committed to shaping future pharmacists who will serve society with professionalism and integrity.
-                  </p>
-                  <p class="text-secondary mb-0" style="line-height: 1.7;">
-                    We believe in continuous learning, discipline, and excellence, and we strive to help every student achieve their full potential and build a successful career in pharmacy.
-                  </p>
+                <div class="message-card">
+                  <div class="quote-icon"><i class="fa fa-quote-left"></i></div>
+                  <h4>Message from the Principal</h4>
+                  <p>At <strong>Sri Ramnath Kapoor Memorial School Of Pharmacy</strong>, we are dedicated to providing high-quality pharmaceutical education that combines strong academic knowledge with practical and clinical exposure.</p>
+                  <p>Our mission is to prepare skilled, ethical, and responsible pharmacy professionals who are capable of contributing effectively to healthcare, research, and the pharmaceutical industry.</p>
+                  <p>We focus on innovation in learning, hands-on laboratory training, and industry-oriented education so that our students are ready to meet real-world challenges.</p>
+                  <p>With qualified faculty, well-equipped laboratories, and a supportive learning environment, our institution is committed to shaping future pharmacists who will serve society with professionalism and integrity.</p>
+                  <p class="mb-0">We believe in continuous learning, discipline, and excellence, and we strive to help every student achieve their full potential and build a successful career in pharmacy.</p>
                 </div>
               </div>
-
             </div>
 
-            <!-- Courses Offered Card -->
-            <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
-              <h4 class="fw-bold text-center text-primary mb-4"><i class="fa fa-graduation-cap me-2 text-accent"></i> Courses Offered</h4>
-              <div class="row g-3 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                  <div class="p-4 border rounded-3 text-center bg-light h-100">
-                    <h5 class="fw-bold text-dark mb-1">Bachelor of Pharmacy</h5>
-                    <p class="text-muted small mb-2">B. Pharmacy</p>
-                    <div class="d-flex justify-content-center gap-3 mt-3">
-                      <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2">Duration: 4 Years</span>
-                      <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2">Intake: 100 Students</span>
-                    </div>
+            <!-- Courses Offered -->
+            <div class="section-card">
+              <div class="section-card-title">
+                <i class="fa fa-graduation-cap"></i> Courses Offered
+              </div>
+              <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-lg-5">
+                  <div class="course-card">
+                    <div class="course-icon-circle"><i class="fa fa-flask"></i></div>
+                    <h6>Bachelor of Pharmacy</h6>
+                    <p class="course-spec">B. Pharmacy</p>
+                    <span class="course-tag orange">Duration: 4 Years</span>
+                    <span class="course-tag green">Intake: 100 Students</span>
                   </div>
                 </div>
-                <div class="col-md-6 col-lg-5">
-                  <div class="p-4 border rounded-3 text-center bg-light h-100">
-                    <h5 class="fw-bold text-dark mb-1">Diploma of Pharmacy</h5>
-                    <p class="text-muted small mb-2">D. Pharmacy</p>
-                    <div class="d-flex justify-content-center gap-3 mt-3">
-                      <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2">Duration: 2 Years</span>
-                      <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2">Intake: 60 Students</span>
-                    </div>
+                <div class="col-sm-6 col-lg-5">
+                  <div class="course-card blue-accent">
+                    <div class="course-icon-circle"><i class="fa fa-pills"></i></div>
+                    <h6>Diploma of Pharmacy</h6>
+                    <p class="course-spec">D. Pharmacy</p>
+                    <span class="course-tag blue">Duration: 2 Years</span>
+                    <span class="course-tag green">Intake: 60 Students</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Campus & Student Activities -->
-            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-              <h4 class="fw-bold text-center text-primary mb-4"><i class="fa fa-users me-2 text-accent"></i> Campus &amp; Student Activities</h4>
-              <div class="row g-3 justify-content-center">
+            <div class="section-card">
+              <div class="section-card-title">
+                <i class="fa fa-users"></i> Campus &amp; Student Activities
+              </div>
+              <div class="row g-3">
                 <div class="col-md-4 col-sm-6">
-                  <img src="<?php echo BASE_URL; ?>assets/images/gallery/3/img-26.jpg" alt="Laboratory" class="img-fluid rounded-3 shadow-sm w-100" style="height: 200px; object-fit: cover;" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/slide1.jpg'">
+                  <img src="<?php echo BASE_URL; ?>assets/images/gallery/3/img-26.jpg"
+                       alt="Laboratory" class="gallery-img"
+                       onerror="this.src='<?php echo BASE_URL; ?>assets/images/Files/Link/pharmacy_campus_activity.jpg'">
                 </div>
                 <div class="col-md-4 col-sm-6">
-                  <img src="<?php echo BASE_URL; ?>assets/images/gallery/4/img-19.jpg" alt="Library" class="img-fluid rounded-3 shadow-sm w-100" style="height: 200px; object-fit: cover;" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/IMG-20260112-WA0037.jpg'">
+                  <img src="<?php echo BASE_URL; ?>assets/images/gallery/4/img-19.jpg"
+                       alt="Library" class="gallery-img"
+                       onerror="this.src='<?php echo BASE_URL; ?>assets/images/Files/Link/pharmacy_lab_students.jpg'">
                 </div>
                 <div class="col-md-4 col-sm-6">
-                  <img src="<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg" alt="College Event" class="img-fluid rounded-3 shadow-sm w-100" style="height: 200px; object-fit: cover;" onerror="this.src='<?php echo BASE_URL; ?>assets/images/slider/AARAMBH.jpg'">
+                  <img src="<?php echo BASE_URL; ?>assets/images/slider/aamh(2).jpg"
+                       alt="College Event" class="gallery-img"
+                       onerror="this.src='<?php echo BASE_URL; ?>assets/images/Files/Link/pharmacy_college_event.jpg'">
                 </div>
               </div>
             </div>
@@ -120,3 +311,8 @@ require_once __DIR__ . '/../includes/page-banner.php';
 </section>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
+
+
+
+
+

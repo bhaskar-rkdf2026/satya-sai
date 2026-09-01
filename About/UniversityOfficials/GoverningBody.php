@@ -1,6 +1,6 @@
-﻿<?php
-$page_title = 'GoverningBody - SSSUTMS';
-$banner_title = 'GoverningBody';
+<?php
+$page_title = 'Governing Body - SSSUTMS';
+$banner_title = 'Governing Body';
 $banner_category = 'About';
 
 require_once __DIR__ . '/../../config.php';
@@ -10,221 +10,321 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.gb-page-section {
+  background-color: #f8fafc;
+}
+.gb-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+.gb-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+}
+.gb-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+}
+.gb-notification-box {
+  background: #f8fafc;
+  border-left: 4px solid #0b2545;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.gb-notification-box p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+}
+.gb-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+.gb-pdf-btn:hover {
+  background: #b91c1c;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
+}
+.gb-table-wrapper {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+}
+.gb-table {
+  margin-bottom: 0;
+}
+.gb-table thead th {
+  background: #0b2545;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  border: none;
+  vertical-align: middle;
+}
+.gb-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  font-size: 0.92rem;
+  color: #334155;
+  border-color: #f1f5f9;
+}
+.gb-table tbody tr:nth-of-type(even) {
+  background-color: #f8fafc;
+}
+.gb-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+.gb-statute-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  font-family: monospace;
+}
+.gb-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.gb-role-chancellor { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.gb-role-vc { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.gb-role-sponsor { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+.gb-role-visitor { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.gb-role-govt { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+.gb-role-registrar { background: #ccfbf1; color: #115e59; border: 1px solid #99f6e4; }
+</style>
+
+<section class="subpage-main-section gb-page-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormal" style="  text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 13.5pt; font-family: 'Segoe UI','sans-serif';  color: #ff9c00; ">GOVERNING BODY OF THE UNIVERSITY</span></strong></p>
+        
+        <!-- Main Card Wrapper -->
+        <div class="gb-main-card mb-4">
+          
+          <!-- Banner Header -->
+          <div class="gb-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge bg-warning text-dark fw-bold uppercase mb-2 px-3 py-2 rounded-pill">
+                <i class="fa-solid fa-building-columns me-1"></i> Apex Executive Body
+              </span>
+              <h3 class="fw-bold text-white mb-0 fs-3">GOVERNING BODY OF THE UNIVERSITY</h3>
+            </div>
+            <div>
+              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/governance_13062024_0218.pdf" target="_blank" rel="noopener" class="gb-pdf-btn">
+                <i class="fa-solid fa-file-pdf fs-5"></i>
+                <span>Download Official Gazette (PDF)</span>
+              </a>
+            </div>
+          </div>
 
-<p class="MsoNormal" style="line-height: normal; text-align: left;" align="center"></p>
-<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';">As per letter no. 1022/508/cc/17/38 dated 01/12/2022 the following three members are nominated as per the provision of Niji Vishwavidyalaya </span><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';"> (Sthapana &amp; Sanchalan) act 2007 para 22(1) (d) viz 1. Dr. Vinod Krishan Sethi, 2. Dr. Ajay Singh Parihar, and 3. Dr. B.M. Mane, and also as per &nbsp;</span><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';"> the provision of Niji Vishwavidyalaya (Sthapana &amp; Sanchalan) act 2007 para 22(1) (e) Dr. Sapan Patel are nominated in the Governing Body </span><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';">of Sri Satya Sai University of Technology and Medical Sciences, Sehore. Presently the Composition of Governing Body is as follows :-</span></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; padding-left: 680px;" align="center"><strong><span style="font-size: 13.5pt; font-family: 'Segoe UI', 'sans-serif';">&nbsp;</span></strong><span style="font-size: 13.5pt; font-family: 'Segoe UI', 'sans-serif';"> &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/governance_13062024_0218.pdf" target="_blank" rel="noopener"><strong>Click here</strong></a><br /></span></p>
+          <!-- Body Container -->
+          <div class="p-4">
+            
+            <!-- Statutory Notification Text -->
+            <div class="gb-notification-box">
+              <div class="d-flex align-items-start gap-3">
+                <div class="text-primary fs-4 mt-1">
+                  <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold text-dark mb-1">Statutory Notification &amp; Ordinance Provisions</h6>
+                  <p class="mb-0 text-justify">
+                    As per letter no. <strong>1022/508/cc/17/38 dated 01/12/2022</strong> the following three members are nominated as per the provision of <strong>Niji Vishwavidyalaya (Sthapana &amp; Sanchalan) act 2007 para 22(1) (d)</strong> viz 1. Dr. Vinod Krishan Sethi, 2. Dr. Ajay Singh Parihar, and 3. Dr. B.M. Mane, and also as per the provision of <strong>Niji Vishwavidyalaya (Sthapana &amp; Sanchalan) act 2007 para 22(1) (e)</strong> Dr. Sapan Patel are nominated in the Governing Body of <strong>Sri Satya Sai University of Technology and Medical Sciences, Sehore</strong>. Presently the Composition of Governing Body is as follows:
+                  </p>
+                </div>
+              </div>
+            </div>
 
-<p class="MsoNormal" style="line-height: normal; padding-left: 160px; text-align: left;" align="center"></p>
-<div align="center">
-<table class="MsoTableMediumShading1Accent1" style="width: 844px; border: medium; height: 726px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td style="width: 54.9833px; border-width: 1pt; border-color: windowtext; border-image: initial; background: #4f81bd; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Arial','sans-serif';  color: white;  ">S. No.</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: 1pt; border-color: windowtext; border-image: initial; background: #4f81bd; padding: 0cm 5.4pt;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Authority as per Statute No. 10</span></strong></td>
-<td style="width: 183.417px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-image: initial; border-left: medium; background: #4f81bd; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Arial','sans-serif';  color: white;  ">Name</span></strong></p>
-</td>
-<td style="width: 163.683px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-image: initial; border-left: medium; background: #4f81bd; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Arial','sans-serif';  color: white;  ">Profession</span></strong></p>
-</td>
-<td style="width: 243.35px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-image: initial; border-left: medium; background: #4f81bd; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Arial','sans-serif';  color: white;  ">Full Postal Address<br /></span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">1</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span></strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (i)</span></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  margin-left: 8.75pt; text-indent: -8.75pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Mr. Sidharth Kapoor</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Chancellor &amp; Ex. Officio Chairman</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">E3/4 Arera Colony Bhopal (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">2</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (ii)</span>&nbsp;</p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;" valign="top">
+            <!-- Responsive Members Table -->
+            <div class="gb-table-wrapper table-responsive">
+              <table class="table gb-table align-middle">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width: 70px;">S. No.</th>
+                    <th style="width: 140px;">Statute Ref.</th>
+                    <th style="width: 200px;">Name</th>
+                    <th style="width: 220px;">Profession / Capacity</th>
+                    <th>Full Postal Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <!-- Member 1 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">1</td>
+                    <td><span class="gb-statute-badge">09 (I) (i)</span></td>
+                    <td><strong class="text-dark">Mr. Sidharth Kapoor</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-chancellor">
+                        <i class="fa-solid fa-crown me-1"></i> Chancellor &amp; Ex. Officio Chairman
+                      </span>
+                    </td>
+                    <td>E3/4 Arera Colony Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">Vice Chancellor</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">123 Amrit Enclave, Ayodhya By Pass Road, Bhopal (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">3</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (iii)</span><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; "> <br /></span></strong></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
+                  <!-- Member 2 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">2</td>
+                    <td><span class="gb-statute-badge">09 (I) (ii)</span></td>
+                    <td><strong class="text-dark">Dr. Mukesh Tiwari</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-vc">
+                        <i class="fa-solid fa-user-graduate me-1"></i> Vice Chancellor
+                      </span>
+                    </td>
+                    <td>123 Amrit Enclave, Ayodhya By Pass Road, Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. Gopal Panda</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">Nominee of Sponsoring Body</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">SRK University Bhopal (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">4</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (iii)</span><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; "> <br /></span></strong></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;" valign="top">
+                  <!-- Member 3 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">3</td>
+                    <td><span class="gb-statute-badge">09 (I) (iii)</span></td>
+                    <td><strong class="text-dark">Dr. Gopal Panda</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-sponsor">
+                        <i class="fa-solid fa-building me-1"></i> Nominee of Sponsoring Body
+                      </span>
+                    </td>
+                    <td>SRK University Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Mr. Gulshan Kapoor</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">Nominee of Sponsoring Body</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Vill No. 435, Omex City near regent Hotel Magaliya, Indore (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">5</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (iii)</span><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; "> <br /></span></strong></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
+                  <!-- Member 4 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">4</td>
+                    <td><span class="gb-statute-badge">09 (I) (iii)</span></td>
+                    <td><strong class="text-dark">Mr. Gulshan Kapoor</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-sponsor">
+                        <i class="fa-solid fa-building me-1"></i> Nominee of Sponsoring Body
+                      </span>
+                    </td>
+                    <td>Vill No. 435, Omex City near regent Hotel Magaliya, Indore (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. (Mrs.) Ruchi Choubey</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">Nominee of Sponsoring Body</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">DK-4, 289/A Danishkunj, Opp. Shaktidam Mandir Bhoapl (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">6</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (iv)</span><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; "> <br /></span></strong></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;" valign="top">
+                  <!-- Member 5 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">5</td>
+                    <td><span class="gb-statute-badge">09 (I) (iii)</span></td>
+                    <td><strong class="text-dark">Dr. (Mrs.) Ruchi Choubey</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-sponsor">
+                        <i class="fa-solid fa-building me-1"></i> Nominee of Sponsoring Body
+                      </span>
+                    </td>
+                    <td>DK-4, 289/A Danishkunj, Opp. Shaktidam Mandir Bhoapl (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. Vinod Krishan Sehti</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Visitor Nominee</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Ex Rector and Director, RGPV, Bhopal (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">7</span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (iv)</span><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; "> <br /></span></strong></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
+                  <!-- Member 6 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">6</td>
+                    <td><span class="gb-statute-badge">09 (I) (iv)</span></td>
+                    <td><strong class="text-dark">Dr. Vinod Krishan Sehti</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-visitor">
+                        <i class="fa-solid fa-user-tie me-1"></i> Visitor Nominee
+                      </span>
+                    </td>
+                    <td>Ex Rector and Director, RGPV, Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. Ajay Singh Parihar</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Visitor Nominee</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Govt. Homoeopathy College, Bhopal (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">8<br /></span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (iv)</span></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. B.M. Mane</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Visitor Nominee</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Bhakti Paradise First Floor, Block &ndash; 7 link Road, Chinchvad, Pune (MS)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">9<br /></span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (v)</span></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. Sapan Patel</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">M.P. State Govt. Representative</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Officr on Special Duty, Higher Education, Satpura Bhavan, Bhopal (MP)</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 54.9833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><strong><span style="font-size: 13.0pt; font-family: 'Times New Roman','serif';  color: #10253f; ">10<br /></span></strong></p>
-</td>
-<td style="width: 120.567px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-image: initial; border-top: medium; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="  text-align: center; line-height: 24.0pt; " align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">09 (I) (vi)</span></p>
-</td>
-<td style="width: 183.417px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style="text-indent: -8.75pt; line-height: 24.0pt;  margin: 0cm 0cm .0001pt 8.75pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Dr. Hemant Sharma</span></p>
-</td>
-<td style="width: 163.683px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">Registrar and Member Secretary</span></p>
-</td>
-<td style="width: 243.35px; border-width: medium 1pt 1pt medium; border-top-style: none; border-left: medium; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 24.0pt; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; ">42 Janki Residency, Kolar Road, Bhopal (MP)</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+                  <!-- Member 7 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">7</td>
+                    <td><span class="gb-statute-badge">09 (I) (iv)</span></td>
+                    <td><strong class="text-dark">Dr. Ajay Singh Parihar</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-visitor">
+                        <i class="fa-solid fa-user-tie me-1"></i> Visitor Nominee
+                      </span>
+                    </td>
+                    <td>Govt. Homoeopathy College, Bhopal (MP)</td>
+                  </tr>
 
-</div>
+                  <!-- Member 8 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">8</td>
+                    <td><span class="gb-statute-badge">09 (I) (iv)</span></td>
+                    <td><strong class="text-dark">Dr. B.M. Mane</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-visitor">
+                        <i class="fa-solid fa-user-tie me-1"></i> Visitor Nominee
+                      </span>
+                    </td>
+                    <td>Bhakti Paradise First Floor, Block &ndash; 7 link Road, Chinchvad, Pune (MS)</td>
+                  </tr>
+
+                  <!-- Member 9 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">9</td>
+                    <td><span class="gb-statute-badge">09 (I) (v)</span></td>
+                    <td><strong class="text-dark">Dr. Sapan Patel</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-govt">
+                        <i class="fa-solid fa-landmark me-1"></i> M.P. State Govt. Representative
+                      </span>
+                    </td>
+                    <td>Officr on Special Duty, Higher Education, Satpura Bhavan, Bhopal (MP)</td>
+                  </tr>
+
+                  <!-- Member 10 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">10</td>
+                    <td><span class="gb-statute-badge">09 (I) (vi)</span></td>
+                    <td><strong class="text-dark">Dr. Hemant Sharma</strong></td>
+                    <td>
+                      <span class="gb-role-pill gb-role-registrar">
+                        <i class="fa-solid fa-user-gear me-1"></i> Registrar and Member Secretary
+                      </span>
+                    </td>
+                    <td>42 Janki Residency, Kolar Road, Bhopal (MP)</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
         </div>
+
       </div>
 
       <!-- Sticky Category Sidebar (Right) -->

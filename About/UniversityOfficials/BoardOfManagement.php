@@ -1,6 +1,6 @@
-﻿<?php
-$page_title = 'BoardOfManagement - SSSUTMS';
-$banner_title = 'BoardOfManagement';
+<?php
+$page_title = 'Board of Management - SSSUTMS';
+$banner_title = 'Board of Management';
 $banner_category = 'About';
 
 require_once __DIR__ . '/../../config.php';
@@ -10,189 +10,294 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.bom-page-section {
+  background-color: #f8fafc;
+}
+.bom-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+.bom-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+}
+.bom-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+.bom-notification-box {
+  background: #f8fafc;
+  border-left: 4px solid #0b2545;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.bom-notification-box p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+}
+.bom-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+.bom-pdf-btn:hover {
+  background: #b91c1c;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
+}
+.bom-table-wrapper {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+}
+.bom-table {
+  margin-bottom: 0;
+}
+.bom-table thead th {
+  background: #0b2545;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  border: none;
+  vertical-align: middle;
+}
+.bom-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  font-size: 0.92rem;
+  color: #334155;
+  border-color: #f1f5f9;
+}
+.bom-table tbody tr:nth-of-type(even) {
+  background-color: #f8fafc;
+}
+.bom-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+.bom-statute-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  font-family: monospace;
+}
+.bom-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.bom-role-vc { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.bom-role-sponsor { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+.bom-role-prof { background: #ccfbf1; color: #115e59; border: 1px solid #99f6e4; }
+.bom-role-teacher { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.bom-role-registrar { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+</style>
+
+<section class="subpage-main-section bom-page-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
+        
+        <!-- Main Card Wrapper -->
+        <div class="bom-main-card mb-4">
+          
+          <!-- Banner Header -->
+          <div class="bom-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge bg-info text-dark fw-bold uppercase mb-2 px-3 py-2 rounded-pill">
+                <i class="fa-solid fa-users-gear me-1"></i> Executive Board
+              </span>
+              <h3 class="fw-bold text-white mb-0 fs-3">BOARD OF MANAGEMENT OF THE UNIVERSITY</h3>
+            </div>
+            <div>
+              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BOM_14062024_0501.pdf" target="_blank" rel="noopener" class="bom-pdf-btn">
+                <i class="fa-solid fa-file-pdf fs-5"></i>
+                <span>Download Official Document (PDF)</span>
+              </a>
+            </div>
+          </div>
 
-<p class="MsoNormal" style="text-align: center; line-height: normal; padding-left: 40px;" align="center"><span style="font-size: 14pt;"><strong><span style="font-family: 'Times New Roman', 'serif'; color: #ff9c00;">BOARD OF MANAGEMENT OF THE UNIVERSITY</span></strong></span></p>
+          <!-- Body Container -->
+          <div class="p-4">
+            
+            <!-- Statutory Notification Text -->
+            <div class="bom-notification-box">
+              <div class="d-flex align-items-start gap-3">
+                <div class="text-primary fs-4 mt-1">
+                  <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold text-dark mb-1">Statutory Constitution &amp; Authority</h6>
+                  <p class="mb-0 text-justify">
+                    As per <strong>Niji Vishwavidyalaya (Sthapana &amp; Sanchalan) Act 23(1)</strong> and university <strong>Statute-10 of 2014</strong>, the Board of Management of <strong>Sri Satya Sai University of Technology and Medical Sciences, Sehore</strong>, comprises of the following members:
+                  </p>
+                </div>
+              </div>
+            </div>
 
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"></p>
+            <!-- Responsive Members Table -->
+            <div class="bom-table-wrapper table-responsive">
+              <table class="table bom-table align-middle">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width: 70px;">S. No.</th>
+                    <th style="width: 140px;">Statute Ref.</th>
+                    <th style="width: 200px;">Name</th>
+                    <th style="width: 240px;">Profession / Capacity</th>
+                    <th>Full Postal Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <!-- Member 1 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">1</td>
+                    <td><span class="bom-statute-badge">10(2)(i)</span></td>
+                    <td><strong class="text-dark">Dr. Mukesh Tiwari</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-vc">
+                        <i class="fa-solid fa-user-graduate me-1"></i> Vice Chancellor &amp; Ex Officio Chairman
+                      </span>
+                    </td>
+                    <td>123 Amrit Enclave, Ayodhya By Pass Road, Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';">As per niji Vishwavidyalaya (Sthapana &amp; Sanchalan) Act 23(1) and university Statute-10 of 2014, the</span></p>
-<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';"> Board of Management </span><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';">of Sri Satya sai University of Technology and Medical Sciences, Sehore, comprises </span></p>
-<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 14pt; font-family: 'Times New Roman', 'serif';">of the following members:-</span></p>
+                  <!-- Member 2 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">2</td>
+                    <td><span class="bom-statute-badge">10(2)(ii)</span></td>
+                    <td><strong class="text-dark">Dr. Sunil Patil</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-sponsor">
+                        <i class="fa-solid fa-building me-1"></i> Nominee of Sponsoring Body, Member
+                      </span>
+                    </td>
+                    <td>E-17, Sector-3, Katara Hills Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="text-align: justify; text-indent: 36pt; line-height: 1; padding-left: 80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BOM_14062024_0501.pdf" target="_blank" rel="noopener"><strong> <span style="font-size: 14pt;">Click here</span></strong></a></p>
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"></p>
-<table class="MsoTableLightGridAccent1" style="width: 866px; border-collapse: collapse; border: medium; height: 1029px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 84px;">
-<td style="width: 146.95px; border-width: 1pt 1pt 2.25pt; border-style: solid; border-color: #4f81bd; padding-top: 0cm; padding-right: 5.4pt; padding-bottom: 0cm; height: 84px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; padding-left: 40px; text-align: left;" align="center"><span style="font-size: 14pt;"><strong><span lang="EN-US" style="font-family: 'Cambria', 'serif';">S.No.</span></strong></span></p>
-</td>
-<td style="width: 149.433px; border-width: 1pt 1pt 2.25pt medium; border-style: solid solid solid none; border-color: #4f81bd #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 84px;">
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;" align="center"><span style="font-size: 14pt;"><strong><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Authority as per Statute No. 10</span></strong></span></p>
-</td>
-<td style="width: 188.783px; border-width: 1pt 1pt 2.25pt medium; border-style: solid solid solid none; border-color: #4f81bd #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 84px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal; padding-left: 40px;" align="center"><span style="font-size: 14pt;"><strong><span lang="EN-US" style="font-family: 'Cambria', 'serif';">Name</span></strong></span></p>
-</td>
-<td style="width: 133.933px; border-width: 1pt 1pt 2.25pt medium; border-style: solid solid solid none; border-color: #4f81bd #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 84px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 14pt;"><strong><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Profession</span></strong></span></p>
-</td>
-<td style="width: 176.1px; border-width: 1pt 1pt 2.25pt medium; border-style: solid solid solid none; border-color: #4f81bd #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 84px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 14pt;"><strong><span lang="EN-US" style="font-family: 'Cambria', 'serif';">Full Postal Address</span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 94px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; background: #d3dfee; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">1.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 94px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(i)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Dr. Mukesh Tiwari</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 94px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Vice Chancellor &amp; Ex Officio Chairman</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">123 Amrit Enclave, Ayodhya By Pass Road, Bhopal (MP)</span></span></p>
-</td>
-</tr>
-<tr style="height: 94px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">2.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(ii)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Dr. Sunil Patil</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Nominee of Sponsoring Body, Member</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">E-17, Sector-3, Katara Hills Bhopal (MP)</span></span></p>
-</td>
-</tr>
-<tr style="height: 119px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; background: #d3dfee; padding: 0cm 5.4pt; height: 119px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">3.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 119px;">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(ii)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 119px;" valign="top">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Mr. Anoop Singh</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 119px;">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Senior most Professor of the University-Member</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 119px;" valign="top">
-<p class="MsoNormalCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">H S 319 Naya Basera, Kotra Sultanabad Road, Bhopal (MP)</span></span></p>
-</td>
-</tr>
-<tr style="height: 119px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; padding: 0cm 5.4pt; height: 119px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">4.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 119px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(iv)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 119px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span lang="EN-US" style="line-height: 150%; text-transform: uppercase;"><span style="">&nbsp;</span></span><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Dr. Neelam Khare</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 119px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Senior most Professor of the University-Member</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 119px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span lang="EN-US"><span style="">&nbsp;</span></span><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Manglam Enclave, lal Ghati Bhopal</span></span></p>
-</td>
-</tr>
-<tr style="height: 116px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; background: #d3dfee; padding: 0cm 5.4pt; height: 116px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">5.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt 0cm 5px; height: 116px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(iv)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt 0cm 5px; height: 116px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span lang="EN-US" style="line-height: 150%; text-transform: uppercase;"><span style="">&nbsp;</span></span><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Ms. Alka Thakur</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 116px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Senior most Professor of the University-Member</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 116px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">41/1, 42/3 Barkhedi kalan Bhadbhada, Road, Bhopal</span></span></p>
-</td>
-</tr>
-<tr style="height: 143px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; padding: 0cm 5.4pt; height: 143px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">6.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 143px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(iv)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 143px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Mrs. Priyanka Jhawar</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 143px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Senior most Teacher of the University- (other than the Clause IV) &ndash; Member</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 143px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Nalanda School Road, Chankyapuri, Sehore</span></span></p>
-</td>
-</tr>
-<tr style="height: 166px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; background: #d3dfee; padding: 0cm 5.4pt; height: 166px;" valign="top">
+                  <!-- Member 3 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">3</td>
+                    <td><span class="bom-statute-badge">10(2)(ii)</span></td>
+                    <td><strong class="text-dark">Mr. Anoop Singh</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-prof">
+                        <i class="fa-solid fa-chalkboard-user me-1"></i> Senior most Professor - Member
+                      </span>
+                    </td>
+                    <td>H S 319 Naya Basera, Kotra Sultanabad Road, Bhopal (MP)</td>
+                  </tr>
 
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">7.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 166px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(v)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 166px;" valign="top">
+                  <!-- Member 4 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">4</td>
+                    <td><span class="bom-statute-badge">10(2)(iv)</span></td>
+                    <td><strong class="text-dark">Dr. Neelam Khare</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-prof">
+                        <i class="fa-solid fa-chalkboard-user me-1"></i> Senior most Professor - Member
+                      </span>
+                    </td>
+                    <td>Manglam Enclave, lal Ghati Bhopal</td>
+                  </tr>
 
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Dr. Harsh Lohiya<br /></span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 166px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Senior most Teacher of the University- (other than the Clause IV) &ndash; Member</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 166px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Shiv kripa, Sugar factory chouraha in front of mata mandir, Sehore</span></span></p>
-</td>
-</tr>
-<tr style="height: 94px;">
-<td style="width: 146.95px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #4f81bd #4f81bd; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 150%; " align="center"><strong><span lang="EN-US" style="font-size: 16.0pt; line-height: 150%; font-family: 'Cambria','serif';      ">8.</span></strong></p>
-</td>
-<td style="width: 149.433px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">10(2)(vi)</span></span></p>
-</td>
-<td style="width: 188.783px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 150%; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Dr. Hemant Sharma</span></span></p>
-</td>
-<td style="width: 133.933px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">Registrar and Member Secretary</span></span></p>
-</td>
-<td style="width: 176.1px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #4f81bd #4f81bd currentcolor; padding: 0cm 5.4pt; height: 94px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><span style="line-height: 115%; font-family: 'Times New Roman', 'serif';">42 Janki Residency, Kolar Road, Bhopal (MP)</span></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
+                  <!-- Member 5 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">5</td>
+                    <td><span class="bom-statute-badge">10(2)(iv)</span></td>
+                    <td><strong class="text-dark">Ms. Alka Thakur</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-prof">
+                        <i class="fa-solid fa-chalkboard-user me-1"></i> Senior most Professor - Member
+                      </span>
+                    </td>
+                    <td>41/1, 42/3 Barkhedi kalan Bhadbhada, Road, Bhopal</td>
+                  </tr>
 
-<div align="center">&nbsp;</div>
+                  <!-- Member 6 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">6</td>
+                    <td><span class="bom-statute-badge">10(2)(iv)</span></td>
+                    <td><strong class="text-dark">Mrs. Priyanka Jhawar</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-teacher">
+                        <i class="fa-solid fa-person-chalkboard me-1"></i> Senior most Teacher - Member
+                      </span>
+                    </td>
+                    <td>Nalanda School Road, Chankyapuri, Sehore</td>
+                  </tr>
+
+                  <!-- Member 7 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">7</td>
+                    <td><span class="bom-statute-badge">10(2)(v)</span></td>
+                    <td><strong class="text-dark">Dr. Harsh Lohiya</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-teacher">
+                        <i class="fa-solid fa-person-chalkboard me-1"></i> Senior most Teacher - Member
+                      </span>
+                    </td>
+                    <td>Shiv kripa, Sugar factory chouraha in front of mata mandir, Sehore</td>
+                  </tr>
+
+                  <!-- Member 8 -->
+                  <tr>
+                    <td class="text-center fw-bold text-dark">8</td>
+                    <td><span class="bom-statute-badge">10(2)(vi)</span></td>
+                    <td><strong class="text-dark">Dr. Hemant Sharma</strong></td>
+                    <td>
+                      <span class="bom-role-pill bom-role-registrar">
+                        <i class="fa-solid fa-user-gear me-1"></i> Registrar and Member Secretary
+                      </span>
+                    </td>
+                    <td>42 Janki Residency, Kolar Road, Bhopal (MP)</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
           </div>
         </div>
+
       </div>
 
       <!-- Sticky Category Sidebar (Right) -->

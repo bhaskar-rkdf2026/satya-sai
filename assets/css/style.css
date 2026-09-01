@@ -1973,20 +1973,20 @@ img.loaded, img:not([loading="lazy"]) {
 }
 
 /* Bullet list modernization */
-.content-card-body ul:not(.list-group):not(.nav) {
+.content-card-body ul:not(.list-group):not(.nav):not(.doc-link-list) {
   list-style: none !important;
   padding-left: 0 !important;
   margin: 18px 0 !important;
 }
 
-.content-card-body ul:not(.list-group):not(.nav) li {
+.content-card-body ul:not(.list-group):not(.nav):not(.doc-link-list) li {
   position: relative !important;
   padding-left: 26px !important;
   margin-bottom: 12px !important;
   line-height: 1.7 !important;
 }
 
-.content-card-body ul:not(.list-group):not(.nav) li::before {
+.content-card-body ul:not(.list-group):not(.nav):not(.doc-link-list) li::before {
   content: '\f054';
   font-family: 'Font Awesome 5 Free', 'Font Awesome 6 Free';
   font-weight: 900;
