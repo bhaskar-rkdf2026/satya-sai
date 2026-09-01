@@ -84,7 +84,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-0 fs-3">BOARD OF STUDIES (BoS)</h3>
             </div>
             <div>
-              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BOS_07122024_0448.pdf" target="_blank" rel="noopener" class="bos-pdf-btn">
+              <a href="<?php echo BASE_URL; ?>assets/pdf/BOS_07122024_0448.pdf" target="_blank" rel="noopener" class="bos-pdf-btn">
                 <i class="fa-solid fa-file-pdf fs-4"></i>
                 <span>Download Official Notification (PDF)</span>
               </a>
@@ -108,7 +108,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 </div>
               </div>
               <div>
-                <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BOS_07122024_0448.pdf" target="_blank" rel="noopener" class="bos-pdf-btn">
+                <a href="<?php echo BASE_URL; ?>assets/pdf/BOS_07122024_0448.pdf" target="_blank" rel="noopener" class="bos-pdf-btn">
                   <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Click Here (PDF)
                 </a>
               </div>

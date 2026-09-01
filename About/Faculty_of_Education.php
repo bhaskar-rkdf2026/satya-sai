@@ -263,7 +263,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   <div class="principal-info">
                     <h5>Principal</h5>
                     <div class="orange-line"></div>
-                    <p><a href="https://www.sssutms.co.in/cms/Admin/Pages/Edit/193" target="_blank" rel="noopener">Faculty of Education</a></p>
+                    <p><a href="<?php echo BASE_URL; ?>assets/pdf/193" target="_blank" rel="noopener">Faculty of Education</a></p>
                   </div>
                 </div>
               </div>
@@ -315,43 +315,43 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <ul class="doc-link-list">
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/intake.pdf" target="_blank" rel="noopener">Annual Intake</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/intake.pdf" target="_blank" rel="noopener">Annual Intake</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BABED_ITEP_STAFF_LIST_2026_final_19052026_0207.pdf" target="_blank" rel="noopener">Teaching Faculty</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/BABED_ITEP_STAFF_LIST_2026_final_19052026_0207.pdf" target="_blank" rel="noopener">Teaching Faculty</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BABED_ITEP_STAFF_LIST_2026_final_-_join_last_quterly_23052026_1116.xlsx" target="_blank" rel="noopener">Join in the last Quarter</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/BABED_ITEP_STAFF_LIST_2026_final_-_join_last_quterly_23052026_1116.xlsx" target="_blank" rel="noopener">Join in the last Quarter</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/students_list__22052026_0410.pdf" target="_blank" rel="noopener">Students Admitted</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/students_list__22052026_0410.pdf" target="_blank" rel="noopener">Students Admitted</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/fee structure.pdf" target="_blank" rel="noopener">Fee Structure</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/fee_structure.pdf" target="_blank" rel="noopener">Fee Structure</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/NCTE Regulation 2014 Clouse 7(14)F infra .pdf" target="_blank" rel="noopener">Infrastructural Facilities</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/NCTE_Regulation_2014_Clouse_7_14_F_infra_.pdf" target="_blank" rel="noopener">Infrastructural Facilities</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Library_Information_18052026_0134.pdf" target="_blank" rel="noopener">Library Information</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/Library_Information_18052026_0134.pdf" target="_blank" rel="noopener">Library Information</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Affidavit__22052026_0411.pdf" target="_blank" rel="noopener">Affidavit</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/Affidavit__22052026_0411.pdf" target="_blank" rel="noopener">Affidavit</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/mandatory disc%3Bosre.pdf" target="_blank" rel="noopener">Mandatory Disclosure</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/mandatory_disc_osre.pdf" target="_blank" rel="noopener">Mandatory Disclosure</a>
                 </li>
                 <li>
                   <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Faculty of Education/audit report.pdf" target="_blank" rel="noopener">Audit Report</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/audit_report.pdf" target="_blank" rel="noopener">Audit Report</a>
                 </li>
               </ul>
             </div>
