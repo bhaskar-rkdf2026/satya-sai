@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'PHD - SSSUTMS';
 $banner_title = 'PHD';
 $banner_category = 'Academic';
@@ -10,76 +10,369 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.phd-page-section { background-color: #f8fafc; }
+.phd-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.phd-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+}
+.phd-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.phd-stat-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 14px;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+.phd-stat-chip:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.phd-stat-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(245,158,11,0.1);
+  color: #d97706;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; flex-shrink: 0;
+}
+.phd-section-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  margin-bottom: 1.5rem;
+}
+.phd-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+.phd-section-header i {
+  color: #f59e0b;
+  font-size: 1.25rem;
+}
+.phd-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.phd-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+.phd-link-item:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+.phd-link-item > span:first-child,
+.phd-link-item > a:not(.phd-badge-btn) {
+  color: #0b2545;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+.phd-link-item > a:not(.phd-badge-btn):hover {
+  color: #d97706;
+}
+.phd-badge-btn {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(245,158,11,0.35);
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+  width: 195px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(11,37,69,0.15);
+  transition: all 0.25s ease;
+}
+.phd-badge-btn i {
+  color: #fbbf24 !important;
+  transition: color 0.2s ease;
+}
+.phd-badge-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  color: #ffffff !important;
+  border-color: #d97706;
+  box-shadow: 0 4px 12px rgba(217,119,6,0.35);
+  transform: translateY(-1px);
+}
+.phd-badge-btn:hover i {
+  color: #ffffff !important;
+}
+.phd-fee-card {
+  background: linear-gradient(135deg, #fffbe0 0%, #fff7ed 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+</style>
+
+<section class="subpage-main-section phd-page-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 11.25pt 0cm 7.5pt 0cm;" align="center"><strong><span lang="EN-US" style="font-size: 48.0pt; font-family: 'Times New Roman','serif';             ">Doctor of Philosophy</span></strong></p>
+        <div class="phd-main-card">
 
-<h3 style="margin-top: 11.25pt; text-align: center;" align="center"><strong><em><u><span lang="EN-US" style="font-size: 22.0pt; line-height: 115%; color: #111111; font-weight: normal;">Doctoral Programs (Ph.D.)</span></u></em></strong></h3>
-<h5 style="margin-top: 7.5pt; text-align: justify;"></h5>
-<h5 style="margin-top: 7.5pt; text-align: justify; line-height: 200%;"><span lang="EN-US" style="font-size: 14.0pt; line-height: 200%; font-family: 'Book Antiqua','serif';  color: #111111;">Sri Satya Sai University of Teachnology And Medical Sciences, Sehore offers Doctoral Programs (Ph.D.) in various research areas. At present, Ph.D. programme is being offered in the Faculty of Engineering &amp; Technology, Pharmacy, Management, Education, Basic &amp; Applied Sciences, Commerce, Social Sciences, Humanities, and English.</span></h5>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 150%; text-align: center;"><u><span lang="EN-US" style="font-size: 18.0pt;  line-height: 115%; font-family: 'Times New Roman','serif';">UNDERTAKING</span></u></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';">I, Dr. Rajesh Sharma, Registrar, Sri Satya Sai University of Technology and Medical Sciences, Sehore MP, ensure that has compliance the recommendation of UGC Standing Committee from point 01 to 04 are as follows :-<span style="">&nbsp; </span></span></p>
-
-<p class="MsoListParagraph" style="text-indent: -18pt; margin: 0cm 0cm 0.0001pt 36pt; text-align: left;"><span lang="EN-US" style="font-size: 16.0pt;  font-family: Symbol;   "><span style="">&nbsp; <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-02-20_at_2.41.38_AM_(1)_26022026_0104.jpg" alt="*"  height="18" /><span style="font: 7.0pt 'Times New Roman';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/pHD_ORDINA_29092025_1128.pdf" target="_blank" rel="noopener"> </a></span></span></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/pHD_ORDINA_29092025_1128.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;">The University to ensure adoption of UGC (Minimum Standards and Procedures for Award of <span style="">&nbsp;</span></span></a></p>
-<p class="MsoListParagraph" style="text-indent: -18pt; margin: 0cm 0cm 0.0001pt 36pt; text-align: left; padding-left: 80px;"><span style="font-family: 'comic sans ms', sans-serif;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/pHD_ORDINA_29092025_1128.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14.0pt;  "><span style="">&nbsp;</span>Ph.D. Degree)</span> Regulation, 2022.</a>&nbsp; </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="data:image/png;base64,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" alt=""  height="22" /></span></p>
-<p class="MsoListParagraph" style="text-indent: -18pt; margin: 0cm 0cm 0.0001pt 36pt; text-align: left;"><span lang="EN-US" style="font-size: 16.0pt; font-family: Symbol;   "><span style="">&nbsp; <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-02-20_at_2.41.38_AM_(1)_26022026_0104.jpg" alt="*"  height="18" /><span style="font: 7.0pt 'Times New Roman';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span></span><span lang="EN-US" style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;">The University should ensure implementation of the UGC Guidelines on Public <span style="">&nbsp;</span>Self-Disclosure</span></p>
-<p class="MsoListParagraph" style="text-indent: -18pt; margin: 0cm 0cm 0.0001pt 36pt; text-align: left;"><span style="font-family: 'comic sans ms', sans-serif;"><span lang="EN-US" style="font-size: 14.0pt;  ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; by Higher </span>Education Institutions, 2024.&nbsp;</span> &nbsp;&nbsp;<span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="data:image/png;base64,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" alt=""  height="22" /></span></p>
-<p class="MsoListParagraph" style="margin-left: 36pt; text-indent: -18pt; text-align: left;"><span style="font-size: 16.0pt; font-family: Symbol;  "><span style="">&nbsp; &nbsp;<img src="data:image/png;base64,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" alt=""  height="21" /><span style="font: 7.0pt 'Times New Roman';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span></span><span lang="EN-US" style="font-size: 14.0pt;  "><span style="">&nbsp;</span>The University should upload the following information prominently on the<span style=""> </span>University website </span><span lang="EN-US" style="font-size: 14.0pt;  ">at&nbsp; appropriate place: -</span></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(i)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/Recharch policy.pdf" target="_blank" rel="noopener">Research Policy </a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/Recharch policy.pdf" target="_blank" rel="noopener"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></a></span></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(ii)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/admissionprocedure.pdf" target="_blank" rel="noopener"> </a></span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/admissionprocedure.pdf" target="_blank" rel="noopener">Admission Policy for the Ph.D. Programme&nbsp; </a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/admissionprocedure.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></span></a></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(iii)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/fellowship.pdf" target="_blank" rel="noopener"> </a></span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/fellowship.pdf" target="_blank" rel="noopener">Fellowship/Scholarship Policy for Ph.D. Scholars&nbsp;</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/fellowship.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></span></a></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(iv)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/ethics commitee.pdf" target="_blank" rel="noopener">Constitution of Ethics Board to maintain Research Integrity&nbsp;</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/ethics commitee.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></span></a></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(v)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/rac.pdf" target="_blank" rel="noopener">Constitution of Research Advisory Committee (RAC) and Doctoral Research Committee (DRC)</a>&nbsp;&nbsp;</span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/rac.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></span></a></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(vi)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/Policy for Grievance.pdf" target="_blank" rel="noopener">Policy for Grievance Redress Mechanism of Scholars&nbsp;</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/Policy for Grievance.pdf" target="_blank" rel="noopener"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></span></a></p>
-<p style="text-align: left; padding-left: 40px;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif'; "><span style="">(vii)<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/enrollment.pdf">Details about Ph.D. Scholars Currently Enrolled</a>&nbsp; &nbsp;</span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/enrollment.pdf" target="_blank" rel="noopener"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/clik_23022026_1251.jpg" alt=""  height="28" /></a></span><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
-<p class="MsoListParagraphCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: 150%; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';">&nbsp;I also ensure that the University will follow all the UGC Regulation, 2022 for the award of Ph.D. Degree.&nbsp;</span></p>
-
-<p class="MsoListParagraphCxSpMiddle" style="margin-bottom: .0001pt;  text-align: justify; line-height: 150%; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;"><span lang="EN-US" style="font-size: 14.0pt;  line-height: 150%; font-family: 'Times New Roman','serif';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span lang="EN-US" style="font-size: 14.0pt;  line-height: 115%; font-family: 'Times New Roman','serif';">Registrar</span></strong></p>
-<div class="row g-4 px-3" style="text-align: left;">
-<div class="col-12">
-
-<p style="text-align: left;"><img style="font-size: 18pt;" src="<?php echo BASE_URL; ?>assets/images/Files/Link/ghdghd_23022026_1215.jpg" alt=""  height="20" /><span style="font-size: 18pt;">&nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Ph.D._fees_structure_2025_new_20092025_1147_14012026_1240.pdf" target="_blank" rel="noopener">Fees Structure of Ph.D. (Session 2025-26)</a>&nbsp; &nbsp;&nbsp;</span></p>
-</div>
-
-<h5 class="fw-bold text-primary" style="text-align: left;"><span style="font-size: 18pt;">Ph.D. Entrance Test</span></h5>
-<p class="MsoListParagraph" style="margin-left: 36pt; text-indent: -18pt; text-align: left;"><span lang="EN-US" style="font-size: 18.0pt; font-family: Symbol;   "><span style="">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><strong><span lang="EN-US" style="font-size: 18.0pt;  ">First Semester (w.e.f. 2021-22)</span></strong></p>
-</div>
-</div>
-
-<ul>
-<li><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/RM_27052026_0350.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;">Research Methodology</span></a></li>
-<li><span style="font-size: 14pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Ph.D._Course_Work_I_Semeter_Syllabus_New_27052026_0350.pdf" target="_blank" rel="noopener">Subject Specialization - I</a></span></li>
-<li><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/CW_(RPE)_Syllabus_28052026_0420.pdf" target="_blank" rel="noopener"><strong style=""><span style="font-size: 16.0pt; line-height: 115%; font-family: 'Bookman Old Style','serif';    letter-spacing: -.7pt;   ">Research &amp; Publication Ethics</span></strong></a></li>
-</ul>
-<h6 class="fw-bold text-success mt-3" style="text-align: left;"></h6>
-<p class="MsoListParagraph" style="margin-left: 36.0pt; text-align: justify; text-indent: -18.0pt; "><span lang="EN-US" style="font-size: 18.0pt; font-family: Symbol;   "><span style="">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><strong><span lang="EN-US" style="font-size: 18.0pt; background: whitesmoke;">Formats &amp; Guidelines</span></strong></p>
-<ul>
-<li style="list-style-type: none;">
-<ul class="list-group list-group-flush">
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Phd/RDCSYP_2.pdf" target="_blank" rel="noopener">Format for RDC Synopsis</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Phd/PHDCONFR.pdf" target="_blank" rel="noopener">Format of Confidential Progress Report</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Phd/PHDTHFORMAT_RR.pdf">Circular: Prior to submission of Ph.D. Thesis</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/PHDTHGUIDE_RRev_16072026_0356.pdf" target="_blank" rel="noopener">Guideline for Ph.D. Pre Submission Viva Voce</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Phd/Phd_Pre_submission_Form_2.pdf" target="_blank" rel="noopener">Proforma for Pre-submission of the Thesis</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/PHDTHFORMAT_RR_16072026_0355.pdf" target="_blank" rel="noopener">Guideline/Format for preparing Thesis / Dissertation / Summary</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/phd25/PHDTHFORMAT_RR_(1)_02062022_1255.pdf" target="_blank" rel="noopener">Guideline/Format for preparing Thesis / Dissertation / Summary (Hindi)</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Phd/Phd_Final_submission_Form_2.pdf" target="_blank" rel="noopener">Proforma for Final-submission of the Thesis</a></li>
-<li class="list-group-item" style="text-align: left;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Phd/Co_supervisior.pdf" target="_blank" rel="noopener">Proforma for Approval of Co-Supervisor</a></li>
-</ul>
-</li>
-</ul>
+          <!-- Banner Header -->
+          <div class="phd-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-graduation-cap me-1"></i> Academic Research
+              </span>
+              <h3 class="fw-bold text-white mb-0 fs-3">DOCTOR OF PHILOSOPHY (Ph.D.)</h3>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
+          <!-- Body -->
+          <div class="p-4">
+
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="phd-stat-chip">
+                  <div class="phd-stat-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Program</div>
+                    <div class="fw-bold text-dark fs-6">Ph.D. Degree</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="phd-stat-chip">
+                  <div class="phd-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Compliance</div>
+                    <div class="fw-bold text-dark fs-6">UGC 2022</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="phd-stat-chip">
+                  <div class="phd-stat-icon"><i class="fa-solid fa-file-pen"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Entrance Test</div>
+                    <div class="fw-bold text-dark fs-6">Ph.D. Entrance</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="phd-stat-chip">
+                  <div class="phd-stat-icon"><i class="fa-solid fa-folder-open"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Guidelines</div>
+                    <div class="fw-bold text-dark fs-6">Formats &amp; Forms</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overview Paragraph -->
+            <div class="phd-section-card">
+              <div class="phd-section-header">
+                <i class="fa-solid fa-university"></i>
+                <h5 class="fw-bold text-dark mb-0">Doctoral Programs (Ph.D.) &mdash; Overview</h5>
+              </div>
+              <p class="text-secondary lh-base mb-0" style="font-size: 0.95rem;">
+                Sri Satya Sai University of Technology And Medical Sciences, Sehore offers Doctoral Programs (Ph.D.) in various research areas. At present, Ph.D. programme is being offered in the Faculty of Engineering &amp; Technology, Pharmacy, Management, Education, Basic &amp; Applied Sciences, Commerce, Social Sciences, Humanities, and English.
+              </p>
+            </div>
+
+            <!-- Fee Structure Highlight Card -->
+            <div class="phd-fee-card">
+              <div class="d-flex align-items-center gap-3">
+                <div class="phd-stat-icon" style="background:#f59e0b; color:#fff;">
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold text-dark mb-1">Fees Structure of Ph.D. (Session 2025-26)</h6>
+                  <span class="text-muted small">Download official fee details for the 2025-26 academic session</span>
+                </div>
+              </div>
+              <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Ph.D._fees_structure_2025_new_20092025_1147_14012026_1240.pdf" target="_blank" rel="noopener" class="phd-badge-btn">
+                <i class="fa-solid fa-file-pdf"></i> Download PDF
+              </a>
+            </div>
+
+            <!-- Undertaking & UGC Compliance Card -->
+            <div class="phd-section-card">
+              <div class="phd-section-header">
+                <i class="fa-solid fa-file-signature"></i>
+                <h5 class="fw-bold text-dark mb-0">Undertaking &amp; UGC Compliance</h5>
+              </div>
+              <p class="text-secondary small mb-3">
+                I, Dr. Rajesh Sharma, Registrar, Sri Satya Sai University of Technology and Medical Sciences, Sehore MP, ensure that has compliance the recommendation of UGC Standing Committee from point 01 to 04 are as follows:
+              </p>
+              
+              <div class="mb-3 p-3 bg-light rounded border">
+                <a href="<?php echo BASE_URL; ?>assets/pdf/phd/pHD_ORDINA_29092025_1128.pdf" target="_blank" rel="noopener" class="fw-bold text-dark text-decoration-none d-flex align-items-center justify-content-between flex-wrap gap-2">
+                  <span><i class="fa-solid fa-scale-balanced me-2 text-warning"></i> UGC (Minimum Standards and Procedures for Award of Ph.D. Degree) Regulation, 2022</span>
+                  <span class="phd-badge-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ordinance PDF</span>
+                </a>
+              </div>
+
+              <p class="text-secondary small mb-2 fw-bold">
+                The University should upload the following information prominently on the University website at appropriate place:
+              </p>
+
+              <ul class="phd-link-list">
+                <li class="phd-link-item">
+                  <span>(i) Research Policy</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Recharch%20policy.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>(ii) Admission Policy for the Ph.D. Programme</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/admissionprocedure.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>(iii) Fellowship/Scholarship Policy for Ph.D. Scholars</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/fellowship.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>(iv) Constitution of Ethics Board to maintain Research Integrity</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/ethics%20commitee.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>(v) Constitution of Research Advisory Committee (RAC) and Doctoral Research Committee (DRC)</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/rac.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>(vi) Policy for Grievance Redress Mechanism of Scholars</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Policy%20for%20Grievance.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>(vii) Details about Ph.D. Scholars Currently Enrolled</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/enrollment.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                </li>
+              </ul>
+
+              <p class="text-secondary small mt-3 mb-0">
+                I also ensure that the University will follow all the UGC Regulation, 2022 for the award of Ph.D. Degree.
+              </p>
+              <div class="text-end mt-2">
+                <span class="fw-bold text-dark">&mdash; Registrar</span>
+              </div>
+            </div>
+
+            <!-- Syllabus Card -->
+            <div class="phd-section-card">
+              <div class="phd-section-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h5 class="fw-bold text-dark mb-0">Ph.D. Entrance Test &amp; Course Work Syllabus</h5>
+              </div>
+              <p class="fw-semibold text-dark small mb-2">First Semester (w.e.f. 2021-22):</p>
+              <ul class="phd-link-list">
+                <li class="phd-link-item">
+                  <span>Research Methodology</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/RM_27052026_0350.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> Syllabus PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Subject Specialization - I</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Ph.D._Course_Work_I_Semeter_Syllabus_New_27052026_0350.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> Syllabus PDF</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Research &amp; Publication Ethics</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/CW_(RPE)_Syllabus_28052026_0420.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> Syllabus PDF</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Formats & Guidelines Card -->
+            <div class="phd-section-card">
+              <div class="phd-section-header">
+                <i class="fa-solid fa-folder-open"></i>
+                <h5 class="fw-bold text-dark mb-0">Formats &amp; Guidelines</h5>
+              </div>
+              <ul class="phd-link-list">
+                <li class="phd-link-item">
+                  <span>Format for RDC Synopsis</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/RDCSYP_2.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-download"></i> Download</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Format of Confidential Progress Report</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/PHDCONFR.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-download"></i> Download</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Circular: Prior to submission of Ph.D. Thesis</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/PHDTHFORMAT_RR.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View Circular</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Guideline for Ph.D. Pre Submission Viva Voce</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/PHDTHGUIDE_RRev_16072026_0356.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View Guideline</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Proforma for Pre-submission of the Thesis</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Phd_Pre_submission_Form_2.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-download"></i> Download Proforma</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Guideline/Format for preparing Thesis / Dissertation / Summary</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/PHDTHFORMAT_RR_16072026_0355.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View Guideline</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Guideline/Format for preparing Thesis / Dissertation / Summary (Hindi)</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/PHDTHFORMAT_RR_(1)_02062022_1255.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View (Hindi)</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Proforma for Final-submission of the Thesis</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Phd_Final_submission_Form_2.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-download"></i> Download Proforma</a>
+                </li>
+                <li class="phd-link-item">
+                  <span>Proforma for Approval of Co-Supervisor</span>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Co_supervisior.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-download"></i> Download Proforma</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!-- end phd-main-card -->
+      </div><!-- end col-lg-8 -->
+
+      <!-- Sticky Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
         <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
       </div>

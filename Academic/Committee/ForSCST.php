@@ -1,6 +1,6 @@
-﻿<?php
-$page_title = 'ForSCST - SSSUTMS';
-$banner_title = 'ForSCST';
+<?php
+$page_title = 'Committee for SC/ST - SSSUTMS';
+$banner_title = 'Committee for SC/ST';
 $banner_category = 'Academic';
 
 require_once __DIR__ . '/../../config.php';
@@ -10,103 +10,296 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.scst-com-section { background-color: #f8fafc; }
+.scst-com-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.scst-com-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+}
+.scst-com-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.scst-com-stat-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 14px;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+.scst-com-stat-chip:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.scst-com-stat-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(245,158,11,0.1);
+  color: #d97706;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; flex-shrink: 0;
+}
+.scst-com-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  margin-bottom: 1.5rem;
+}
+.scst-com-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+.scst-com-card-header i {
+  color: #f59e0b;
+  font-size: 1.25rem;
+}
+.scst-com-download-callout {
+  background: linear-gradient(135deg, #fffbe0 0%, #fff7ed 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.scst-com-badge-btn {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(245,158,11,0.35);
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+  width: 195px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(11,37,69,0.15);
+  transition: all 0.25s ease;
+}
+.scst-com-badge-btn i {
+  color: #fbbf24 !important;
+  transition: color 0.2s ease;
+}
+.scst-com-badge-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  color: #ffffff !important;
+  border-color: #d97706;
+  box-shadow: 0 4px 12px rgba(217,119,6,0.35);
+  transform: translateY(-1px);
+}
+.scst-com-badge-btn:hover i {
+  color: #ffffff !important;
+}
+.scst-com-table-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  margin-bottom: 1.5rem;
+}
+.scst-com-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+.scst-com-table thead th {
+  background: #1e3a5f;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 14px;
+  border: none;
+  text-align: left;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.scst-com-table tbody tr:nth-child(even) { background: #f0f4f9; }
+.scst-com-table tbody tr:nth-child(odd)  { background: #ffffff; }
+.scst-com-table tbody tr:hover {
+  background: #e8f0fb;
+  transition: background 0.15s ease;
+}
+.scst-com-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  vertical-align: middle;
+}
+.scst-com-table tbody td:first-child {
+  font-weight: 700;
+  color: #0b2545;
+  text-align: center;
+}
+</style>
+
+<section class="subpage-main-section scst-com-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Times New Roman','serif';  color: #e79439; ">Committee for SC/ST</span></strong></p>
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">In </span><span style="font-family: 'Arial', 'sans-serif';">Compliance of </span><span style="font-family: 'Arial', 'sans-serif';">All </span><span style="font-family: 'Arial', 'sans-serif';">India </span><span style="font-family: 'Arial', 'sans-serif';">Council </span><span style="font-family: 'Arial', 'sans-serif';">for </span><span style="font-family: 'Arial', 'sans-serif';">Technical Education, New </span><span style="font-family: 'Arial', 'sans-serif';">Delhi (Establishment </span><span style="font-family: 'Arial', 'sans-serif';">of </span></span></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">Committee </span><span style="font-family: 'Arial', 'sans-serif';">for </span><span style="font-family: 'Arial', 'sans-serif';">SC/ST )</span></span><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';"> </span><span style=" font-family: 'Arial','sans-serif';">as </span><span style="font-family: 'Arial', 'sans-serif';">per the </span><span style="font-family: 'Arial', 'sans-serif';">scheduled caste and </span><span style="font-family: 'Arial', 'sans-serif';">the </span><span style="font-family: 'Arial', 'sans-serif';">scheduled </span><span style="font-family: 'Arial', 'sans-serif';">tribes (prevention of </span></span></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">Atrocities) </span><span style="font-family: 'Arial', 'sans-serif';">ac</span><span style="font-family: 'Arial', 'sans-serif';">t,1989, </span><span style="font-family: 'Arial', 'sans-serif';">No. </span><span style="font-family: 'Arial', 'sans-serif';">33 </span><span style="font-family: 'Arial', 'sans-serif';">of </span><span style="font-family: 'Arial', 'sans-serif';">1989, </span></span><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">Dated 11.09.1989. Sri </span><span style="font-family: 'Arial', 'sans-serif';">Satya Sai </span><span style="font-family: 'Arial', 'sans-serif';">University </span><span style="font-family: 'Arial', 'sans-serif';">of </span><span style="font-family: 'Arial', 'sans-serif';">Technology </span></span></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">and </span><span style="font-family: 'Arial', 'sans-serif';">Medical </span><span style="font-family: 'Arial', 'sans-serif';">Sciences, </span><span style="font-family: 'Arial', 'sans-serif';">Sehore </span><span style="font-family: 'Arial', 'sans-serif';">hereby </span><span style="font-family: 'Arial', 'sans-serif';">constituted </span></span><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">the </span><span style="font-family: 'Arial', 'sans-serif';">"Committee </span><span style="font-family: 'Arial', 'sans-serif';">for<span style="">&nbsp; </span></span><span style=" font-family: 'Arial','sans-serif';">SC/ST" </span><span style="font-family: 'Arial', 'sans-serif';">comprises of </span></span></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">the </span><span style="font-family: 'Arial', 'sans-serif';">following </span><span style="font-family: 'Arial', 'sans-serif';">members </span><span style="font-family: 'Arial', 'sans-serif';">-</span></span></p>
-<p class="MsoNormal" style="text-align: center; line-height: 1.5;" align="center"><span style="font-size: 14pt;"><strong><span style="font-family: 'Times New Roman', 'serif'; color: #e79439;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IMG_01062024_0328.pdf" target="_blank" rel="noopener"><span style="color: #000000;">Click here</span></a></span></strong></span></p>
-<div align="center">
-<table class="MsoTableMediumShading1Accent1" style="width: 505.5pt; border-collapse: collapse; height: 343px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 49px;">
-<td style="width: 58.95pt; border: 1pt solid windowtext; background: #4f81bd; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Arial','sans-serif';  color: black; ">S.No.</span></strong></p>
-</td>
-<td style="width: 10cm; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; border-image: none 100% / 1 / 0 stretch; background: #4f81bd; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Arial','sans-serif';  color: black; ">Name</span></strong></p>
-</td>
-<td style="width: 163.05pt; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; border-image: none 100% / 1 / 0 stretch; background: #4f81bd; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Arial','sans-serif';  color: black; ">Designation</span></strong></p>
-</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 58.95pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="width: 10cm; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Dr. Kanchan Shrivastava<br /></span></p>
-</td>
-<td style="width: 163.05pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">&nbsp;Chairman</span></p>
-</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 58.95pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">2<br /></span></strong></p>
-</td>
-<td style="width: 10cm; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Ms.Priyanka Jhawar<br /></span></p>
-</td>
-<td style="width: 163.05pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">&nbsp;Member <br /></span></p>
-</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 58.95pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">3<br /></span></strong></p>
-</td>
-<td style="width: 10cm; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Mr. Bablu Malviya<br /></span></p>
-</td>
-<td style="width: 163.05pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">&nbsp;Member </span></p>
-</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 58.95pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">4</span></strong></p>
-</td>
-<td style="width: 10cm; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Dr. Tabbasum Khan<br /></span></p>
-</td>
-<td style="width: 163.05pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member</span></p>
-</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 58.95pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">5</span></strong></p>
-</td>
-<td style="width: 10cm; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Dr. Sujata Kushwaha<br /></span></p>
-</td>
-<td style="width: 163.05pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 49px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member Secretary </span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="MsoNormal" style="  line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
+        <div class="scst-com-main-card">
 
-<p></p>
+          <!-- Banner Header -->
+          <div class="scst-com-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-hands-holding-child me-1"></i> Statutory Committees
+              </span>
+              <h3 class="fw-bold text-white mb-0 fs-3">COMMITTEE FOR SC/ST</h3>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
+          <!-- Body -->
+          <div class="p-4">
+
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="scst-com-stat-chip">
+                  <div class="scst-com-stat-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Compliance</div>
+                    <div class="fw-bold text-dark fs-6">AICTE Act 1989</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="scst-com-stat-chip">
+                  <div class="scst-com-stat-icon"><i class="fa-solid fa-user-tie"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Chairman</div>
+                    <div class="fw-bold text-dark fs-6">Dr. K. Shrivastava</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="scst-com-stat-chip">
+                  <div class="scst-com-stat-icon"><i class="fa-solid fa-user-check"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Secretary</div>
+                    <div class="fw-bold text-dark fs-6">Dr. S. Kushwaha</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="scst-com-stat-chip">
+                  <div class="scst-com-stat-icon"><i class="fa-solid fa-users"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Committee</div>
+                    <div class="fw-bold text-dark fs-6">5 Members</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overview Card -->
+            <div class="scst-com-card">
+              <div class="scst-com-card-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <h5 class="fw-bold text-dark mb-0">Statutory Establishment &amp; Directives</h5>
+              </div>
+              <p class="text-secondary lh-base mb-0" style="font-size: 0.95rem;">
+                In Compliance of All India Council for Technical Education, New Delhi (Establishment of Committee for SC/ST) as per the scheduled caste and the scheduled tribes (prevention of Atrocities) act,1989, No. 33 of 1989, Dated 11.09.1989. Sri Satya Sai University of Technology and Medical Sciences, Sehore hereby constituted the &quot;Committee for SC/ST&quot; comprises of the following members :-
+              </p>
+
+              <div class="scst-com-download-callout">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="scst-com-stat-icon" style="background:#f59e0b; color:#fff;">
+                    <i class="fa-solid fa-file-pdf"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold text-dark mb-1">Official Committee for SC/ST Notification</h6>
+                    <span class="text-muted small">Download the official university notification document for SC/ST Committee.</span>
+                  </div>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/pdf/committee/Committee_For_SCST_01062024.pdf" target="_blank" rel="noopener" class="scst-com-badge-btn">
+                  <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+              </div>
+            </div>
+
+            <!-- Table: COMMITTEE FOR SC/ST MEMBERS -->
+            <div class="scst-com-card mb-0">
+              <div class="scst-com-card-header">
+                <i class="fa-solid fa-users-gear"></i>
+                <h5 class="fw-bold text-dark mb-0">Committee Members</h5>
+              </div>
+              <div class="scst-com-table-wrapper">
+                <table class="scst-com-table">
+                  <thead>
+                    <tr>
+                      <th style="width:10%;">S.No.</th>
+                      <th style="width:55%;">Name</th>
+                      <th style="width:35%;">Designation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Dr. Kanchan Shrivastava</td>
+                      <td><strong>Chairman</strong></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Ms. Priyanka Jhawar</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Mr. Bablu Malviya</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Dr. Tabbasum Khan</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Dr. Sujata Kushwaha</td>
+                      <td><strong>Member Secretary</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- end scst-com-main-card -->
+      </div><!-- end col-lg-8 -->
+
+      <!-- Sticky Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
