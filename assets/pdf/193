@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../../../">
+    <title>Log in | CMS</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="#" />
+    <meta property="og:site_name" content="CMS | Unik Tech" />
+    
+    <link rel="canonical" href="#" />
+    <link rel="apple-touch-icon" sizes="180x180" href=/cms/Areas/Admin/Content/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=/cms/Areas/Admin/Content/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=/cms/Areas/Admin/Content/favicon-16x16.png>
+    <link rel="shortcut icon" href=/cms/Areas/Admin/Content/favicon.ico />
+    <link rel="apple-touch-icon" sizes="180x180" href=/cms/Areas/Admin/Content/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=/cms/Areas/Admin/Content/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=/cms/Areas/Admin/Content/favicon-16x16.png>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="/cms/Areas/Admin/Content/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/cms/Areas/Admin/Content/css/style.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="kt_body" class="bg-body">
+    <div class="d-flex flex-column flex-root">
+        
+<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(/cms/Areas/Admin/Content/media/illustrations/sketchy-1/14.png)">
+    <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+        <a href=/cms/Admin/Account/Login class="mb-12">
+            <img alt="Logo" src="/cms/Areas/Admin/Content/media/logos/UniversityLogo.png" class="h-150px" />
+        </a>
+        <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+<form action="/cms/Admin/Account/Login?ReturnUrl=%2Fcms%2FAdmin%2FPages%2FEdit%2F193" class="form w-100" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="N9PcjHO_MvkfKLl3ujBy-GO7mWb8dFwDQ-p-7XqSb0IBkYr3Blr7QqHsUTQLE1lVEaczSzf0t6b9RKaDEyU-BMVB79XC890kXqtBrOOKip41" />                <div class="text-center mb-10">
+                    <h1 class="text-dark mb-3">Sign In to CMS</h1>
+                </div>
+                <div class="fv-row mb-10">
+                    <label class="form-label fs-6 fw-bolder text-dark" for="UserName">User Name</label>
+                    <input autocomplete="off" class="form-control form-control-lg form-control-solid" data-val="true" data-val-required="The User Name field is required." id="UserName" name="UserName" type="text" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                </div>
+                <div class="fv-row mb-10">
+                    <div class="d-flex flex-stack mb-2">
+                        <label class="form-label fw-bolder text-dark fs-6 mb-0" for="Password">Password</label>
+                    </div>
+                    <input class="form-control form-control-lg form-control-solid" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password" />
+                    <span autocomplete="off" class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" id="btnSubmit" class="btn btn-lg btn-primary w-100 mb-5">
+                        <span class="indicator-label">
+                            Login
+                        </span>
+                        <span class="indicator-progress">
+                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+</form>        </div>
+    </div>
+
+</div>
+
+    </div>
+    <script>var hostUrl = "~/Areas/Admin/Content/";</script>
+    <script src="/cms/Areas/Admin/Content/plugins/global/plugins.bundle.js"></script>
+    <script src="/cms/Areas/Admin/Content/js/scripts.bundle.js"></script>
+    
+    <script src="/cms/bundles/jqueryval"></script>
+
+    <script>
+        var button = document.querySelector("#btnSubmit");
+        button.addEventListener("click", function () {
+            button.setAttribute("data-kt-indicator", "on");
+            setTimeout(function () {
+                button.removeAttribute("data-kt-indicator");
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>
