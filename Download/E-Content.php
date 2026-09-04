@@ -1,6 +1,6 @@
-﻿<?php
-$page_title = 'E-Content - SSSUTMS';
-$banner_title = 'E-Content';
+<?php
+$page_title = 'E-Content & Digital Learning Repository - SSSUTMS';
+$banner_title = 'E-Content & Learning Resources';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
@@ -10,64 +10,363 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<section class="subpage-main-section py-4 style="background-color: #f8fafc;"">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <div style=" border: none; border-bottom: solid #002B5B 1.0pt;  padding: 0cm 0cm 8.0pt 0cm;">
-<p class="MsoNormal" style="text-align: center;"><span style="text-decoration: underline;"><span style="font-family: 'arial black', sans-serif; color: #e67e23; text-decoration: underline;"><strong><span style="font-size: 14pt; line-height: 115%;">SSSUTMS e-Knowledge </span></strong></span></span></p>
-
-<p class="MsoNormal" style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
-<p class="MsoNormal"><strong><span style="font-size: 14.0pt; line-height: 115%; font-family: 'Goudy Old Style','serif';  color: #085294;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span></strong><span style="font-size: 14.0pt; line-height: 115%; font-family: 'Goudy Old Style','serif';  color: #085294;"> -&nbsp;</span><strong><span style="font-size: 14.0pt; line-height: 115%; font-family: 'Goudy Old Style','serif';  color: #085294;"> <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 2 16 to 30 November 2023.pdf" target="_blank" rel="noopener">Vol 6 Issue 2 16 to 30 November 2023</a> </span></strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 1 Issue 2 16 to 30 June 2023.pdf" target="_blank" rel="noopener"><strong><span style="font-size: 12.0pt; font-family: 'Arial','sans-serif';  "><img src="../../../../registration.telangana.gov.in/resources/img/new.gif" alt=""  height="29" /></span></strong></a></p>
-<p class="MsoNormal"><strong><span style="font-size: 14.0pt; line-height: 115%; font-family: 'Goudy Old Style','serif';  color: #085294;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; - </span></strong><strong><span style="font-size: 14.0pt; line-height: 115%; font-family: 'Goudy Old Style','serif';  color: #085294;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 1 01 to 15 November 2023.pdf" target="_blank" rel="noopener">Vol 6 Issue 1 01 to 15 November 2023</a>&nbsp; </span></strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;"><strong> </strong></p>
-<p class="MsoNormal" style="text-align: left;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/elarning_opt.pdf" target="_blank" rel="noopener">Vol 5 Issue 2 16 to 31 October 2023 </a></strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>- &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowledge/SSSUTMS Vol 5 Issue 1 01 to 15 October 2023.pdf" target="_blank" rel="noopener">Vol 5 Issue 1 01 to 15 October 2023</a> </strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>-</strong>&nbsp;&nbsp;&nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 2 16 to 30 Sep 2023.pdf" target="_blank" rel="noopener"> <span style="font-family: 'arial black', sans-serif;">Vol 4 Issue 2 16 to 30 Sep 2023</span> </a><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; -&nbsp; &nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 1 01 to 15 September 2023.pdf" target="_blank" rel="noopener">Vol 4 Issue 1 01 to 15 September 2023</a> &nbsp;</strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left; padding-left: 40px;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; &nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 2 01 to 15 August 2023.pdf" target="_blank" rel="noopener">Vol 3 Issue 2 16 to 31 August 2023</a>&nbsp;&nbsp; </strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <strong>&nbsp; &nbsp;&nbsp; - &nbsp;&nbsp;</strong> &nbsp; <strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 1 01 to 15 August 2023.pdf" target="_blank" rel="noopener">Vol 3 Issue 1 01 to 15 August 2023 </a></strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;"><span style="font-size: 12pt; font-family: 'comic sans ms', sans-serif;"><span style="line-height: 115%;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; </strong></span></span><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 2 16 to 31 July 2023.pdf" target="_blank" rel="noopener"> Vol 2 Issue 2 16 to 31 July 2023 &nbsp; &nbsp; &nbsp;&nbsp; </a></strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal" style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="font-size: 12pt; font-family: 'comic sans ms', sans-serif;"><span style="line-height: 115%;"><strong>-</strong></span></span><strong> &nbsp; &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 1 01 to 15 July 2023.pdf" target="_blank" rel="noopener">Vol 02/ Issue 1/ 01 -15 July 2023&nbsp;</a> </strong><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal"><strong><span style="font-size: 14pt; line-height: 115%;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span></strong><span style="font-size: 12pt; font-family: 'comic sans ms', sans-serif;"><span style="line-height: 115%;">&nbsp;&nbsp;&nbsp;&nbsp; <strong>- &nbsp;</strong> &nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS Vol 1 Issue 2 16 to 30 June 2023.pdf" target="_blank" rel="noopener">Vol.01/Issue 02/16-30 June2023&nbsp;&nbsp;</a> </span></span><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif" height="30" /></a></p>
-<p class="MsoNormal"><strong><span style="font-size: 14pt; line-height: 115%;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'comic sans ms', sans-serif;"> - &nbsp; </span></span></strong><span style="font-family: 'comic sans ms', sans-serif;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><span style="font-size: 12pt;"><span style="line-height: 115%;">Vol.01/Issue 1/1-15 June2023 &nbsp; &nbsp; </span></span></a></span><a style="box-sizing: border-box; background-color: transparent; color: #000000; text-decoration: none; -webkit-font-smoothing: antialiased; outline: 0px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e-knowldege/SSSUTMS (1).pdf" target="_blank" rel="noopener"><img style="box-sizing: border-box; border: none; vertical-align: middle; max-width: 100%;" src="<?php echo BASE_URL; ?>assets/images/click-here.gif"  height="33" /></a></p>
-
-<p class="MsoNormal" style="margin-bottom: 22.5pt; line-height: normal; padding: 0cm; text-align: center;"><span style="text-decoration: underline;"><span style="font-family: 'arial black', sans-serif; color: #e67e23; text-decoration: underline;"><strong><span style="font-size: 14pt; line-height: 115%;">SSSUTMS e-Report </span></strong></span></span></p>
-<p class="MsoNormal" style="margin-bottom: 22.5pt; line-height: normal; padding: 0cm 0cm 0cm 80px; text-align: left;"><span style="font-family: 'arial black', sans-serif; color: #e67e23;"><strong><span style="font-size: 14pt; line-height: 115%;"> </span></strong></span></span><strong></strong></p>
-
-<p class="MsoNormal" style="margin-bottom: 22.5pt; line-height: normal; padding: 0cm; text-align: center;"><u style="font-size: 0.875rem;"><span style="font-size: 21pt; font-family: 'Times New Roman', serif; color: #9c0000;">Students Forum</span></u></p>
-
-<p class="MsoNormal" style="margin-bottom: 22.5pt; line-height: normal; padding: 0cm; text-align: left;"></span></span><u></u><span style="font-size: 0.875rem; color: #003163;">&nbsp; </span><span style="font-weight: bolder;"><span style="font-size: 14pt; font-family: 'Times New Roman', serif; color: #003163;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Download/Preamble 2.pdf" target="_blank" rel="noopener">Cultural and Technical </a></span></span></p>
-<p class="MsoNormal" style="margin-bottom: 22.5pt; text-align: center; line-height: normal; border: none; padding: 0cm;"><u style="font-size: 0.875rem;"><span style="font-size: 21pt; font-family: 'Times New Roman', serif; color: #9c0000;">Online Study Material for Students</span></u></p>
-<p class="MsoNormal" style="margin-bottom: 22.5pt; line-height: normal; padding: 0cm; text-align: left;"></p>
-
-<p class="MsoListParagraphCxSpFirst" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: blue; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/definitionandtypesofresearch-100801181630-phpapp02.pdf" target="_blank" rel="noopener"><span style="color: blue;">Research Methodology</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpFirst" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/definitionandtypesofresearch-100801181630-phpapp02.pdf" target="_blank" rel="noopener"></a><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/research Report.pdf" target="_blank" rel="noopener">Research Report Writing</a></strong></p>
-<p class="MsoListParagraphCxSpFirst" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/SURVEY.pdf" target="_blank" rel="noopener"><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: blue; "><span style="color: blue;">Survey&nbsp; Research</span></span></strong></a></p>
-<p class="MsoListParagraphCxSpFirst" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/Women.pdf" target="_blank" rel="noopener"><strong><span style="font-size: 14.0pt; line-height: 200%; color: blue;">Women in Sports</span></strong></a></span></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%; "></span></span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/3- Physical Fitness.pdf" target="_blank" rel="noopener"><strong><span style="font-size: 14.0pt; line-height: 200%; color: blue;">Physical Fitness</span></strong></a></span></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%; "></span></span><strong><u><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: blue; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/Hypotheses PPT.pdf" target="_blank" rel="noopener"><span style="color: blue;">Hypotheses</span></a></span></u></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/SOURCES_OF_INVALIDITY12.pdf" target="_blank" rel="noopener"><strong><span style="font-size: 14.0pt; line-height: 200%; color: blue;">SOURCES OF INVALIDITY</span></strong></a></span></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/SAMPLING.pdf" target="_blank" rel="noopener"><strong><span style="font-size: 14.0pt; line-height: 200%; color: blue;">SAMPLING</span></strong></a><a href="ftp://sssutms_upload@unikcore.24mycloud.com:51503/Link/e content/SAMPLING.pdf" target="_blank" rel="noopener"><span style="color: blue;"> </span></a></span></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: blue; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/e content/Components of Fitness %26 Tests TO GO ON.pdf" target="_blank" rel="noopener"><span style="color: blue;">Components of Fitness </span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/ANATOMY_PHYSIOLOGY.pdf" target="_blank" rel="noopener"><span style="color: blue;">Notes on Anatomy and Physiology</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Foundation_physical_edcation.pdf" target="_blank" rel="noopener"><span style="color: blue;">Notes on History, Principles &amp; Foundation of Physical Education</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; ">&nbsp;</span><u><span style="font-size: 10.5pt; line-height: 200%; font-family: 'Arial','sans-serif';  color: blue; "> </span></u><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Complete Guide to Sports Training.pdf" target="_blank" rel="noopener"><span style="color: blue;">Online Complete Guide to Sports Training</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Computer  System Architecture.pdf" target="_blank" rel="noopener"><span style="color: blue;">Online Notes on Computer System Architecture</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Digital electronics.pdf" target="_blank" rel="noopener"><span style="color: blue;">Online Notes on Digital electronics</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/RCC.pdf" target="_blank" rel="noopener"><span style="color: blue;">Online Noes Structural Design &amp; Drawing-I (RCC)</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpMiddle" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Building Material.pdf" target="_blank" rel="noopener"><span style="color: blue;">Online Notes on Building Material</span></a></span></strong></p>
-<p class="MsoListParagraphCxSpLast" style=" margin-bottom: .0001pt; margin-left: 54.0pt;  text-indent: -18.0pt; line-height: 200%;  tab-stops: list 36.0pt;"></span></span><strong><span style="font-size: 14.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: #003163; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/BOOK - SPRITUAL MANAGEMENT.pdf" target="_blank" rel="noopener"><span style="color: blue;">SPRITUAL MANAGEMENT</span></a></span></strong></p>
-
-<p class="MsoNormal" style="line-height: normal;"><span style="font-weight: bolder; font-size: 0.875rem;"><span style="font-size: 14pt; font-family: 'Times New Roman', serif; color: #003163;">Video Lecturer&nbsp;</span></span></p>
-<p class="MsoNormal" style="line-height: normal;"><video class="note-video-clip" src="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Prabhakar-FINAL.mp4,https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Brijesh-FINAL.mp4" controls="controls"  height="210"></video><video class="note-video-clip" src="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Prabhakar-FINAL.mp4" controls="controls"  height="210"></video><span style="font-weight: bolder; font-size: 0.875rem;"><span style="font-size: 14pt; font-family: 'Times New Roman', serif; color: #003163;"><br /></span></span></p>
-<p class="MsoNormal" style="line-height: normal;"><span style="font-weight: bolder; font-size: 0.875rem;"><span style="font-size: 14pt; font-family: 'Times New Roman', serif; color: #003163;">&nbsp;</span></span></p>
-</div>
+        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+          
+          <!-- Header Banner -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
+            <div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                <i class="fa fa-book-bookmark me-1"></i> Digital Learning Hub
+              </span>
+              <h3 class="fw-bold text-navy mb-1" style="color: #0b2545;">SSSUTMS e-Knowledge &amp; E-Learning Portal</h3>
+              <p class="text-muted small mb-0">University publications, periodicals, faculty lecture series, and digital courseware.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                <i class="fa fa-circle-check me-1"></i> Open Academic Access
+              </span>
+            </div>
           </div>
+
+          <!-- Nav Tabs for E-Content Sections -->
+          <ul class="nav nav-pills nav-fill mb-4 p-1 style="background-color: #f8fafc;" rounded-pill border p-1" id="eContentTabs" style="background: #f1f5f9;" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active fw-bold py-2 rounded-pill" style="background: linear-gradient(135deg, #0b2545 0%, #134074 100%) !important; color: #ffffff !important;" id="periodicals-tab" data-bs-toggle="pill" data-bs-target="#periodicals" type="button" role="tab">
+                <i class="fa fa-newspaper me-1"></i> e-Knowledge Periodicals
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold py-2 rounded-pill text-dark" id="studymaterial-tab" data-bs-toggle="pill" data-bs-target="#studymaterial" type="button" role="tab">
+                <i class="fa fa-book-open me-1"></i> Online Study Modules
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold py-2 rounded-pill text-dark" id="videolectures-tab" data-bs-toggle="pill" data-bs-target="#videolectures" type="button" role="tab">
+                <i class="fa fa-video me-1"></i> Video Lectures
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="eContentTabsContent">
+            
+            <!-- Tab 1: Periodicals & Newsletters -->
+            <div class="tab-pane fade show active" id="periodicals" role="tabpanel">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold text-dark mb-0"><i class="fa fa-scroll text-primary me-2"></i>University e-Knowledge Bulletins</h5>
+                <small class="text-muted">Bi-monthly scholarly editions</small>
+              </div>
+
+              <div class="row g-3">
+                
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge bg-primary text-white">Vol. 6 Issue 2</span>
+                      <small class="text-muted">16 - 30 Nov 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Academic developments, technical papers, and university institutional highlights.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 2 16 to 30 November 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge bg-primary text-white">Vol. 6 Issue 1</span>
+                      <small class="text-muted">01 - 15 Nov 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Research publications, doctoral seminars, and educational initiatives.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 1 01 to 15 November 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge bg-secondary text-white">Vol. 5 Issue 2</span>
+                      <small class="text-muted">16 - 31 Oct 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Special coverage on innovations, industry collaborations, and faculty development.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/elarning_opt.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge bg-secondary text-white">Vol. 5 Issue 1</span>
+                      <small class="text-muted">01 - 15 Oct 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Highlights on pharmacy, engineering innovations, and student achievements.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowledge/SSSUTMS Vol 5 Issue 1 01 to 15 October 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge bg-secondary text-white">Vol. 4 Issue 2</span>
+                      <small class="text-muted">16 - 30 Sep 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Campus community updates, national webinars, and academic workshops.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 2 16 to 30 Sep 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge bg-secondary text-white">Vol. 4 Issue 1</span>
+                      <small class="text-muted">01 - 15 Sep 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Teachers' day special symposiums and university academic councils.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 1 01 to 15 September 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 3 Issue 2</span>
+                      <small class="text-muted">16 - 31 Aug 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Independence day celebrations and sports tournaments overview.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 2 01 to 15 August 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 3 Issue 1</span>
+                      <small class="text-muted">01 - 15 Aug 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">New academic session orientation and pedagogical guidelines.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 1 01 to 15 August 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 2 Issue 2</span>
+                      <small class="text-muted">16 - 31 Jul 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Campus recruitment and internship placement drives summary.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 2 16 to 31 July 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 2 Issue 1</span>
+                      <small class="text-muted">01 - 15 Jul 2023</small>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
+                    <p class="small text-secondary mb-3">Inaugural academic research editions and university milestone reports.</p>
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 1 01 to 15 July 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
+                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Tab 2: Online Study Material & Research Modules -->
+            <div class="tab-pane fade" id="studymaterial" role="tabpanel">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold text-dark mb-0"><i class="fa fa-graduation-cap text-primary me-2"></i>Curriculum E-Books &amp; Research Modules</h5>
+                <small class="text-muted">Faculty curated e-learning content</small>
+              </div>
+
+              <div class="table-responsive rounded-3 border">
+                <table class="table table-hover align-middle mb-0">
+                  <thead style="background: linear-gradient(135deg, #0b2545 0%, #0d47a1 100%); color: #fff;">
+                    <tr>
+                      <th style="width: 60px;" class="text-center">#</th>
+                      <th>Topic / Course Module</th>
+                      <th>Subject / Discipline</th>
+                      <th class="text-center" style="width: 170px;">Resource Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">1</td>
+                      <td class="fw-semibold text-dark">Research Methodology &amp; Theoretical Concepts</td>
+                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/definitionandtypesofresearch-100801181630-phpapp02.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View Module
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">2</td>
+                      <td class="fw-semibold text-dark">Research Report Writing &amp; Thesis Formulation</td>
+                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/research Report.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View Module
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">3</td>
+                      <td class="fw-semibold text-dark">Survey Research Design &amp; Methodology</td>
+                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/SURVEY.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View Module
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">4</td>
+                      <td class="fw-semibold text-dark">Anatomy and Physiology Course Guide</td>
+                      <td><span class="badge bg-success-subtle text-success border">Medical / Paramedical</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/ANATOMY_PHYSIOLOGY.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View E-Book
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">5</td>
+                      <td class="fw-semibold text-dark">Foundation of Physical Education</td>
+                      <td><span class="badge bg-info-subtle text-info border">Physical Education</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Foundation_physical_edcation.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View E-Book
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">6</td>
+                      <td class="fw-semibold text-dark">Complete Guide to Sports Training</td>
+                      <td><span class="badge bg-info-subtle text-info border">Sports Science</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Complete Guide to Sports Training.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View E-Book
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">7</td>
+                      <td class="fw-semibold text-dark">Reinforced Cement Concrete (RCC) Design</td>
+                      <td><span class="badge bg-warning-subtle text-dark border">Civil Engineering</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/RCC.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View E-Book
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">8</td>
+                      <td class="fw-semibold text-dark">Hypothesis Testing &amp; Statistical Inferences (PPT)</td>
+                      <td><span class="badge bg-secondary-subtle text-dark border">Statistics</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/Hypotheses PPT.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View Slides
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center fw-bold text-muted">9</td>
+                      <td class="fw-semibold text-dark">Sampling Methodology in Social &amp; Pure Sciences</td>
+                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/SAMPLING.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                          <i class="fa fa-file-pdf me-1"></i> View Module
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tab 3: Video Lecture Repository -->
+            <div class="tab-pane fade" id="videolectures" role="tabpanel">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold text-dark mb-0"><i class="fa fa-circle-play text-danger me-2"></i>Recorded Faculty Masterclasses</h5>
+                <small class="text-muted">High definition educational lectures</small>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="card border rounded-4 overflow-hidden h-100 shadow-sm">
+                    <div class="bg-dark text-white p-4 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 180px; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);">
+                      <i class="fa fa-circle-play fa-4x text-white mb-2 opacity-75"></i>
+                      <h5 class="fw-bold text-white mb-0">Special Lecture Series</h5>
+                      <span class="badge bg-warning text-dark mt-2">Dr. Prabhakar Sharma</span>
+                    </div>
+                    <div class="card-body p-3">
+                      <h6 class="fw-bold text-dark mb-1">Advanced Academic Discourse Series - Part I</h6>
+                      <p class="small text-secondary mb-3">Comprehensive multimedia lecture on core pedagogical concepts and engineering methodologies.</p>
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Prabhakar-FINAL.mp4" target="_blank" class="btn btn-sm btn-primary rounded-pill w-100">
+                        <i class="fa fa-play me-1"></i> Stream / Download Video Lecture
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card border rounded-4 overflow-hidden h-100 shadow-sm">
+                    <div class="bg-dark text-white p-4 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 180px; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+                      <i class="fa fa-circle-play fa-4x text-white mb-2 opacity-75"></i>
+                      <h5 class="fw-bold text-white mb-0">Masterclass Series</h5>
+                      <span class="badge bg-warning text-dark mt-2">Dr. Brijesh Kumar</span>
+                    </div>
+                    <div class="card-body p-3">
+                      <h6 class="fw-bold text-dark mb-1">Advanced Academic Discourse Series - Part II</h6>
+                      <p class="small text-secondary mb-3">In-depth technical lecture delivered for undergraduate and postgraduate university scholars.</p>
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Brijesh-FINAL.mp4" target="_blank" class="btn btn-sm btn-primary rounded-pill w-100">
+                        <i class="fa fa-play me-1"></i> Stream / Download Video Lecture
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </div>
 

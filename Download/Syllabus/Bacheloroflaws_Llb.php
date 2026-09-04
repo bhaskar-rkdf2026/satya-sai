@@ -1,203 +1,288 @@
-﻿<?php
-$page_title = 'Bacheloroflaws Llb - SSSUTMS';
-$banner_title = 'Bacheloroflaws Llb';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Law (LL.B. & B.A. LL.B.) - Course Syllabus - SSSUTMS';
+$banner_title = 'Faculty of Law (LL.B. & B.A. LL.B.)';
+$banner_category = 'Course Syllabus';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$groups = array (
+  0 => 
+  array (
+    'title' => 'B.A. LL.B. — 5-Year Integrated Law Programme (10 Semesters)',
+    'icon' => 'fa-scale-balanced',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Complete 5-Year Syllabus (Sem I to X)',
+        'badge' => 'B.A. LL.B.',
+        'desc' => 'Bar Council of India Approved B.A. LL.B. Full 10-Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BALLB/BA_LLB_5YDC_ItoX.pdf',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'title' => 'LL.B. — 3-Year Bachelor of Laws Degree (6 Semesters)',
+    'icon' => 'fa-gavel',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'First Semester',
+        'badge' => 'New 2026',
+        'desc' => 'LL.B. First Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW%202026/LLB%20SYL1.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Second Semester',
+        'badge' => 'New 2026',
+        'desc' => 'LL.B. Second Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW%202026/LLB%20SYL2.pdf',
+      ),
+      2 => 
+      array (
+        'name' => 'Third Semester',
+        'badge' => 'New 2026',
+        'desc' => 'LL.B. Third Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW%202026/LLB%20SYL3.pdf',
+      ),
+      3 => 
+      array (
+        'name' => 'Fourth Semester',
+        'badge' => 'New 2026',
+        'desc' => 'LL.B. Fourth Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW%202026/LLB%20SYL4.pdf',
+      ),
+      4 => 
+      array (
+        'name' => 'Fifth Semester',
+        'badge' => 'New 2026',
+        'desc' => 'LL.B. Fifth Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW%202026/LLB%20SYL5.pdf',
+      ),
+      5 => 
+      array (
+        'name' => 'Sixth Semester',
+        'badge' => 'New 2026',
+        'desc' => 'LL.B. Sixth Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW%202026/LLB%20SYL6.pdf',
+      ),
+      6 => 
+      array (
+        'name' => 'Complete 3-Year LL.B. Syllabus (Sem I to VI)',
+        'badge' => 'LL.B.',
+        'desc' => 'BCI Approved LL.B. Full 6-Semester Combined Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BALLB/LLB_3YDC_ItoVI.pdf',
+      ),
+    ),
+  ),
+);
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
+        <div class="academic-card bg-white p-4">
 
-<p></p>
-<table class="MsoTableMediumGrid1Accent1" style="border-collapse: collapse; border: medium; width: 93.3198%; height: 175.666px;" border="1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 48.3333px;">
-<td style="width: 33.454%; border: 1pt solid #7ba0cd; background: #d3dfee; padding: 0cm 5.4pt; height: 48.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 4.0pt; line-height: 200%; font-family: 'Arial Black','sans-serif';">&nbsp;</span><span style="font-family: 'Arial Black','sans-serif';">COURSE</span></strong></p>
-</td>
-<td style="width: 66.5822%; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: #7ba0cd #7ba0cd #7ba0cd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 48.3333px;" colspan="6" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 5.0pt;  line-height: 200%; font-family: 'Arial Black','sans-serif';">&nbsp;</span><span style="font-family: 'Arial Black','sans-serif';">SEMESTER</span></strong></p>
-</td>
-</tr>
-<tr style="height: 127.333px;">
-<td style="width: 33.454%; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #7ba0cd #7ba0cd; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><span style="font-size: 8.0pt;  line-height: 200%; font-family: 'Arial Black','sans-serif';">&nbsp;</span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><span style="font-size: 14.0pt;  line-height: 200%; font-family: 'Arial Black','sans-serif';">Bachelor of Laws (L.L.B.)</span></p>
-</td>
-<td style="width: 10.1014%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" >
-<h4 class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/LLB/LL.B 1SEM SYLLABUS.pdf" target="_blank" rel="noopener"><span style="font-family: 'Arial Black','sans-serif';">I</span></a></h4>
-</td>
-<td style="width: 10.7575%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LL.B. 2nd sem syllabus (New).pdf" target="_blank" rel="noopener"><span style="font-family: 'Arial Black','sans-serif';">II</span></a></p>
-</td>
-<td style="width: 13.1383%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/3_semester_syllabus_09072026_0229.pdf" target="_blank" rel="noopener"><span style="font-family: 'Arial Black','sans-serif';">III</span></a></p>
-</td>
-<td style="width: 15.0978%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><span style="font-family: 'Arial Black','sans-serif';">IV</span></p>
-</td>
-<td style="width: 9.88414%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><span style="font-family: 'Arial Black','sans-serif';">V</span></p>
-</td>
-<td style="width: 7.60319%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 127.333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><span style="font-family: 'Arial Black','sans-serif';">VI</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-<p style="text-align: left;"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   "><span style="font-size: 24pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="text-decoration: underline;"><span style="font-size: 24pt;">B.A. LL.B</span></span> </span></strong></p>
-<table class="MsoTableMediumShading2Accent5" style="width: 697px; border-collapse: collapse; border: medium; height: 473px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 23.25pt;">
-<td style="width: 195.817px; border-width: 2.25pt medium; border-style: solid none; border-color: windowtext currentcolor; background: #c89f5d; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">Course/Degree</span></strong></p>
-</td>
-<td style="width: 205.617px; border-width: 2.25pt medium; border-style: solid none; border-color: windowtext currentcolor; background: #c89f5d; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">Yearly Courses&nbsp;</span></strong></p>
-</td>
-<td style="width: 252.367px; border-width: 2.25pt medium; border-style: solid none; border-color: windowtext currentcolor; background: #c89f5d; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">Semester </span></strong></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 195.817px; border-width: medium medium 2.25pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; background: #c89f5d; padding: 0cm 5.4pt; height: 23.25pt;" rowspan="10" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">B.A. LL.B Integrated (Academic Year 2025-26)</span></strong></p>
-</td>
-<td style="width: 205.617px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">I&nbsp; Year</span></p>
-</td>
-<td style="width: 252.367px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BALLB/1 sem.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">I Semester</span></a></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 252.367px; border: medium; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/BALLB/2 sem.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">II Semester</span></a></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 205.617px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">II&nbsp;Year</span></p>
-</td>
-<td style="width: 252.367px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">III Semester</span></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 252.367px; border: medium; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">IV Semester&nbsp;</span></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 205.617px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">III Year&nbsp;</span></p>
-</td>
-<td style="width: 252.367px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">V Semester&nbsp;</span></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 252.367px; border: medium; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">VI Semester</span></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 205.617px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">IV Year&nbsp;</span></p>
-</td>
-<td style="width: 252.367px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">VII Semester </span></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 252.367px; border: medium; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">VIII Semester </span></p>
-</td>
-</tr>
-<tr style=" height: 23.25pt;">
-<td style="width: 205.617px; border-width: medium medium 2.25pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">V Year&nbsp;</span></p>
-</td>
-<td style="width: 252.367px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">IX Semester </span></p>
-</td>
-</tr>
-<tr style="  height: 23.25pt;">
-<td style="width: 252.367px; border-width: medium medium 2.25pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; padding: 0cm 5.4pt; height: 23.25pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">X Semester </span></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-<table class="MsoTableGrid"  border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td style="border-width: 1pt; border-color: windowtext; padding: 0in 5.4pt; width: 289.917px;" valign="top">
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">COURSE</span></h1>
-</td>
-<td style="width: 381.283px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-left: medium none; padding: 0in 5.4pt; text-rendering: optimizelegibility;" valign="top" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><strong style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="color: black;">&nbsp;</span></span></span></strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">FIRST YEAR</span></h1>
-</td>
-</tr>
-<tr style=" text-rendering: optimizelegibility;">
-<td style="border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-top: medium none; padding: 0in 5.4pt; text-rendering: optimizelegibility; width: 289.917px;" valign="top">
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">Bachelor of LAWS(LL.B.)</span></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-<td style="width: 381.283px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; text-rendering: optimizelegibility;" valign="top" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/LLB/LLB_IYEAR.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">I&nbsp;&amp; II Sem</span></span></span></span></a></span></h1>
-</td>
-</tr>
-<tr style=" text-rendering: optimizelegibility;">
-<td style="border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-top: medium none; padding: 0in 5.4pt; text-rendering: optimizelegibility; width: 289.917px;" valign="top">
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">Bachelor of LAWS(LL.B.)</span></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-<td style="width: 381.283px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; text-rendering: optimizelegibility;" valign="top" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/LLB/LLB_IIYEAR.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">III &amp; IV&nbsp;Sem</span></span></span></span></a></span></h1>
-</td>
-</tr>
-<tr style="  height: 19.15pt; text-rendering: optimizelegibility;">
-<td style="border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-top: medium none; padding: 0in 5.4pt; height: 19.15pt; text-rendering: optimizelegibility; width: 289.917px;" valign="top">
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">&nbsp; &nbsp; &nbsp; &nbsp;</span></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">&nbsp;Bachelor of LAWS(LL.B.)</span></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-<td style="width: 381.283px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; height: 19.15pt; text-rendering: optimizelegibility;" valign="top" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/LLB/SYLLB_IIIRD YEAR DETAILED  SYLLABUS.pdf" target="_blank" rel="noopener"><span style="color: #666666;">&nbsp;V&amp; VI Sem</span></a></span></h1>
-</td>
-</tr>
-</tbody>
-</table>
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-book-open-reader me-1 text-secondary"></i> Course Syllabus
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;"><?= htmlspecialchars($banner_title) ?></h3>
+              <p class="text-muted small mb-0"><?= htmlspecialchars($banner_desc ?? 'Official Course Curricula, Teaching Modules & Examination Content.') ?></p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> Active Syllabus
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search subject or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Subject Modules</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?? 'fa-book' ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge'] ?? 'Syllabus') ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc'] ?? '') ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,306 +1,318 @@
-﻿<?php
-$page_title = 'Mtech - SSSUTMS';
-$banner_title = 'Mtech';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Master of Technology (M.Tech) - Curriculum Scheme - SSSUTMS';
+$banner_title = 'Master of Technology (M.Tech)';
+$banner_category = 'Curriculum Scheme';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'Computer Science & Engineering (CSE)',
+    'icon'  => 'fa-laptop-code',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. CSE Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MCSE_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. CSE Semester II Scheme',  'url' => $BASE . 'SCHEME/SCHMCSE_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. CSE Semester III Scheme', 'url' => $BASE . 'SCHEME/CS_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Computer Technology & Application (CTA)',
+    'icon'  => 'fa-microchip',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. CTA Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MCTA_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. CTA Semester II Scheme',  'url' => $BASE . 'SCHEME/SCHMCTA_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. CTA Semester III Scheme', 'url' => $BASE . 'SCHEME/CTA_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Digital Communication (DC)',
+    'icon'  => 'fa-satellite-dish',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. DC Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTDC_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. DC Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTDC_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. DC Semester III Scheme', 'url' => $BASE . 'SCHEME/DC_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Electrical Power System (EPS)',
+    'icon'  => 'fa-bolt',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. EPS Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MEPS_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. EPS Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTEPS_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. EPS Semester III Scheme', 'url' => $BASE . 'SCHEME/EPS_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Industrial Design (ID)',
+    'icon'  => 'fa-compass-drafting',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. ID Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTID_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. ID Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTID_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. ID Semester III Scheme', 'url' => $BASE . 'SCHEME/ID_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Information Technology (IT)',
+    'icon'  => 'fa-network-wired',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. IT Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MCIT_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. IT Semester II Scheme',  'url' => $BASE . 'SCHEME/SCHMIT_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. IT Semester III Scheme', 'url' => $BASE . 'SCHEME/MIT_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Power Electronics (PE)',
+    'icon'  => 'fa-plug',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. PE Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTPE_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. PE Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTPE_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. PE Semester III Scheme', 'url' => $BASE . 'SCHEME/PE_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Structural Design (SD)',
+    'icon'  => 'fa-building',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. SD Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTSD_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. SD Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTSD_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. SD Semester III Scheme', 'url' => $BASE . 'SCHEME/SD_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Software Engineering (SE)',
+    'icon'  => 'fa-code-branch',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. SE Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTSE_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. SE Semester II Scheme',  'url' => $BASE . 'SCHEME/SCHMSE_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. SE Semester III Scheme', 'url' => $BASE . 'SCHEME/SE_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Thermal Engineering (TH)',
+    'icon'  => 'fa-fire-flame-curved',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. TH Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTH_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. TH Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTH_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. TH Semester III Scheme', 'url' => $BASE . 'SCHEME/TH_III.pdf'],
+    ]
+  ],
+  [
+    'title' => 'VLSI Design (VLSI)',
+    'icon'  => 'fa-cubes',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. VLSI Semester I Scheme',   'url' => $BASE . 'SCHEME/SC_MTVD_I.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'M.Tech. VLSI Semester II Scheme',  'url' => $BASE . 'SCHEME/SC_MTVLSI_II.pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'M.Tech. VLSI Semester III Scheme', 'url' => $BASE . 'SCHEME/VL_III.pdf'],
+    ]
+  ],
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <table class="MsoNormalTable" style="width: 850px; height: 810px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpFirst" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">S.N</span></strong></p>
-</td>
-<td style="width: 110.1px; padding: 0cm;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Course</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">First Semester&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Second Semester&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Third Semester&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Fourth Semester</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">1</span></strong></p>
-</td>
-<td style="width: 110.1px; padding: 0cm;" rowspan="11" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">M.Tech.</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MCSE_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Computer Science and Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCHMCSE_II.pdf">Computer Science and Engineering</a></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/CS_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Computer Science and Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/ CSE_Sche.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Computer Science and Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">2</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MCTA_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Computer Technology and Application</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCHMCTA_II.pdf">Computer Technology and Application</a></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/CTA_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Computer Technology and Application</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/CTA _Scheme.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Computer Technology and Application</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">3</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTDC_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Digital Communication</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTDC_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Digital Communication</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/DC_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Digital Communication</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/DC.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Digital Communication</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">4</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MEPS_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Electrical Power System</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTEPS_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Electrical Power System</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/EPS_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Electrical Power System</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/EPS.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Electrical Power System</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">5</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTID_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Industrial Design&nbsp;</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTID_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Industrial Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/ID_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Industrial Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/ID.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Industrial Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">6</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MCIT_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Information Technology</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCHMIT_II.pdf">Information Technology</a></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/MIT_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Information Technology</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/pe1.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Information Technology</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">7</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTPE_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Power Electronics</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTPE_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Power Electronics</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/PE_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Power Electronics</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/PE.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Power Electronics</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">8</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTSE_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Software Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCHMSE_II.pdf">Software Engineering</a></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SE_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Software Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SE.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Software Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">9</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTSD_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Structural Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTSD_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Structural Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SD_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Structural Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/CESD.pdf">Structural Design</a></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">10</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTH_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Thermal Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTH_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Thermal Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/TH_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Thermal Engineering</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/METH.pdf">Thermal Engineering</a></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 43.2834px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">11</span></strong></p>
-</td>
-<td style="width: 209.2px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTVD_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;">VLSI Design</span></a></span></strong></p>
-</td>
-<td style="width: 160.017px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MTVLSI_II.pdf" target="_blank" rel="noopener"><span style="color: #666666;">VLSI Design</span></a></span></strong></p>
-</td>
-<td style="width: 192.517px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/VL_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">VLSI Design</span></a></span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 127.417px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/VLSI.pdf" target="_blank" rel="noopener"><span style="color: #666666;">VLSI Design</span></a></span></strong></p>
-</td>
-</tr>
-</tbody>
-</table>
+        <div class="academic-card bg-white p-4">
+
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-book me-1 text-secondary"></i> Postgraduate Engineering
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Master of Technology (M.Tech)</h3>
+              <p class="text-muted small mb-0">Official Schemes of Study &amp; Examination Matrices for All 11 Engineering Specializations.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> AICTE Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search branch or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Specialization / Semester</th>
+                  <th style="width: 44%;">Details &amp; Structure</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

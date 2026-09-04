@@ -1,66 +1,229 @@
-﻿<?php
-$page_title = 'BHMS - SSSUTMS';
-$banner_title = 'BHMS';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Homeopathy (BHMS) - Curriculum Scheme - SSSUTMS';
+$banner_title = 'Faculty of Homeopathy (BHMS)';
+$banner_category = 'Curriculum Scheme';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'Bachelor of Homeopathic Medicine and Surgery (BHMS — 5.5 Years)',
+    'icon'  => 'fa-heart-pulse',
+    'items' => [
+      ['name' => 'First Year BHMS',   'badge' => 'Professional-I',   'desc' => 'BHMS First Year Scheme of Study & Examination',   'url' => $BASE . 'SYLLABUS/BHMSSC/SC_BHMSI.pdf'],
+      ['name' => 'Second Year BHMS',  'badge' => 'Professional-II',  'desc' => 'BHMS Second Year Scheme of Study & Examination',  'url' => $BASE . 'NEP%202020%2027%20university%2014-compressed.pdf'],
+      ['name' => 'Third Year BHMS',   'badge' => 'Professional-III', 'desc' => 'BHMS Third Year Scheme of Study & Examination',   'url' => $BASE . 'NEP%202020%2027%20university%2014-compressed.pdf'],
+      ['name' => 'Fourth Year BHMS',  'badge' => 'Professional-IV',  'desc' => 'BHMS Fourth Year Scheme of Study & Examination',  'url' => $BASE . 'NEP%202020%2027%20university%2014-compressed.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
-      <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" style=" text-align: center;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; line-height: 115%; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">Scheme: B.H.M.S.</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></strong></p>
-<table class="MsoTableGrid" style="margin-left: 6.75pt; margin-right: 6.75pt; width: 711px; height: 101px;" border="1"  cellspacing="0" cellpadding="0" align="left">
-<tbody>
-<tr style="height: 113px;">
-<td style="width: 239.8px; border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt; height: 113px;" valign="top" nowrap="nowrap">
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Bachelor of Homoeopathic </span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Medicine &amp; Surgery (BHMS)</span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-</td>
-<td style="width: 115.117px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-left: medium none; padding: 0cm 5.4pt; height: 113px;" valign="top">
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span><a style="text-rendering: optimizelegibility; text-align: start;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BHMSSC/SC_BHMSI.pdf" target="_blank" rel="noopener"><span style="color: #666666;">First Year &nbsp;</span></a></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BHMSSC/SC_BHMSI.pdf" target="_blank" rel="noopener"><span style="color: #666666;">(wef 2016-17)</span></a><span style="text-align: start;">&nbsp;</span></span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-</td>
-<td style="width: 152.317px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-left: medium none; padding: 0cm 5.4pt; height: 113px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"> &nbsp; Second Year&nbsp;&nbsp;</span><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"> &nbsp; &nbsp; &nbsp; </span><span style="background-color: white; font-family: Verdana, sans-serif; font-size: 11.5pt; color: #000000;">(wef 2017-18)&nbsp;</span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormalCxSpLast" style=" text-align: center; line-height: normal;         margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-</td>
-<td style="width: 141.167px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-left: medium none; padding: 0cm 5.4pt; height: 113px;" valign="top">
-<p style="margin: 0cm; margin-bottom: .0001pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p style="margin: 0cm; margin-bottom: .0001pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-</td>
-</tr>
-</tbody>
-</table>
 
+      <!-- Main Content Area -->
+      <div class="col-lg-8 col-xl-9">
+        <div class="academic-card bg-white p-4">
+
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-heart-pulse me-1 text-secondary"></i> Medical &amp; AYUSH
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Faculty of Homeopathy (BHMS)</h3>
+              <p class="text-muted small mb-0">Official Schemes of Study &amp; Examination Matrices approved by National Commission for Homoeopathy (NCH).</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> NCH &amp; AYUSH Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search professional year...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Professional Stage / Year</th>
+                  <th style="width: 44%;">Details &amp; Structure</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

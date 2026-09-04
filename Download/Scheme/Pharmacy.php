@@ -1,317 +1,258 @@
-﻿<?php
-$page_title = 'Pharmacy - SSSUTMS';
-$banner_title = 'Pharmacy';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Pharmacy - Curriculum Schemes - SSSUTMS';
+$banner_title = 'Faculty of Pharmacy';
+$banner_category = 'Curriculum Scheme';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'B. Pharmacy — Bachelor of Pharmacy (4-Year Degree)',
+    'icon'  => 'fa-capsules',
+    'items' => [
+      ['name' => 'Complete CBCS Scheme (Sem I to VIII)', 'badge' => 'CBCS Scheme', 'desc' => 'All Semesters Combined Matrix (w.e.f. 2016-17)', 'url' => $BASE . 'SCHEME/SCBPHC_I_VIII.pdf'],
+      ['name' => 'First Semester (Non-CBCS)',            'badge' => 'Non-CBCS',    'desc' => 'B.Pharm First Semester Scheme',                  'url' => $BASE . 'SCHEME/SC_BPH_I.pdf'],
+      ['name' => 'Second Semester (Non-CBCS)',           'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Second Semester Scheme',                 'url' => $BASE . 'SCHEME/SCBP_II.pdf'],
+      ['name' => 'Third Semester (Non-CBCS)',            'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Third Semester Scheme',                  'url' => $BASE . 'SCHEME/SCBP_III.pdf'],
+      ['name' => 'Fourth Semester (Non-CBCS)',           'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Fourth Semester Scheme',                 'url' => $BASE . 'SCHEME/SHMbph_ivsem.pdf'],
+      ['name' => 'Fifth Semester (Non-CBCS)',            'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Fifth Semester Scheme',                  'url' => $BASE . 'SCHEME/SCH_BPHV.pdf'],
+      ['name' => 'Sixth Semester (Non-CBCS)',            'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Sixth Semester Scheme',                  'url' => $BASE . 'SCHEME/SCH_BPHVI.pdf'],
+      ['name' => 'Seventh Semester (Non-CBCS)',          'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Seventh Semester Scheme',                'url' => $BASE . 'SCHEME/SCBP_VII.pdf'],
+      ['name' => 'Eighth Semester (Non-CBCS)',           'badge' => 'Non-CBCS',    'desc' => 'B.Pharm Eighth Semester Scheme',                 'url' => $BASE . 'SCHEME/SCBP_VIII.pdf'],
+    ]
+  ],
+  [
+    'title' => 'M. Pharmacy — Master of Pharmacy (2-Year PG Degree)',
+    'icon'  => 'fa-mortar-pestle',
+    'items' => [
+      ['name' => 'First & Second Semester (New Scheme)',             'badge' => 'New Scheme', 'desc' => 'M.Pharm I & II Semester Scheme (w.e.f. 2017-18)',                   'url' => $BASE . 'SCHEME/SCMPWEF17_I_II.pdf'],
+      ['name' => 'Third & Fourth Semester (New Scheme)',             'badge' => 'New Scheme', 'desc' => 'M.Pharm III & IV Semester Scheme (w.e.f. 2017-18)',                 'url' => $BASE . 'SCHEME/SC_MPharmacyr_III_IVSem.pdf'],
+      ['name' => 'First Year Pharmacology (Old Scheme)',             'badge' => 'Old Scheme', 'desc' => 'M.Pharm First Year Pharmacology Scheme (w.e.f. 2015-16)',           'url' => $BASE . 'SCHEME/SCMPCO_I.pdf'],
+      ['name' => 'First Year Pharmaceutics (Old Scheme)',            'badge' => 'Old Scheme', 'desc' => 'M.Pharm First Year Pharmaceutics Scheme (w.e.f. 2015-16)',          'url' => $BASE . 'SCHEME/SCMPCE_I.pdf'],
+      ['name' => 'Second Year Pharmacology (Old Scheme)',            'badge' => 'Old Scheme', 'desc' => 'M.Pharm Second Year Pharmacology Scheme (w.e.f. 2015-16)',          'url' => $BASE . 'SCHEME/COLOGY.pdf'],
+      ['name' => 'Second Year Pharmaceutics (Old Scheme)',           'badge' => 'Old Scheme', 'desc' => 'M.Pharm Second Year Pharmaceutics Scheme (w.e.f. 2015-16)',         'url' => $BASE . 'SCHEME/MPHARMACEUTICS.pdf'],
+      ['name' => 'Third Semester Pharmacology / Pharmaceutics (Old)', 'badge' => 'Old Scheme', 'desc' => 'M.Pharm Third Semester Scheme (Pharmacology & Pharmaceutics)',      'url' => $BASE . 'SCHEME/SCMP_III.pdf'],
+      ['name' => 'Fourth Semester Pharmacology / Pharmaceutics (Old)','badge' => 'Old Scheme', 'desc' => 'M.Pharm Fourth Semester Scheme (Pharmacology & Pharmaceutics)',     'url' => $BASE . 'SCHEME/mphar.pdf'],
+    ]
+  ],
+  [
+    'title' => 'D. Pharmacy — Diploma in Pharmacy (2-Year Diploma)',
+    'icon'  => 'fa-prescription-bottle',
+    'items' => [
+      ['name' => 'First Year (PCI Scheme)',  'badge' => 'PCI Scheme', 'desc' => 'D.Pharm I Year Scheme as per PCI (w.e.f. 2021-22)',  'url' => $BASE . 'SCHEME2021/SC_DPHARMA_I_2021.pdf'],
+      ['name' => 'Second Year (PCI Scheme)', 'badge' => 'PCI Scheme', 'desc' => 'D.Pharm II Year Scheme as per PCI (w.e.f. 2021-22)', 'url' => $BASE . 'SCHEME2021/SC_DPHARMA_II_2021.pdf'],
+      ['name' => 'First Year (Old Scheme)',  'badge' => 'Old Scheme', 'desc' => 'D.Pharm I Year Scheme (Pre-2021 Curriculum)',        'url' => $BASE . 'SCHEME/DPH_Sch_I.pdf'],
+      ['name' => 'Second Year (Old Scheme)', 'badge' => 'Old Scheme', 'desc' => 'D.Pharm II Year Scheme (Pre-2021 Curriculum)',       'url' => $BASE . 'SCHEME/DPH_Sch_II.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left"  style="width: 614.95pt; margin-left: 6.75pt; margin-right: 6.75pt;">
- <tbody><tr style="height:27.25pt">
-  <td  colspan="2" valign="top" style="width: 614.95pt; border-width: 1pt 1pt 2.25pt; border-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 27.25pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;
-  "><b><span style="font-size:17.0pt;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  color:#9C0000;background:white;">B. Pharmacy</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:55.65pt">
-  <td  valign="top" style="width: 281.85pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 55.65pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  ">Choice Based Credit System (CBCS)</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;"><o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  color:red;">(w.e.f. 2016-17)</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;"><o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 55.65pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  ">Non CBCS</span></b><span style="font-size:12.0pt;
-  font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  "><o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  ">(2014 and 2015 admitted students)</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.0pt">
-  <td  rowspan="8" valign="top" style="width: 281.85pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 28pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;&nbsp;</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBPHC_I_VIII.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Scheme
-  of B.&nbsp;Pharma.&nbsp;(All Semester</span></a>)</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 28pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_BPH_I.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">First Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.15pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 28.15pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBP_II.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Second semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.15pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 28.15pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBP_III.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Third Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:27.4pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 27.4pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SHMbph_ivsem.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Fourth
-  Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.15pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 28.15pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCH_BPHV.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Fifth Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.15pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 28.15pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCH_BPHVI.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">&nbsp;Six Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:27.75pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 27.75pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBP_VII.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Seventh Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.9pt">
-  <td  valign="top" style="width: 333.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 28.9pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;
-  "><b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBP_VIII.pdf" target="_blank"><span style="font-family:&quot;inherit&quot;,&quot;serif&quot;;color:#0070C0">Eight Semester</span></a></span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
-</tbody></table>
+        <div class="academic-card bg-white p-4">
 
-<table class="MsoTableLightGridAccent5" border="1" cellspacing="0" cellpadding="0"  style="width: 614.95pt; border: none;">
- <tbody><tr style="height:1.0pt">
-  <td  colspan="2" valign="top" style="width: 614.95pt; border-width: 1pt 1pt 2.25pt; border-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-left:2.85pt;text-align:center;
-  line-height:150%;"><b><span style="font-size:11.5pt;
-  line-height:150%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;color:#9C0000;
-  background:white;">&nbsp;</span></b><b><span style="font-size:17.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#9C0000;background:white;
-  ">M. Pharmacy</span></b></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  valign="top" style="width: 276.7pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;">New Scheme <span style="color:red">( w.e.f. 2017-18)</span><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;">Old Scheme</span></b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;">&nbsp;<o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  rowspan="3" style="width: 276.7pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;">&nbsp;</span></b></p>
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMPWEF17_I_II.pdf" target="_blank"><span style="color:#0070C0">First and Second semester</span></a>&nbsp;w.e.f.
-  2017-18<o:p></o:p></span></b></p>
-  </td>
-  <td  style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMPCO_I.pdf" target="_blank"><span style="color:#0070C0">First &nbsp;Year (Pharmcology)</span></a>&nbsp;w.e.f
-  2015-16</span></b><span style="font-size:12.0pt;line-height:150%;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMPCE_I.pdf" target="_blank"><span style="color:#0070C0">First Year (Pharmaceutics)</span></a>&nbsp; &nbsp;w.e.f
-  2015-16</span></b><span style="font-size:12.0pt;line-height:150%;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/COLOGY.pdf" target="_blank"><span style="color:#0070C0">Second&nbsp; Year (Pharmcology)</span></a>&nbsp;w.e.f
-  2015-16</span></b><span style="font-size:12.0pt;line-height:150%;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  rowspan="3" style="width: 276.7pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MPharmacyr_III_IVSem.pdf" target="_blank"><span style="color:#0070C0">Third&nbsp;and Fourth semester</span></a>&nbsp;w.e.f.
-  2017-18<o:p></o:p></span></b></p>
-  </td>
-  <td  style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/MPHARMACEUTICS.pdf" target="_blank"><span style="color:#0070C0">Second&nbsp;&nbsp; Year
-  (Pharmaceutics)</span></a>&nbsp;&nbsp;&nbsp;w.e.f 2015-16</span></b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMP_III.pdf" target="_blank"><span style="color:#0070C0">Third Semester(Pharmacology/Pharmaceutics)</span></a></span></b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:18.6pt">
-  <td  style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 18.6pt;">
-  <p class="MsoNormal" align="center" style="text-align:
-  center;line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/mphar.pdf" target="_blank"><span style="color:#0070C0">Fourth Semester(Pharmacology/Pharmaceutics)</span></a></span></b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  colspan="2" valign="top" style="width: 614.95pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:black;">&nbsp;</span></b><b><span style="font-size:15.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#9C0000;background:white;
-  ">D. Pharmacy</span></b><span style="font-size:
-  12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  valign="top" style="width: 276.7pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;">As Per PCI Scheme&nbsp;(w.e.f.
-  2021-22)<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;">Old Scheme&nbsp;</span></b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;"><o:p></o:p></span></p>
-  <p class="MsoNormal" style="line-height:150%;
-  "><span style="font-size:12.0pt;line-height:150%;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;
-  ">&nbsp;<o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  valign="top" style="width: 276.7pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME2021/SC_DPHARMA_I_2021.pdf" target="_blank">I Year      </a><b><u><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"></span></u></b><b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/DPH_Sch_I.pdf" target="_blank"><span style="color:#0070C0">I Year</span></a></span></b><span style="font-size:
-  12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:1.0pt">
-  <td  valign="top" style="width: 276.7pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME2021/SC_DPHARMA_II_2021.pdf" target="_blank">II Year      </a><b><u><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"></span></u></b><span style="font-size:12.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;color:#0070C0;"><o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 338.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:150%;"><b><span style="font-size:12.0pt;
-  line-height:150%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;color:#0070C0;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/DPH_Sch_II.pdf" target="_blank"><span style="color:#0070C0">II Year</span></a><o:p></o:p></span></b></p>
-  </td>
- </tr>
-</tbody></table>
-
-<p class="MsoNormal" style="line-height:normal"><o:p>&nbsp;</o:p></p>
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-capsules me-1 text-secondary"></i> Pharmaceutical Sciences
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Faculty of Pharmacy</h3>
+              <p class="text-muted small mb-0">Official Schemes of Study &amp; Examination Matrices for B.Pharm, M.Pharm, and D.Pharm.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> PCI Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search pharmacy programme or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Structure</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

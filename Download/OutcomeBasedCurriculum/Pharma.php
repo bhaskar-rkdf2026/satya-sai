@@ -1,7 +1,7 @@
-﻿<?php
-$page_title = 'Pharmacy - SSSUTMS';
-$banner_title = 'Pharmacy';
-$banner_category = 'Download';
+<?php
+$page_title = 'Faculty of Pharmacy - Outcome Based Curriculum - SSSUTMS';
+$banner_title = 'Faculty of Pharmacy';
+$banner_category = 'Outcome Based Curriculum';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
@@ -10,63 +10,213 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.9rem;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.78rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="color: #843fa1;"><strong><span style="font-size: 14.5pt; font-family: 'Verdana', 'sans-serif'; background: white;">Pharmacy</span></strong></span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 14.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="color: #236fa1;"><strong><span style="font-size: 11.5pt; font-family: 'Verdana', 'sans-serif'; background: white;">VISION</span></strong></span></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">"To develop pharmacists, educators and scientists whose leadership, knowledge and innovation, improve the health of our communities."</span></p>
-
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="color: #236fa1;"><strong><span style="font-size: 11.5pt; font-family: 'Verdana', 'sans-serif'; background: white;">MISSION</span></strong></span></p>
-
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;">" M-1. To impart pharmaceutical knowledge to the students through effective teaching and learning process.<br /><br />&nbsp; M-2. To assure the availability of intellectual assets in terms of qualified faculties who are dedicated for the development of competent pharmacy graduates.<br /><br />&nbsp; M-3. To enhance human values in the students for the upliftment of society through motivational classes, industrial visits and extra-curricular activities.<br /><br />&nbsp; M-4. To make competent students for higher studies at Global level and to develop entrepreneurial abilities in order to improve their employability."</p>
-
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<div align="center">
-<div align="center">
-<table class="MsoTableLightGridAccent5" style="width: 375pt; border: none;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td style="border-width: 1pt 1pt 2.25pt; border-color: #4bacc6; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoSubtitle" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 15pt; font-family: Cambria, serif;">OUTCOME BASED CURRICULUM</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoSubtitle" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 13pt; font-family: Cambria, serif;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Bpharma.pdf" target="_blank" rel="noopener"><span style="color: #4f81bd;">B.Pharma</span></a></span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoSubtitle" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 13pt; font-family: Cambria, serif;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MPH_Pharmacology.pdf" target="_blank" rel="noopener"><span style="color: #4f81bd;">M.Pharma&nbsp;(Pharmacology)</span></a></span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoSubtitle" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 13pt; font-family: Cambria, serif;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MPH_Pharmaceutics.pdf" target="_blank" rel="noopener"><span style="color: #4f81bd;">M.Pharma&nbsp;(Pharmaceutics)</span></a></span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; padding: 0cm 5.4pt;" valign="top">
-<p class="MsoSubtitle" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 13pt; font-family: Cambria, serif;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_D_Pharma.pdf" target="_blank" rel="noopener"><span style="color: #4f81bd;">D.Pharma</span></a></span></strong></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></p>
+        <div class="academic-card bg-white p-4 mb-4">
+          
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-graduation-cap me-1 text-secondary"></i> Outcome Based Education (OBE)
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.5rem;">Faculty of Pharmacy</h3>
+              <p class="text-muted small mb-0">Department Vision, Mission, Program Outcomes &amp; Course Curricula.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> Active Framework
+              </span>
+            </div>
           </div>
+
+          <!-- Vision & Mission Showcase (Standard Academic Layout) -->
+          <div class="row g-3 mb-4">
+            
+            <!-- Department Vision -->
+            <div class="col-md-6">
+              <div class="p-3 rounded-2 h-100" style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0b2545;">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="fa fa-eye text-primary"></i>
+                  <h6 class="fw-bold mb-0" style="color: #0b2545; font-size: 0.95rem;">Department Vision</h6>
+                </div>
+                <p class="text-secondary small mb-0 lh-base" style="font-style: italic;">
+                  "To develop pharmacists, educators and scientists whose leadership, knowledge and innovation, improve the health of our communities."
+                </p>
+              </div>
+            </div>
+
+            <!-- Department Mission -->
+            <div class="col-md-6">
+              <div class="p-3 rounded-2 h-100" style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #475569;">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="fa fa-bullseye text-secondary"></i>
+                  <h6 class="fw-bold mb-0" style="color: #0b2545; font-size: 0.95rem;">Department Mission</h6>
+                </div>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2" style="font-size: 0.84rem; color: #475569;">
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">M-1: To impart pharmaceutical knowledge to the students through effective teaching and learning process.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">M-2: To assure the availability of intellectual assets in terms of qualified faculties who are dedicated for the development of competent pharmacy graduates.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">M-3: To enhance human values in the students for the upliftment of society through motivational classes, industrial visits and extra-curricular activities.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">M-4: To make competent students for higher studies at Global level and to develop entrepreneurial abilities in order to improve their employability.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Search Filter Box -->
+          <div class="row g-3 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color: #cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" class="form-control border-start-0 ps-0 obe-filter-input" style="border-color: #cbd5e1; font-size: 0.88rem;" placeholder="Search course or curriculum...">
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-7 text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Official PDF documents
+            </div>
+          </div>
+
+          <!-- Curriculum Matrix Table (Standard Academic Style) -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table table-hover align-middle mb-0 standard-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 60px;" class="text-center">S.No.</th>
+                  <th>Program / Specialization</th>
+                  <th>Curriculum Document (OBE)</th>
+                  <th class="text-center" style="width: 150px;">Document</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">1</td>
+                  <td class="fw-semibold text-dark">B.Pharma</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Bachelor of Pharmacy (B.Pharm) Outcome Based Curriculum</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/Bpharma.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">2</td>
+                  <td class="fw-semibold text-dark">M.Pharma (Pharmacology)</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Master of Pharmacy - Pharmacology Specialization</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/MPH_Pharmacology.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">3</td>
+                  <td class="fw-semibold text-dark">M.Pharma (Pharmaceutics)</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Master of Pharmacy - Pharmaceutics Specialization</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/MPH_Pharmaceutics.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">4</td>
+                  <td class="fw-semibold text-dark">D.Pharma</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Diploma in Pharmacy (D.Pharm) Outcome Based Curriculum</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/Curr_D_Pharma.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -78,5 +228,22 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.obe-filter-input');
+  const table = document.querySelector('.obe-table');
+  if (searchInput && table) {
+    searchInput.addEventListener('keyup', function() {
+      const query = this.value.toLowerCase().trim();
+      const rows = table.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
