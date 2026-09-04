@@ -1,6 +1,6 @@
 <?php
-$page_title = 'E-Content & Digital Learning Repository - SSSUTMS';
-$banner_title = 'E-Content & Learning Resources';
+$page_title = 'E-Content - SSSUTMS';
+$banner_title = 'E-Content';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
@@ -8,361 +8,365 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// 1. SSSUTMS e-Knowledge issues
+$eknowledge_items = [
+    ['title' => 'Vol 6 Issue 2 (16 to 30 November 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 2 16 to 30 November 2023.pdf'],
+    ['title' => 'Vol 6 Issue 1 (01 to 15 November 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 1 01 to 15 November 2023.pdf'],
+    ['title' => 'Vol 5 Issue 2 (16 to 31 October 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/elarning_opt.pdf'],
+    ['title' => 'Vol 5 Issue 1 (01 to 15 October 2023)', 'file' => 'assets/images/Files/Link/e-knowledge/SSSUTMS Vol 5 Issue 1 01 to 15 October 2023.pdf'],
+    ['title' => 'Vol 4 Issue 2 (16 to 30 Sep 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 2 16 to 30 Sep 2023.pdf'],
+    ['title' => 'Vol 4 Issue 1 (01 to 15 September 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 1 01 to 15 September 2023.pdf'],
+    ['title' => 'Vol 3 Issue 2 (16 to 31 August 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 2 01 to 15 August 2023.pdf'],
+    ['title' => 'Vol 3 Issue 1 (01 to 15 August 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 1 01 to 15 August 2023.pdf'],
+    ['title' => 'Vol 2 Issue 2 (16 to 31 July 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 2 16 to 31 July 2023.pdf'],
+    ['title' => 'Vol 02 / Issue 1 (01 to 15 July 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 1 01 to 15 July 2023.pdf'],
+    ['title' => 'Vol.01 / Issue 02 (16 to 30 June 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS Vol 1 Issue 2 16 to 30 June 2023.pdf'],
+    ['title' => 'Vol.01 / Issue 1 (01 to 15 June 2023)', 'file' => 'assets/images/Files/Link/e-knowldege/SSSUTMS (1).pdf']
+];
+
+// 2. SSSUTMS e-Report
+$ereport_items = [
+    ['title' => 'Visit of NASSCOM Regional Head', 'file' => 'assets/images/Files/Link/e content/NASSCOM Visit .pdf']
+];
+
+// 3. Students Forum
+$students_forum_items = [
+    ['title' => 'Cultural and Technical', 'file' => 'assets/images/Files/Link/Download/Preamble 2.pdf']
+];
+
+// 4. Online Study Material for Students
+$studymaterial_items = [
+    ['title' => 'Research Methodology', 'file' => 'assets/images/Files/Link/e content/definitionandtypesofresearch-100801181630-phpapp02.pdf'],
+    ['title' => 'Research Report Writing', 'file' => 'assets/images/Files/Link/e content/research Report.pdf'],
+    ['title' => 'Survey Research', 'file' => 'assets/images/Files/Link/e content/SURVEY.pdf'],
+    ['title' => 'Women in Sports', 'file' => 'assets/images/Files/Link/e content/Women.pdf'],
+    ['title' => 'Physical Fitness', 'file' => 'assets/images/Files/Link/e content/3- Physical Fitness.pdf'],
+    ['title' => 'Hypotheses', 'file' => 'assets/images/Files/Link/e content/Hypotheses PPT.pdf'],
+    ['title' => 'SOURCES OF INVALIDITY', 'file' => 'assets/images/Files/Link/e content/SOURCES_OF_INVALIDITY12.pdf'],
+    ['title' => 'SAMPLING', 'file' => 'assets/images/Files/Link/e content/SAMPLING.pdf'],
+    ['title' => 'Components of Fitness', 'file' => 'assets/images/Files/Link/e content/Components of Fitness & Tests TO GO ON.pdf'],
+    ['title' => 'Notes on Anatomy and Physiology', 'file' => 'assets/images/Files/Link/EContent/ANATOMY_PHYSIOLOGY.pdf'],
+    ['title' => 'Notes on History, Principles & Foundation of Physical Education', 'file' => 'assets/images/Files/Link/EContent/Foundation_physical_edcation.pdf'],
+    ['title' => 'Online Complete Guide to Sports Training', 'file' => 'assets/images/Files/Link/EContent/Complete Guide to Sports Training.pdf'],
+    ['title' => 'Online Notes on Computer System Architecture', 'file' => 'assets/images/Files/Link/EContent/Computer  System Architecture.pdf'],
+    ['title' => 'Online Notes on Digital electronics', 'file' => 'assets/images/Files/Link/EContent/Digital electronics.pdf'],
+    ['title' => 'Online Notes Structural Design & Drawing-I (RCC)', 'file' => 'assets/images/Files/Link/EContent/RCC.pdf'],
+    ['title' => 'Online Notes on Building Material', 'file' => 'assets/images/Files/Link/EContent/Building Material.pdf'],
+    ['title' => 'SPRITUAL MANAGEMENT', 'file' => 'assets/images/Files/Link/EContent/BOOK - SPRITUAL MANAGEMENT.pdf']
+];
+
+// 5. Video Lectures
+$video_items = [
+    ['title' => 'Video Lecture 1', 'file' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Prabhakar-FINAL.mp4'],
+    ['title' => 'Video Lecture 2', 'file' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EContent/Brijesh-FINAL.mp4']
+];
 ?>
 
-<section class="subpage-main-section py-4 style="background-color: #f8fafc;"">
+<style>
+  .econtent-main-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.06);
+    transition: all 0.3s ease;
+  }
+  .econtent-card-header {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    padding: 20px 28px;
+    position: relative;
+  }
+  .econtent-gold-line {
+    height: 3px;
+    background: linear-gradient(90deg, #f3752c 0%, #f6a935 50%, #f3752c 100%);
+    width: 100%;
+  }
+  .section-badge-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0b2545;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-badge-title i {
+    color: #f3752c;
+  }
+  .custom-econtent-table {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .custom-econtent-table thead {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    color: #ffffff;
+  }
+  .custom-econtent-table th {
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    padding: 12px 16px;
+    border: none;
+  }
+  .custom-econtent-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    font-size: 0.92rem;
+    border-color: #f1f5f9;
+  }
+  .btn-pdf-download {
+    background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.82rem;
+    border-radius: 50px;
+    padding: 6px 16px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-pdf-download:hover {
+    background: linear-gradient(135deg, #e0580a 0%, #c94700 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(243, 117, 44, 0.38);
+    color: #ffffff !important;
+  }
+  .video-card-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(11, 37, 69, 0.05);
+    transition: transform 0.2s ease;
+  }
+  .video-card-box:hover {
+    transform: translateY(-3px);
+  }
+  .video-card-box video {
+    width: 100%;
+    height: auto;
+    max-height: 240px;
+    background: #000;
+    display: block;
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+        <div class="econtent-main-card mb-4">
           
-          <!-- Header Banner -->
-          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
-            <div>
-              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
-                <i class="fa fa-book-bookmark me-1"></i> Digital Learning Hub
-              </span>
-              <h3 class="fw-bold text-navy mb-1" style="color: #0b2545;">SSSUTMS e-Knowledge &amp; E-Learning Portal</h3>
-              <p class="text-muted small mb-0">University publications, periodicals, faculty lecture series, and digital courseware.</p>
-            </div>
-            <div class="mt-2 mt-md-0">
-              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
-                <i class="fa fa-circle-check me-1"></i> Open Academic Access
-              </span>
+          <!-- Card Header with Portal Theme -->
+          <div class="econtent-card-header text-white">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <div class="d-flex align-items-center gap-3">
+                <div class="bg-white bg-opacity-10 p-2 rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                  <i class="fa fa-book-open-reader text-warning fs-5"></i>
+                </div>
+                <div>
+                  <h4 class="fw-bold mb-0 text-white">E-Content</h4>
+                  <p class="small text-white-50 mb-0">Sri Satya Sai University of Technology and Medical Sciences</p>
+                </div>
+              </div>
+              <div>
+                <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background: rgba(243, 117, 44, 0.2); border: 1px solid rgba(243, 117, 44, 0.4); color: #ffd5b8;">
+                  <i class="fa fa-layer-group me-1"></i> Academic Resources
+                </span>
+              </div>
             </div>
           </div>
+          <div class="econtent-gold-line"></div>
 
-          <!-- Nav Tabs for E-Content Sections -->
-          <ul class="nav nav-pills nav-fill mb-4 p-1 style="background-color: #f8fafc;" rounded-pill border p-1" id="eContentTabs" style="background: #f1f5f9;" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active fw-bold py-2 rounded-pill" style="background: linear-gradient(135deg, #0b2545 0%, #134074 100%) !important; color: #ffffff !important;" id="periodicals-tab" data-bs-toggle="pill" data-bs-target="#periodicals" type="button" role="tab">
-                <i class="fa fa-newspaper me-1"></i> e-Knowledge Periodicals
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link fw-bold py-2 rounded-pill text-dark" id="studymaterial-tab" data-bs-toggle="pill" data-bs-target="#studymaterial" type="button" role="tab">
-                <i class="fa fa-book-open me-1"></i> Online Study Modules
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link fw-bold py-2 rounded-pill text-dark" id="videolectures-tab" data-bs-toggle="pill" data-bs-target="#videolectures" type="button" role="tab">
-                <i class="fa fa-video me-1"></i> Video Lectures
-              </button>
-            </li>
-          </ul>
-
-          <div class="tab-content" id="eContentTabsContent">
+          <!-- Card Body -->
+          <div class="p-4">
             
-            <!-- Tab 1: Periodicals & Newsletters -->
-            <div class="tab-pane fade show active" id="periodicals" role="tabpanel">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold text-dark mb-0"><i class="fa fa-scroll text-primary me-2"></i>University e-Knowledge Bulletins</h5>
-                <small class="text-muted">Bi-monthly scholarly editions</small>
+            <!-- 1. SSSUTMS e-Knowledge -->
+            <div class="mb-5">
+              <div class="section-badge-title">
+                <i class="fa fa-newspaper"></i>
+                <span>SSSUTMS e-Knowledge</span>
               </div>
-
-              <div class="row g-3">
-                
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge bg-primary text-white">Vol. 6 Issue 2</span>
-                      <small class="text-muted">16 - 30 Nov 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Academic developments, technical papers, and university institutional highlights.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 2 16 to 30 November 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge bg-primary text-white">Vol. 6 Issue 1</span>
-                      <small class="text-muted">01 - 15 Nov 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Research publications, doctoral seminars, and educational initiatives.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 6 Issue 1 01 to 15 November 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge bg-secondary text-white">Vol. 5 Issue 2</span>
-                      <small class="text-muted">16 - 31 Oct 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Special coverage on innovations, industry collaborations, and faculty development.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/elarning_opt.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge bg-secondary text-white">Vol. 5 Issue 1</span>
-                      <small class="text-muted">01 - 15 Oct 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Highlights on pharmacy, engineering innovations, and student achievements.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowledge/SSSUTMS Vol 5 Issue 1 01 to 15 October 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge bg-secondary text-white">Vol. 4 Issue 2</span>
-                      <small class="text-muted">16 - 30 Sep 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Campus community updates, national webinars, and academic workshops.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 2 16 to 30 Sep 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge bg-secondary text-white">Vol. 4 Issue 1</span>
-                      <small class="text-muted">01 - 15 Sep 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Teachers' day special symposiums and university academic councils.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 4 Issue 1 01 to 15 September 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 3 Issue 2</span>
-                      <small class="text-muted">16 - 31 Aug 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Independence day celebrations and sports tournaments overview.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 2 01 to 15 August 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 3 Issue 1</span>
-                      <small class="text-muted">01 - 15 Aug 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">New academic session orientation and pedagogical guidelines.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 3 Issue 1 01 to 15 August 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 2 Issue 2</span>
-                      <small class="text-muted">16 - 31 Jul 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Campus recruitment and internship placement drives summary.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 2 16 to 31 July 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-3 p-3 h-100 hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <span class="badge style="background-color: #f8fafc;" text-dark border">Vol. 2 Issue 1</span>
-                      <small class="text-muted">01 - 15 Jul 2023</small>
-                    </div>
-                    <h6 class="fw-bold text-dark mb-1">SSSUTMS e-Knowledge Bulletin</h6>
-                    <p class="small text-secondary mb-3">Inaugural academic research editions and university milestone reports.</p>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e-knowldege/SSSUTMS Vol 2 Issue 1 01 to 15 July 2023.pdf" target="_blank" class="btn btn-sm text-white rounded-pill mt-auto text-nowrap" style="background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%); font-weight: 600; font-size: 0.82rem; box-shadow: 0 2px 6px rgba(243, 117, 44, 0.28); border: none;">
-                      <i class="fa fa-file-pdf me-1"></i> Read Bulletin (PDF)
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Tab 2: Online Study Material & Research Modules -->
-            <div class="tab-pane fade" id="studymaterial" role="tabpanel">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold text-dark mb-0"><i class="fa fa-graduation-cap text-primary me-2"></i>Curriculum E-Books &amp; Research Modules</h5>
-                <small class="text-muted">Faculty curated e-learning content</small>
-              </div>
-
-              <div class="table-responsive rounded-3 border">
+              <div class="table-responsive custom-econtent-table">
                 <table class="table table-hover align-middle mb-0">
-                  <thead style="background: linear-gradient(135deg, #0b2545 0%, #0d47a1 100%); color: #fff;">
+                  <thead>
                     <tr>
-                      <th style="width: 60px;" class="text-center">#</th>
-                      <th>Topic / Course Module</th>
-                      <th>Subject / Discipline</th>
-                      <th class="text-center" style="width: 170px;">Resource Link</th>
+                      <th style="width: 70px;" class="text-center">S.No.</th>
+                      <th>Edition / Issue Title</th>
+                      <th class="text-center" style="width: 170px;">Download</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php foreach ($eknowledge_items as $index => $item): ?>
                     <tr>
-                      <td class="text-center fw-bold text-muted">1</td>
-                      <td class="fw-semibold text-dark">Research Methodology &amp; Theoretical Concepts</td>
-                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
+                      <td class="text-center fw-bold text-muted"><?php echo $index + 1; ?></td>
+                      <td class="fw-semibold text-dark">
+                        <i class="fa fa-file-pdf text-danger me-2"></i>
+                        <?php echo htmlspecialchars($item['title']); ?>
+                      </td>
                       <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/definitionandtypesofresearch-100801181630-phpapp02.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View Module
+                        <a href="<?php echo BASE_URL . $item['file']; ?>" target="_blank" class="btn-pdf-download">
+                          <i class="fa fa-file-pdf"></i>
+                          <span>View (PDF)</span>
                         </a>
                       </td>
                     </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">2</td>
-                      <td class="fw-semibold text-dark">Research Report Writing &amp; Thesis Formulation</td>
-                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/research Report.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View Module
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">3</td>
-                      <td class="fw-semibold text-dark">Survey Research Design &amp; Methodology</td>
-                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/SURVEY.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View Module
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">4</td>
-                      <td class="fw-semibold text-dark">Anatomy and Physiology Course Guide</td>
-                      <td><span class="badge bg-success-subtle text-success border">Medical / Paramedical</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/ANATOMY_PHYSIOLOGY.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View E-Book
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">5</td>
-                      <td class="fw-semibold text-dark">Foundation of Physical Education</td>
-                      <td><span class="badge bg-info-subtle text-info border">Physical Education</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Foundation_physical_edcation.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View E-Book
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">6</td>
-                      <td class="fw-semibold text-dark">Complete Guide to Sports Training</td>
-                      <td><span class="badge bg-info-subtle text-info border">Sports Science</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Complete Guide to Sports Training.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View E-Book
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">7</td>
-                      <td class="fw-semibold text-dark">Reinforced Cement Concrete (RCC) Design</td>
-                      <td><span class="badge bg-warning-subtle text-dark border">Civil Engineering</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/RCC.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View E-Book
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">8</td>
-                      <td class="fw-semibold text-dark">Hypothesis Testing &amp; Statistical Inferences (PPT)</td>
-                      <td><span class="badge bg-secondary-subtle text-dark border">Statistics</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/Hypotheses PPT.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View Slides
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center fw-bold text-muted">9</td>
-                      <td class="fw-semibold text-dark">Sampling Methodology in Social &amp; Pure Sciences</td>
-                      <td><span class="badge bg-primary-subtle text-primary border">Research Studies</span></td>
-                      <td class="text-center">
-                        <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/e content/SAMPLING.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                          <i class="fa fa-file-pdf me-1"></i> View Module
-                        </a>
-                      </td>
-                    </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <!-- Tab 3: Video Lecture Repository -->
-            <div class="tab-pane fade" id="videolectures" role="tabpanel">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold text-dark mb-0"><i class="fa fa-circle-play text-danger me-2"></i>Recorded Faculty Masterclasses</h5>
-                <small class="text-muted">High definition educational lectures</small>
+            <!-- 2. SSSUTMS e-Report -->
+            <div class="mb-5">
+              <div class="section-badge-title">
+                <i class="fa fa-chart-line"></i>
+                <span>SSSUTMS e-Report</span>
               </div>
+              <div class="table-responsive custom-econtent-table">
+                <table class="table table-hover align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th style="width: 70px;" class="text-center">S.No.</th>
+                      <th>Report Title</th>
+                      <th class="text-center" style="width: 170px;">Download</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($ereport_items as $index => $item): ?>
+                    <tr>
+                      <td class="text-center fw-bold text-muted"><?php echo $index + 1; ?></td>
+                      <td class="fw-semibold text-dark">
+                        <i class="fa fa-file-pdf text-danger me-2"></i>
+                        <?php echo htmlspecialchars($item['title']); ?>
+                      </td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL . $item['file']; ?>" target="_blank" class="btn-pdf-download">
+                          <i class="fa fa-file-pdf"></i>
+                          <span>View (PDF)</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
+            <!-- 3. Students Forum -->
+            <div class="mb-5">
+              <div class="section-badge-title">
+                <i class="fa fa-users"></i>
+                <span>Students Forum</span>
+              </div>
+              <div class="table-responsive custom-econtent-table">
+                <table class="table table-hover align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th style="width: 70px;" class="text-center">S.No.</th>
+                      <th>Activity / Document Title</th>
+                      <th class="text-center" style="width: 170px;">Download</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($students_forum_items as $index => $item): ?>
+                    <tr>
+                      <td class="text-center fw-bold text-muted"><?php echo $index + 1; ?></td>
+                      <td class="fw-semibold text-dark">
+                        <i class="fa fa-file-pdf text-danger me-2"></i>
+                        <?php echo htmlspecialchars($item['title']); ?>
+                      </td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL . $item['file']; ?>" target="_blank" class="btn-pdf-download">
+                          <i class="fa fa-file-pdf"></i>
+                          <span>View (PDF)</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 4. Online Study Material for Students -->
+            <div class="mb-5">
+              <div class="section-badge-title">
+                <i class="fa fa-graduation-cap"></i>
+                <span>Online Study Material for Students</span>
+              </div>
+              <div class="table-responsive custom-econtent-table">
+                <table class="table table-hover align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th style="width: 70px;" class="text-center">S.No.</th>
+                      <th>Subject / Course Material</th>
+                      <th class="text-center" style="width: 170px;">Download</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($studymaterial_items as $index => $item): ?>
+                    <tr>
+                      <td class="text-center fw-bold text-muted"><?php echo $index + 1; ?></td>
+                      <td class="fw-semibold text-dark">
+                        <i class="fa fa-file-pdf text-danger me-2"></i>
+                        <?php echo htmlspecialchars($item['title']); ?>
+                      </td>
+                      <td class="text-center">
+                        <a href="<?php echo BASE_URL . $item['file']; ?>" target="_blank" class="btn-pdf-download">
+                          <i class="fa fa-file-pdf"></i>
+                          <span>View (PDF)</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5. Video Lectures -->
+            <div>
+              <div class="section-badge-title">
+                <i class="fa fa-circle-play"></i>
+                <span>Video Lectures</span>
+              </div>
               <div class="row g-4">
+                <?php foreach ($video_items as $index => $item): 
+                  $video_src = (strpos($item['file'], 'http') === 0) ? $item['file'] : (BASE_URL . $item['file']);
+                ?>
                 <div class="col-md-6">
-                  <div class="card border rounded-4 overflow-hidden h-100 shadow-sm">
-                    <div class="bg-dark text-white p-4 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 180px; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);">
-                      <i class="fa fa-circle-play fa-4x text-white mb-2 opacity-75"></i>
-                      <h5 class="fw-bold text-white mb-0">Special Lecture Series</h5>
-                      <span class="badge bg-warning text-dark mt-2">Dr. Prabhakar Sharma</span>
-                    </div>
-                    <div class="card-body p-3">
-                      <h6 class="fw-bold text-dark mb-1">Advanced Academic Discourse Series - Part I</h6>
-                      <p class="small text-secondary mb-3">Comprehensive multimedia lecture on core pedagogical concepts and engineering methodologies.</p>
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Prabhakar-FINAL.mp4" target="_blank" class="btn btn-sm btn-primary rounded-pill w-100">
-                        <i class="fa fa-play me-1"></i> Stream / Download Video Lecture
-                      </a>
+                  <div class="video-card-box">
+                    <video controls preload="metadata" src="<?php echo $video_src; ?>" style="width: 100%; height: auto; min-height: 220px; background: #000; display: block;">
+                      <source src="<?php echo $video_src; ?>" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="p-3 bg-white">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="fw-bold text-dark mb-0">
+                          <i class="fa fa-circle-play text-danger me-2"></i>
+                          <?php echo htmlspecialchars($item['title']); ?>
+                        </h6>
+                        <a href="<?php echo $video_src; ?>" target="_blank" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1" style="font-size: 0.8rem;">
+                          <i class="fa fa-arrow-up-right-from-square me-1"></i> Open Video
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-md-6">
-                  <div class="card border rounded-4 overflow-hidden h-100 shadow-sm">
-                    <div class="bg-dark text-white p-4 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 180px; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
-                      <i class="fa fa-circle-play fa-4x text-white mb-2 opacity-75"></i>
-                      <h5 class="fw-bold text-white mb-0">Masterclass Series</h5>
-                      <span class="badge bg-warning text-dark mt-2">Dr. Brijesh Kumar</span>
-                    </div>
-                    <div class="card-body p-3">
-                      <h6 class="fw-bold text-dark mb-1">Advanced Academic Discourse Series - Part II</h6>
-                      <p class="small text-secondary mb-3">In-depth technical lecture delivered for undergraduate and postgraduate university scholars.</p>
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/EContent/Brijesh-FINAL.mp4" target="_blank" class="btn btn-sm btn-primary rounded-pill w-100">
-                        <i class="fa fa-play me-1"></i> Stream / Download Video Lecture
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <?php endforeach; ?>
               </div>
-
             </div>
 
           </div>

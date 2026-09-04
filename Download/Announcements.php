@@ -1,6 +1,6 @@
 <?php
-$page_title = 'Official Announcements & Academic Calendars - SSSUTMS';
-$banner_title = 'Official Announcements';
+$page_title = 'Announcements - SSSUTMS';
+$banner_title = 'Announcements';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
@@ -8,10 +8,161 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
-
-// Fetch notices from data/notices.json
-$notices = function_exists('get_notices') ? get_notices('all', 15) : [];
 ?>
+
+<style>
+  .announcement-main-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.06);
+    transition: all 0.3s ease;
+  }
+  .announcement-card-header {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    padding: 20px 28px;
+    position: relative;
+  }
+  .announcement-gold-line {
+    height: 3px;
+    background: linear-gradient(90deg, #f3752c 0%, #f6a935 50%, #f3752c 100%);
+    width: 100%;
+  }
+  .calender-hero-title {
+    text-align: center;
+    padding: 16px 20px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #f8fafc 0%, #edf4fc 100%);
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+  }
+  .calender-hero-title h4 {
+    color: #0b2545;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  .calender-hero-title .badge-accent {
+    background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%);
+    color: #ffffff;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .faculty-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    transition: all 0.25s ease;
+  }
+  .faculty-section:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 24px rgba(11, 37, 69, 0.06);
+  }
+  .faculty-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .faculty-header-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #f0f7ff;
+    color: #0b2545;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    border: 1px solid #dbeafe;
+  }
+  .faculty-header-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin: 0;
+  }
+  .calendar-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    transition: all 0.2s ease;
+  }
+  .calendar-item:last-child {
+    margin-bottom: 0;
+  }
+  .calendar-item:hover {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.05);
+  }
+  .calendar-item-name {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.94rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .calendar-item-prefix {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #0b2545;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .btn-download-pdf {
+    background: #ffffff;
+    color: #0b2545 !important;
+    border: 1px solid #cbd5e1;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 7px 16px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+  }
+  .btn-download-pdf:hover {
+    background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%);
+    color: #ffffff !important;
+    border-color: #f3752c;
+    box-shadow: 0 4px 12px rgba(243, 117, 44, 0.3);
+    transform: translateY(-1px);
+  }
+  .btn-download-pdf:hover .text-danger {
+    color: #ffffff !important;
+  }
+</style>
 
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
@@ -19,166 +170,122 @@ $notices = function_exists('get_notices') ? get_notices('all', 15) : [];
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+        <div class="announcement-main-card mb-4">
           
-          <!-- Card Header -->
-          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
-            <div>
-              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
-                <i class="fa fa-bullhorn me-1"></i> University Gazette &amp; Notices
+          <!-- Card Header styled with Homepage Gradient -->
+          <div class="announcement-card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <h2 class="h5 fw-bold text-white mb-0 d-flex align-items-center gap-2">
+              <i class="bi bi-journal-text me-2" style="color: #f6a935;"></i> Announcements
+            </h2>
+            <span class="badge rounded-pill px-3 py-2 small" style="background: rgba(255, 255, 255, 0.15); color: #ffffff; font-weight: 500;">
+              <i class="fa fa-calendar-check text-success me-1"></i> Academic Calendars
+            </span>
+          </div>
+          <div class="announcement-gold-line"></div>
+
+          <!-- Card Body -->
+          <div class="card-body p-4 p-md-5">
+
+            <!-- Top Event Calendar Hero Title -->
+            <div class="calender-hero-title">
+              <span class="badge-accent">
+                <i class="fa fa-calendar-days me-1"></i> Session 2024-25
               </span>
-              <h3 class="fw-bold text-navy mb-1" style="color: #002B5B;">Official Announcements &amp; Calendars</h3>
-              <p class="text-muted small mb-0">Sri Satya Sai University of Technology &amp; Medical Sciences, Sehore</p>
+              <h4>Event Calender for the Year 2024-25</h4>
             </div>
-            <div class="mt-2 mt-md-0">
-              <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-3 py-2 rounded-pill animate-pulse">
-                <i class="fa fa-circle-dot me-1"></i> Academic Session 2026-27
-              </span>
-            </div>
-          </div>
 
-          <!-- Section 1: Official Department Academic Calendars -->
-          <h5 class="fw-bold text-navy mb-3" style="color: #002B5B;">
-            <i class="fa fa-calendar-alt text-primary me-2"></i>Faculty &amp; College Academic Calendars
-          </h5>
-
-          <div class="row g-4 mb-5">
-            
-            <!-- Faculty of Education -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100 border rounded-4 p-3 shadow-sm hover-shadow transition">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="avatar-md p-2 bg-primary-subtle text-primary rounded-3 me-3">
-                    <i class="fa fa-chalkboard-user fa-2x"></i>
-                  </div>
-                  <div>
-                    <h6 class="fw-bold text-dark mb-0">Faculty of Education</h6>
-                    <small class="text-muted">B.Ed / B.A. B.Ed / B.P.Ed</small>
-                  </div>
+            <!-- SECTION 1: FACULTY OF EDUCATION -->
+            <div class="faculty-section">
+              <div class="faculty-header">
+                <div class="faculty-header-icon">
+                  <i class="fa fa-graduation-cap"></i>
                 </div>
-                <p class="small text-secondary mb-3">Official academic terms, teaching schedule, practical training, and semester calendar.</p>
-                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/Faculty of Education.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill w-100 mt-auto">
-                  <i class="fa fa-file-pdf me-1"></i> Download Calendar
+                <div>
+                  <h5 class="faculty-header-title">FACULTY OF EDUCATION FOR THE YEAR 2024-25</h5>
+                  <small class="text-muted">Academic calendars for B.Ed, B.A. B.Ed, and B.P.Ed programs</small>
+                </div>
+              </div>
+
+              <!-- Calendar Items (Matching live site alpha, beta, gamma) -->
+              <div class="calendar-item">
+                <div class="calendar-item-name">
+                  <span class="calendar-item-prefix">&alpha;</span>
+                  <span>B.ED Department Calendar</span>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/Faculty of Education.pdf" target="_blank" rel="noopener" class="btn-download-pdf">
+                  <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                </a>
+              </div>
+
+              <div class="calendar-item">
+                <div class="calendar-item-name">
+                  <span class="calendar-item-prefix">&beta;</span>
+                  <span>B.A. B.ED Department Calendar</span>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/Faculty of Education.pdf" target="_blank" rel="noopener" class="btn-download-pdf">
+                  <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                </a>
+              </div>
+
+              <div class="calendar-item">
+                <div class="calendar-item-name">
+                  <span class="calendar-item-prefix">&gamma;</span>
+                  <span>B.P. ED Department Calendar</span>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/Faculty of Education.pdf" target="_blank" rel="noopener" class="btn-download-pdf">
+                  <i class="fa fa-file-pdf text-danger"></i> Download PDF
                 </a>
               </div>
             </div>
 
-            <!-- College of Pharmacy -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100 border rounded-4 p-3 shadow-sm hover-shadow transition">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="avatar-md p-2 bg-success-subtle text-success rounded-3 me-3">
-                    <i class="fa fa-prescription-bottle-medical fa-2x"></i>
-                  </div>
-                  <div>
-                    <h6 class="fw-bold text-dark mb-0">College of Pharmacy</h6>
-                    <small class="text-muted">B.Pharm &amp; M.Pharm</small>
-                  </div>
+            <!-- SECTION 2: COLLEGE OF PHARMACY -->
+            <div class="faculty-section">
+              <div class="faculty-header">
+                <div class="faculty-header-icon">
+                  <i class="fa fa-prescription-bottle-medical"></i>
                 </div>
-                <p class="small text-secondary mb-3">PCI aligned sessional examinations, lab schedules, and academic session calendar.</p>
-                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/College of Pharmacy.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill w-100 mt-auto">
-                  <i class="fa fa-file-pdf me-1"></i> Download Calendar
+                <div>
+                  <h5 class="faculty-header-title">COLLEGE OF PHARMACY FOR THE YEAR 2024-25</h5>
+                  <small class="text-muted">Academic session and practical calendar for Pharmacy department</small>
+                </div>
+              </div>
+
+              <!-- Pharmacy Item -->
+              <div class="calendar-item">
+                <div class="calendar-item-name">
+                  <span class="calendar-item-prefix">&alpha;</span>
+                  <span>PHARMACY DEPARTMENT</span>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/College of Pharmacy.pdf" target="_blank" rel="noopener" class="btn-download-pdf">
+                  <i class="fa fa-file-pdf text-danger"></i> Download PDF
                 </a>
               </div>
             </div>
 
-            <!-- School of Engineering -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100 border rounded-4 p-3 shadow-sm hover-shadow transition">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="avatar-md p-2 bg-warning-subtle text-dark rounded-3 me-3">
-                    <i class="fa fa-compass-drafting fa-2x"></i>
-                  </div>
-                  <div>
-                    <h6 class="fw-bold text-dark mb-0">School of Engineering</h6>
-                    <small class="text-muted">B.Tech &amp; Polytechnic</small>
-                  </div>
+            <!-- SECTION 3: SCHOOL OF ENGINEERING -->
+            <div class="faculty-section mb-0">
+              <div class="faculty-header">
+                <div class="faculty-header-icon">
+                  <i class="fa fa-laptop-code"></i>
                 </div>
-                <p class="small text-secondary mb-3">AICTE semester timelines, mid-term evaluations, project reviews, and examination calendar.</p>
-                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/BE_AE.pdf" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill w-100 mt-auto">
-                  <i class="fa fa-file-pdf me-1"></i> View Calendar
+                <div>
+                  <h5 class="faculty-header-title">SCHOOL OF ENGINEERING FOR THE YEAR 2024-2025</h5>
+                  <small class="text-muted">Engineering and technological studies academic calendar</small>
+                </div>
+              </div>
+
+              <!-- Engineering Item -->
+              <div class="calendar-item">
+                <div class="calendar-item-name">
+                  <span class="calendar-item-prefix">a</span>
+                  <span>Computer Sciences and Engineering</span>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Announcements/Faculty of Education.pdf" target="_blank" rel="noopener" class="btn-download-pdf">
+                  <i class="fa fa-file-pdf text-danger"></i> Download PDF
                 </a>
               </div>
             </div>
 
-          </div>
-
-          <!-- Section 2: Recent Official University Notices Table -->
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="fw-bold text-navy mb-0" style="color: #002B5B;">
-              <i class="fa fa-scroll text-primary me-2"></i>Recent Circulars &amp; Official Notifications
-            </h5>
-            <span class="small text-muted">Latest University Updates</span>
-          </div>
-
-          <div class="table-responsive rounded-3 border">
-            <table class="table table-hover align-middle mb-0">
-              <thead style="background: linear-gradient(135deg, #002B5B 0%, #0d47a1 100%); color: #fff;">
-                <tr>
-                  <th style="width: 60px;" class="text-center">#</th>
-                  <th>Announcement / Notification Title</th>
-                  <th>Department / Category</th>
-                  <th class="text-center" style="width: 140px;">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-center fw-bold text-muted">1</td>
-                  <td>
-                    <div class="fw-bold text-dark">University Entrance Exam Alert (CEET) 2026-2027</div>
-                    <small class="text-muted">Notification for Common Entrance Exam registration for professional &amp; doctoral programs</small>
-                  </td>
-                  <td><span class="badge bg-primary-subtle text-primary border">Admissions</span></td>
-                  <td class="text-center">
-                    <a href="<?php echo BASE_URL; ?>Admission/AdmissionNotice.php" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                      <i class="fa fa-eye me-1"></i> View Notice
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td class="text-center fw-bold text-muted">2</td>
-                  <td>
-                    <div class="fw-bold text-dark">Ph.D. Course Work Examination Schedule &amp; Results</div>
-                    <small class="text-muted">Notification regarding Research Methodology and Course Work examinations</small>
-                  </td>
-                  <td><span class="badge bg-warning-subtle text-dark border">Research</span></td>
-                  <td class="text-center">
-                    <a href="<?php echo BASE_URL; ?>Download/NotificationOfPhdAward.php" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                      <i class="fa fa-eye me-1"></i> View Notice
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td class="text-center fw-bold text-muted">3</td>
-                  <td>
-                    <div class="fw-bold text-dark">Examination Schedule for Professional &amp; Paramedical Courses</div>
-                    <small class="text-muted">Semester examination timetable for medical, ayurveda, and paramedical disciplines</small>
-                  </td>
-                  <td><span class="badge bg-danger-subtle text-danger border">Examination</span></td>
-                  <td class="text-center">
-                    <a href="<?php echo BASE_URL; ?>Examination/ExamSchedule.php" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                      <i class="fa fa-eye me-1"></i> View Notice
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td class="text-center fw-bold text-muted">4</td>
-                  <td>
-                    <div class="fw-bold text-dark">Enrollment &amp; University Registration Form Submission Notice</div>
-                    <small class="text-muted">Mandatory enrolment deadlines and guidelines for newly admitted students</small>
-                  </td>
-                  <td><span class="badge bg-info-subtle text-info border">Enrolment</span></td>
-                  <td class="text-center">
-                    <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
-                      <i class="fa fa-download me-1"></i> Get Form
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
         </div>
