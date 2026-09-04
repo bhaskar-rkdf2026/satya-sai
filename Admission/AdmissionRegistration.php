@@ -38,25 +38,38 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
 .ar-stat-chip {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex; align-items: center; gap: 11px;
   height: 100%;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.02);
 }
 .ar-stat-chip:hover {
   border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
+  box-shadow: 0 6px 16px rgba(11,37,69,0.07);
   transform: translateY(-2px);
 }
 .ar-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
+  width: 42px; height: 42px;
+  border-radius: 10px;
   background: rgba(245,158,11,0.12);
   color: #d97706;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
+  font-size: 1.15rem; flex-shrink: 0;
+}
+.ar-chip-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  line-height: 1.2;
+}
+.ar-chip-val {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.25;
 }
 .ar-card {
   background: #ffffff;
@@ -64,7 +77,7 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
   border-radius: 16px;
   padding: 1.75rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-  margin-bottom: 1.75rem;
+  margin-bottom: 0;
 }
 .ar-portal-btn {
   background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
@@ -115,14 +128,14 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
+            <!-- Compact Stat Chips -->
+            <div class="row g-2 align-items-stretch mb-4">
               <div class="col-sm-6 col-md-3">
                 <div class="ar-stat-chip">
                   <div class="ar-stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Portal</div>
-                    <div class="fw-bold text-dark fs-6">E-Pravesh 2026</div>
+                    <div class="ar-chip-label">Portal</div>
+                    <div class="ar-chip-val">E-Pravesh 2026</div>
                   </div>
                 </div>
               </div>
@@ -130,8 +143,8 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
                 <div class="ar-stat-chip">
                   <div class="ar-stat-icon"><i class="fa-solid fa-bolt"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Registration</div>
-                    <div class="fw-bold text-dark fs-6">Instant Application</div>
+                    <div class="ar-chip-label">Registration</div>
+                    <div class="ar-chip-val">Instant Application</div>
                   </div>
                 </div>
               </div>
@@ -139,8 +152,8 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
                 <div class="ar-stat-chip">
                   <div class="ar-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Scope</div>
-                    <div class="fw-bold text-dark fs-6">All Disciplines</div>
+                    <div class="ar-chip-label">Scope</div>
+                    <div class="ar-chip-val">All Disciplines</div>
                   </div>
                 </div>
               </div>
@@ -148,8 +161,8 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
                 <div class="ar-stat-chip">
                   <div class="ar-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Security</div>
-                    <div class="fw-bold text-dark fs-6">Encrypted ERP Portal</div>
+                    <div class="ar-chip-label">Security</div>
+                    <div class="ar-chip-val">Encrypted ERP Portal</div>
                   </div>
                 </div>
               </div>
@@ -167,25 +180,6 @@ $registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/oj
                 <a href="<?php echo $registration_url; ?>" target="_blank" rel="noopener" class="ar-portal-btn">
                   <i class="fa-solid fa-right-to-bracket fs-4"></i> Proceed to Online Registration Portal
                 </a>
-              </div>
-            </div>
-
-            <!-- Instructions Before Applying -->
-            <div class="ar-card mb-0">
-              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-list-check text-warning me-2"></i> Requirements Before Registering</h5>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="p-3 bg-light border rounded-3 h-100">
-                    <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-envelope me-2 text-warning"></i> Valid Contact Info</h6>
-                    <p class="small text-muted mb-0">Active mobile number and email ID for receiving application registration credentials and admission updates.</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="p-3 bg-light border rounded-3 h-100">
-                    <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-file-arrow-up me-2 text-warning"></i> Scanned Documents</h6>
-                    <p class="small text-muted mb-0">Soft copies of 10th and 12th/Graduation marksheets, passport-size photograph, and signature.</p>
-                  </div>
-                </div>
               </div>
             </div>
 
