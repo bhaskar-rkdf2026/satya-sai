@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Admission Procedure - SSSUTMS';
+$page_title = 'Admission Procedure - Sri Satya Sai University of Technology & Medical Sciences';
 $banner_title = 'Admission Procedure';
 $banner_category = 'Admission';
 
@@ -9,23 +9,29 @@ require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 
-$pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
+$pdf_path = BASE_URL . 'assets/documents/admission_notices/adm_procedure.pdf';
+$chart_img_path = BASE_URL . 'assets/images/admission/admission_procedure_flowchart.jpeg';
 ?>
 
 <style>
-.ap-section { background-color: #f8fafc; }
+.ap-section {
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
 .ap-main-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  box-shadow: 0 4px 20px rgba(11, 37, 69, 0.04);
   overflow: hidden;
   margin-bottom: 2rem;
 }
+
 .ap-header-banner {
   background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
   color: #ffffff;
-  padding: 2.2rem 2rem;
+  padding: 2.25rem 2rem;
   position: relative;
 }
 .ap-header-banner::after {
@@ -35,35 +41,44 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
+
 .ap-stat-chip {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   height: 100%;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 .ap-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
+  border-color: #f59e0b;
+  box-shadow: 0 6px 16px rgba(11,37,69,0.08);
   transform: translateY(-2px);
 }
 .ap-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
+  border: 1px solid #fde68a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
 }
+
 .ap-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
   margin-bottom: 1.75rem;
 }
 .ap-card-header {
@@ -75,41 +90,75 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
   border-bottom: 2px solid #f1f5f9;
 }
 .ap-card-header i {
-  color: #f59e0b;
-  font-size: 1.3rem;
+  color: #d97706;
+  font-size: 1.25rem;
 }
+
 .ap-pdf-btn {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  background: #0b2545;
   color: #ffffff !important;
   font-weight: 700;
-  padding: 12px 22px;
-  border-radius: 12px;
+  font-size: 0.88rem;
+  padding: 10px 20px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(11,37,69,0.15);
-  transition: all 0.25s ease;
+  border: 1px solid #134074;
+  transition: all 0.2s ease;
 }
 .ap-pdf-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(217,119,6,0.3);
+  background: #f59e0b;
+  color: #0b2545 !important;
+  border-color: #d97706;
+  transform: translateY(-1px);
 }
+
 .ap-step-num {
-  width: 38px; height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
   color: #fbbf24;
   font-weight: 700;
-  font-size: 1.1rem;
-  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  border: 2px solid #fde68a;
+}
+
+.ap-flowchart-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.ap-flowchart-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
+}
+.ap-flowchart-img:hover {
+  transform: scale(1.01);
+}
+
+.ap-cta-banner {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
 }
 </style>
 
-<section class="subpage-main-section ap-section py-4">
+<section class="subpage-main-section ap-section py-4 py-md-5">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
 
@@ -118,23 +167,26 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
         <div class="ap-main-card">
 
           <!-- Header Banner -->
-          <div class="ap-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <div class="an-header-banner ap-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
             <div>
-              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
-                <i class="fa-solid fa-list-check me-1"></i> Admission Guidelines &amp; Steps
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-1.5 rounded-pill" style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3);">
+                <i class="fa-solid fa-list-check me-1"></i> Official Admission Guidelines &amp; Directives
               </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">ADMISSION PROCEDURE 2026-27</h3>
-              <p class="text-white-50 mb-0 small">Official State Government &amp; Regulatory Commission Admission Guidelines</p>
+              <h1 class="fw-bold text-white mb-1 fs-3">ADMISSION PROCEDURE 2026-27</h1>
+              <p class="text-white-50 mb-0 small">Guidelines &amp; Approval by State Regulatory Authorities (MP PURC &amp; UGC)</p>
             </div>
-            <div>
+            <div class="d-flex flex-wrap gap-2">
               <a href="<?php echo $pdf_path; ?>" target="_blank" rel="noopener" class="ap-pdf-btn">
-                <i class="fa-solid fa-file-pdf fs-5 text-warning"></i> Download Admission Procedure (PDF)
+                <i class="fa-solid fa-file-pdf text-warning"></i> Admission Procedure (Click Here)
+              </a>
+              <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="ap-pdf-btn" style="background: #f59e0b; color: #0b2545 !important; border-color: #d97706;">
+                <i class="fa-solid fa-user-plus"></i> Online Registration
               </a>
             </div>
           </div>
 
           <!-- Content Body -->
-          <div class="p-4">
+          <div class="p-3.5 p-md-4">
 
             <!-- Stat Chips -->
             <div class="row g-3 align-items-stretch mb-4">
@@ -142,8 +194,8 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
                 <div class="ap-stat-chip">
                   <div class="ap-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Regulatory Authority</div>
-                    <div class="fw-bold text-dark fs-6">MP Regulatory Body</div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Regulatory Authority</span>
+                    <strong class="text-dark fs-6">MP PURC &amp; UGC</strong>
                   </div>
                 </div>
               </div>
@@ -151,8 +203,8 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
                 <div class="ap-stat-chip">
                   <div class="ap-stat-icon"><i class="fa-solid fa-gavel"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Fee Approval</div>
-                    <div class="fw-bold text-dark fs-6">Niji Vishwavidyalaya Aayog</div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Fee Approval</span>
+                    <strong class="text-dark fs-6">Niyamak Aayog</strong>
                   </div>
                 </div>
               </div>
@@ -160,8 +212,8 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
                 <div class="ap-stat-chip">
                   <div class="ap-stat-icon"><i class="fa-solid fa-user-plus"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Mode</div>
-                    <div class="fw-bold text-dark fs-6">Online &amp; Direct</div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Admission Mode</span>
+                    <strong class="text-dark fs-6">Online &amp; Direct</strong>
                   </div>
                 </div>
               </div>
@@ -169,30 +221,57 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
                 <div class="ap-stat-chip">
                   <div class="ap-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
                   <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Verification</div>
-                    <div class="fw-bold text-dark fs-6">Transparent &amp; Merit-Based</div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Verification</span>
+                    <strong class="text-dark fs-6">Transparent &amp; Merit</strong>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Overview Section -->
+            <!-- Overview Section (Exact Live Content) -->
             <div class="ap-card">
               <div class="ap-card-header">
-                <i class="fa-solid fa-circle-info text-warning"></i>
-                <h5 class="fw-bold text-dark mb-0">Overview of Admission Process</h5>
+                <i class="fa-solid fa-circle-info"></i>
+                <h5 class="fw-bold text-dark mb-0">Admission Procedure</h5>
               </div>
-              <div class="lh-lg text-dark" style="text-align: justify;">
-                <p>Admissions to various Technical, Professional &amp; General Courses at Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS) are made in accordance with guidelines provided by the University Regulatory Authority, M.P., and the State Government of Madhya Pradesh, as amended or suggested from time to time.</p>
+              <div class="text-dark" style="text-align: justify; line-height: 1.8;">
+                <p class="mb-3">
+                  Admissions to various Technical, Professional &amp; General Courses will be made in accordance with the guidelines provided by University Regulatory Authority, M.P. &amp; State Government of Madhya Pradesh, as amended or suggested from time to time. The fees charged for all the courses will be as per approval accorded by <strong>Madhya Pradesh Niji Vishwavidyalaya Niyamak Aayog, Bhopal (Madhya Pradesh)</strong>.
+                </p>
 
-                <p class="mb-0">The fees charged for all courses are as per approval accorded by the <strong>Madhya Pradesh Niji Vishwavidyalaya Niyamak Aayog, Bhopal (Madhya Pradesh)</strong>.</p>
+                <div class="ap-cta-banner d-flex align-items-center justify-content-between flex-wrap gap-3 mt-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-file-pdf fs-2 text-danger"></i>
+                    <div>
+                      <strong class="text-dark d-block">Official Admission Procedure Document (PDF)</strong>
+                      <span class="text-muted extra-small">Detailed guidelines, ordinance references, eligibility &amp; fee regulations</span>
+                    </div>
+                  </div>
+                  <a href="<?php echo $pdf_path; ?>" target="_blank" rel="noopener" class="ap-pdf-btn">
+                    <i class="fa-solid fa-download"></i> Admission Procedure (Click Here)
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Official Admission Flowchart / Advertisement (Local Image) -->
+            <div class="ap-card">
+              <div class="ap-card-header">
+                <i class="fa-solid fa-image"></i>
+                <h5 class="fw-bold text-dark mb-0">Admission Advertisement &amp; Course Flowchart</h5>
+              </div>
+              <div class="ap-flowchart-box">
+                <img src="<?php echo $chart_img_path; ?>" alt="Admission Procedure Flowchart" class="ap-flowchart-img" loading="lazy">
+                <div class="mt-2 text-muted extra-small">
+                  <i class="fa-solid fa-magnifying-glass me-1"></i> Official SSSUTMS Admission Advertisement &amp; Flowchart
+                </div>
               </div>
             </div>
 
             <!-- Step-by-Step Procedure Cards -->
             <div class="ap-card mb-0">
               <div class="ap-card-header">
-                <i class="fa-solid fa-diagram-project text-warning"></i>
+                <i class="fa-solid fa-diagram-project"></i>
                 <h5 class="fw-bold text-dark mb-0">Step-by-Step Admission Process</h5>
               </div>
 
@@ -200,32 +279,32 @@ $pdf_path = BASE_URL . 'assets/images/Files/Link/Admission/adm_procedure.pdf';
                 <div class="p-3 bg-light border rounded-3 d-flex align-items-start gap-3">
                   <span class="ap-step-num">1</span>
                   <div>
-                    <h6 class="fw-bold text-primary mb-1">Online Registration / E-Pravesh Form</h6>
-                    <p class="small text-muted mb-0">Fill out the official online registration form or E-Pravesh enquiry form with candidate details, course choice, and academic qualifications.</p>
+                    <h6 class="fw-bold text-dark mb-1">Online Registration / E-Pravesh Application</h6>
+                    <p class="extra-small text-muted mb-0">Submit the official online admission form with personal credentials, preferred program/discipline choice, and qualifying academic marks.</p>
                   </div>
                 </div>
 
                 <div class="p-3 bg-light border rounded-3 d-flex align-items-start gap-3">
                   <span class="ap-step-num">2</span>
                   <div>
-                    <h6 class="fw-bold text-primary mb-1">Counselling &amp; Seat Allotment</h6>
-                    <p class="small text-muted mb-0">Participate in university counselling based on qualifying exam marks or entrance scores. Receive provisional seat allotment letter.</p>
+                    <h6 class="fw-bold text-dark mb-1">Merit Assessment &amp; Counseling Seat Allotment</h6>
+                    <p class="extra-small text-muted mb-0">Seats are allocated based on qualifying merit scores or national/state-level entrance examination rank in accordance with MP PURC regulations.</p>
                   </div>
                 </div>
 
                 <div class="p-3 bg-light border rounded-3 d-flex align-items-start gap-3">
                   <span class="ap-step-num">3</span>
                   <div>
-                    <h6 class="fw-bold text-primary mb-1">Document Verification</h6>
-                    <p class="small text-muted mb-0">Submit original marksheets (10th/12th/Graduation), Transfer Certificate (TC), Migration, Character Certificate, and Category Certificate for verification.</p>
+                    <h6 class="fw-bold text-dark mb-1">Document Verification at Central Cell</h6>
+                    <p class="extra-small text-muted mb-0">Original academic marksheets (10th/12th/Graduation), Transfer Certificate (TC), Migration, Category Proof, and Domicile are verified by university scrutiny team.</p>
                   </div>
                 </div>
 
                 <div class="p-3 bg-light border rounded-3 d-flex align-items-start gap-3">
                   <span class="ap-step-num">4</span>
                   <div>
-                    <h6 class="fw-bold text-primary mb-1">Fee Payment &amp; Final Admission Confirmation</h6>
-                    <p class="small text-muted mb-0">Deposit prescribed tuition fee via PNB bank counter, online payment gateway (UPI/Netbanking/Debit Card), or Demand Draft to confirm enrollment.</p>
+                    <h6 class="fw-bold text-dark mb-1">Tuition Fee Deposit &amp; Enrollment Confirmation</h6>
+                    <p class="extra-small text-muted mb-0">Deposit prescribed regulatory fees through central bank counter / online payment portal to obtain final Admission Receipt and Enrollment Number.</p>
                   </div>
                 </div>
               </div>

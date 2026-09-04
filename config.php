@@ -21,6 +21,22 @@ define('EXAM_EMAIL', 'exam@sssutms.co.in');
 define('BASE_DIR', __DIR__);
 define('DATA_DIR', __DIR__ . '/data');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Universal Base URL auto-detection
 $dir = str_replace('\\', '/', __DIR__);
 if (preg_match('#/htdocs(/.*)$#i', $dir, $m)) {
