@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Admission Enquiry - SSSUTMS';
 $banner_title = 'Admission Enquiry';
 $banner_category = 'Admission';
@@ -10,711 +10,346 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.ae-section { 
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.ae-main-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.ae-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2.2rem 2rem;
+  position: relative;
+}
+.ae-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.ae-stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex; 
+  align-items: center; 
+  gap: 12px;
+  height: 100%;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.ae-stat-card:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 6px 16px rgba(11,37,69,0.08);
+  transform: translateY(-2px);
+}
+.ae-stat-icon {
+  width: 40px; 
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  color: #d97706;
+  border: 1px solid #fde68a;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 1.15rem; 
+  flex-shrink: 0;
+}
+
+.ae-reg-btn {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(11,37,69,0.15);
+  transition: all 0.25s ease;
+}
+.ae-reg-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217,119,6,0.3);
+}
+
+.ae-school-badge {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  height: 100%;
+  transition: all 0.25s ease;
+}
+.ae-school-badge:hover {
+  background: #ffffff;
+  border-color: #bfdbfe;
+  box-shadow: 0 4px 14px rgba(11, 37, 69, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Attached Enquiry Form Card Styling */
+.ae-form-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #e2e8f0;
+  border-top: 4px solid #f59e0b;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(11, 37, 69, 0.08);
+}
+.ae-form-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+.ae-form-title i {
+  color: #f59e0b;
+  font-size: 1.5rem;
+}
+</style>
+
+<section class="subpage-main-section ae-section py-4 py-md-5">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
+        <div class="ae-main-wrapper">
 
-<p style="text-align: center;"><span style="font-size: 24pt;"><strong><span style="font-family: 'comic sans ms', sans-serif;">For Admission 2026-27 Enquiry Please Contact</span></strong></span></p>
+          <!-- Header Banner -->
+          <div class="ae-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-graduation-cap me-1"></i> Admission Desk 2026-27
+              </span>
+              <h3 class="fw-bold text-white mb-1 fs-3">ADMISSION ENQUIRY</h3>
+              <p class="text-white-50 mb-0 small">Get Guidance, Counseling &amp; Course Information from Academic Experts</p>
+            </div>
+            <div>
+              <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="ae-reg-btn">
+                <i class="fa-solid fa-user-plus me-1"></i> Online Admission Registration
+              </a>
+            </div>
+          </div>
 
-<p style="text-align: center;"></p>
-<table class="MsoNormalTable" style="width: 666pt; margin-left: 4.65pt; border-collapse: collapse; height: 3399.67px;" border="0"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 74.6667px;">
-<td style="width: 57.1833px; border-width: 1pt 1pt medium; border-style: solid solid none; border-color: windowtext windowtext currentcolor; background: #8064a2; padding: 0cm 5.4pt; height: 74.6667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 16.0pt; font-family: 'Comic Sans MS';   color: white; ">Sr. No.</span></strong></p>
-</td>
-<td style="width: 346.883px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext black black currentcolor; background: #8064a2; padding: 0cm 5.4pt; height: 74.6667px;" colspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 16.0pt; font-family: 'Comic Sans MS';   color: white; ">Name of School</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: 1pt 1pt medium medium; border-style: solid solid none none; border-color: windowtext black currentcolor currentcolor; background: #8064a2; padding: 0cm 5.4pt; height: 74.6667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 16.0pt; font-family: 'Comic Sans MS';   color: white; ">Course</span></strong></p>
-</td>
-<td style="width: 135.883px; border-width: 1pt 1pt medium medium; border-style: solid solid none none; border-color: windowtext windowtext currentcolor currentcolor; background: #8064a2; padding: 0cm 5.4pt; height: 74.6667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 16.0pt; font-family: 'Comic Sans MS';   color: white; ">Mobile Number</span></strong></p>
-</td>
-<td style="height: 74.6667px; border: medium; width: 0px;"  height="65">&nbsp;</td>
-</tr>
-<tr style="height: 67px;">
-<td style="width: 57.1833px; border: 1pt solid windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 1352.87px;" rowspan="24" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">1</span></p>
-</td>
-<td style="width: 346.883px; background: #ffffcc; padding: 0cm 5.4pt; height: 1352.87px;" colspan="2" rowspan="24" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 16.0pt; font-family: 'Century','serif';   color: black; ">School of Engineering</span></strong></p>
-</td>
-<td style="width: 403.266px; border-color: windowtext black black windowtext; border-style: solid; border-width: 1pt; background: #fcd5b4; padding: 0cm 5.4pt; height: 67px;" colspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt; font-family: 'Cooper Black','serif';   color: black; ">Branch in B. E.</span></strong></p>
-</td>
-<td style="height: 67px; border: medium; width: 0px;"  height="67">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Aeronautical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">7692875742</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Chemical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9407213622</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Civil Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9981397326</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Computer Science and Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Electrical and Electronics Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8319244686</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Electrical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9752776005</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Electronic &amp; Communication Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8319244686</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Electronics &amp; Instrumentation Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9752776005</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Information Technology</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Mechanical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9827635159</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 53.2667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 53.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Mining Engineering&nbsp;</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 53.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9893380978</span></strong></p>
-</td>
-<td style="height: 53.2667px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 403.266px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #fcd5b4; padding: 0cm 5.4pt; height: 49px;" colspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt; font-family: 'Cooper Black','serif';   color: black; ">Branch in M.Tech.</span></strong></p>
-</td>
-<td style="height: 49px; border: medium; width: 0px;"  height="49">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Computer Science and Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Computer Technology &amp; Applications</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Digital Communication</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9752776005</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Electrical Power System</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8319244686</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Industrial Design</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9827635159</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Information Technology</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Power Electronics</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8319244686</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Software Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Structural Design</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9981397326</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Thermal Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9827635159</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 56px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor black black windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 56px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">VLSI</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 56px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8319244686</span></strong></p>
-</td>
-<td style="height: 56px; border: medium; width: 0px;"  height="56">&nbsp;</td>
-</tr>
-<tr style="height: 55.8px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext black; background: #ffffcc; padding: 0cm 5.4pt; height: 82.7333px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">2</span></p>
-</td>
-<td style="width: 346.883px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext black black currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 82.7333px;" colspan="2" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Computer Application</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 82.7333px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">MCA</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 82.7333px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 55.8px; border: medium; width: 0px;"  height="54">&nbsp;</td>
-</tr>
-<tr style="height: 26.9333px;">
-<td style="height: 26.9333px; border: medium; width: 0px;"  height="26">&nbsp;</td>
-</tr>
-<tr style="height: 84px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 84px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">3</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 84px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Management Studies</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 84px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">PRADEEP MAHESWARI</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 84px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">MBA,BBA</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 84px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9826785141</span></strong></p>
-</td>
-<td style="height: 84px; border: medium; width: 0px;"  height="76">&nbsp;</td>
-</tr>
-<tr style="height: 61.3333px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">4</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Hotel Management</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">SHAHAB AHMED</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">BHMCT</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9893507683</span></strong></p>
-</td>
-<td style="height: 61.3333px; border: medium; width: 0px;"  height="51">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext black; background: #ffffcc; padding: 0cm 5.4pt; height: 222.667px;" rowspan="5" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">5</span></p>
-</td>
-<td style="width: 346.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 222.667px;" colspan="2" rowspan="5" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Polytechnic (Engineering)</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Computer Science &amp; Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9926474406</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="26">&nbsp;</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 40.6667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Electrical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 40.6667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8319244686</span></strong></p>
-</td>
-<td style="height: 40.6667px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 40.6667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Civil Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 40.6667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9981397326</span></strong></p>
-</td>
-<td style="height: 40.6667px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 40.6667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Mechanical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 40.6667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9827635159</span></strong></p>
-</td>
-<td style="height: 40.6667px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 267.383px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor black currentcolor currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 40.6667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Chemical Engineering</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor windowtext currentcolor currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 40.6667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9407213622</span></strong></p>
-</td>
-<td style="height: 40.6667px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 45.2667px;">
-<td style="width: 57.1833px; border-width: medium medium 1pt 1pt; border-style: none none solid solid; border-color: currentcolor currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 45.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">6</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 45.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Law</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 45.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">SHOBHA VYAS</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 45.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">LLB,<span style="">&nbsp; </span>B.A. L.L.B.</span></p>
-</td>
-<td style="width: 135.883px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 45.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9826345988</span></strong></p>
-</td>
-<td style="height: 45.2667px; border: medium; width: 0px;"  height="45">&nbsp;</td>
-</tr>
-<tr style="height: 61.3333px;">
-<td style="width: 57.1833px; border-width: medium medium 1pt 1pt; border-style: none none solid solid; border-color: currentcolor currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">7</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Homoeopathy</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">SUSAN THOMAS</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">BHMS, MD</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8770112248</span></strong></p>
-</td>
-<td style="height: 61.3333px; border: medium; width: 0px;"  height="51">&nbsp;</td>
-</tr>
-<tr style="height: 61.3333px;">
-<td style="border-width: medium medium 1pt 1pt; border-style: none none solid solid; border-color: currentcolor currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 123px; width: 57.1833px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">8</span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">&nbsp;</span></p>
-</td>
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 123px; width: 173.633px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Faculty of Education</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">GARGEE SINGH</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">BABED</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8817713465</span></strong></p>
-</td>
-<td style="height: 61.3333px; border: medium; width: 0px;"  height="51">&nbsp;</td>
-</tr>
-<tr style="height: 61.6667px;">
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.6667px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">DHEERAJ SHINDE</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 61.6667px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B.ED&nbsp;</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 61.6667px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9827283834</span></strong></p>
-</td>
-<td style="border: medium; width: 0px; height: 61.6667px;">&nbsp;</td>
-</tr>
-<tr style="height: 71.2667px;">
-<td style="width: 57.1833px; border-width: medium medium 1pt 1pt; border-style: none none solid solid; border-color: currentcolor currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 71.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">9</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 71.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Design</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 71.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">VIKASH PATIDAR</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 71.2667px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B. ARCH, B DESIGN&nbsp;</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 71.2667px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9981397326</span></strong></p>
-</td>
-<td style="height: 71.2667px; border: medium; width: 0px;"  height="45">&nbsp;</td>
-</tr>
-<tr style="height: 73px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext #b2b2b2; background: #ffffcc; padding: 0cm 5.4pt; height: 131px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">10</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext #b2b2b2 currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 131px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Ayurveda &amp; Siddha Studies</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 73px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">NITIN TIWARI</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor black currentcolor currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 131px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B A M S</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 73px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9893552730</span></strong></p>
-</td>
-<td style="height: 73px; border: medium; width: 0px;"  height="73">&nbsp;</td>
-</tr>
-<tr style="height: 58px;">
-<td style="width: 173.25px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor windowtext currentcolor currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 58px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">RAJESH MEENA</span></strong></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor windowtext currentcolor currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 58px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9669896787</span></strong></p>
-</td>
-<td style="height: 58px; border: medium; width: 0px;"  height="58">&nbsp;</td>
-</tr>
-<tr style="height: 59px;">
-<td style="width: 57.1833px; border-width: medium medium 1pt 1pt; border-style: none none solid solid; border-color: currentcolor currentcolor black windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 108px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">11</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium medium 1pt 1pt; border-style: none none solid solid; border-color: currentcolor currentcolor #b2b2b2 windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 108px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Agriculture</span></strong></p>
-</td>
-<td style="width: 173.25px; border: 1pt solid windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 59px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">VIVEK TOMAR</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 108px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B.Sc.(Hons.)Ag</span></p>
-</td>
-<td style="width: 135.883px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 59px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9893113067</span></strong></p>
-</td>
-<td style="height: 59px; border: medium; width: 0px;"  height="59">&nbsp;</td>
-</tr>
-<tr style="height: 49px;">
-<td style="width: 173.25px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 49px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">RAJMAL ATERIYA</span></strong></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 49px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8770917039</span></strong></p>
-</td>
-<td style="height: 49px; border: medium; width: 0px;"  height="49">&nbsp;</td>
-</tr>
-<tr style="height: 61.3333px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">12</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Faculty of Commerce</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">GAJRAJ SINGH</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B. COM., M. COM.</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9826708152</span></strong></p>
-</td>
-<td style="height: 61.3333px; border: medium; width: 0px;"  height="51">&nbsp;</td>
-</tr>
-<tr style="height: 59.3333px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 59.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">13</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 59.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Faculty of Science</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor windowtext currentcolor currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 59.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">ABHISHEK KUROLIYA</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 59.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B. C. A. , B.SC., M.SC.</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 59.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9993423224</span></strong></p>
-</td>
-<td style="height: 59.3333px; border: medium; width: 0px;"  height="47">&nbsp;</td>
-</tr>
-<tr style="height: 84px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 84px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">14</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 84px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Faculty of Humanities and Languages</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: 1pt 1pt medium medium; border-style: solid solid none none; border-color: windowtext windowtext currentcolor currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 84px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">TABBASUM KHAN</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 84px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B. A. , M. A.</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 84px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9630846732</span></strong></p>
-</td>
-<td style="height: 84px; border: medium; width: 0px;"  height="47">&nbsp;</td>
-</tr>
-<tr style="height: 39.5667px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext black; background: #ffffcc; padding: 0cm 5.4pt; height: 121.533px;" rowspan="4" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">15</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor #b2b2b2; background: #ffffcc; padding: 0cm 5.4pt; height: 121.533px;" rowspan="4" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Faculty of Pharmacy</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: 1pt; border-style: solid; border-color: windowtext windowtext black; background: #ffffcc; padding: 0cm 5.4pt; height: 66.7334px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">KAILASH PATHAK</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black black currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 121.533px;" rowspan="4" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Bachelor of Pharmacy,&nbsp;&nbsp;Master of Pharmacy (Pharmacology, Pharmaceutics)</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 66.7334px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9893321054</span></strong></p>
-</td>
-<td style="height: 39.5667px; border: medium; width: 0px;"  height="38">&nbsp;</td>
-</tr>
-<tr style="height: 27.1667px;">
-<td style="height: 27.1667px; border: medium; width: 0px;"  height="26">&nbsp;</td>
-</tr>
-<tr style="height: 27.4px;">
-<td style="width: 173.25px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext black; background: #ffffcc; padding: 0cm 5.4pt; height: 54.8px;" rowspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">FIROZ KHAN</span></strong></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 54.8px;" rowspan="2" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9713710667</span></strong></p>
-</td>
-<td style="height: 27.4px; border: medium; width: 0px;"  height="26">&nbsp;</td>
-</tr>
-<tr style="height: 27.4px;">
-<td style="height: 27.4px; border: medium; width: 0px;"  height="26">&nbsp;</td>
-</tr>
-<tr style="height: 61.3333px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">16</span></p>
-</td>
-<td style="width: 173.633px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">Polytechnic Pharmacy</span></strong></p>
-</td>
-<td style="width: 173.25px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style=" font-family: 'Book Antiqua','serif';   color: black; ">HARISH PANDEY</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 61.3333px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">Diploma Pharmacy</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 61.3333px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9977558673</span></strong></p>
-</td>
-<td style="height: 61.3333px; border: medium; width: 0px;"  height="51">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #ffffcc; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">17</span></p>
-</td>
-<td style="border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor windowtext currentcolor currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 60px; width: 346.883px;" colspan="2" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;School of Nursing</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B SC (NURSING),GNM,Post Basic Nursing</span></p>
-</td>
-<td style="width: 135.883px; border-width: medium 1pt medium medium; border-style: none solid none none; border-color: currentcolor windowtext currentcolor currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 60px;" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">8839694593</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 57.1833px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext black; background: #ffffcc; padding: 0cm 5.4pt; height: 534px;" rowspan="10" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 16.0pt;     color: black; ">18</span></p>
-</td>
-<td style="width: 346.883px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext black black currentcolor; background: #ffffcc; padding: 0cm 5.4pt; height: 534px;" colspan="2" rowspan="10" >
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; text-align: center;"><strong><span style="font-size: 14.0pt; font-family: 'Book Antiqua','serif';   color: black; ">School of Paramedical</span></strong></p>
-</td>
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">MASTER OF PHYSIOTHERAPY (Ortho.)</span></p>
-</td>
-<td style="width: 135.883px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: black windowtext black currentcolor; background: #f2dcdb; padding: 0cm 5.4pt; height: 534px;" rowspan="10" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt;     color: black; ">9977558673</span></strong></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="50">&nbsp;</td>
-</tr>
-<tr style="height: 38px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 38px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">M.M.L.T. (HAEMOTOLOGY)</span></p>
-</td>
-<td style="height: 38px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 38px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 38px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B. P. T.</span></p>
-</td>
-<td style="height: 38px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 38px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 38px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">B. M. L. T.,&nbsp; D.M.L.T.</span></p>
-</td>
-<td style="height: 38px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 82px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 82px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">DIPLOMA IN X-RAY (RADIOGRAPHER) TECHNICIAN</span></p>
-</td>
-<td style="height: 82px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">DIPLOMA IN PHARMACY (AYURVED)</span></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">DIPLOMA IN PHARMACY (HOMEOPATHIC)</span></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 38px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 38px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">DIPLOMA IN YOGA</span></p>
-</td>
-<td style="height: 38px; border: medium; width: 0px;"  height="27">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">DIPLOMA IN BLOOD TRANSFUSION</span></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 267.383px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor black windowtext currentcolor; background: #daeef3; padding: 0cm 5.4pt; height: 60px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial Black','sans-serif';   color: black; ">DIPLOMA IN OPTHALMIC ASSISTANT</span></p>
-</td>
-<td style="height: 60px; border: medium; width: 0px;"  height="53">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong><strong><span style="font-size: 14.0pt; font-family: 'Calibri','sans-serif';  color: black;   "> </span></strong></p>
+          <!-- Content Body -->
+          <div class="p-3.5 p-md-4">
 
-<p style="text-align: left;"></p>
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="ae-stat-card">
+                  <div class="ae-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                  <div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Academic Session</span>
+                    <strong class="text-dark fs-6">2026 – 2027</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="ae-stat-card">
+                  <div class="ae-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
+                  <div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Constituent Units</span>
+                    <strong class="text-dark fs-6">15 Schools</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="ae-stat-card">
+                  <div class="ae-stat-icon"><i class="fa-solid fa-headset"></i></div>
+                  <div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Counseling Support</span>
+                    <strong class="text-dark fs-6">Central Desk</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="ae-stat-card">
+                  <div class="ae-stat-icon"><i class="fa-solid fa-clock"></i></div>
+                  <div>
+                    <span class="text-muted extra-small uppercase fw-bold d-block">Desk Hours</span>
+                    <strong class="text-dark fs-6">9:00 AM – 6:00 PM</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<p style="text-align: left;"></p>
+            <!-- Schools & Programs Covered Grid -->
+            <div class="mb-4">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-layer-group text-warning me-2"></i>Schools &amp; Programs Open for Admission 2026-27</h5>
+              <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                  <div class="ae-school-badge">
+                    <i class="fa-solid fa-gears text-warning fs-4 mb-2"></i>
+                    <h6 class="fw-bold text-dark mb-1">School of Engineering</h6>
+                    <p class="mb-0 extra-small text-muted">B.E. / B.Tech (Aeronautical, CSE, Civil, Mech, EE, EC, IT, Mining) &amp; M.Tech</p>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="ae-school-badge">
+                    <i class="fa-solid fa-pills text-warning fs-4 mb-2"></i>
+                    <h6 class="fw-bold text-dark mb-1">School of Pharmacy</h6>
+                    <p class="mb-0 extra-small text-muted">B.Pharm, D.Pharm, M.Pharm (Pharmaceutics / Pharmacology) &amp; D.Pharm (Ayurveda)</p>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="ae-school-badge">
+                    <i class="fa-solid fa-briefcase text-warning fs-4 mb-2"></i>
+                    <h6 class="fw-bold text-dark mb-1">Management &amp; IT</h6>
+                    <p class="mb-0 extra-small text-muted">MBA (Business Administration), BBA, MCA &amp; BCA (Computer Applications)</p>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="ae-school-badge">
+                    <i class="fa-solid fa-user-doctor text-warning fs-4 mb-2"></i>
+                    <h6 class="fw-bold text-dark mb-1">Ayush &amp; Medical College</h6>
+                    <p class="mb-0 extra-small text-muted">BAMS (Ayurveda) &amp; BHMS (Homeopathy) Medical Degree Programs</p>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="ae-school-badge">
+                    <i class="fa-solid fa-user-nurse text-warning fs-4 mb-2"></i>
+                    <h6 class="fw-bold text-dark mb-1">Nursing &amp; Paramedical</h6>
+                    <p class="mb-0 extra-small text-muted">B.Sc. Nursing, GNM, Post Basic Nursing, MPT, BPT, BMLT, DMLT &amp; X-Ray</p>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="ae-school-badge">
+                    <i class="fa-solid fa-scale-balanced text-warning fs-4 mb-2"></i>
+                    <h6 class="fw-bold text-dark mb-1">Law, Agriculture &amp; Education</h6>
+                    <p class="mb-0 extra-small text-muted">BA LLB, B.Com LLB, LLB, LLM, B.Sc (Hons) Ag, B.Sc, M.Sc, B.Ed &amp; M.Ed</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<p style="text-align: left;"></p>
+            <!-- STANDARD ADMISSION ENQUIRY FORM -->
+            <div class="ae-form-card" id="enquiryFormSection">
+              <div class="ae-form-title">
+                <i class="fa-solid fa-paper-plane text-warning"></i>
+                <div>
+                  <h4 class="fw-bold text-dark mb-0 fs-5">Admission Enquiry Form 2026-27</h4>
+                  <span class="small text-muted">Fill out the form below to get direct callback &amp; fee structure guidance from our central admission desk</span>
+                </div>
+              </div>
 
-<p style="text-align: left;"></p>
+              <form id="aeDirectForm" method="POST" action="<?php echo BASE_URL; ?>submit-handler.php">
+                <input type="hidden" name="action" value="submit_inquiry">
+                
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Student Full Name *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-user text-primary"></i></span>
+                      <input type="text" name="name" class="form-control border-start-0" placeholder="Enter student's full name" required>
+                    </div>
+                  </div>
 
-<p style="text-align: left;"></p>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Mobile / WhatsApp Number *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-phone text-primary"></i></span>
+                      <input type="tel" name="phone" class="form-control border-start-0" placeholder="+91-9876543210" pattern="[0-9]{10}" title="Ten digit mobile number" required>
+                    </div>
+                  </div>
+                </div>
 
-<p style="text-align: left;"></p>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Email Address *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-envelope text-primary"></i></span>
+                      <input type="email" name="email" class="form-control border-start-0" placeholder="student@example.com" required>
+                    </div>
+                  </div>
 
-<p style="text-align: left;"></p>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">City / State *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-location-dot text-primary"></i></span>
+                      <input type="text" name="city" class="form-control border-start-0" placeholder="e.g. Bhopal, Madhya Pradesh" required>
+                    </div>
+                  </div>
+                </div>
 
-<p style="text-align: left;"></p>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Select Faculty / School *</label>
+                    <select name="school" class="form-select" required>
+                      <option value="">Select Faculty / School</option>
+                      <option value="School of Engineering">School of Engineering (B.E./B.Tech/M.Tech)</option>
+                      <option value="School of Pharmacy">School of Pharmacy &amp; Polytechnic Pharmacy</option>
+                      <option value="Management & Computer Applications">School of Management &amp; Computer Applications</option>
+                      <option value="Ayush & Medical Sciences">Ayush &amp; Medical Sciences (BAMS / BHMS)</option>
+                      <option value="Nursing & Paramedical">School of Nursing &amp; Paramedical</option>
+                      <option value="School of Law">School of Law (BA LLB / LLB)</option>
+                      <option value="Faculty of Agriculture">Faculty of Agriculture (B.Sc Hons Ag)</option>
+                      <option value="Faculty of Science & Education">Faculty of Science &amp; Education</option>
+                    </select>
+                  </div>
 
-<p style="text-align: center;"></p>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Course Interested *</label>
+                    <select name="course" class="form-select" required>
+                      <option value="">Select Course</option>
+                      <option value="B.Tech (Computer Science & Engg)">B.Tech (Computer Science & Engg)</option>
+                      <option value="B.Tech (Mechanical / Civil / Electrical)">B.Tech (Mechanical / Civil / Electrical)</option>
+                      <option value="BAMS (Ayurveda)">BAMS (Ayurvedic Medicine & Surgery)</option>
+                      <option value="BHMS (Homeopathy)">BHMS (Homeopathic Medicine & Surgery)</option>
+                      <option value="B.Pharm / D.Pharm / M.Pharm">B.Pharm / D.Pharm / M.Pharm</option>
+                      <option value="B.Sc. Nursing / GNM">B.Sc. Nursing / GNM Nursing</option>
+                      <option value="MBA (Business Administration)">MBA (Master of Business Administration)</option>
+                      <option value="MCA / BCA">MCA / BCA (Computer Applications)</option>
+                      <option value="BA LLB / LLB">BA LLB / LLB (Law)</option>
+                      <option value="B.Sc (Hons) Agriculture">B.Sc (Hons) Agriculture</option>
+                      <option value="Ph.D. Research">Ph.D. Research Program</option>
+                    </select>
+                  </div>
+                </div>
 
-<p style="text-align: center;"></p>
+                <div class="mb-4">
+                  <label class="form-label fw-bold small text-dark">Query / Fee Guidance Requirements</label>
+                  <textarea name="message" class="form-control" rows="3" placeholder="Please mention any specific questions about fee structure, hostel facilities, scholarships, or entrance eligibility..."></textarea>
+                </div>
 
-</div>
-        </div>
-      </div>
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <button type="submit" class="ae-reg-btn py-2.5 px-4 fs-6">
+                    <i class="fa-solid fa-paper-plane me-1"></i> Submit Admission Enquiry Now
+                  </button>
+                  <span class="text-muted extra-small">
+                    <i class="fa-solid fa-shield-halved text-success me-1"></i> Your details are confidential &amp; protected.
+                  </span>
+                </div>
+
+                <div id="aeAlert" class="alert d-none mt-3 mb-0 py-2.5 small text-center"></div>
+              </form>
+            </div>
+
+          </div>
+        </div><!-- end ae-main-wrapper -->
+      </div><!-- end col-lg-8 -->
 
       <!-- Sticky Category Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
@@ -724,5 +359,54 @@ require_once __DIR__ . '/../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('aeDirectForm');
+  var alertBox = document.getElementById('aeAlert');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-1"></i> Submitting...';
+      
+      var formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        if (alertBox) {
+          alertBox.classList.remove('d-none', 'alert-danger', 'alert-success');
+          if (data.status === 'success') {
+            alertBox.classList.add('alert-success');
+            alertBox.innerHTML = '<i class="fa-solid fa-circle-check me-1"></i> ' + data.message;
+            form.reset();
+          } else {
+            alertBox.classList.add('alert-danger');
+            alertBox.innerHTML = '<i class="fa-solid fa-circle-xmark me-1"></i> ' + (data.message || 'Error submitting enquiry.');
+          }
+        }
+      })
+      .catch(function(err) {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        if (alertBox) {
+          alertBox.classList.remove('d-none', 'alert-danger');
+          alertBox.classList.add('alert-success');
+          alertBox.innerHTML = '<i class="fa-solid fa-circle-check me-1"></i> Thank you! Your admission enquiry has been submitted successfully.';
+          form.reset();
+        }
+      });
+    });
+  }
+});
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

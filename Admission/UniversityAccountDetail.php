@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'University Account Detail - SSSUTMS';
 $banner_title = 'University Account Detail';
 $banner_category = 'Admission';
@@ -10,112 +10,265 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.uad-section { background-color: #f8fafc; }
+.uad-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.uad-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2.2rem 2rem;
+  position: relative;
+}
+.uad-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.uad-stat-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 14px;
+  display: flex; align-items: center; gap: 12px;
+  height: 100%;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.uad-stat-chip:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
+  transform: translateY(-2px);
+}
+.uad-stat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(245,158,11,0.12);
+  color: #d97706;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; flex-shrink: 0;
+}
+.uad-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  margin-bottom: 1.75rem;
+}
+.uad-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+.uad-card-header i {
+  color: #f59e0b;
+  font-size: 1.3rem;
+}
+.uad-bank-box {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(11,37,69,0.15);
+}
+.uad-qr-img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 14px;
+  border: 3px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.uad-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+.uad-table th {
+  background: #0b2545;
+  color: #ffffff;
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid #1e3a5f;
+}
+.uad-table td {
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.92rem;
+}
+.uad-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+</style>
+
+<section class="subpage-main-section uad-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<h4 style="margin-right: 0px; margin-bottom: 8px; margin-left: 0px; padding: 0px; font-family: 'Work Sans', Arial, Helvetica, sans-serif; line-height: 1.5; color: #333333; font-size: 18px; text-transform: capitalize; background-color: #ffffff; text-align: center;"><strong style="margin: 0px; padding: 0px; font-weight: bold;"><span style="margin: 0px; padding: 0px; color: #ff9c00;">Bank Detail</span></strong></h4>
-<div><strong style="margin: 0px; padding: 0px; font-weight: bold;"><span style="margin: 0px; padding: 0px; color: #ff9c00;">&nbsp;</span></strong></div>
-<p class="MsoNormal" style="text-align: justify; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">Sri Satya Sai Group of Institutions has a full-fledged branch of Punjab National Bank and its ATM in the college premises. It is a Nationalized Bank which has given all kinds of transactional facility to students and staff. The bank also provides zero balance accounts to students, helps them in procuring Education loan and promotes their students friendly schemes.</span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; "><br /><!-- [if !supportLineBreakNewLine]--><br /><!--[endif]--></span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">Bank Account Detail:</span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">SSSUTMS</span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">Account Number: 7162002100000506</span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">IFSC Code: PUNB0716200</span></p>
-<p><span style="font-size: 11.5pt; line-height: 115%; font-family: 'Verdana','sans-serif';   color: #666666; background: white;   "><br /><!-- [if !supportLineBreakNewLine]--></span></p>
-<p><span style="font-size: 11.5pt; line-height: 115%; font-family: 'Verdana','sans-serif';   color: #666666; background: white;   "><!-- [if !supportLineBreakNewLine]--></span></p>
-<p><span style="font-size: 11.5pt; line-height: 115%; font-family: 'Verdana','sans-serif';   color: #666666; background: white;   "><!-- [if !supportLineBreakNewLine]--><br /></span><u style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility; font-size: 22px;"><span style="text-rendering: optimizelegibility;"><span style="color: #7b3900;">Online Banking</span></span></span></u></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><br /><img class="note-float-left" style="color: #000000; font-size: 0.875rem; width: 234.724px; float: left; height: 30.125px;" src="data:image/png;base64,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" data-filename="paytmbg.html" /></p>
+        <div class="uad-main-card">
 
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 2.85pt; line-height: normal;" align="left"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 2.85pt; line-height: normal;" align="left"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 2.85pt; line-height: normal;" align="left"><span style="font-size: 14pt; font-family: Times-Bold; color: #000000; font-weight: bold;">SCAN &amp; PAY USING ANY BHIM UPI </span></p>
-
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 2.85pt; line-height: normal;" align="left"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpg" alt=""  height="457" /></p>
-
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 2.85pt; line-height: normal;" align="left"><a href="https://sssutms.payjix.com/" target="_blank" rel="noopener">https://sssutms.payjix.com/</a></p>
-
-<table class="MsoTableLightGridAccent5" style="width: 281.0pt; border-collapse: collapse; border: none;    " border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 15.0pt;">
-<td style="width: 118.0pt; border: solid #4BACC6 1.0pt;  border-bottom: solid #4BACC6 2.25pt;  padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Instruments</span></strong></p>
-</td>
-<td style="width: 163.0pt; border-top: solid #4BACC6 1.0pt;  border-left: none; border-bottom: solid #4BACC6 2.25pt;  border-right: solid #4BACC6 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Charges</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">UPI</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">No Charges</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Debit Card (Rupay Card)</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">No Charges</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Debit Card (Other Cards)</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">0.40% &lt;= INR 2000 per transaction</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">&nbsp;</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">0.90% &gt; INR 2000 per transaction</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Credit Card</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">1.1% per transaction</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Netbanking&nbsp;</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">INR 15 per transaction</span></p>
-</td>
-</tr>
-<tr style="  height: 15.0pt;">
-<td style="border: solid #4BACC6 1.0pt;  border-top: none;   background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="     color: black; ">Wallet</span></strong></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid #4BACC6 1.0pt;  border-right: solid #4BACC6 1.0pt;      background: #D2EAF1;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="     color: black; ">1.50% per transaction</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-<p><u style="text-rendering: optimizelegibility;"></u><span style="font-size: 11.5pt; line-height: 115%; font-family: 'Verdana','sans-serif';   color: #666666; background: white;   "><!--[endif]--></span></p>
-
-<div align="center">&nbsp;</div>
+          <!-- Header Banner -->
+          <div class="uad-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-building-columns me-1"></i> PNB On-Campus Branch &amp; Online Gateway
+              </span>
+              <h3 class="fw-bold text-white mb-1 fs-3">UNIVERSITY BANK &amp; ACCOUNT DETAILS</h3>
+              <p class="text-white-50 mb-0 small">Official NEFT/RTGS Account Numbers, BHIM UPI QR Code &amp; Gateway Charges</p>
+            </div>
+            <div>
+              <a href="https://sssutms.payjix.com/" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3">
+                <i class="fa-solid fa-qrcode me-1"></i> Pay Fee Online (Payjix Portal)
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+
+          <!-- Content Body -->
+          <div class="p-4">
+
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="uad-stat-chip">
+                  <div class="uad-stat-icon"><i class="fa-solid fa-landmark"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Campus Bank</div>
+                    <div class="fw-bold text-dark fs-6">Punjab National Bank</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="uad-stat-chip">
+                  <div class="uad-stat-icon"><i class="fa-solid fa-vault"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Student Facilities</div>
+                    <div class="fw-bold text-dark fs-6">Zero Balance &amp; ATM</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="uad-stat-chip">
+                  <div class="uad-stat-icon"><i class="fa-solid fa-qrcode"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">UPI Mode</div>
+                    <div class="fw-bold text-dark fs-6">Zero Convenience Fee</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="uad-stat-chip">
+                  <div class="uad-stat-icon"><i class="fa-solid fa-credit-card"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Online Gateway</div>
+                    <div class="fw-bold text-dark fs-6">Netbanking &amp; Cards</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overview & PNB Bank Card -->
+            <div class="uad-card">
+              <div class="uad-card-header">
+                <i class="fa-solid fa-building-columns text-warning"></i>
+                <h5 class="fw-bold text-dark mb-0">On-Campus Banking Facilities</h5>
+              </div>
+              <p class="text-dark lh-lg mb-3" style="text-align: justify;">
+                Sri Satya Sai Group of Institutions has a full-fledged branch of <strong>Punjab National Bank (PNB)</strong> and an <strong>ATM</strong> within the college premises. This nationalized bank provides all transactional facilities for students and staff, including zero balance accounts, educational loan procurement support, and student-friendly schemes.
+              </p>
+
+              <!-- Bank Account Details Box -->
+              <div class="uad-bank-box">
+                <span class="badge bg-warning text-dark fw-bold mb-2">Official University Account for NEFT / RTGS / IMPS</span>
+                <h4 class="fw-bold text-white mb-3">Sri Satya Sai University of Technology &amp; Medical Sciences (SSSUTMS)</h4>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="small text-white-50 uppercase fw-bold">Bank Name</div>
+                    <div class="fs-6 fw-bold text-white"><i class="fa-solid fa-landmark text-warning me-1"></i> Punjab National Bank (PNB)</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="small text-white-50 uppercase fw-bold">Account Name</div>
+                    <div class="fs-6 fw-bold text-white"><i class="fa-solid fa-user text-warning me-1"></i> SSSUTMS</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="small text-white-50 uppercase fw-bold">Account Number</div>
+                    <div class="fs-5 fw-bold text-warning font-monospace"><i class="fa-solid fa-credit-card text-warning me-1"></i> 7162002100000506</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="small text-white-50 uppercase fw-bold">IFSC Code</div>
+                    <div class="fs-5 fw-bold text-warning font-monospace"><i class="fa-solid fa-code text-warning me-1"></i> PUNB0716200</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UPI Scan & Pay Section -->
+            <div class="uad-card">
+              <div class="uad-card-header">
+                <i class="fa-solid fa-qrcode text-warning"></i>
+                <h5 class="fw-bold text-dark mb-0">Scan &amp; Pay Using Any BHIM UPI</h5>
+              </div>
+              <div class="row align-items-center g-4">
+                <div class="col-md-5 text-center">
+                  <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpg" alt="BHIM UPI QR Code" class="uad-qr-img">
+                </div>
+                <div class="col-md-7">
+                  <span class="badge bg-success text-white fw-bold px-3 py-2 rounded-pill mb-2"><i class="fa-solid fa-check me-1"></i> Direct Merchant UPI Payment</span>
+                  <h5 class="fw-bold text-dark mb-2">Scan QR Code via PhonePe, Google Pay, Paytm, or BHIM</h5>
+                  <p class="text-muted small mb-3">Pay tuition fees directly through any UPI app with 0% extra charges for instant receipt generation.</p>
+                  <a href="https://sssutms.payjix.com/" target="_blank" rel="noopener" class="btn btn-primary fw-bold px-4 py-2 rounded-3">
+                    <i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Open Online Payjix Portal
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Instruments & Transaction Charges Table -->
+            <div class="uad-card mb-0">
+              <div class="uad-card-header">
+                <i class="fa-solid fa-receipt text-warning"></i>
+                <h5 class="fw-bold text-dark mb-0">Online Payment Instruments &amp; Convenience Charges</h5>
+              </div>
+              <div class="table-responsive">
+                <table class="uad-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 50%;">Payment Instrument</th>
+                      <th class="text-center" style="width: 50%;">Transaction Charges</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>UPI (BHIM, GPay, PhonePe, Paytm)</strong></td><td class="text-center text-success fw-bold"><i class="fa-solid fa-circle-check me-1"></i> No Charges (0%)</td></tr>
+                    <tr><td><strong>Debit Card (Rupay Card)</strong></td><td class="text-center text-success fw-bold"><i class="fa-solid fa-circle-check me-1"></i> No Charges (0%)</td></tr>
+                    <tr><td><strong>Debit Card (Other Visa/MasterCard &lt;= ₹2000)</strong></td><td class="text-center">0.40% per transaction</td></tr>
+                    <tr><td><strong>Debit Card (Other Visa/MasterCard &gt; ₹2000)</strong></td><td class="text-center">0.90% per transaction</td></tr>
+                    <tr><td><strong>Credit Card (All Cards)</strong></td><td class="text-center">1.10% per transaction</td></tr>
+                    <tr><td><strong>Netbanking (All Banks)</strong></td><td class="text-center">₹15 per transaction</td></tr>
+                    <tr><td><strong>Digital Wallets</strong></td><td class="text-center">1.50% per transaction</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- end uad-main-card -->
+      </div><!-- end col-lg-8 -->
 
       <!-- Sticky Category Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">

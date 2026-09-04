@@ -1,6 +1,5 @@
-﻿<?php
-$page_title = 'CriteriaTwo - SSSUTMS';
-$banner_title = 'CriteriaTwo';
+<?php $page_title = 'Criteria 2 - Teaching-Learning and Evaluation - SSSUTMS';
+$banner_title = 'Criteria 2 – Teaching-Learning and Evaluation';
 $banner_category = 'Academic';
 
 require_once __DIR__ . '/../../config.php';
@@ -8,43 +7,324 @@ require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
-?>
+?><style>
+.naac-section { 
+  background-color: #f8fafc;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.naac-main-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.06);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.naac-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%) !important;
+  color: #ffffff !important;
+  padding: 1.8rem 2rem;
+  position: relative;
+}
+.naac-header-banner h3,
+.naac-header-banner h2,
+.naac-header-banner h1,
+.naac-header-banner p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.naac-header-banner p {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.naac-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
 
-<section class="subpage-main-section py-4 bg-light">
+/* Card Body & Typography Enhancements */
+.naac-card-body { 
+  padding: 2rem; 
+  color: #1e293b !important;
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+}
+.naac-card-body p {
+  color: #1e293b !important;
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 1rem;
+}
+.naac-card-body strong,
+.naac-card-body b {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* Metric Callout Box Component */
+.naac-metric-box {
+  background: #f8fafc;
+  border-left: 4px solid #0b2545;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.naac-metric-badge {
+  background: linear-gradient(135deg, #0b2545 0%, #1e3a8a 100%);
+  color: #ffffff !important;
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(11, 37, 69, 0.2);
+}
+.naac-metric-content {
+  color: #1e293b !important;
+  font-size: 0.975rem !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+}
+
+/* Custom Table Container */
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  border: 1px solid #cbd5e1;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.naac-custom-table {
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+/* Unified Dark Navy Header Bar */
+.naac-custom-table tr.naac-table-header,
+.naac-custom-table thead tr {
+  background-color: #0b2545 !important;
+}
+.naac-custom-table th,
+.naac-custom-table tr.naac-table-header td,
+.naac-custom-table tr.naac-table-header th {
+  background-color: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 15px 16px !important;
+  border: 1px solid #134074 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+.naac-custom-table th *,
+.naac-custom-table tr.naac-table-header td *,
+.naac-custom-table tr.naac-table-header th * {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* 100% Center Alignment for ALL Cells, Rows, Headers & Buttons */
+.naac-custom-table th,
+.naac-custom-table td,
+.naac-custom-table tr td,
+.naac-custom-table tr th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.naac-custom-table td * {
+  text-align: center !important;
+}
+.naac-custom-table td {
+  padding: 14px 18px !important;
+  border: 1px solid #e2e8f0 !important;
+  font-size: 0.925rem !important;
+  color: #334155 !important;
+  line-height: 1.5 !important;
+  font-family: inherit !important;
+}
+
+/* Merged Faculty / School Name Columns Centering */
+.naac-custom-table td[colspan],
+.naac-custom-table td[rowspan] {
+  font-weight: 600 !important;
+  color: #0b2545 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  background-color: #ffffff !important;
+}
+
+/* Refined Row Hover Effects - Preserve Dark Text & Solid Dark Navy Button */
+.naac-custom-table tbody tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+.naac-custom-table tbody tr:hover td {
+  background-color: #f1f5f9 !important;
+  transition: background-color 0.15s ease-in-out !important;
+}
+.naac-custom-table tbody tr:hover td,
+.naac-custom-table tbody tr:hover td span,
+.naac-custom-table tbody tr:hover td div,
+.naac-custom-table tbody tr:hover td p,
+.naac-custom-table tbody tr:hover td strong {
+  color: #0f172a !important;
+  background-color: transparent !important;
+}
+
+/* Exact Button Styling (Dark Navy Pill + Golden Border + Yellow Icon) - Locked Against Row Hover Overrides */
+.btn-naac-pdf,
+.naac-custom-table tbody tr td .btn-naac-pdf,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf {
+  background: linear-gradient(135deg, #0b2545 0%, #173866 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #d97706 !important;
+  padding: 7px 18px !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.25s ease-in-out !important;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.25) !important;
+  white-space: nowrap !important;
+}
+.btn-naac-pdf i,
+.naac-custom-table tbody tr td .btn-naac-pdf i,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf i,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf i {
+  color: #f59e0b !important;
+  font-size: 0.9rem !important;
+}
+
+/* Direct Button Hover State */
+.btn-naac-pdf:hover,
+.naac-custom-table tbody tr td .btn-naac-pdf:hover,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf:hover,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf:hover {
+  background: linear-gradient(135deg, #173866 0%, #1e4b8a 100%) !important;
+  border-color: #f59e0b !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(11, 37, 69, 0.35) !important;
+}
+.btn-naac-pdf:hover i,
+.naac-custom-table tbody tr td .btn-naac-pdf:hover i,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf:hover i,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf:hover i {
+  color: #fbbf24 !important;
+}
+</style>
+
+<section class="subpage-main-section naac-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
-      <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p><span style="text-decoration: underline;"><span style="color: #2dc26b; text-decoration: underline;">Criteria 2</span></span></p>
+      <div class="col-lg-9 col-md-8">
+        <div class="naac-main-card">
+          <div class="naac-header-banner">
+            <h3 class="fw-bold mb-1">Criteria 2 – Teaching-Learning and Evaluation</h3>
+            <p class="mb-0 text-white-50">Sri Satya Sai University of Technology and Medical Sciences</p>
+          </div>
+          
+          <div class="naac-card-body">
+            <article class="fs-5 lh-lg text-secondary">
 
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"><strong><span style=" font-family: 'Times New Roman';   color: #085294; font-weight: bold; font-size: 14.0000pt; "><span style="color: #000000;"><span style="color: #3598db;">2.2.1</span> </span></span></strong><strong><span style=" font-family: 'Times New Roman';   color: #085294; font-weight: bold; font-size: 14.0000pt; ">&nbsp;&nbsp;&nbsp; </span></strong><span style="font-family: 'Times New Roman'; color: #085294; font-size: 14pt;"><span style="color: #000000;">The institution assesses the learning levels of</span></span><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">the students and organises special</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">Programmes</span></span></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for advanced learners&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;"> and&nbsp; slow</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">learners</span></span></p>
-<p class="MsoNormal" style="margin-top: 0pt; margin-right: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 0pt 560px; text-align: left; vertical-align: baseline; background: #ffffff;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 2/combined 2.2.1 final.pdf" target="_blank" rel="noopener"><strong><span style=" font-family: 'Times New Roman';   color: #085294; font-weight: bold; font-size: 14.0000pt; "><span style="color: #1913b0;">Click here</span></span></strong></a></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"><strong><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;"><span style="color: #3598db;">2.3.1&nbsp;</span>&nbsp;&nbsp; </span></span></strong><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;">Student centric methods, such as</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">experiential learning, participative learning</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">and problem solving</span></span></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; methodologies are used</span><span style="font-family: 'Times New Roman'; font-size: 14pt;"> </span><span style="font-family: 'Times New Roman'; font-size: 14pt;">for enhancing learning experiences</span></span></p>
-<p class="MsoNormal" style="margin-top: 0pt; margin-right: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 0pt 560px; text-align: left; vertical-align: baseline; background: #ffffff;"><span style="color: #1913b0;">&nbsp;<a style="color: #1913b0;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 2/combined 2.3.1 final.pdf" target="_blank" rel="noopener"><strong><span style="font-family: 'Times New Roman'; font-weight: bold; font-size: 14pt;">Click here</span></strong></a></span></p>
-<p class="MsoNormal" style="  text-indent: -7.0000pt;  padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff; margin: 0.0000pt 0.0000pt 0.0000pt 7.0000pt;"><span style="color: #000000;"><strong><span style="font-family: 'Times New Roman'; font-weight: bold; font-size: 14pt;"><span style="color: #3598db;">2.3.2</span>&nbsp;&nbsp;&nbsp;&nbsp; </span></strong><span style="font-family: 'Times New Roman'; font-size: 14pt;">Teachers use ICT enabled tools including</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">online resources for effective teaching and</span></span></p>
-<p class="MsoNormal" style="  text-indent: -7.0000pt;  padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff; margin: 0.0000pt 0.0000pt 0.0000pt 7.0000pt;"><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: 'Times New Roman'; font-size: 14pt;">learning process.</span></span></p>
-<p class="MsoNormal" style="text-indent: -7pt; padding: 0pt 0pt 0pt 560px; text-align: left; vertical-align: baseline; background: #ffffff; margin: 0pt 0pt 0pt 7pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 2/combined 2.3.2 final.pdf" target="_blank" rel="noopener"><strong><span style=" font-family: 'Times New Roman';   color: #085294; font-weight: bold; font-size: 14.0000pt; "><span style="color: #1913b0;">&nbsp;Click here</span></span></strong></a></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"><span style="color: #000000;"><strong><span style="font-family: 'Times New Roman'; font-weight: bold; font-size: 14pt;"><span style="color: #3598db;">2.3.3</span>&nbsp;&nbsp; </span></strong><span style="font-family: 'Times New Roman'; font-size: 14pt;">Ratio of students to mentor for academic</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">and other related issues</span></span></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"><span style="color: #000000;"><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Data for the latest</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">&nbsp;</span><span style="font-family: 'Times New Roman'; font-size: 14pt;">completed academic year )</span></span></p>
-<p class="MsoNormal" style="margin-top: 0pt; margin-right: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 0pt 560px; text-align: left; vertical-align: baseline; background: #ffffff;"><strong><span style=" font-family: 'Times New Roman';   color: #085294; font-weight: bold; font-size: 14.0000pt; ">&nbsp;<span style="color: #1913b0;"> <a style="color: #1913b0;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 2/combined 2.3.3 final.pdf" target="_blank" rel="noopener">Click here</a></span></span></strong></p>
-<p class="MsoNormal" style=" text-align: left; line-height: 114%; margin: 0.0000pt 0.0000pt 10.0000pt 0.0000pt;"><span style="color: #000000;"><strong><span style="font-family: 'Times New Roman'; font-weight: bold; font-size: 14pt;"><span style="color: #3598db;">2.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></strong></span><span style=" font-family: SimSun;    line-height: 114%; color: #000000; font-size: 14.0000pt;"><span style="font-family: Calibri;">Number of revaluation applications year wise</span></span></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;"></p>
-<p class="MsoNormal" style="margin-top: 0.0000pt; margin-right: 0.0000pt; margin-bottom: 0.0000pt;   padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <strong><span style=" font-family: 'Times New Roman';   color: #085294; font-weight: bold; font-size: 14.0000pt; "><span style="color: #1913b0;"> <a style="color: #1913b0;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 2/combined revalution.pdf" target="_blank" rel="noopener">Click here</a></span></span></strong></p>
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 2.2.1</span>
+                    <div class="naac-metric-content">
+                      The institution assesses the learning levels of the students and organises special Programmes for advanced learners and slow learners.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 2/combined 2.2.1 final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
 
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 2.3.1</span>
+                    <div class="naac-metric-content">
+                      Student centric methods, such as experiential learning, participative learning and problem solving methodologies are used for enhancing learning experiences.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 2/combined 2.3.1 final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 2.3.2</span>
+                    <div class="naac-metric-content">
+                      Teachers use ICT enabled tools including online resources for effective teaching and learning process.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 2/combined 2.3.2 final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 2.3.3</span>
+                    <div class="naac-metric-content">
+                      Ratio of students to mentor for academic and other related issues (Data for the latest completed academic year).
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 2/combined 2.3.3 final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 2.4</span>
+                    <div class="naac-metric-content">
+                      Number of revaluation applications year wise.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 2/combined revalution.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+            </article>
           </div>
         </div>
       </div>
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      
+      <!-- Sidebar (Right) -->
+      <div class="col-lg-3 col-md-4">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
-
+      
     </div>
   </div>
 </section>

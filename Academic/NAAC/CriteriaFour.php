@@ -1,6 +1,5 @@
-﻿<?php
-$page_title = 'CriteriaFour - SSSUTMS';
-$banner_title = 'CriteriaFour';
+<?php $page_title = 'Criteria 4 - Infrastructure and Learning Resources - SSSUTMS';
+$banner_title = 'Criteria 4 – Infrastructure and Learning Resources';
 $banner_category = 'Academic';
 
 require_once __DIR__ . '/../../config.php';
@@ -8,56 +7,436 @@ require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
-?>
+?><style>
+.naac-section { 
+  background-color: #f8fafc;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.naac-main-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.06);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.naac-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%) !important;
+  color: #ffffff !important;
+  padding: 1.8rem 2rem;
+  position: relative;
+}
+.naac-header-banner h3,
+.naac-header-banner h2,
+.naac-header-banner h1,
+.naac-header-banner p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.naac-header-banner p {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.naac-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
 
-<section class="subpage-main-section py-4 bg-light">
+/* Card Body & Typography Enhancements */
+.naac-card-body { 
+  padding: 2rem; 
+  color: #1e293b !important;
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+}
+.naac-card-body p {
+  color: #1e293b !important;
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 1rem;
+}
+.naac-card-body strong,
+.naac-card-body b {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* Metric Callout Box Component */
+.naac-metric-box {
+  background: #f8fafc;
+  border-left: 4px solid #0b2545;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.naac-metric-badge {
+  background: linear-gradient(135deg, #0b2545 0%, #1e3a8a 100%);
+  color: #ffffff !important;
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(11, 37, 69, 0.2);
+}
+.naac-metric-content {
+  color: #1e293b !important;
+  font-size: 0.975rem !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+}
+
+/* Custom Table Container */
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  border: 1px solid #cbd5e1;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.naac-custom-table {
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+/* Unified Dark Navy Header Bar */
+.naac-custom-table tr.naac-table-header,
+.naac-custom-table thead tr {
+  background-color: #0b2545 !important;
+}
+.naac-custom-table th,
+.naac-custom-table tr.naac-table-header td,
+.naac-custom-table tr.naac-table-header th {
+  background-color: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 15px 16px !important;
+  border: 1px solid #134074 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+.naac-custom-table th *,
+.naac-custom-table tr.naac-table-header td *,
+.naac-custom-table tr.naac-table-header th * {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* 100% Center Alignment for ALL Cells, Rows, Headers & Buttons */
+.naac-custom-table th,
+.naac-custom-table td,
+.naac-custom-table tr td,
+.naac-custom-table tr th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.naac-custom-table td * {
+  text-align: center !important;
+}
+.naac-custom-table td {
+  padding: 14px 18px !important;
+  border: 1px solid #e2e8f0 !important;
+  font-size: 0.925rem !important;
+  color: #334155 !important;
+  line-height: 1.5 !important;
+  font-family: inherit !important;
+}
+
+/* Merged Faculty / School Name Columns Centering */
+.naac-custom-table td[colspan],
+.naac-custom-table td[rowspan] {
+  font-weight: 600 !important;
+  color: #0b2545 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  background-color: #ffffff !important;
+}
+
+/* Refined Row Hover Effects - Preserve Dark Text & Solid Dark Navy Button */
+.naac-custom-table tbody tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+.naac-custom-table tbody tr:hover td {
+  background-color: #f1f5f9 !important;
+  transition: background-color 0.15s ease-in-out !important;
+}
+.naac-custom-table tbody tr:hover td,
+.naac-custom-table tbody tr:hover td span,
+.naac-custom-table tbody tr:hover td div,
+.naac-custom-table tbody tr:hover td p,
+.naac-custom-table tbody tr:hover td strong {
+  color: #0f172a !important;
+  background-color: transparent !important;
+}
+
+/* Exact Button Styling (Dark Navy Pill + Golden Border + Yellow Icon) - Locked Against Row Hover Overrides */
+.btn-naac-pdf,
+.naac-custom-table tbody tr td .btn-naac-pdf,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf {
+  background: linear-gradient(135deg, #0b2545 0%, #173866 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #d97706 !important;
+  padding: 7px 18px !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.25s ease-in-out !important;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.25) !important;
+  white-space: nowrap !important;
+}
+.btn-naac-pdf i,
+.naac-custom-table tbody tr td .btn-naac-pdf i,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf i,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf i {
+  color: #f59e0b !important;
+  font-size: 0.9rem !important;
+}
+
+/* Direct Button Hover State */
+.btn-naac-pdf:hover,
+.naac-custom-table tbody tr td .btn-naac-pdf:hover,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf:hover,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf:hover {
+  background: linear-gradient(135deg, #173866 0%, #1e4b8a 100%) !important;
+  border-color: #f59e0b !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(11, 37, 69, 0.35) !important;
+}
+.btn-naac-pdf:hover i,
+.naac-custom-table tbody tr td .btn-naac-pdf:hover i,
+.naac-custom-table tbody tr:hover td .btn-naac-pdf:hover i,
+.naac-custom-table tbody tr:hover td a.btn-naac-pdf:hover i {
+  color: #fbbf24 !important;
+}
+</style>
+
+<section class="subpage-main-section naac-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
-      <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p><span style="text-decoration: underline;"><strong>Criteria 4</strong></span></p>
+      <div class="col-lg-9 col-md-8">
+        <div class="naac-main-card">
+          <div class="naac-header-banner">
+            <h3 class="fw-bold mb-1">Criteria 4 – Infrastructure and Learning Resources</h3>
+            <p class="mb-0 text-white-50">Sri Satya Sai University of Technology and Medical Sciences</p>
+          </div>
+          
+          <div class="naac-card-body">
+            <article class="fs-5 lh-lg text-secondary">
 
-<p class="MsoNormal"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">4.1.1</span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">&nbsp; &nbsp; Physical Facilites&nbsp;&nbsp; </span></p>
-<p><span style="font-size: 12.0pt;  line-height: 115%; font-family: Symbol;   "><span style=""><span style="font: 7.0pt 'Times New Roman';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span></span><strong></span></span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: Symbol;   "><span style=""><span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  ">Facilities for Teaching - Learning</span></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/sssutms.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Click here</span></a></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  ">4.1.2</span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="">&nbsp; </span><span style="">&nbsp;</span>Facilities for Cultural Activities, Yoga, Games and Sports <br /><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.1.2/4.1.2.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Click here</span></a></span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">&nbsp;</span><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">4.1.3</span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; "> &nbsp; General Campus Facilities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.1.2/4.1.3.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Click here</span></a></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">4.1.4</span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">&nbsp; <span style="">&nbsp;</span>CA Certificate &amp; Audited Income and Expenditure Statement&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span></p>
-<p class="MsoNormal" style="margin-left: 288.0pt;"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; "><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; </span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/final audit.pdf" target="_blank" rel="noopener">Click here</a></span></p>
-<p style="margin: 0cm; margin-bottom: .0001pt; line-height: 12.65pt; background: white;"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">4.2&nbsp;&nbsp;&nbsp;&nbsp; </span></strong><span style="font-size: 11.0pt; font-family: 'Book Antiqua','serif'; color: black; text-transform: uppercase;">Number of seats earmarked for reserved category as per&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 11.0pt; font-family: 'Book Antiqua','serif'; color: black; text-transform: uppercase;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
-<p style="margin: 0cm; margin-bottom: .0001pt; line-height: 12.65pt; background: white;"><span style="font-size: 11.0pt; font-family: 'Book Antiqua','serif'; color: black; text-transform: uppercase;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GOI/State Govt. Rule year-wise during last five year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size: 11.0pt; font-family: 'Book Antiqua','serif'; color: black; text-transform: uppercase;"> </span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.2/4.2.pdf" target="_blank" rel="noopener"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">Click here</span></a></p>
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.1.1</span>
+                    <div class="naac-metric-content">
+                      Physical Facilities &amp; Facilities for Teaching - Learning.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/sssutms.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
 
-<p class="MsoNormal"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">4.2.1</span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; ">&nbsp;&nbsp; Library as a Learning Resource &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="">&nbsp; &nbsp; &nbsp;&nbsp; </span></span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif'; "><span style="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; </span><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/LIBRARY AS A LEARNING RESOURESE.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Click here</span></a></span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="color: windowtext;"><strong>4.2.2</strong> &nbsp; Institution has subscription for e-Library resources&nbsp;&nbsp;&nbsp;</span></span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="color: windowtext;">&nbsp;</span></span><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="color: windowtext;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.2.2/4.2.2 UPLOD.pdf" target="_blank" rel="noopener"><span style="text-decoration: underline;">Click here</span></a></span></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  ">4.3.1</span></strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style=""> &nbsp; </span></span><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  ">Percentage of classrooms and seminar halls with ICT - enabled </span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; facilities&nbsp; such as&nbsp; LCD, smart board, Wi-Fi/LAN, audio video </span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; recording facilities .(Data only for the latest completed academic year)&nbsp;&nbsp; <br style="" /></span><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> </strong></span><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/Criteria 4.3.1.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Click here</span></a></strong></span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><strong><span style="color: windowtext;">4.3.2&nbsp;</span></strong><span style="color: windowtext;"> &nbsp;&nbsp; IT Services Policy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></p>
-<p class="MsoNormal"><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="color: windowtext;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.3.2/4.3.2_1682157313_9437.pdf" target="_blank" rel="noopener"><strong>Click here</strong></a></span></span></p>
-<p class="MsoNormal" style="text-align: left;"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="color: windowtext;">4.3.3&nbsp;&nbsp; </span></span></strong><span style="font-family: Calibri; font-size: 14pt;">Summary of Computer Distribution , Declaration Certificate, Computer Invoices</span></p>
-<p class="MsoNormal" style="text-align: left;"><span style="font-family: Calibri; font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.3.3/computer distribution and bill.pdf" target="_blank" rel="noopener">Click here</a></strong></span></p>
-<p class="MsoNormal" style="text-align: left;"><strong><span style="font-size: 12.0pt;  line-height: 115%; font-family: 'Bookman Old Style','serif';  "><span style="color: windowtext;">4.3.4&nbsp;&nbsp; </span></span></strong><span style=" font-family: Calibri;  font-size: 14.0000pt;">Available bandwidth of internet connection in the Institution </span></p>
-<p class="MsoNormal" style="text-align: left;"><span style=" font-family: Calibri;  font-size: 14.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.3.4/4.3.4.pdf" target="_blank" rel="noopener"><strong>Click here</strong></a></span></p>
-<p class="MsoNormal" style=" text-align: left;"><strong>4.3.5</strong>&nbsp;&nbsp;&nbsp; <span style=" font-family: Calibri;  font-size: 14.0000pt; ">Institution has the following Facilities </span><span style=" font-family: Calibri;  font-size: 14.0000pt; ">for e-content development </span></p>
-<p class="MsoNormal" style=" text-align: left;"><span style=" font-family: Calibri;  font-size: 14.0000pt; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.3.5/4.3.5 .pdf" target="_blank" rel="noopener"><strong>Click here</strong></a></span></p>
-<p class="MsoNormal" style="text-indent: 0.0000pt; padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff; margin: 0.0000pt;"><span style=" font-family: Calibri;  font-size: 14.0000pt; "><strong>4.4.2&nbsp;&nbsp;&nbsp; </strong></span><span style=" font-family: Calibri;   color: #000000; letter-spacing: 0.0000pt; text-transform: none; font-style: normal; font-size: 12.0000pt;  background: #ffffff; ">Maintenance policy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
-<p class="MsoNormal" style="text-indent: 0.0000pt; padding: 0pt 0pt 0pt 0pt;  text-align: left; vertical-align: baseline; background: #ffffff; margin: 0.0000pt;"><span style=" font-family: Calibri;   color: #000000; letter-spacing: 0.0000pt; text-transform: none; font-style: normal; font-size: 12.0000pt;  background: #ffffff; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IQAC/NAAC/Criteria 4/4.4.2/4.4.2_1682159880_9437.pdf" target="_blank" rel="noopener">Click here</a></strong></span></p>
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.1.2</span>
+                    <div class="naac-metric-content">
+                      Facilities for Cultural Activities, Yoga, Games and Sports.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.1.2/4.1.2.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
 
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.1.3</span>
+                    <div class="naac-metric-content">
+                      General Campus Facilities.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.1.2/4.1.3.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.1.4</span>
+                    <div class="naac-metric-content">
+                      CA Certificate &amp; Audited Income and Expenditure Statement.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/final audit.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.2</span>
+                    <div class="naac-metric-content">
+                      Number of seats earmarked for reserved category as per GOI/State Govt. Rule year-wise during last five years.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.2/4.2.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.2.1</span>
+                    <div class="naac-metric-content">
+                      Library as a Learning Resource.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/LIBRARY AS A LEARNING RESOURESE.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.2.2</span>
+                    <div class="naac-metric-content">
+                      Institution has subscription for e-Library resources.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.2.2/4.2.2 UPLOD.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.3.1</span>
+                    <div class="naac-metric-content">
+                      Percentage of classrooms and seminar halls with ICT-enabled facilities such as LCD, smart board, Wi-Fi/LAN, audio video recording facilities (Data for latest completed academic year).
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/Criteria 4.3.1.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.3.2</span>
+                    <div class="naac-metric-content">
+                      IT Services Policy.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.3.2/4.3.2_1682157313_9437.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.3.3</span>
+                    <div class="naac-metric-content">
+                      Summary of Computer Distribution, Declaration Certificate, Computer Invoices.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.3.3/computer distribution and bill.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.3.4</span>
+                    <div class="naac-metric-content">
+                      Available bandwidth of internet connection in the Institution.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.3.4/4.3.4.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.3.5</span>
+                    <div class="naac-metric-content">
+                      Institution has Facilities for e-content development.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.3.5/4.3.5 .pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="naac-metric-box">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                  <div class="d-flex align-items-start gap-3">
+                    <span class="naac-metric-badge">Metric 4.4.2</span>
+                    <div class="naac-metric-content">
+                      Maintenance Policy.
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 4/4.4.2/4.4.2_1682159880_9437.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                  </div>
+                </div>
+              </div>
+
+            </article>
           </div>
         </div>
       </div>
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      
+      <!-- Sidebar (Right) -->
+      <div class="col-lg-3 col-md-4">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
-
+      
     </div>
   </div>
 </section>

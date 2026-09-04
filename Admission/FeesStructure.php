@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Fees Structure - SSSUTMS';
 $banner_title = 'Fees Structure';
 $banner_category = 'Admission';
@@ -10,15 +10,142 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.fs-section { background-color: #f8fafc; }
+.fs-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.fs-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2.2rem 2rem;
+  position: relative;
+}
+.fs-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.fs-stat-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 14px;
+  display: flex; align-items: center; gap: 12px;
+  height: 100%;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.fs-stat-chip:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
+  transform: translateY(-2px);
+}
+.fs-stat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(245,158,11,0.12);
+  color: #d97706;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; flex-shrink: 0;
+}
+.fs-content-body table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 2rem !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03) !important;
+}
+.fs-content-body table td, .fs-content-body table th {
+  padding: 12px 14px !important;
+  border: 1px solid #e2e8f0 !important;
+}
+.fs-content-body table tr:first-child td, .fs-content-body table tr:first-child th {
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.fs-content-body table tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+</style>
+
+<section class="subpage-main-section fs-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 13.5pt; font-family: 'Arial','sans-serif';  color: #ff9c00; "><br />&nbsp;Eligibility Criteria &amp; Fees Structure</span></strong></p>
+        <div class="fs-main-card">
+
+          <!-- Header Banner -->
+          <div class="fs-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-indian-rupee-sign me-1"></i> MP Niji Vishwavidyalaya Approved Fees
+              </span>
+              <h3 class="fw-bold text-white mb-1 fs-3">ELIGIBILITY CRITERIA &amp; FEES STRUCTURE</h3>
+              <p class="text-white-50 mb-0 small">Official Tuition Fees Per Annum, Course Duration &amp; Eligibility for All Programs</p>
+            </div>
+            <div>
+              <a href="<?php echo BASE_URL; ?>Admission/UniversityAccountDetail.php" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3">
+                <i class="fa-solid fa-building-columns me-1"></i> Bank Account Details
+              </a>
+            </div>
+          </div>
+
+          <!-- Content Body -->
+          <div class="p-4 fs-content-body">
+
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="fs-stat-chip">
+                  <div class="fs-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Programs</div>
+                    <div class="fw-bold text-dark fs-6">UG, PG &amp; Diploma</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="fs-stat-chip">
+                  <div class="fs-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Fee Status</div>
+                    <div class="fw-bold text-dark fs-6">Approved Fees</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="fs-stat-chip">
+                  <div class="fs-stat-icon"><i class="fa-solid fa-clock"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Payment Cycle</div>
+                    <div class="fw-bold text-dark fs-6">Per Annum (Yearly)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="fs-stat-chip">
+                  <div class="fs-stat-icon"><i class="fa-solid fa-percent"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Relaxation</div>
+                    <div class="fw-bold text-dark fs-6">As Per MP Govt Norms</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 13.5pt; font-family: 'Arial','sans-serif';  color: #ff9c00; "><br />&nbsp;Eligibility Criteria &amp; Fees Structure</span></strong></p>
 <p class="MsoNormal" style="  text-align: center; line-height: normal;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
 <div align="center">
 <table class="MsoTableMediumShading1Accent1" style="width: 100.385%; border: medium; height: 2156.43px;" border="1" width="104%" cellspacing="0" cellpadding="0">
@@ -761,9 +888,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
 <p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;&nbsp;</span></p>
 
 <p class="MsoNormal"><span style="font-family: 'arial black', sans-serif; color: #e67e23; font-size: 14pt;"><strong>Fees Refund Policy <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Fees_Refund_Policy_04012025_0322.pdf" target="_blank" rel="noopener"><span style="color: #e03e2d;"><em><span style="font-family: 'times new roman', times, serif;">Click Here</span></em></span></a></strong></span></p>
-          </div>
-        </div>
-      </div>
+          </div><!-- end fs-content-body -->
+        </div><!-- end fs-main-card -->
+      </div><!-- end col-lg-8 -->
 
       <!-- Sticky Category Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">

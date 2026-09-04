@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Patents - SSSUTMS';
 $banner_title = 'Patents';
 $banner_category = 'Research';
@@ -10,15 +10,136 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.pat-section { background-color: #f8fafc; }
+.pat-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.pat-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2.2rem 2rem;
+  position: relative;
+}
+.pat-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.pat-stat-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 14px;
+  display: flex; align-items: center; gap: 12px;
+  height: 100%;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.pat-stat-chip:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
+  transform: translateY(-2px);
+}
+.pat-stat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(245,158,11,0.12);
+  color: #d97706;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; flex-shrink: 0;
+}
+.pat-content-body table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 2rem !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03) !important;
+}
+.pat-content-body table td, .pat-content-body table th {
+  padding: 12px 14px !important;
+  border: 1px solid #e2e8f0 !important;
+}
+.pat-content-body table tr:first-child td, .pat-content-body table tr:first-child th {
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.pat-content-body table tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+</style>
+
+<section class="subpage-main-section pat-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
+        <div class="pat-main-card">
+
+          <!-- Header Banner -->
+          <div class="pat-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-lightbulb me-1"></i> Intellectual Property Rights (IPR)
+              </span>
+              <h3 class="fw-bold text-white mb-1 fs-3">PATENTS – FROM FILING TO GRANT</h3>
+              <p class="text-white-50 mb-0 small">Patented Innovations &amp; Granted Technological Rights by SSSUTMS Researchers</p>
+            </div>
+          </div>
+
+          <!-- Content Body -->
+          <div class="p-4 pat-content-body">
+
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="pat-stat-chip">
+                  <div class="pat-stat-icon"><i class="fa-solid fa-certificate"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Innovations</div>
+                    <div class="fw-bold text-dark fs-6">Multiple Granted</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="pat-stat-chip">
+                  <div class="pat-stat-icon"><i class="fa-solid fa-microchip"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Domains</div>
+                    <div class="fw-bold text-dark fs-6">IoT &amp; Engineering</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="pat-stat-chip">
+                  <div class="pat-stat-icon"><i class="fa-solid fa-pills"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Pharma</div>
+                    <div class="fw-bold text-dark fs-6">Medical Devices</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="pat-stat-chip">
+                  <div class="pat-stat-icon"><i class="fa-solid fa-file-signature"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">IPR Cell</div>
+                    <div class="fw-bold text-dark fs-6">Filing Support</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 <p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><u><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  color: #ff9c00; ">PATENT</span></u></strong></p>
 <p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  ">&nbsp;</span></strong></p>
 <p class="MsoNormal" style="  text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 13.0pt; font-family: 'Arial','sans-serif';  ">"Patent &ndash; from filing to grant&rdquo;</span></strong></p>
@@ -599,9 +720,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
 <p></p>
 <div align="center">&nbsp;</div>
 <p></p>
-          </div>
-        </div>
-      </div>
+          </div><!-- end pat-content-body -->
+        </div><!-- end pat-main-card -->
+      </div><!-- end col-lg-8 -->
 
       <!-- Sticky Category Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
