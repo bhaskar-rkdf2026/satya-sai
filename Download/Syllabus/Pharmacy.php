@@ -1,259 +1,272 @@
-﻿<?php
-$page_title = 'Pharmacy - SSSUTMS';
-$banner_title = 'Pharmacy';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Pharmacy - Course Syllabus - SSSUTMS';
+$banner_title = 'Faculty of Pharmacy';
+$banner_category = 'Course Syllabus';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'B. Pharmacy — Bachelor of Pharmacy (4-Year Degree / CBCS Scheme)',
+    'icon'  => 'fa-capsules',
+    'items' => [
+      ['name' => 'First Semester (CBCS)',   'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm First Semester Syllabus (w.e.f. 2016-17)',   'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_I.pdf'],
+      ['name' => 'Second Semester (CBCS)',  'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Second Semester Syllabus (w.e.f. 2016-17)',  'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_II.pdf'],
+      ['name' => 'Third Semester (CBCS)',   'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Third Semester Syllabus (w.e.f. 2016-17)',   'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_III.pdf'],
+      ['name' => 'Fourth Semester (CBCS)',  'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Fourth Semester Syllabus (w.e.f. 2016-17)',  'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_IV.pdf'],
+      ['name' => 'Fifth Semester (CBCS)',   'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Fifth Semester Syllabus (w.e.f. 2016-17)',   'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_V.pdf'],
+      ['name' => 'Sixth Semester (CBCS)',   'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Sixth Semester Syllabus (w.e.f. 2016-17)',   'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_VI.pdf'],
+      ['name' => 'Seventh Semester (CBCS)', 'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Seventh Semester Syllabus (w.e.f. 2016-17)', 'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_VII.pdf'],
+      ['name' => 'Eighth Semester (CBCS)',  'badge' => 'CBCS Scheme', 'desc' => 'B.Pharm Eighth Semester Syllabus (w.e.f. 2016-17)',  'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20BPharmacy/SYBPHC_VIII.pdf'],
+    ]
+  ],
+  [
+    'title' => 'B. Pharmacy — Non-CBCS (Old Scheme)',
+    'icon'  => 'fa-pills',
+    'items' => [
+      ['name' => 'First Semester (Non-CBCS)',   'badge' => 'Non-CBCS', 'desc' => 'B.Pharm First Semester Syllabus (Old Scheme)',   'url' => $BASE . 'SYLLABUS/SY_BPH_I.pdf'],
+      ['name' => 'Second Semester (Non-CBCS)',  'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Second Semester Syllabus (Old Scheme)',  'url' => $BASE . 'SYLLABUS/Syllabus%20II%20sem/SY_PY_II.pdf'],
+      ['name' => 'Third Semester (Non-CBCS)',   'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Third Semester Syllabus (Old Scheme)',   'url' => $BASE . 'SYLLABUS/SyllabusIIIsem/SY_BPH_III.pdf'],
+      ['name' => 'Fourth Semester (Non-CBCS)',  'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Fourth Semester Syllabus (Old Scheme)',  'url' => $BASE . 'SYLLABUS/syllsbus_iv_sem/BPH4sem.pdf'],
+      ['name' => 'Fifth Semester (Non-CBCS)',   'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Fifth Semester Syllabus (Old Scheme)',   'url' => $BASE . 'SYLLABUS/6%20sem%20syllabus/BPHVSYL.pdf'],
+      ['name' => 'Sixth Semester (Non-CBCS)',   'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Sixth Semester Syllabus (Old Scheme)',   'url' => $BASE . 'SYLLABUS/6%20sem%20syllabus/BPHVISY.pdf'],
+      ['name' => 'Seventh Semester (Non-CBCS)', 'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Seventh Semester Syllabus (Old Scheme)', 'url' => $BASE . 'SYLLABUS/7%20sem%20syllabus/SYBP_VII.pdf'],
+      ['name' => 'Eighth Semester (Non-CBCS)',  'badge' => 'Non-CBCS', 'desc' => 'B.Pharm Eighth Semester Syllabus (Old Scheme)',  'url' => $BASE . 'SYLLABUS/SYBP_VIII.pdf'],
+    ]
+  ],
+  [
+    'title' => 'M. Pharmacy — Master of Pharmacy (Pharmacology & Pharmaceutics)',
+    'icon'  => 'fa-mortar-pestle',
+    'items' => [
+      ['name' => 'Pharmacology — I Semester (w.e.f. 2017-18)',    'badge' => 'Pharmacology',  'desc' => 'M.Pharm Pharmacology First Semester Syllabus',   'url' => $BASE . 'SYLLABUS/SYWEF2017/SYMPHPCOWEF17_I.pdf'],
+      ['name' => 'Pharmacology — II Semester (w.e.f. 2017-18)',   'badge' => 'Pharmacology',  'desc' => 'M.Pharm Pharmacology Second Semester Syllabus',  'url' => $BASE . 'SYLLABUS/SYWEF2017/SYPHARMACOLOGY_II.pdf'],
+      ['name' => 'Pharmacology — III Semester (w.e.f. 2017-18)',  'badge' => 'Pharmacology',  'desc' => 'M.Pharm Pharmacology Third Semester Syllabus',   'url' => $BASE . 'SYLLABUS/SYWEF2017/SY_MPharmacy_IIISem.pdf'],
+      ['name' => 'Pharmaceutics — I Semester (w.e.f. 2017-18)',   'badge' => 'Pharmaceutics', 'desc' => 'M.Pharm Pharmaceutics First Semester Syllabus',  'url' => $BASE . 'SYLLABUS/SYWEF2017/SYMPHPSEUWEF17_I.pdf'],
+      ['name' => 'Pharmaceutics — II Semester (w.e.f. 2017-18)',  'badge' => 'Pharmaceutics', 'desc' => 'M.Pharm Pharmaceutics Second Semester Syllabus', 'url' => $BASE . 'SYLLABUS/SYWEF2017/SYPHARMACEUTICS_II.pdf'],
+      ['name' => 'Pharmaceutics — III Semester (w.e.f. 2017-18)', 'badge' => 'Pharmaceutics', 'desc' => 'M.Pharm Pharmaceutics Third Semester Syllabus',  'url' => $BASE . 'SYLLABUS/SYWEF2017/SY_MPharmacy_IIISem.pdf'],
+    ]
+  ],
+  [
+    'title' => 'D. Pharmacy — Diploma in Pharmacy (2-Year Diploma)',
+    'icon'  => 'fa-prescription-bottle',
+    'items' => [
+      ['name' => 'First Year (PCI Scheme)',  'badge' => 'PCI Scheme', 'desc' => 'D.Pharm First Year Syllabus as per PCI (w.e.f. 2021-22)',  'url' => $BASE . 'SYLLABUS2021/SY_DPHARMA_I_2021.pdf'],
+      ['name' => 'Second Year (PCI Scheme)', 'badge' => 'PCI Scheme', 'desc' => 'D.Pharm Second Year Syllabus as per PCI (w.e.f. 2021-22)', 'url' => $BASE . 'SYLLABUS2021/SY_DPHARMA_II_2021.pdf'],
+      ['name' => 'First Year (Old Scheme)',  'badge' => 'Old Scheme', 'desc' => 'D.Pharm First Year Syllabus (Pre-2021 Curriculum)',        'url' => $BASE . 'SYLLABUS/DPH_I.pdf'],
+      ['name' => 'Second Year (Old Scheme)', 'badge' => 'Old Scheme', 'desc' => 'D.Pharm Second Year Syllabus (Pre-2021 Curriculum)',       'url' => $BASE . 'SYLLABUS/DPH_II.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
-      <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<div align="center">
-<table class="MsoTableLightGridAccent5" style="width: 648px; height: 223px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 1.0pt;">
-<td style="width: 631.6px; border-width: 1pt 1pt 2.25pt; border-color: #4bacc6; padding: 0cm 5.4pt; height: 1pt;" colspan="3" valign="top">
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: black; background: white; ">B.Pharmacy</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="text-align: center; line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 13.0pt; line-height: 115%;   ">S. No.</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="text-align: center; line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 13.0pt; line-height: 115%; ">Choice Based Credit System (CBCS) w.e.f. 2016-17</span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="text-align: center; line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 13.0pt; line-height: 115%; ">Non CBCS for 2014 and 2015 admitted students</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 16.35pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; padding: 0cm 5.4pt; height: 16.35pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">1</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 16.35pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_I.pdf"><span style="color: #0070c0;">First Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 16.35pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SY_BPH_I.pdf"><span style="color: #0070c0;">First Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">2</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_II.pdf"><span style="color: #0070c0;">Second Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/Syllabus II sem/SY_PY_II.docx"><span style="color: #0070c0;">Second Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">3</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_III.pdf"><span style="color: #0070c0;">Third Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SyllabusIIIsem/SY_BPH_III.pdf"><span style="color: #0070c0;">Third Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">4</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_IV.pdf"><span style="color: #0070c0;">Forth Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/syllsbus_iv_sem/BPH4sem.pdf"><span style="color: #0070c0;">Forth Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">5</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_V.pdf"><span style="color: #0070c0;">Fifth Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/6 sem syllabus/BPHVSYL.pdf"><span style="color: #0070c0;">Fifth Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">6</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_VI.pdf"><span style="color: #0070c0;">Sixth Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/6 sem syllabus/BPHVISY.pdf"><span style="color: #0070c0;">Sixth Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">7</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_VII.pdf"><span style="color: #0070c0;">Seventh Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/7 sem syllabus/SYBP_VII.pdf"><span style="color: #0070c0;">Seventh Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style="  height: 1.0pt;">
-<td style="width: 55.1333px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">8</span></strong></p>
-</td>
-<td style="width: 256.567px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%; margin: 0cm 0cm 0.0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus BPharmacy/SYBPHC_VIII.pdf"><span style="color: #0070c0;">Eight Semester</span></a></span></strong></p>
-</td>
-<td style="width: 289.1px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top">
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYBP_VIII.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">Eight Semester</span></a></span></strong></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 12pt; font-family: 'Times New Roman', serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormal" style="line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 12pt; font-family: 'Times New Roman', serif; background: white;">&nbsp;</span><strong style="font-size: 0.875rem;"><span style="font-size: 12pt; font-family: 'Times New Roman', serif; background: white;">&nbsp;</span></strong></p>
-<div align="center">
-<table class="MsoTableLightGridAccent5"  border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 28.3pt;">
-<td style="width: 601.8px; border-width: 1pt 1pt 2.25pt; border-color: #4bacc6; padding: 0cm 5.4pt; height: 28.3pt;" colspan="3" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: black; background: white; ">M. Pharmacy</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 20.9pt;">
-<td style="width: 162.7px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 20.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 14.0pt;  font-family: 'Cambria','serif';       font-weight: normal;">Stream</span></strong></p>
-</td>
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 20.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 14.0pt;  font-family: 'Calibri','sans-serif';    ">New Syllabus (wef 2017-18)</span></strong></p>
-</td>
-<td style="width: 297.317px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 20.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 14.0pt;  font-family: 'Calibri','sans-serif';    ">Old syllabus</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 9.95pt;">
-<td style="width: 162.7px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; padding: 0cm 5.4pt; height: 9.95pt;" rowspan="3" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt;    font-weight: normal;">Pharmacology</span></strong></p>
-</td>
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 9.95pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYWEF2017/SYMPHPCOWEF17_I.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">I&nbsp; Semester</span></a>&nbsp; </span></strong></p>
-</td>
-<td style="width: 297.317px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 9.95pt;" rowspan="3" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/PHCOI_15.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">I Year</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 9.9pt;">
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 9.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYWEF2017/SYPHARMACOLOGY_II.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">II&nbsp; Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 9.9pt;">
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 9.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYWEF2017/SY_MPharmacy_IIISem.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">III&nbsp; Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 9.95pt;">
-<td style="width: 162.7px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 9.95pt;" rowspan="3" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt;    font-weight: normal;">Pharmaceutics</span></strong></p>
-</td>
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 9.95pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYWEF2017/SYMPHPSEUWEF17_I.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">I&nbsp; Semester</span></a></span></strong></p>
-</td>
-<td style="width: 297.317px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 9.95pt;" rowspan="3" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/PHCEI_15.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">I Year</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 9.9pt;">
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 9.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYWEF2017/SYPHARMACEUTICS_II.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">II&nbsp; Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style="  height: 9.9pt;">
-<td style="width: 141.784px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top-style: none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 9.9pt;" valign="top" >
-<p class="MsoNormal" style="line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYWEF2017/SY_MPharmacy_IIISem.pdf" target="_blank" rel="noopener"><span style="color: #0070c0;">III&nbsp; Semester</span></a></span></strong></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="MsoNormal" style="line-height: 15.0pt; margin: 2.25pt 0cm 2.25pt 0cm;"><strong><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</span></strong><strong style="font-size: 0.875rem;"><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</span></strong></p>
-<div align="center">
-<table class="MsoTableLightGridAccent5"  border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 1.0pt;">
-<td style="width: 592.8px; border-width: 1pt 1pt 2.25pt; border-color: #4bacc6; padding: 0cm 5.4pt; height: 1pt;" colspan="3" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: black; background: white; ">D. Pharmacy</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 1.0pt;">
-<td style="width: 23.4667px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 13.0pt; line-height: 115%;   ">Sr. No.</span></strong></p>
-</td>
-<td style="width: 194.35px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 13.0pt; line-height: 115%; ">As per PCI (w.e.f. 2021-22)</span></strong></p>
-</td>
-<td style="width: 374.983px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 13.0pt; line-height: 115%; ">Yearly </span></strong></p>
-</td>
-</tr>
-<tr style=" height: 16.35pt;">
-<td style="width: 23.4667px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; padding: 0cm 5.4pt; height: 16.35pt;" valign="top" >
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">1</span></strong></p>
-</td>
-<td style="width: 194.35px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 16.35pt;" valign="top" >
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS2021/SY_DPHARMA_I_2021.pdf" target="_blank" rel="noopener">I Year </a></p>
-</td>
-<td style="width: 374.983px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 16.35pt;" valign="top" >
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/DPH_I.docx" target="_blank" rel="noopener"><span style="color: #0070c0;">I Year</span></a></span></strong></p>
-</td>
-</tr>
-<tr style="  height: 1.0pt;">
-<td style="width: 23.4667px; border-width: medium 1pt 1pt; border-color: currentcolor #4bacc6 #4bacc6; border-top: medium none; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top" >
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%;    font-weight: normal;">2</span></strong></p>
-</td>
-<td style="width: 194.35px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top" >
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS2021/SY_DPHARMA_II_2021.pdf" target="_blank" rel="noopener">II Year </a></p>
-</td>
-<td style="width: 374.983px; border-color: currentcolor #4bacc6 #4bacc6 currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; background: #d2eaf1; padding: 0cm 5.4pt; height: 1pt;" valign="top" >
-<p class="MsoNormal" style="line-height: 115%;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; color: #0070c0;  font-weight: normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/DPH_II.docx" target="_blank" rel="noopener"><span style="color: #0070c0;">II Year</span></a></span></strong></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="MsoNormal" style="line-height: 15.0pt; margin: 2.25pt 0cm 2.25pt 0cm;"><strong><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</span></strong></p>
 
-<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+      <!-- Main Content Area -->
+      <div class="col-lg-8 col-xl-9">
+        <div class="academic-card bg-white p-4">
+
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-capsules me-1 text-secondary"></i> Course Syllabus
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Faculty of Pharmacy Syllabus</h3>
+              <p class="text-muted small mb-0">Official Course Curricula, Teaching Modules &amp; Evaluation Matrix for B.Pharm, M.Pharm, and D.Pharm.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> PCI Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search pharmacy subject or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Subject Modules</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                  $ext = pathinfo(urldecode($item['url']), PATHINFO_EXTENSION);
+                  $iconClass = ($ext === 'docx' || $ext === 'doc') ? 'fa-file-word text-primary' : 'fa-file-pdf text-danger';
+                  $btnLabel  = ($ext === 'docx' || $ext === 'doc') ? 'Download DOC' : 'Download PDF';
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa <?= $iconClass ?>"></i>
+                      <span><?= $btnLabel ?></span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,7 +1,7 @@
-﻿<?php
-$page_title = 'Commerce - SSSUTMS';
-$banner_title = 'Commerce';
-$banner_category = 'Download';
+<?php
+$page_title = 'Faculty of Commerce - Outcome Based Curriculum - SSSUTMS';
+$banner_title = 'Faculty of Commerce';
+$banner_category = 'Outcome Based Curriculum';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
@@ -10,51 +10,217 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.9rem;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.78rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" align="center" style="margin: 0cm 0cm 0.0001pt 2.85pt; text-align: center;"><span style="font-weight: bolder;"><span style="font-size: 13.5pt; line-height: 20.7px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">COMMERCE<o:p></o:p></span></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-weight: bolder;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">VISION<o:p></o:p></span></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">“To be an institute of academic excellence with total commitment to quality education in Commerce, management and related fields, with a holistic concern for better life, environment and society.”<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-weight: bolder;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">MISSION<o:p></o:p></span></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">“&nbsp;Empowering students with all the knowledge and guidance that they need to become worthy management professionals.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Learning through Doing.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Imparting value framework that is global yet national.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Providing for holistic and value based development of students which ultimately enhances their employability.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Developing social consciousness among students.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">To carve a niche for ourselves in the specialized field of commerce and management.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Provide a nurturing and motivating environment to exploit the full potential of the students.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Grooming youth to become a truly global personality well equipped to deal with the modern world and its challenges.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">Enable holistic development of personality with a humane and global outlook.”.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 2.85pt;"><span style="font-size: 11.5pt; line-height: 17.6333px; font-family: Verdana, sans-serif; color: rgb(102, 102, 102); background: white;">&nbsp;<br></span></p><div align="center">
-
-</div><div align="center"><div align="center">
-
-<table class="MsoTableLightGridAccent5" border="1" cellspacing="0" cellpadding="0"  style="width: 375pt; border: none;">
- <tbody><tr style="height:24.9pt">
-  <td valign="top" style="border-width: 1pt 1pt 2.25pt; border-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 24.9pt;">
-  <h2 align="center" style="text-align:center;line-height:normal;"><strong><span style="font-size:12.0pt">OUTCOME BASED CURRICULUM<o:p></o:p></span></strong></h2>
-  </td>
- </tr>
- <tr style="height:27.4pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 27.4pt;">
-  <h5 style="line-height:normal;"><strong><span style="font-size:12.0pt"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BCOM_P.pdf" target="_blank"><span style="color: rgb(79, 129, 189);">B.Com (Plain)</span></a></span></strong></h5>
-  </td>
- </tr>
- <tr style="height:28.55pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 28.55pt;">
-  <h5 style="line-height:normal;"><strong><span style="font-size:12.0pt"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BCOM_CA.pdf" target="_blank"><span style="color: rgb(79, 129, 189);">B.Com (Computer Application)</span></a></span></strong></h5>
-  </td>
- </tr>
- <tr style="height:27.55pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 27.55pt;">
-  <h5 style="line-height:normal;"><strong><span style="font-size:12.0pt"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MCOM.pdf" target="_blank"><span style="color: rgb(79, 129, 189);">M.Com</span></a></span></strong></h5>
-  </td>
- </tr>
- <tr style="height:27.55pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 27.55pt;">
-  <h5 style="line-height:normal;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MCOM_2021.pdf" target="_blank"><font color="#085294"><b>M.Com (w.e.f. 2021)    </b></font></a></h5>
-  </td>
- </tr>
-</tbody></table>
-
-</div><table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"  ><tbody>
-</tbody></table>
-
-</div>
+        <div class="academic-card bg-white p-4 mb-4">
+          
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-graduation-cap me-1 text-secondary"></i> Outcome Based Education (OBE)
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.5rem;">Faculty of Commerce</h3>
+              <p class="text-muted small mb-0">Department Vision, Mission, Program Outcomes &amp; Course Curricula.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> Active Framework
+              </span>
+            </div>
           </div>
+
+          <!-- Vision & Mission Showcase (Standard Academic Layout) -->
+          <div class="row g-3 mb-4">
+            
+            <!-- Department Vision -->
+            <div class="col-md-6">
+              <div class="p-3 rounded-2 h-100" style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0b2545;">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="fa fa-eye text-primary"></i>
+                  <h6 class="fw-bold mb-0" style="color: #0b2545; font-size: 0.95rem;">Department Vision</h6>
+                </div>
+                <p class="text-secondary small mb-0 lh-base" style="font-style: italic;">
+                  "To be an institute of academic excellence with total commitment to quality education in Commerce, management and related fields, with a holistic concern for better life, environment and society."
+                </p>
+              </div>
+            </div>
+
+            <!-- Department Mission -->
+            <div class="col-md-6">
+              <div class="p-3 rounded-2 h-100" style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #475569;">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="fa fa-bullseye text-secondary"></i>
+                  <h6 class="fw-bold mb-0" style="color: #0b2545; font-size: 0.95rem;">Department Mission</h6>
+                </div>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2" style="font-size: 0.84rem; color: #475569;">
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">1. Empowering students with all the knowledge and guidance that they need to become worthy management and commerce professionals.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">2. Learning through Doing with real-world case studies, accounting principles, and business analytics.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">3. Imparting value framework that is global yet national, providing for holistic and value-based development.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">4. Developing social consciousness and corporate governance ethics among students.</span>
+                  </li>
+                  <li class="d-flex align-items-start gap-2">
+                    <i class="fa fa-angle-right text-muted mt-1" style="font-size: 0.75rem;"></i>
+                    <span class="lh-sm">5. Providing a nurturing and motivating environment to exploit the full potential of commerce students.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Search Filter Box -->
+          <div class="row g-3 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color: #cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" class="form-control border-start-0 ps-0 obe-filter-input" style="border-color: #cbd5e1; font-size: 0.88rem;" placeholder="Search course or curriculum...">
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-7 text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Official PDF documents
+            </div>
+          </div>
+
+          <!-- Curriculum Matrix Table (Standard Academic Style) -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table table-hover align-middle mb-0 standard-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 60px;" class="text-center">S.No.</th>
+                  <th>Program / Specialization</th>
+                  <th>Curriculum Document (OBE)</th>
+                  <th class="text-center" style="width: 150px;">Document</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">1</td>
+                  <td class="fw-semibold text-dark">B.Com (Plain)</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Bachelor of Commerce (Plain) Curriculum</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/BCOM_P.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">2</td>
+                  <td class="fw-semibold text-dark">B.Com (Computer Application)</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Bachelor of Commerce (Computer Application) Curriculum</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/BCOM_CA.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">3</td>
+                  <td class="fw-semibold text-dark">M.Com</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Master of Commerce Curriculum</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/MCOM.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted fw-semibold">4</td>
+                  <td class="fw-semibold text-dark">M.Com (w.e.f. 2021)</td>
+                  <td>
+                    <span class="standard-badge me-2">Curriculum</span>
+                    <span class="text-secondary small">Master of Commerce (Revised 2021)</span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Curriculum/Curr_MCOM_2021.pdf" target="_blank" class="btn-standard-doc text-nowrap">
+                      <i class="fa fa-file-pdf text-danger"></i> Download PDF
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -66,5 +232,22 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.obe-filter-input');
+  const table = document.querySelector('.obe-table');
+  if (searchInput && table) {
+    searchInput.addEventListener('keyup', function() {
+      const query = this.value.toLowerCase().trim();
+      const rows = table.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -16,6 +16,10 @@ if (strpos($current_uri, '/Academic/') !== false) {
     $section = 'Admission';
 } elseif (strpos($current_uri, '/Download/') !== false) {
     $section = 'Download';
+} elseif (strpos($current_uri, '/Career') !== false) {
+    $section = 'Career';
+} elseif (strpos($current_uri, '/Contact') !== false) {
+    $section = 'Contact';
 } elseif (strpos($current_uri, '/About/') !== false) {
     $section = 'About';
 }
@@ -102,19 +106,46 @@ $sidebar_menus = [
         ]
     ],
     'Download' => [
-        'title' => 'Downloads & Syllabus',
-        'icon' => 'fa-download',
+        'title' => 'Download',
+        'icon' => 'fa-list-check',
         'links' => [
+            'Notification Of Phd Award' => 'Download/NotificationOfPhdAward.php',
+            'Forms' => 'Download/Forms.php',
+            'E-Content' => 'Download/E-Content.php',
+            'Alumni' => 'Download/Alumni.php',
+            'RTI' => 'Download/RTI.php',
+            'Barrier Free Environment' => 'Download/Barrier_Free_Environment.php',
+            'EVENTS' => 'Download/EVENTS.php',
+            'Announcements' => 'Download/Announcements.php',
+            'NBADCS' => 'Download/NBADCS.php',
             'Outcome Based Curriculum (OBE)' => 'Download/OutcomeBasedCurriculum/Engineering.php',
             'Curriculum Schemes' => 'Download/Scheme/BE.php',
-            'Course Syllabus' => 'Download/Syllabus/BE.php',
-            'Ph.D. Award Notifications' => 'Download/NotificationOfPhdAward.php',
-            'Downloadable Forms' => 'Download/Forms.php',
-            'E-Content Portal' => 'Download/E-Content.php',
-            'Alumni Association' => 'Download/Alumni.php',
-            'Right to Information (RTI)' => 'Download/RTI.php',
-            'Barrier Free Environment' => 'Download/Barrier_Free_Environment.php',
-            'University Events' => 'EVENTS.php'
+            'Course Syllabus' => 'Download/Syllabus/BE.php'
+        ]
+    ],
+    'Career' => [
+        'title' => 'Careers @ SSSUTMS',
+        'icon' => 'fa-briefcase',
+        'links' => [
+            'Career Openings' => 'Career/index.php',
+            'School of Pharmacy Recruitment' => 'Career/index.php#pharmacy',
+            'School of Homoeopathy (BHMS)' => 'Career/index.php#homoeopathy',
+            'Ombudsperson Application' => 'Career/index.php#ombudsperson',
+            'Statutory Policy' => 'Career/index.php#policy',
+            'About University' => 'About/Background.php',
+            'Contact HR Cell' => 'Contact.php'
+        ]
+    ],
+    'Contact' => [
+        'title' => 'Quick Help & Support',
+        'icon' => 'fa-headset',
+        'links' => [
+            'Our Office Location' => 'Contact.php#location',
+            'Send a Message' => 'Contact.php#message-form',
+            'Important Contacts' => 'Contact.php#important-contacts',
+            'Campus Location Map' => 'Contact.php#campus-map',
+            'Admission Enquiry' => 'Admission/Admission_Enquiry.php',
+            'Student ERP Login' => 'https://sssutms.co.in/erp'
         ]
     ]
 ];

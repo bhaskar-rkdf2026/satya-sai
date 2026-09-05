@@ -1,157 +1,261 @@
-﻿<?php
-$page_title = 'Education - SSSUTMS';
-$banner_title = 'Education';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Education - Course Syllabus - SSSUTMS';
+$banner_title = 'Faculty of Education';
+$banner_category = 'Course Syllabus';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'Bachelor of Education (B.Ed. — 2-Year CBCS Degree)',
+    'icon'  => 'fa-graduation-cap',
+    'items' => [
+      ['name' => 'First Semester (CBCS)',   'badge' => 'CBCS Scheme', 'desc' => 'B.Ed. First Semester Teaching Curriculum & Syllabus',  'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/bed_cbcs.pdf'],
+      ['name' => 'Second Semester (CBCS)',  'badge' => 'CBCS Scheme', 'desc' => 'B.Ed. Second Semester Teaching Curriculum & Syllabus', 'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/BEDCII17SYL.pdf'],
+      ['name' => 'Third Semester (CBCS)',   'badge' => 'CBCS Scheme', 'desc' => 'B.Ed. Third Semester Teaching Curriculum & Syllabus',  'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20Education/SYBEDC_III.pdf'],
+      ['name' => 'Fourth Semester (CBCS)',  'badge' => 'CBCS Scheme', 'desc' => 'B.Ed. Fourth Semester Teaching Curriculum & Syllabus', 'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20Education/SYBEDC_IV.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Bachelor of Education (B.Ed. — Non-CBCS / Yearly)',
+    'icon'  => 'fa-chalkboard-user',
+    'items' => [
+      ['name' => 'First Semester / First Year',          'badge' => 'Non-CBCS', 'desc' => 'B.Ed. First Semester / First Year Syllabus',      'url' => $BASE . 'SYLLABUS/SYBEDNS_I.pdf'],
+      ['name' => 'Second Year (III & IV Semester)',       'badge' => 'Non-CBCS', 'desc' => 'B.Ed. Second Year Teaching & Internship Modules', 'url' => $BASE . 'Curriculum/BABEd.pdf'],
+    ]
+  ],
+  [
+    'title' => 'B.A. B.Ed. — 4-Year Integrated Course (Year-wise CBCS)',
+    'icon'  => 'fa-book-open-reader',
+    'items' => [
+      ['name' => 'First Year (Semesters I & II)',    'badge' => 'Integrated', 'desc' => 'B.A. B.Ed. Integrated 1st Year Syllabus', 'url' => $BASE . 'babed_Is_year__Ist_Sem_syllabus_2021--22_(1)_09072022_1214.pdf'],
+      ['name' => 'Second Year (Semesters III & IV)', 'badge' => 'Integrated', 'desc' => 'B.A. B.Ed. Integrated 2nd Year Syllabus', 'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20Education/SYBABed_III_IV.pdf'],
+      ['name' => 'Third Year (Semesters V & VI)',    'badge' => 'Integrated', 'desc' => 'B.A. B.Ed. Integrated 3rd Year Syllabus', 'url' => $BASE . 'SYLLABUS/CBCS%20SYLLABUS/Syllabus%20Education/SYBABed_V_VI.pdf'],
+      ['name' => 'Fourth Year (Semesters VII & VIII)', 'badge' => 'Integrated', 'desc' => 'B.A. B.Ed. Integrated 4th Year Syllabus', 'url' => $BASE . 'SYLLABUS/BA_BED_syllabus_VIII.pdf'],
+    ]
+  ],
+  [
+    'title' => 'B.A. B.Ed. — Semester-Wise Revised Syllabus',
+    'icon'  => 'fa-list-check',
+    'items' => [
+      ['name' => 'First Semester (w.e.f. 2021-22)',   'badge' => 'Semester I',   'desc' => 'B.A. B.Ed. First Semester Syllabus',   'url' => $BASE . 'babed_Is_year__Ist_Sem_syllabus_2021--22_(1)_09072022_1214.pdf'],
+      ['name' => 'Second Semester (w.e.f. 2021-22)',  'badge' => 'Semester II',  'desc' => 'B.A. B.Ed. Second Semester Syllabus',  'url' => $BASE . 'babed_syllabus_II_sem_2021-22_final_09072022_1214.pdf'],
+      ['name' => 'Third Semester (w.e.f. 2022-23)',   'badge' => 'Semester III', 'desc' => 'B.A. B.Ed. Third Semester Syllabus',   'url' => $BASE . 'babed1_04112022_0415.pdf'],
+      ['name' => 'Fourth Semester (w.e.f. 2022-23)',  'badge' => 'Semester IV',  'desc' => 'B.A. B.Ed. Fourth Semester Syllabus',  'url' => $BASE . 'SYLLABUS/babed%20II%20year%20syllabus2022-2023%20final..pdf'],
+      ['name' => 'Fifth Semester (w.e.f. 2023-24)',   'badge' => 'Semester V',   'desc' => 'B.A. B.Ed. Fifth Semester Syllabus',   'url' => $BASE . 'syllabus%202023-24/babed%20III%20year%20V%20sem%20syllabus.pdf'],
+      ['name' => 'Sixth Semester',                    'badge' => 'Semester VI',  'desc' => 'B.A. B.Ed. Sixth Semester Syllabus',   'url' => $BASE . 'SYLLABUS/BABED6.pdf'],
+      ['name' => 'Seventh Semester',                  'badge' => 'Semester VII', 'desc' => 'B.A. B.Ed. Seventh Semester Syllabus', 'url' => $BASE . 'Curriculum/BABEd.pdf'],
+      ['name' => 'Eighth Semester',                   'badge' => 'Semester VIII','desc' => 'B.A. B.Ed. Eighth Semester Syllabus',  'url' => $BASE . 'SYLLABUS/BA_BED_syllabus_VIII.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.5pt; font-family: Arial, sans-serif;">Syllabus:&nbsp;</span></strong><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">Bachelor of Education</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">&nbsp;</span></p>
-<table class="MsoTableLightGridAccent5" style="border: none;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td style="width: 47.8pt; border-width: 1pt 1pt 2.25pt; border-color: #4bacc6; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   background: white; ">S.No.</span></strong></p>
-</td>
-<td style="width: 134.8pt; border-top-width: 1pt; border-top-color: #4bacc6; border-left: none; border-bottom-width: 2.25pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   background: white; ">Course</span></strong></p>
-</td>
-<td style="width: 15cm; border-top-width: 1pt; border-top-color: #4bacc6; border-left: none; border-bottom-width: 2.25pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt;" colspan="5" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   background: white; ">Syllabus</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 35.45pt;">
-<td style="width: 47.8pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-family: 'Cambria','serif';    ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-family: 'Cambria','serif';    ">1</span></strong></p>
-</td>
-<td style="width: 134.8pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
+        <div class="academic-card bg-white p-4">
 
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; ">Bachelor of Education (CBCS)</p>
-</td>
-<td style="width: 106.3pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/bed_cbcs.pdf"><span style="color: windowtext;">First&nbsp;Semester &nbsp;(CBCS)</span></a></p>
-</td>
-<td style="width: 4cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/BEDCII17SYL.pdf"><span style="color: windowtext;">Second &nbsp;Semester&nbsp; (CBCS)</span></a></p>
-</td>
-<td style="width: 106.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus Education/SYBEDC_III.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Third &nbsp;Semester&nbsp; (CBCS)</span></a></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" colspan="2" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus Education/SYBEDC_IV.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Forth&nbsp; Semester&nbsp; (CBCS)</span></a></p>
-</td>
-</tr>
-<tr style=" height: 48.1pt;">
-<td style="width: 47.8pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-family: 'Cambria','serif';    ">2</span></strong></p>
-</td>
-<td style="width: 134.8pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; ">Bachelor of Education (Non- CBCS)</p>
-</td>
-<td style="width: 106.3pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYBEDNS_I.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">First&nbsp;Semester</span></a></p>
-</td>
-<td style="width: 4cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/B.EdIIY.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Second Year</span></a>&nbsp;&nbsp; ( III &amp; IV Semester)</p>
-</td>
-<td style="width: 106.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >&nbsp;</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 48.1pt;" colspan="2" valign="top" >&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 47.8pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: #4bacc6; border-bottom-color: #4bacc6; border-left-color: #4bacc6; border-top: none; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-<td style="width: 134.8pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-<td style="width: 106.3pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-<td style="width: 4cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-<td style="width: 106.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-<td style="width: 62.55pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-<td style="width: 36.65pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt;" valign="top" >&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="line-height: 15.0pt; margin: 2.25pt 0cm 2.25pt 0cm;"><strong><span style="font-size: 12pt; font-family: Arial, sans-serif;">Syllabus:&nbsp;</span></strong><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #666666; background: white; ">Bachelor of Arts Bachelor of Education</span></strong></p>
-
-<table class="MsoNormalTable" style="width: 810px; border: 1pt solid windowtext;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style=" ">
-<td style="width: 69.2667px; border: 1pt solid windowtext; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   background: white; ">S.No.</span></strong></p>
-</td>
-<td style="width: 167.467px; border: 1pt solid windowtext; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   background: white; ">Course</span></strong></p>
-</td>
-<td style="width: 479.866px; border: 1pt solid windowtext; padding: 0cm 5.4pt;" colspan="4" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   background: white; ">Syllabus</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 35.45pt;">
-<td style="width: 69.2667px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">1</span></p>
-</td>
-<td style="width: 167.467px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" rowspan="2" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Bachelor of Arts Bachelor of Education</span></p>
-</td>
-<td style="width: 136.217px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus Education/SYBA_Bednrr_I,IISem.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">I- Year</span></a></span></p>
-</td>
-<td style="width: 143.983px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus Education/SYBABed_III_IV.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">II-&nbsp;Year</span></a></span></p>
-</td>
-<td style="width: 136.233px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/CBCS SYLLABUS/Syllabus Education/SYBABed_V_VI.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">III-&nbsp;Year</span></a></span></p>
-</td>
-<td style="width: 63.4333px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BA_BED_syllabus_VIII.pdf" target="_blank" rel="noopener"><span style="color: blue;">IV Year </span></a></span></p>
-</td>
-</tr>
-<tr style="  height: 35.45pt;">
-<td style="width: 69.2667px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2</span></p>
-</td>
-<td style="width: 136.217px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" ><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/babed_Is_year__Ist_Sem_syllabus_2021--22_(1)_09072022_1214.pdf"> </a>
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/babed_Is_year__Ist_Sem_syllabus_2021--22_(1)_09072022_1214.pdf"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">I Sem 2021-22</span></a></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/babed_syllabus_II_sem_2021-22_final_09072022_1214.pdf"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">II Sem 2021-22</span></a></p>
-<a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/babed_syllabus_II_sem_2021-22_final_09072022_1214.pdf"> </a></td>
-<td style="width: 143.983px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/babed1_04112022_0415.pdf" target="_blank" rel="noopener"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">III Sem 2022-23</span></a></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/babed II year syllabus2022-2023 final..pdf" target="_blank" rel="noopener"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">IV Sem 2022-23</span></a></p>
-</td>
-<td style="width: 136.233px; border: 1pt solid windowtext; background: #d2eaf1; padding-top: 0cm; padding-right: 5.4pt; padding-bottom: 0cm; height: 35.45pt;" >
-<p><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/syllabus 2023-24/babed III year V sem syllabus.pdf" target="_blank" rel="noopener"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">V&nbsp; Sem 2022-23</span></a><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BABED6.pdf" target="_blank" rel="noopener">VI&nbsp; Sem 2022-23</a></span></p>
-</td>
-<td style="width: 63.4333px; border: 1pt solid windowtext; background: #d2eaf1; padding: 0cm 5.4pt; height: 35.45pt;" >
-<p><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/syllabus_7_sem_19122024_0455.pdf" target="_blank" rel="noopener">VII Sem</a></p>
-<p><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/BABED/CamScanner 02-21-2025 11.52.pdf" target="_blank" rel="noopener">VIII Sem</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-graduation-cap me-1 text-secondary"></i> Course Syllabus
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Faculty of Education Syllabus</h3>
+              <p class="text-muted small mb-0">Official Course Curricula for B.Ed. and 4-Year Integrated B.A. B.Ed. Programmes.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> NCTE Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search education course or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Subject Modules</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,171 +1,247 @@
-﻿<?php
-$page_title = 'Bhmct - SSSUTMS';
-$banner_title = 'Bhmct';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Hotel Management (BHMCT) - Curriculum Scheme - SSSUTMS';
+$banner_title = 'Faculty of Hotel Management (BHMCT)';
+$banner_category = 'Curriculum Scheme';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'BHMCT — Bachelor of Hotel Management & Catering Technology (CBCS Scheme)',
+    'icon'  => 'fa-hotel',
+    'items' => [
+      ['name' => 'First Semester',   'badge' => 'CBCS Scheme', 'desc' => 'BHMCT First Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_I.pdf'],
+      ['name' => 'Second Semester',  'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Second Semester Scheme of Study & Examination',  'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_II.pdf'],
+      ['name' => 'Third Semester',   'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Third Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_III.pdf'],
+      ['name' => 'Fourth Semester',  'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Fourth Semester Scheme of Study & Examination',  'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_IV.pdf'],
+      ['name' => 'Fifth Semester',   'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Fifth Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_V.pdf'],
+      ['name' => 'Sixth Semester',   'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Sixth Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_VI.pdf'],
+      ['name' => 'Seventh Semester', 'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Seventh Semester Scheme of Study & Examination', 'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_VII.pdf'],
+      ['name' => 'Eighth Semester',  'badge' => 'CBCS Scheme', 'desc' => 'BHMCT Eighth Semester Scheme of Study & Examination',  'url' => $BASE . 'SCHEMES/CBCS%20SCHEME/Scheme%20BHMCT/SCBHMC_VIII.pdf'],
+    ]
+  ],
+  [
+    'title' => 'BHMCT — Bachelor of Hotel Management & Catering Technology (Non-CBCS Scheme)',
+    'icon'  => 'fa-utensils',
+    'items' => [
+      ['name' => 'First Semester',   'badge' => 'Non-CBCS', 'desc' => 'BHMCT First Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_I.pdf'],
+      ['name' => 'Second Semester',  'badge' => 'Non-CBCS', 'desc' => 'BHMCT Second Semester Scheme of Study & Examination',  'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_II.pdf'],
+      ['name' => 'Third Semester',   'badge' => 'Non-CBCS', 'desc' => 'BHMCT Third Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_III.pdf'],
+      ['name' => 'Fourth Semester',  'badge' => 'Non-CBCS', 'desc' => 'BHMCT Fourth Semester Scheme of Study & Examination',  'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_IV.pdf'],
+      ['name' => 'Fifth Semester',   'badge' => 'Non-CBCS', 'desc' => 'BHMCT Fifth Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_V.pdf'],
+      ['name' => 'Sixth Semester',   'badge' => 'Non-CBCS', 'desc' => 'BHMCT Sixth Semester Scheme of Study & Examination',   'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_VI.pdf'],
+      ['name' => 'Seventh Semester', 'badge' => 'Non-CBCS', 'desc' => 'BHMCT Seventh Semester Scheme of Study & Examination', 'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_VII.pdf'],
+      ['name' => 'Eighth Semester',  'badge' => 'Non-CBCS', 'desc' => 'BHMCT Eighth Semester Scheme of Study & Examination',  'url' => $BASE . 'SCHEMES/NON%20CBCS%20SCHEME/BHMCT/SCBHM_VIII.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0"  style="width: 703.95pt; border: none;">
- <tbody><tr>
-  <td valign="top" style="border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpFirst" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">S.No.<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Choice Based Credit System<o:p></o:p></span></b></p>
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Non CBCS Scheme&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  &nbsp; &nbsp; &nbsp;&nbsp;<o:p></o:p></span></b></p>
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">1<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/HMCT_ICBCS.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">I Semester</span></a>&nbsp;<o:p></o:p></span></b></p>
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">(Wef. Academic Session 2016-17)<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/HM_I.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">I Semester</span></a><o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">2<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/BHMCTCII_SH.pdf"><span style="color: rgb(102, 102, 102);">II Semester</span></a><o:p></o:p></span></b></p>
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">(Wef. Academic Session 2016-17)<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/HM_II.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">II Semester</span></a><o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">3<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCHMC_III.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">III Semester&nbsp;</span></a><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/HM_III.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">&nbsp;III Semester</span></a><o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">4<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCHMC_IV.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">IV&nbsp;Semester&nbsp;</span></a><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/BHMCT4.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">IV Semester</span></a>&nbsp;<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">5<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBHMCT 5th scheme cbcs.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">V Semester</span></a><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/BHMCTV.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">V Semester</span></a><o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">6<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBHMCT_6thsem.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">VI Semester</span></a><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/BHMCT_VISYL.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">VI Semester</span></a><o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">7<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBHMCT_7thsem.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">VII Semester</span></a><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBHMCT_VIIr_19-01-18.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">VII Semester&nbsp;</span></a>&nbsp;Revised<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">8<o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 357.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBHMCT_8thsem.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">VIII Semester</span></a><o:p></o:p></span></b></p>
-  </td>
-  <td  valign="top" style="width: 288.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;line-height:normal;"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBHMCT_VIIIr_19-01-18.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">VIII Semester</span></a>&nbsp;Revised<o:p></o:p></span></b></p>
-  </td>
- </tr>
-</tbody></table>
+        <div class="academic-card bg-white p-4">
+
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-hotel me-1 text-secondary"></i> Hotel Management &amp; Catering
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Faculty of Hotel Management (BHMCT)</h3>
+              <p class="text-muted small mb-0">Official Schemes of Study &amp; Examination Matrices for 4-Year BHMCT Programme (CBCS &amp; Non-CBCS).</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> AICTE Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search semester or scheme...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Structure</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

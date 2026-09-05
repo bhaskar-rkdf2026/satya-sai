@@ -2868,11 +2868,50 @@ body {
 .navbar-v2 .navbar-nav .nav-link.active,
 .navbar-v2 .navbar-nav .nav-item:hover > .nav-link { color: var(--accent) !important; }
 .navbar-v2 .btn-apply-pill {
-  padding: 12px 19px !important;
+  padding: 10px 18px !important;
   background: var(--accent) !important;
-  color: #241503 !important;
-  font-size: 12px !important;
-  box-shadow: 0 8px 18px rgba(255,118,38,.24);
+  color: #ffffff !important;
+  font-size: 12.5px !important;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(255,118,38,.35);
+  white-space: nowrap !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  border-radius: 50px;
+}
+.navbar-action-btn-wrap {
+  margin-left: 18px !important;
+  flex-shrink: 0;
+}
+@media (min-width: 1200px) {
+  .navbar-v2 .navbar-nav {
+    gap: 1px;
+    align-items: center;
+  }
+  .navbar-action-btn-wrap {
+    margin-left: 22px !important;
+    padding-left: 16px;
+    border-left: 1px solid #e2e8f0;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .navbar-v2 .navbar-brand { margin-right: 12px; }
+  .navbar-v2 .brand-lockup-v2 img { width: 44px; height: 44px; }
+  .navbar-v2 .brand-lockup-v2-text h1 { font-size: 14px; }
+  .navbar-v2 .brand-lockup-v2-text span { font-size: 8.5px; }
+  .navbar-v2 .navbar-nav .nav-link { padding: 8px 6px !important; font-size: 11.5px !important; }
+  .navbar-action-btn-wrap { margin-left: 16px !important; padding-left: 12px; }
+  .navbar-v2 .btn-apply-pill { padding: 9px 15px !important; font-size: 11.5px !important; }
+}
+@media (max-width: 1199.98px) {
+  .navbar-action-btn-wrap {
+    margin-left: 0 !important;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 14px;
+  }
 }
 .navbar-v2 .navbar-toggler {
   display: none;
@@ -3073,13 +3112,14 @@ body {
   .why-section-v2 .col-lg-6:last-child { width: 54.5%; }
 }
 
-@media (min-width: 992px) and (max-width: 1299.98px) {
-  .navbar-v2 .navbar-brand { margin-right: 14px; }
-  .navbar-v2 .brand-lockup-v2 img { width: 46px; height: 46px; }
-  .navbar-v2 .brand-lockup-v2-text h1 { font-size: 14px; }
-  .navbar-v2 .brand-lockup-v2-text span { font-size: 8.5px; }
-  .navbar-v2 .navbar-nav .nav-link { padding: 9px 5px !important; font-size: 11px !important; }
-  .navbar-v2 .btn-apply-pill { padding: 11px 14px !important; font-size: 11px !important; }
+@media (min-width: 1200px) and (max-width: 1299.98px) {
+  .navbar-v2 .navbar-brand { margin-right: 10px; }
+  .navbar-v2 .brand-lockup-v2 img { width: 42px; height: 42px; }
+  .navbar-v2 .brand-lockup-v2-text h1 { font-size: 13.5px; }
+  .navbar-v2 .brand-lockup-v2-text span { font-size: 8px; }
+  .navbar-v2 .navbar-nav .nav-link { padding: 8px 5px !important; font-size: 11.5px !important; }
+  .navbar-action-btn-wrap { margin-left: 14px !important; padding-left: 12px !important; border-left: 1px solid #e2e8f0; }
+  .navbar-v2 .btn-apply-pill { padding: 8px 14px !important; font-size: 11px !important; }
 }
 
 @media (max-width: 1199.98px) {

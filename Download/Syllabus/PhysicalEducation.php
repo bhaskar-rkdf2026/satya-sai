@@ -1,231 +1,237 @@
-﻿<?php
-$page_title = 'PhysicalEducation - SSSUTMS';
-$banner_title = 'PhysicalEducation';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Physical Education - Course Syllabus - SSSUTMS';
+$banner_title = 'Faculty of Physical Education';
+$banner_category = 'Course Syllabus';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'Bachelor of Physical Education (B.P.Ed. — 2-Year Degree)',
+    'icon'  => 'fa-person-running',
+    'items' => [
+      ['name' => 'Bachelor of Physical Education (CBCS)',     'badge' => 'CBCS Scheme',  'desc' => 'B.P.Ed Two Year Course (CBCS) Syllabus', 'url' => $BASE . 'SYLLABUS/bped_cbcs.pdf'],
+      ['name' => 'Bachelor of Physical Education (Non-CBCS)', 'badge' => 'Non-CBCS',     'desc' => 'B.P.Ed Two Year Course (Non-CBCS) Syllabus', 'url' => $BASE . 'SYLLABUS/SYBPEDG.pdf'],
+    ]
+  ],
+  [
+    'title' => 'Bachelor of Physical Education and Sports (BPES — 3-Year Degree)',
+    'icon'  => 'fa-medal',
+    'items' => [
+      ['name' => 'B.P.Es I Year (First Year)',                 'badge' => 'BPES Year I',   'desc' => 'B.P.Es First Year Core Theory & Practical Syllabus',        'url' => $BASE . 'SYLLABUS/SYBPE%20_I.pdf'],
+      ['name' => 'B.P.Es II Year (Second Year)',               'badge' => 'BPES Year II',  'desc' => 'B.P.Es Second Year Advanced Training & Practical Syllabus', 'url' => $BASE . 'SYLLABUS/SYBPE%20_II.pdf'],
+      ['name' => 'B.P.Es III Year (Third Year)',              'badge' => 'BPES Year III', 'desc' => 'B.P.Es Third Year Sports Specialization & Research Modules','url' => $BASE . 'SYLLABUS/SYBPE%20_III.pdf'],
+      ['name' => 'Bachelor of Physical Education and Sports (New)', 'badge' => 'New Syllabus', 'desc' => 'Syllabus of BPES (Revised Comprehensive Degree Syllabus)',  'url' => $BASE . 'SYLLABUS/Bpes_syllabus_new12-04-19r.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
-      <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-line-height:normal;"><span style="font-size:11.5pt;
-font-family:&quot;inherit&quot;,&quot;serif&quot;;Times New Roman&quot;;
-color:#666666;background:white;">Bachelor of Physical Education (B.P.Ed.)<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-Times New Roman&quot;;">&nbsp;</span></p><table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"  style="width: 648.8pt;">
- <tbody><tr>
-  <td  valign="top" style="width: 47.65pt; border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">S.No.<o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 241.25pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Course<o:p></o:p></span></p>
-  </td>
-  <td  colspan="5" valign="top" style="width: 354.4pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Syllabus<o:p></o:p></span></p>
-  </td>
-  <td style="border-width: initial; border-style: none; border-color: initial; padding: 0cm;" ></td>
- </tr>
- <tr style="height:35.45pt;">
-  <td  valign="top" style="width: 47.65pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><br>
-  <!--[if !supportLineBreakNewLine]--><br>
-  <!--[endif]--><o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">1<o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 241.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Bachelor of Physical Education <o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">(CBCS)<o:p></o:p></span></p>
-  </td>
-  <td  colspan="5" valign="top" style="width: 354.4pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/bped_cbcs.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.P.Ed Two Year Course (CBCS)</span></a><o:p></o:p></span></p>
-  </td>
-  <td style="border-width: initial; border-style: none; border-color: initial; padding: 0cm;" ></td>
- </tr>
- <tr style="height:48.1pt;">
-  <td  valign="top" style="width: 47.65pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 48.1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><br>
-  <!--[if !supportLineBreakNewLine]--><br>
-  <!--[endif]--><o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 241.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 48.1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Bachelor of Physical Education <o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">(Non- CBCS)<o:p></o:p></span></p>
-  </td>
-  <td  colspan="5" valign="top" style="width: 354.4pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 48.1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYBPEDG.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.P.Ed Two Year Course</span></a><o:p></o:p></span></p>
-  </td>
-  <td style="border-width: initial; border-style: none; border-color: initial; padding: 0cm;" ></td>
- </tr>
- 
- <!--[if !supportMisalignedColumns]-->
- <tr height="0">
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
- </tr>
- <!--[endif]-->
-</tbody></table><p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-line-height:normal;"><span style="font-size:11.5pt;
-font-family:&quot;inherit&quot;,&quot;serif&quot;;Times New Roman&quot;;
-color:#666666;background:white;"><o:p>&nbsp;</o:p></span></p><p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-line-height:normal;"><span style="font-size:11.5pt;
-font-family:&quot;inherit&quot;,&quot;serif&quot;;Times New Roman&quot;;
-color:#666666;background:white;"><o:p>&nbsp;</o:p></span></p><p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-line-height:normal;"><span style="font-size:11.5pt;
-font-family:&quot;inherit&quot;,&quot;serif&quot;;Times New Roman&quot;;
-color:#666666;background:white;">Bachelor of Physical Education and Sports (BPES)&nbsp;<o:p></o:p></span></p><table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"  style="width: 643.3pt;">
- <tbody><tr>
-  <td  valign="top" style="width: 47.1pt; border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">S.No.<o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 125.25pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Course<o:p></o:p></span></p>
-  </td>
-  <td  colspan="7" valign="top" style="width: 470.95pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Syllabus<o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:35.45pt">
-  <td  valign="top" style="width: 47.1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><o:p>&nbsp;</o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">1<o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 125.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><o:p>&nbsp;</o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Bachelor of Physical Education and Sports <o:p></o:p></span></p>
-  </td>
-  <td  colspan="2" valign="top" style="width: 116.55pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYBPE _I.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.P.Es I Year</span></a><o:p></o:p></span></p>
-  </td>
-  <td  colspan="2" valign="top" style="width: 163.05pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYBPE _II.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.P.Es II Year</span></a><o:p></o:p></span></p>
-  </td>
-  <td  colspan="3" valign="top" style="width: 191.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SYBPE _III.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.P.Es III Year</span></a><o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">&nbsp;<o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:48.1pt">
-  <td  valign="top" style="width: 47.1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 48.1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">&nbsp;2<o:p></o:p></span></p>
-  </td>
-  <td  valign="top" style="width: 125.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 48.1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><o:p>&nbsp;</o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Bachelor of Physical Education and Sports&nbsp;<o:p></o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">(New)<o:p></o:p></span></p>
-  </td>
-  <td  colspan="7" valign="top" style="width: 470.95pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 48.1pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><o:p>&nbsp;</o:p></span></p>
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/Bpes_syllabus_new12-04-19r.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">Syllabus of BPES</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- 
- <!--[if !supportMisalignedColumns]-->
- <tr height="0">
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
-  <td  style="border-width: initial; border-style: none; border-color: initial;"></td>
- </tr>
- <!--[endif]-->
-</tbody></table><p style="margin:0in;margin-bottom:.0001pt">
 
-</p><p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></b><span style="font-size: 10.5pt; font-family: Arial, sans-serif;"><o:p></o:p></span></p>
+      <!-- Main Content Area -->
+      <div class="col-lg-8 col-xl-9">
+        <div class="academic-card bg-white p-4">
+
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-person-running me-1 text-secondary"></i> Course Syllabus
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Physical Education Syllabus</h3>
+              <p class="text-muted small mb-0">Official Course Curricula for Bachelor of Physical Education (B.P.Ed.) &amp; Bachelor of Physical Education and Sports (BPES).</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> NCTE Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search physical education course...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 38%;">Course / Programme</th>
+                  <th style="width: 38%;">Details &amp; Syllabus Modules</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

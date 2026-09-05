@@ -1,104 +1,237 @@
-﻿<?php
-$page_title = 'Physical Education - SSSUTMS';
-$banner_title = 'Physical Education';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Faculty of Physical Education - Curriculum Scheme - SSSUTMS';
+$banner_title = 'Faculty of Physical Education';
+$banner_category = 'Curriculum Scheme';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$BASE = 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/';
+
+$groups = [
+  [
+    'title' => 'B.P.Ed. — Bachelor of Physical Education (2-Year Degree)',
+    'icon'  => 'fa-person-running',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'B.P.Ed. First Semester Teaching Scheme',  'url' => $BASE . 'SCHEME/SCBPE%20I%20(1).pdf'],
+      ['name' => 'Second Semester', 'badge' => 'Scheme', 'desc' => 'B.P.Ed. Second Semester Teaching Scheme', 'url' => $BASE . 'SCHEME/SCBPE%20II%20(2).pdf'],
+      ['name' => 'Third Semester',  'badge' => 'Scheme', 'desc' => 'B.P.Ed. Third Semester Teaching Scheme',  'url' => $BASE . 'SCHEME/SCBPE%20III.pdf'],
+      ['name' => 'Fourth Semester', 'badge' => 'Scheme', 'desc' => 'B.P.Ed. Fourth Semester Teaching Scheme', 'url' => $BASE . 'SCHEME/SCBPEDG.pdf'],
+    ]
+  ],
+  [
+    'title' => 'B.P.E.S. — Bachelor of Physical Education & Sports',
+    'icon'  => 'fa-medal',
+    'items' => [
+      ['name' => 'First Semester',  'badge' => 'Scheme', 'desc' => 'BPES First Semester Teaching Scheme',      'url' => $BASE . 'SCHEME/BPESSCH.pdf'],
+      ['name' => 'Second Semester', 'badge' => 'CBCS Scheme', 'desc' => 'BPES Second Semester Teaching Scheme (CBCS)', 'url' => $BASE . 'SCHEME/SCBPEDCBCS.pdf'],
+    ]
+  ]
+];
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  /* Group separator row */
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="color: #000000; font-size: 14pt;"><span style="font-family: 'inherit', 'serif'; background: white;">Bachelor </span><strong><span style="font-family: 'inherit', 'serif'; background: white;">of Physical Education (B.P.Ed.)</span></strong></span></p>
+        <div class="academic-card bg-white p-4">
 
-<table class="table table-bordered table-hover align-middle" style="border-collapse: collapse; width: 100%; height: 67.2px;" border="1.5">
-<tbody>
-<tr style="height: 22.4px;">
-<td style="width: 50.0481%; height: 22.4px; text-align: center;"><strong><span style="font-size: 11.5pt; background: white; color: #000000;">COURSE</span></strong></td>
-<td style="width: 50.0481%; height: 22.4px; text-align: center;"><strong><span style="font-size: 11.5pt; background: white; color: #000000;">YEAR</span></strong></td>
-</tr>
-<tr style="height: 22.4px;">
-<td style="width: 50.0481%; height: 22.4px;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">B.P.Ed. (CBCS)</span></td>
-<td style="width: 50.0481%; height: 22.4px; text-align: center;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBPEDCBCS.pdf" target="_blank" rel="noopener"><span style="color: #666666;">I to IV Semester (CBCS)</span></a></span></td>
-</tr>
-<tr style="height: 22.4px;">
-<td style="width: 50.0481%; height: 22.4px;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">B.P.Ed. (Non CBCS)</span></td>
-<td style="width: 50.0481%; height: 22.4px; text-align: center;"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBPEDG.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Two Year Course (old Scheme)</span></a></span></td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: 'inherit','serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: 'inherit','serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: 'inherit','serif';   color: #666666; background: white; ">&nbsp;</span></p>
-<h1 style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: 'inherit','serif';   color: #666666; background: white; ">Bachelor of Physical Education and Sports (BPES)&nbsp;</span></h1>
-<table class="MsoNormalTable" style="width: 643.3pt;" border="0"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td style="width: 47.1pt; border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">S.No.</span></p>
-</td>
-<td style="width: 125.25pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Course</span></p>
-</td>
-<td style="width: 470.95pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-left: none; padding: 0cm 5.4pt;" colspan="7" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Syllabus</span></p>
-</td>
-</tr>
-<tr style=" height: 35.45pt;">
-<td style="width: 47.1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">1</span></p>
-</td>
-<td style="width: 125.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Bachelor of Physical Education and Sports&nbsp;</span></p>
-</td>
-<td style="width: 116.55pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;" colspan="2" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBPE I (1).pdf" target="_blank" rel="noopener"><span style="color: #666666;">B.P.Es I Year</span></a></span></p>
-</td>
-<td style="width: 163.05pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;" colspan="2" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBPE II (2).pdf" target="_blank" rel="noopener"><span style="color: #666666;">B.P.Es II Year</span></a></span></p>
-</td>
-<td style="width: 191.35pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 35.45pt;" colspan="3" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCBPE III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">&nbsp;B.P.Es III Year</span></a></span></p>
-</td>
-</tr>
-<tr style=" height: 48.1pt;">
-<td style="width: 47.1pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">&nbsp;2</span></p>
-</td>
-<td style="width: 125.25pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 48.1pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">&nbsp;</span><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">Bachelor of Physical Education and Sports&nbsp;</span></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;">(New)</span></p>
-</td>
-<td style="width: 470.95pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; padding: 0cm 5.4pt; height: 48.1pt;" colspan="7" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: inherit, serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/BPESSCH.pdf" target="_blank" rel="noopener"><span style="color: #666666;">&nbsp;Scheme of BPES</span></a></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-person-running me-1 text-secondary"></i> Physical Education &amp; Sports
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;">Faculty of Physical Education</h3>
+              <p class="text-muted small mb-0">Official Schemes of Study &amp; Examination Matrices for B.P.Ed. and B.P.E.S. Programmes.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> NCTE Approved
+              </span>
+            </div>
+          </div>
 
-</div>
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search programme or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Structure</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge']) ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc']) ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

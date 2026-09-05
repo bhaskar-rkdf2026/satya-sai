@@ -1,322 +1,418 @@
-﻿<?php
-$page_title = 'Polytechnic Engineering - SSSUTMS';
-$banner_title = 'Polytechnic Engineering';
-$banner_category = 'Download';
+<?php
+$page_title   = 'Polytechnic (Diploma in Engineering) - Course Syllabus - SSSUTMS';
+$banner_title = 'Polytechnic (Diploma in Engineering)';
+$banner_category = 'Course Syllabus';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/scheme_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$groups = array (
+  0 => 
+  array (
+    'title' => 'First Year — Common to All Disciplines (AICTE Scheme)',
+    'icon' => 'fa-shapes',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'First Semester (Common to All)',
+        'badge' => 'AICTE',
+        'desc' => 'Diploma Engineering First Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/SYLPOLY_I.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Second Semester (Common to All)',
+        'badge' => 'AICTE',
+        'desc' => 'Diploma Engineering Second Semester Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/SYLPOLY_I.pdf',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'title' => 'Civil Engineering (CE)',
+    'icon' => 'fa-trowel-bricks',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Third Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CE Semester III Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(CE)_III%20sem.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Fourth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CE Semester IV Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(CE)%20_IV%20sem.pdf',
+      ),
+      2 => 
+      array (
+        'name' => 'Fifth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CE Semester V Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/V_Semester%20New%20CE.pdf',
+      ),
+      3 => 
+      array (
+        'name' => 'Sixth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CE Semester VI Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg%20VI/VI%20CE%20Scheme.pdf',
+      ),
+    ),
+  ),
+  2 => 
+  array (
+    'title' => 'Computer Science & Engineering (CSE)',
+    'icon' => 'fa-laptop-code',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Third Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CSE Semester III Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(CS)_III%20sem.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Fourth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CSE Semester IV Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(CS)%20_IV%20sem.pdf',
+      ),
+      2 => 
+      array (
+        'name' => 'Fifth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CSE Semester V Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/V_Semester%20New%20Cs.pdf',
+      ),
+      3 => 
+      array (
+        'name' => 'Sixth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CSE Semester VI Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/VI_Semester_New_Cs_14042026_0355.pdf',
+      ),
+    ),
+  ),
+  3 => 
+  array (
+    'title' => 'Electrical Engineering (EE)',
+    'icon' => 'fa-bolt',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Third Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic EE Semester III Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY%20(EE)_III%20sem.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Fourth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic EE Semester IV Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(EE)%20_IV%20sem.pdf',
+      ),
+      2 => 
+      array (
+        'name' => 'Fifth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic EE Semester V Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Poly_Ee_V__sem_Scheme_16102025_0221.pdf',
+      ),
+      3 => 
+      array (
+        'name' => 'Sixth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic EE Semester VI Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/VI_EE_scheme_15022026_1251.pdf',
+      ),
+    ),
+  ),
+  4 => 
+  array (
+    'title' => 'Mechanical Engineering (ME)',
+    'icon' => 'fa-gear',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Third Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic ME Semester III Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY%20(ME)_III%20sem.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Fourth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic ME Semester IV Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(ME)%20_IV%20sem.pdf',
+      ),
+      2 => 
+      array (
+        'name' => 'Fifth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic ME Semester V Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/V_Semester%20New%20ME.pdf',
+      ),
+      3 => 
+      array (
+        'name' => 'Sixth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic ME Semester VI Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg%20VI/VI%20ME%20scheme.pdf',
+      ),
+    ),
+  ),
+  5 => 
+  array (
+    'title' => 'Chemical Engineering (CM)',
+    'icon' => 'fa-flask',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Third Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CM Semester III Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(CM)_III%20sem.pdf',
+      ),
+      1 => 
+      array (
+        'name' => 'Fourth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CM Semester IV Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/SYLPOLY(CM)%20_IV%20sem.pdf',
+      ),
+      2 => 
+      array (
+        'name' => 'Fifth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CM Semester V Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/schme%20aicte/V_Semester%20New%20CM.pdf',
+      ),
+      3 => 
+      array (
+        'name' => 'Sixth Semester',
+        'badge' => 'Diploma',
+        'desc' => 'Polytechnic CM Semester VI Syllabus',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg%20VI/VI%20CM%20scheme.pdf',
+      ),
+    ),
+  ),
+);
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+  .academic-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.04);
+  }
+  .btn-standard-doc {
+    background: #ffffff;
+    color: #0b2545;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-standard-doc:hover {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+  }
+  .btn-standard-doc:hover i {
+    color: #ffffff !important;
+  }
+  .standard-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+  }
+  .standard-table th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    letter-spacing: 0.3px;
+    border: none;
+  }
+  .standard-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f1f5f9;
+    color: #334155;
+    font-size: 0.88rem;
+  }
+  .standard-table tbody tr:hover td {
+    background: #f8fafc;
+  }
+  .standard-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .group-row td {
+    background: #eef4fa !important;
+    color: #0b2545 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4px;
+    padding: 10px 14px !important;
+    border-top: 1px solid #cbd5e1 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+  .group-row td i {
+    color: #0b2545;
+  }
+  .filter-input {
+    font-size: 0.85rem;
+    border-color: #cbd5e1;
+    border-radius: 8px;
+  }
+  .filter-input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+  }
+</style>
+
+<section class="subpage-main-section py-4" style="background-color: #f8fafc;">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Area -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p style="margin: 0in; margin-bottom: .0001pt;"><strong><span style="font-size: 16.5pt; font-family: 'Arial','sans-serif'; font-weight: normal;">Syllabus: Diploma Engineering (Polytechnic)</span></strong></p>
+        <div class="academic-card bg-white p-4">
 
-<p style="margin: 0in; margin-bottom: .0001pt;"><span style="font-family: 'arial black', sans-serif;"><strong><span style="font-size: 0.875rem;"><span style="font-size: 11.5pt; color: #666666; background: white;">As per AICTE Curriculam with effect from academic session 2023-24</span></span></strong></span></p>
-
-<p style="margin: 0in; margin-bottom: .0001pt;"><span style="font-family: 'arial black', sans-serif;"><strong><span style="font-size: 0.875rem;"><span style="font-size: 11.5pt; color: #666666; background: white;">&nbsp; &nbsp; &nbsp;&nbsp;</span></span></strong></span><!-- [if !mso]>
-
-<![endif]--></p>
-<table class="MsoTableColorfulGridAccent6" style="width: 838px; border-collapse: collapse; border: medium; height: 543.334px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 51.7333px;">
-<td style="width: 155.117px; border: 1pt solid windowtext; background: #fbd4b4; padding: 0cm 5.4pt; height: 111.667px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; text-align: center;" align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">COURSE</span></strong></p>
-</td>
-<td style="width: 279.233px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #fbd4b4; padding: 0cm 5.4pt; height: 111.667px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">BRANCH</span></strong></p>
-</td>
-<td style="width: 323.65px; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #fbd4b4; padding: 0cm 5.4pt; height: 51.7333px;" colspan="3" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">SEMESTER</span></strong></p>
-</td>
-</tr>
-<tr style="height: 59.9333px;">
-<td style="width: 141.75px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 59.9333px;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">I Year</span></strong></p>
-</td>
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 59.9333px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">II Year</span></strong></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 59.9333px;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 11.5pt; font-family: 'Verdana','sans-serif';   color: #111111;   ">III Year</span></strong></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 155.117px; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #e36c0a; padding: 0cm 5.4pt; height: 431.667px;" rowspan="10" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="color: white;  ">&nbsp;</span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="color: white;  ">&nbsp;</span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-family: 'Arial Black','sans-serif'; color: white;  ">&nbsp;</span></p>
-
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-family: 'Arial Black','sans-serif'; color: white;  ">DIPLOMA ENGINEERING</span></p>
-</td>
-<td style="width: 279.233px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 81.3334px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><span style="color: black;   "><img src="../../../../../file/C_/Users/DELL/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" alt="*"  height="24" /></span><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><span style=""> <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/cm_06082025_1110.jpg" alt=""  height="25" /></span><span style="">&nbsp;</span>Chemical Engineering</span></span></p>
-</td>
-<td style="width: 141.75px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 431.667px;" rowspan="10" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="color: black;  "><span style="">&nbsp;</span></span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="color: black;  ">&nbsp;</span></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="color: black;  ">&nbsp;</span></p>
-
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="color: black;  ">&nbsp;</span></p>
-<h3 class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; text-align: center;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/syllabus 2023-24/POLY SSS.pdf" target="_blank" rel="noopener"><span style="color: black;  ">Common to all<span style="">&nbsp;&nbsp; </span>I Sem&nbsp; &amp;&nbsp; II Sem</span></a></h3>
-<h3 style="text-align: center;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/syllabus 2023-24/POLY SSS.pdf" target="_blank" rel="noopener"> </a></h3>
-</td>
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/syllabus_chemical_III_sem_06082025_0356.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;&nbsp;III SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg V/SYLLABUS DIPLOMA CHEMICAL 5 SEM.pdf" target="_blank" rel="noopener"><span style="color: black;">V Sem</span></a></strong></span></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/syllabus_chemical_IVsem_06082025_0357.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;&nbsp;IV SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg VI/syllabus Chemical VI sem.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><span style="color: black;  "><span style="color: black;  text-decoration: none; text-underline: none;">VI Sem</span></span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 279.233px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 81.3334px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/civil_06082025_1110.jpg"  height="36" border="0" /></span><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><span style="">&nbsp; </span>Civil Engineering</span></span></p>
-</td>
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS_III_SEMESTER_06082025_0408.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;III SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg V/ce v sem final.pdf" target="_blank" rel="noopener"><span style="color: black;">V Sem</span></a></strong></span></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS_IV_SEMESTER_06082025_0409.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;IV SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg VI/CE VI sem syllabus.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><span style="color: black;  "><span style="color: black;  text-decoration: none; text-underline: none;">VI Sem</span></span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 47.6667px;">
-<td style="width: 279.233px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 88.3334px;" rowspan="2" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/cse_06082025_1109.jpg"  height="26" border="0" /></span><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><span style="">&nbsp;</span><span style="font-size: 12pt;">Computer Science and Engineering</span></span></span></p>
-</td>
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 47.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/CS_III_SEM_SYLLABUS_06082025_0359.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;&nbsp;III SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 47.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg V/CS V SEM SYLLABUS.pdf" target="_blank" rel="noopener"><span style="color: black;"> V Sem</span></a></strong></span></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/CS_IV_SEM_SYLLABUS_06082025_0400.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;&nbsp;IV SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/CS_VI_SEM_SYLLABUS_(1)_14042026_0357.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><span style="color: black;  "><span style="color: black;  text-decoration: none; text-underline: none;">VI Sem</span></span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 279.233px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 81.3334px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ee_06082025_1108.jpg"  height="29" border="0" /></span><span style="font-family: 'Book Antiqua', 'serif'; color: black;"><span style="">&nbsp;</span><span style="">&nbsp; &nbsp; </span>Electrical Engineering</span></span></p>
-</td>
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EE_III_SEM_SYLLABUS_06082025_0404.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;&nbsp;III SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><span style="color: black;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Poly_Ee_V__sem__SYLLABUS_-_Copy_16102025_0223.pdf" target="_blank" rel="noopener">V Sem</a></span></strong></span></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/EE_IV_SEM_SYLLABUS_06082025_0407.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp;&nbsp;IV SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Syllabus_Ee_VI_15022026_0100.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><span style="color: black;  "><span style="color: black;  text-decoration: none; text-underline: none;">VI Sem</span></span></strong></span></a></p>
-</td>
-</tr>
-<tr style="height: 40.6667px;">
-<td style="width: 279.233px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 99.3334px;" rowspan="2" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt; font-family: 'Book Antiqua', 'serif'; color: black;"><span style="">&nbsp;</span><span style=""><img src="<?php echo BASE_URL; ?>assets/images/Files/Link/me_06082025_1108.jpg"  height="28" border="0" /></span><span style="">&nbsp; </span>Mechanical Engineering</span></p>
-</td>
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ME_III_SEM_SYLLABUS_06082025_0401.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp; &nbsp;III SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fde9d9; padding: 0cm 5.4pt; height: 40.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg V/Syllabus Me V.pdf" target="_blank" rel="noopener"><span style="color: black;">&nbsp;V Sem</span></a></strong></span></p>
-</td>
-</tr>
-<tr style="height: 58.6667px;">
-<td style="width: 85.9333px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 58.6667px; text-align: center;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 14pt;"><strong><span style="color: black;  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ME_IV_SEM_SYLLABUS_06082025_0402.pdf" target="_blank" rel="noopener"><span style="color: black;  text-decoration: none; text-underline: none;">&nbsp; &nbsp;IV SEM</span></a></span></strong></span></p>
-</td>
-<td style="width: 95.9667px; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #fbcaa2; padding: 0cm 5.4pt; height: 58.6667px; text-align: center;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/POLY(ENGINEERING)/DEngg VI/Syllabus Me VI.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt; font-family: 'comic sans ms', sans-serif;"><strong><span style="color: black;  "><span style="color: black;  text-decoration: none; text-underline: none;">VI Sem</span></span></strong></span></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-<p style="margin: 0in; margin-bottom: .0001pt; text-rendering: optimizelegibility;"><span style="font-family: 'Arial','sans-serif';">&nbsp;</span></p>
-
-<table class="MsoNormalTable" style="width: 809px; text-rendering: optimizelegibility; height: 806.4px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 89.6px; text-rendering: optimizelegibility;">
-<td style="width: 130.917px; padding: 0in; height: 89.6px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">COURSE</span></strong></span></h1>
-</td>
-<td style="width: 277.033px; padding: 0in; height: 89.6px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">BRANCH</span></strong></span></h1>
-</td>
-<td style="width: 394.05px; padding: 0in; height: 89.6px; text-rendering: optimizelegibility;" colspan="4" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">SEMESTER</span></strong></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-</tr>
-<tr style="height: 44.8px; text-rendering: optimizelegibility;">
-<td style="width: 130.917px; padding: 0in; height: 44.8px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-<td style="width: 277.033px; padding: 0in; height: 44.8px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-<td style="width: 145.467px; padding: 0in; height: 44.8px; text-rendering: optimizelegibility;" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><strong>I Year</strong></span></h1>
-</td>
-<td style="width: 91.6px; padding: 0in; height: 44.8px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><strong>II Year</strong></span></h1>
-</td>
-<td style="width: 99.1833px; padding: 0in; height: 44.8px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><strong>III Year</strong></span></h1>
-</td>
-<td style="width: 57.8px; padding: 0in; height: 44.8px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">IV&nbsp;Year</span></h1>
-</td>
-</tr>
-<tr style="height: 134.4px; text-rendering: optimizelegibility;">
-<td style="width: 130.917px; padding: 0in; height: 672px; text-rendering: optimizelegibility;" rowspan="5" nowrap="nowrap" >
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>DIPLOMA </strong></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>ENGINEERING</strong></span></span></h1>
-</td>
-<td style="width: 277.033px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>Chemical Engineering</strong></span></span></span></span></h1>
-</td>
-<td style="width: 145.467px; padding: 0in; height: 672px; text-rendering: optimizelegibility;" rowspan="5" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><strong>Common to all</strong></span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/POLYR.pdf" target="_top"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">I&nbsp;Sem</span></span></a></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">&amp;</span></span></span></span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/POLYR.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">II&nbsp;Sem</span></span></a>&nbsp;</span></h1>
-</td>
-<td style="width: 91.6px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_III/SYDCM_III.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">III Sem</span></span></a></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_IV/SYDCM_IV.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">IV&nbsp;Sem</span></span></a></span></span></h1>
-</td>
-<td style="width: 99.1833px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SYDIP_5th/SYDIP_CM_5th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">V&nbsp;Sem</span></span></span></span></a></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SY_DIP_6th/SYDIP_CM_6th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">VI Sem</span></span></span></span></a></span></h1>
-</td>
-<td style="width: 57.8px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-</tr>
-<tr style="height: 134.4px; text-rendering: optimizelegibility;">
-<td style="width: 277.033px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>Civil Engineering</strong></span></span></span></span></h1>
-</td>
-<td style="width: 91.6px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_III/SYDCE_III.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">III Sem</span></span></a></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_IV/SYDCE_IV.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">IV&nbsp;Sem</span></span></a></span></span></h1>
-</td>
-<td style="width: 99.1833px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SYDIP_5th/SYDIP_CE_5th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">V&nbsp;Sem</span></span></span></span></a></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SY_DIP_6th/SYDIP_CE_6th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">&nbsp;VI Sem</span></span></span></a></span></h1>
-</td>
-<td style="width: 57.8px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-</tr>
-<tr style="height: 134.4px; text-rendering: optimizelegibility;">
-<td style="width: 277.033px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>Computer Science and</strong></span></span></span></span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong> Engineering</strong></span></span></span></span></h1>
-</td>
-<td style="width: 91.6px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_III/SYDCS_III.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">III Sem</span></span></a></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_IV/SYDCS_IV.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">IV&nbsp;Sem</span></span></a></span></span></h1>
-</td>
-<td style="width: 99.1833px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SYDIP_5th/SYDIP_CSE_5th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">V&nbsp;Sem</span></span></span></span></a></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SY_DIP_6th/SYDIP_CSE_6th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">VI Sem</span></span></span></a></span></h1>
-</td>
-<td style="width: 57.8px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-</tr>
-<tr style="height: 134.4px; text-rendering: optimizelegibility;">
-<td style="width: 277.033px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>Electrical Engineering</strong></span></span></span></span></h1>
-</td>
-<td style="width: 91.6px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_III/SYDEE_III.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">III Sem</span></span></a></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_IV/SYDEE_IV.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">IV&nbsp;Sem</span></span></a></span></span></h1>
-</td>
-<td style="width: 99.1833px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SYDIP_5th/SYDIP_EE_5th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">V&nbsp;Sem</span></span></span></a></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SY_DIP_6th/SYDIP_EE_6th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">VI Sem</span></span></span></a></span></h1>
-</td>
-<td style="width: 57.8px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" nowrap="nowrap" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-</td>
-</tr>
-<tr style="height: 134.4px; text-rendering: optimizelegibility;">
-<td style="width: 277.033px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><span style="text-rendering: optimizelegibility;"><strong>Mechanical Engineering</strong></span></span></span></span></h1>
-</td>
-<td style="width: 91.6px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_III/SYDME_III.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">III Sem</span></span></a></span></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="text-rendering: optimizelegibility;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/DEngg_IV/SYDME_IV.pdf" target="_blank" rel="noopener"><span style="text-rendering: optimizelegibility;"><span style="color: #666666;">IV&nbsp;Sem</span></span></a></span></span></h1>
-</td>
-<td style="width: 99.1833px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" >
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SYDIP_5th/SYDIP_MEr_5th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">V&nbsp;Sem</span></span></span></a></span></h1>
-<h1 style="text-align: center; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></h1>
-<h1 style="text-align: center; text-rendering: optimizelegibility; margin: 0in 0in .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a style="text-rendering: optimizelegibility;" href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/POLY(ENGINEERING)/SY_DIP_6th/SYDIP_ME_6th.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;">VI Sem</span></span></span></a></span></h1>
-</td>
-<td style="width: 57.8px; padding: 0in; height: 134.4px; text-rendering: optimizelegibility;" >&nbsp;</td>
-</tr>
-</tbody>
-</table>
+          <!-- Standard Document Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom" style="border-color: #e2e8f0 !important;">
+            <div>
+              <span class="standard-badge mb-2 d-inline-block">
+                <i class="fa fa-book-open-reader me-1 text-secondary"></i> Course Syllabus
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #0b2545; font-size: 1.45rem;"><?= htmlspecialchars($banner_title) ?></h3>
+              <p class="text-muted small mb-0"><?= htmlspecialchars($banner_desc ?? 'Official Course Curricula, Teaching Modules & Examination Content.') ?></p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="standard-badge text-dark">
+                <i class="fa fa-check-circle text-success me-1"></i> Active Syllabus
+              </span>
+            </div>
           </div>
+
+          <!-- Search & Filter Bar -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-md-6 col-lg-5">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0" style="border-color:#cbd5e1;"><i class="fa fa-search text-muted"></i></span>
+                <input type="text" id="schemeFilter" class="form-control border-start-0 ps-0 filter-input" placeholder="Search subject or semester...">
+              </div>
+            </div>
+            <div class="col text-md-end text-muted small">
+              <i class="fa fa-file-pdf text-danger me-1"></i> Click to view &amp; download PDF in new tab
+            </div>
+          </div>
+
+          <!-- Schemes Table -->
+          <div class="table-responsive rounded-2 border overflow-hidden">
+            <table class="table standard-table" id="schemeTable">
+              <thead>
+                <tr>
+                  <th style="width: 6%;" class="text-center">#</th>
+                  <th style="width: 32%;">Programme / Semester</th>
+                  <th style="width: 44%;">Details &amp; Subject Modules</th>
+                  <th style="width: 18%;" class="text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($groups as $grp): ?>
+                <!-- Section Header Row -->
+                <tr class="group-row">
+                  <td colspan="4">
+                    <i class="fa <?= $grp['icon'] ?? 'fa-book' ?> me-2"></i>
+                    <?= htmlspecialchars($grp['title']) ?>
+                  </td>
+                </tr>
+
+                <?php 
+                $sno = 1;
+                foreach ($grp['items'] as $item): 
+                ?>
+                <tr class="scheme-row">
+                  <td class="text-center text-muted fw-semibold"><?= $sno++ ?></td>
+                  <td class="fw-bold text-dark"><?= htmlspecialchars($item['name']) ?></td>
+                  <td>
+                    <span class="standard-badge me-2"><?= htmlspecialchars($item['badge'] ?? 'Syllabus') ?></span>
+                    <span class="text-muted small"><?= htmlspecialchars($item['desc'] ?? '') ?></span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= scheme_local_path($item['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-standard-doc">
+                      <i class="fa fa-file-pdf text-danger"></i>
+                      <span>View PDF</span>
+                    </a>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar Column -->
+      <div class="col-lg-4 col-xl-3 sticky-top" style="top:20px;z-index:10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterInput = document.getElementById('schemeFilter');
+  if (!filterInput) return;
+
+  filterInput.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#schemeTable tbody tr.scheme-row').forEach(function (row) {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
