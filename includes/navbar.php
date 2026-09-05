@@ -391,7 +391,7 @@
       </ul>
 
       <!-- Right Action Button -->
-      <div class="d-flex align-items-center gap-2 py-1 py-lg-0">
+      <div class="navbar-action-btn-wrap d-flex align-items-center py-1 py-xl-0 ms-xl-3 ms-xxl-4 flex-shrink-0">
         <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="btn btn-apply-pill">
           <i class="fa fa-pen-nib me-1"></i> Apply Online
         </a>
