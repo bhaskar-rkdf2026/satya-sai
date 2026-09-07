@@ -115,7 +115,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
 <td style="width: 39.8432%; padding: 0cm 5.4pt;" valign="top" >
 <p class="MsoNormal" style=" line-height: normal;"><span lang="EN-US" style="font-size: 12.0pt; font-family: 'Times New Roman','serif';   ">&nbsp;</span><span lang="EN-US">Environmental Youth Forum 2021&nbsp;</span></p>
 <p class="MsoNormal" style=" line-height: normal;"><span lang="EN-US">(</span>12&nbsp;Jan 2021)</p>
-<h6 style=" line-height: normal;"><span style="color: #ce0000;"><a href="<?php echo BASE_URL; ?>assets/images/Document/Activities/Environmental_Youth_Forum_2021.jpg" target="_blank" rel="noopener">More Info</a>&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;<a href="http://web.sssutms.co.in//Document/Activities/Environmental_Youth_Forum_2021_Report.pdf" target="_blank" rel="noopener">Report</a></span></h6>
+<h6 style=" line-height: normal;"><span style="color: #ce0000;"><a href="<?php echo BASE_URL; ?>assets/images/Document/Activities/Environmental_Youth_Forum_2021.jpg" target="_blank" rel="noopener">More Info</a>&nbsp; &nbsp;|&nbsp; &nbsp; &nbsp;<a href="<?php echo BASE_URL; ?>About/Environmental_Youth_Forum_2021.php" target="_blank" rel="noopener">Report</a></span></h6>
 </td>
 </tr>
 </tbody>

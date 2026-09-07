@@ -218,7 +218,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     DIPLOMA ENGG./B. E./M.TECH/MCA/MBA/M. Pharma/B. Pharma/BHMCT (First Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/FIRST%20YEAR.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/FIRST YEAR.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -227,7 +227,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     DIPLOMA ENGG./B. E./M.TECH/MCA/MBA/M. Pharma/B. Pharma/BHMCT (Second Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/SECOND%20YEAR.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/SECOND YEAR.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -236,7 +236,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     DIPLOMA ENGG. (Third Year) /B. E./B. Pharma/BHMCT (Third &amp; Fourth Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/third%20and%20forth%20year.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/third and forth year.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -400,7 +400,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     ACADEMIC CALENDAR FOR THE YEAR 2024-25 (BAMS)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/BAMS%20CALENDER.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/BAMS CALENDER.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -409,7 +409,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     ACADEMIC CALENDAR FOR THE YEAR 2024-25 (BHMS-UG)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/BHMS%20UG.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/BHMS UG.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -418,7 +418,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     ACADEMIC CALENDAR FOR THE YEAR 2024-25 (BHMS -PG)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/BHMS%20PG.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/BHMS PG.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -427,7 +427,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     ACADEMIC CALENDAR FOR THE YEAR 2024-25 (UTD)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC%20CALENDAR%202024-2025.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC CALENDAR 2024-2025.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -436,7 +436,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for the year 2024-2025 B.A.B.Ed /B.Ed/B.P.Ed
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic%20calender%202024-25.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic calender 2024-25.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -445,7 +445,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     ACADEMIC CALENDAR FOR I &amp; II YEAR 2024-25 FOR D.PHARMA
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Acadmic%20Calendra%20for%20Diploma%20in%20Pharmacy%202024-25.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Acadmic Calendra for Diploma in Pharmacy 2024-25.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -454,7 +454,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Paramedical UG/PG/DIPLOMA Course (Yearly System)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC%20CALENDAR%20OF%20PARAMEDICAL%20COURSES%20FOR%20SESSION%202024-25.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC CALENDAR OF PARAMEDICAL COURSES FOR SESSION 2024-25.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -463,7 +463,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     DIPLOMA ENGG./B. E./M.TECH/MCA/MBA/M. Pharma/B. Pharma/BHMCT (First Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic%20Calander%202024-25%20(SOE).pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic Calander 2024-25 (SOE).pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -472,7 +472,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     DIPLOMA ENGG./B. E./M.TECH/MCA/MBA/M. Pharma/B. Pharma/BHMCT (Second Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC%20CALENDAR%20FOR%20THE%20FIRST%20YEAR%202024-25%202year.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC CALENDAR FOR THE FIRST YEAR 2024-25 2year.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -481,7 +481,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     DIPLOMA ENGG. (Third Year) /B. E./B. Pharma/BHMCT (Third &amp; Fourth Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC%20CALENDAR%20FOR%20THE%20FIRST%20YEAR%202024-25%203-4%20year.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/ACADEMIC CALENDAR FOR THE FIRST YEAR 2024-25 3-4 year.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -490,7 +490,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for the year 2024-25 (School of Law)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic%20calendar%2024%20(1).pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic calendar 24 (1).pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -536,7 +536,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for the year 2023-24 (School of Law)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic%20Calendar%202023-24%20(01)_LAW.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic Calendar 2023-24 (01)_LAW.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -545,7 +545,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for the year 2023-24 (Semester System B.A.B.Ed/ B.Ed/B.P.Ed)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic%20Calendar%202023-24%20bed%20babed.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic Calendar 2023-24 bed babed.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -554,7 +554,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar 2023-24 DIPLOMA ENGG./B. E./M.TECH/MCA/MBA/M. Pharma/B. Pharma/BHMCT (First Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/FIRST%20YEAR%20.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/FIRST YEAR .pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -572,7 +572,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar 2023-24 DIPLOMA ENGG. (Third Year) /B. E./B. Pharma/BHMCT (Third &amp; Fourth Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic%20Calendar%202023-24%20(01)_6.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Academic Calendar 2023-24 (01)_6.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -581,7 +581,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for the year 2022-23 (School of Homoeopathy)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/School%20of%20Homoeopathy.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/School of Homoeopathy.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -617,7 +617,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for Session 2022-23 (Yearly System-I, II &amp; III Year)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Yearly%20System.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/Yearly System.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -626,7 +626,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar 2022-23 (Semester System All UG, PG &amp; Diploma Engg.- III Semester Onward)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/All%20UG%20PG%20Diploma%20Semester.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/All UG PG Diploma Semester.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -635,7 +635,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar 2022-23 (Semester System B.A.B.Ed/ B.Ed/B.P.Ed)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/B.A.B.ED%20B.P.ED%20Semester.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/B.A.B.ED B.P.ED Semester.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -653,7 +653,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar for the Year 2022-23 (Post Graduate Course)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/PG%20Yearly.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/PG Yearly.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>
@@ -662,7 +662,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-file-pdf text-danger me-1"></i>
                     Academic Calendar B.A.M.S. First Year 2022 - 23 (18 Months)
                   </div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/acdmic%20calendar%20bams%202022-23.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/academic_calendar/acdmic calendar bams 2022-23.pdf" target="_blank" rel="noopener" class="acad-cal-badge-btn">
                     <i class="fa-solid fa-file-pdf"></i> Download PDF
                   </a>
                 </li>

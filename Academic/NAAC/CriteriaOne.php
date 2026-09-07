@@ -394,26 +394,26 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <td colspan="2" rowspan="2">School of Management Studies</td>
 <td rowspan="2">Management</td>
 <td>BBA</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/BBA-MBA/BOS-MANAGEMENT Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/BBA-MBA/BBA MBA SY-Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>MBA</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/BBA-MBA/BOS-MANAGEMENT Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/BBA-MBA/BBA MBA SY-Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td colspan="2">School of Law</td>
 <td>Law</td>
 <td>Law</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/LLB/BOS-LAW-Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/LLB/LLB SY-Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td colspan="2" rowspan="9"> Faculty of Education  </td>
 <td rowspan="2">Arts &nbsp;</td>
 <td>Bachelor of Arts</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/ARTS/ARTS- BOS Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/ARTS/ARTS SY- Combine (1) - Copy.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>Master of Arts</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/ARTS/ARTS- BOS Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/ARTS/ARTS SY- Combine (1) - Copy.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td rowspan="2">Science &nbsp;</td>
 <td>Bachelor of Science</td>
@@ -425,11 +425,11 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <tr>
 <td rowspan="2">Commerce &nbsp;</td>
 <td>Bachelor of Commerce</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/COMMERCE/COMMERCE- BOS Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/COMMERCE/edited pdf commerce.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>Master of Commerce</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/COMMERCE/COMMERCE- BOS Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/COMMERCE/edited pdf commerce.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td rowspan="2">Education &nbsp;</td>
 <td>B.A. Ed</td>
@@ -447,14 +447,14 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <td colspan="2" rowspan="3"><strong>School of Computer Application</strong></td>
 <td rowspan="3"><strong>Computer Application</strong></td>
 <td>P.G.D.C.A</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/COMPUTER APPLICATION/BOS- ALL Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/COMPUTER APPLICATION/mca Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>B.C.A</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/COMPUTER APPLICATION/BOS- ALL Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/COMPUTER APPLICATION/mca Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td>M.C.A</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/BOS/COMPUTER APPLICATION/BOS- ALL Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/COMPUTER APPLICATION/mca Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td colspan="2"><strong>School of Hotel Management</strong></td>
 <td><strong>Hotel Management & Catering</strong></td>
@@ -750,13 +750,13 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <td colspan="2"><strong>School of Agriculture</strong></td>
 <td><strong>Agriculture</strong></td>
 <td>Bachelor of Agriculture</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/COPO mapping/CO-PO-AGRICULTURE-FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/COPO mapping/co-po-science final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td colspan="2"><strong>School of Ayurveda &amp; Siddha Studies</strong></td>
 <td><strong>Ayurveda</strong></td>
 <td>B.A.M.S</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/COPO mapping/CO-PO-AYURVEDA-FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/COPO mapping/co-po-bhms-final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">School of Management Studies</td>
@@ -785,7 +785,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       </div>
     </div>
     <div>
-      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/prospectus  Final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/pdf/mandatory_disc_osre.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
     </div>
   </div>
 </div>
@@ -807,7 +807,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <td colspan="2" rowspan="21"><strong style="box-sizing: border-box; font-weight: bold;">School of Engineering</strong></td>
 <td>Aeronautical Engineering</td>
 <td>Bachelor of Engineering</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/syllabus/AERONAUTICAL/AREO SY- Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/AERONAUTICAL/AREO SY- Combine FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>Chemical Engineering</td>
@@ -817,12 +817,12 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <tr>
 <td>Civil Engineering</td>
 <td>Bachelor of Engineering</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/syllabus/CIVIL/CIVIL SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/CIVIL/CIVIL SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>Structural Design</td>
 <td>Master of Technology</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/syllabus/CIVIL/CIVIL SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/CIVIL/CIVIL SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td>Computer Science and Engineering</td>
 <td>Bachelor of Engineering</td>
@@ -844,16 +844,16 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 <tr>
 <td>Electrical Engineering</td>
 <td>Bachelor of Engineering</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/syllabus/EE/EE SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/EE/EE SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td>
 </tr>
 <tr>
 <td>Electrical Power System</td>
 <td>Master of Technology</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/syllabus/EE/EE SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/EE/EE SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td>Power Electronics</td>
 <td>Master of Technology</td>
-<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/syllabus/EE/EE SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
+<td><a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/EE/EE SY Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a></td></tr>
 <tr>
 <td>Electronic &amp; Communication Engineering</td>
 <td>Bachelor of Engineering</td>
@@ -1330,7 +1330,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       </div>
     </div>
     <div>
-      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.3.3.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.3.4 COMBINED PDF.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
     </div>
   </div>
 </div>
@@ -1375,19 +1375,19 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     <div class="col-md-6">
       <div class="p-3 bg-white border rounded-3 d-flex align-items-center justify-content-between gap-2 shadow-sm">
         <span class="fw-semibold text-dark fs-6">Action Taken Report</span>
-        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/SCHEME2021/feedback reports Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/SCHEME2021/feedback reports  Combine.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
       </div>
     </div>
     <div class="col-md-6">
       <div class="p-3 bg-white border rounded-3 d-flex align-items-center justify-content-between gap-2 shadow-sm">
         <span class="fw-semibold text-dark fs-6">1.4.1.a Sample Feedback from Stakeholders</span>
-        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.4.1.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/BOG FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
       </div>
     </div>
     <div class="col-md-6">
       <div class="p-3 bg-white border rounded-3 d-flex align-items-center justify-content-between gap-2 shadow-sm">
         <span class="fw-semibold text-dark fs-6">1.4.2.b Feedback Process of the Institutes</span>
-        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.4.2.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/AC FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
       </div>
     </div>
     <div class="col-md-6">

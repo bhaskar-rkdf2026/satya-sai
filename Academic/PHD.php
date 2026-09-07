@@ -263,7 +263,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <ul class="phd-link-list">
                 <li class="phd-link-item">
                   <span>(i) Research Policy</span>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Recharch%20policy.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Recharch policy.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
                 </li>
                 <li class="phd-link-item">
                   <span>(ii) Admission Policy for the Ph.D. Programme</span>
@@ -275,7 +275,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </li>
                 <li class="phd-link-item">
                   <span>(iv) Constitution of Ethics Board to maintain Research Integrity</span>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/ethics%20commitee.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/ethics commitee.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
                 </li>
                 <li class="phd-link-item">
                   <span>(v) Constitution of Research Advisory Committee (RAC) and Doctoral Research Committee (DRC)</span>
@@ -283,7 +283,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </li>
                 <li class="phd-link-item">
                   <span>(vi) Policy for Grievance Redress Mechanism of Scholars</span>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Policy%20for%20Grievance.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/phd/Policy for Grievance.pdf" target="_blank" rel="noopener" class="phd-badge-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
                 </li>
                 <li class="phd-link-item">
                   <span>(vii) Details about Ph.D. Scholars Currently Enrolled</span>

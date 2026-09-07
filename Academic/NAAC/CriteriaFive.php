@@ -268,7 +268,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                     </div>
                   </div>
                   <div>
-                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.1.2/5.1.2/5.1.2.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.2.2.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
                   </div>
                 </div>
               </div>
@@ -282,7 +282,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                     </div>
                   </div>
                   <div>
-                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.1.3/5.1.3.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.1.3/5.1.3 dvv .pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
                   </div>
                 </div>
               </div>
@@ -298,7 +298,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                   <div class="col-md-6">
                     <div class="p-3 bg-white border rounded-3 d-flex align-items-center justify-content-between gap-2 shadow-sm">
                       <span class="fw-semibold text-dark fs-6">Policy, Rules &amp; Committees</span>
-                      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.1.4 - Policy %26 Rules regulation %26 Committee.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.1.4 - Policy & Rules regulation & Committee.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -333,7 +333,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                     </div>
                   </div>
                   <div>
-                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.2.2 offerlatter .pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+                    <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 5/5.2.2 offerlatter.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
                   </div>
                 </div>
               </div>
