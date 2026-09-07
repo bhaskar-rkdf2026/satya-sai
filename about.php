@@ -30,7 +30,6 @@ require_once __DIR__ . '/./includes/page-banner.php';
     </nav>
   </div>
 </div>
-
 <div class="container-fluid px-lg-5 py-5">
 
 <!-- Sidebar Navigation -->
