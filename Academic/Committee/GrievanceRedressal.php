@@ -1,6 +1,6 @@
-﻿<?php
-$page_title = 'GrievanceRedressal - SSSUTMS';
-$banner_title = 'GrievanceRedressal';
+<?php
+$page_title = 'Grievance Redressal - SSSUTMS';
+$banner_title = 'Grievance Redressal';
 $banner_category = 'Academic';
 
 require_once __DIR__ . '/../../config.php';
@@ -10,151 +10,331 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
+<style>
+.grv-red-section { background-color: #f8fafc; }
+.grv-red-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.grv-red-header-banner {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+}
+.grv-red-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.grv-red-stat-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 14px;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+.grv-red-stat-chip:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.grv-red-stat-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(245,158,11,0.1);
+  color: #d97706;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; flex-shrink: 0;
+}
+.grv-red-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  margin-bottom: 1.5rem;
+}
+.grv-red-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+.grv-red-card-header i {
+  color: #f59e0b;
+  font-size: 1.25rem;
+}
+.grv-red-download-callout {
+  background: linear-gradient(135deg, #fffbe0 0%, #fff7ed 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.grv-red-badge-btn {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(245,158,11,0.35);
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+  width: 195px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(11,37,69,0.15);
+  transition: all 0.25s ease;
+}
+.grv-red-badge-btn i {
+  color: #fbbf24 !important;
+  transition: color 0.2s ease;
+}
+.grv-red-badge-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  color: #ffffff !important;
+  border-color: #d97706;
+  box-shadow: 0 4px 12px rgba(217,119,6,0.35);
+  transform: translateY(-1px);
+}
+.grv-red-badge-btn:hover i {
+  color: #ffffff !important;
+}
+.grv-red-table-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  margin-bottom: 1.5rem;
+}
+.grv-red-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+.grv-red-table thead th {
+  background: #1e3a5f;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 14px;
+  border: none;
+  text-align: left;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.grv-red-table tbody tr:nth-child(even) { background: #f0f4f9; }
+.grv-red-table tbody tr:nth-child(odd)  { background: #ffffff; }
+.grv-red-table tbody tr:hover {
+  background: #e8f0fb;
+  transition: background 0.15s ease;
+}
+.grv-red-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  vertical-align: middle;
+}
+.grv-red-table tbody td:first-child {
+  font-weight: 700;
+  color: #0b2545;
+  text-align: center;
+}
+</style>
+
+<section class="subpage-main-section grv-red-section py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
+
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #ff9c00; ">CONSTITUTION OF GRIEVANCE REDRESSAL COMMITTEE</span></strong></p>
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">&nbsp;&nbsp;&nbsp;&nbsp; Sri </span><span style=" font-family: 'Arial','sans-serif';">Satya </span><span style="font-family: 'Arial', 'sans-serif';">Sai </span><span style="font-family: 'Arial', 'sans-serif';">University </span><span style="font-family: 'Arial', 'sans-serif';">of Technology and Medical </span><span style=" font-family: 'Arial','sans-serif';">Sciences, Sehore </span><span style="font-family: 'Arial', 'sans-serif';">here by constituted</span></span></p>
-<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1.5;"><span style="font-size: 14pt;"><span style="font-family: 'Arial', 'sans-serif';">&nbsp;&nbsp; &nbsp; the </span><span style=" font-family: 'Arial','sans-serif';">"STUDENTS GRIEVANCE </span><span style="font-family: 'Arial', 'sans-serif';">REDRESSAL </span><span style=" font-family: 'Arial','sans-serif';">COMMITTEE&nbsp; (SGRC)" </span><span style="font-family: 'Arial', 'sans-serif';">comprises </span><span style=" font-family: 'Arial','sans-serif';">of </span><span style="font-family: 'Arial', 'sans-serif';">the </span><span style="font-family: 'Arial', 'sans-serif';">following </span><span style="font-family: 'Arial', 'sans-serif';">members </span><span style="font-family: 'Arial', 'sans-serif';">-</span></span></p>
+        <div class="grv-red-main-card">
 
-<p class="MsoNormal" style="  text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #ff9c00; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: #ff9c00; "><span style="color: #000000;">&nbsp; <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IMG_07122024_0303.pdf" target="_blank" rel="noopener">Click here</a></span></span></strong></p>
-<div align="center">
-<table class="MsoTableMediumShading1Accent1" style="border-collapse: collapse; border: medium; width: 64.0385%; height: 391px;" border="1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style=" ">
-<td style="border: 1pt solid windowtext; background: #4f81bd; padding: 0cm 5.4pt; width: 11.5789%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">S.No.</span></strong></p>
-</td>
-<td style="border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #4f81bd; padding: 0cm 5.4pt; width: 46.0083%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">Name with Designation<br /></span></strong></p>
-</td>
-<td style="border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #4f81bd; padding: 0cm 5.4pt; width: 42.4128%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">&nbsp;Position in SGRC<br /></span></strong></p>
-</td>
-</tr>
-<tr style="">
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #d3dfee; padding: 0cm 5.4pt; width: 11.5789%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 46.0083%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Prof. C.K. Tyagi- Professor<br /></span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 42.4128%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Chairperson</span></p>
-</td>
-</tr>
-<tr style="">
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; padding: 0cm 5.4pt; width: 11.5789%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">2</span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt; width: 46.0083%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Prof. Sujata Kushwaha- Senior Faculty<br /></span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt; width: 42.4128%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member<br /></span></p>
-</td>
-</tr>
-<tr style="">
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #d3dfee; padding: 0cm 5.4pt; width: 11.5789%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">3</span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 46.0083%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Ms. Kamini Lahariya -</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Senior Faculty</span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 42.4128%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member</span></p>
-</td>
-</tr>
-<tr style="">
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; padding: 0cm 5.4pt; width: 11.5789%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">4</span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt; width: 46.0083%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Mrs. Priyanka Jhawar -&nbsp;</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Senior Faculty</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  "> </span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; padding: 0cm 5.4pt; width: 42.4128%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">&nbsp;</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member <br /></span></p>
-</td>
-</tr>
-<tr style="">
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #d3dfee; padding: 0cm 5.4pt; width: 11.5789%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">5</span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 46.0083%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Mr. Sachin baraskar -</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Senior Faculty</span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 42.4128%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">&nbsp;</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member <br /></span></p>
-</td>
-</tr>
-<tr>
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #d3dfee; padding: 0cm 5.4pt; width: 11.5789%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">6<br /></span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 46.0083%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Divyansh Vyas- Student<br /></span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 42.4128%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">&nbsp;</span><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Member</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-<p><span style="text-decoration: underline;"><span style="font-size: 18pt;"><strong><span style="line-height: 200%; font-family: 'Times New Roman', 'serif';">OMBUDSMAN</span></strong></span></span></p>
-<table class="MsoTableMediumShading1Accent1" style="height: 118px; width: 77.0192%;" border="1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style=" ">
-<td style="border: 1pt solid windowtext; background: #4f81bd; padding: 0cm 5.4pt; width: 11.625%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">.No.</span></strong></p>
-</td>
-<td style="border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #4f81bd; padding: 0cm 5.4pt; width: 31.625%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">Name</span></strong></p>
-</td>
-<td style="border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #4f81bd; padding: 0cm 5.4pt; width: 19.875%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">&nbsp;Designation</span></strong></p>
-</td>
-<td style="border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #4f81bd; padding: 0cm 5.4pt; width: 21.38%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">E-mail Id<br /></span></strong></p>
-</td>
-<td style="border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext currentcolor; background: #4f81bd; padding: 0cm 5.4pt; width: 15.495%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  color: white;  ">Contact No<br /></span></strong></p>
-</td>
-</tr>
-<tr style="">
-<td style="border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor windowtext windowtext; background: #d3dfee; padding: 0cm 5.4pt; width: 11.625%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 31.625%;" valign="top">
-<p><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Prof.(Dr.) Varsha Namdeo</span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 19.875%;" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 10pt;"><span style="line-height: 200%; font-family: 'Times New Roman', 'serif';">&nbsp;</span><strong><span style="line-height: 200%; font-family: 'Times New Roman', 'serif';">OMBUDSMAN</span></strong></span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 21.38%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  "><a href="../../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="6c05020a032c1f1f1f1918011f420f03420502">[email&#160;protected]</a><br /></span></p>
-</td>
-<td style="border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor windowtext windowtext currentcolor; background: #d3dfee; padding: 0cm 5.4pt; width: 15.495%;">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: 200%; "><span style="font-size: 12.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">07562-292204<br /></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-<p></p>
+          <!-- Banner Header -->
+          <div class="grv-red-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-comments me-1"></i> Statutory Committees
+              </span>
+              <h3 class="fw-bold text-white mb-0 fs-3">CONSTITUTION OF GRIEVANCE REDRESSAL COMMITTEE</h3>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
+          <!-- Body -->
+          <div class="p-4">
+
+            <!-- Stat Chips -->
+            <div class="row g-3 align-items-stretch mb-4">
+              <div class="col-sm-6 col-md-3">
+                <div class="grv-red-stat-chip">
+                  <div class="grv-red-stat-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Committee</div>
+                    <div class="fw-bold text-dark fs-6">SGRC Cell</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="grv-red-stat-chip">
+                  <div class="grv-red-stat-icon"><i class="fa-solid fa-user-check"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Chairperson</div>
+                    <div class="fw-bold text-dark fs-6">Prof. C.K. Tyagi</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="grv-red-stat-chip">
+                  <div class="grv-red-stat-icon"><i class="fa-solid fa-gavel"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Ombudsman</div>
+                    <div class="fw-bold text-dark fs-6">Dr. Varsha Namdeo</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="grv-red-stat-chip">
+                  <div class="grv-red-stat-icon"><i class="fa-solid fa-users"></i></div>
+                  <div>
+                    <div class="text-muted extra-small uppercase fw-bold">Members</div>
+                    <div class="fw-bold text-dark fs-6">6 SGRC Members</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overview Card -->
+            <div class="grv-red-card">
+              <div class="grv-red-card-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <h5 class="fw-bold text-dark mb-0">Overview &amp; Establishment</h5>
+              </div>
+              <p class="text-secondary lh-base mb-0" style="font-size: 0.95rem;">
+                Sri Satya Sai University of Technology and Medical Sciences, Sehore hereby constituted the &quot;STUDENTS GRIEVANCE REDRESSAL COMMITTEE (SGRC)&quot; comprises of the following members :-
+              </p>
+
+              <div class="grv-red-download-callout">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="grv-red-stat-icon" style="background:#f59e0b; color:#fff;">
+                    <i class="fa-solid fa-file-pdf"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold text-dark mb-1">Official Grievance Redressal Document</h6>
+                    <span class="text-muted small">Download the official university document for the Grievance Redressal Committee.</span>
+                  </div>
+                </div>
+                <a href="<?php echo BASE_URL; ?>assets/pdf/committee/GrievanceRedressal_07122024.pdf" target="_blank" rel="noopener" class="grv-red-badge-btn">
+                  <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+              </div>
+            </div>
+
+            <!-- Table 1: STUDENTS GRIEVANCE REDRESSAL COMMITTEE (SGRC) -->
+            <div class="grv-red-card">
+              <div class="grv-red-card-header">
+                <i class="fa-solid fa-users-gear"></i>
+                <h5 class="fw-bold text-dark mb-0">Students Grievance Redressal Committee (SGRC)</h5>
+              </div>
+              <div class="grv-red-table-wrapper">
+                <table class="grv-red-table">
+                  <thead>
+                    <tr>
+                      <th style="width:10%;">S.No.</th>
+                      <th style="width:55%;">Name with Designation</th>
+                      <th style="width:35%;">Position in SGRC</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td><strong>Prof. C.K. Tyagi</strong> &mdash; Professor</td>
+                      <td><strong>Chairperson</strong></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td><strong>Prof. Sujata Kushwaha</strong> &mdash; Senior Faculty</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td><strong>Ms. Kamini Lahariya</strong> &mdash; Senior Faculty</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td><strong>Mrs. Priyanka Jhawar</strong> &mdash; Senior Faculty</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td><strong>Mr. Sachin Baraskar</strong> &mdash; Senior Faculty</td>
+                      <td>Member</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td><strong>Divyansh Vyas</strong> &mdash; Student</td>
+                      <td>Member</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Table 2: OMBUDSMAN -->
+            <div class="grv-red-card mb-0">
+              <div class="grv-red-card-header">
+                <i class="fa-solid fa-gavel"></i>
+                <h5 class="fw-bold text-dark mb-0">OMBUDSMAN</h5>
+              </div>
+              <div class="grv-red-table-wrapper">
+                <table class="grv-red-table">
+                  <thead>
+                    <tr>
+                      <th style="width:10%;">S.No.</th>
+                      <th style="width:35%;">Name</th>
+                      <th style="width:20%;">Designation</th>
+                      <th style="width:20%;">E-mail Id</th>
+                      <th style="width:15%;">Contact No</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td><strong>Prof.(Dr.) Varsha Namdeo</strong></td>
+                      <td><strong>OMBUDSMAN</strong></td>
+                      <td><a href="mailto:info@sssutms.co.in" class="text-primary text-decoration-none">info@sssutms.co.in</a></td>
+                      <td>07562-292204</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- end grv-red-main-card -->
+      </div><!-- end col-lg-8 -->
+
+      <!-- Sticky Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
