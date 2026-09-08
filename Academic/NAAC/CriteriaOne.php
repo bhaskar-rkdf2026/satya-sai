@@ -785,7 +785,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       </div>
     </div>
     <div>
-      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/pdf/mandatory_disc_osre.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/prospectus  Final.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
     </div>
   </div>
 </div>
@@ -1330,7 +1330,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       </div>
     </div>
     <div>
-      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.3.4 COMBINED PDF.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+      <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.3.3.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
     </div>
   </div>
 </div>
@@ -1381,13 +1381,13 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     <div class="col-md-6">
       <div class="p-3 bg-white border rounded-3 d-flex align-items-center justify-content-between gap-2 shadow-sm">
         <span class="fw-semibold text-dark fs-6">1.4.1.a Sample Feedback from Stakeholders</span>
-        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/BOG FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.4.1.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
       </div>
     </div>
     <div class="col-md-6">
       <div class="p-3 bg-white border rounded-3 d-flex align-items-center justify-content-between gap-2 shadow-sm">
         <span class="fw-semibold text-dark fs-6">1.4.2.b Feedback Process of the Institutes</span>
-        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/AC FINAL.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
+        <a class="btn btn-sm btn-naac-pdf" href="<?php echo BASE_URL; ?>assets/images/Files/Link/IQAC/NAAC/Criteria 1/1.4.2.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf me-1"></i> View PDF</a>
       </div>
     </div>
     <div class="col-md-6">
