@@ -91,19 +91,144 @@ require_once __DIR__ . '/../includes/page-banner.php';
   box-shadow: 0 6px 20px rgba(217,119,6,0.3);
 }
 
-.ae-school-badge {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  height: 100%;
-  transition: all 0.25s ease;
+.ae-schools-section {
+  margin-bottom: 2.5rem;
 }
-.ae-school-badge:hover {
+.ae-school-card {
   background: #ffffff;
-  border-color: #bfdbfe;
-  box-shadow: 0 4px 14px rgba(11, 37, 69, 0.05);
-  transform: translateY(-2px);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+.ae-school-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: var(--card-accent, #2563eb);
+  opacity: 0.85;
+  transition: height 0.25s ease;
+}
+.ae-school-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+.ae-school-card:hover::before {
+  height: 5px;
+}
+.ae-school-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.ae-school-card:hover .ae-school-icon-wrap {
+  transform: scale(1.08);
+}
+.ae-school-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+.ae-school-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+}
+.ae-prog-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  line-height: 1.3;
+}
+.ae-card-footer-action {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--card-accent, #2563eb);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+  transition: gap 0.2s ease;
+}
+.ae-school-card:hover .ae-card-footer-action {
+  gap: 8px;
+}
+
+/* Discipline Card Theme Variants */
+.ae-theme-eng {
+  --card-accent: #2563eb;
+}
+.ae-theme-eng .ae-school-icon-wrap {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+.ae-theme-pharm {
+  --card-accent: #0d9488;
+}
+.ae-theme-pharm .ae-school-icon-wrap {
+  background: #f0fdfa;
+  color: #0d9488;
+  border: 1px solid #99f6e4;
+}
+.ae-theme-mgmt {
+  --card-accent: #7c3aed;
+}
+.ae-theme-mgmt .ae-school-icon-wrap {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+}
+.ae-theme-med {
+  --card-accent: #059669;
+}
+.ae-theme-med .ae-school-icon-wrap {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+.ae-theme-nurs {
+  --card-accent: #e11d48;
+}
+.ae-theme-nurs .ae-school-icon-wrap {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}
+.ae-theme-law {
+  --card-accent: #d97706;
+}
+.ae-theme-law .ae-school-icon-wrap {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
 }
 
 /* Attached Enquiry Form Card Styling */
@@ -197,49 +322,146 @@ require_once __DIR__ . '/../includes/page-banner.php';
             </div>
 
             <!-- Schools & Programs Covered Grid -->
-            <div class="mb-4">
-              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-layer-group text-warning me-2"></i>Schools &amp; Programs Open for Admission 2026-27</h5>
+            <div class="ae-schools-section">
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">
+                    <i class="fa-solid fa-layer-group text-warning me-2"></i>Schools &amp; Programs Open for Admission 2026–27
+                  </h5>
+                  <p class="text-muted extra-small mb-0">Select any discipline below to enquire or get customized admission guidance</p>
+                </div>
+                <span class="badge bg-light text-secondary border px-3 py-1.5 rounded-pill extra-small fw-semibold">
+                  <i class="fa-solid fa-check-circle text-success me-1"></i> Admissions Live
+                </span>
+              </div>
+
               <div class="row g-3">
+                <!-- 1. Engineering -->
                 <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-badge">
-                    <i class="fa-solid fa-gears text-warning fs-4 mb-2"></i>
-                    <h6 class="fw-bold text-dark mb-1">School of Engineering</h6>
-                    <p class="mb-0 extra-small text-muted">B.E. / B.Tech (Aeronautical, CSE, Civil, Mech, EE, EC, IT, Mining) &amp; M.Tech</p>
+                  <div class="ae-school-card ae-theme-eng" onclick="selectSchoolAndScroll('School of Engineering')">
+                    <div>
+                      <div class="ae-school-icon-wrap">
+                        <i class="fa-solid fa-gears"></i>
+                      </div>
+                      <h6 class="ae-school-card-title">School of Engineering</h6>
+                      <p class="mb-2 extra-small text-muted">Aeronautical, CSE, Civil, Mechanical, Electrical, Electronics, IT, Mining &amp; M.Tech</p>
+                      <div class="ae-school-tags">
+                        <span class="ae-prog-tag">B.Tech</span>
+                        <span class="ae-prog-tag">M.Tech</span>
+                        <span class="ae-prog-tag">Diploma</span>
+                      </div>
+                    </div>
+                    <div class="ae-card-footer-action">
+                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
+                    </div>
                   </div>
                 </div>
+
+                <!-- 2. Pharmacy -->
                 <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-badge">
-                    <i class="fa-solid fa-pills text-warning fs-4 mb-2"></i>
-                    <h6 class="fw-bold text-dark mb-1">School of Pharmacy</h6>
-                    <p class="mb-0 extra-small text-muted">B.Pharm, D.Pharm, M.Pharm (Pharmaceutics / Pharmacology) &amp; D.Pharm (Ayurveda)</p>
+                  <div class="ae-school-card ae-theme-pharm" onclick="selectSchoolAndScroll('School of Pharmacy')">
+                    <div>
+                      <div class="ae-school-icon-wrap">
+                        <i class="fa-solid fa-pills"></i>
+                      </div>
+                      <h6 class="ae-school-card-title">School of Pharmacy</h6>
+                      <p class="mb-2 extra-small text-muted">Pharmaceutics, Pharmacology, Quality Assurance, Industrial Pharmacy &amp; Ayurveda</p>
+                      <div class="ae-school-tags">
+                        <span class="ae-prog-tag">B.Pharm</span>
+                        <span class="ae-prog-tag">D.Pharm</span>
+                        <span class="ae-prog-tag">M.Pharm</span>
+                      </div>
+                    </div>
+                    <div class="ae-card-footer-action">
+                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
+                    </div>
                   </div>
                 </div>
+
+                <!-- 3. Management & IT -->
                 <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-badge">
-                    <i class="fa-solid fa-briefcase text-warning fs-4 mb-2"></i>
-                    <h6 class="fw-bold text-dark mb-1">Management &amp; IT</h6>
-                    <p class="mb-0 extra-small text-muted">MBA (Business Administration), BBA, MCA &amp; BCA (Computer Applications)</p>
+                  <div class="ae-school-card ae-theme-mgmt" onclick="selectSchoolAndScroll('Management & Computer Applications')">
+                    <div>
+                      <div class="ae-school-icon-wrap">
+                        <i class="fa-solid fa-briefcase"></i>
+                      </div>
+                      <h6 class="ae-school-card-title">Management &amp; IT</h6>
+                      <p class="mb-2 extra-small text-muted">Business Administration, Marketing, Finance, HR, Computer Applications &amp; AI</p>
+                      <div class="ae-school-tags">
+                        <span class="ae-prog-tag">MBA</span>
+                        <span class="ae-prog-tag">BBA</span>
+                        <span class="ae-prog-tag">MCA</span>
+                        <span class="ae-prog-tag">BCA</span>
+                      </div>
+                    </div>
+                    <div class="ae-card-footer-action">
+                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
+                    </div>
                   </div>
                 </div>
+
+                <!-- 4. Ayush & Medical -->
                 <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-badge">
-                    <i class="fa-solid fa-user-doctor text-warning fs-4 mb-2"></i>
-                    <h6 class="fw-bold text-dark mb-1">Ayush &amp; Medical College</h6>
-                    <p class="mb-0 extra-small text-muted">BAMS (Ayurveda) &amp; BHMS (Homeopathy) Medical Degree Programs</p>
+                  <div class="ae-school-card ae-theme-med" onclick="selectSchoolAndScroll('Ayush & Medical Sciences')">
+                    <div>
+                      <div class="ae-school-icon-wrap">
+                        <i class="fa-solid fa-user-doctor"></i>
+                      </div>
+                      <h6 class="ae-school-card-title">Ayush &amp; Medical College</h6>
+                      <p class="mb-2 extra-small text-muted">Integrated Ayurvedic Medicine &amp; Homeopathic Medical Sciences Programs</p>
+                      <div class="ae-school-tags">
+                        <span class="ae-prog-tag">BAMS</span>
+                        <span class="ae-prog-tag">BHMS</span>
+                        <span class="ae-prog-tag">MD / MS</span>
+                      </div>
+                    </div>
+                    <div class="ae-card-footer-action">
+                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
+                    </div>
                   </div>
                 </div>
+
+                <!-- 5. Nursing & Paramedical -->
                 <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-badge">
-                    <i class="fa-solid fa-user-nurse text-warning fs-4 mb-2"></i>
-                    <h6 class="fw-bold text-dark mb-1">Nursing &amp; Paramedical</h6>
-                    <p class="mb-0 extra-small text-muted">B.Sc. Nursing, GNM, Post Basic Nursing, MPT, BPT, BMLT, DMLT &amp; X-Ray</p>
+                  <div class="ae-school-card ae-theme-nurs" onclick="selectSchoolAndScroll('Nursing & Paramedical')">
+                    <div>
+                      <div class="ae-school-icon-wrap">
+                        <i class="fa-solid fa-user-nurse"></i>
+                      </div>
+                      <h6 class="ae-school-card-title">Nursing &amp; Paramedical</h6>
+                      <p class="mb-2 extra-small text-muted">General Nursing, Post Basic Nursing, Physiotherapy, Lab &amp; Radio-imaging Tech</p>
+                      <div class="ae-school-tags">
+                        <span class="ae-prog-tag">B.Sc Nursing</span>
+                        <span class="ae-prog-tag">GNM</span>
+                        <span class="ae-prog-tag">BPT/MPT</span>
+                        <span class="ae-prog-tag">BMLT</span>
+                      </div>
+                    </div>
+                    <div class="ae-card-footer-action">
+                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
+                    </div>
                   </div>
                 </div>
+
+                <!-- 6. Law, Ag & Education -->
                 <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-badge">
-                    <i class="fa-solid fa-scale-balanced text-warning fs-4 mb-2"></i>
-                    <h6 class="fw-bold text-dark mb-1">Law, Agriculture &amp; Education</h6>
-                    <p class="mb-0 extra-small text-muted">BA LLB, B.Com LLB, LLB, LLM, B.Sc (Hons) Ag, B.Sc, M.Sc, B.Ed &amp; M.Ed</p>
+                  <div class="ae-school-card ae-theme-law" onclick="selectSchoolAndScroll('School of Law')">
+                    <div>
+                      <div class="ae-school-icon-wrap">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                      </div>
+                      <h6 class="ae-school-card-title">Law, Agriculture &amp; Education</h6>
+                      <p class="mb-2 extra-small text-muted">Integrated Law, Agricultural Sciences, Natural Sciences &amp; Teacher Education</p>
+                      <div class="ae-school-tags">
+                        <span class="ae-prog-tag">BA LLB</span>
+                        <span class="ae-prog-tag">B.Sc (Ag)</span>
+                        <span class="ae-prog-tag">B.Ed/M.Ed</span>
+                        <span class="ae-prog-tag">M.Sc</span>
+                      </div>
+                    </div>
+                    <div class="ae-card-footer-action">
+                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -361,6 +583,26 @@ require_once __DIR__ . '/../includes/page-banner.php';
 </section>
 
 <script>
+function selectSchoolAndScroll(schoolName) {
+  var schoolSelect = document.querySelector('select[name="school"]');
+  if (schoolSelect) {
+    schoolSelect.value = schoolName;
+    // Dispatch change event in case any chained listeners exist
+    schoolSelect.dispatchEvent(new Event('change'));
+  }
+  var formSection = document.getElementById('enquiryFormSection');
+  if (formSection) {
+    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Highlight the select field gently
+    if (schoolSelect) {
+      schoolSelect.classList.add('is-valid');
+      setTimeout(function() {
+        schoolSelect.classList.remove('is-valid');
+      }, 2000);
+    }
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('aeDirectForm');
   var alertBox = document.getElementById('aeAlert');
