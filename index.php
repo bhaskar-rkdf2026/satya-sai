@@ -661,7 +661,7 @@ $news_badge_colors = [
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Notification%20exam%20dec2025/notificationentance.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-graduation-cap"></i></span>
               <span class="row-text">Ph.D Entrance Examination 2026</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="https://pmindiawebcast.nic.in/" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-landmark"></i></span>
@@ -671,12 +671,12 @@ $news_badge_colors = [
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/MBBS_FIRST_PROFESSIONAL_FEB-2026_17022026_0824.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-user-doctor"></i></span>
               <span class="row-text">Supplementary Exam – Feb 2026 (MBBS First Prof)</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Draft-Admission_Notice_Sri_Satya_Sai_University_12092025_0417.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-building"></i></span>
               <span class="row-text">B.Voc in Building &amp; Construction Tech Admission Notice</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>Research/NIRF.php" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-chart-line"></i></span>
@@ -686,7 +686,7 @@ $news_badge_colors = [
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Appointment_Add_BHMS_PG_04102023_0923.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-user-tie"></i></span>
               <span class="row-text">Appointment Notice (School of Homoeopathy)</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>Examination/Results.php" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-square-poll-vertical"></i></span>
@@ -711,37 +711,37 @@ $news_badge_colors = [
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2465_Whatsapp_Scan_17_August_2026.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
               <span class="row-text">Supplementary Exam Notification (D. Pharma &amp; BPES)</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2464_paramedical_notification.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
               <span class="row-text">Examination Notification (Paramedical Courses) Sep 2026</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2463_Whatsapp_Scan_7_August_2026.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
               <span class="row-text">First Professional Supplementary BAMS (2024–25 Batch)</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2462_Whatsapp_Scan_7_August_2026.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
               <span class="row-text">Examination Notification BAMS II Professional</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/SUPPLEMENTARY_EXAM_BHMS_2ND_YEAR.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-clock"></i></span>
               <span class="row-text">Supplementary Examination BHMS Aug–2026 (Time Table)</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2460_Adobe_Scan_24_Jul_2026.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
               <span class="row-text">Exam Notification BAMS I Professional Supp. Exam</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
             <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2459_Adobe_Scan_24_Jul_2026.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
               <span class="row-text">Exam Notification BHMS II Year Supp. Exam</span>
-              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+              <span class="row-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
           </div>
         </div>
