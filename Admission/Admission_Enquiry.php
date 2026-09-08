@@ -91,144 +91,77 @@ require_once __DIR__ . '/../includes/page-banner.php';
   box-shadow: 0 6px 20px rgba(217,119,6,0.3);
 }
 
-.ae-schools-section {
-  margin-bottom: 2.5rem;
-}
-.ae-school-card {
+.ae-contact-official-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.4rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
 }
-.ae-school-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3.5px;
-  background: var(--card-accent, #2563eb);
-  opacity: 0.85;
-  transition: height 0.25s ease;
-}
-.ae-school-card:hover {
-  transform: translateY(-4px);
-  border-color: #cbd5e1;
-  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-}
-.ae-school-card:hover::before {
-  height: 5px;
-}
-.ae-school-icon-wrap {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
-}
-.ae-school-card:hover .ae-school-icon-wrap {
-  transform: scale(1.08);
-}
-.ae-school-card-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 0.45rem;
-  line-height: 1.35;
-}
-.ae-school-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 0.6rem;
-  margin-bottom: 1rem;
-}
-.ae-prog-tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
-  line-height: 1.3;
-}
-.ae-card-footer-action {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--card-accent, #2563eb);
+.ae-timing-chip {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin-top: auto;
-  transition: gap 0.2s ease;
+  gap: 6px;
 }
-.ae-school-card:hover .ae-card-footer-action {
-  gap: 8px;
+.ae-contact-tile {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  height: 100%;
 }
-
-/* Discipline Card Theme Variants */
-.ae-theme-eng {
-  --card-accent: #2563eb;
+.ae-contact-tile:hover {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
 }
-.ae-theme-eng .ae-school-icon-wrap {
+.ae-contact-tile-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   background: #eff6ff;
   color: #2563eb;
   border: 1px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
 }
-.ae-theme-pharm {
-  --card-accent: #0d9488;
+.ae-contact-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
 }
-.ae-theme-pharm .ae-school-icon-wrap {
-  background: #f0fdfa;
-  color: #0d9488;
-  border: 1px solid #99f6e4;
+.ae-contact-number {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
 }
-.ae-theme-mgmt {
-  --card-accent: #7c3aed;
+.ae-contact-highlight {
+  background: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
 }
-.ae-theme-mgmt .ae-school-icon-wrap {
-  background: #f5f3ff;
-  color: #7c3aed;
-  border: 1px solid #ddd6fe;
-}
-.ae-theme-med {
-  --card-accent: #059669;
-}
-.ae-theme-med .ae-school-icon-wrap {
-  background: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
-}
-.ae-theme-nurs {
-  --card-accent: #e11d48;
-}
-.ae-theme-nurs .ae-school-icon-wrap {
-  background: #fff1f2;
-  color: #e11d48;
-  border: 1px solid #fecdd3;
-}
-.ae-theme-law {
-  --card-accent: #d97706;
-}
-.ae-theme-law .ae-school-icon-wrap {
-  background: #fffbeb;
-  color: #d97706;
-  border: 1px solid #fde68a;
+.ae-contact-highlight:hover {
+  border-color: #22c55e !important;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.15) !important;
 }
 
 /* Attached Enquiry Form Card Styling */
@@ -281,187 +214,81 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Body -->
           <div class="p-3.5 p-md-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="ae-stat-card">
-                  <div class="ae-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Academic Session</span>
-                    <strong class="text-dark fs-6">2026 – 2027</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ae-stat-card">
-                  <div class="ae-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Constituent Units</span>
-                    <strong class="text-dark fs-6">15 Schools</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ae-stat-card">
-                  <div class="ae-stat-icon"><i class="fa-solid fa-headset"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Counseling Support</span>
-                    <strong class="text-dark fs-6">Central Desk</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ae-stat-card">
-                  <div class="ae-stat-icon"><i class="fa-solid fa-clock"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Desk Hours</span>
-                    <strong class="text-dark fs-6">9:00 AM – 6:00 PM</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Schools & Programs Covered Grid -->
-            <div class="ae-schools-section">
-              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <!-- Official Admission Enquiry Contact Desk (from Live Website) -->
+            <div class="ae-contact-official-card">
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 pb-2 border-bottom">
                 <div>
-                  <h5 class="fw-bold text-dark mb-1">
-                    <i class="fa-solid fa-layer-group text-warning me-2"></i>Schools &amp; Programs Open for Admission 2026–27
-                  </h5>
-                  <p class="text-muted extra-small mb-0">Select any discipline below to enquire or get customized admission guidance</p>
+                  <span class="badge text-white fw-bold uppercase mb-1 px-3 py-1.5 rounded-pill" style="background:#0b2545;">
+                    <i class="fa-solid fa-headset me-1 text-warning"></i> Admission Helpdesk
+                  </span>
+                  <h4 class="fw-bold text-dark mb-0 fs-5 mt-1">
+                    For Admission 2026–27 Enquiry Please Contact
+                  </h4>
                 </div>
-                <span class="badge bg-light text-secondary border px-3 py-1.5 rounded-pill extra-small fw-semibold">
-                  <i class="fa-solid fa-check-circle text-success me-1"></i> Admissions Live
-                </span>
+                <div class="ae-timing-chip">
+                  <i class="fa-solid fa-clock text-warning"></i>
+                  <span><strong>Calling Hours:</strong> 10:00 AM to 5:00 PM only</span>
+                </div>
               </div>
 
               <div class="row g-3">
-                <!-- 1. Engineering -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-card ae-theme-eng" onclick="selectSchoolAndScroll('School of Engineering')">
+                <!-- Contact Desk 1 -->
+                <div class="col-sm-6 col-lg-4">
+                  <a href="tel:07562292740" class="ae-contact-tile">
+                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
-                      <div class="ae-school-icon-wrap">
-                        <i class="fa-solid fa-gears"></i>
-                      </div>
-                      <h6 class="ae-school-card-title">School of Engineering</h6>
-                      <p class="mb-2 extra-small text-muted">Aeronautical, CSE, Civil, Mechanical, Electrical, Electronics, IT, Mining &amp; M.Tech</p>
-                      <div class="ae-school-tags">
-                        <span class="ae-prog-tag">B.Tech</span>
-                        <span class="ae-prog-tag">M.Tech</span>
-                        <span class="ae-prog-tag">Diploma</span>
-                      </div>
+                      <span class="ae-contact-label">Admission Desk 1</span>
+                      <strong class="ae-contact-number">(+91) 07562-292740</strong>
                     </div>
-                    <div class="ae-card-footer-action">
-                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
-                    </div>
-                  </div>
+                  </a>
                 </div>
 
-                <!-- 2. Pharmacy -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-card ae-theme-pharm" onclick="selectSchoolAndScroll('School of Pharmacy')">
+                <!-- Contact Desk 2 -->
+                <div class="col-sm-6 col-lg-4">
+                  <a href="tel:07562292720" class="ae-contact-tile">
+                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
-                      <div class="ae-school-icon-wrap">
-                        <i class="fa-solid fa-pills"></i>
-                      </div>
-                      <h6 class="ae-school-card-title">School of Pharmacy</h6>
-                      <p class="mb-2 extra-small text-muted">Pharmaceutics, Pharmacology, Quality Assurance, Industrial Pharmacy &amp; Ayurveda</p>
-                      <div class="ae-school-tags">
-                        <span class="ae-prog-tag">B.Pharm</span>
-                        <span class="ae-prog-tag">D.Pharm</span>
-                        <span class="ae-prog-tag">M.Pharm</span>
-                      </div>
+                      <span class="ae-contact-label">Admission Desk 2</span>
+                      <strong class="ae-contact-number">(+91) 07562-292720</strong>
                     </div>
-                    <div class="ae-card-footer-action">
-                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
-                    </div>
-                  </div>
+                  </a>
                 </div>
 
-                <!-- 3. Management & IT -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-card ae-theme-mgmt" onclick="selectSchoolAndScroll('Management & Computer Applications')">
+                <!-- Contact Desk 3 -->
+                <div class="col-sm-6 col-lg-4">
+                  <a href="tel:07562292204" class="ae-contact-tile">
+                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
-                      <div class="ae-school-icon-wrap">
-                        <i class="fa-solid fa-briefcase"></i>
-                      </div>
-                      <h6 class="ae-school-card-title">Management &amp; IT</h6>
-                      <p class="mb-2 extra-small text-muted">Business Administration, Marketing, Finance, HR, Computer Applications &amp; AI</p>
-                      <div class="ae-school-tags">
-                        <span class="ae-prog-tag">MBA</span>
-                        <span class="ae-prog-tag">BBA</span>
-                        <span class="ae-prog-tag">MCA</span>
-                        <span class="ae-prog-tag">BCA</span>
-                      </div>
+                      <span class="ae-contact-label">Admission Desk 3</span>
+                      <strong class="ae-contact-number">(+91) 07562-292204</strong>
                     </div>
-                    <div class="ae-card-footer-action">
-                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
-                    </div>
-                  </div>
+                  </a>
                 </div>
 
-                <!-- 4. Ayush & Medical -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-card ae-theme-med" onclick="selectSchoolAndScroll('Ayush & Medical Sciences')">
+                <!-- Contact Desk 4 -->
+                <div class="col-sm-6 col-lg-4">
+                  <a href="tel:07562292205" class="ae-contact-tile">
+                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
-                      <div class="ae-school-icon-wrap">
-                        <i class="fa-solid fa-user-doctor"></i>
-                      </div>
-                      <h6 class="ae-school-card-title">Ayush &amp; Medical College</h6>
-                      <p class="mb-2 extra-small text-muted">Integrated Ayurvedic Medicine &amp; Homeopathic Medical Sciences Programs</p>
-                      <div class="ae-school-tags">
-                        <span class="ae-prog-tag">BAMS</span>
-                        <span class="ae-prog-tag">BHMS</span>
-                        <span class="ae-prog-tag">MD / MS</span>
-                      </div>
+                      <span class="ae-contact-label">Admission Desk 4</span>
+                      <strong class="ae-contact-number">(+91) 07562-292205</strong>
                     </div>
-                    <div class="ae-card-footer-action">
-                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
-                    </div>
-                  </div>
+                  </a>
                 </div>
 
-                <!-- 5. Nursing & Paramedical -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-card ae-theme-nurs" onclick="selectSchoolAndScroll('Nursing & Paramedical')">
-                    <div>
-                      <div class="ae-school-icon-wrap">
-                        <i class="fa-solid fa-user-nurse"></i>
-                      </div>
-                      <h6 class="ae-school-card-title">Nursing &amp; Paramedical</h6>
-                      <p class="mb-2 extra-small text-muted">General Nursing, Post Basic Nursing, Physiotherapy, Lab &amp; Radio-imaging Tech</p>
-                      <div class="ae-school-tags">
-                        <span class="ae-prog-tag">B.Sc Nursing</span>
-                        <span class="ae-prog-tag">GNM</span>
-                        <span class="ae-prog-tag">BPT/MPT</span>
-                        <span class="ae-prog-tag">BMLT</span>
+                <!-- Mobile / WhatsApp Helpline -->
+                <div class="col-sm-12 col-lg-8">
+                  <div class="ae-contact-tile ae-contact-highlight justify-content-between flex-wrap gap-2">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="ae-contact-tile-icon text-success" style="background:#dcfce7; border-color:#86efac;"><i class="fa-brands fa-whatsapp fs-4"></i></div>
+                      <div>
+                        <span class="ae-contact-label text-success fw-bold">Official Mobile &amp; WhatsApp Support</span>
+                        <strong class="ae-contact-number fs-5 text-success">(+91) 7748900028</strong>
                       </div>
                     </div>
-                    <div class="ae-card-footer-action">
-                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 6. Law, Ag & Education -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="ae-school-card ae-theme-law" onclick="selectSchoolAndScroll('School of Law')">
-                    <div>
-                      <div class="ae-school-icon-wrap">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                      </div>
-                      <h6 class="ae-school-card-title">Law, Agriculture &amp; Education</h6>
-                      <p class="mb-2 extra-small text-muted">Integrated Law, Agricultural Sciences, Natural Sciences &amp; Teacher Education</p>
-                      <div class="ae-school-tags">
-                        <span class="ae-prog-tag">BA LLB</span>
-                        <span class="ae-prog-tag">B.Sc (Ag)</span>
-                        <span class="ae-prog-tag">B.Ed/M.Ed</span>
-                        <span class="ae-prog-tag">M.Sc</span>
-                      </div>
-                    </div>
-                    <div class="ae-card-footer-action">
-                      <span>Enquire Program</span> <i class="fa-solid fa-arrow-right extra-small"></i>
-                    </div>
+                    <a href="https://wa.me/917748900028" target="_blank" class="btn btn-success btn-sm rounded-pill px-3 py-2 fw-bold shadow-sm">
+                      <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Now
+                    </a>
                   </div>
                 </div>
               </div>
@@ -583,26 +410,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
 </section>
 
 <script>
-function selectSchoolAndScroll(schoolName) {
-  var schoolSelect = document.querySelector('select[name="school"]');
-  if (schoolSelect) {
-    schoolSelect.value = schoolName;
-    // Dispatch change event in case any chained listeners exist
-    schoolSelect.dispatchEvent(new Event('change'));
-  }
-  var formSection = document.getElementById('enquiryFormSection');
-  if (formSection) {
-    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Highlight the select field gently
-    if (schoolSelect) {
-      schoolSelect.classList.add('is-valid');
-      setTimeout(function() {
-        schoolSelect.classList.remove('is-valid');
-      }, 2000);
-    }
-  }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('aeDirectForm');
   var alertBox = document.getElementById('aeAlert');
