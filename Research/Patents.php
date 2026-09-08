@@ -11,7 +11,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
 <style>
-.pat-section { background-color: #f8fafc; }
+.pat-section { background-color: #f8fafc; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
 .pat-main-card {
   background: #ffffff;
   border-radius: 20px;
@@ -56,26 +56,81 @@ require_once __DIR__ . '/../includes/page-banner.php';
   display: flex; align-items: center; justify-content: center;
   font-size: 1.35rem; flex-shrink: 0;
 }
-.pat-content-body table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  margin-bottom: 2rem !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.03) !important;
+.pat-objective-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
 }
-.pat-content-body table td, .pat-content-body table th {
-  padding: 12px 14px !important;
-  border: 1px solid #e2e8f0 !important;
+.pat-year-badge {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 10px rgba(11,37,69,0.15);
 }
-.pat-content-body table tr:first-child td, .pat-content-body table tr:first-child th {
+.pat-modern-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2.5rem;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(15,23,42,0.03);
+}
+.pat-modern-table thead th {
   background: #0b2545 !important;
   color: #ffffff !important;
   font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px !important;
+  border: none !important;
+  vertical-align: middle;
 }
-.pat-content-body table tr:nth-child(even) td {
-  background-color: #f8fafc !important;
+.pat-modern-table tbody td {
+  padding: 14px 16px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  border-right: 1px solid #f1f5f9 !important;
+  font-size: 0.9rem;
+  color: #334155;
+  vertical-align: middle;
+}
+.pat-modern-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+.pat-modern-table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+.pat-badge-status {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.pat-badge-published {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+.pat-badge-granted {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
 }
 </style>
 
@@ -108,7 +163,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   <div class="pat-stat-icon"><i class="fa-solid fa-certificate"></i></div>
                   <div>
                     <div class="text-muted extra-small uppercase fw-bold">Innovations</div>
-                    <div class="fw-bold text-dark fs-6">Multiple Granted</div>
+                    <div class="fw-bold text-dark fs-6">28+ Filed/Granted</div>
                   </div>
                 </div>
               </div>
@@ -140,586 +195,492 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </div>
               </div>
             </div>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><u><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  color: #ff9c00; ">PATENT</span></u></strong></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="  text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 13.0pt; font-family: 'Arial','sans-serif';  ">"Patent &ndash; from filing to grant&rdquo;</span></strong></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 10.0pt; font-family: 'Arial','sans-serif';  ">&nbsp;</span></p>
-<p class="MsoNormal" style="  text-align: justify; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Arial','sans-serif';  ">Objective:&nbsp;The main objective is to impart greater awareness about the issue of Intellectual Property Right (IPR), which has gained a special importance for all the domains of socio-economic development. It aids to understand of patentability criteria in details and viable aspect of the patent.</span></p>
 
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><u><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  color: #ff9c00; ">2023</span></u></strong></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-<table class="MsoNormalTable" style="width: 100%; border-collapse: collapse; height: 542px;" border="1" width="100%" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 60px;">
-<td style="width: 8.0847%; border: 1pt solid windowtext; background: #4f81bd; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm -5.4pt .0001pt -7.1pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">S. No.</span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; background: #4f81bd; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Name of Inventors</span></strong></p>
-</td>
-<td style="width: 36.5736%; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; background: #4f81bd; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">TITLE</span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; background: #4f81bd; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Application No./Granted Patent No.</span></strong></p>
-</td>
-<td style="width: 16.2656%; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; background: #4f81bd; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Granted/ Published</span></strong></p>
-</td>
-</tr>
-<tr style="height: 62px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 62px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 62px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari<br /></span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 62px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;">&nbsp;<strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">Adjustable<span style="">&nbsp; </span>Laptop Table</span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 62px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';      ">391559-001 </span></p>
-</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 62px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style="height: 74px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 74px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2.</span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 74px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 74px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">An intelligent waste /garbage disposal system based on internet of things (IOT)</span></strong><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 74px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';      ">202221065208</span></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 74px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Published</span></p>
-</td>
-</tr>
-<tr style="height: 53px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 53px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">3.</span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 53px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 53px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">Smart Meditation And Rest Table </span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 53px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';      ">391547-001</span></p>
-</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 53px;" valign="top" ><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></td>
-</tr>
-<tr style="height: 60px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 60px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">4<br /></span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 60px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 60px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">DEEP DRAWING PUNCH WITH SENSORS<br /></span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 60px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';      ">398305-001<br /></span></p>
-</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 60px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Published</span></p>
-</td>
-</tr>
-<tr style="height: 58px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 58px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">5<br /></span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 58px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 58px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">MANUALLY OPERATED DEEP DRAWING MACHINE<br /></span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 58px;">391560-001</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 58px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style="height: 54px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 54px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">6<br /></span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 54px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Mr. Manoj Kumar Yadav<br /></span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 54px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">DEEP DRAWING DIE WITH SENSORS<br /></span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 54px;">394723-001</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 54px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Published</span></p>
-</td>
-</tr>
-<tr style="height: 64px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 64px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">7<br /></span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 64px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr Gajraj Singh Ahirwar<br /></span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 64px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">FINGER SLEEVE FOR MOBILE SCREEN<br /></span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 64px;">398306-001</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 64px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style="height: 57px;">
-<td style="width: 8.0847%; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; background: #d3dfee; padding: 0cm 5.4pt; height: 57px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">8<br /></span></strong></p>
-</td>
-<td style="width: 19.2493%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 57px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Santosh Jagwani&nbsp;&nbsp; <br /></span></p>
-</td>
-<td style="width: 36.5736%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 57px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span lang="EN-US" style="font-size: 11.5pt; line-height: 115%; font-family: 'Times New Roman','serif';     ">COAL BURNER &amp; HANDLING APPARATUS WITH SMOKE SEPARATION CHAMBER<br /></span></strong></p>
-</td>
-<td style="width: 19.8268%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 57px;">394722-001</td>
-<td style="width: 16.2656%; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee; padding: 0cm 5.4pt; height: 57px;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-</tbody>
-</table>
+            <!-- Objective Box -->
+            <div class="pat-objective-box">
+              <h6 class="fw-bold text-dark mb-1 d-flex align-items-center gap-2">
+                <i class="fa-solid fa-bullseye text-warning"></i> Objective: Patent – From Filing to Grant
+              </h6>
+              <p class="mb-0 text-muted small leading-relaxed">
+                The main objective is to impart greater awareness about the issue of Intellectual Property Rights (IPR), which has gained special importance for all domains of socio-economic and technological development. It aids in understanding patentability criteria in detail and the commercial and viable aspects of patent filing.
+              </p>
+            </div>
 
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><u><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  color: #ff9c00; ">2022</span></u></strong></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-<div align="center">
-<table class="MsoNormalTable" style="width: 100%; border-collapse: collapse; height: 334px;" border="1" width="100%" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 60px;">
-<td style="width: 30.5pt; border: 1pt solid windowtext; background: #4f81bd none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm -5.4pt .0001pt -7.1pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">S. No.</span></strong></p>
-</td>
-<td style="width: 88.55pt; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; border-image: none 100% / 1 / 0 stretch; background: #4f81bd none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Name of Inventors</span></strong></p>
-</td>
-<td style="width: 178.7pt; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; border-image: none 100% / 1 / 0 stretch; background: #4f81bd none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">TITLE</span></strong></p>
-</td>
-<td style="width: 91.5pt; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; border-image: none 100% / 1 / 0 stretch; background: #4f81bd none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Application No./Granted Patent No.</span></strong></p>
-</td>
-<td style="width: 72.85pt; border-color: windowtext windowtext windowtext currentcolor; border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; border-image: none 100% / 1 / 0 stretch; background: #4f81bd none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 60px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Granted/ Published</span></strong></p>
-</td>
-</tr>
-<tr style="height: 79px;">
-<td style="width: 30.5pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 79px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="width: 88.55pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 79px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. C. K Tyagi</span></p>
-</td>
-<td style="width: 178.7pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 79px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">ENGINEERED CYCLODEXTRIN NANOSPONGES FOR THE DELIVERY OF ANTIRETROVIRAL DRUG</span></strong></p>
-</td>
-<td style="width: 91.5pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 79px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202221001859A</span></p>
-</td>
-<td style="width: 72.85pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 79px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style="height: 95px;">
-<td style="width: 30.5pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 95px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2.</span></strong></p>
-</td>
-<td style="width: 88.55pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 95px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Jitendra Sheetlani</span></p>
-</td>
-<td style="width: 178.7pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 95px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">METHOD OF GARBAGE MONITORING AND CLEARING PROCESS BY IOT</span></strong></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-</td>
-<td style="width: 91.5pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 95px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021104892</span></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-</td>
-<td style="width: 72.85pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 95px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Granted</span></p>
-</td>
-</tr>
-<tr style="height: 100px;">
-<td style="width: 30.5pt; border-color: currentcolor windowtext windowtext; border-style: none solid solid; border-width: medium 1pt 1pt; border-image: none 100% / 1 / 0 stretch; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 100px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">3.</span></strong></p>
-</td>
-<td style="width: 88.55pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 100px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Kailash Patdar</span></p>
-</td>
-<td style="width: 178.7pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 100px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';    ">A NOVEL BRAIN ADEQUACY TEST SYSTEM TO IMPROVE COGNITIVE INDEX OF YOUTH USING NON-INVASIVE BRAIN SENSORS AND ARTIFICIAL NEURAL NETWORKS</span></strong></p>
-</td>
-<td style="width: 91.5pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 100px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202241029374</span></p>
-</td>
-<td style="width: 72.85pt; border-color: currentcolor windowtext windowtext currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; background: #d3dfee none repeat scroll 0% 0%; padding: 0cm 5.4pt; height: 100px;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+            <!-- Search Filter -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
+              <div class="position-relative flex-grow-1" style="max-width: 380px;">
+                <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.9rem;"></i>
+                <input type="text" id="patentSearchInput" class="form-control ps-5 py-2 rounded-pill border" placeholder="Search by inventor, title, or patent no...">
+              </div>
+              <span class="text-muted extra-small">
+                <i class="fa-solid fa-shield-check text-success me-1"></i> Verified Official Records
+              </span>
+            </div>
 
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><u><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  color: #ff9c00; ">2021</span></u></strong></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-<table class="MsoNormalTable" style="width: 100.0%; border-collapse: collapse; border: none;     " border="1" width="100%" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 45.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt;  background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm -5.4pt .0001pt -7.1pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">S. No.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border: solid windowtext 1.0pt; border-left: none;   background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Name of Inventors</span></strong></p>
-</td>
-<td style="width: 177.15pt; border: solid windowtext 1.0pt; border-left: none;   background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">TITLE</span></strong></p>
-</td>
-<td style="width: 90.8pt; border: solid windowtext 1.0pt; border-left: none;   background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Application No./Granted Patent No.</span></strong></p>
-</td>
-<td style="width: 71.9pt; border: solid windowtext 1.0pt; border-left: none;   background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; ">Granted/ Published</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 30.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">INTELLIGENT GREEN HOUSE USING IOT</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021100630</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;Granted</span></p>
-</td>
-</tr>
-<tr style=" height: 45.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. C. K Tyagi</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">LAGERSTROEMIA MICROCARPA WIGHT EXTRACT FOR THE TREATMENT OF DIABETES INDUCED BY STZ</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; font-family: 'Helvetica','sans-serif';   color: #222222; "><br /></span><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021105435</span></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Granted</span></p>
-</td>
-</tr>
-<tr style=" height: 45.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">3</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Sunil Kumar Shah</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">A METHOD FOR THE SIMULTANEOUS ESTIMATION OF ACECLOFENAC AND TRAMADOL BY RP-HPLC IN BULK AND TABLET DOSAGE FORMS</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021106980</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Granted</span></p>
-</td>
-</tr>
-<tr style=" height: 61.2pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 61.2pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">4</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 61.2pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Jitendra Sheetlani</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 61.2pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">SMART AND INTELLIGENT MEDICAL BED FOR CHILD PATIENT CARE</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 61.2pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021105547</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 61.2pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Granted</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">5.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Sunil Kumar Shah</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">A METHOD OF PREPARATION OF AQUEOUS EXTRACT OF SIDA RHOMBIFOLIA LINN FOR ANTIBACTERIAL ACTIVITY</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021103621</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Granted</span></p>
-</td>
-</tr>
-<tr style="">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">6.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr.&nbsp;Minakshi Pathak</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style="  line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">A METHOD OF PREPARATION OF EMBELIA TSJERIAM COTTAM FOR PRELIMINARY AND PHYTOCHEMICAL STUDIES</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021106614<br /><br /><br /><br style="" /><br style="" /></span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Granted</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">7.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Mukesh Tiwari</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">EFFICIENT&nbsp; ALGORITHM FOR TACKING OF OBJECTS IN VIDEO CAMERA NETWORK AND THEIR ESTABLISHMENT THEREOF</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202021055337</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">8.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. C. K Tyagi</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&ldquo;PREPARATION OF SELF-MICRO EMULSIFYING DRUG SYSTEM OF OLMESARTAN MEDOXOMILAND THEIR EVALUATION THEREOF&rdquo;</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">20202150733</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">9.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. C. K Tyagi</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&ldquo;NOVEL METHOD DEVELOPMENT TO ESTIMATE PARACETAMOL AND ETODOLAC AND THEIR VALIDATION THEREOF&rdquo;</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202021051205</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">10.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Jitendra Sheetlani</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">GARBAGE MONITORING AND CLEARING PROCESS BY IOT</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2021100426</span></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">11.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. C. K Tyagi</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">EUPHORBIA THYMIFOLIA LINN EXTRACT FOR THE TREATMENT OF HYPERLIPIDEMIA AND DIABETES</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202121043044</span></p>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">12.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Harsh Pratap Singh</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">A SMART DUSTBIN FOR DISABLED PEOPLE</span></strong></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202141001895</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style="  height: 15.0pt;">
-<td style="width: 30.1pt; border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">13.</span></strong></p>
-</td>
-<td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. PRABODH KUMAR KHAMPARIYA</span></p>
-</td>
-<td style="width: 177.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.5pt; font-family: 'Arial','sans-serif';  color: #1a1a1a; background: white; ">SOLAR POWERED ESCALATOR</span></p>
-</td>
-<td style="width: 90.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.5pt; font-family: 'Arial','sans-serif';  color: #1a1a1a; background: white; ">202141017941</span></p>
-</td>
-<td style="width: 71.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style=" margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><u><span style="font-size: 14.0pt; font-family: 'Arial','sans-serif';  color: #ff9c00; ">2020</span></u></strong></p>
+            <!-- Year Section: 2023 -->
+            <div class="pat-year-group mb-4" data-year="2023">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="pat-year-badge">
+                  <i class="fa-regular fa-calendar-check"></i> Year 2023
+                </span>
+                <span class="text-muted extra-small fw-semibold">8 Patent Records</span>
+              </div>
 
-<div align="center">
-<table class="MsoTableMediumShading1Accent1" style="width: 100.0%; border-collapse: collapse; border: none;     " border="1" width="100%" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 15.0pt;">
-<td style="width: 40.5pt; border: solid #7BA0CD 1.0pt;   border-right: none; background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white;  ">S. No.&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></p>
-</td>
-<td style="width: 106.95pt; border-top: solid #7BA0CD 1.0pt;   border-left: none; border-bottom: solid #7BA0CD 1.0pt;   border-right: none; background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white;  ">Name of Inventors</span></strong></p>
-</td>
-<td style="width: 333.1pt; border-top: solid #7BA0CD 1.0pt;   border-left: none; border-bottom: solid #7BA0CD 1.0pt;   border-right: none; background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white;  ">Title</span></strong></p>
-</td>
-<td style="width: 99.7pt; border-top: solid #7BA0CD 1.0pt;   border-left: none; border-bottom: solid #7BA0CD 1.0pt;   border-right: none; background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white;  ">Application No./Granted Patent No.</span></strong></p>
-</td>
-<td style="width: 58.15pt; border: solid #7BA0CD 1.0pt;   border-left: none; background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  color: white; background: #31849B; ">Granted/ Published&nbsp;&nbsp;</span></strong></p>
-</td>
-</tr>
-<tr style=" height: 15.0pt;">
-<td style="width: 40.5pt; border-top: none; border-left: solid windowtext 1.0pt; border-bottom: solid windowtext 1.0pt; border-right: none;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">1</span></strong></p>
-</td>
-<td style="width: 106.95pt; border: none; border-bottom: solid windowtext 1.0pt;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. G R Selokar</span></p>
-</td>
-<td style="width: 333.1pt; border: none; border-bottom: solid windowtext 1.0pt;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Non- Conventional grooved stepped shoe ribs</span></p>
-</td>
-<td style="width: 99.7pt; border: none; border-bottom: solid windowtext 1.0pt;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202021003931</span></p>
-</td>
-<td style="width: 58.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 15.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 30.0pt;">
-<td style="width: 40.5pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2</span></strong></p>
-</td>
-<td style="width: 106.95pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Jiterndra Sheetlani</span></p>
-</td>
-<td style="width: 333.1pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Night Patrol System Based On Iot And Radio Frequency Identification</span></p>
-</td>
-<td style="width: 99.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202021039031</span></p>
-</td>
-<td style="width: 58.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style=" height: 30.0pt;">
-<td style="width: 40.5pt; border-top: none; border-left: solid windowtext 1.0pt; border-bottom: solid windowtext 1.0pt; border-right: none;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">3</span></strong></p>
-</td>
-<td style="width: 106.95pt; border: none; border-bottom: solid windowtext 1.0pt;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. Neelesh Choubey</span></p>
-</td>
-<td style="width: 333.1pt; border: none; border-bottom: solid windowtext 1.0pt;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">A Poly herbal formulation for treatment of liver disorder and method of preparation</span></p>
-</td>
-<td style="width: 99.7pt; border: none; border-bottom: solid windowtext 1.0pt;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202021051557</span></p>
-</td>
-<td style="width: 58.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt; height: 30.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-<tr style="  height: 45.0pt;">
-<td style="width: 40.5pt; border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">4</span></strong></p>
-</td>
-<td style="width: 106.95pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Dr. C. K Tyagi</span></p>
-</td>
-<td style="width: 333.1pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&ldquo;A pharmaceutical composition comprising a compressed polyherbal tablets for the treatment of infections caused by helminthes&rdquo;</span></p>
-</td>
-<td style="width: 99.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">202021042927</span></p>
-</td>
-<td style="width: 58.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt; height: 45.0pt;" valign="top" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: normal; "><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">Filed &amp; Published</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+              <div class="table-responsive">
+                <table class="pat-modern-table table mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 70px;">S. No.</th>
+                      <th style="width: 24%;">Name of Inventors</th>
+                      <th style="width: 42%;">Title of Invention</th>
+                      <th style="width: 18%;">Application / Patent No.</th>
+                      <th class="text-center" style="width: 16%;">Granted / Published</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">1</td>
+                      <td class="fw-semibold text-dark">Dr. Mukesh Tiwari</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Adjustable Laptop Table</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">391559-001</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">2</td>
+                      <td class="fw-semibold text-dark">Dr. Mukesh Tiwari</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">An intelligent waste /garbage disposal system based on internet of things (IOT)</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202221065208</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">3</td>
+                      <td class="fw-semibold text-dark">Dr. Mukesh Tiwari</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Energy management in microgrid with dynamic distributed generation via Deep Neural Network</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202321013444</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">4</td>
+                      <td class="fw-semibold text-dark">Dr. R.P. Singh</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Smart waste management in IoT</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202321013446</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">5</td>
+                      <td class="fw-semibold text-dark">Dr. R.P. Singh</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Automated sorting and identification with optimal scheduling for smart logistics</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202321013445</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">6</td>
+                      <td class="fw-semibold text-dark">Dr. Jiterndra Sheetlani</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Advanced and secure wireless transaction method</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202321013454</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">7</td>
+                      <td class="fw-semibold text-dark">Dr. Jiterndra Sheetlani</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A smart agriculture vehicle utilizing multi sensor data fusion based on hybrid model</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202321013453</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">8</td>
+                      <td class="fw-semibold text-dark">Dr. Prabodh Kumar Khampariya</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Power line communications using high speed digital subscriber lines</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202321013452</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Year Section: 2022 -->
+            <div class="pat-year-group mb-4" data-year="2022">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="pat-year-badge">
+                  <i class="fa-regular fa-calendar-check"></i> Year 2022
+                </span>
+                <span class="text-muted extra-small fw-semibold">3 Patent Records</span>
+              </div>
 
-<p></p>
-<div align="center">&nbsp;</div>
-<p></p>
+              <div class="table-responsive">
+                <table class="pat-modern-table table mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 70px;">S. No.</th>
+                      <th style="width: 24%;">Name of Inventors</th>
+                      <th style="width: 42%;">Title of Invention</th>
+                      <th style="width: 18%;">Application / Patent No.</th>
+                      <th class="text-center" style="width: 16%;">Granted / Published</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">1</td>
+                      <td class="fw-semibold text-dark">Dr. Neelesh Choubey</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Formulation and Evaluation of topical Herbal preparation as Antipsoriatics Activity</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202221008082</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">2</td>
+                      <td class="fw-semibold text-dark">Dr. C.K. Tyagi</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Formulation and Evaluation of floating in-situ gel of an Anti-hypertensive Drug</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202221008083</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">3</td>
+                      <td class="fw-semibold text-dark">Dr. Prabodh Kumar Khampariya</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A Process of Manufacturing of Highly Porous and Bio-Degradable Carbon Hybrid Nano-Materials using Plant and Waste Extracts</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202221008084</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Year Section: 2021 -->
+            <div class="pat-year-group mb-4" data-year="2021">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="pat-year-badge">
+                  <i class="fa-regular fa-calendar-check"></i> Year 2021
+                </span>
+                <span class="text-muted extra-small fw-semibold">13 Patent Records</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="pat-modern-table table mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 70px;">S. No.</th>
+                      <th style="width: 24%;">Name of Inventors</th>
+                      <th style="width: 42%;">Title of Invention</th>
+                      <th style="width: 18%;">Application / Patent No.</th>
+                      <th class="text-center" style="width: 16%;">Granted / Published</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">1</td>
+                      <td class="fw-semibold text-dark">Dr. Jitendra Sheetlani</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A hybrid machine learning based data transmission in distributed sensor network</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202111003460</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">2</td>
+                      <td class="fw-semibold text-dark">Dr. Jitendra Sheetlani</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Automatic Detection of the presence of humans/animals trapped inside a moving vehicle/School bus using deep learning</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011409</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">3</td>
+                      <td class="fw-semibold text-dark">Dr. G.R. Selokar</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Anti-smuggling alarming unit for trees in forest</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011413</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">4</td>
+                      <td class="fw-semibold text-dark">Dr. Prabodh Kumar Khampariya</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">An automated medical diagnostic machine for smart remote health monitoring with thermal imaging</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011411</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">5</td>
+                      <td class="fw-semibold text-dark">Dr. Jitendra Sheetlani</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Predictive health care tracking system for rural/tribal using machine learning and internet of things</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011412</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">6</td>
+                      <td class="fw-semibold text-dark">Dr. R.P. Singh</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Cloud computing enabled internet of things framework for effective control in high penetration renewable energy resources in smart city</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011414</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">7</td>
+                      <td class="fw-semibold text-dark">Dr. Hemant Sharma</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A smart and automated vehicle breakdown safety mechanism for road safety using internet of things and big data</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011415</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">8</td>
+                      <td class="fw-semibold text-dark">Dr. Neelesh Choubey</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A novel topical gel composition for treating diabetes using herbal extracts and method of preparation thereof</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202121013725</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">9</td>
+                      <td class="fw-semibold text-dark">Dr. C.K. Tyagi</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A novel herbal based anthelmintic syrup and method of preparation thereof</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202121013726</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">10</td>
+                      <td class="fw-semibold text-dark">Dr. G. R. Selokar</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">System for continuous measurement and visualization of tool wear in high speed cutting using IOT and Machine learning</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141011408</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">11</td>
+                      <td class="fw-semibold text-dark">Dr. Mukesh Tiwari</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Smart dustbin with trash compactor and fill level indicator</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141001894</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">12</td>
+                      <td class="fw-semibold text-dark">Dr. Mukesh Tiwari</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Development of multi-sensor data fusion based intelligent autonomous robotic vehicle</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141001895</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">13</td>
+                      <td class="fw-semibold text-dark">Dr. Prabodh Kumar Khampariya</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Solar Powered Escalator</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202141017941</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Year Section: 2020 -->
+            <div class="pat-year-group mb-4" data-year="2020">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="pat-year-badge">
+                  <i class="fa-regular fa-calendar-check"></i> Year 2020
+                </span>
+                <span class="text-muted extra-small fw-semibold">4 Patent Records</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="pat-modern-table table mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 70px;">S. No.</th>
+                      <th style="width: 24%;">Name of Inventors</th>
+                      <th style="width: 42%;">Title of Invention</th>
+                      <th style="width: 18%;">Application / Patent No.</th>
+                      <th class="text-center" style="width: 16%;">Granted / Published</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">1</td>
+                      <td class="fw-semibold text-dark">Dr. G. R. Selokar</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Non-Conventional grooved stepped shoe ribs</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202021003931</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">2</td>
+                      <td class="fw-semibold text-dark">Dr. Jitendra Sheetlani</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">Night Patrol System Based On IoT And Radio Frequency Identification</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202021039031</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">3</td>
+                      <td class="fw-semibold text-dark">Dr. Neelesh Choubey</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A Poly herbal formulation for treatment of liver disorder and method of preparation</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202021051557</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                    <tr class="patent-row">
+                      <td class="text-center fw-bold text-muted">4</td>
+                      <td class="fw-semibold text-dark">Dr. C. K. Tyagi</td>
+                      <td>
+                        <strong class="text-primary-emphasis d-block">A pharmaceutical composition comprising a compressed polyherbal tablets for the treatment of infections caused by helminthes</strong>
+                      </td>
+                      <td>
+                        <code class="text-dark bg-light px-2 py-1 rounded border small fw-bold">202021042927</code>
+                      </td>
+                      <td class="text-center">
+                        <span class="pat-badge-status pat-badge-published"><i class="fa-solid fa-file-lines"></i> Filed &amp; Published</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div><!-- end pat-content-body -->
         </div><!-- end pat-main-card -->
       </div><!-- end col-lg-8 -->
@@ -732,5 +693,38 @@ require_once __DIR__ . '/../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var searchInput = document.getElementById('patentSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      var query = this.value.toLowerCase().trim();
+      var groups = document.querySelectorAll('.pat-year-group');
+      
+      groups.forEach(function(group) {
+        var rows = group.querySelectorAll('.patent-row');
+        var groupVisibleCount = 0;
+        
+        rows.forEach(function(row) {
+          var text = row.textContent.toLowerCase();
+          if (!query || text.indexOf(query) !== -1) {
+            row.style.display = '';
+            groupVisibleCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+        
+        if (groupVisibleCount === 0) {
+          group.style.display = 'none';
+        } else {
+          group.style.display = '';
+        }
+      });
+    });
+  }
+});
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
