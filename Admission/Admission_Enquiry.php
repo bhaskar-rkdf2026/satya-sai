@@ -276,20 +276,15 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   </a>
                 </div>
 
-                <!-- Mobile / WhatsApp Helpline -->
-                <div class="col-sm-12 col-lg-8">
-                  <div class="ae-contact-tile ae-contact-highlight justify-content-between flex-wrap gap-2">
-                    <div class="d-flex align-items-center gap-3">
-                      <div class="ae-contact-tile-icon text-success" style="background:#dcfce7; border-color:#86efac;"><i class="fa-brands fa-whatsapp fs-4"></i></div>
-                      <div>
-                        <span class="ae-contact-label text-success fw-bold">Official Mobile &amp; WhatsApp Support</span>
-                        <strong class="ae-contact-number fs-5 text-success">(+91) 7748900028</strong>
-                      </div>
+                <!-- Contact Desk 5 -->
+                <div class="col-sm-6 col-lg-4">
+                  <a href="tel:7748900028" class="ae-contact-tile">
+                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                      <span class="ae-contact-label">Admission Desk 5</span>
+                      <strong class="ae-contact-number">(+91) 7748900028</strong>
                     </div>
-                    <a href="https://wa.me/917748900028" target="_blank" class="btn btn-success btn-sm rounded-pill px-3 py-2 fw-bold shadow-sm">
-                      <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Now
-                    </a>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
