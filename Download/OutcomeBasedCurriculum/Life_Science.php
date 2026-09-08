@@ -1,14 +1,197 @@
 <?php
-$page_title = 'Life Science - SSSUTMS';
+$page_title = 'Life Science - Outcome Based Curriculum - SSSUTMS';
 $banner_title = 'Life Science';
-$banner_category = 'Download';
+$banner_category = 'Outcome Based Curriculum';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$curricula = array (
+  0 => 
+  array (
+    'category' => 'Under Graduate Programs',
+    'badge' => 'B.Sc.',
+    'filter' => 'ug',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'title' => 'B.Sc. (Biology)',
+        'file' => 'BSc_Bio.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_Bio.pdf',
+      ),
+      1 => 
+      array (
+        'title' => 'B.Sc. (Microbiology)',
+        'file' => 'BSc_Micro.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_Micro.pdf',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'category' => 'Post Graduate Programs',
+    'badge' => 'M.Sc.',
+    'filter' => 'pg',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'title' => 'M.Sc. (Botany)',
+        'file' => 'MSc_Bot.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf',
+      ),
+      1 => 
+      array (
+        'title' => 'M.Sc. (Zoology)',
+        'file' => 'MSc_Bot.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf',
+      ),
+      2 => 
+      array (
+        'title' => 'M.Sc. (Microbiology)',
+        'file' => 'MSc_Micro.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Micro.pdf',
+      ),
+    ),
+  ),
+);
 ?>
+
+<style>
+.life-tab-btn {
+  background: #f1f5f9;
+  color: #0b2545;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.life-tab-btn:hover,
+.life-tab-btn.active {
+  background: #0b2545;
+  color: #ffffff;
+  border-color: #0b2545;
+}
+
+.life-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.life-search-box input {
+  padding-left: 2.4rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.life-search-box input:focus {
+  border-color: #0b2545;
+  box-shadow: 0 0 0 0.2rem rgba(11, 37, 69, 0.15);
+}
+
+.life-search-box i {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.life-table-wrapper {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.life-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.life-table thead th {
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 16px;
+  border: none;
+  vertical-align: middle;
+}
+
+.life-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.life-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.life-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.life-table td {
+  padding: 13px 16px;
+  font-size: 0.92rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.life-course-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #e2e8f0;
+  color: #0b2545;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.life-branch-name {
+  font-weight: 600;
+  color: #0b2545;
+}
+
+.life-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0b2545;
+  color: #ffffff !important;
+  border: 1px solid #0b2545;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.life-download-btn:hover {
+  background: #134074;
+  border-color: #134074;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+}
+</style>
 
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
@@ -16,145 +199,113 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" align="center" style="margin-top:0cm;margin-right:
-0cm;margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;"><b><span style="font-size:13.5pt;
-line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;color:#666666;
-background:white;">LIFE SCIENCE<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><b><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">VISION<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">“The Department of
-Biological Sciences will be a recognized regional, national, and international
-leader in research, and in undergraduate and graduate education in life
-sciences.”<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><b><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">MISSION<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">“&nbsp;The role of
-biological science is the discovery and integration of basic knowledge from
-multiple fields of study as they apply to living systems.<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">Advances in basic
-and applied knowledge provide a nexus from which theory, technology, and policy
-arise.<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">The Department of
-Biological Sciences is the hub of life science initiatives at Michigan Tech and
-beyond—advancing knowledge and developing solutions.<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">All students need a
-diverse educational experience through which they can develop an appreciation
-of the connectedness of life and the environment across all scales of
-organization—from molecules to ecosystems.<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">We value the direct
-and the intangible benefits that emerge from a diverse complement of research
-and teaching faculty."<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;</span></p><div align="center">
-
-<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"  >
- <tbody><tr style="height:27.25pt">
-  <td style="border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt; height: 27.25pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal"><b><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">OUTCOME BASED
-  CURRICULUM<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style="height:25.3pt">
-  <td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 25.3pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_Bio.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.Sc. ( Biology)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:29.85pt">
-  <td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 29.85pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_Micro.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.Sc. ( Microbiology)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:27.2pt">
-  <td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 27.2pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M.S</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">c. ( Botany)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:24.6pt">
-  <td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 24.6pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">.S</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Bot.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">c. ( Zoology)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:22.05pt">
-  <td style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 22.05pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Micro.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M.Sc. ( Microbiology)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
-</tbody></table>
-
-</div>
+        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+          
+          <!-- Header Banner -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
+            <div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                <i class="fa fa-graduation-cap me-1"></i> Outcome Based Education (OBE)
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #002B5B;">FACULTY OF LIFE SCIENCES</h3>
+              <p class="text-muted small mb-0">Program Educational Objectives, Program Outcomes &amp; Course Curricula.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                <i class="fa fa-certificate me-1"></i> UGC Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Vision & Mission Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-left: 5px solid #002B5B !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-eye text-primary me-2"></i>VISION
+                </h5>
+                <p class="small text-secondary mb-0 lh-base">
+                  “The Department of Biological Sciences will be a recognized regional, national, and international leader in research, and in undergraduate and graduate education in life sciences.”
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #fffbf0 0%, #fff6e6 100%); border-left: 5px solid #e67e23 !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-bullseye text-warning me-2"></i>MISSION
+                </h5>
+                <div class="small text-secondary mb-0 lh-base">
+                  <p class="mb-1"><strong>1.</strong> The role of biological science is the discovery and integration of basic knowledge from multiple fields of study as they apply to living systems.</p><p class="mb-1"><strong>2.</strong> Advances in basic and applied knowledge provide a nexus from which theory, technology, and policy arise.</p><p class="mb-0"><strong>3.</strong> The Department of Biological Sciences is the hub of life science initiatives—advancing knowledge and developing solutions for human welfare.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls: Category Filter Tabs & Search -->
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+            <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
+              <button type="button" class="life-tab-btn active" data-filter="all">All Programs (5)</button>
+              <button type="button" class="life-tab-btn" data-filter="ug">B.Sc. (2)</button>
+              <button type="button" class="life-tab-btn" data-filter="pg">M.Sc. (3)</button>
+
+            </div>
+            <div class="life-search-box">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control obe-filter-input" placeholder="Search program or course...">
+            </div>
+          </div>
+
+          <!-- Curriculum Matrix Table -->
+          <div class="table-responsive life-table-wrapper">
+            <table class="life-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Course</th>
+                  <th>Program / Specialization</th>
+                  <th class="text-center" style="width: 150px;">Curriculum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $localPath = __DIR__ . '/../../assets/images/Files/Link/Curriculum/' . $item['file'];
+                    if (!empty($item['file']) && file_exists($localPath)) {
+                        $targetUrl = BASE_URL . 'assets/images/Files/Link/Curriculum/' . rawurlencode($item['file']);
+                    } elseif (!empty($item['url']) && $item['url'] !== '#') {
+                        $targetUrl = $item['url'];
+                    } else {
+                        $targetUrl = '#';
+                    }
+                ?>
+                <tr data-category="<?php echo $group['filter']; ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="life-course-chip me-1"><?php echo $group['badge']; ?></span>
+                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
+                  </td>
+                  <td>
+                    <span class="life-branch-name">
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="life-download-btn">
+                      <i class="fa fa-file-pdf"></i> Download
+                    </a>
+                  </td>
+                </tr>
+                <?php 
+                    $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -166,5 +317,46 @@ color:#666666;background:white;">&nbsp;</span></p><div align="center">
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.obe-filter-input');
+  const filterButtons = document.querySelectorAll('#categoryFilters .life-tab-btn');
+  const tableRows = document.querySelectorAll('.obe-table tbody tr');
+  
+  let currentFilter = 'all';
+
+  function filterTable() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    
+    tableRows.forEach(row => {
+      const rowCat = row.getAttribute('data-category');
+      const text = row.textContent.toLowerCase();
+      
+      const matchesCategory = (currentFilter === 'all' || rowCat === currentFilter);
+      const matchesSearch = (!query || text.includes(query));
+      
+      if (matchesCategory && matchesSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterTable);
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentFilter = this.getAttribute('data-filter');
+      filterTable();
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
-$page_title = 'Bachelor Of Laws Llb - SSSUTMS';
-$banner_title = 'Bachelor Of Laws Llb';
-$banner_category = 'Download';
+$page_title = 'Faculty of Law - Teaching & Examination Scheme - SSSUTMS';
+$banner_title = 'Faculty of Law (LL.B. / B.A. LL.B.)';
+$banner_category = 'Teaching & Examination Scheme';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
@@ -10,182 +10,431 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
+<style>
+  .scheme-header-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 43, 91, 0.08);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+  }
+  .scheme-header-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #002B5B 0%, #1a569c 100%);
+  }
+  .scheme-badge {
+    background-color: #0b2545;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .scheme-section-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+  .scheme-section-header {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .scheme-section-title {
+    color: #0b2545;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .scheme-section-badge {
+    background: #e2e8f0;
+    color: #0b2545;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .scheme-table {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+  }
+  .scheme-table thead th, .scheme-table tr.table-header-row th, .scheme-table tr.table-header-row td {
+    background: #0b2545 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 10px;
+    border-color: #134074 !important;
+    font-size: 0.88rem;
+    letter-spacing: 0.3px;
+  }
+  .scheme-table tbody td {
+    padding: 12px 10px;
+    vertical-align: middle;
+    border-color: #e2e8f0;
+    color: #334155;
+  }
+  .scheme-table tbody tr:nth-of-type(even) {
+    background-color: #f8fafc;
+  }
+  .scheme-table tbody tr:hover {
+    background-color: #f1f5f9;
+  }
+  .course-chip {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #0b2545;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+  }
+  .download-btn {
+    background: #0b2545;
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    margin: 2px 2px;
+    box-shadow: 0 2px 4px rgba(11,37,69,0.15);
+  }
+  .download-btn:hover {
+    background: #134074;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(11,37,69,0.25);
+  }
+  .download-btn i {
+    color: #ff7675;
+    font-size: 0.95rem;
+  }
+  .download-btn i.fa-file-archive {
+    color: #fdcb6e;
+  }
+  .scheme-filter-bar {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 14px 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .search-input-group {
+    position: relative;
+    max-width: 380px;
+    width: 100%;
+  }
+  .search-input-group input {
+    border-radius: 8px;
+    padding-left: 38px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.9rem;
+  }
+  .search-input-group input:focus {
+    border-color: #002B5B;
+    box-shadow: 0 0 0 3px rgba(0, 43, 91, 0.15);
+  }
+  .search-input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+  }
+</style>
+
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<p>&nbsp;&nbsp;</p>
-<table class="MsoTableMediumGrid1Accent1" style="border-collapse: collapse; border: medium; width: 88.4615%; height: 177px;" border="1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 48px;">
-<td style="width: 26.8987%; border: 1pt solid #7ba0cd; background: #d3dfee; padding: 0cm 5.4pt; height: 48px;" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 4.0pt; line-height: 200%;">&nbsp;</span>COURSE</strong></p>
-</td>
-<td style="width: 73.1013%; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: #7ba0cd #7ba0cd #7ba0cd currentcolor; background: #d3dfee; padding: 0cm 5.4pt; height: 48px;" colspan="6" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 5.0pt;  line-height: 200%;">&nbsp;</span>SEMESTER</strong></p>
-</td>
-</tr>
-<tr style="height: 69.3333px;">
-<td style="width: 26.8987%; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: currentcolor #7ba0cd #7ba0cd; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" valign="top" >
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><strong><span style="font-size: 14pt; line-height: 200%; font-family: 'book antiqua', palatino, serif;">Bachelor of Laws (L.L.B.)</span></strong></p>
-</td>
-<td style="width: 12.5527%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" ><span style="font-family: 'arial black', sans-serif;"><strong> </strong></span>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LLB SCH1.pdf" target="_blank" rel="noopener"><span style="font-family: 'arial black', sans-serif;"><strong>I</strong></span></a></p>
-<span style="font-family: 'arial black', sans-serif;"><strong> </strong></span></td>
-<td style="width: 14.346%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" ><span style="font-family: 'arial black', sans-serif;"><strong> </strong></span>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LLB SCH2.pdf" target="_blank" rel="noopener"><span style="font-family: 'arial black', sans-serif;"><strong>II</strong></span></a></p>
-<span style="font-family: 'arial black', sans-serif;"><strong> </strong></span></td>
-<td style="width: 11.8143%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" ><span style="font-family: 'arial black', sans-serif;"><strong> </strong></span>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LLB SCH3.pdf" target="_blank" rel="noopener"><span style="font-family: 'arial black', sans-serif;"><strong>III</strong></span></a></p>
-<span style="font-family: 'arial black', sans-serif;"><strong> </strong></span></td>
-<td style="width: 11.8143%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" ><span style="font-family: 'arial black', sans-serif;"><strong> </strong></span>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LLB SCH4.pdf" target="_blank" rel="noopener"><span style="font-family: 'arial black', sans-serif;"><strong>IV</strong></span></a></p>
-<span style="font-family: 'arial black', sans-serif;"><strong> </strong></span></td>
-<td style="width: 12.6582%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" ><span style="font-family: 'arial black', sans-serif;"><strong> </strong></span>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LLB SCH5.pdf" target="_blank" rel="noopener"><span style="font-family: 'arial black', sans-serif;"><strong>V</strong></span></a></p>
-<span style="font-family: 'arial black', sans-serif;"><strong> </strong></span></td>
-<td style="width: 9.91561%; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: currentcolor #7ba0cd #7ba0cd currentcolor; background: #a7bfde; padding: 0cm 5.4pt; height: 69.3333px;" ><span style="font-family: 'arial black', sans-serif;"><strong> </strong></span>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: 200%; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/LLB/NEW 2026/LLB SCH6.pdf" target="_blank" rel="noopener"><span style="font-family: 'arial black', sans-serif;"><strong>VI</strong></span></a></p>
-<span style="font-family: 'arial black', sans-serif;"><strong> </strong></span></td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp; &nbsp;</p>
-<table class="MsoTableMediumShading2Accent5" style="width: 829px; border-collapse: collapse; border: medium; height: 484px;" border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="height: 44px;">
-<td style="width: 244.4px; border-width: 2.25pt medium; border-style: solid none; border-color: windowtext currentcolor; background: #c89f5d; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">Course/Degree</span></strong></p>
-</td>
-<td style="width: 272.967px; border-width: 2.25pt medium; border-style: solid none; border-color: windowtext currentcolor; background: #c89f5d; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; "><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">Yearly Courses&nbsp;</span></strong></p>
-</td>
-<td style="width: 268.433px; border-width: 2.25pt medium; border-style: solid none; border-color: windowtext currentcolor; background: #c89f5d; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">Semester </span></strong></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 244.4px; border-width: medium medium 2.25pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; background: #c89f5d; padding: 0cm 5.4pt; height: 440px;" rowspan="10" valign="top">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">B.A. LL.B Integrated (Academic Year 2025-26)</span></strong></p>
-</td>
-<td style="width: 272.967px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 88px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">I&nbsp; Year</span></p>
-</td>
-<td style="width: 268.433px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-1.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">I Semester</span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 268.433px; border: medium; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-2.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">II Semester</span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 272.967px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 88px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">II&nbsp;Year</span></p>
-</td>
-<td style="width: 268.433px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-3.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">III Semester</span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 268.433px; border: medium; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-4.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">IV Semester&nbsp;</span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 272.967px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 88px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">III Year&nbsp;</span></p>
-</td>
-<td style="width: 268.433px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-5.pdf"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">V Semester&nbsp;</span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 268.433px; border: medium; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-6.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">VI Semester</span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 272.967px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 88px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">IV Year&nbsp;</span></p>
-</td>
-<td style="width: 268.433px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-7.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">VII Semester </span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 268.433px; border: medium; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-8.pdf" target="_blank" rel="noopener">VIII Semester</a> </span></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 272.967px; border-width: medium medium 2.25pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; background: #d8d8d8; padding: 0cm 5.4pt; height: 88px;" rowspan="2" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">V Year&nbsp;</span></p>
-</td>
-<td style="width: 268.433px; border: medium; background: #d8d8d8; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-9.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">IX Semester </span></a></p>
-</td>
-</tr>
-<tr style="height: 44px;">
-<td style="width: 268.433px; border-width: medium medium 2.25pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; padding: 0cm 5.4pt; height: 44px;" valign="top" nowrap="nowrap">
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-10.pdf" target="_blank" rel="noopener"><span style="font-size: 18.0pt; font-family: 'Book Antiqua','serif';   color: black;   ">X Semester </span></a></p>
-</td>
-</tr>
-</tbody>
-</table>
+        
+        <!-- Header Banner Card -->
+        <div class="scheme-header-card p-4 mb-4">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-2">
+            <span class="scheme-badge">
+              <i class="fa fa-book"></i> FACULTY OF LAW
+            </span>
+            <span class="badge bg-light text-dark border px-3 py-2">
+              <i class="fa fa-university me-1 text-primary"></i> SSSUTMS
+            </span>
+          </div>
+          <h2 class="h3 fw-bold text-dark mt-2 mb-1" style="color: #0b2545 !important;">Faculty of Law (LL.B. / B.A. LL.B.)</h2>
+          <p class="text-muted mb-0">Bachelor of Laws (LL.B.) and Integrated B.A. LL.B. Schemes</p>
+        </div>
 
-<table class="MsoNormalTable" style="width: 924px; height: 30px;" border="1"  cellspacing="1" cellpadding="0">
-<tbody>
-<tr>
-<td style="padding: 0cm; width: 236.817px;">
-<p class="MsoNormalCxSpFirst" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">COURSE</span></strong></p>
-</td>
-<td style="width: 681.667px; padding: 0cm;" colspan="3" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">SEMESTER</span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="padding: 0cm; width: 236.817px;">
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Bachelor of Laws(LL.B.)</span></strong></p>
-</td>
-<td style="width: 222.933px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/LLB/LLB_I.pdf"><span style="color: #666666;">I &amp; II</span></a></span></p>
-</td>
-<td style="width: 239.867px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/LLB/LLB_II.pdf"><span style="color: #666666;">III &amp; IV</span></a></span></p>
-</td>
-<td style="width: 218.867px; padding: 0cm;" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/LLB/LLB_III.pdf"><span style="color: #666666;">V&amp;VI</span></a></span></p>
-</td>
-</tr>
-</tbody>
-</table>
+        <!-- Filter & Search Bar -->
+        <div class="scheme-filter-bar mb-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+          <div class="search-input-group">
+            <i class="fa fa-search"></i>
+            <input type="text" id="schemeSearch" class="form-control" placeholder="Search branch, course, or semester...">
+          </div>
+          <div class="text-muted small">
+            <i class="fa fa-info-circle me-1 text-primary"></i> Click any semester button to view/download syllabus scheme.
           </div>
         </div>
+
+        <!-- Scheme Content -->
+                <!-- Scheme Section Card -->
+        <div class="scheme-section-card">
+          <div class="scheme-section-header">
+            <h5 class="scheme-section-title">
+              <i class="fa fa-graduation-cap text-primary"></i> mso-tstyle-shading-themetint:127;}
+            </h5>
+            <span class="scheme-section-badge">Examination Scheme</span>
+          </div>
+          <div class="p-0">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle scheme-table mb-0">
+<thead><tr class="table-header-row">
+<td>
+<strong>&nbsp;COURSE</strong>
+</td>
+<td colspan="6">
+<strong>&nbsp;SEMESTER</strong>
+</td>
+</tr></thead><tbody><tr>
+<td>
+<strong>Bachelor of Laws (L.L.B.)</strong>
+</td>
+<td><strong> </strong>
+
+<strong> </strong></td>
+<td><strong> </strong>
+<a href="<?= base_url('assets/images/Files/Link/LLB/NEW 2026/LLB SCH2.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> II</a>
+<strong> </strong></td>
+<td><strong> </strong>
+<a href="<?= base_url('assets/images/Files/Link/LLB/NEW 2026/LLB SCH3.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> III</a>
+<strong> </strong></td>
+<td><strong> </strong>
+<a href="<?= base_url('assets/images/Files/Link/LLB/NEW 2026/LLB SCH4.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> IV</a>
+<strong> </strong></td>
+<td><strong> </strong>
+
+<strong> </strong></td>
+<td><strong> </strong>
+<a href="<?= base_url('assets/images/Files/Link/LLB/NEW 2026/LLB SCH6.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> VI</a>
+<strong> </strong></td>
+</tr>
+</tbody>
+</table>
+            </div>
+          </div>
+        </div>
+        <!-- Scheme Section Card -->
+        <div class="scheme-section-card">
+          <div class="scheme-section-header">
+            <h5 class="scheme-section-title">
+              <i class="fa fa-graduation-cap text-primary"></i> &amp;nbsp; &amp;nbsp;
+            </h5>
+            <span class="scheme-section-badge">Examination Scheme</span>
+          </div>
+          <div class="p-0">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle scheme-table mb-0">
+<thead><tr class="table-header-row">
+<td>
+<strong>Course/Degree</strong>
+</td>
+<td>
+<strong>Yearly Courses&nbsp;</strong>
+</td>
+<td>
+<strong>Semester </strong>
+</td>
+</tr></thead><tbody><tr>
+<td rowspan="10">
+<strong>&nbsp;</strong>
+<strong>&nbsp;</strong>
+<strong>&nbsp;</strong>
+<strong>B.A. LL.B Integrated (Academic Year 2025-26)</strong>
+</td>
+<td rowspan="2">
+I&nbsp; Year
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-1.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> I Semester</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-2.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> II Semester</a>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+II&nbsp;Year
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-3.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> III Semester</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-4.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> IV Semester&nbsp;</a>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+III Year&nbsp;
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-5.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> V Semester&nbsp;</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-6.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> VI Semester</a>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+IV Year&nbsp;
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-7.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> VII Semester</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-8.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> VIII Semester</a> 
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+V Year&nbsp;
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-9.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> IX Semester</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/ SCHEM BALLB2026/B.A. LL.B. Scheme (New-2025-26)-pages-pages-10.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> X Semester</a>
+</td>
+</tr>
+</tbody>
+</table>
+            </div>
+          </div>
+        </div>
+        <!-- Scheme Section Card -->
+        <div class="scheme-section-card">
+          <div class="scheme-section-header">
+            <h5 class="scheme-section-title">
+              <i class="fa fa-graduation-cap text-primary"></i> &amp;nbsp;
+            </h5>
+            <span class="scheme-section-badge">Examination Scheme</span>
+          </div>
+          <div class="p-0">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle scheme-table mb-0">
+<thead><tr class="table-header-row">
+<td>
+<strong>&nbsp;</strong>
+<strong>COURSE</strong>
+</td>
+<td colspan="3">
+<strong>&nbsp;</strong>
+<strong>SEMESTER</strong>
+</td>
+</tr></thead><tbody><tr>
+<td>
+<strong>&nbsp;</strong>
+<strong>Bachelor of Laws(LL.B.)</strong>
+</td>
+<td>
+&nbsp;
+<a href="<?= base_url('assets/images/Files/Link/SCHEMES/LLB/LLB_I.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> I &amp; II</a>
+</td>
+<td>
+&nbsp;
+<a href="<?= base_url('assets/images/Files/Link/SCHEMES/LLB/LLB_II.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> III &amp; IV</a>
+</td>
+<td>
+&nbsp;
+<a href="<?= base_url('assets/images/Files/Link/SCHEMES/LLB/LLB_III.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> V&amp;VI</a>
+</td>
+</tr>
+</tbody>
+</table>
+            </div>
+          </div>
+        </div>
+
+
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar (3 Cols) -->
+      <div class="col-lg-4 col-xl-3">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('schemeSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      const tables = document.querySelectorAll('.scheme-table');
+      
+      tables.forEach(table => {
+        const rows = table.querySelectorAll('tbody tr');
+        let hasVisibleRow = false;
+        
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          if (text.includes(q)) {
+            row.style.display = '';
+            hasVisibleRow = true;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+        
+        // Show/hide parent section card if all rows hidden
+        const card = table.closest('.scheme-section-card');
+        if (card) {
+          card.style.display = (hasVisibleRow || q === '') ? '' : 'none';
+        }
+      });
+    });
+  }
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

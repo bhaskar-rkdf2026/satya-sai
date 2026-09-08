@@ -1,7 +1,7 @@
 <?php
-$page_title = 'MBA - SSSUTMS';
-$banner_title = 'MBA';
-$banner_category = 'Download';
+$page_title = 'MBA - Teaching & Examination Scheme - SSSUTMS';
+$banner_title = 'Master of Business Administration (MBA)';
+$banner_category = 'Teaching & Examination Scheme';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
@@ -10,102 +10,333 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
+<style>
+  .scheme-header-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 43, 91, 0.08);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+  }
+  .scheme-header-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #002B5B 0%, #1a569c 100%);
+  }
+  .scheme-badge {
+    background-color: #0b2545;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .scheme-section-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+  .scheme-section-header {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .scheme-section-title {
+    color: #0b2545;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .scheme-section-badge {
+    background: #e2e8f0;
+    color: #0b2545;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .scheme-table {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+  }
+  .scheme-table thead th, .scheme-table tr.table-header-row th, .scheme-table tr.table-header-row td {
+    background: #0b2545 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 10px;
+    border-color: #134074 !important;
+    font-size: 0.88rem;
+    letter-spacing: 0.3px;
+  }
+  .scheme-table tbody td {
+    padding: 12px 10px;
+    vertical-align: middle;
+    border-color: #e2e8f0;
+    color: #334155;
+  }
+  .scheme-table tbody tr:nth-of-type(even) {
+    background-color: #f8fafc;
+  }
+  .scheme-table tbody tr:hover {
+    background-color: #f1f5f9;
+  }
+  .course-chip {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #0b2545;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+  }
+  .download-btn {
+    background: #0b2545;
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    margin: 2px 2px;
+    box-shadow: 0 2px 4px rgba(11,37,69,0.15);
+  }
+  .download-btn:hover {
+    background: #134074;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(11,37,69,0.25);
+  }
+  .download-btn i {
+    color: #ff7675;
+    font-size: 0.95rem;
+  }
+  .download-btn i.fa-file-archive {
+    color: #fdcb6e;
+  }
+  .scheme-filter-bar {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 14px 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .search-input-group {
+    position: relative;
+    max-width: 380px;
+    width: 100%;
+  }
+  .search-input-group input {
+    border-radius: 8px;
+    padding-left: 38px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.9rem;
+  }
+  .search-input-group input:focus {
+    border-color: #002B5B;
+    box-shadow: 0 0 0 3px rgba(0, 43, 91, 0.15);
+  }
+  .search-input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+  }
+</style>
+
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <table class="MsoTableGrid"  border="1"  cellspacing="0" cellpadding="0">
-<tbody>
+        
+        <!-- Header Banner Card -->
+        <div class="scheme-header-card p-4 mb-4">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-2">
+            <span class="scheme-badge">
+              <i class="fa fa-book"></i> FACULTY OF MANAGEMENT
+            </span>
+            <span class="badge bg-light text-dark border px-3 py-2">
+              <i class="fa fa-university me-1 text-primary"></i> SSSUTMS
+            </span>
+          </div>
+          <h2 class="h3 fw-bold text-dark mt-2 mb-1" style="color: #0b2545 !important;">Master of Business Administration (MBA)</h2>
+          <p class="text-muted mb-0">MBA (CBCS, Non-CBCS & Part Time) Examination Schemes</p>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="scheme-filter-bar mb-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+          <div class="search-input-group">
+            <i class="fa fa-search"></i>
+            <input type="text" id="schemeSearch" class="form-control" placeholder="Search branch, course, or semester...">
+          </div>
+          <div class="text-muted small">
+            <i class="fa fa-info-circle me-1 text-primary"></i> Click any semester button to view/download syllabus scheme.
+          </div>
+        </div>
+
+        <!-- Scheme Content -->
+                <!-- Scheme Section Card -->
+        <div class="scheme-section-card">
+          <div class="scheme-section-header">
+            <h5 class="scheme-section-title">
+              <i class="fa fa-graduation-cap text-primary"></i> Scheme Details - Section 1
+            </h5>
+            <span class="scheme-section-badge">Examination Scheme</span>
+          </div>
+          <div class="p-0">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle scheme-table mb-0">
+<thead><tr class="table-header-row">
+<td>
+<strong>S.No.</strong>
+</td>
+<td>
+<strong>Course</strong>
+</td>
+<td colspan="4">
+<strong>Scheme</strong>
+</td>
+</tr></thead><tbody><tr>
+<td>
+<strong>&nbsp;</strong>
+<strong>1</strong>
+</td>
+<td>
+<strong>MBA (CBCS)</strong>
+<strong>( Wef. Academic Session 2016-17)</strong>
+</td>
+<td class="text-center">
+<a href="<?= base_url('assets/images/Files/Link/SCHEMES/CBCS SCHEME/MBA_ICBCS.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> First Semester</a>
+</td>
+<td class="text-center">
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/MBACII_SH.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Second Semester</a>
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/SCMBAC_III.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Third Semester</a>
+</td>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/SCMBAr_IV.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Fourth Semester</a>
+</td>
+</tr>
 <tr>
-<td style="width: 42.2833px; border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormalCxSpFirst" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">S.No.</span></strong></p>
+<td>
+<strong>2</strong>
 </td>
-<td style="width: 215.6px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-left: medium none; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Course</span></strong></p>
+<td>
+<strong>MBA Non CBCS (Old Scheme) </strong>
 </td>
-<td style="width: 459.717px; border-width: 1pt 1pt 1pt medium; border-color: windowtext windowtext windowtext currentcolor; border-left: medium none; padding: 0cm 5.4pt;" colspan="4" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" text-align: center; line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Scheme</span></strong></p>
+<td class="text-center">
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/SC_MBA_I.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> First Semester</a>
 </td>
-</tr>
-<tr style=" height: 35.45pt;">
-<td style="width: 42.2833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-top: medium none; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">1</span></strong></p>
+<td class="text-center">
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/mba2.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Second Semester</a>
 </td>
-<td style="width: 215.6px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">MBA (CBCS)</span></strong></p>
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">( Wef. Academic Session 2016-17)</span></strong></p>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/SCMBA_III.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Third Semester</a>
 </td>
-<td style="width: 97.95px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 35.45pt; text-align: center;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/MBA_ICBCS.pdf" target="_blank" rel="noopener"><span style="color: #666666;">First Semeste</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/CBCS SCHEME/MBA_ICBCS.pdf" target="_blank" rel="noopener"><span style="color: #666666;">r</span></a></span></p>
-</td>
-<td style="width: 115.767px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 35.45pt; text-align: center;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/MBACII_SH.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Second Semeste</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/CBCS SCHEME/SCHEME/MBACII_SH.pdf"><span style="color: #666666;">r</span></a></span></p>
-</td>
-<td style="width: 96.067px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMBAC_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Third Semeste</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/CBCS SCHEME/SCHEME/MBACII_SH.pdf"><span style="color: #666666;">r</span></a></span></p>
-</td>
-<td style="width: 149.933px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 35.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMBAr_IV.pdf" target="_blank" rel="noopener"><span style="color: #666666;">Fourth Semeste</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEMES/CBCS SCHEME/Scheme MBA/SCMBA_IV.pdf" target="_blank" rel="noopener"><span style="color: #666666;">r</span></a></span></p>
+<td>
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/mba.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Fourth Semester</a><span style="text-rendering: optimizelegibility;">&nbsp;&nbsp;</span>
 </td>
 </tr>
 <tr>
-<td style="width: 42.2833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-top: medium none; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">2</span></strong></p>
+<td>
+<strong>3.</strong>
 </td>
-<td style="width: 215.6px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">MBA Non CBCS (Old Scheme) </span></strong></p>
+<td>
+<strong>Part Time</strong>
 </td>
-<td style="width: 97.95px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; text-align: center;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SC_MBA_I.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">First Semester</span></span></a></span></p>
+<td class="text-center">
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/mbaV_SH.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Fifth Semester</a><span style="text-rendering: optimizelegibility;"> &nbsp;&nbsp; (Part Time)</span>
 </td>
-<td style="width: 115.767px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; text-align: center;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/mba2.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">Second Semester</span></span></a></span></p>
+<td class="text-center">
+<a href="<?= base_url('assets/images/Files/Link/SCHEME/MBAVISH.pdf') ?>" target="_blank" class="download-btn"><i class="fa fa-file-pdf"></i> Sixth Semester</a><span style="text-rendering: optimizelegibility;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Part Time)</span>
 </td>
-<td style="width: 96.067px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/SCMBA_III.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">Third Semester</span></span></a></span></p>
+<td>
+&nbsp;
 </td>
-<td style="width: 149.933px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/mba.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">Fourth Semester</span></span></a><span style="text-rendering: optimizelegibility;">&nbsp;&nbsp;</span></span></p>
-</td>
-</tr>
-<tr style="  height: 7.45pt;">
-<td style="width: 42.2833px; border-width: medium 1pt 1pt; border-color: currentcolor windowtext windowtext; border-top: medium none; padding: 0cm 5.4pt; height: 7.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">3.</span></strong></p>
-</td>
-<td style="width: 215.6px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 7.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><strong><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">Part Time</span></strong></p>
-</td>
-<td style="width: 97.95px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 7.45pt; text-align: center;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/mbaV_SH.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">Fifth Semester</span></span></a></span><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"> &nbsp;&nbsp; (Part Time)</span></span></p>
-</td>
-<td style="width: 115.767px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 7.45pt; text-align: center;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SCHEME/MBAVISH.pdf" target="_blank" rel="noopener"><span style="color: #666666;"><span style="text-rendering: optimizelegibility;">Six Semester</span></span></a></span><span style="text-rendering: optimizelegibility;"><span style="text-rendering: optimizelegibility;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Part Time)</span></span></p>
-</td>
-<td style="width: 96.067px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 7.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
-</td>
-<td style="width: 149.933px; border-color: currentcolor windowtext windowtext currentcolor; border-top: medium none; border-left: medium none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; height: 7.45pt;" valign="top" >
-<p class="MsoNormalCxSpMiddle" style=" line-height: normal;  margin: 0cm 0cm .0001pt 2.85pt;"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;">&nbsp;</span></p>
+<td>
+&nbsp;
 </td>
 </tr>
 </tbody>
 </table>
+            </div>
           </div>
         </div>
+
+
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+      <!-- Right Sidebar (3 Cols) -->
+      <div class="col-lg-4 col-xl-3">
         <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('schemeSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      const tables = document.querySelectorAll('.scheme-table');
+      
+      tables.forEach(table => {
+        const rows = table.querySelectorAll('tbody tr');
+        let hasVisibleRow = false;
+        
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          if (text.includes(q)) {
+            row.style.display = '';
+            hasVisibleRow = true;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+        
+        // Show/hide parent section card if all rows hidden
+        const card = table.closest('.scheme-section-card');
+        if (card) {
+          card.style.display = (hasVisibleRow || q === '') ? '' : 'none';
+        }
+      });
+    });
+  }
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

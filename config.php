@@ -48,6 +48,14 @@ if (preg_match('#/htdocs(/.*)$#i', $dir, $m)) {
 }
 
 /**
+ * Base URL helper function
+ * Returns full base URL with optional appended path
+ */
+function base_url($path = '') {
+    return BASE_URL . ltrim($path, '/');
+}
+
+/**
  * Get JSON Data with error handling
  */
 function get_json_data($filename, $default = []) {

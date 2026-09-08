@@ -1,14 +1,203 @@
 <?php
-$page_title = 'Science - SSSUTMS';
+$page_title = 'Science - Outcome Based Curriculum - SSSUTMS';
 $banner_title = 'Science';
-$banner_category = 'Download';
+$banner_category = 'Outcome Based Curriculum';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$curricula = array (
+  0 => 
+  array (
+    'category' => 'Under Graduate Programs',
+    'badge' => 'B.Sc.',
+    'filter' => 'ug',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'title' => 'B.Sc. (Mathematics)',
+        'file' => 'BSc_Mat.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_Mat.pdf',
+      ),
+      1 => 
+      array (
+        'title' => 'B.Sc. (Computer Science)',
+        'file' => 'BSc_CS.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_CS.pdf',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'category' => 'Post Graduate Programs',
+    'badge' => 'M.Sc.',
+    'filter' => 'pg',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'title' => 'M.Sc. (Chemistry)',
+        'file' => 'MSc_Che.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Che.pdf',
+      ),
+      1 => 
+      array (
+        'title' => 'M.Sc. (Computer Science)',
+        'file' => 'MSc_CS.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_CS.pdf',
+      ),
+      2 => 
+      array (
+        'title' => 'M.Sc. (Mathematics)',
+        'file' => 'MSc_Math.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Math.pdf',
+      ),
+      3 => 
+      array (
+        'title' => 'M.Sc. (Physics)',
+        'file' => 'MSc_Phy.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Phy.pdf',
+      ),
+    ),
+  ),
+);
 ?>
+
+<style>
+.sci-tab-btn {
+  background: #f1f5f9;
+  color: #0b2545;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sci-tab-btn:hover,
+.sci-tab-btn.active {
+  background: #0b2545;
+  color: #ffffff;
+  border-color: #0b2545;
+}
+
+.sci-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.sci-search-box input {
+  padding-left: 2.4rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.sci-search-box input:focus {
+  border-color: #0b2545;
+  box-shadow: 0 0 0 0.2rem rgba(11, 37, 69, 0.15);
+}
+
+.sci-search-box i {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.sci-table-wrapper {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sci-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.sci-table thead th {
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 16px;
+  border: none;
+  vertical-align: middle;
+}
+
+.sci-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.sci-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.sci-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sci-table td {
+  padding: 13px 16px;
+  font-size: 0.92rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.sci-course-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #e2e8f0;
+  color: #0b2545;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.sci-branch-name {
+  font-weight: 600;
+  color: #0b2545;
+}
+
+.sci-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0b2545;
+  color: #ffffff !important;
+  border: 1px solid #0b2545;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sci-download-btn:hover {
+  background: #134074;
+  border-color: #134074;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+}
+</style>
 
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
@@ -16,142 +205,113 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" align="center" style="margin-top:0cm;margin-right:
-0cm;margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;"><b><span style="font-size:14.5pt;
-line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;color:#666666;
-background:white;">SCIENCE<o:p></o:p></span></b></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><b><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">VISION<o:p></o:p></span></b></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><b><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-"><o:p>&nbsp;</o:p></span></b></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">“The Science envisions itself as a dynamic
-community of science and mathematics faculty and students engaged in innovative
-research and learning with global impact, recognizing our special role as a
-leader in this binational community.”<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><b><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">MISSION<o:p></o:p></span></b></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">“&nbsp;To recruit, inspire, and develop a new
-generation of scientists and mathematicians, dedicated to the highest
-principles of Science, and educated in the environmental, health and economic
-challenges of the border region.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp; To lead by example, promoting effective and
-self sustaining research programs, encouraging student participation, and
-providing a national forum for addressing the special problems of our region.<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;To work to educate all university students
-and the community at large, increasing the level of awareness of scientific
-issues, and&nbsp;providing a knowledge resource to citizens and government
-alike."<o:p></o:p></span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;</span></p><p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-"></span></p><div align="center">
-
-<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"  >
- <tbody><tr style="height:23.05pt">
-  <td valign="top" style="border-width: 1pt; border-color: windowtext; padding: 0cm 5.4pt; height: 23.05pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  "><b><span style="font-size:11.5pt;font-family:
-  &quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;background:white;">OUTCOME BASED
-  CURRICULUM</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:28.2pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 28.2pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_Mat.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.Sc. ( Mathematics)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:32.75pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 32.75pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BSc_CS.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">B.Sc. (
-  Computer Science)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:29.4pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 29.4pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Che.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M.Sc. ( Chemistry)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:27.5pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 27.5pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_CS.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M.Sc. (
-  Computer Science)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:24.95pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 24.95pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Math.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M.Sc. ( Mathematics)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:30.1pt">
-  <td valign="top" style="border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-top: none; padding: 0cm 5.4pt; height: 30.1pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size: 11.5pt; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Phy.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">M.S</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MSc_Phy.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">c. ( Physics)</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
-</tbody></table>
-
-</div>
+        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+          
+          <!-- Header Banner -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
+            <div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                <i class="fa fa-graduation-cap me-1"></i> Outcome Based Education (OBE)
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #002B5B;">FACULTY OF BASIC & APPLIED SCIENCES</h3>
+              <p class="text-muted small mb-0">Program Educational Objectives, Program Outcomes &amp; Course Curricula.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                <i class="fa fa-certificate me-1"></i> UGC Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Vision & Mission Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-left: 5px solid #002B5B !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-eye text-primary me-2"></i>VISION
+                </h5>
+                <p class="small text-secondary mb-0 lh-base">
+                  “The Science envisions itself as a dynamic community of science and mathematics faculty and students engaged in innovative research and learning with global impact, recognizing our special role as a leader in this binational community.”
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #fffbf0 0%, #fff6e6 100%); border-left: 5px solid #e67e23 !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-bullseye text-warning me-2"></i>MISSION
+                </h5>
+                <div class="small text-secondary mb-0 lh-base">
+                  <p class="mb-1"><strong>1.</strong> To recruit, inspire, and develop a new generation of scientists and mathematicians, dedicated to the highest principles of Science, and educated in the environmental, health and economic challenges of the border region.</p><p class="mb-1"><strong>2.</strong> To lead by example, promoting effective and self sustaining research programs, encouraging student participation, and providing a national forum for addressing the special problems of our region.</p><p class="mb-0"><strong>3.</strong> To work to educate all university students and to prepare them for global leadership.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls: Category Filter Tabs & Search -->
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+            <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
+              <button type="button" class="sci-tab-btn active" data-filter="all">All Programs (6)</button>
+              <button type="button" class="sci-tab-btn" data-filter="ug">B.Sc. (2)</button>
+              <button type="button" class="sci-tab-btn" data-filter="pg">M.Sc. (4)</button>
+
+            </div>
+            <div class="sci-search-box">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control obe-filter-input" placeholder="Search program or course...">
+            </div>
+          </div>
+
+          <!-- Curriculum Matrix Table -->
+          <div class="table-responsive sci-table-wrapper">
+            <table class="sci-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Course</th>
+                  <th>Program / Specialization</th>
+                  <th class="text-center" style="width: 150px;">Curriculum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $localPath = __DIR__ . '/../../assets/images/Files/Link/Curriculum/' . $item['file'];
+                    if (!empty($item['file']) && file_exists($localPath)) {
+                        $targetUrl = BASE_URL . 'assets/images/Files/Link/Curriculum/' . rawurlencode($item['file']);
+                    } elseif (!empty($item['url']) && $item['url'] !== '#') {
+                        $targetUrl = $item['url'];
+                    } else {
+                        $targetUrl = '#';
+                    }
+                ?>
+                <tr data-category="<?php echo $group['filter']; ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="sci-course-chip me-1"><?php echo $group['badge']; ?></span>
+                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
+                  </td>
+                  <td>
+                    <span class="sci-branch-name">
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="sci-download-btn">
+                      <i class="fa fa-file-pdf"></i> Download
+                    </a>
+                  </td>
+                </tr>
+                <?php 
+                    $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -163,5 +323,46 @@ Times New Roman&quot;;color:#666666;background:white;
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.obe-filter-input');
+  const filterButtons = document.querySelectorAll('#categoryFilters .sci-tab-btn');
+  const tableRows = document.querySelectorAll('.obe-table tbody tr');
+  
+  let currentFilter = 'all';
+
+  function filterTable() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    
+    tableRows.forEach(row => {
+      const rowCat = row.getAttribute('data-category');
+      const text = row.textContent.toLowerCase();
+      
+      const matchesCategory = (currentFilter === 'all' || rowCat === currentFilter);
+      const matchesSearch = (!query || text.includes(query));
+      
+      if (matchesCategory && matchesSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterTable);
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentFilter = this.getAttribute('data-filter');
+      filterTable();
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

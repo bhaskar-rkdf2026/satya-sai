@@ -1,14 +1,165 @@
 <?php
-$page_title = 'Management - SSSUTMS';
+$page_title = 'Management - Outcome Based Curriculum - SSSUTMS';
 $banner_title = 'Management';
-$banner_category = 'Download';
+$banner_category = 'Outcome Based Curriculum';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$curricula = [
+    [
+        'category' => 'Post Graduate Program',
+        'badge' => 'MBA',
+        'filter' => 'mba',
+        'items' => [
+            ['title' => 'Master of Business Administration (MBA)', 'file' => 'MBA.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MBA.pdf'],
+        ]
+    ],
+    [
+        'category' => 'Under Graduate Program',
+        'badge' => 'BBA',
+        'filter' => 'bba',
+        'items' => [
+            ['title' => 'Bachelor of Business Administration (BBA)', 'file' => 'BBA.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BBA.pdf'],
+        ]
+    ]
+];
 ?>
+
+<style>
+.mgmt-tab-btn {
+  background: #f1f5f9;
+  color: #0b2545;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.mgmt-tab-btn:hover,
+.mgmt-tab-btn.active {
+  background: #0b2545;
+  color: #ffffff;
+  border-color: #0b2545;
+}
+
+.mgmt-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.mgmt-search-box input {
+  padding-left: 2.4rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.mgmt-search-box input:focus {
+  border-color: #0b2545;
+  box-shadow: 0 0 0 0.2rem rgba(11, 37, 69, 0.15);
+}
+
+.mgmt-search-box i {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.mgmt-table-wrapper {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mgmt-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.mgmt-table thead th {
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 16px;
+  border: none;
+  vertical-align: middle;
+}
+
+.mgmt-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.mgmt-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.mgmt-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.mgmt-table td {
+  padding: 13px 16px;
+  font-size: 0.92rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.mgmt-course-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #e2e8f0;
+  color: #0b2545;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.mgmt-branch-name {
+  font-weight: 600;
+  color: #0b2545;
+}
+
+.mgmt-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0b2545;
+  color: #ffffff !important;
+  border: 1px solid #0b2545;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mgmt-download-btn:hover {
+  background: #134074;
+  border-color: #134074;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+}
+</style>
 
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
@@ -16,114 +167,112 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" align="center" style="margin-top:0cm;margin-right:
-0cm;margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;"><b><span style="font-size:12.5pt;
-line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;color:#666666;
-background:white;">MANAGEMENT<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><b><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">VISION<o:p></o:p></span></b></p>
-
-<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size:11.5pt;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;color:#666666;background:white;
-">“To be a world class school
-of Management Education focusing on excellence value and ethics”<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><b><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">MISSION<o:p></o:p></span></b></p>
-
-<p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><span style="font-size:11.5pt;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;color:#666666;background:white;
-">“To provide an effective
-learning and innovative environment for transforming management experience into
-professionally competent, sharp capable of adapting to the changing needs of
-the Industry and Society, value driven ethically sensitive reaching out to the
-weak &amp; less privilege.”<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p>
-
-<div align="center">
-
-<table class="MsoNormalTable" border="1" cellspacing="1" cellpadding="0"  style="width:375.0pt;">
- <tbody><tr>
-  <td style="padding:0cm 0cm 0cm 0cm">
-  <p class="MsoNormalCxSpMiddle" align="center" style="margin-top:0cm;margin-right:
-  0cm;margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;"><b><span style="font-size: 11.5pt; line-height: 115%; font-family: Verdana, sans-serif; background: white;">OUTCOME BASED CURRICULUM<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr>
-  <td style="padding:0cm 0cm 0cm 0cm">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;"><span style="font-size: 11.5pt; line-height: 115%; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MBA.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">MBA</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr>
-  <td style="padding:0cm 0cm 0cm 0cm">
-  <p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;"><span style="font-size: 11.5pt; line-height: 115%; font-family: Verdana, sans-serif; background: white;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BBA.pdf" target="_blank"><span style="color: rgb(102, 102, 102);">BBA</span></a><o:p></o:p></span></p>
-  </td>
- </tr>
-</tbody></table>
-
-</div>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:
-justify;"><span style="font-size:11.5pt;line-height:115%;
-font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;
-Times New Roman&quot;;color:#666666;background:white;
-"><o:p>&nbsp;</o:p></span></p>
+        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+          
+          <!-- Header Banner -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
+            <div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                <i class="fa fa-graduation-cap me-1"></i> Outcome Based Education (OBE)
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #002B5B;">FACULTY OF MANAGEMENT STUDIES</h3>
+              <p class="text-muted small mb-0">Program Educational Objectives, Program Outcomes &amp; Course Curricula.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                <i class="fa fa-certificate me-1"></i> AICTE &amp; UGC Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Vision & Mission Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-left: 5px solid #002B5B !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-eye text-primary me-2"></i>VISION
+                </h5>
+                <p class="small text-secondary mb-0 lh-base">
+                  “To be a world class school of Management Education focusing on excellence value and ethics”
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #fffbf0 0%, #fff6e6 100%); border-left: 5px solid #e67e23 !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-bullseye text-warning me-2"></i>MISSION
+                </h5>
+                <p class="small text-secondary mb-0 lh-base">
+                  “To provide an effective learning and innovative environment for transforming management experience into professionally competent, sharp capable of adapting to the changing needs of the Industry and Society, value driven ethically sensitive reaching out to the weak &amp; less privilege.”
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls: Category Filter Tabs & Search -->
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+            <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
+              <button type="button" class="mgmt-tab-btn active" data-filter="all">All Programs (2)</button>
+              <button type="button" class="mgmt-tab-btn" data-filter="mba">MBA (1)</button>
+              <button type="button" class="mgmt-tab-btn" data-filter="bba">BBA (1)</button>
+            </div>
+            <div class="mgmt-search-box">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control obe-filter-input" placeholder="Search program or course...">
+            </div>
+          </div>
+
+          <!-- Curriculum Matrix Table -->
+          <div class="table-responsive mgmt-table-wrapper">
+            <table class="mgmt-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Course</th>
+                  <th>Program / Specialization</th>
+                  <th class="text-center" style="width: 150px;">Curriculum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $localPath = __DIR__ . '/../../assets/images/Files/Link/Curriculum/' . $item['file'];
+                    if (!empty($item['file']) && file_exists($localPath)) {
+                        $targetUrl = BASE_URL . 'assets/images/Files/Link/Curriculum/' . rawurlencode($item['file']);
+                    } elseif (!empty($item['url']) && $item['url'] !== '#') {
+                        $targetUrl = $item['url'];
+                    } else {
+                        $targetUrl = '#';
+                    }
+                ?>
+                <tr data-category="<?php echo $group['filter']; ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="mgmt-course-chip me-1"><?php echo $group['badge']; ?></span>
+                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
+                  </td>
+                  <td>
+                    <span class="mgmt-branch-name">
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="mgmt-download-btn">
+                      <i class="fa fa-file-pdf"></i> Download
+                    </a>
+                  </td>
+                </tr>
+                <?php 
+                    $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -135,5 +284,46 @@ Times New Roman&quot;;color:#666666;background:white;
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.obe-filter-input');
+  const filterButtons = document.querySelectorAll('#categoryFilters .mgmt-tab-btn');
+  const tableRows = document.querySelectorAll('.obe-table tbody tr');
+  
+  let currentFilter = 'all';
+
+  function filterTable() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    
+    tableRows.forEach(row => {
+      const rowCat = row.getAttribute('data-category');
+      const text = row.textContent.toLowerCase();
+      
+      const matchesCategory = (currentFilter === 'all' || rowCat === currentFilter);
+      const matchesSearch = (!query || text.includes(query));
+      
+      if (matchesCategory && matchesSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterTable);
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentFilter = this.getAttribute('data-filter');
+      filterTable();
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,14 +1,245 @@
 <?php
-$page_title = 'Arts And Humanities - SSSUTMS';
-$banner_title = 'Arts And Humanities';
-$banner_category = 'Download';
+$page_title = 'Arts & Humanities - Outcome Based Curriculum - SSSUTMS';
+$banner_title = 'Arts & Humanities';
+$banner_category = 'Outcome Based Curriculum';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$curricula = array (
+  0 => 
+  array (
+    'category' => 'Under Graduate Programs',
+    'badge' => 'B.A.',
+    'filter' => 'ug',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'title' => 'B.A. (Plain)',
+        'file' => 'BA_P.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BA_P.pdf',
+      ),
+      1 => 
+      array (
+        'title' => 'B.A. (Computer Application)',
+        'file' => 'BA_CA.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BA_CA.pdf',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'category' => 'Post Graduate Programs',
+    'badge' => 'M.A.',
+    'filter' => 'pg',
+    'items' => 
+    array (
+      0 => 
+      array (
+        'title' => 'M.A. (English)',
+        'file' => 'MA_ENG.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_ENG.pdf',
+      ),
+      1 => 
+      array (
+        'title' => 'M.A. (Hindi)',
+        'file' => 'MA_HINDI.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_HINDI.pdf',
+      ),
+      2 => 
+      array (
+        'title' => 'M.A. (Hindi - w.e.f. 2021)',
+        'file' => 'Curr_MA_ Hindi_2021.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_%20Hindi_2021.pdf',
+      ),
+      3 => 
+      array (
+        'title' => 'M.A. (History)',
+        'file' => 'MA_HIS.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_HIS.pdf',
+      ),
+      4 => 
+      array (
+        'title' => 'M.A. (Economics)',
+        'file' => 'MA_ECO.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_ECO.pdf',
+      ),
+      5 => 
+      array (
+        'title' => 'M.A. (Economics - w.e.f. 2021)',
+        'file' => 'Curr_MA_Eco_2021.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_Eco_2021.pdf',
+      ),
+      6 => 
+      array (
+        'title' => 'M.A. (Sociology)',
+        'file' => 'MA_SOC.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_SOC.pdf',
+      ),
+      7 => 
+      array (
+        'title' => 'M.A. (Sociology - w.e.f. 2021)',
+        'file' => 'Curr_MA_ Soc_2021.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_%20Soc_2021.pdf',
+      ),
+      8 => 
+      array (
+        'title' => 'M.A. (Political Science)',
+        'file' => 'MA_POLS.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_POLS.pdf',
+      ),
+      9 => 
+      array (
+        'title' => 'M.A. (Political Science - w.e.f. 2021)',
+        'file' => 'Curr_MA_Pols_2021.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_Pols_2021.pdf',
+      ),
+      10 => 
+      array (
+        'title' => 'M.A. (Psychology)',
+        'file' => 'MA_PSY.pdf',
+        'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_PSY.pdf',
+      ),
+    ),
+  ),
+);
 ?>
+
+<style>
+.arts-tab-btn {
+  background: #f1f5f9;
+  color: #0b2545;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.arts-tab-btn:hover,
+.arts-tab-btn.active {
+  background: #0b2545;
+  color: #ffffff;
+  border-color: #0b2545;
+}
+
+.arts-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.arts-search-box input {
+  padding-left: 2.4rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.arts-search-box input:focus {
+  border-color: #0b2545;
+  box-shadow: 0 0 0 0.2rem rgba(11, 37, 69, 0.15);
+}
+
+.arts-search-box i {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.arts-table-wrapper {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.arts-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.arts-table thead th {
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 16px;
+  border: none;
+  vertical-align: middle;
+}
+
+.arts-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.arts-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.arts-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.arts-table td {
+  padding: 13px 16px;
+  font-size: 0.92rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.arts-course-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #e2e8f0;
+  color: #0b2545;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.arts-branch-name {
+  font-weight: 600;
+  color: #0b2545;
+}
+
+.arts-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0b2545;
+  color: #ffffff !important;
+  border: 1px solid #0b2545;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.arts-download-btn:hover {
+  background: #134074;
+  border-color: #134074;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+}
+</style>
 
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
@@ -16,172 +247,113 @@ require_once __DIR__ . '/../../includes/page-banner.php';
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            <p class="MsoNormalCxSpFirst" align="center" style="margin-top:0cm;margin-right:
-0cm;margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;"><b><span style="font-size:14.5pt;
-line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;color:#666666;
-background:white;">ART &amp; HUMANITIES<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size: 12pt; line-height: 115%; font-family: Arial, sans-serif;">&nbsp;</span><span style="font-size:11.5pt;line-height:115%;font-family:
-&quot;Verdana&quot;,&quot;sans-serif&quot;;Times New Roman&quot;;Times New Roman&quot;;color:#666666;background:white;"><o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><b><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">Vision:<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">To be develop the
-artistic sense and overall development of the student for all kinds of
-administrative activities .<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">&nbsp;<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><b><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">Mission:<o:p></o:p></span></b></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;">To be make the
-student master in the field of social studies in order to make them strong in
-administration and not only in teaching.<o:p></o:p></span></p>
-
-<p class="MsoNormalCxSpMiddle" style="margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:2.85pt;margin-bottom:.0001pt;"><span style="font-size:11.5pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;
-Times New Roman&quot;;Times New Roman&quot;;
-color:#666666;background:white;"><br></span></p><div align="center"><br></div><div align="center"><div align="center">
-
-<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"  style="width: 423.6pt;">
- <tbody><tr style="height:28.8pt">
-  <td  colspan="2" valign="top" style="width: 423.6pt; border-width: 1pt 1pt 2.25pt; border-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 28.8pt;">
-  <p class="MsoNormal" align="center" style="margin-top:0cm;margin-right:0cm;
-  margin-bottom:0cm;margin-left:2.85pt;margin-bottom:.0001pt;text-align:center;
-  line-height:normal"><b><span style="font-size:13.0pt;font-family:&quot;Cambria&quot;,&quot;serif&quot;;
-  Times New Roman&quot;;Times New Roman&quot;;
-  ">OUTCOME BASED CURRICULUM</span></b><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;Times New Roman&quot;;"><o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style="height:26.2pt">
-  <td  colspan="2" valign="top" style="width: 423.6pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 26.2pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BA_P.pdf" target="_blank"><span style="color: windowtext;">B.A.
-  (PLAIN)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:31.45pt">
-  <td  colspan="2" valign="top" style="width: 423.6pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 31.45pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BA_CA.pdf" target="_blank"><span style="color: windowtext;">B.A.
-  (COMPUTER APPLICATION)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:28.8pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 28.8pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  ">M.A. (ENGLISH)&nbsp; (w.e.f. 2021)<o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 28.8pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_ENG.pdf" target="_blank"><span style="color: windowtext;">M.A.
-  (ENGLISH)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:26.25pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 26.25pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_ Hindi_2021.pdf" target="_blank"><span style="color: windowtext;">M.A. (HINDI)</span></a><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_ Hindi_2021.pdf" target="_blank"><span style="color: windowtext;">&nbsp;(w.e.f. 2021)</span></a><o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 26.25pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_HINDI.pdf" target="_blank"><span style="color: windowtext;">M.A. (HINDI)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:24.3pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 24.3pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  ">M.A. (HISTORY)&nbsp;(w.e.f. 2021)<o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 24.3pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_HIS.pdf" target="_blank"><span style="color: windowtext;">M.A.
-  (HISTORY)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:28.85pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 28.85pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_Eco_2021.pdf" target="_blank"><span style="color: windowtext;">M.A. (ECONOMICS) (w.e.f. 2021)</span></a><o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 28.85pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_ECO.pdf" target="_blank"><span style="color: windowtext;">M.A.
-  (ECONOMICS)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:26.25pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 26.25pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_ Soc_2021.pdf" target="_blank"><span style="color: windowtext;">M.A. (SOCIOLOGY) (w.e.f. 2021)</span></a><o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 26.25pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_SOC.pdf" target="_blank"><span style="color: windowtext;">M.A.
-  (SOCIOLOGY)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:24.3pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; padding: 0cm 5.4pt; height: 24.3pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_MA_Pols_2021.pdf" target="_blank"><span style="color: windowtext;">M.A. (POLITICAL SCIENCE) (w.e.f. 2021)</span></a><o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); padding: 0cm 5.4pt; height: 24.3pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_POLS.pdf" target="_blank"><span style="color: windowtext;">M.A. (POLITICAL SCIENCE)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
- <tr style="height:21.75pt">
-  <td  valign="top" style="width: 225.15pt; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; border-right-color: rgb(75, 172, 198); border-bottom-color: rgb(75, 172, 198); border-left-color: rgb(75, 172, 198); border-top: none; background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 21.75pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  ">M.A. (PSYCHOLOGY)&nbsp;(w.e.f. 2021)<o:p></o:p></span></strong></p>
-  </td>
-  <td  valign="top" style="width: 7cm; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: rgb(75, 172, 198); border-right-width: 1pt; border-right-color: rgb(75, 172, 198); background: rgb(210, 234, 241); padding: 0cm 5.4pt; height: 21.75pt;">
-  <p class="MsoNormal" style="margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:2.85pt;margin-bottom:.0001pt;text-align:justify;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;
-  "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MA_PSY.pdf" target="_blank"><span style="color: windowtext;">M.A.
-  (PSYCHOLOGY)</span></a><o:p></o:p></span></strong></p>
-  </td>
- </tr>
-</tbody></table>
-
-</div>
-
-</div>
+        <div class="content-card shadow-sm border-0 rounded-4 bg-white p-4 mb-4">
+          
+          <!-- Header Banner -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
+            <div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                <i class="fa fa-graduation-cap me-1"></i> Outcome Based Education (OBE)
+              </span>
+              <h3 class="fw-bold mb-1" style="color: #002B5B;">FACULTY OF ARTS & HUMANITIES</h3>
+              <p class="text-muted small mb-0">Program Educational Objectives, Program Outcomes &amp; Course Curricula.</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                <i class="fa fa-certificate me-1"></i> UGC Approved
+              </span>
+            </div>
           </div>
+
+          <!-- Vision & Mission Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-left: 5px solid #002B5B !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-eye text-primary me-2"></i>VISION
+                </h5>
+                <p class="small text-secondary mb-0 lh-base">
+                  “To develop the artistic sense and overall development of the student for all kinds of administrative and creative activities.”
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #fffbf0 0%, #fff6e6 100%); border-left: 5px solid #e67e23 !important;">
+                <h5 class="fw-bold mb-2" style="color: #002B5B;">
+                  <i class="fa fa-bullseye text-warning me-2"></i>MISSION
+                </h5>
+                <div class="small text-secondary mb-0 lh-base">
+                  <p class="mb-0">“To make the student master in the field of social studies and humanities in order to make them strong in administration, research and teaching.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls: Category Filter Tabs & Search -->
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+            <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
+              <button type="button" class="arts-tab-btn active" data-filter="all">All Programs (13)</button>
+              <button type="button" class="arts-tab-btn" data-filter="ug">B.A. (2)</button>
+              <button type="button" class="arts-tab-btn" data-filter="pg">M.A. (11)</button>
+
+            </div>
+            <div class="arts-search-box">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control obe-filter-input" placeholder="Search program or course...">
+            </div>
+          </div>
+
+          <!-- Curriculum Matrix Table -->
+          <div class="table-responsive arts-table-wrapper">
+            <table class="arts-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Course</th>
+                  <th>Program / Specialization</th>
+                  <th class="text-center" style="width: 150px;">Curriculum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $localPath = __DIR__ . '/../../assets/images/Files/Link/Curriculum/' . $item['file'];
+                    if (!empty($item['file']) && file_exists($localPath)) {
+                        $targetUrl = BASE_URL . 'assets/images/Files/Link/Curriculum/' . rawurlencode($item['file']);
+                    } elseif (!empty($item['url']) && $item['url'] !== '#') {
+                        $targetUrl = $item['url'];
+                    } else {
+                        $targetUrl = '#';
+                    }
+                ?>
+                <tr data-category="<?php echo $group['filter']; ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="arts-course-chip me-1"><?php echo $group['badge']; ?></span>
+                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
+                  </td>
+                  <td>
+                    <span class="arts-branch-name">
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="arts-download-btn">
+                      <i class="fa fa-file-pdf"></i> Download
+                    </a>
+                  </td>
+                </tr>
+                <?php 
+                    $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -193,5 +365,46 @@ color:#666666;background:white;"><br></span></p><div align="center"><br></div><d
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.obe-filter-input');
+  const filterButtons = document.querySelectorAll('#categoryFilters .arts-tab-btn');
+  const tableRows = document.querySelectorAll('.obe-table tbody tr');
+  
+  let currentFilter = 'all';
+
+  function filterTable() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    
+    tableRows.forEach(row => {
+      const rowCat = row.getAttribute('data-category');
+      const text = row.textContent.toLowerCase();
+      
+      const matchesCategory = (currentFilter === 'all' || rowCat === currentFilter);
+      const matchesSearch = (!query || text.includes(query));
+      
+      if (matchesCategory && matchesSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterTable);
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentFilter = this.getAttribute('data-filter');
+      filterTable();
+    });
+  });
+});
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
