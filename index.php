@@ -654,43 +654,43 @@ $news_badge_colors = [
             <div class="resource-header-icon"><i class="fa fa-bolt"></i></div>
             <div class="resource-header-info">
               <h5>Quick Links</h5>
-              <span>Compliance, IQAC &amp; Rankings</span>
+              <span>Notifications, Rankings &amp; Results</span>
             </div>
           </div>
           <div class="resource-card-body">
-            <a href="https://www.aicte-india.org/feedback/index.php" target="_blank" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-comments"></i></span>
-              <span class="row-text">AICTE Student/Faculty Feedback</span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Notification%20exam%20dec2025/notificationentance.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-graduation-cap"></i></span>
+              <span class="row-text">Ph.D Entrance Examination 2026</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+            </a>
+            <a href="https://pmindiawebcast.nic.in/" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-landmark"></i></span>
+              <span class="row-text">नारी शक्ति वंदन सम्मेलन</span>
               <span class="row-arrow"><i class="fa fa-arrow-up-right-from-square"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Academic/NAAC/SSR.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-award"></i></span>
-              <span class="row-text">NAAC Self Study Report (SSR)</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/MBBS_FIRST_PROFESSIONAL_FEB-2026_17022026_0824.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-user-doctor"></i></span>
+              <span class="row-text">Supplementary Exam – Feb 2026 (MBBS First Prof)</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Academic/NIRF.php" class="resource-link-row">
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Draft-Admission_Notice_Sri_Satya_Sai_University_12092025_0417.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-building"></i></span>
+              <span class="row-text">B.Voc in Building &amp; Construction Tech Admission Notice</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>Research/NIRF.php" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-chart-line"></i></span>
               <span class="row-text">National Institutional Ranking (NIRF)</span>
               <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Academic/Committee/AntiRagging.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-shield-halved"></i></span>
-              <span class="row-text">Anti-Ragging Committee &amp; Helpline</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Appointment_Add_BHMS_PG_04102023_0923.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-user-tie"></i></span>
+              <span class="row-text">Appointment Notice (School of Homoeopathy)</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-hand-holding-heart"></i></span>
-              <span class="row-text">Grievance Redressal Mechanism</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>Academic/IQACCell.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-check-double"></i></span>
-              <span class="row-text">Internal Quality Assurance Cell (IQAC)</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>About/ApprovalsAndOrdinances/Approvals.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-file-contract"></i></span>
-              <span class="row-text">Statutory Approvals &amp; Ordinances</span>
+            <a href="<?php echo BASE_URL; ?>Examination/Results.php" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-square-poll-vertical"></i></span>
+              <span class="row-text">Examination Results Declared</span>
               <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
             </a>
           </div>
@@ -704,44 +704,44 @@ $news_badge_colors = [
             <div class="resource-header-icon"><i class="fa fa-circle-down"></i></div>
             <div class="resource-header-info">
               <h5>Download Links</h5>
-              <span>Forms, Syllabi &amp; Registrations</span>
+              <span>Examination Notifications &amp; Timetables</span>
             </div>
           </div>
           <div class="resource-card-body">
-            <a href="<?php echo BASE_URL; ?>Download/OutcomeBasedCurriculum/Engineering.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-book-bookmark"></i></span>
-              <span class="row-text">Curriculum Schemes &amp; Course Syllabus</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="resource-link-row">
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2465_Whatsapp_Scan_17_August_2026.pdf" target="_blank" class="resource-link-row">
               <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
-              <span class="row-text">Migration Certificate Application Form</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+              <span class="row-text">Supplementary Exam Notification (D. Pharma &amp; BPES)</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-file-lines"></i></span>
-              <span class="row-text">Duplicate Marksheet Request Form</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2464_paramedical_notification.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
+              <span class="row-text">Examination Notification (Paramedical Courses) Sep 2026</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Download/Forms.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-graduation-cap"></i></span>
-              <span class="row-text">Provisional Degree Application Form</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2463_Whatsapp_Scan_7_August_2026.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
+              <span class="row-text">First Professional Supplementary BAMS (2024–25 Batch)</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-id-card"></i></span>
-              <span class="row-text">Online Admission Registration (E-Pravesh)</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2462_Whatsapp_Scan_7_August_2026.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
+              <span class="row-text">Examination Notification BAMS II Professional</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Examination/EntranceExamAlert.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-pen-to-square"></i></span>
-              <span class="row-text">Common Entrance Exam (CEET 2026) Form</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/SUPPLEMENTARY_EXAM_BHMS_2ND_YEAR.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-clock"></i></span>
+              <span class="row-text">Supplementary Examination BHMS Aug–2026 (Time Table)</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
-            <a href="<?php echo BASE_URL; ?>Academic/PHD.php" class="resource-link-row">
-              <span class="row-icon"><i class="fa fa-microscope"></i></span>
-              <span class="row-text">Ph.D. Coursework Syllabus &amp; Guidelines</span>
-              <span class="row-arrow"><i class="fa fa-chevron-right"></i></span>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2460_Adobe_Scan_24_Jul_2026.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
+              <span class="row-text">Exam Notification BAMS I Professional Supp. Exam</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
+            </a>
+            <a href="<?php echo BASE_URL; ?>assets/images/Files/Widget/Download/2459_Adobe_Scan_24_Jul_2026.pdf" target="_blank" class="resource-link-row">
+              <span class="row-icon"><i class="fa fa-file-arrow-down"></i></span>
+              <span class="row-text">Exam Notification BHMS II Year Supp. Exam</span>
+              <span class="row-arrow"><i class="fa fa-file-pdf text-danger"></i></span>
             </a>
           </div>
         </div>
