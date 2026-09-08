@@ -153,8 +153,8 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <!-- Finance Officer Image -->
               <div class="col-md-5 col-lg-4 text-center">
                 <div class="fo-img-container mb-3">
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/principal_dummy_male.jpg" target="_blank" rel="noopener" title="Click to view full image">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/principal_dummy_male.jpg" alt="Mr. Vimal Nath - Chief Finance & Account Officer, SSSUTMS" class="img-fluid" />
+                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/finance_officer_vimal_nath.png" target="_blank" rel="noopener" title="Click to view full image">
+                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/finance_officer_vimal_nath.png" alt="Mr. Vimal Nath - Chief Finance & Account Officer, SSSUTMS" class="img-fluid" />
                   </a>
                 </div>
                 <span class="fo-role-badge">
