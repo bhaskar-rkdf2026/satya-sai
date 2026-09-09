@@ -1,6 +1,6 @@
 <?php
-$page_title = 'Forms - SSSUTMS';
-$banner_title = 'Forms';
+$page_title = 'Download Forms - SSSUTMS';
+$banner_title = 'University Downloadable Forms';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
@@ -10,202 +10,309 @@ require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
+<style>
+.syl-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.syl-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 1.25rem 1.75rem;
+  position: relative;
+}
+.syl-card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.syl-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+}
+.syl-card-body {
+  padding: 1.75rem;
+}
+.syl-table {
+  width: 100%;
+  margin-bottom: 0;
+  vertical-align: middle;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.syl-table th {
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 18px;
+  border-top: none;
+  border-bottom: 2px solid #cbd5e1;
+}
+.syl-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+.syl-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+.syl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0b2545;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
+  border: 1px solid #0b2545;
+  white-space: nowrap;
+}
+.syl-btn:hover {
+  background: #d97706;
+  border-color: #d97706;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+}
+</style>
+
 <section class="subpage-main-section py-4 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
+        <div class="syl-card">
+          <div class="syl-card-header">
+            <h2 class="syl-card-title">
+              <i class="fa fa-file-invoice text-warning"></i>
+              Download Forms
+            </h2>
+          </div>
+          
+          <div class="syl-card-body">
             
-<p class="MsoNormal" style="  line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></p>
-<div align="center">
-<table class="MsoTableMediumShading1Accent1" style="width: 352.5pt; border-collapse: collapse; border: none;     " border="1"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style=" ">
-<td style="border: solid windowtext 1.0pt;  background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">S.No.</span></strong></p>
-</td>
-<td style="width: 213.5pt; border: solid windowtext 1.0pt; border-left: none;   background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Form</span></strong></p>
-</td>
-<td style="width: 99.2pt; border: solid windowtext 1.0pt; border-left: none;   background: #4F81BD;  padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Times New Roman','serif';  ">Link</span></strong></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">1.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/af1.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Registration Form</span></a></span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/af1.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">2.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/University_Enrollment.PDF" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Enrolment Form</span></a></span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/University_Enrollment.PDF" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">3.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/HOSTEL.PDF" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Hostel Admission Form</span></a></span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/HOSTEL.PDF" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">4.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Entrance Examination Form</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/ENTRANCEFORM.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">5.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Exam Form</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/EXAMFORM.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">6.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Revaluation forms</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/REVAL.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">7.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Degree Form&nbsp;(in English)</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/DEGREE_Eng.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">8.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Degree Form&nbsp;(in Hindi)</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/DEGREE_FORM_R.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">9.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Migration Form&nbsp;(In English)</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/MIGRATION_Eng.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">10.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Migration Form&nbsp;(In Hindi)</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/MIGRATION FORM.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">11.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Alumni Form</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/alumni-form.PDF" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">12.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Transfer Certificate Form</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/TC.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">13.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Registration In Higher Semester/Year</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/Registration_higher_Sem_year_form.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style="">
-<td style="border: solid windowtext 1.0pt; border-top: none;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">14.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">Transcript form</span></strong></em></p>
-</td>
-<td style="width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Forms/Transcript.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-<tr style=" ">
-<td style="border: solid windowtext 1.0pt; border-top: none;   background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    ">15.</span></strong></em></p>
-</td>
-<td style="width: 213.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;" >
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><strong><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Download/Marksheet_Correction_Form.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Mark-sheet Correction Form</span></a></span></strong></em></p>
-</td>
-<td style="border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt;    background: #D3DFEE;   padding: 0cm 5.4pt 0cm 5.4pt;">
-<p class="MsoNormal" style=" margin-bottom: .0001pt; line-height: 200%; "><em><span style="font-size: 13.0pt; line-height: 200%; font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Download/Marksheet_Correction_Form.pdf" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none; text-underline: none;">Download</span></a></span></em></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+            <!-- Live Search Filter -->
+            <div class="row g-3 align-items-center mb-4 p-3 bg-white rounded-3 border shadow-sm">
+              <div class="col-md-7">
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0"><i class="fa fa-search text-muted"></i></span>
+                  <input type="text" id="tableSearchInput" class="form-control border-start-0" placeholder="Search forms by name, purpose, keyword..." onkeyup="filterTable()">
+                  <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()" title="Clear search"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="col-md-5 text-md-end text-muted small">
+                <span id="resultsCount">Showing all 15 forms</span>
+              </div>
+            </div>
 
-<p></p>
-<div align="center">&nbsp;</div>
-<p></p>
+            <div class="table-responsive rounded-3 border mb-4">
+              <table class="syl-table" id="formsTable">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;" class="text-center">S.No.</th>
+                    <th>Form Description / Title</th>
+                    <th style="width: 140px;" class="text-center">Category</th>
+                    <th style="width: 180px;" class="text-center">Download Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">01</td>
+                    <td class="fw-bold text-dark">Application Form (AF-1)</td>
+                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Admission</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/af1.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">02</td>
+                    <td class="fw-bold text-dark">University Enrollment Form</td>
+                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Enrollment</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/University_Enrollment.PDF" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">03</td>
+                    <td class="fw-bold text-dark">Hostel Accommodation Form</td>
+                    <td class="text-center"><span class="badge bg-info text-dark px-2 py-1">Campus</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/HOSTEL.PDF" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">04</td>
+                    <td class="fw-bold text-dark">Entrance Examination Form</td>
+                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Admission</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/ENTRANCEFORM.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">05</td>
+                    <td class="fw-bold text-dark">University Examination Form</td>
+                    <td class="text-center"><span class="badge bg-success px-2 py-1">Examination</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/EXAMFORM.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">06</td>
+                    <td class="fw-bold text-dark">Revaluation &amp; Retotalling Form</td>
+                    <td class="text-center"><span class="badge bg-success px-2 py-1">Examination</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/REVAL.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">07</td>
+                    <td class="fw-bold text-dark">Degree Certificate Application Form (English)</td>
+                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/DEGREE_Eng.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">08</td>
+                    <td class="fw-bold text-dark">Degree Certificate Application Form (Hindi - उपाधि आवेदन)</td>
+                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/DEGREE_FORM_R.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">09</td>
+                    <td class="fw-bold text-dark">Migration Certificate Application Form (English)</td>
+                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/MIGRATION_Eng.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">10</td>
+                    <td class="fw-bold text-dark">Migration Certificate Application Form (Hindi - प्रव्रजन प्रमाण-पत्र)</td>
+                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/MIGRATION FORM.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">11</td>
+                    <td class="fw-bold text-dark">Alumni Membership &amp; Registration Form</td>
+                    <td class="text-center"><span class="badge bg-info text-dark px-2 py-1">Alumni</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/alumni-form.PDF" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">12</td>
+                    <td class="fw-bold text-dark">Transfer Certificate (TC) Application Form</td>
+                    <td class="text-center"><span class="badge bg-secondary px-2 py-1">General</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/TC.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">13</td>
+                    <td class="fw-bold text-dark">Registration in Higher Semester / Year Form</td>
+                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Academic</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/Registration_higher_Sem_year_form.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">14</td>
+                    <td class="fw-bold text-dark">Official Academic Transcript Request Form</td>
+                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Transcript</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/Transcript.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-center fw-bold text-secondary">15</td>
+                    <td class="fw-bold text-dark">Marksheet Correction / Duplicate Marksheet Form</td>
+                    <td class="text-center"><span class="badge bg-danger px-2 py-1">Correction</span></td>
+                    <td class="text-center">
+                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Download/Marksheet_Correction_Form.pdf" target="_blank" rel="noopener" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div id="noResultsMessage" class="alert alert-warning text-center d-none my-4">
+              <i class="fa fa-search me-2"></i> No matching forms found. Please try a different search term.
+            </div>
+
           </div>
         </div>
       </div>
@@ -218,5 +325,49 @@ require_once __DIR__ . '/../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+function filterTable() {
+  const query = document.getElementById('tableSearchInput').value.toLowerCase().trim();
+  const rows = document.querySelectorAll('#formsTable tbody tr');
+  let visibleCount = 0;
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    if (text.includes(query)) {
+      row.style.display = '';
+      visibleCount++;
+    } else {
+      row.style.display = 'none';
+    }
+  });
+
+  const counter = document.getElementById('resultsCount');
+  const noResults = document.getElementById('noResultsMessage');
+
+  if (query === '') {
+    counter.textContent = 'Showing all 15 forms';
+    if (noResults) noResults.classList.add('d-none');
+  } else {
+    counter.textContent = `Showing ${visibleCount} form${visibleCount === 1 ? '' : 's'}`;
+    if (noResults) {
+      if (visibleCount === 0) {
+        noResults.classList.remove('d-none');
+      } else {
+        noResults.classList.add('d-none');
+      }
+    }
+  }
+}
+
+function clearSearch() {
+  const input = document.getElementById('tableSearchInput');
+  if (input) {
+    input.value = '';
+    filterTable();
+    input.focus();
+  }
+}
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

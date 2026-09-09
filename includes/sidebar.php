@@ -114,7 +114,9 @@ $sidebar_menus = [
             'Alumni Association' => 'Download/Alumni.php',
             'Right to Information (RTI)' => 'Download/RTI.php',
             'Barrier Free Environment' => 'Download/Barrier_Free_Environment.php',
-            'University Events' => 'EVENTS.php'
+            'University Events' => 'Download/EVENTS.php',
+            'Official Announcements' => 'Download/Announcements.php',
+            'NBA-DCS Reports' => 'Download/NBADCS.php'
         ]
     ]
 ];

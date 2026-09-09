@@ -1,7 +1,7 @@
 <?php
-$page_title = 'MCA - SSSUTMS';
+$page_title = 'Faculty of Computer Applications (MCA) Syllabus - SSSUTMS';
 $banner_title = 'MCA';
-$banner_category = 'Download';
+$banner_category = 'Syllabus';
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../includes/header.php';
@@ -10,118 +10,461 @@ require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 ?>
 
-<section class="subpage-main-section py-4 bg-light">
-  <div class="container-fluid px-lg-5">
-    <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+<style>
+  .syl-page-container {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .syl-header-banner {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    color: #ffffff;
+    padding: 1.75rem 2rem;
+    position: relative;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(11, 37, 69, 0.15);
+  }
+  .syl-header-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+  }
+  .syl-header-badge {
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+  }
+
+  .syl-search-box {
+    position: relative;
+    max-width: 460px;
+    width: 100%;
+  }
+  .syl-search-box input {
+    padding-left: 2.75rem;
+    padding-right: 2.5rem;
+    height: 44px;
+    border-radius: 50px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  .syl-search-box input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.12);
+  }
+  .syl-search-box .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  .syl-search-box .clear-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none;
+    padding: 0;
+  }
+  .syl-search-box .clear-btn:hover {
+    color: #0b2545;
+  }
+
+  .syl-quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .syl-quick-pill {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .syl-quick-pill:hover,
+  .syl-quick-pill.active {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    transform: translateY(-1px);
+  }
+
+  .syl-table-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+  }
+  .syl-table-card:hover {
+    box-shadow: 0 6px 20px rgba(11, 37, 69, 0.08);
+  }
+  .syl-card-header {
+    background: linear-gradient(90deg, #f8fafc 0%, #edf2f7 100%);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .syl-card-header h3 {
+    margin: 0;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #0b2545;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .syl-card-badge {
+    background: #0b2545;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .syl-table-wrap {
+    overflow-x: auto;
+  }
+  .syl-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .syl-table th {
+    background: #f8fafc;
+    color: #0b2545;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.5px;
+    padding: 12px 14px;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .syl-table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    text-align: center;
+  }
+  .syl-table tbody tr:hover td {
+    background-color: rgba(245, 158, 11, 0.04);
+  }
+
+  .syl-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 16px;
+    background: #0b2545;
+    color: #ffffff !important;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: 0 2px 5px rgba(11, 37, 69, 0.18);
+    white-space: nowrap;
+  }
+  .syl-btn:hover {
+    background: #d97706;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+  }
+
+  .syl-empty-state {
+    display: none;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px dashed #cbd5e1;
+    margin-bottom: 2rem;
+  }
+  .syl-empty-state i {
+    font-size: 2.5rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Main Content Column (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="content-card">
-          <div class="content-card-body">
-            
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal; " align="center"><strong><u><span style="font-size: 15.5pt; font-family: 'Arial','sans-serif';  color: #b56308; ">SYLLABUS</span></u></strong><u></u></p>
 
-<table class="table table-bordered table-hover align-middle" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: #ffffff; margin-bottom: 10px; color: #000000; font-family: 'Open Sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 500; letter-spacing: normal; text-align: start; text-transform: none; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; width: 827px; height: 291px; border-style: double; margin-left: auto; margin-right: auto;" border="1.5">
-<tbody style="box-sizing: border-box;">
-<tr style="box-sizing: border-box; height: 22.7px;">
-<td style="box-sizing: border-box; padding: 0px; height: 90.8px; width: 427.8px;" rowspan="4">
-<p style="box-sizing: border-box; margin: 0px 0px 10px; text-align: center;"><strong style="box-sizing: border-box; font-weight: bold;"><span style="box-sizing: border-box; font-size: 12pt;">&nbsp; MCA&nbsp; (Master in Computer Application)<br style="box-sizing: border-box;" /></span></strong></p>
-<p style="box-sizing: border-box; margin: 0px 0px 10px; text-align: center;"><strong style="box-sizing: border-box; font-weight: bold;"><span style="box-sizing: border-box; font-size: 12pt;">SYLLABUS&nbsp; 2023-24</span></strong></p>
-</td>
-<td style="box-sizing: border-box; padding: 0px; width: 398.2px; height: 22.7px; text-align: center;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/MCA 2024/MCA I SEM SYLLABUS 2023-24.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong style="box-sizing: border-box; font-weight: bold;"><span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: windowtext;">First Semester</span></span></strong></span></a></td>
-</tr>
-<tr style="box-sizing: border-box; height: 22.7px;">
-<td style="box-sizing: border-box; padding: 0px; width: 398.2px; height: 22.7px; text-align: center;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/MCA 2024/MCA_II_SEM SYLLABUS 2023-24.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong style="box-sizing: border-box; font-weight: bold;"><span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: windowtext;">Second Semester</span></span></strong></span></a></td>
-</tr>
-<tr style="box-sizing: border-box; height: 22.7px;">
-<td style="box-sizing: border-box; padding: 0px; width: 398.2px; height: 22.7px; text-align: center;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/MCA 2024/MCA_III_SEM SYLLABUS 2023-24.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong style="box-sizing: border-box; font-weight: bold;">Third Semester</strong></span></a></td>
-</tr>
-<tr style="box-sizing: border-box; height: 22.7px;">
-<td style="box-sizing: border-box; padding: 0px; width: 398.2px; height: 22.7px; text-align: center;"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/MCA 2024/MCA IV SEM SYLLABUS 2023-24.pdf" target="_blank" rel="noopener"><span style="font-size: 14pt;"><strong style="box-sizing: border-box; font-weight: bold;">Fourth Semester</strong></span></a></td>
-</tr>
-</tbody>
-</table>
-
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12pt; font-family: 'Times New Roman', 'serif';"><br /><!-- [if !supportLineBreakNewLine]--><br /><!--[endif]--></span></p>
-<table class="MsoNormalTable" style="width: 622.05pt;" border="0"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 42.4pt;">
-<td style="width: 282.95pt; border-width: 1pt; border-color: #4bacc6; padding: 0cm 5.4pt; height: 42.4pt;" rowspan="4" valign="top" nowrap="nowrap" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">MCA(Master in Computer Application)</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">2 Year Course</span></strong></p>
-</td>
-<td style="width: 339.1pt; border-top-width: 1pt; border-top-color: #4bacc6; border-left: none; border-bottom-width: 2.25pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 42.4pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/MCA2yr_I_SYLLABUS.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">First Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 34.1pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 34.1pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/MCA2yr_II_SYLLABUS.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Second Semester</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 26.5pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 26.5pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS2021/SY_MCA_III_2021.pdf" target="_blank" rel="noopener">Third&nbsp;Semester </a></p>
-</td>
-</tr>
-<tr style="  height: 34.45pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 34.45pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS2021/SY_MCA_IV_2021.pdf" target="_blank" rel="noopener">Fourth Semester </a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style=" line-height: normal;"><strong><span style="font-size: 12pt; font-family: Arial, 'sans-serif';">&nbsp;</span></strong></p>
-<table class="MsoNormalTable" style="width: 622.05pt;" border="0"  cellspacing="0" cellpadding="0">
-<tbody>
-<tr style="  height: 34.6pt;">
-<td style="width: 282.95pt; border-width: 1pt; border-color: #4bacc6; padding: 0cm 5.4pt; height: 34.6pt;" rowspan="6" valign="top" nowrap="nowrap" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">&nbsp;</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">MCA(Master in Computer Application)</span></strong></p>
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';  ">3 Year Course</span></strong></p>
-</td>
-<td style="width: 339.1pt; border-top-width: 1pt; border-top-color: #4bacc6; border-left: none; border-bottom-width: 2.25pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 34.6pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SY_MCA_I.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">First Semester Syllabus</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 27.3pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 27.3pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/Syllabus II sem/SY_MCA_II.docx"><span style="color: windowtext;">Second Semester Syllabus</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 27.3pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 27.3pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SyllabusIIIsem/SYMCA_IIIwef2017.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Third&nbsp;Semester Syllabus</span></a></span></strong><strong><span style="font-family: 'Calibri','sans-serif';   ">&nbsp; </span></strong><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SyllabusIIIsem/SYMCA_IIIwef2017.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">(</span></a>Old Scheme)</span></strong></p>
-<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/SyllabusIIIsem/Syllabus2015/SYNMCA_III.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Third&nbsp;Semester Syllabus</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 27.3pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 27.3pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/syllsbus_iv_sem/mca_iv.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Fourth Semester Syllabus</span></a></span></strong></p>
-</td>
-</tr>
-<tr style=" height: 27.3pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; padding: 0cm 5.4pt; height: 27.3pt;" valign="top" >
-<p class="MsoNormal" style="text-align: center; line-height: normal; margin: 0cm 0cm .0001pt 2.85pt;" align="center"><strong><span style="font-family: 'Calibri','sans-serif';    "><a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/SYLLABUS/BEVSEMSY/MCAVSY.pdf" target="_blank" rel="noopener"><span style="color: windowtext;">Fifth Semester Syllabus</span></a></span></strong></p>
-</td>
-</tr>
-<tr style="  height: 27.3pt;">
-<td style="width: 339.1pt; border-top: none; border-left: none; border-bottom-width: 1pt; border-bottom-color: #4bacc6; border-right-width: 1pt; border-right-color: #4bacc6; background: #d2eaf1; padding: 0cm 5.4pt; height: 27.3pt;" valign="top" >&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal" style=" line-height: normal;"><span style="font-size: 10.5pt; font-family: Arial, 'sans-serif';">&nbsp;</span></p>
-<p class="MsoNormal" style=" line-height: normal;"><span style="font-size: 10.5pt; font-family: Arial, 'sans-serif';">&nbsp;</span></p>
-<p class="MsoNormal"><br /><br /></p>
+        <!-- Header Banner -->
+        <div class="syl-header-banner">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <span class="syl-header-badge mb-2">
+                <i class="fa fa-laptop-code"></i> Computer Applications
+              </span>
+              <h2 class="h3 mb-1 text-white fw-bold">Master of Computer Applications (MCA)</h2>
+              <p class="mb-0 text-white-50 small">MCA 2-Year (w.e.f. 2023-24 & 2020-21) and Traditional 3-Year Syllabus Schemes</p>
+            </div>
+            <div class="text-end">
+              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">
+                <i class="fa fa-file-pdf"></i> 14 Verified Syllabi
+              </span>
+            </div>
           </div>
         </div>
+
+        <!-- Controls: Search & Live Info -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <div class="syl-search-box">
+            <i class="fa fa-search search-icon"></i>
+            <input type="text" id="sylSearch" class="form-control" placeholder="Search MCA scheme or semester (e.g. 2024, 2-Year, III Sem)...">
+            <button class="clear-btn" id="sylClearSearch" title="Clear search">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+          <div class="text-muted small">
+            Showing <span id="sylCount" class="fw-bold text-dark">3</span> Schemes
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="syl-quick-nav">
+          <a href="#mca-2024" class="syl-quick-pill"><i class="fa fa-star text-warning"></i> MCA 2-Yr (w.e.f. 2023-24)</a>
+          <a href="#mca-2020" class="syl-quick-pill"><i class="fa fa-code-branch"></i> MCA 2-Yr (w.e.f. 2020-21)</a>
+          <a href="#mca-3yr" class="syl-quick-pill"><i class="fa fa-history"></i> MCA 3-Yr Scheme</a>
+        </div>
+
+        <!-- Empty State -->
+        <div class="syl-empty-state" id="sylEmptyState">
+          <i class="fa fa-folder-open"></i>
+          <h5 class="text-dark fw-bold">No Syllabus Found</h5>
+          <p class="text-muted mb-0">No syllabus matches your search query. Try searching for a different keyword or semester.</p>
+        </div>
+
+        <!-- Table 1: MCA 2-Year (w.e.f. 2023-24) -->
+        <div class="syl-table-card" id="mca-2024">
+          <div class="syl-card-header">
+            <h3>
+              <i class="fa fa-code text-primary"></i>
+              <span>MCA 2-Year Program (w.e.f. Academic Session 2023-24)</span>
+            </h3>
+            <span class="syl-card-badge">Latest Curriculum</span>
+          </div>
+          <div class="syl-table-wrap">
+            <table class="syl-table table">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">S.No.</th>
+                  <th style="text-align: left;">Program Name</th>
+                  <th>I Sem</th>
+                  <th>II Sem</th>
+                  <th>III Sem</th>
+                  <th>IV Sem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="syl-row">
+                  <td class="fw-bold text-muted">1</td>
+                  <td style="text-align: left;">
+                    <div class="fw-bold text-dark">Master of Computer Applications (MCA)</div>
+                    <div class="text-muted small">2-Year Degree Course (w.e.f. 2023-24)</div>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/MCA 2024/MCA I SEM SYLLABUS 2023-24.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> I Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/MCA 2024/MCA_II_SEM SYLLABUS 2023-24.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> II Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/MCA 2024/MCA_III_SEM SYLLABUS 2023-24.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> III Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/MCA 2024/MCA IV SEM SYLLABUS 2023-24.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> IV Sem
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Table 2: MCA 2-Year (w.e.f. 2020-21) -->
+        <div class="syl-table-card" id="mca-2020">
+          <div class="syl-card-header">
+            <h3>
+              <i class="fa fa-laptop-code text-primary"></i>
+              <span>MCA 2-Year Program (w.e.f. Academic Session 2020-21)</span>
+            </h3>
+            <span class="syl-card-badge">2-Year CBCS Scheme</span>
+          </div>
+          <div class="syl-table-wrap">
+            <table class="syl-table table">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">S.No.</th>
+                  <th style="text-align: left;">Program Name</th>
+                  <th>I Sem</th>
+                  <th>II Sem</th>
+                  <th>III Sem</th>
+                  <th>IV Sem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="syl-row">
+                  <td class="fw-bold text-muted">1</td>
+                  <td style="text-align: left;">
+                    <div class="fw-bold text-dark">Master of Computer Applications (MCA)</div>
+                    <div class="text-muted small">2-Year Degree Course (w.e.f. 2020-21)</div>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/MCA2yr_I_SYLLABUS.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> I Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/MCA2yr_II_SYLLABUS.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> II Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS2021/SY_MCA_III_2021.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> III Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS2021/SY_MCA_IV_2021.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> IV Sem
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Table 3: MCA 3-Year Scheme -->
+        <div class="syl-table-card" id="mca-3yr">
+          <div class="syl-card-header">
+            <h3>
+              <i class="fa fa-history text-secondary"></i>
+              <span>MCA 3-Year Traditional Scheme</span>
+            </h3>
+            <span class="syl-card-badge">3-Year Program</span>
+          </div>
+          <div class="syl-table-wrap">
+            <table class="syl-table table">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">S.No.</th>
+                  <th style="text-align: left;">Program Name</th>
+                  <th>I Sem</th>
+                  <th>II Sem</th>
+                  <th>III Sem</th>
+                  <th>IV Sem</th>
+                  <th>V Sem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="syl-row">
+                  <td class="fw-bold text-muted">1</td>
+                  <td style="text-align: left;">
+                    <div class="fw-bold text-dark">MCA (3-Year Traditional Curriculum)</div>
+                    <div class="text-muted small">Semesters I to V Syllabi</div>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SY_MCA_I.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> I Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/Syllabus II sem/SY_MCA_II.docx'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-word"></i> II Sem
+                    </a>
+                  </td>
+                  <td>
+                    <div class="d-flex flex-column gap-2">
+                      <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SyllabusIIIsem/SYMCA_IIIwef2017.pdf'); ?>" target="_blank" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> III (2017)
+                      </a>
+                      <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SyllabusIIIsem/Syllabus2015/SYNMCA_III.pdf'); ?>" target="_blank" class="syl-btn">
+                        <i class="fa fa-file-pdf"></i> III (2015)
+                      </a>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/syllsbus_iv_sem/mca_iv.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> IV Sem
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BEVSEMSY/MCAVSY.pdf'); ?>" target="_blank" class="syl-btn">
+                      <i class="fa fa-file-pdf"></i> V Sem
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
 
       <!-- Sticky Category Sidebar (Right) -->
@@ -132,5 +475,54 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('sylSearch');
+    const clearBtn = document.getElementById('sylClearSearch');
+    const rows = document.querySelectorAll('.syl-row');
+    const emptyState = document.getElementById('sylEmptyState');
+    const countDisplay = document.getElementById('sylCount');
+
+    function filterTable() {
+      const q = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      if (q.length > 0) {
+        clearBtn.style.display = 'block';
+      } else {
+        clearBtn.style.display = 'none';
+      }
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(q)) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      countDisplay.textContent = visibleCount;
+
+      // Handle card empty visibility
+      document.querySelectorAll('.syl-table-card').forEach(card => {
+        const cardRows = card.querySelectorAll('.syl-row');
+        const hasVisible = Array.from(cardRows).some(r => r.style.display !== 'none');
+        card.style.display = hasVisible ? '' : 'none';
+      });
+
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterTable);
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      filterTable();
+      searchInput.focus();
+    });
+  });
+</script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

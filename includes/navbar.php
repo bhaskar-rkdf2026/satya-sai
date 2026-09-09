@@ -354,8 +354,8 @@
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Download/Alumni.php">Alumni</a></li>
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Download/RTI.php">RTI</a></li>
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Download/Barrier_Free_Environment.php">Barrier Free Environment</a></li>
-            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>EVENTS.php">EVENTS</a></li>
-            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Announcements.php">Announcements</a></li>
+            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Download/EVENTS.php">EVENTS</a></li>
+            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Download/Announcements.php">Announcements</a></li>
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Download/NBADCS.php">NBADCS</a></li>
           </ul>
         </li>

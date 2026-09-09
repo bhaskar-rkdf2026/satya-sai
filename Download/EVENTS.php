@@ -1,6 +1,6 @@
 <?php
-$page_title = 'University Events - SSSUTMS';
-$banner_title = 'University Events';
+$page_title = 'Events & Celebrations - SSSUTMS';
+$banner_title = 'University Events & Celebrations';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
@@ -11,149 +11,105 @@ require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
 <style>
-  .events-main-card {
-    background: #ffffff;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.06);
-    transition: all 0.3s ease;
-  }
-  .events-card-header {
-    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-    padding: 20px 28px;
-    position: relative;
-  }
-  .events-gold-line {
-    height: 3px;
-    background: linear-gradient(90deg, #f3752c 0%, #f6a935 50%, #f3752c 100%);
-    width: 100%;
-  }
-  .event-item-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-bottom: 24px;
-  }
-  .event-item-card:hover {
-    border-color: #cbd5e1;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(11, 37, 69, 0.08);
-  }
-  .event-date-badge {
-    background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%);
-    color: #ffffff;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 8px;
-  }
-  .event-title {
-    color: #0b2545;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    line-height: 1.4;
-    margin-bottom: 8px;
-  }
-  .event-media-container {
-    background: #f8fafc;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-  }
-  .event-media-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  .event-item-card:hover .event-media-container img {
-    transform: scale(1.04);
-  }
-  .event-icon-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #f0f7ff;
-    border: 2px solid #dbeafe;
-    color: #0b2545;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-  }
-  .video-responsive-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #000;
-    width: 100%;
-  }
-  .video-responsive-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-  .btn-event-action {
-    background: #ffffff;
-    color: #0b2545 !important;
-    border: 1px solid #cbd5e1;
-    font-weight: 600;
-    font-size: 0.84rem;
-    padding: 6px 14px;
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
-    text-decoration: none !important;
-  }
-  .btn-event-action:hover {
-    background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%);
-    color: #ffffff !important;
-    border-color: #f3752c;
-    box-shadow: 0 4px 10px rgba(243, 117, 44, 0.3);
-    transform: translateY(-1px);
-  }
-  .btn-event-action:hover i {
-    color: #ffffff !important;
-  }
-  .btn-event-primary {
-    background: linear-gradient(135deg, #f3752c 0%, #e0580a 100%);
-    color: #ffffff !important;
-    font-weight: 600;
-    font-size: 0.84rem;
-    padding: 7px 18px;
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(243, 117, 44, 0.25);
-    transition: all 0.2s ease;
-    text-decoration: none !important;
-  }
-  .btn-event-primary:hover {
-    background: linear-gradient(135deg, #e0580a 0%, #c94c07 100%);
-    box-shadow: 0 6px 16px rgba(243, 117, 44, 0.4);
-    transform: translateY(-2px);
-  }
+.syl-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.syl-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 1.25rem 1.75rem;
+  position: relative;
+}
+.syl-card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.syl-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+}
+.syl-card-body {
+  padding: 1.75rem;
+}
+.syl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0b2545;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
+  border: 1px solid #0b2545;
+  white-space: nowrap;
+}
+.syl-btn:hover {
+  background: #d97706;
+  border-color: #d97706;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+}
+.event-item-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.event-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.event-media-wrapper {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+.event-media-wrapper img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.event-media-wrapper iframe {
+  width: 100%;
+  height: 220px;
+  border: 0;
+}
+.event-date-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #0b2545;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
 </style>
 
 <section class="subpage-main-section py-4 bg-light">
@@ -162,251 +118,189 @@ require_once __DIR__ . '/../includes/page-banner.php';
       
       <!-- Main Content Area (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="events-main-card mb-4">
-          
-          <!-- Card Header styled with Homepage Gradient -->
-          <div class="events-card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <h2 class="h5 fw-bold text-white mb-0 d-flex align-items-center gap-2">
-              <i class="bi bi-journal-text me-2" style="color: #f6a935;"></i> EVENTS
+        <div class="syl-card">
+          <div class="syl-card-header">
+            <h2 class="syl-card-title">
+              <i class="fa fa-calendar-star text-warning"></i>
+              University Events, Webinars &amp; Highlights
             </h2>
-            <span class="badge rounded-pill px-3 py-2 small" style="background: rgba(255, 255, 255, 0.15); color: #ffffff; font-weight: 500;">
-              <i class="fa fa-calendar-check text-success me-1"></i> Official Events Archive
-            </span>
           </div>
-          <div class="events-gold-line"></div>
-
-          <!-- Card Body -->
-          <div class="card-body p-4 p-md-5">
-
-            <!-- 1. Dr. Vivek Bindra Masterclass -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/Vivek_Bindra_06052022_0354.jpg" alt="Dr. Vivek Bindra Masterclass">
-                  </div>
+          
+          <div class="syl-card-body">
+            
+            <!-- Live Search Filter -->
+            <div class="row g-3 align-items-center mb-4 p-3 bg-white rounded-3 border shadow-sm">
+              <div class="col-md-7">
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0"><i class="fa fa-search text-muted"></i></span>
+                  <input type="text" id="tableSearchInput" class="form-control border-start-0" placeholder="Search events by title, speaker, keyword..." onkeyup="filterEvents()">
+                  <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()" title="Clear search"><i class="fa fa-times"></i></button>
                 </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 7th May • 1:00 PM – 3:00 PM
-                  </span>
-                  <h4 class="event-title">Dr. Vivek Bindra PRESENTS CAMPUS-PRENEUR Masterclass</h4>
-                  <p class="text-secondary small mb-3">
-                    Exclusively organized for students of <strong>Sri Satya Sai University of Technology and Medical Sciences</strong>.
-                  </p>
-                  <a href="https://youtu.be/rxOK274A2SE" target="_blank" rel="noopener" class="btn-event-primary">
-                    <i class="fa fa-circle-play"></i> Watch Video Session
-                  </a>
-                </div>
+              </div>
+              <div class="col-md-5 text-md-end text-muted small">
+                <span id="resultsCount">Showing all events</span>
               </div>
             </div>
 
-            <!-- 2. मद्य निषेध संकल्प दिवस -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/madya_nishedh.png" alt="मद्य निषेध संकल्प दिवस">
+            <div class="row g-4" id="eventsContainer">
+              
+              <!-- 1. Dr. Vivek Bindra Motivation Session -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Special Event</span>
+                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/Vivek_Bindra_06052022_0354.jpg" alt="Dr. Vivek Bindra Session">
                   </div>
-                </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 30-Jan-2022
-                  </span>
-                  <h4 class="event-title">मद्य निषेध संकल्प दिवस</h4>
-                  <p class="text-secondary small mb-3">
-                    University pledge campaign and awareness program on substance abuse prevention and healthy living.
-                  </p>
-                  <a href="https://youtu.be/rxOK274A2SE" target="_blank" rel="noopener" class="btn-event-primary">
-                    <i class="fa fa-circle-play"></i> Watch Video Link
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- 3. National Environment Youth Parliament 2022 -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/youth_parliament_2022.jpg" alt="National Environment Youth Parliament 2022">
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 12-Jan-2022
-                  </span>
-                  <h4 class="event-title">National Environment Youth Parliament 2022</h4>
-                  <p class="text-secondary small mb-3">
-                    <strong>Nurturing Environment</strong> — National inter-collegiate youth forum focusing on ecological sustainability and environmental leadership.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill">
-                      <i class="fa fa-circle-info me-1"></i> Youth Parliament
-                    </span>
-                    <span class="badge bg-success-subtle text-success border px-3 py-2 rounded-pill">
-                      <i class="fa fa-check me-1"></i> Annual Convention
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4. 60th NATIONAL PHARMACY WEEK, 2021 (Icon applied as no image exists on live site) -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
-                    <div class="event-icon-avatar">
-                      <i class="fa fa-prescription-bottle-medical text-primary"></i>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">Motivational &amp; Leadership Keynote: Dr. Vivek Bindra</h5>
+                      <p class="text-secondary small mb-3">Special national leadership and student empowerment keynote session at SSSUTMS campus.</p>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 23-27 Nov. 2021
-                  </span>
-                  <h4 class="event-title">60th NATIONAL PHARMACY WEEK, 2021</h4>
-                  <p class="text-secondary small mb-3">
-                    Celebrated with scientific symposiums, pharmacist patient counseling workshops, and community health outreach.
-                  </p>
-                  <a href="http://web.sssutms.co.in//Document/Activities/WhatsApp%20Image%202021-11-20%20at%205.44.10%20PM.jpeg" target="_blank" rel="noopener" class="btn-event-action">
-                    <i class="fa fa-image text-danger"></i> More Info
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- 5. AMRIT MAHOTSAV ON THE OCCASION OF 75TH INDEPENDENCE DAY -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/amrit_mahotsav_aug2021.jpg" alt="Amrit Mahotsav 75th Independence Day">
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 13 August 2021 • 12:00 to 12:30 PM
-                  </span>
-                  <h4 class="event-title">AMRIT MAHOTSAV ON THE OCCASION OF 75TH INDEPENDENCE DAY</h4>
-                  <p class="text-secondary small mb-3">
-                    COMPETITION ON POSTER PRESENTATION &amp; ESSAY WRITING on national development and Indian independence heritage.
-                  </p>
-                  <span class="badge bg-light text-dark border px-3 py-2 rounded-pill">
-                    <i class="fa fa-award text-warning me-1"></i> Student Competition
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 6. International Yoga Day -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-5">
-                  <div class="video-responsive-wrapper">
-                    <iframe src="https://www.youtube.com/embed/DW6ApxPdCHM" title="International Yoga Day SSSUTMS" allowfullscreen></iframe>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> Monday, June 21 • 7:00 – 8:00 AM
-                  </span>
-                  <h4 class="event-title">International Yoga Day</h4>
-                  <p class="text-secondary small mb-3">
-                    Mass yoga demonstration, pranayama and meditation session conducted by faculty and students of the School of Ayurveda &amp; Homoeopathy.
-                  </p>
-                  <a href="https://www.youtube.com/watch?v=DW6ApxPdCHM" target="_blank" rel="noopener" class="btn-event-primary">
-                    <i class="fa fa-circle-play"></i> Watch Full Session
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- 7. स्वतंत्रता की 75वीं वर्षगांठ के अवसर पर - आजादी का अमृत महोत्सव -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-5">
-                  <div class="video-responsive-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dGPJD6T_0Z8" title="आजादी का अमृत महोत्सव" allowfullscreen></iframe>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 05 अप्रैल 2021
-                  </span>
-                  <h4 class="event-title">स्वतंत्रता की 75वीं वर्षगांठ — ‘‘आजादी का अमृत महोत्सव’’</h4>
-                  <p class="text-secondary small mb-3">
-                    University commemorative cultural program and lectures on the freedom struggle and nation building.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <a href="https://youtu.be/dGPJD6T_0Z8" target="_blank" rel="noopener" class="btn-event-action">
-                      <i class="fa fa-video text-danger"></i> Video Vol 1
-                    </a>
-                    <a href="http://sssutms-soh.in/Video/Vol%202.mp4" target="_blank" rel="noopener" class="btn-event-action">
-                      <i class="fa fa-file-video text-primary"></i> Video Vol 2
-                    </a>
-                    <a href="https://youtu.be/pQ9ssvssm3w" target="_blank" rel="noopener" class="btn-event-action">
-                      <i class="fa fa-video text-danger"></i> Video Vol 3
+                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Vivek_Bindra_06052022_0354.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa fa-image"></i> View Event Poster
                     </a>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- 8. EDP Program by NIESBUD -->
-            <div class="event-item-card p-4">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/edp_niesbud.jpg" alt="EDP Program by NIESBUD">
+              <!-- 2. Nasha Mukti Abhiyan -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Awareness Campaign</span>
+                    <img src="<?php echo BASE_URL; ?>assets/images/events/madya_nishedh.png" alt="Nasha Mukti Abhiyan">
+                  </div>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">Nasha Mukti &amp; Madya Nishedh Awareness Campaign</h5>
+                      <p class="text-secondary small mb-3">Community health and social welfare outreach campaign organized by SSSUTMS volunteers.</p>
+                    </div>
+                    <a href="<?php echo BASE_URL; ?>assets/images/events/madya_nishedh.png" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa fa-image"></i> View Poster
+                    </a>
                   </div>
                 </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 3 February 2021
-                  </span>
-                  <h4 class="event-title">EDP Program by NIESBUD</h4>
-                  <p class="text-secondary small mb-3">
-                    <strong>National Institute For Entrepreneurship And Small Business Development</strong> — Entrepreneurship development programme for university scholars and aspiring innovators.
-                  </p>
-                  <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill">
-                    <i class="fa fa-briefcase me-1"></i> Entrepreneurship Development
-                  </span>
+              </div>
+
+              <!-- 3. Youth Parliament Festival -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> National Event</span>
+                    <img src="<?php echo BASE_URL; ?>assets/images/events/youth_parliament_2022.jpg" alt="National Youth Parliament Festival">
+                  </div>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">National Youth Parliament Festival 2022</h5>
+                      <p class="text-secondary small mb-3">Democratic debate and parliamentary presentation by university delegates and youth parliamentarians.</p>
+                    </div>
+                    <a href="<?php echo BASE_URL; ?>assets/images/events/youth_parliament_2022.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa fa-image"></i> View Event Details
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- 9. Environmental Youth Forum 2021 -->
-            <div class="event-item-card p-4 mb-0">
-              <div class="row g-4 align-items-center">
-                <div class="col-md-4">
-                  <div class="event-media-container">
+              <!-- 4. Azadi Ka Amrit Mahotsav -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Celebration</span>
+                    <img src="<?php echo BASE_URL; ?>assets/images/events/amrit_mahotsav_aug2021.jpg" alt="Azadi Ka Amrit Mahotsav">
+                  </div>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">Azadi Ka Amrit Mahotsav Celebrations</h5>
+                      <p class="text-secondary small mb-3">75 Years of Indian Independence commemorative cultural programmes, parades, and historical exhibitions.</p>
+                    </div>
+                    <a href="<?php echo BASE_URL; ?>assets/images/events/amrit_mahotsav_aug2021.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa fa-image"></i> View Event Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Entrepreneurship Development Programme (NIESBUD) -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Skill Programme</span>
+                    <img src="<?php echo BASE_URL; ?>assets/images/events/edp_niesbud.jpg" alt="EDP NIESBUD Programme">
+                  </div>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">Entrepreneurship Development Programme (NIESBUD)</h5>
+                      <p class="text-secondary small mb-3">Skill development, startup creation, and MSME incubation workshop in collaboration with NIESBUD.</p>
+                    </div>
+                    <a href="<?php echo BASE_URL; ?>assets/images/events/edp_niesbud.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa fa-image"></i> View Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Environmental Youth Forum -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Environmental Forum</span>
                     <img src="<?php echo BASE_URL; ?>assets/images/events/environmental_youth_forum_2021.jpg" alt="Environmental Youth Forum 2021">
                   </div>
-                </div>
-                <div class="col-md-8">
-                  <span class="event-date-badge">
-                    <i class="fa fa-calendar-days"></i> 12 Jan 2021
-                  </span>
-                  <h4 class="event-title">Environmental Youth Forum 2021</h4>
-                  <p class="text-secondary small mb-3">
-                    Annual youth forum on sustainable development, ecological conservation, and youth leadership.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <a href="http://web.sssutms.co.in//Document/Activities/Environmental_Youth_Forum_2021.jpg" target="_blank" rel="noopener" class="btn-event-action">
-                      <i class="fa fa-image text-danger"></i> More Info
-                    </a>
-                    <a href="http://web.sssutms.co.in//Document/Activities/Environmental_Youth_Forum_2021_Report.pdf" target="_blank" rel="noopener" class="btn-event-action">
-                      <i class="fa fa-file-pdf text-danger"></i> View Report
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">Environmental Youth Forum 2021</h5>
+                      <p class="text-secondary small mb-3">Ecological sustainability, renewable energy awareness, and student environmental protection initiative.</p>
+                    </div>
+                    <a href="<?php echo BASE_URL; ?>assets/images/events/environmental_youth_forum_2021.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa fa-image"></i> View Details
                     </a>
                   </div>
                 </div>
               </div>
+
+              <!-- 7. Video Highlight: Expert Session (YouTube) -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <iframe src="https://www.youtube.com/embed/DW6ApxPdCHM" title="SSSUTMS Event Video 1" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">University Convocation &amp; Keynote Video</h5>
+                      <p class="text-secondary small mb-3">Watch the live video coverage of university convocations and keynote sessions.</p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=DW6ApxPdCHM" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa-brands fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Video Highlight: Technical Workshop (YouTube) -->
+              <div class="col-md-6 event-card-col">
+                <div class="event-item-card">
+                  <div class="event-media-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dGPJD6T_0Z8" title="SSSUTMS Event Video 2" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-2">Technical Workshop &amp; Seminar Highlights</h5>
+                      <p class="text-secondary small mb-3">Video recording of student symposiums, expert technical talks, and campus celebrations.</p>
+                    </div>
+                    <a href="https://youtu.be/dGPJD6T_0Z8" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                      <i class="fa-brands fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div id="noResultsMessage" class="alert alert-warning text-center d-none my-4">
+              <i class="fa fa-search me-2"></i> No matching events found. Please try a different search term.
             </div>
 
           </div>
-
         </div>
       </div>
 
@@ -418,5 +312,49 @@ require_once __DIR__ . '/../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+function filterEvents() {
+  const query = document.getElementById('tableSearchInput').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.event-card-col');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (text.includes(query)) {
+      card.style.display = '';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const counter = document.getElementById('resultsCount');
+  const noResults = document.getElementById('noResultsMessage');
+
+  if (query === '') {
+    counter.textContent = 'Showing all events';
+    if (noResults) noResults.classList.add('d-none');
+  } else {
+    counter.textContent = `Showing ${visibleCount} event${visibleCount === 1 ? '' : 's'}`;
+    if (noResults) {
+      if (visibleCount === 0) {
+        noResults.classList.remove('d-none');
+      } else {
+        noResults.classList.add('d-none');
+      }
+    }
+  }
+}
+
+function clearSearch() {
+  const input = document.getElementById('tableSearchInput');
+  if (input) {
+    input.value = '';
+    filterEvents();
+    input.focus();
+  }
+}
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
