@@ -307,6 +307,51 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </div>
               </div>
 
+              <?php 
+              $dynamicSchedules = get_page_documents('ExamSchedule');
+              if (!empty($dynamicSchedules)): 
+              ?>
+              <!-- Dynamic Examination Schedules (Live Synced from Admin) -->
+              <div class="exam-session-header d-flex align-items-center justify-content-between bg-primary-subtle border-primary">
+                <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-bullhorn text-warning me-2"></i> Published Examination Timetables & Schedules (Live Synchronized)</h5>
+                <span class="badge bg-primary">Live Feeds</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table align-middle naac-custom-table">
+                  <thead>
+                    <tr class="naac-table-header">
+                      <th style="width: 10%;">S.No.</th>
+                      <th style="width: 70%;">Examination Schedule / Timetable Title</th>
+                      <th style="width: 20%;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach (array_slice($dynamicSchedules, 0, 15) as $sIdx => $sch): 
+                      $fileUrl = $sch['file'];
+                      if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
+                        $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+                      }
+                    ?>
+                      <tr>
+                        <td class="fw-bold text-dark"><?php echo $sIdx + 1; ?></td>
+                        <td class="fw-bold text-dark text-start text-md-center">
+                          <?php echo htmlspecialchars($sch['title']); ?>
+                          <?php if (!empty($sch['category']) && $sch['category'] !== 'General'): ?>
+                            <span class="badge bg-light text-dark border ms-2 small"><?php echo htmlspecialchars($sch['category']); ?></span>
+                          <?php endif; ?>
+                        </td>
+                        <td>
+                          <a class="btn btn-sm btn-naac-pdf" href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-file-pdf me-1"></i> View Timetable
+                          </a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+              <?php endif; ?>
+
               <!-- SECTION 0 -->
               <div class="exam-session-header d-flex align-items-center justify-content-between">
                 <h5 class="fw-bold text-dark mb-0"><i class="fa-solid fa-clock text-primary me-2"></i> S.No. Time Table -2026</h5>

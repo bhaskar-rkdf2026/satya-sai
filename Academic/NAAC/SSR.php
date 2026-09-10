@@ -182,6 +182,31 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">NAAC Self Study Report Document</h5>
               </div>
 
+<?php 
+$dynamicSSR = get_page_documents('NAAC_SSR');
+?>
+              <?php if (!empty($dynamicSSR)): ?>
+                <?php foreach ($dynamicSSR as $d): 
+                  $fileUrl = $d['file'];
+                  if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
+                    $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+                  }
+                ?>
+                  <div class="naac-doc-item mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-file-pdf text-danger fs-2"></i>
+                      <div>
+                        <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($d['title']); ?></h6>
+                        <span class="text-muted small"><?php echo htmlspecialchars($d['category'] ?? 'NAAC SSR Document'); ?></span>
+                      </div>
+                    </div>
+
+                    <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="naac-download-btn">
+                      <i class="fa-solid fa-file-arrow-down"></i> Download SSR PDF
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+              <?php else: ?>
               <div class="naac-doc-item">
                 <div class="d-flex align-items-center gap-3">
                   <i class="fa-solid fa-file-pdf text-danger fs-2"></i>
@@ -195,6 +220,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                   <i class="fa-solid fa-file-arrow-down"></i> Download SSR PDF
                 </a>
               </div>
+              <?php endif; ?>
             </div>
 
           </div>

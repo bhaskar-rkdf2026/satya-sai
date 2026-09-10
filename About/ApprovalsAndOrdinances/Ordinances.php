@@ -107,6 +107,35 @@ require_once __DIR__ . '/../../includes/page-banner.php';
           <!-- Body Container -->
           <div class="p-4">
             
+<?php 
+$dynamicOrdinances = get_page_documents('ApprovalsAndOrdinances_Ordinances');
+?>
+            <?php if (!empty($dynamicOrdinances)): ?>
+              <?php foreach ($dynamicOrdinances as $ord): 
+                $fileUrl = $ord['file'];
+                if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
+                  $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+                }
+              ?>
+                <div class="ord-item-card d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="ord-icon-wrapper">
+                      <i class="fa-solid fa-gavel"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold text-dark mb-1 fs-6"><?php echo htmlspecialchars($ord['title']); ?></h6>
+                      <p class="text-secondary small mb-0"><?php echo htmlspecialchars($ord['category'] ?? 'Official University Ordinance Document'); ?></p>
+                    </div>
+                  </div>
+                  <div>
+                    <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="ord-pdf-btn">
+                      <i class="fa-solid fa-file-pdf fs-6"></i>
+                      <span>Download Document (PDF)</span>
+                    </a>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
             <!-- Document Item 1: REGULATION -->
             <div class="ord-item-card d-flex align-items-center justify-content-between flex-wrap gap-3">
               <div class="d-flex align-items-center gap-3">
@@ -201,6 +230,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 </a>
               </div>
             </div>
+            <?php endif; ?>
 
           </div>
         </div>

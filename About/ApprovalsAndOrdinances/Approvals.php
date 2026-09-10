@@ -158,6 +158,47 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               </div>
             </div>
 
+<?php 
+$dynamicApprovals = get_page_documents('ApprovalsAndOrdinances_Approvals');
+$groupedApprovals = [];
+if (!empty($dynamicApprovals)) {
+    foreach ($dynamicApprovals as $d) {
+        $cat = $d['category'] ?? 'Statutory & Regulatory Approvals';
+        $groupedApprovals[$cat][] = $d;
+    }
+}
+?>
+            <?php if (!empty($groupedApprovals)): ?>
+              <?php foreach ($groupedApprovals as $catTitle => $catDocs): 
+                $icon = 'fa-stamp';
+                if (stripos($catTitle, 'AICTE') !== false) $icon = 'fa-laptop-code';
+                elseif (stripos($catTitle, 'NCTE') !== false) $icon = 'fa-person-chalkboard';
+                elseif (stripos($catTitle, 'PCI') !== false || stripos($catTitle, 'Pharmacy') !== false) $icon = 'fa-prescription-bottle-medical';
+                elseif (stripos($catTitle, 'BCI') !== false || stripos($catTitle, 'Law') !== false) $icon = 'fa-scale-balanced';
+                elseif (stripos($catTitle, 'Nursing') !== false) $icon = 'fa-user-nurse';
+                elseif (stripos($catTitle, 'Commission') !== false || stripos($catTitle, 'UGC') !== false) $icon = 'fa-building-columns';
+              ?>
+                <div class="app-category-card">
+                  <div class="app-category-header">
+                    <div class="app-category-icon"><i class="fa-solid <?php echo $icon; ?>"></i></div>
+                    <h5 class="fw-bold text-dark mb-0 fs-5"><?php echo htmlspecialchars($catTitle); ?></h5>
+                  </div>
+                  <div class="app-pdf-grid">
+                    <?php foreach ($catDocs as $doc): 
+                      $fileUrl = $doc['file'];
+                      if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
+                        $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+                      }
+                    ?>
+                      <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="app-pdf-item">
+                        <span class="doc-title"><?php echo htmlspecialchars($doc['title']); ?></span>
+                        <span class="pdf-badge"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                      </a>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
             <!-- Group 1: General & Commission Approvals -->
             <div class="app-category-card">
               <div class="app-category-header">
@@ -365,6 +406,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 </a>
               </div>
             </div>
+            <?php endif; ?>
 
           </div>
         </div>

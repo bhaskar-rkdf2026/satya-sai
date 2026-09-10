@@ -71,6 +71,7 @@ $uploadDirs = [
     UPLOAD_DIR . '/notices',
     UPLOAD_DIR . '/events',
     UPLOAD_DIR . '/schemes',
+    UPLOAD_DIR . '/documents',
 ];
 foreach ($uploadDirs as $ud) {
     if (!is_dir($ud)) {
@@ -131,6 +132,83 @@ function get_schemes($faculty = 'all') {
         });
     }
     return $schemes;
+}
+
+/**
+ * Helper to get documents for a specific page
+ * $page_key: e.g. 'Approvals', 'ExamSchedule', 'Ordinances', 'FeesStructure', 'Patents'
+ */
+function get_page_documents($page_key, $category = 'all') {
+    $allDocs = get_json_data('page_documents.json', []);
+    $pageDocs = $allDocs[$page_key]['documents'] ?? [];
+    if ($category !== 'all' && !empty($category)) {
+        $pageDocs = array_filter($pageDocs, function($d) use ($category) {
+            return isset($d['category']) && (strcasecmp($d['category'], $category) === 0 || stripos($d['category'], $category) !== false);
+        });
+    }
+    return $pageDocs;
+}
+
+/**
+ * Helper to get all registered page keys in page_documents
+ */
+function get_all_document_pages() {
+    return get_json_data('page_documents.json', []);
+}
+
+/**
+ * Save a document entry to a page
+ */
+function save_page_document($page_key, $docData, $section = 'General', $pageTitle = '') {
+    $allDocs = get_json_data('page_documents.json', []);
+    if (!isset($allDocs[$page_key])) {
+        $allDocs[$page_key] = [
+            'title' => !empty($pageTitle) ? $pageTitle : ucwords(str_replace(['_', '-'], ' ', $page_key)),
+            'section' => $section,
+            'documents' => []
+        ];
+    }
+    if (!empty($pageTitle)) {
+        $allDocs[$page_key]['title'] = $pageTitle;
+    }
+    if (!empty($section)) {
+        $allDocs[$page_key]['section'] = $section;
+    }
+
+    $existingIndex = -1;
+    if (isset($docData['id'])) {
+        foreach ($allDocs[$page_key]['documents'] as $idx => $d) {
+            if ($d['id'] == $docData['id']) {
+                $existingIndex = $idx;
+                break;
+            }
+        }
+    } else {
+        $docData['id'] = time() . rand(100, 999);
+    }
+
+    if ($existingIndex >= 0) {
+        $allDocs[$page_key]['documents'][$existingIndex] = array_merge($allDocs[$page_key]['documents'][$existingIndex], $docData);
+    } else {
+        array_unshift($allDocs[$page_key]['documents'], $docData);
+    }
+
+    return save_json_data('page_documents.json', $allDocs);
+}
+
+/**
+ * Delete a document entry from a page
+ */
+function delete_page_document($page_key, $docId) {
+    $allDocs = get_json_data('page_documents.json', []);
+    if (isset($allDocs[$page_key]['documents'])) {
+        $allDocs[$page_key]['documents'] = array_values(array_filter(
+            $allDocs[$page_key]['documents'],
+            fn($d) => ($d['id'] != $docId)
+        ));
+        return save_json_data('page_documents.json', $allDocs);
+    }
+    return false;
 }
 
 /**

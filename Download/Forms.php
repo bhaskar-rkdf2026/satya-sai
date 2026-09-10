@@ -116,6 +116,10 @@ require_once __DIR__ . '/../includes/page-banner.php';
           
           <div class="syl-card-body">
             
+<?php 
+$dynamicForms = get_page_documents('Forms');
+$totalFormsCount = !empty($dynamicForms) ? count($dynamicForms) : 15;
+?>
             <!-- Live Search Filter -->
             <div class="row g-3 align-items-center mb-4 p-3 bg-white rounded-3 border shadow-sm">
               <div class="col-md-7">
@@ -126,7 +130,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </div>
               </div>
               <div class="col-md-5 text-md-end text-muted small">
-                <span id="resultsCount">Showing all 15 forms</span>
+                <span id="resultsCount">Showing all <?php echo $totalFormsCount; ?> forms</span>
               </div>
             </div>
 
@@ -141,6 +145,31 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   </tr>
                 </thead>
                 <tbody>
+                  <?php if (!empty($dynamicForms)): ?>
+                    <?php foreach ($dynamicForms as $idx => $f): 
+                      $fileUrl = $f['file'];
+                      if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
+                        $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+                      }
+                      $badgeClass = 'bg-primary';
+                      $catLower = strtolower($f['category'] ?? '');
+                      if (strpos($catLower, 'campus') !== false || strpos($catLower, 'hostel') !== false) $badgeClass = 'bg-info text-dark';
+                      elseif (strpos($catLower, 'exam') !== false || strpos($catLower, 'admit') !== false) $badgeClass = 'bg-warning text-dark';
+                      elseif (strpos($catLower, 'degree') !== false || strpos($catLower, 'transcript') !== false) $badgeClass = 'bg-success';
+                      elseif (strpos($catLower, 'correct') !== false || strpos($catLower, 'duplicate') !== false) $badgeClass = 'bg-danger';
+                    ?>
+                      <tr>
+                        <td class="text-center fw-bold text-secondary"><?php echo sprintf('%02d', $idx + 1); ?></td>
+                        <td class="fw-bold text-dark"><?php echo htmlspecialchars($f['title']); ?></td>
+                        <td class="text-center"><span class="badge <?php echo $badgeClass; ?> px-2 py-1"><?php echo htmlspecialchars($f['category'] ?? 'General'); ?></span></td>
+                        <td class="text-center">
+                          <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="syl-btn">
+                            <i class="fa fa-file-pdf"></i> Download PDF
+                          </a>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
                   <tr>
                     <td class="text-center fw-bold text-secondary">01</td>
                     <td class="fw-bold text-dark">Application Form (AF-1)</td>
@@ -305,6 +334,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                       </a>
                     </td>
                   </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
