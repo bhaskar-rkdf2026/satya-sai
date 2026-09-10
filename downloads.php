@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'downloads - SSSUTMS';
 $banner_title = 'downloads';
 $banner_category = 'SSSUTMS';
@@ -72,15 +72,73 @@ require_once __DIR__ . '/./includes/page-banner.php';
           </tr>
         </thead>
         <tbody id="schemesTableBody">
+          <?php 
+          $allSchemes = get_schemes('all');
+          foreach ($allSchemes as $s): 
+          ?>
+            <tr class="scheme-row" data-faculty="<?php echo htmlspecialchars($s['faculty'] ?? ''); ?>" data-course="<?php echo strtolower(htmlspecialchars($s['course'] ?? '')); ?>">
+              <td class="fw-bold text-primary"><?php echo htmlspecialchars($s['course'] ?? ''); ?></td>
+              <td><span class="badge bg-light text-dark border"><?php echo htmlspecialchars($s['faculty'] ?? ''); ?></span></td>
+              <td><span class="badge bg-primary-subtle text-primary fw-semibold"><?php echo htmlspecialchars($s['scheme'] ?? 'NEP / CBCS'); ?></span></td>
+              <td><small class="text-muted"><?php echo htmlspecialchars($s['semester'] ?? 'All Semesters'); ?></small></td>
+              <td>
+                <div class="d-flex gap-2">
+                  <?php if (!empty($s['syllabus_file'])): ?>
+                    <a href="<?php echo (strpos($s['syllabus_file'], 'http') === 0) ? htmlspecialchars($s['syllabus_file']) : BASE_URL . 'assets/uploads/schemes/' . htmlspecialchars($s['syllabus_file']); ?>" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill"><i class="fa fa-file-pdf me-1"></i> Syllabus</a>
+                  <?php endif; ?>
+                  <?php if (!empty($s['scheme_file'])): ?>
+                    <a href="<?php echo (strpos($s['scheme_file'], 'http') === 0) ? htmlspecialchars($s['scheme_file']) : BASE_URL . 'assets/uploads/schemes/' . htmlspecialchars($s['scheme_file']); ?>" target="_blank" class="btn btn-sm btn-outline-warning text-dark rounded-pill"><i class="fa fa-file-lines me-1"></i> Scheme</a>
+                  <?php endif; ?>
+                </div>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('schemeSearchInput');
+  const facultySelect = document.getElementById('facultyFilterSelect');
+  const rows = document.querySelectorAll('.scheme-row');
+
+  function filterSchemes() {
+    const q = (searchInput ? searchInput.value : '').toLowerCase().trim();
+    const fac = (facultySelect ? facultySelect.value : 'all');
+
+    rows.forEach(row => {
+      const course = row.getAttribute('data-course') || '';
+      const rowFac = row.getAttribute('data-faculty') || '';
+      const matchesSearch = !q || course.includes(q);
+      const matchesFac = fac === 'all' || rowFac.toLowerCase().includes(fac.toLowerCase());
+
+      if (matchesSearch && matchesFac) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) searchInput.addEventListener('input', filterSchemes);
+  if (facultySelect) facultySelect.addEventListener('change', filterSchemes);
+});
+</script>
+
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/./includes/sidebar.php'; ?>
-      </div>
+        <!-- Sticky Category Sidebar (Right) -->
+        <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
+          <?php require_once __DIR__ . '/./includes/sidebar.php'; ?>
+        </div>
 
+      </div>
     </div>
   </div>
 </section>

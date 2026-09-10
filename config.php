@@ -8,35 +8,45 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     session_start();
 }
 
-// Global Site Constants
-define('SITE_NAME', 'Sri Satya Sai University of Technology and Medical Sciences');
-define('SITE_SHORT_NAME', 'SSSUTMS, Sehore');
-define('SITE_TAGLINE', 'Premier University in Madhya Pradesh | Accredited & Approved');
-define('CAMPUS_ADDRESS', 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P.) - 466001');
-define('ADMISSION_HELPLINE', '+91-7748900028');
-define('OFFICIAL_EMAIL', 'info@sssutms.co.in');
-define('EXAM_EMAIL', 'exam@sssutms.co.in');
-
 // Base Paths & URLs
 define('BASE_DIR', __DIR__);
 define('DATA_DIR', __DIR__ . '/data');
+define('UPLOAD_DIR', __DIR__ . '/assets/uploads');
 
+/**
+ * Get JSON Data with error handling
+ */
+function get_json_data($filename, $default = []) {
+    $filePath = DATA_DIR . '/' . $filename;
+    if (file_exists($filePath)) {
+        $content = file_get_contents($filePath);
+        $data = json_decode($content, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($data)) {
+            return $data;
+        }
+    }
+    return $default;
+}
 
+/**
+ * Global Setting getter with fallback
+ */
+function get_setting($key, $default = null) {
+    static $settings = null;
+    if ($settings === null) {
+        $settings = get_json_data('settings.json', []);
+    }
+    return $settings[$key] ?? $default;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Global Site Constants (Dynamic with Fallbacks)
+define('SITE_NAME', get_setting('site_name', 'Sri Satya Sai University of Technology and Medical Sciences'));
+define('SITE_SHORT_NAME', get_setting('site_short_name', 'SSSUTMS, Sehore'));
+define('SITE_TAGLINE', get_setting('site_tagline', 'Premier University in Madhya Pradesh | Accredited & Approved'));
+define('CAMPUS_ADDRESS', get_setting('campus_address', 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P.) - 466001'));
+define('ADMISSION_HELPLINE', get_setting('admission_helpline', '+91-7748900028'));
+define('OFFICIAL_EMAIL', get_setting('official_email', 'info@sssutms.co.in'));
+define('EXAM_EMAIL', get_setting('exam_email', 'exam@sssutms.co.in'));
 // Universal Base URL auto-detection
 $dir = str_replace('\\', '/', __DIR__);
 if (preg_match('#/htdocs(/.*)$#i', $dir, $m)) {
@@ -55,19 +65,17 @@ function base_url($path = '') {
     return BASE_URL . ltrim($path, '/');
 }
 
-/**
- * Get JSON Data with error handling
- */
-function get_json_data($filename, $default = []) {
-    $filePath = DATA_DIR . '/' . $filename;
-    if (file_exists($filePath)) {
-        $content = file_get_contents($filePath);
-        $data = json_decode($content, true);
-        if (json_last_error() === JSON_ERROR_NONE && is_array($data)) {
-            return $data;
-        }
+// Ensure upload directories exist
+$uploadDirs = [
+    UPLOAD_DIR,
+    UPLOAD_DIR . '/notices',
+    UPLOAD_DIR . '/events',
+    UPLOAD_DIR . '/schemes',
+];
+foreach ($uploadDirs as $ud) {
+    if (!is_dir($ud)) {
+        @mkdir($ud, 0777, true);
     }
-    return $default;
 }
 
 /**

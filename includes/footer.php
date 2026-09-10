@@ -19,24 +19,23 @@
         
         <div class="footer-v2-contact-item mb-2">
           <i class="fa fa-location-dot"></i>
-          <div>Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P.), Pin - 466001</div>
+          <div><?php echo htmlspecialchars(CAMPUS_ADDRESS); ?></div>
         </div>
         
         <div class="footer-v2-contact-item mb-2">
           <i class="fa fa-phone"></i>
           <div>
-            (+91) 07562-292740<br>
-            (+91) 07562-292720<br>
-            (+91) 07562-292204<br>
-            (+91) 07562-292205<br>
-            (+91) 7748900028<br>
+            <?php 
+            $phones = get_setting('phone_numbers', "(+91) 07562-292740<br>(+91) 07562-292720<br>(+91) 07562-292204<br>(+91) 07562-292205<br>(+91) 7748900028");
+            echo nl2br(htmlspecialchars($phones)); 
+            ?><br>
             <small class="text-white-50">(From 10:00 AM to 5:00 PM only)</small>
           </div>
         </div>
 
         <div class="footer-v2-contact-item mb-2">
           <i class="fa fa-envelope"></i>
-          <div><a href="mailto:info@sssutms.co.in" style="color: inherit; text-decoration: none;">info@sssutms.co.in</a></div>
+          <div><a href="mailto:<?php echo htmlspecialchars(OFFICIAL_EMAIL); ?>" style="color: inherit; text-decoration: none;"><?php echo htmlspecialchars(OFFICIAL_EMAIL); ?></a></div>
         </div>
 
         <div class="footer-v2-contact-item mb-3">
@@ -45,9 +44,9 @@
         </div>
 
         <div class="footer-v2-social">
-          <a href="https://www.facebook.com/sehoresssutms" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/srisatyasai_universitysehore/" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@srisatyasaiuniversityoftec815" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="<?php echo htmlspecialchars(get_setting('facebook_url', 'https://www.facebook.com/sehoresssutms')); ?>" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="<?php echo htmlspecialchars(get_setting('instagram_url', 'https://www.instagram.com/srisatyasai_universitysehore/')); ?>" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="<?php echo htmlspecialchars(get_setting('youtube_url', 'https://www.youtube.com/@srisatyasaiuniversityoftec815')); ?>" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
         </div>
       </div>
 

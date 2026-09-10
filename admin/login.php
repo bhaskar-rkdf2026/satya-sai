@@ -1,17 +1,24 @@
 <?php
 require_once __DIR__ . '/../config.php';
 
+if (is_admin_logged_in()) {
+    header('Location: index.php');
+    exit;
+}
+
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    // Standard Admin Authentication Credentials
-    if ($username === 'admin' && $password === 'admin123') {
+    $expectedUser = get_setting('admin_user', 'admin');
+    $expectedPass = get_setting('admin_password', 'admin123');
+
+    if ($username === $expectedUser && $password === $expectedPass) {
         $_SESSION['admin_logged_in'] = true;
         $_SESSION['admin_user'] = 'Super Administrator';
-        $_SESSION['admin_email'] = 'admin@sssutms.co.in';
+        $_SESSION['admin_email'] = get_setting('official_email', 'admin@sssutms.co.in');
         header('Location: index.php');
         exit;
     } else {

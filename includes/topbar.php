@@ -22,9 +22,9 @@
         <span class="topbar-v2-divider lovable-header-extra d-none d-xl-inline">|</span>
         <a href="<?php echo BASE_URL; ?>admin/login.php" class="lovable-header-extra d-none d-xl-inline-flex"><i class="fa fa-shield-halved me-1"></i> Admin</a>
         <div class="lovable-header-extra d-none d-xl-flex align-items-center gap-2 border-start border-white border-opacity-25 ps-3">
-          <a href="https://www.facebook.com/sehoresssutms" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.youtube.com/@srisatyasaiuniversityoftec815" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.instagram.com/srisatyasai_universitysehore/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          <a href="<?php echo htmlspecialchars(get_setting('facebook_url', 'https://www.facebook.com/sehoresssutms')); ?>" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="<?php echo htmlspecialchars(get_setting('youtube_url', 'https://www.youtube.com/@srisatyasaiuniversityoftec815')); ?>" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+          <a href="<?php echo htmlspecialchars(get_setting('instagram_url', 'https://www.instagram.com/srisatyasai_universitysehore/')); ?>" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
 
@@ -38,8 +38,10 @@
       <span class="promo-marquee-v2-live"><span class="dot"></span> Live</span>
       <div class="promo-marquee-v2-track">
         <span class="scroll">
-          Welcome to Sri Satya Sai University of Technology and Medical Sciences &mdash; the Premier University in Madhya Pradesh.<span class="sep">&bull;</span>Online Admissions Open for Session 2026-27 (UG / PG / Ph.D.)<span class="sep">&bull;</span>
-          Welcome to Sri Satya Sai University of Technology and Medical Sciences &mdash; the Premier University in Madhya Pradesh.<span class="sep">&bull;</span>Online Admissions Open for Session 2026-27 (UG / PG / Ph.D.)<span class="sep">&bull;</span>
+          <?php 
+          $tickerText = get_setting('marquee_ticker', 'Welcome to Sri Satya Sai University of Technology and Medical Sciences &mdash; the Premier University in Madhya Pradesh. • Online Admissions Open for Session 2026-27 (UG / PG / Ph.D.)');
+          echo htmlspecialchars($tickerText) . ' <span class="sep">&bull;</span> ' . htmlspecialchars($tickerText) . ' <span class="sep">&bull;</span>';
+          ?>
         </span>
       </div>
     </div>
