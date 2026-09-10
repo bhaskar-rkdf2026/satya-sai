@@ -35,6 +35,80 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Institutes 2-Column Uniform Card Grid (Same Height & Width, No Dummy Subtitles) */
+.institute-grid-card,
+.institute-hover-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 62px !important;
+  padding: 0.75rem 1.1rem !important;
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 4px solid #0b2545 !important;
+  text-decoration: none !important;
+  color: #0b2545 !important;
+  box-shadow: 0 2px 5px rgba(11, 37, 69, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-sizing: border-box !important;
+}
+
+.institute-grid-card.pharmacy-unit,
+.institute-hover-card.pharmacy-unit {
+  border-left-color: #f59e0b !important;
+}
+
+.institute-grid-card:hover,
+.institute-hover-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.1) !important;
+  border-color: #cbd5e1 !important;
+  color: #0b2545 !important;
+}
+
+.institute-grid-card .icon-box,
+.institute-hover-card .icon-box {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(11, 37, 69, 0.06) !important;
+  color: #0b2545 !important;
+  font-size: 1.2rem !important;
+  flex-shrink: 0 !important;
+  margin-right: 14px !important;
+}
+
+.institute-grid-card.pharmacy-unit .icon-box,
+.institute-hover-card.pharmacy-unit .icon-box {
+  background: rgba(245, 158, 11, 0.12) !important;
+  color: #d97706 !important;
+}
+
+.institute-grid-card .inst-title,
+.institute-hover-card .inst-title {
+  flex: 1 1 auto !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #0b2545 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+}
+
+.institute-grid-card .action-icon,
+.institute-hover-card .action-icon {
+  flex-shrink: 0 !important;
+  color: #94a3b8 !important;
+  font-size: 0.95rem !important;
+  margin-left: 0.5rem !important;
+}
+
 /* Global Reset & Typography */
 * {
   margin: 0;
@@ -1861,6 +1935,30 @@ img.loaded, img:not([loading="lazy"]) {
   height: 3px;
   background: var(--accent);
   border-radius: 2px;
+}
+
+/* Center heading underline when heading or container is center-aligned */
+.content-card-body .text-center h1::after,
+.content-card-body .text-center h2::after,
+.content-card-body .text-center h3::after,
+.content-card-body .text-center h4::after,
+.content-card-body .text-center h5::after,
+.content-card-body .text-center h6::after,
+.content-card-body h1.text-center::after,
+.content-card-body h2.text-center::after,
+.content-card-body h3.text-center::after,
+.content-card-body h4.text-center::after,
+.content-card-body h5.text-center::after,
+.content-card-body h6.text-center::after,
+.text-center > h1::after,
+.text-center > h2::after,
+.text-center > h3::after,
+.text-center > h4::after,
+.text-center > h5::after,
+.text-center > h6::after {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
 }
 
 .content-card-body p {

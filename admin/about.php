@@ -262,22 +262,120 @@ if ($activeGroup !== 'all' && isset($groups[$activeGroup])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/admin.css">
   <style>
+    /* Stat Cards */
+    .stat-icon-wrap {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .stat-icon-wrap.stat-primary {
+      background: rgba(11, 37, 69, 0.08) !important;
+      color: #0b2545 !important;
+    }
+    .stat-icon-wrap.stat-success {
+      background: rgba(16, 185, 129, 0.12) !important;
+      color: #059669 !important;
+    }
+    .stat-icon-wrap.stat-warning {
+      background: rgba(245, 158, 11, 0.15) !important;
+      color: #d97706 !important;
+    }
+    .stat-icon-wrap.stat-info {
+      background: rgba(6, 182, 212, 0.15) !important;
+      color: #0891b2 !important;
+    }
+
+    /* Page Item Grid Cards - STRICTLY IDENTICAL HEIGHT & WIDTH */
     .page-item-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.25rem;
-      transition: all 0.2s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem 1rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 220px;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      box-shadow: 0 2px 6px rgba(11, 37, 69, 0.03);
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
     }
     .page-item-card:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 6px 18px rgba(11, 37, 69, 0.06);
-      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(11, 37, 69, 0.09);
+      transform: translateY(-3px);
     }
+    .page-item-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0b2545 0%, #134074 100%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .page-item-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Fixed uniform slot heights */
+    .card-top-badges {
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.55rem;
+    }
+    .page-card-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0b2545;
+      line-height: 1.35;
+      height: 42px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.35rem;
+    }
+    .page-card-path {
+      height: 24px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.65rem;
+      font-size: 0.75rem;
+    }
+    .page-card-desc {
+      font-size: 0.82rem;
+      color: #64748b;
+      line-height: 1.45;
+      height: 38px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+    .page-card-footer {
+      padding-top: 0.75rem;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    /* Group Filter Pills */
     .group-pill-btn {
       padding: 0.5rem 1rem;
       font-weight: 600;
@@ -352,7 +450,7 @@ if ($activeGroup !== 'all' && isset($groups[$activeGroup])) {
       </button>
       <div>
         <h5 class="fw-bold mb-0 text-dark">About Section Pages Manager</h5>
-        <small class="text-muted">Directly manage all 37 sub-pages and inner nested pages under the About menu.</small>
+        <small class="text-muted">Directly manage all <?php echo count($allPages); ?> sub-pages and inner nested pages under the About menu.</small>
       </div>
     </div>
     <div class="d-flex align-items-center gap-3">
@@ -388,55 +486,55 @@ if ($activeGroup !== 'all' && isset($groups[$activeGroup])) {
     <?php endif; ?>
 
     <!-- Overview Stats Bar -->
-    <div class="row g-3 mb-4">
-      <div class="col-6 col-md-3">
-        <div class="card border-0 shadow-sm p-3 bg-white">
+    <div class="row g-3 mb-4 align-items-stretch">
+      <div class="col-6 col-md-3 d-flex">
+        <div class="card border-0 shadow-sm p-3 bg-white w-100 rounded-3">
           <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrap bg-primary bg-opacity-10 text-primary p-3 rounded-3">
+            <div class="stat-icon-wrap stat-primary">
               <i class="fa fa-file-lines fs-4"></i>
             </div>
             <div>
-              <h3 class="fw-bold mb-0"><?php echo count($allPages); ?></h3>
-              <small class="text-muted">Total About Pages</small>
+              <h3 class="fw-bold mb-0 text-dark"><?php echo count($allPages); ?></h3>
+              <small class="text-muted fw-semibold">Total About Pages</small>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="card border-0 shadow-sm p-3 bg-white">
+      <div class="col-6 col-md-3 d-flex">
+        <div class="card border-0 shadow-sm p-3 bg-white w-100 rounded-3">
           <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrap bg-success bg-opacity-10 text-success p-3 rounded-3">
+            <div class="stat-icon-wrap stat-success">
               <i class="fa fa-user-tie fs-4"></i>
             </div>
             <div>
-              <h3 class="fw-bold mb-0">17</h3>
-              <small class="text-muted">University Officials</small>
+              <h3 class="fw-bold mb-0 text-dark">17</h3>
+              <small class="text-muted fw-semibold">University Officials</small>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="card border-0 shadow-sm p-3 bg-white">
+      <div class="col-6 col-md-3 d-flex">
+        <div class="card border-0 shadow-sm p-3 bg-white w-100 rounded-3">
           <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrap bg-warning bg-opacity-10 text-warning p-3 rounded-3">
+            <div class="stat-icon-wrap stat-warning">
               <i class="fa fa-stamp fs-4"></i>
             </div>
             <div>
-              <h3 class="fw-bold mb-0">2</h3>
-              <small class="text-muted">Approvals & Ordinances</small>
+              <h3 class="fw-bold mb-0 text-dark">2</h3>
+              <small class="text-muted fw-semibold">Approvals &amp; Ordinances</small>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="card border-0 shadow-sm p-3 bg-white">
+      <div class="col-6 col-md-3 d-flex">
+        <div class="card border-0 shadow-sm p-3 bg-white w-100 rounded-3">
           <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrap bg-info bg-opacity-10 text-info p-3 rounded-3">
+            <div class="stat-icon-wrap stat-info">
               <i class="fa fa-hotel fs-4"></i>
             </div>
             <div>
-              <h3 class="fw-bold mb-0">5</h3>
-              <small class="text-muted">Campus Amenities</small>
+              <h3 class="fw-bold mb-0 text-dark">5</h3>
+              <small class="text-muted fw-semibold">Campus Amenities</small>
             </div>
           </div>
         </div>
@@ -908,51 +1006,89 @@ if ($activeGroup !== 'all' && isset($groups[$activeGroup])) {
       </div>
     <?php endif; ?>
 
-    <!-- Grid of All 37 About Pages -->
-    <div class="row g-3" id="aboutPagesContainer">
+    <!-- Grid of All About Pages (Equal Height & Width Responsive Grid) -->
+    <div class="row g-3 align-items-stretch" id="aboutPagesContainer">
       <?php foreach ($filteredPages as $slug => $pg): 
         $dKey = $pg['doc_key'] ?? str_replace(['/', '.php'], ['_', ''], $pg['file']);
         $pDocsCount = count(get_page_documents($dKey));
+
+        // Group styling
+        $grp = $pg['group'] ?? 'Overview & History';
+        $grpBadgeStyle = 'color: #0b2545; background: rgba(11, 37, 69, 0.08); border: 1px solid rgba(11, 37, 69, 0.15);';
+        $grpIcon = 'fa-compass';
+        if ($grp === 'Constituent Institutes') {
+          $grpBadgeStyle = 'color: #b45309; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.25);';
+          $grpIcon = 'fa-building-columns';
+        } elseif ($grp === 'University Officials') {
+          $grpBadgeStyle = 'color: #047857; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25);';
+          $grpIcon = 'fa-user-tie';
+        } elseif ($grp === 'Approvals & Ordinances') {
+          $grpBadgeStyle = 'color: #6d28d9; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.25);';
+          $grpIcon = 'fa-stamp';
+        } elseif ($grp === 'Amenities') {
+          $grpBadgeStyle = 'color: #0e7490; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.25);';
+          $grpIcon = 'fa-hotel';
+        } elseif ($grp === 'MOU & Activities') {
+          $grpBadgeStyle = 'color: #4338ca; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25);';
+          $grpIcon = 'fa-handshake';
+        } elseif ($grp === 'Compliance & Portals') {
+          $grpBadgeStyle = 'color: #0f766e; background: rgba(20, 184, 166, 0.12); border: 1px solid rgba(20, 184, 166, 0.25);';
+          $grpIcon = 'fa-shield-halved';
+        }
+
+        // Clean description extraction
+        $desc = '';
+        if (($pg['type'] ?? '') === 'profile') {
+          $desc = ($pg['name'] ?? '') . ' — ' . ($pg['designation'] ?? '');
+        } elseif (($pg['type'] ?? '') === 'vision_mission') {
+          $desc = $pg['vision'] ?? '';
+        } else {
+          $desc = strip_tags($pg['content_html'] ?? '');
+        }
+        $desc = trim(preg_replace('/\s+/', ' ', $desc));
+        if (empty($desc)) {
+          $desc = 'Manage dynamic content, overview information, and documents for ' . ($pg['banner_title'] ?? 'this page') . '.';
+        }
       ?>
-        <div class="col-lg-4 col-md-6 page-card-col" data-title="<?php echo strtolower(htmlspecialchars($pg['banner_title'] . ' ' . $pg['group'] . ' ' . $pg['file'])); ?>">
+        <div class="col-lg-4 col-md-6 d-flex page-card-col" data-title="<?php echo strtolower(htmlspecialchars($pg['banner_title'] . ' ' . $pg['group'] . ' ' . $pg['file'])); ?>">
           <div class="page-item-card">
             <div>
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <span class="badge bg-light text-primary border border-primary border-opacity-25">
-                  <?php echo htmlspecialchars($pg['group']); ?>
+              <!-- 1. Top Category & PDF Badges (Fixed Height 26px) -->
+              <div class="card-top-badges">
+                <span class="badge d-inline-flex align-items-center gap-1 px-2 py-1 rounded-pill" style="<?php echo $grpBadgeStyle; ?> font-size: 0.72rem; font-weight: 600;">
+                  <i class="fa <?php echo $grpIcon; ?>"></i> <?php echo htmlspecialchars($grp); ?>
                 </span>
                 <?php if ($pDocsCount > 0): ?>
-                  <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25" title="<?php echo $pDocsCount; ?> attached PDF documents">
+                  <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 rounded-pill px-2 py-1" style="font-size: 0.72rem;" title="<?php echo $pDocsCount; ?> attached PDF documents">
                     <i class="fa fa-file-pdf me-1"></i><?php echo $pDocsCount; ?> PDFs
                   </span>
                 <?php endif; ?>
               </div>
 
-              <h5 class="fw-bold text-dark mb-1 fs-6">
+              <!-- 2. Card Title (Fixed Height 42px, 2 lines clamp) -->
+              <h5 class="page-card-title fw-bold text-dark" title="<?php echo htmlspecialchars($pg['banner_title']); ?>">
                 <?php echo htmlspecialchars($pg['banner_title']); ?>
               </h5>
-              <p class="small text-muted mb-2 text-truncate">
-                <code><?php echo htmlspecialchars($pg['file']); ?></code>
-              </p>
-              <p class="small text-secondary mb-3" style="min-height: 40px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                <?php 
-                  if (($pg['type'] ?? '') === 'profile') {
-                    echo htmlspecialchars(($pg['name'] ?? '') . ' — ' . ($pg['designation'] ?? ''));
-                  } elseif (($pg['type'] ?? '') === 'vision_mission') {
-                    echo htmlspecialchars($pg['vision'] ?? '');
-                  } else {
-                    echo htmlspecialchars(strip_tags($pg['content_html'] ?? ''));
-                  }
-                ?>
+
+              <!-- 3. Source Path Badge (Fixed Height 24px) -->
+              <div class="page-card-path">
+                <i class="fa fa-file-code text-muted me-1" style="font-size: 0.75rem;"></i>
+                <code class="text-truncate"><?php echo htmlspecialchars($pg['file']); ?></code>
+              </div>
+
+              <!-- 4. Description (Fixed Height 38px, 2 lines clamp) -->
+              <p class="page-card-desc mb-3" title="<?php echo htmlspecialchars($desc); ?>">
+                <?php echo htmlspecialchars($desc); ?>
               </p>
             </div>
 
-            <div class="pt-2 border-top d-flex justify-content-between align-items-center">
-              <a href="../<?php echo htmlspecialchars($pg['file']); ?>" target="_blank" class="btn btn-outline-secondary btn-sm py-1 px-2" title="View live public page">
-                <i class="fa fa-arrow-up-right-from-square"></i> Live
+            <!-- 5. Card Footer Actions (Fixed Align at Bottom) -->
+            <div class="page-card-footer">
+              <a href="../<?php echo htmlspecialchars($pg['file']); ?>" target="_blank" class="btn btn-outline-secondary btn-sm px-3 py-1 fw-semibold d-inline-flex align-items-center gap-1" style="font-size: 0.8rem; border-radius: 8px;" title="View live public page">
+                <i class="fa fa-arrow-up-right-from-square small"></i> Live
               </a>
-              <a href="about.php?group=<?php echo urlencode($activeGroup); ?>&edit=<?php echo urlencode($slug); ?>" class="btn btn-primary btn-sm py-1 px-3 fw-bold">
-                <i class="fa fa-pen-to-square me-1"></i> Edit Page
+              <a href="about.php?group=<?php echo urlencode($activeGroup); ?>&edit=<?php echo urlencode($slug); ?>" class="btn btn-primary btn-sm px-3 py-1 fw-bold d-inline-flex align-items-center gap-1" style="font-size: 0.8rem; border-radius: 8px;">
+                <i class="fa fa-pen-to-square small"></i> Edit Page
               </a>
             </div>
           </div>
