@@ -8,8 +8,8 @@
       <span class="brand-lockup-v2-text">
         <h1 class="d-none d-sm-block">Sri Satya Sai University</h1>
         <h1 class="d-sm-none">SSSUTMS</h1>
-        <span class="d-none d-sm-block">Of Technology &amp; Medical Sciences &bull; Sehore</span>
-        <span class="d-sm-none">Sehore, MP</span>
+        <span class="d-none d-sm-block">Of Technology &amp; Medical Sciences</span>
+        <span class="d-sm-none">Technology &amp; Medical Sciences</span>
       </span>
     </a>
 
@@ -391,7 +391,7 @@
       </ul>
 
       <!-- Right Action Button -->
-      <div class="d-flex align-items-center gap-2 py-1 py-lg-0">
+      <div class="d-flex align-items-center ms-lg-2 py-1 py-lg-0">
         <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="btn btn-apply-pill">
           <i class="fa fa-pen-nib me-1"></i> Apply Online
         </a>

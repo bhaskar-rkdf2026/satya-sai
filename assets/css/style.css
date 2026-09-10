@@ -2248,11 +2248,10 @@ img.loaded, img:not([loading="lazy"]) {
   white-space: nowrap;
 }
 .navbar-v2 .brand-lockup-v2 img { height: 40px; width: 40px; }
-.navbar-v2 .brand-lockup-v2-text h1 { font-size: 15.5px; }
-.navbar-v2 .btn-apply-pill { white-space: nowrap; }
+.navbar-v2 .btn-apply-pill { white-space: nowrap; margin-left: 8px; }
 @media (min-width: 992px) and (max-width: 1300px) {
   .navbar-v2 .navbar-nav .nav-link { padding: 8px 7px !important; font-size: 12.5px !important; }
-  .navbar-v2 .btn-apply-pill { padding: 8px 14px !important; font-size: 12px !important; }
+  .navbar-v2 .btn-apply-pill { padding: 8px 14px !important; font-size: 12px !important; margin-left: 6px; }
 }
 @media (max-width: 991.98px) {
   .navbar-v2 .container-fluid { flex-wrap: nowrap; }
@@ -2852,6 +2851,7 @@ body {
   font-size: 10px;
   font-weight: 500;
   letter-spacing: .5px;
+  line-height: 1.35;
 }
 .navbar-v2 .navbar-collapse { min-width: 0; }
 .navbar-v2 .navbar-nav { justify-content: flex-end; margin-left: auto; }
