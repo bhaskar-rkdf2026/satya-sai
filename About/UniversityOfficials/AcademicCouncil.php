@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Academic Council - SSSUTMS';
-$banner_title = 'Academic Council';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('AcademicCouncil');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Academic Council - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Academic Council';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

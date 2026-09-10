@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Dean / Principal - SSSUTMS';
-$banner_title = 'Dean / Principal';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('Dean');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Dean / Principal - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Dean / Principal';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

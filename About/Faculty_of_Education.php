@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Faculty of Education - SSSUTMS';
-$banner_title = 'Faculty of Education';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('Faculty_of_Education');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Faculty of Education - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Faculty of Education';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';

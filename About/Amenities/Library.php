@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Library - SSSUTMS';
-$banner_title = 'Library';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('Library');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Library - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Library';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

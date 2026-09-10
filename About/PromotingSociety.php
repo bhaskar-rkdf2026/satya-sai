@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Promoting Society - SSSUTMS';
-$banner_title = 'Promoting Society';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('PromotingSociety');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Promoting Society - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Promoting Society';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -157,6 +158,11 @@ require_once __DIR__ . '/../includes/page-banner.php';
 
             <!-- Main Narrative Card -->
             <div class="ps-content-card">
+            <?php if (!empty($about_page['content_html'])): ?>
+              <div class="p-2">
+                <?php echo $about_page['content_html']; ?>
+              </div>
+            <?php else: ?>
               <div class="d-flex align-items-start gap-3 mb-3">
                 <div class="ps-stat-icon mt-1">
                   <i class="fa-solid fa-quote-left"></i>
@@ -171,6 +177,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   </p>
                 </div>
               </div>
+            <?php endif; ?>
             </div>
 
             <!-- PDF Callout Box -->

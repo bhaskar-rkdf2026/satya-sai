@@ -1,9 +1,10 @@
 ﻿<?php
-$page_title = 'College of Pharmacy - SSSUTMS';
-$banner_title = 'College of Pharmacy';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('College_of_pharmacy');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'College of Pharmacy - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'College of Pharmacy';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';

@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Approvals - SSSUTMS';
-$banner_title = 'Approvals';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('Approvals');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Approvals - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Approvals';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

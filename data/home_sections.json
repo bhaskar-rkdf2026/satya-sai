@@ -1,14 +1,14 @@
 {
     "hero": {
         "background_image": "assets/images/slider/IMG-20260112-WA0044.jpg",
-        "badge_text": "Admissions Open 2026-27",
-        "title_main": "",
-        "title_highlight": "",
-        "desc": "",
-        "btn_primary_text": "",
-        "btn_primary_link": "",
-        "btn_secondary_text": "",
-        "btn_secondary_link": "",
+        "badge_text": "Admissions Open — Session 2026-27",
+        "title_main": "Shaping Future Leaders Through",
+        "title_highlight": "Excellence & Innovation",
+        "desc": "Empowering students with world-class engineering, medical, ayurveda, pharmacy, and management education across a 100+ acre lush green campus.",
+        "btn_primary_text": "Apply Online 2026-27",
+        "btn_primary_link": "Admission/AdmissionRegistration.php",
+        "btn_secondary_text": "Explore University",
+        "btn_secondary_link": "About/Background.php",
         "mini_stats": [
             {
                 "icon": "fa-building-columns",
@@ -32,28 +32,28 @@
     },
     "quick_access": [
         {
-            "icon": "",
-            "title": "",
-            "desc": "",
-            "link": ""
+            "icon": "fa-credit-card",
+            "title": "Online Fee Payment",
+            "desc": "Secure gateway for tuition & hostel fees",
+            "link": "Admission/UniversityAccountDetail.php"
         },
         {
-            "icon": "",
-            "title": "",
-            "desc": "",
-            "link": ""
+            "icon": "fa-file-lines",
+            "title": "Examination Portal",
+            "desc": "Results, timetables & re-evaluation",
+            "link": "Examination/Interface.php"
         },
         {
-            "icon": "",
-            "title": "",
-            "desc": "",
-            "link": ""
+            "icon": "fa-book",
+            "title": "Syllabus & Curriculum",
+            "desc": "Course-wise updated syllabi",
+            "link": "Download/OutcomeBasedCurriculum/Engineering.php"
         },
         {
-            "icon": "",
-            "title": "",
-            "desc": "",
-            "link": ""
+            "icon": "fa-briefcase",
+            "title": "Placement Records",
+            "desc": "Recruiters, packages & alumni stories",
+            "link": "Academic/TrainingAndPlacement/TrainingAndPlacementCell.php"
         }
     ],
     "stats": [

@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Deputy Registrar - SSSUTMS';
-$banner_title = 'Deputy Registrar';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('DeputyRegistrar');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Deputy Registrar - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Deputy Registrar';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

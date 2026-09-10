@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Core Values - SSSUTMS';
-$banner_title = 'Core Values';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('CoreValues');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Core Values - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Core Values';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -111,12 +112,12 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Body Container -->
           <div class="p-4">
             
-            <!-- Intro Paragraph -->
-            <p class="text-secondary lh-base mb-4" style="font-size: 0.98rem;">
-              The culture of <strong>Sri Satya Sai University of Technology &amp; Medical Sciences</strong> is rooted in nine foundational values that cultivate character, professional competence, and social commitment among all stakeholders.
-            </p>
-
-            <!-- 9 Core Values Grid -->
+          <?php if (!empty($about_page['content_html'])): ?>
+            <div class="p-2">
+              <?php echo $about_page['content_html']; ?>
+            </div>
+          <?php else: ?>
+            <!-- Values Grid -->
             <div class="row g-4 mb-4">
 
               <!-- 1. Discipline -->
@@ -237,6 +238,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
               </div>
 
             </div>
+          <?php endif; ?>
 
           </div>
         </div>

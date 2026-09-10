@@ -73,6 +73,7 @@ $uploadDirs = [
     UPLOAD_DIR . '/schemes',
     UPLOAD_DIR . '/documents',
     UPLOAD_DIR . '/home',
+    UPLOAD_DIR . '/about',
 ];
 foreach ($uploadDirs as $ud) {
     if (!is_dir($ud)) {
@@ -119,6 +120,64 @@ function save_home_section($section_key, $section_data) {
 function save_all_home_sections($all_data) {
     $res = save_json_data('home_sections.json', $all_data);
     get_home_section('', [], true); // Reset static cache
+    return $res;
+}
+
+/**
+ * Helper to get an About Page configuration
+ */
+function get_about_page($slug, $default = [], $forceReload = false) {
+    static $aboutPages = null;
+    if ($aboutPages === null || $forceReload) {
+        $aboutPages = get_json_data('about_pages.json', []);
+    }
+    return $aboutPages[$slug] ?? $default;
+}
+
+/**
+ * Helper to get all About Pages, optionally filtered by group
+ */
+function get_all_about_pages($group = 'all') {
+    $pages = get_json_data('about_pages.json', []);
+    if ($group === 'all' || empty($group)) {
+        return $pages;
+    }
+    return array_filter($pages, fn($p) => ($p['group'] ?? '') === $group);
+}
+
+/**
+ * Helper to save an About Page configuration
+ */
+function save_about_page($slug, $data) {
+    $pages = get_json_data('about_pages.json', []);
+    if (isset($pages[$slug])) {
+        $pages[$slug] = array_merge($pages[$slug], $data);
+    } else {
+        $pages[$slug] = $data;
+    }
+    $pages[$slug]['updated_at'] = date('Y-m-d H:i:s');
+    $res = save_json_data('about_pages.json', $pages);
+    get_about_page('', [], true); // Reset cache
+    return $res;
+}
+
+/**
+ * Helper to get Public Disclosure Categories & Items
+ */
+function get_public_disclosures($forceReload = false) {
+    static $disclosureData = null;
+    if ($disclosureData === null || $forceReload) {
+        $disclosureData = get_json_data('public_disclosure.json', []);
+    }
+    return $disclosureData;
+}
+
+/**
+ * Helper to save Public Disclosure Categories & Items
+ */
+function save_public_disclosures($data) {
+    $res = save_json_data('public_disclosure.json', $data);
+    get_public_disclosures(true); // Reset cache
     return $res;
 }
 

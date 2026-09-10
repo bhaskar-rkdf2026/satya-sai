@@ -143,25 +143,30 @@ function home_url($link) {
   <div class="container-fluid px-lg-5">
     <div class="row g-3">
       <?php
-        $qa_cards = !empty($quick_access) ? $quick_access : [
+        $default_qa_cards = [
           ['icon' => 'fa-credit-card', 'title' => 'Online Fee Payment', 'desc' => 'Secure gateway for tuition & hostel fees', 'link' => 'Admission/UniversityAccountDetail.php'],
           ['icon' => 'fa-file-lines', 'title' => 'Examination Portal', 'desc' => 'Results, timetables & re-evaluation', 'link' => 'Examination/Interface.php'],
           ['icon' => 'fa-book', 'title' => 'Syllabus & Curriculum', 'desc' => 'Course-wise updated syllabi', 'link' => 'Download/OutcomeBasedCurriculum/Engineering.php'],
           ['icon' => 'fa-briefcase', 'title' => 'Placement Records', 'desc' => 'Recruiters, packages & alumni stories', 'link' => 'Academic/TrainingAndPlacement/TrainingAndPlacementCell.php']
         ];
-        foreach ($qa_cards as $qa):
+        for ($i = 0; $i < 4; $i++):
+          $qa = $quick_access[$i] ?? [];
+          $icon = !empty($qa['icon']) ? $qa['icon'] : $default_qa_cards[$i]['icon'];
+          $title = !empty($qa['title']) ? $qa['title'] : $default_qa_cards[$i]['title'];
+          $desc = !empty($qa['desc']) ? $qa['desc'] : $default_qa_cards[$i]['desc'];
+          $link = !empty($qa['link']) ? $qa['link'] : $default_qa_cards[$i]['link'];
       ?>
       <div class="col-lg-3 col-md-6">
-        <a href="<?php echo htmlspecialchars(home_url($qa['link'])); ?>" class="text-decoration-none">
+        <a href="<?php echo htmlspecialchars(home_url($link)); ?>" class="text-decoration-none">
           <div class="quick-access-card">
-            <div class="quick-access-icon"><i class="fa <?php echo htmlspecialchars($qa['icon']); ?>"></i></div>
-            <h6><?php echo htmlspecialchars($qa['title']); ?></h6>
-            <p><?php echo htmlspecialchars($qa['desc']); ?></p>
+            <div class="quick-access-icon"><i class="fa <?php echo htmlspecialchars($icon); ?>"></i></div>
+            <h6><?php echo htmlspecialchars($title); ?></h6>
+            <p><?php echo htmlspecialchars($desc); ?></p>
             <span class="qa-link">Access &rarr;</span>
           </div>
         </a>
       </div>
-      <?php endforeach; ?>
+      <?php endfor; ?>
     </div>
   </div>
 </section>

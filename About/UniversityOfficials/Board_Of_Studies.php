@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Board of Studies - SSSUTMS';
-$banner_title = 'Board of Studies';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('Board_Of_Studies');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Board of Studies - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Board of Studies';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

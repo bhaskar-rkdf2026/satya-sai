@@ -1,13 +1,25 @@
 <?php
-$page_title = 'Vice Chancellor - SSSUTMS';
-$banner_title = 'Vice Chancellor';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('ViceChancellor');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Vice Chancellor - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Vice Chancellor';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+// Profile helpers
+$pName = $about_page['name'] ?? 'Dr Mukesh Tiwari';
+$pDesig = $about_page['designation'] ?? 'Vice Chancellor, SSSUTMS';
+$pPhoto = $about_page['photo'] ?? 'assets/images/Files/Link/vc_sir_13052024_0517.jpg';
+if (strpos($pPhoto, 'http') !== 0) {
+    $pPhoto = BASE_URL . ltrim($pPhoto, '/');
+}
+$pQuote = $about_page['quote'] ?? 'We continuously aspire to be a breeding ground for positive ideas, celebrating unity in diversity and nurturing scholars of high caliber.';
+$pEdu = $about_page['education'] ?? 'Ph.D. in Engineering & Technology';
+$pExp = $about_page['experience'] ?? '25+ Years Academic & Research Administration';
 ?>
 
 <style>
@@ -153,8 +165,8 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <!-- VC Image -->
               <div class="col-md-5 col-lg-4 text-center">
                 <div class="vc-img-container mb-3">
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/vc_sir_13052024_0517.jpg" target="_blank" rel="noopener" title="Click to view full image">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/vc_sir_13052024_0517.jpg" alt="Dr Mukesh Tiwari - Vice Chancellor, SSSUTMS" class="img-fluid" />
+                  <a href="<?php echo htmlspecialchars($pPhoto); ?>" target="_blank" rel="noopener" title="Click to view full image">
+                    <img src="<?php echo htmlspecialchars($pPhoto); ?>" alt="<?php echo htmlspecialchars($pName . ' - ' . $pDesig); ?>" class="img-fluid" />
                   </a>
                 </div>
                 <span class="vc-role-badge">
@@ -165,14 +177,14 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <!-- Quick Info / Bio Overview -->
               <div class="col-md-7 col-lg-8">
                 <div class="ps-md-2">
-                  <h3 class="fw-bold text-dark mb-1 fs-3">Dr Mukesh Tiwari</h3>
-                  <p class="fs-6 fw-semibold text-primary mb-3">Vice Chancellor, SSSUTMS</p>
+                  <h3 class="fw-bold text-dark mb-1 fs-3"><?php echo htmlspecialchars($pName); ?></h3>
+                  <p class="fs-6 fw-semibold text-primary mb-3"><?php echo htmlspecialchars($pDesig); ?></p>
                   
                   <div class="vc-quote-banner mb-3">
                     <i class="fa-solid fa-quote-right quote-bg"></i>
                     <p class="mb-0 small lh-base italic-text">
                       <i class="fa-solid fa-quote-left me-2 opacity-75"></i>
-                      We continuously aspire to be a breeding ground for positive ideas, celebrating unity in diversity and nurturing scholars of high caliber.
+                      <?php echo htmlspecialchars($pQuote); ?>
                     </p>
                   </div>
 
@@ -184,8 +196,8 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                           <i class="fa-solid fa-building-columns"></i>
                         </div>
                         <div>
-                          <div class="fw-bold text-dark small">Established</div>
-                          <div class="text-muted extra-small" style="font-size: 0.8rem;">Multi-Disciplinary Institution (Est. 2013)</div>
+                          <div class="fw-bold text-dark small">Education</div>
+                          <div class="text-muted extra-small" style="font-size: 0.8rem;"><?php echo htmlspecialchars($pEdu); ?></div>
                         </div>
                       </div>
                     </div>
@@ -195,8 +207,8 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                           <i class="fa-solid fa-award"></i>
                         </div>
                         <div>
-                          <div class="fw-bold text-dark small">Focus Area</div>
-                          <div class="text-muted extra-small" style="font-size: 0.8rem;">Teaching, Research & Nation Building</div>
+                          <div class="fw-bold text-dark small">Experience</div>
+                          <div class="text-muted extra-small" style="font-size: 0.8rem;"><?php echo htmlspecialchars($pExp); ?></div>
                         </div>
                       </div>
                     </div>
@@ -211,7 +223,11 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Detailed Content Section -->
         <div class="vc-details-wrapper">
-          
+        <?php if (!empty($about_page['content_html'])): ?>
+          <div class="vc-paragraph-card">
+            <?php echo $about_page['content_html']; ?>
+          </div>
+        <?php else: ?>
           <!-- Paragraph 1 -->
           <div class="vc-paragraph-card">
             <div class="d-flex align-items-start gap-3">
@@ -266,6 +282,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
             </div>
           </div>
 
+        <?php endif; ?>
         </div>
 
       </div>

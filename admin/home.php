@@ -5,9 +5,46 @@ require_admin_auth();
 $msg = '';
 $activeTab = $_GET['tab'] ?? 'hero';
 
+$default_quick_access = [
+    [
+        'icon' => 'fa-credit-card',
+        'title' => 'Online Fee Payment',
+        'desc' => 'Secure gateway for tuition & hostel fees',
+        'link' => 'Admission/UniversityAccountDetail.php'
+    ],
+    [
+        'icon' => 'fa-file-lines',
+        'title' => 'Examination Portal',
+        'desc' => 'Results, timetables & re-evaluation',
+        'link' => 'Examination/Interface.php'
+    ],
+    [
+        'icon' => 'fa-book',
+        'title' => 'Syllabus & Curriculum',
+        'desc' => 'Course-wise updated syllabi',
+        'link' => 'Download/OutcomeBasedCurriculum/Engineering.php'
+    ],
+    [
+        'icon' => 'fa-briefcase',
+        'title' => 'Placement Records',
+        'desc' => 'Recruiters, packages & alumni stories',
+        'link' => 'Academic/TrainingAndPlacement/TrainingAndPlacementCell.php'
+    ]
+];
+
 // Load existing sections
 $hero = get_home_section('hero', []);
-$quick_access = get_home_section('quick_access', []);
+$loaded_qa = get_home_section('quick_access', []);
+$quick_access = [];
+for ($i = 0; $i < 4; $i++) {
+    $item = $loaded_qa[$i] ?? [];
+    $quick_access[] = [
+        'icon'  => !empty($item['icon']) ? $item['icon'] : $default_quick_access[$i]['icon'],
+        'title' => !empty($item['title']) ? $item['title'] : $default_quick_access[$i]['title'],
+        'desc'  => !empty($item['desc']) ? $item['desc'] : $default_quick_access[$i]['desc'],
+        'link'  => !empty($item['link']) ? $item['link'] : $default_quick_access[$i]['link']
+    ];
+}
 $stats = get_home_section('stats', []);
 $why_sssutms = get_home_section('why_sssutms', []);
 $about_vc = get_home_section('about_vc', []);
@@ -45,15 +82,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $activeTab = 'hero';
         $bgImg = handle_home_upload('hero_bg_file', trim($_POST['hero_bg_text'] ?? $hero['background_image']));
         
-        $hero['background_image'] = $bgImg;
-        $hero['badge_text'] = clean_input($_POST['hero_badge_text'] ?? '');
-        $hero['title_main'] = clean_input($_POST['hero_title_main'] ?? '');
-        $hero['title_highlight'] = clean_input($_POST['hero_title_highlight'] ?? '');
-        $hero['desc'] = clean_input($_POST['hero_desc'] ?? '');
-        $hero['btn_primary_text'] = clean_input($_POST['hero_btn_primary_text'] ?? '');
-        $hero['btn_primary_link'] = clean_input($_POST['hero_btn_primary_link'] ?? '');
-        $hero['btn_secondary_text'] = clean_input($_POST['hero_btn_secondary_text'] ?? '');
-        $hero['btn_secondary_link'] = clean_input($_POST['hero_btn_secondary_link'] ?? '');
+        $hero['background_image'] = !empty($bgImg) ? $bgImg : ($hero['background_image'] ?? 'assets/images/slider/IMG-20260112-WA0044.jpg');
+        $hero['badge_text'] = !empty($_POST['hero_badge_text']) ? clean_input($_POST['hero_badge_text']) : ($hero['badge_text'] ?? 'Admissions Open — Session 2026-27');
+        $hero['title_main'] = !empty($_POST['hero_title_main']) ? clean_input($_POST['hero_title_main']) : ($hero['title_main'] ?? 'Shaping Future Leaders Through');
+        $hero['title_highlight'] = !empty($_POST['hero_title_highlight']) ? clean_input($_POST['hero_title_highlight']) : ($hero['title_highlight'] ?? 'Excellence & Innovation');
+        $hero['desc'] = !empty($_POST['hero_desc']) ? clean_input($_POST['hero_desc']) : ($hero['desc'] ?? 'Empowering students with world-class engineering, medical, ayurveda, pharmacy, and management education across a 100+ acre lush green campus.');
+        $hero['btn_primary_text'] = !empty($_POST['hero_btn_primary_text']) ? clean_input($_POST['hero_btn_primary_text']) : ($hero['btn_primary_text'] ?? 'Apply Online 2026-27');
+        $hero['btn_primary_link'] = !empty($_POST['hero_btn_primary_link']) ? clean_input($_POST['hero_btn_primary_link']) : ($hero['btn_primary_link'] ?? 'Admission/AdmissionRegistration.php');
+        $hero['btn_secondary_text'] = !empty($_POST['hero_btn_secondary_text']) ? clean_input($_POST['hero_btn_secondary_text']) : ($hero['btn_secondary_text'] ?? 'Explore University');
+        $hero['btn_secondary_link'] = !empty($_POST['hero_btn_secondary_link']) ? clean_input($_POST['hero_btn_secondary_link']) : ($hero['btn_secondary_link'] ?? 'About/Background.php');
         
         // Mini stats (3 items)
         $hero['mini_stats'] = [
@@ -81,15 +118,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         save_home_section('hero', $hero);
 
         // Quick Access Cards (4 items)
-        $quick_access = [];
+        $new_quick_access = [];
         for ($i = 0; $i < 4; $i++) {
-            $quick_access[] = [
-                'icon'  => clean_input($_POST["qa_icon_$i"] ?? ''),
-                'title' => clean_input($_POST["qa_title_$i"] ?? ''),
-                'desc'  => clean_input($_POST["qa_desc_$i"] ?? ''),
-                'link'  => clean_input($_POST["qa_link_$i"] ?? '')
+            $inIcon  = clean_input($_POST["qa_icon_$i"] ?? '');
+            $inTitle = clean_input($_POST["qa_title_$i"] ?? '');
+            $inDesc  = clean_input($_POST["qa_desc_$i"] ?? '');
+            $inLink  = clean_input($_POST["qa_link_$i"] ?? '');
+
+            $new_quick_access[] = [
+                'icon'  => !empty($inIcon) ? $inIcon : $default_quick_access[$i]['icon'],
+                'title' => !empty($inTitle) ? $inTitle : $default_quick_access[$i]['title'],
+                'desc'  => !empty($inDesc) ? $inDesc : $default_quick_access[$i]['desc'],
+                'link'  => !empty($inLink) ? $inLink : $default_quick_access[$i]['link']
             ];
         }
+        $quick_access = $new_quick_access;
         save_home_section('quick_access', $quick_access);
         $msg = 'Hero Section & Quick Access Strip updated successfully!';
     }
@@ -415,6 +458,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <ul class="admin-nav">
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link active"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
+    <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-folder-open"></i> Documents & Page PDFs</a></li>
     <li><a href="notices.php" class="nav-link"><i class="fa fa-bullhorn"></i> Notices & Circulars</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events & Workshops</a></li>
@@ -610,26 +654,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <h6><i class="fa fa-bolt text-primary"></i> Quick Access Strip (4 Cards Below Hero)</h6>
           <div class="row g-3">
             <?php for ($i = 0; $i < 4; $i++): 
-              $qa = $quick_access[$i] ?? ['icon' => 'fa-link', 'title' => '', 'desc' => '', 'link' => ''];
+              $qa = $quick_access[$i] ?? $default_quick_access[$i];
+              $qaIcon = !empty($qa['icon']) ? $qa['icon'] : $default_quick_access[$i]['icon'];
+              $qaTitle = !empty($qa['title']) ? $qa['title'] : $default_quick_access[$i]['title'];
+              $qaDesc = !empty($qa['desc']) ? $qa['desc'] : $default_quick_access[$i]['desc'];
+              $qaLink = !empty($qa['link']) ? $qa['link'] : $default_quick_access[$i]['link'];
             ?>
               <div class="col-lg-3 col-md-6">
                 <div class="p-3 border rounded bg-light">
                   <span class="badge bg-primary mb-2">Card #<?php echo $i + 1; ?></span>
                   <div class="mb-2">
                     <label class="small fw-bold">Icon Class</label>
-                    <input type="text" name="qa_icon_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qa['icon']); ?>">
+                    <input type="text" name="qa_icon_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qaIcon); ?>">
                   </div>
                   <div class="mb-2">
                     <label class="small fw-bold">Card Title</label>
-                    <input type="text" name="qa_title_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qa['title']); ?>">
+                    <input type="text" name="qa_title_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qaTitle); ?>">
                   </div>
                   <div class="mb-2">
                     <label class="small fw-bold">Description</label>
-                    <input type="text" name="qa_desc_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qa['desc']); ?>">
+                    <input type="text" name="qa_desc_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qaDesc); ?>">
                   </div>
                   <div>
                     <label class="small fw-bold">Link URL</label>
-                    <input type="text" name="qa_link_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qa['link']); ?>">
+                    <input type="text" name="qa_link_<?php echo $i; ?>" class="form-control form-control-sm" value="<?php echo htmlspecialchars($qaLink); ?>">
                   </div>
                 </div>
               </div>

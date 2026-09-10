@@ -1,13 +1,25 @@
 <?php
-$page_title = 'Chancellor - SSSUTMS';
-$banner_title = 'Chancellor';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('Chancellor');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Chancellor - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Chancellor';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+// Profile helpers
+$pName = $about_page['name'] ?? 'Mr. Siddharth Kapoor';
+$pDesig = $about_page['designation'] ?? 'Chancellor, SSSUTMS';
+$pPhoto = $about_page['photo'] ?? 'assets/images/Files/Link/chancellor_17022025_1245.jpg';
+if (strpos($pPhoto, 'http') !== 0) {
+    $pPhoto = BASE_URL . ltrim($pPhoto, '/');
+}
+$pQuote = $about_page['quote'] ?? 'Under his visionary guidance, Sri Satya Sai University continues to fulfill the dreams and aspirations of the young generation.';
+$pEdu = $about_page['education'] ?? 'FMBA (SP Jain) | MBA (Temple Univ, USA)';
+$pExp = $about_page['experience'] ?? '14+ Years Educational Leadership';
 ?>
 
 <style>
@@ -153,8 +165,8 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <!-- Chancellor Image -->
               <div class="col-md-5 col-lg-4 text-center">
                 <div class="chancellor-img-container mb-3">
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/chancellor_17022025_1245.jpg" target="_blank" rel="noopener" title="Click to view full image">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/chancellor_17022025_1245.jpg" alt="Mr. Siddharth Kapoor - Chancellor, SSSUTMS" class="img-fluid" />
+                  <a href="<?php echo htmlspecialchars($pPhoto); ?>" target="_blank" rel="noopener" title="Click to view full image">
+                    <img src="<?php echo htmlspecialchars($pPhoto); ?>" alt="<?php echo htmlspecialchars($pName . ' - ' . $pDesig); ?>" class="img-fluid" />
                   </a>
                 </div>
                 <span class="chancellor-role-badge">
@@ -165,14 +177,14 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <!-- Quick Info / Bio Overview -->
               <div class="col-md-7 col-lg-8">
                 <div class="ps-md-2">
-                  <h3 class="fw-bold text-dark mb-1 fs-3">Mr. Siddharth Kapoor</h3>
-                  <p class="fs-6 fw-semibold text-primary mb-3">Chancellor, SSSUTMS</p>
+                  <h3 class="fw-bold text-dark mb-1 fs-3"><?php echo htmlspecialchars($pName); ?></h3>
+                  <p class="fs-6 fw-semibold text-primary mb-3"><?php echo htmlspecialchars($pDesig); ?></p>
                   
                   <div class="chancellor-quote-banner mb-3">
                     <i class="fa-solid fa-quote-right quote-bg"></i>
                     <p class="mb-0 small lh-base italic-text">
                       <i class="fa-solid fa-quote-left me-2 opacity-75"></i>
-                      Under his visionary guidance, Sri Satya Sai University continues to fulfill the dreams and aspirations of the young generation.
+                      <?php echo htmlspecialchars($pQuote); ?>
                     </p>
                   </div>
 
@@ -185,7 +197,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                         </div>
                         <div>
                           <div class="fw-bold text-dark small">Education</div>
-                          <div class="text-muted extra-small" style="font-size: 0.8rem;">FMBA (SP Jain) | MBA (Temple Univ, USA)</div>
+                          <div class="text-muted extra-small" style="font-size: 0.8rem;"><?php echo htmlspecialchars($pEdu); ?></div>
                         </div>
                       </div>
                     </div>
@@ -196,7 +208,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                         </div>
                         <div>
                           <div class="fw-bold text-dark small">Experience</div>
-                          <div class="text-muted extra-small" style="font-size: 0.8rem;">14+ Years Educational Leadership</div>
+                          <div class="text-muted extra-small" style="font-size: 0.8rem;"><?php echo htmlspecialchars($pExp); ?></div>
                         </div>
                       </div>
                     </div>
@@ -211,7 +223,11 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Detailed Content Section -->
         <div class="chancellor-details-wrapper">
-          
+        <?php if (!empty($about_page['content_html'])): ?>
+          <div class="chancellor-paragraph-card">
+            <?php echo $about_page['content_html']; ?>
+          </div>
+        <?php else: ?>
           <!-- Paragraph 1 -->
           <div class="chancellor-paragraph-card">
             <div class="d-flex align-items-start gap-3">
@@ -219,7 +235,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 <i class="fa-solid fa-university"></i>
               </div>
               <div>
-                <h6 class="fw-bold mb-2">Academic Credentials & Background</h6>
+                <h6 class="fw-bold mb-2">Academic Credentials &amp; Background</h6>
                 <p class="text-justify mb-0">
                   Young &amp; Dynamic Chancellor of <strong>Sri Satya Sai University of Technology &amp; Medical Sciences</strong>, Honourable Mr. Siddharth Kapoor holds a Degree in Family Management Business Administration (FMBA) from SP Jain, Mumbai. He also completed his Masters of Business Administration (Finance) from Temple University, Fox School of Business, Philadelphia, after earning his Bachelor of Business Administration (Finance) from the same institution.
                 </p>
@@ -272,6 +288,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
             </div>
           </div>
 
+        <?php endif; ?>
         </div>
 
       </div>

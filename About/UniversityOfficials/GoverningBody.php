@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Governing Body - SSSUTMS';
-$banner_title = 'Governing Body';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../../config.php';
+$about_page = get_about_page('GoverningBody');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Governing Body - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Governing Body';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

@@ -1,9 +1,10 @@
 <?php
-$page_title = 'NSS - National Service Scheme - SSSUTMS';
-$banner_title = 'NSS';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('NSS');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'NSS - National Service Scheme - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'NSS';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';

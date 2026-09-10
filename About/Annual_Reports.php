@@ -1,13 +1,16 @@
 <?php
-$page_title = 'Annual Reports - SSSUTMS';
-$banner_title = 'Annual Reports';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('Annual_Reports');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Annual Reports - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Annual Reports';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+$dynamicReports = get_page_documents('Annual_Reports');
 ?>
 
 <style>
@@ -73,7 +76,35 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Body Container -->
           <div class="p-4">
             
-            <!-- Document Card -->
+          <?php if (!empty($dynamicReports)): ?>
+            <?php foreach ($dynamicReports as $rep): 
+              $fileUrl = $rep['file'];
+              if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
+                $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+              }
+            ?>
+              <!-- Document Card -->
+              <div class="ar-doc-card mb-3">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="rounded-3 bg-danger bg-opacity-10 text-danger p-3 fs-3">
+                      <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div>
+                      <h5 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($rep['title']); ?></h5>
+                      <p class="text-secondary small mb-0"><?php echo htmlspecialchars($rep['category'] ?? 'Official Statutory Annual Progress & Performance Report'); ?></p>
+                    </div>
+                  </div>
+                  <div>
+                    <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold shadow-sm d-inline-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf"></i> Download PDF
+                    </a>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <!-- Default Document Card Fallback -->
             <div class="ar-doc-card">
               <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
                 <div class="d-flex align-items-center gap-3">
@@ -92,6 +123,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </div>
               </div>
             </div>
+          <?php endif; ?>
 
           </div>
         </div>

@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Vision & Mission - SSSUTMS';
-$banner_title = 'Vision & Mission';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('VisionAndMission');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Vision & Mission - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Vision & Mission';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -142,7 +143,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   </div>
                   <div class="vm-quote-box" style="border-left-color: #d97706;">
                     <p class="lead text-dark mb-0 fst-italic text-justify" style="font-size: 1.05rem; line-height: 1.8;">
-                      &ldquo;To emerge as World&rsquo;s one of the finest Universities in the field of Higher, Technical and Medical Education to develop Professionals who are Technically competent, ethically sensitive and environment friendly, for the betterment of society.&rdquo;
+                      &ldquo;<?php echo htmlspecialchars($about_page['vision'] ?? 'To emerge as World’s one of the finest Universities in the field of Higher, Technical and Medical Education to develop Professionals who are Technically competent, ethically sensitive and environment friendly, for the betterment of society.'); ?>&rdquo;
                     </p>
                   </div>
                 </div>
@@ -162,7 +163,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   </div>
                   <div class="vm-quote-box" style="border-left-color: #2563eb;">
                     <p class="lead text-dark mb-0 fst-italic text-justify" style="font-size: 1.05rem; line-height: 1.8;">
-                      &ldquo;Accomplish stimulating learning environment for students through quality teaching, research and outreach activity by providing state of the art facilities, industry exposure and guidance of dedicated faculty.&rdquo;
+                      &ldquo;<?php echo htmlspecialchars($about_page['mission'] ?? 'Accomplish stimulating learning environment for students through quality teaching, research and outreach activity by providing state of the art facilities, industry exposure and guidance of dedicated faculty.'); ?>&rdquo;
                     </p>
                   </div>
                 </div>

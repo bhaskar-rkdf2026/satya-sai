@@ -1,0 +1,1337 @@
+{
+    "A": {
+        "code": "A",
+        "title": "About HEI",
+        "items": [
+            {
+                "id": "A_1",
+                "category_code": "A",
+                "category_title": "About HEI",
+                "param_html": "Overview &amp; University Background",
+                "param_text": "Overview &amp; University Background",
+                "link": "<?php echo BASE_URL; ?>About/Background.php",
+                "link_clean": "About/Background.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Background.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_2",
+                "category_code": "A",
+                "category_title": "About HEI",
+                "param_html": "Act and Statutes or MoA",
+                "param_text": "Act and Statutes or MoA",
+                "link": "<?php echo BASE_URL; ?>assets/pdf/Fianal_Statute_12.pdf",
+                "link_clean": "assets/pdf/Fianal_Statute_12.pdf",
+                "link_text": "Statute (PDF)",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "danger",
+                        "text": "Statute (PDF)",
+                        "url": "assets/pdf/Fianal_Statute_12.pdf",
+                        "icon": "fa-file-pdf"
+                    }
+                ]
+            },
+            {
+                "id": "A_3",
+                "category_code": "A",
+                "category_title": "About HEI",
+                "param_html": "Institutional Development Plan (IDP)",
+                "param_text": "Institutional Development Plan (IDP)",
+                "link": "<?php echo BASE_URL; ?>About/Institutional_Development_Plan.php",
+                "link_clean": "About/Institutional_Development_Plan.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Institutional_Development_Plan.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_4",
+                "category_code": "A",
+                "category_title": "About HEI",
+                "param_html": "Constituent Units &amp; Affiliated Colleges",
+                "param_text": "Constituent Units &amp; Affiliated Colleges",
+                "link": "<?php echo BASE_URL; ?>Academic/ConstituentUnits.php",
+                "link_clean": "Academic/ConstituentUnits.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/ConstituentUnits.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_5",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "NAAC Accreditation (SSR &amp; Criteria)",
+                "param_text": "NAAC Accreditation (SSR &amp; Criteria)",
+                "link": "<?php echo BASE_URL; ?>Academic/NAAC/SSR.php",
+                "link_clean": "Academic/NAAC/SSR.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/NAAC/SSR.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_6",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "NBA Accreditation",
+                "param_text": "NBA Accreditation",
+                "link": "",
+                "link_clean": "Academic/NAAC/SSR.php",
+                "link_text": "N/A",
+                "is_na": true,
+                "buttons": [
+                    {
+                        "type": "na",
+                        "text": "N/A",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "id": "A_7",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "NIRF Ranking &amp; Data",
+                "param_text": "NIRF Ranking &amp; Data",
+                "link": "<?php echo BASE_URL; ?>Research/NIRF.php",
+                "link_clean": "Research/NIRF.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Research/NIRF.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_8",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "Recognition &amp; Approvals (UGC 2f, Statutory Bodies)",
+                "param_text": "Recognition &amp; Approvals (UGC 2f, Statutory Bodies)",
+                "link": "<?php echo BASE_URL; ?>About/ApprovalsAndOrdinances/Approvals.php",
+                "link_clean": "About/ApprovalsAndOrdinances/Approvals.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/ApprovalsAndOrdinances/Approvals.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_9",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "Annual Reports",
+                "param_text": "Annual Reports",
+                "link": "<?php echo BASE_URL; ?>About/Annual_Reports.php",
+                "link_clean": "About/Annual_Reports.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Annual_Reports.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_10",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "Annual Accounts &amp; Audit Reports",
+                "param_text": "Annual Accounts &amp; Audit Reports",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Audit_Report.php",
+                "link_clean": "About/UniversityOfficials/Audit_Report.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/Audit_Report.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "A_11",
+                "category_code": "A",
+                "category_title": "Accreditation / Ranking Status",
+                "param_html": "Sponsoring Body / Society Details",
+                "param_text": "Sponsoring Body / Society Details",
+                "link": "<?php echo BASE_URL; ?>About/PromotingSociety.php",
+                "link_clean": "About/PromotingSociety.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/PromotingSociety.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "B": {
+        "code": "B",
+        "title": "Administration &amp; Officers Profile",
+        "items": [
+            {
+                "id": "B_1",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Chancellor:</strong> Mr. Siddharth Kapoor<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>chancellor@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>07562-292203</small>",
+                "param_text": "Chancellor: Mr. Siddharth Kapoor\r\n                      chancellor@sssutms.co.in | 07562-292203",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Chancellor.php",
+                "link_clean": "About/UniversityOfficials/Chancellor.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/Chancellor.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_2",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Pro Chancellor:</strong> N/A",
+                "param_text": "Pro Chancellor: N/A",
+                "link": "",
+                "link_clean": "About/UniversityOfficials/Chancellor.php",
+                "link_text": "N/A",
+                "is_na": true,
+                "buttons": [
+                    {
+                        "type": "na",
+                        "text": "N/A",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "id": "B_3",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Vice-Chancellor:</strong> Dr. Mukesh Tiwari<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>vc@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>+91-9826293590</small>",
+                "param_text": "Vice-Chancellor: Dr. Mukesh Tiwari\r\n                      vc@sssutms.co.in | +91-9826293590",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/ViceChancellor.php",
+                "link_clean": "About/UniversityOfficials/ViceChancellor.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/ViceChancellor.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_4",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Pro-Vice Chancellor:</strong> N/A",
+                "param_text": "Pro-Vice Chancellor: N/A",
+                "link": "",
+                "link_clean": "About/UniversityOfficials/ViceChancellor.php",
+                "link_text": "N/A",
+                "is_na": true,
+                "buttons": [
+                    {
+                        "type": "na",
+                        "text": "N/A",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "id": "B_5",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Registrar:</strong> Dr. Hemant Sharma<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>registrar@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>+91-9826512726</small>",
+                "param_text": "Registrar: Dr. Hemant Sharma\r\n                      registrar@sssutms.co.in | +91-9826512726",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Registrar.php",
+                "link_clean": "About/UniversityOfficials/Registrar.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/Registrar.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_6",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Deputy Registrar:</strong> Dr. Kanchan Shrivastav<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>deputyregistrar@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>+91-7477039825</small>",
+                "param_text": "Deputy Registrar: Dr. Kanchan Shrivastav\r\n                      deputyregistrar@sssutms.co.in | +91-7477039825",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/DeputyRegistrar.php",
+                "link_clean": "About/UniversityOfficials/DeputyRegistrar.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/DeputyRegistrar.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_7",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Principals / Directors</strong>",
+                "param_text": "Principals / Directors",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/HeadOfTheDepartment.php",
+                "link_clean": "About/UniversityOfficials/HeadOfTheDepartment.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/HeadOfTheDepartment.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "B_8",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Finance Officer:</strong> Dr. Vimal Nath<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>fo@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>07562-292205</small>",
+                "param_text": "Finance Officer: Dr. Vimal Nath\r\n                      fo@sssutms.co.in | 07562-292205",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Finance_Officer.php",
+                "link_clean": "About/UniversityOfficials/Finance_Officer.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/Finance_Officer.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_9",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Controller of Examination:</strong> Dr. Sanjay Rathore<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>exam@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>+91-9630560005</small>",
+                "param_text": "Controller of Examination: Dr. Sanjay Rathore\r\n                      exam@sssutms.co.in | +91-9630560005",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Exam_Controller.php",
+                "link_clean": "About/UniversityOfficials/Exam_Controller.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/Exam_Controller.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_10",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Chief Vigilance Officer:</strong> Mr. H. S. Raghuvanshi<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>info@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>+91-9425039197</small>",
+                "param_text": "Chief Vigilance Officer: Mr. H. S. Raghuvanshi\r\n                      info@sssutms.co.in | +91-9425039197",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Chief_Vigilance_Officer.php",
+                "link_clean": "About/UniversityOfficials/Chief_Vigilance_Officer.php",
+                "link_text": "View Profile",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Profile",
+                        "url": "About/UniversityOfficials/Chief_Vigilance_Officer.php",
+                        "icon": "fa-user"
+                    }
+                ]
+            },
+            {
+                "id": "B_11",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "<strong>Ombudsperson:</strong> Prof.(Dr.) Varsha Namdeo<br />\r\n                      <small class=\"text-secondary\"><i class=\"fa-solid fa-envelope me-1\"></i>info@sssutms.co.in | <i class=\"fa-solid fa-phone me-1\"></i>07562-292204</small>",
+                "param_text": "Ombudsperson: Prof.(Dr.) Varsha Namdeo\r\n                      info@sssutms.co.in | 07562-292204",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php",
+                "link_clean": "Academic/Committee/GrievanceRedressal.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/GrievanceRedressal.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "B_12",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "Board of Governors / Governing Body",
+                "param_text": "Board of Governors / Governing Body",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/GoverningBody.php",
+                "link_clean": "About/UniversityOfficials/GoverningBody.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/GoverningBody.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "B_13",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "Board of Management",
+                "param_text": "Board of Management",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/BoardOfManagement.php",
+                "link_clean": "About/UniversityOfficials/BoardOfManagement.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/BoardOfManagement.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "B_14",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "Academic Council",
+                "param_text": "Academic Council",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/AcademicCouncil.php",
+                "link_clean": "About/UniversityOfficials/AcademicCouncil.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/AcademicCouncil.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "B_15",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "Finance Committee",
+                "param_text": "Finance Committee",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/FinanceCommittee.php",
+                "link_clean": "About/UniversityOfficials/FinanceCommittee.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/FinanceCommittee.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "B_16",
+                "category_code": "B",
+                "category_title": "Administration &amp; Officers Profile",
+                "param_html": "Board of Studies",
+                "param_text": "Board of Studies",
+                "link": "<?php echo BASE_URL; ?>About/UniversityOfficials/Board_Of_Studies.php",
+                "link_clean": "About/UniversityOfficials/Board_Of_Studies.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/UniversityOfficials/Board_Of_Studies.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "C": {
+        "code": "C",
+        "title": "Academics",
+        "items": [
+            {
+                "id": "C_1",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Details of Academic Programs",
+                "param_text": "Details of Academic Programs",
+                "link": "<?php echo BASE_URL; ?>Academic/FacultiesAndDepartments/EngineeringAndTechnology.php",
+                "link_clean": "Academic/FacultiesAndDepartments/EngineeringAndTechnology.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/FacultiesAndDepartments/EngineeringAndTechnology.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_2",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Academic Calendar",
+                "param_text": "Academic Calendar",
+                "link": "<?php echo BASE_URL; ?>Academic/AcademicCalendar.php",
+                "link_clean": "Academic/AcademicCalendar.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/AcademicCalendar.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_3",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Statutes / Ordinances Pertaining to Academics",
+                "param_text": "Statutes / Ordinances Pertaining to Academics",
+                "link": "<?php echo BASE_URL; ?>Academic/HEIHandbook.php",
+                "link_clean": "Academic/HEIHandbook.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/HEIHandbook.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_4",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Schools / Institutes / Departments",
+                "param_text": "Schools / Institutes / Departments",
+                "link": "<?php echo BASE_URL; ?>About/Institutes.php",
+                "link_clean": "About/Institutes.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Institutes.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_5",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Department-wise Faculty &amp; Staff Details",
+                "param_text": "Department-wise Faculty &amp; Staff Details",
+                "link": "<?php echo BASE_URL; ?>Academic/Faculty_Staff_Details.php",
+                "link_clean": "Academic/Faculty_Staff_Details.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Faculty_Staff_Details.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_6",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "UGC Recognized ODL / Online Programs",
+                "param_text": "UGC Recognized ODL / Online Programs",
+                "link": "",
+                "link_clean": "Academic/Faculty_Staff_Details.php",
+                "link_text": "N/A",
+                "is_na": true,
+                "buttons": [
+                    {
+                        "type": "na",
+                        "text": "N/A",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "id": "C_7",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Internal Quality Assurance Cell (IQAC)",
+                "param_text": "Internal Quality Assurance Cell (IQAC)",
+                "link": "<?php echo BASE_URL; ?>Academic/IQACCell.php",
+                "link_clean": "Academic/IQACCell.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/IQACCell.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_8",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Central Library Facilities",
+                "param_text": "Central Library Facilities",
+                "link": "<?php echo BASE_URL; ?>About/Amenities/Library.php",
+                "link_clean": "About/Amenities/Library.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Amenities/Library.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "C_9",
+                "category_code": "C",
+                "category_title": "Academics",
+                "param_html": "Academic Collaborations &amp; MoUs",
+                "param_text": "Academic Collaborations &amp; MoUs",
+                "link": "<?php echo BASE_URL; ?>About/NCC/MOU.php",
+                "link_clean": "About/NCC/MOU.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/NCC/MOU.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "D": {
+        "code": "D",
+        "title": "Admissions &amp; Fee",
+        "items": [
+            {
+                "id": "D_1",
+                "category_code": "D",
+                "category_title": "Admissions &amp; Fee",
+                "param_html": "Prospectus &amp; Fee Structure for Programs",
+                "param_text": "Prospectus &amp; Fee Structure for Programs",
+                "link": "<?php echo BASE_URL; ?>Admission/Brochures.php",
+                "link_clean": "Admission/Brochures.php",
+                "link_text": "Prospectus",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "Prospectus",
+                        "url": "Admission/Brochures.php",
+                        "icon": "fa-arrow-right-long"
+                    },
+                    {
+                        "type": "primary",
+                        "text": "Fee Structure",
+                        "url": "Admission/FeesStructure.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "D_2",
+                "category_code": "D",
+                "category_title": "Admissions &amp; Fee",
+                "param_html": "Admission Process &amp; Guidelines",
+                "param_text": "Admission Process &amp; Guidelines",
+                "link": "<?php echo BASE_URL; ?>Admission/AdmissionProcedure.php",
+                "link_clean": "Admission/AdmissionProcedure.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Admission/AdmissionProcedure.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "D_3",
+                "category_code": "D",
+                "category_title": "Admissions &amp; Fee",
+                "param_html": "Fee Refund Policy",
+                "param_text": "Fee Refund Policy",
+                "link": "<?php echo BASE_URL; ?>assets/pdf/Fees_Refund_Policy_04012025_0322.pdf",
+                "link_clean": "assets/pdf/Fees_Refund_Policy_04012025_0322.pdf",
+                "link_text": "Policy (PDF)",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "danger",
+                        "text": "Policy (PDF)",
+                        "url": "assets/pdf/Fees_Refund_Policy_04012025_0322.pdf",
+                        "icon": "fa-file-pdf"
+                    }
+                ]
+            }
+        ]
+    },
+    "E": {
+        "code": "E",
+        "title": "Research",
+        "items": [
+            {
+                "id": "E_1",
+                "category_code": "E",
+                "category_title": "Research",
+                "param_html": "Research &amp; Development Cell (R&amp;D)",
+                "param_text": "Research &amp; Development Cell (R&amp;D)",
+                "link": "<?php echo BASE_URL; ?>Research/RAndDCell.php",
+                "link_clean": "Research/RAndDCell.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Research/RAndDCell.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "E_2",
+                "category_code": "E",
+                "category_title": "Research",
+                "param_html": "Incubation Centre &amp; Entrepreneurship Cell",
+                "param_text": "Incubation Centre &amp; Entrepreneurship Cell",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/IncubationCell.php",
+                "link_clean": "Academic/Committee/IncubationCell.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/IncubationCell.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "E_3",
+                "category_code": "E",
+                "category_title": "Research",
+                "param_html": "Central Instrumentation &amp; Research Facilities",
+                "param_text": "Central Instrumentation &amp; Research Facilities",
+                "link": "<?php echo BASE_URL; ?>About/Central_Facilities.php",
+                "link_clean": "About/Central_Facilities.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Central_Facilities.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "F": {
+        "code": "F",
+        "title": "Student Life &amp; Amenities",
+        "items": [
+            {
+                "id": "F_1",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Sports &amp; Fitness Facilities",
+                "param_text": "Sports &amp; Fitness Facilities",
+                "link": "<?php echo BASE_URL; ?>About/Central_Facilities.php",
+                "link_clean": "About/Central_Facilities.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Central_Facilities.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_2",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "National Cadet Corps (NCC)",
+                "param_text": "National Cadet Corps (NCC)",
+                "link": "<?php echo BASE_URL; ?>About/NCC/Activity.php",
+                "link_clean": "About/NCC/Activity.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/NCC/Activity.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_3",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "National Service Scheme (NSS)",
+                "param_text": "National Service Scheme (NSS)",
+                "link": "<?php echo BASE_URL; ?>About/NSS.php",
+                "link_clean": "About/NSS.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/NSS.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_4",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Hostel Facilities (Boys &amp; Girls)",
+                "param_text": "Hostel Facilities (Boys &amp; Girls)",
+                "link": "<?php echo BASE_URL; ?>About/Amenities/Hostel.php",
+                "link_clean": "About/Amenities/Hostel.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Amenities/Hostel.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_5",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Training &amp; Placement Cell",
+                "param_text": "Training &amp; Placement Cell",
+                "link": "<?php echo BASE_URL; ?>Academic/TrainingAndPlacement/TrainingAndPlacementCell.php",
+                "link_clean": "Academic/TrainingAndPlacement/TrainingAndPlacementCell.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/TrainingAndPlacement/TrainingAndPlacementCell.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_6",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Student Grievance Redressal Committee (SGRC)",
+                "param_text": "Student Grievance Redressal Committee (SGRC)",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/GrievanceRedressal.php",
+                "link_clean": "Academic/Committee/GrievanceRedressal.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/GrievanceRedressal.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_7",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Health &amp; Medical Facilities",
+                "param_text": "Health &amp; Medical Facilities",
+                "link": "<?php echo BASE_URL; ?>About/Amenities/MedicalFacility.php",
+                "link_clean": "About/Amenities/MedicalFacility.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "About/Amenities/MedicalFacility.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_8",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Internal Complaints Committee (ICC)",
+                "param_text": "Internal Complaints Committee (ICC)",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/InternalComplaintCommittee.php",
+                "link_clean": "Academic/Committee/InternalComplaintCommittee.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/InternalComplaintCommittee.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_9",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Anti-Ragging Cell &amp; Squad",
+                "param_text": "Anti-Ragging Cell &amp; Squad",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/AntiRagging.php",
+                "link_clean": "Academic/Committee/AntiRagging.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/AntiRagging.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_10",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Equal Opportunity Cell",
+                "param_text": "Equal Opportunity Cell",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/Equal_Opportunity_Cell.php",
+                "link_clean": "Academic/Committee/Equal_Opportunity_Cell.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/Equal_Opportunity_Cell.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_11",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Socio-Economically Disadvantaged Groups Cell (SEDG)",
+                "param_text": "Socio-Economically Disadvantaged Groups Cell (SEDG)",
+                "link": "<?php echo BASE_URL; ?>Academic/Committee/Equal_Opportunity_Cell.php",
+                "link_clean": "Academic/Committee/Equal_Opportunity_Cell.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Academic/Committee/Equal_Opportunity_Cell.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "F_12",
+                "category_code": "F",
+                "category_title": "Student Life &amp; Amenities",
+                "param_html": "Facilities for Differently-Abled (Barrier Free)",
+                "param_text": "Facilities for Differently-Abled (Barrier Free)",
+                "link": "<?php echo BASE_URL; ?>Download/Barrier_Free_Environment.php",
+                "link_clean": "Download/Barrier_Free_Environment.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Download/Barrier_Free_Environment.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "G": {
+        "code": "G",
+        "title": "Alumni",
+        "items": [
+            {
+                "id": "G_1",
+                "category_code": "G",
+                "category_title": "Alumni",
+                "param_html": "Alumni Association &amp; Portal",
+                "param_text": "Alumni Association &amp; Portal",
+                "link": "<?php echo BASE_URL; ?>Download/Alumni.php",
+                "link_clean": "Download/Alumni.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Download/Alumni.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "H": {
+        "code": "H",
+        "title": "Information Corner",
+        "items": [
+            {
+                "id": "H_1",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Right to Information (RTI) Cell &amp; CPIO",
+                "param_text": "Right to Information (RTI) Cell &amp; CPIO",
+                "link": "<?php echo BASE_URL; ?>Download/RTI.php",
+                "link_clean": "Download/RTI.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Download/RTI.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_2",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Circulars and Notices",
+                "param_text": "Circulars and Notices",
+                "link": "<?php echo BASE_URL; ?>index.php",
+                "link_clean": "index.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_3",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Announcements &amp; Notifications",
+                "param_text": "Announcements &amp; Notifications",
+                "link": "<?php echo BASE_URL; ?>index.php",
+                "link_clean": "index.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_4",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Newsletters &amp; Press Releases",
+                "param_text": "Newsletters &amp; Press Releases",
+                "link": "<?php echo BASE_URL; ?>index.php",
+                "link_clean": "index.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_5",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Events &amp; Achievements Showcase",
+                "param_text": "Events &amp; Achievements Showcase",
+                "link": "<?php echo BASE_URL; ?>index.php",
+                "link_clean": "index.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_6",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Job Openings &amp; Recruitment",
+                "param_text": "Job Openings &amp; Recruitment",
+                "link": "<?php echo BASE_URL; ?>Career/index.php",
+                "link_clean": "Career/index.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Career/index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_7",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Reservation Roster Guidelines",
+                "param_text": "Reservation Roster Guidelines",
+                "link": "<?php echo BASE_URL; ?>Career/index.php",
+                "link_clean": "Career/index.php",
+                "link_text": "View Details",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Details",
+                        "url": "Career/index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "H_8",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "Study in India Portal",
+                "param_text": "Study in India Portal",
+                "link": "https://www.studyinindia.gov.in/admission/registrations",
+                "link_clean": "https://www.studyinindia.gov.in/admission/registrations",
+                "link_text": "Portal Link",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "Portal Link",
+                        "url": "https://www.studyinindia.gov.in/admission/registrations",
+                        "icon": "fa-arrow-up-right-from-square"
+                    }
+                ]
+            },
+            {
+                "id": "H_9",
+                "category_code": "H",
+                "category_title": "Information Corner",
+                "param_html": "International Students Admission Facilities",
+                "param_text": "International Students Admission Facilities",
+                "link": "<?php echo BASE_URL; ?>assets/pdf/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf",
+                "link_clean": "assets/pdf/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf",
+                "link_text": "Details (PDF)",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "danger",
+                        "text": "Details (PDF)",
+                        "url": "assets/pdf/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf",
+                        "icon": "fa-file-pdf"
+                    }
+                ]
+            }
+        ]
+    },
+    "I": {
+        "code": "I",
+        "title": "Picture Gallery",
+        "items": [
+            {
+                "id": "I_1",
+                "category_code": "I",
+                "category_title": "Picture Gallery",
+                "param_html": "Campus Media &amp; Image Gallery",
+                "param_text": "Campus Media &amp; Image Gallery",
+                "link": "<?php echo BASE_URL; ?>index.php",
+                "link_clean": "index.php",
+                "link_text": "View Gallery",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Gallery",
+                        "url": "index.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    },
+    "J": {
+        "code": "J",
+        "title": "Contact Us",
+        "items": [
+            {
+                "id": "J_1",
+                "category_code": "J",
+                "category_title": "Contact Us",
+                "param_html": "Official Phone Numbers, Email &amp; Location Map",
+                "param_text": "Official Phone Numbers, Email &amp; Location Map",
+                "link": "<?php echo BASE_URL; ?>Contact.php",
+                "link_clean": "Contact.php",
+                "link_text": "Contact Page",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "Contact Page",
+                        "url": "Contact.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            },
+            {
+                "id": "J_2",
+                "category_code": "J",
+                "category_title": "Contact Us",
+                "param_html": "University Telephone Directory",
+                "param_text": "University Telephone Directory",
+                "link": "<?php echo BASE_URL; ?>Contact.php",
+                "link_clean": "Contact.php",
+                "link_text": "View Directory",
+                "is_na": false,
+                "buttons": [
+                    {
+                        "type": "primary",
+                        "text": "View Directory",
+                        "url": "Contact.php",
+                        "icon": "fa-arrow-right-long"
+                    }
+                ]
+            }
+        ]
+    }
+}

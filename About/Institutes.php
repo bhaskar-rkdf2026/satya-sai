@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Institutes - SSSUTMS';
-$banner_title = 'Institutes';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('Institutes');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Institutes - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Institutes';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -18,6 +19,11 @@ require_once __DIR__ . '/../includes/page-banner.php';
       <div class="col-lg-8 col-xl-9">
         <div class="content-card">
           <div class="content-card-body">
+          <?php if (!empty($about_page['content_html'])): ?>
+            <div class="col-12 p-3">
+              <?php echo $about_page['content_html']; ?>
+            </div>
+          <?php else: ?>
             <div class="col-md-12">
 <!-- Header -->
 
@@ -54,6 +60,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
 <div class="card-footer"><!-- Footer Note -->
 <p class="text-muted fst-italic">As per approval accorded by Regulatory authorities, some new courses/institutions are scheduled from the coming academic years.</p>
 </div>
+          <?php endif; ?>
           </div>
         </div>
       </div>

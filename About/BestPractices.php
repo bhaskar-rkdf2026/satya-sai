@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Best Practices - SSSUTMS';
-$banner_title = 'Best Practices';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('BestPractices');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Best Practices - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Best Practices';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -107,6 +108,11 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Body Container -->
           <div class="p-4">
             
+          <?php if (!empty($about_page['content_html'])): ?>
+            <div class="p-2">
+              <?php echo $about_page['content_html']; ?>
+            </div>
+          <?php else: ?>
             <!-- Item 1: ERP -->
             <div class="bp-item-card d-flex align-items-center justify-content-between flex-wrap gap-3">
               <div class="d-flex align-items-center gap-3">
@@ -138,6 +144,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </div>
               </div>
             </div>
+          <?php endif; ?>
 
           </div>
         </div>

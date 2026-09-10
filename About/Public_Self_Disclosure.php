@@ -1,9 +1,10 @@
 <?php
-$page_title = 'Public Self Disclosure - SSSUTMS';
-$banner_title = 'Public Self Disclosure';
-$banner_category = 'About';
-
 require_once __DIR__ . '/../config.php';
+$about_page = get_about_page('Public_Self_Disclosure');
+$page_title = (!empty($about_page['title']) ? $about_page['title'] : 'Public Self Disclosure - SSSUTMS');
+$banner_title = $about_page['banner_title'] ?? 'Public Self Disclosure';
+$banner_category = $about_page['banner_category'] ?? 'About';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -136,7 +137,77 @@ require_once __DIR__ . '/../includes/page-banner.php';
                   </tr>
                 </thead>
                 <tbody>
-                  
+<?php 
+$disclosureCategories = get_public_disclosures();
+if (!empty($disclosureCategories)): 
+  foreach ($disclosureCategories as $catCode => $cat): 
+    $catItems = $cat['items'] ?? [];
+    $catTotal = count($catItems);
+    if ($catTotal === 0) continue;
+    
+    // Group by category_title (subheading)
+    $subgroups = [];
+    foreach ($catItems as $itm) {
+      $subgroups[$itm['category_title']][] = $itm;
+    }
+    
+    $isFirstCatRow = true;
+    foreach ($subgroups as $subTitle => $subItems):
+      $subCount = count($subItems);
+      $isFirstSubRow = true;
+      foreach ($subItems as $item):
+?>
+                  <tr>
+                    <?php if ($isFirstCatRow): ?>
+                      <td rowspan="<?php echo $catTotal; ?>" class="text-center align-middle bg-light">
+                        <span class="disclosure-cat-badge"><?php echo htmlspecialchars($catCode); ?></span>
+                      </td>
+                      <?php $isFirstCatRow = false; ?>
+                    <?php endif; ?>
+
+                    <?php if ($isFirstSubRow): ?>
+                      <td rowspan="<?php echo $subCount; ?>" class="fw-bold text-dark align-middle">
+                        <?php echo $subTitle; ?>
+                      </td>
+                      <?php $isFirstSubRow = false; ?>
+                    <?php endif; ?>
+
+                    <td><?php echo $item['param_html'] ?? htmlspecialchars($item['param_text']); ?></td>
+
+                    <td class="text-center">
+                      <?php if (!empty($item['buttons'])): ?>
+                        <?php foreach ($item['buttons'] as $bIdx => $btn): 
+                          if (($btn['type'] ?? '') === 'na' || empty($btn['url'])):
+                        ?>
+                          <span class="text-muted fw-semibold"><?php echo htmlspecialchars($btn['text'] ?? 'N/A'); ?></span>
+                        <?php else: 
+                          $btnUrl = $btn['url'];
+                          if (strpos($btnUrl, 'http') !== 0 && strpos($btnUrl, 'ftp') !== 0) {
+                            $btnUrl = BASE_URL . ltrim($btnUrl, '/');
+                          }
+                          $btnClass = ($btn['type'] === 'danger') ? 'disclosure-btn-danger' : 'disclosure-btn-primary';
+                          $icon = $btn['icon'] ?? 'fa-arrow-right-long';
+                          if ($bIdx > 0) echo '<br />';
+                        ?>
+                          <a href="<?php echo htmlspecialchars($btnUrl); ?>" target="_blank" class="disclosure-btn <?php echo $btnClass; ?><?php echo ($bIdx > 0 ? ' mt-1' : ''); ?>">
+                            <?php if ($btn['type'] === 'danger'): ?>
+                              <i class="fa-solid <?php echo $icon; ?>"></i> <span><?php echo htmlspecialchars($btn['text']); ?></span>
+                            <?php else: ?>
+                              <span><?php echo htmlspecialchars($btn['text']); ?></span> <i class="fa-solid <?php echo $icon; ?>"></i>
+                            <?php endif; ?>
+                          </a>
+                        <?php endif; endforeach; ?>
+                      <?php else: ?>
+                        <span class="text-muted fw-semibold">N/A</span>
+                      <?php endif; ?>
+                    </td>
+                  </tr>
+<?php 
+      endforeach; 
+    endforeach; 
+  endforeach; 
+else: 
+?>
                   <!-- Category A: About HEI -->
                   <tr>
                     <td rowspan="11" class="text-center align-middle bg-light"><span class="disclosure-cat-badge">A</span></td>
@@ -726,6 +797,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     </td>
                   </tr>
 
+<?php endif; ?>
                 </tbody>
               </table>
             </div>
