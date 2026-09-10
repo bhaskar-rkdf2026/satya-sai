@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = 'Computer Science & Application - SSSUTMS';
 $banner_title = 'Computer Science & Application';
 $banner_category = 'Academic';
@@ -181,55 +181,32 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               </div>
             </div>
 
-            <!-- ===== M.C.A ===== -->
-            <div class="csa-course-label">
-              <div class="csa-course-label-pill"><i class="fa-solid fa-layer-group"></i> M.C.A (Master of Computer Application)</div>
-              <div class="csa-course-label-duration">2 Years</div>
-            </div>
-            <div class="csa-table-wrapper mb-4">
-              <table class="csa-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:55%;">Branch</th>
-                    <th style="width:25%;">Duration</th>
-                    <th style="width:20%;">Intake</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Master of Computer Application</td>
-                    <td><span class="csa-badge-duration">2 Yrs.</span></td>
-                    <td><span class="csa-badge-intake">120</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <?php if (!empty($faculty_page['content_html'])): ?>
+            <?php echo $faculty_page['content_html']; ?>
+            <?php endif; ?>
 
-            <!-- ===== B.C.A ===== -->
-            <div class="csa-course-label">
-              <div class="csa-course-label-pill"><i class="fa-solid fa-layer-group"></i> B.C.A (Bachelor of Computer Application)</div>
-              <div class="csa-course-label-duration">3 Years</div>
+            <?php if (!empty($facultyDocs)): ?>
+            <!-- Attached Downloads & Documents -->
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-file-pdf text-danger me-2"></i>Curriculum, Syllabus &amp; Documents</h5>
+              <div class="list-group shadow-sm">
+                <?php foreach ($facultyDocs as $doc): ?>
+                  <a href="<?php echo BASE_URL . htmlspecialchars($doc['file'] ?? '#'); ?>" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf text-danger fs-5"></i>
+                      <div>
+                        <span class="fw-bold text-dark d-block"><?php echo htmlspecialchars($doc['title'] ?? ''); ?></span>
+                        <small class="text-muted"><?php echo htmlspecialchars($doc['category'] ?? 'Academic'); ?> &bull; <?php echo htmlspecialchars($doc['date'] ?? ''); ?></small>
+                      </div>
+                    </div>
+                    <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa fa-download me-1"></i> Download</span>
+                  </a>
+                <?php endforeach; ?>
+              </div>
             </div>
-            <div class="csa-table-wrapper mb-2">
-              <table class="csa-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:55%;">Branch</th>
-                    <th style="width:25%;">Duration</th>
-                    <th style="width:20%;">Intake</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Bachelor of Computer Application</td>
-                    <td><span class="csa-badge-duration">3 Yrs.</span></td>
-                    <td><span class="csa-badge-intake">60</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <?php endif; ?>
 
-          </div>
+          </div><!-- close body p-4 -->
         </div><!-- end csa-main-card -->
       </div><!-- end col-lg-8 -->
 

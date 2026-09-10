@@ -38,7 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $pagesData[$group][$slug] = [
             'title' => $title,
             'category' => $category,
-            'content' => $content
+            'content' => $content,
+            'meta_title' => clean_input($_POST['meta_title'] ?? ''),
+            'meta_description' => clean_input($_POST['meta_description'] ?? ''),
+            'meta_keywords' => clean_input($_POST['meta_keywords'] ?? ''),
+            'canonical_url' => clean_input($_POST['canonical_url'] ?? ''),
+            'og_image' => clean_input($_POST['og_image'] ?? '')
         ];
 
         save_json_data('pages.json', $pagesData);
@@ -107,6 +112,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['group
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
     <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
+    <li><a href="faculties.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Faculties &amp; Depts (14)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-folder-open"></i> Documents & Page PDFs</a></li>
     <li><a href="notices.php" class="nav-link"><i class="fa fa-bullhorn"></i> Notices & Circulars</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events & Workshops</a></li>
@@ -235,25 +241,66 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['group
           <input type="hidden" name="group" id="formGroup" value="about">
 
           <div class="row g-3 mb-3">
-            <div class="col-md-6">
-              <label class="form-label small fw-bold">Page Slug (URL Identifier) *</label>
-              <input type="text" name="slug" id="formSlug" class="form-control" placeholder="e.g. Chancellor, VisionAndMission" required>
-              <small class="text-muted">Used in URL: page.php?cat=about&page=Slug</small>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label small fw-bold">Page Display Title *</label>
-              <input type="text" name="title" id="formTitle" class="form-control" placeholder="e.g. Vice Chancellor's Desk" required>
-            </div>
-          </div>
+          <ul class="nav nav-pills mb-3 gap-2 border-bottom pb-2" id="cmsEditTabNav" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active fw-bold btn-sm" id="tab-cms-general" data-bs-toggle="pill" data-bs-target="#pane-cms-general" type="button" role="tab"><i class="fa-solid fa-sliders me-1"></i> Content &amp; Category</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold btn-sm" id="tab-cms-seo" data-bs-toggle="pill" data-bs-target="#pane-cms-seo" type="button" role="tab" style="background: rgba(16,185,129,0.08); color: #047857; border: 1px solid rgba(16,185,129,0.3);"><i class="fa-solid fa-magnifying-glass me-1"></i> SEO Meta Details</button>
+            </li>
+          </ul>
 
-          <div class="mb-3">
-            <label class="form-label small fw-bold">Section Category</label>
-            <input type="text" name="category" id="formCategory" class="form-control" placeholder="e.g. University Officials, About University, Governance" required>
-          </div>
+          <div class="tab-content" id="cmsEditTabContent">
+            <!-- TAB 1: General Content -->
+            <div class="tab-pane fade show active" id="pane-cms-general" role="tabpanel">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">Page Slug (URL Identifier) *</label>
+                  <input type="text" name="slug" id="formSlug" class="form-control" placeholder="e.g. Chancellor, VisionAndMission" required>
+                  <small class="text-muted">Used in URL: page.php?cat=about&amp;page=Slug</small>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">Page Display Title *</label>
+                  <input type="text" name="title" id="formTitle" class="form-control" placeholder="e.g. Vice Chancellor's Desk" required>
+                </div>
+              </div>
 
-          <div class="mb-3">
-            <label class="form-label small fw-bold">Page Body Content (Text or HTML allowed) *</label>
-            <textarea name="content" id="formContent" rows="7" class="form-control" placeholder="Comprehensive institutional description, statutory norms, accreditation guidelines..." required></textarea>
+              <div class="mb-3">
+                <label class="form-label small fw-bold">Section Category</label>
+                <input type="text" name="category" id="formCategory" class="form-control" placeholder="e.g. University Officials, About University, Governance" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label small fw-bold">Page Body Content (Text or HTML allowed) *</label>
+                <textarea name="content" id="formContent" rows="7" class="form-control" placeholder="Comprehensive institutional description, statutory norms, accreditation guidelines..." required></textarea>
+              </div>
+            </div>
+
+            <!-- TAB 2: SEO Meta Details -->
+            <div class="tab-pane fade" id="pane-cms-seo" role="tabpanel">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label small fw-bold"><i class="fa-solid fa-heading text-primary me-1"></i> Custom SEO Meta Title</label>
+                  <input type="text" name="meta_title" id="formMetaTitle" class="form-control" placeholder="e.g. Vice Chancellor Message | SSSUTMS">
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-bold"><i class="fa-solid fa-align-left text-success me-1"></i> Custom SEO Meta Description</label>
+                  <textarea name="meta_description" id="formMetaDesc" class="form-control" rows="3" placeholder="Concise summary for search engine results..."></textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold"><i class="fa-solid fa-tags text-warning me-1"></i> Target Keywords</label>
+                  <input type="text" name="meta_keywords" id="formMetaKeywords" class="form-control" placeholder="e.g. SSSUTMS, Vice Chancellor, University Leadership">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold"><i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override</label>
+                  <input type="text" name="canonical_url" id="formCanonicalUrl" class="form-control" placeholder="Optional URL override">
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-bold"><i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Image (OG Image)</label>
+                  <input type="text" name="og_image" id="formOgImage" class="form-control" placeholder="assets/images/logo/logo.jpg">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer border-0 pt-0">
@@ -276,6 +323,11 @@ function resetPageForm() {
   document.getElementById('formTitle').value = '';
   document.getElementById('formCategory').value = 'About University';
   document.getElementById('formContent').value = '';
+  if (document.getElementById('formMetaTitle')) document.getElementById('formMetaTitle').value = '';
+  if (document.getElementById('formMetaDesc')) document.getElementById('formMetaDesc').value = '';
+  if (document.getElementById('formMetaKeywords')) document.getElementById('formMetaKeywords').value = '';
+  if (document.getElementById('formCanonicalUrl')) document.getElementById('formCanonicalUrl').value = '';
+  if (document.getElementById('formOgImage')) document.getElementById('formOgImage').value = '';
 }
 
 function editPage(p) {
@@ -286,6 +338,11 @@ function editPage(p) {
   document.getElementById('formTitle').value = p.title || '';
   document.getElementById('formCategory').value = p.category || '';
   document.getElementById('formContent').value = p.content || '';
+  if (document.getElementById('formMetaTitle')) document.getElementById('formMetaTitle').value = p.meta_title || '';
+  if (document.getElementById('formMetaDesc')) document.getElementById('formMetaDesc').value = p.meta_description || '';
+  if (document.getElementById('formMetaKeywords')) document.getElementById('formMetaKeywords').value = p.meta_keywords || '';
+  if (document.getElementById('formCanonicalUrl')) document.getElementById('formCanonicalUrl').value = p.canonical_url || '';
+  if (document.getElementById('formOgImage')) document.getElementById('formOgImage').value = p.og_image || '';
   
   const modal = new bootstrap.Modal(document.getElementById('pageModal'));
   modal.show();

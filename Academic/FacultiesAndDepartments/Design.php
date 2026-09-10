@@ -1,9 +1,11 @@
 ﻿<?php
-$page_title = 'Design - SSSUTMS';
-$banner_title = 'Design';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../../config.php';
+$faculty_page = get_faculty_page('Design');
+$page_title = (!empty($faculty_page['title']) ? $faculty_page['title'] : 'Design - SSSUTMS');
+$banner_title = $faculty_page['banner_title'] ?? 'Design';
+$banner_category = $faculty_page['banner_category'] ?? 'Academic';
+$facultyDocs = get_page_documents('faculty_Design');
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -154,7 +156,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
                 <i class="fa-solid fa-pen-ruler me-1"></i> Faculties &amp; Departments
               </span>
-              <h3 class="fw-bold text-white mb-0 fs-3">SCHOOL OF DESIGN</h3>
+              <h3 class="fw-bold text-white mb-0 fs-3"><?php echo htmlspecialchars($faculty_page['faculty_name'] ?? 'SCHOOL OF DESIGN'); ?></h3>
             </div>
           </div>
 
@@ -201,85 +203,36 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               </div>
             </div>
 
-            <!-- ===== INSTITUTE: SCHOOL OF DESIGN ===== -->
-            <div class="des-institute-block">
-              <div class="des-institute-icon"><i class="fa-solid fa-pen-ruler"></i></div>
-              <div>
-                <div class="des-institute-block-title">Institute Name</div>
-                <div class="des-institute-block-name">School of Design</div>
+            
+            <?php if (!empty($faculty_page['content_html'])): ?>
+            <?php echo $faculty_page['content_html']; ?>
+            <?php endif; ?>
+        
+        
+
+            <?php if (!empty($facultyDocs)): ?>
+            <!-- Attached Downloads & Documents -->
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-file-pdf text-danger me-2"></i>Curriculum, Syllabus &amp; Documents</h5>
+              <div class="list-group shadow-sm">
+                <?php foreach ($facultyDocs as $doc): ?>
+                  <a href="<?php echo BASE_URL . htmlspecialchars($doc['file'] ?? '#'); ?>" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf text-danger fs-5"></i>
+                      <div>
+                        <span class="fw-bold text-dark d-block"><?php echo htmlspecialchars($doc['title'] ?? ''); ?></span>
+                        <small class="text-muted"><?php echo htmlspecialchars($doc['category'] ?? 'Academic'); ?> &bull; <?php echo htmlspecialchars($doc['date'] ?? ''); ?></small>
+                      </div>
+                    </div>
+                    <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa fa-download me-1"></i> Download</span>
+                  </a>
+                <?php endforeach; ?>
               </div>
             </div>
+            <?php endif; ?>
 
-            <!-- Bachelor of Design -->
-            <div class="des-course-label">
-              <div class="des-course-label-pill"><i class="fa-solid fa-layer-group"></i> Bachelor of Design</div>
-              <div class="des-course-label-duration">4 Years</div>
-            </div>
-            <div class="des-table-wrapper mb-4">
-              <table class="des-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:50%;">Course</th>
-                    <th style="width:35%;">Specialization</th>
-                    <th style="width:15%;">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Bachelor of Design</td>
-                    <td>Industrial Design</td>
-                    <td><span class="des-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Design</td>
-                    <td>Communication Design</td>
-                    <td><span class="des-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Design</td>
-                    <td>Textile Design</td>
-                    <td><span class="des-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Design</td>
-                    <td>Interior Design</td>
-                    <td><span class="des-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Design</td>
-                    <td>Product Design</td>
-                    <td><span class="des-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Bachelor of Architecture -->
-            <div class="des-course-label">
-              <div class="des-course-label-pill"><i class="fa-solid fa-layer-group"></i> Bachelor of Architecture</div>
-              <div class="des-course-label-duration">5 Years</div>
-            </div>
-            <div class="des-table-wrapper mb-2">
-              <table class="des-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:50%;">Course</th>
-                    <th style="width:35%;">Specialization</th>
-                    <th style="width:15%;">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Bachelor of Architecture</td>
-                    <td>Architecture</td>
-                    <td><span class="des-badge-duration">5 Yrs.</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-        </div><!-- end des-main-card -->
+          </div><!-- close body p-4 -->
+          </div><!-- end des-main-card -->
       </div><!-- end col-lg-8 -->
 
       <!-- Sticky Sidebar (Right) -->

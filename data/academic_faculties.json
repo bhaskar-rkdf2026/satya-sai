@@ -1,0 +1,563 @@
+{
+    "EngineeringAndTechnology": {
+        "file": "Academic/FacultiesAndDepartments/EngineeringAndTechnology.php",
+        "title": "Engineering & Technology - SSSUTMS",
+        "banner_title": "Engineering & Technology",
+        "banner_category": "Academic",
+        "faculty_name": "SCHOOL OF ENGINEERING & TECHNOLOGY",
+        "institute_name": "School of Engineering",
+        "dean_name": "Dr. C. K. Tyagi",
+        "dean_designation": "Dean, Faculty of Engineering &amp; Technology",
+        "dean_photo": "assets/images/Files/Link/dean_eng.jpg",
+        "stats": [
+            {
+                "label": "UG Programs",
+                "value": "11 Branches",
+                "icon": "fa-microchip"
+            },
+            {
+                "label": "PG Programs",
+                "value": "11 Branches",
+                "icon": "fa-graduation-cap"
+            },
+            {
+                "label": "Diploma",
+                "value": "5 Branches",
+                "icon": "fa-screwdriver-wrench"
+            },
+            {
+                "label": "Infrastructure",
+                "value": "State-of-Art Labs",
+                "icon": "fa-flask"
+            }
+        ],
+        "doc_key": "faculty_EngineeringAndTechnology",
+        "updated_at": "2026-09-10 12:23:00",
+        "content_html": "<!-- ===== SCHOOL OF ENGINEERING ===== -->\r\n            <div class=\"eng-institute-block\">\r\n              <div class=\"eng-institute-icon\">\r\n                <i class=\"fa-solid fa-school\"></i>\r\n              </div>\r\n              <div>\r\n                <div class=\"eng-institute-block-title\">Institute Name</div>\r\n                <div class=\"eng-institute-block-name\">School of Engineering</div>\r\n              </div>\r\n            </div>\r\n\r\n            <!-- Bachelor of Engineering Label + Table -->\r\n            <div class=\"eng-course-label\">\r\n              <div class=\"eng-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Engineering (B.E.)\r\n              </div>\r\n              <div class=\"eng-course-label-duration\">4 Years</div>\r\n            </div>\r\n            <div class=\"eng-table-wrapper mb-4\">\r\n              <table class=\"eng-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course Name</th>\r\n                    <th style=\"width:35%;\">Branch / Specialization</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Aeronautical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Chemical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Civil Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Computer Science and Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Electrical and Electronics Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Electrical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Electronic &amp; Communication Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Electronics &amp; Instrumentation Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Information Technology</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Mechanical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Engineering</td>\r\n                    <td>Mining Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- Master of Technology Label + Table -->\r\n            <div class=\"eng-course-label\">\r\n              <div class=\"eng-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Master of Technology (M.Tech.)\r\n              </div>\r\n              <div class=\"eng-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"eng-table-wrapper mb-4\">\r\n              <table class=\"eng-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course Name</th>\r\n                    <th style=\"width:35%;\">Branch / Specialization</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Computer Science and Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Computer Technology &amp; Applications</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Digital Communication</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Electrical Power System</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Industrial Design</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Information Technology</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Power Electronics</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Software Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Structural Design</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>Thermal Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Technology</td>\r\n                    <td>VLSI</td>\r\n                    <td><span class=\"eng-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== POLYTECHNIC ENGINEERING ===== -->\r\n            <div class=\"eng-institute-block\">\r\n              <div class=\"eng-institute-icon\">\r\n                <i class=\"fa-solid fa-school-flag\"></i>\r\n              </div>\r\n              <div>\r\n                <div class=\"eng-institute-block-title\">Institute Name</div>\r\n                <div class=\"eng-institute-block-name\">Polytechnic Engineering</div>\r\n              </div>\r\n            </div>\r\n\r\n            <!-- Diploma Engineering Label + Table -->\r\n            <div class=\"eng-course-label\">\r\n              <div class=\"eng-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Diploma Engineering\r\n              </div>\r\n              <div class=\"eng-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"eng-table-wrapper mb-2\">\r\n              <table class=\"eng-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Institute Name</th>\r\n                    <th style=\"width:35%;\">Branch / Specialization</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Diploma Engineering</td>\r\n                    <td>Computer Science &amp; Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Diploma Engineering</td>\r\n                    <td>Electrical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Diploma Engineering</td>\r\n                    <td>Civil Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Diploma Engineering</td>\r\n                    <td>Mechanical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Diploma Engineering</td>\r\n                    <td>Chemical Engineering</td>\r\n                    <td><span class=\"eng-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Engineering & Technology - Courses, Fees & Admissions | SSSUTMS",
+        "meta_description": "Explore B.Tech, M.Tech, and Diploma Engineering programs at Sri Satya Sai University (SSSUTMS), Sehore. State-of-the-art laboratories, modern workshops, and exceptional placement records.",
+        "meta_keywords": "Engineering college in MP, B.Tech admission 2026, M.Tech courses, Polytechnic diploma, SSSUTMS engineering, engineering colleges Sehore Bhopal",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Pharmacy": {
+        "file": "Academic/FacultiesAndDepartments/Pharmacy.php",
+        "title": "Pharmacy - SSSUTMS",
+        "banner_title": "Pharmacy",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Pharmacy",
+        "institute_name": "School of Pharmacy & Research",
+        "dean_name": "Dr. R. K. Maheshwari",
+        "dean_designation": "Dean, Faculty of Pharmacy",
+        "dean_photo": "assets/images/Files/Link/Maheshwari.jpg",
+        "stats": [
+            {
+                "label": "PCI Approved",
+                "value": "All Programs",
+                "icon": "fa-certificate"
+            },
+            {
+                "label": "UG & PG",
+                "value": "B.Pharm / M.Pharm",
+                "icon": "fa-graduation-cap"
+            },
+            {
+                "label": "Diploma",
+                "value": "D.Pharmacy",
+                "icon": "fa-mortar-board"
+            },
+            {
+                "label": "Research",
+                "value": "Advanced Labs",
+                "icon": "fa-pills"
+            }
+        ],
+        "doc_key": "faculty_Pharmacy",
+        "content_html": "<!-- ===== INSTITUTE 1: SCHOOL OF PHARMACY ===== -->\r\n            <div class=\"pharm-institute-block\">\r\n              <div class=\"pharm-institute-icon\">\r\n                <i class=\"fa-solid fa-school\"></i>\r\n              </div>\r\n              <div>\r\n                <div class=\"pharm-institute-block-title\">Institute Name</div>\r\n                <div class=\"pharm-institute-block-name\">Faculty of Pharmacy (School of Pharmacy)</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"pharm-course-label\">\r\n              <div class=\"pharm-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Pharmacy\r\n              </div>\r\n              <div class=\"pharm-course-label-duration\">4 Years</div>\r\n            </div>\r\n            <div class=\"pharm-table-wrapper mb-4\">\r\n              <table class=\"pharm-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Pharmacy</td>\r\n                    <td>Pharmacy</td>\r\n                    <td><span class=\"pharm-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 2: COLLEGE OF PHARMACY ===== -->\r\n            <div class=\"pharm-institute-block\">\r\n              <div class=\"pharm-institute-icon\">\r\n                <i class=\"fa-solid fa-school-flag\"></i>\r\n              </div>\r\n              <div>\r\n                <div class=\"pharm-institute-block-title\">Institute Name</div>\r\n                <div class=\"pharm-institute-block-name\">Faculty of Pharmacy (College of Pharmacy)</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"pharm-course-label\">\r\n              <div class=\"pharm-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Pharmacy\r\n              </div>\r\n              <div class=\"pharm-course-label-duration\">4 Years</div>\r\n            </div>\r\n            <div class=\"pharm-table-wrapper mb-3\">\r\n              <table class=\"pharm-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Pharmacy</td>\r\n                    <td>Pharmacy</td>\r\n                    <td><span class=\"pharm-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <div class=\"pharm-course-label\">\r\n              <div class=\"pharm-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Master of Pharmacy\r\n              </div>\r\n              <div class=\"pharm-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"pharm-table-wrapper mb-4\">\r\n              <table class=\"pharm-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Master of Pharmacy</td>\r\n                    <td>Pharmaceutics</td>\r\n                    <td><span class=\"pharm-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Master of Pharmacy</td>\r\n                    <td>Pharmacology</td>\r\n                    <td><span class=\"pharm-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 3: POLYTECHNIC PHARMACY ===== -->\r\n            <div class=\"pharm-institute-block\">\r\n              <div class=\"pharm-institute-icon\">\r\n                <i class=\"fa-solid fa-building\"></i>\r\n              </div>\r\n              <div>\r\n                <div class=\"pharm-institute-block-title\">Institute Name</div>\r\n                <div class=\"pharm-institute-block-name\">Polytechnic Pharmacy</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"pharm-course-label\">\r\n              <div class=\"pharm-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Diploma Pharmacy\r\n              </div>\r\n              <div class=\"pharm-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"pharm-table-wrapper mb-2\">\r\n              <table class=\"pharm-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Diploma Pharmacy</td>\r\n                    <td>Pharmacy</td>\r\n                    <td><span class=\"pharm-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Pharmacy - B.Pharm, M.Pharm & D.Pharm Admissions | SSSUTMS",
+        "meta_description": "Enroll in premier Pharmacy programs including B.Pharm, M.Pharm, and D.Pharm at SSSUTMS Sehore. PCI-approved laboratories, clinical research facilities, and healthcare training.",
+        "meta_keywords": "Pharmacy colleges in MP, B.Pharm admission, M.Pharm pharmaceutics, D.Pharm diploma, PCI approved pharmacy college, SSSUTMS pharmacy",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Education": {
+        "file": "Academic/FacultiesAndDepartments/Education.php",
+        "title": "Education - SSSUTMS",
+        "banner_title": "Education",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Education",
+        "institute_name": "School of Education",
+        "dean_name": "Dr. Neeraj Kumar",
+        "dean_designation": "Dean, Faculty of Education",
+        "dean_photo": "assets/images/Files/Link/dean_edu.jpg",
+        "stats": [
+            {
+                "label": "NCTE Approved",
+                "value": "Recognized",
+                "icon": "fa-certificate"
+            },
+            {
+                "label": "Degree Courses",
+                "value": "B.Ed. & M.Ed.",
+                "icon": "fa-book-open-reader"
+            },
+            {
+                "label": "Integrated",
+                "value": "B.A. B.Ed. / B.Sc. B.Ed.",
+                "icon": "fa-graduation-cap"
+            },
+            {
+                "label": "Physical Edu",
+                "value": "B.P.Ed. / M.P.Ed.",
+                "icon": "fa-dumbbell"
+            }
+        ],
+        "doc_key": "faculty_Education",
+        "content_html": "<!-- ===== INSTITUTE 1: SCHOOL OF EDUCATION ===== -->\r\n            <div class=\"edu-institute-block\">\r\n              <div class=\"edu-institute-icon\"><i class=\"fa-solid fa-school\"></i></div>\r\n              <div>\r\n                <div class=\"edu-institute-block-title\">Institute Name</div>\r\n                <div class=\"edu-institute-block-name\">Faculty Of Education &mdash; (School Of Education)</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"edu-course-label\">\r\n              <div class=\"edu-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Education (B.Ed.)\r\n              </div>\r\n              <div class=\"edu-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"edu-table-wrapper mb-4\">\r\n              <table class=\"edu-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Course</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Education (B.Ed.)</td>\r\n                    <td><span class=\"edu-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 2: SCHOOL OF TEACHER EDUCATION ===== -->\r\n            <div class=\"edu-institute-block\">\r\n              <div class=\"edu-institute-icon\"><i class=\"fa-solid fa-chalkboard-teacher\"></i></div>\r\n              <div>\r\n                <div class=\"edu-institute-block-title\">Institute Name</div>\r\n                <div class=\"edu-institute-block-name\">Faculty Of Education &mdash; (School Of Teacher Education)</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"edu-course-label\">\r\n              <div class=\"edu-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Education (B.Ed.)\r\n              </div>\r\n              <div class=\"edu-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"edu-table-wrapper mb-4\">\r\n              <table class=\"edu-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Course</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Education (B.Ed.)</td>\r\n                    <td><span class=\"edu-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 3: SCHOOL OF PHYSICAL EDUCATION ===== -->\r\n            <div class=\"edu-institute-block\">\r\n              <div class=\"edu-institute-icon\"><i class=\"fa-solid fa-dumbbell\"></i></div>\r\n              <div>\r\n                <div class=\"edu-institute-block-title\">Institute Name</div>\r\n                <div class=\"edu-institute-block-name\">Faculty Of Education &mdash; (School Of Physical Education)</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"edu-course-label\">\r\n              <div class=\"edu-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Physical Education (B.P.Ed.)\r\n              </div>\r\n              <div class=\"edu-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"edu-table-wrapper mb-4\">\r\n              <table class=\"edu-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Course</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Physical Education (B.P.Ed.)</td>\r\n                    <td><span class=\"edu-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 4: FACULTY OF EDUCATION ===== -->\r\n            <div class=\"edu-institute-block\">\r\n              <div class=\"edu-institute-icon\"><i class=\"fa-solid fa-building-columns\"></i></div>\r\n              <div>\r\n                <div class=\"edu-institute-block-title\">Institute Name</div>\r\n                <div class=\"edu-institute-block-name\">Faculty Of Education</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"edu-course-label\">\r\n              <div class=\"edu-course-label-pill\">\r\n                <i class=\"fa-solid fa-layer-group\"></i>\r\n                Bachelor of Arts Bachelor of Education (B.A.B.Ed.)\r\n              </div>\r\n              <div class=\"edu-course-label-duration\">4 Years</div>\r\n            </div>\r\n            <div class=\"edu-table-wrapper mb-2\">\r\n              <table class=\"edu-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Course</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Arts Bachelor of Education (B.A.B.Ed.)</td>\r\n                    <td><span class=\"edu-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Education - B.Ed., M.Ed., B.P.Ed. Teacher Training | SSSUTMS",
+        "meta_description": "Pursue professional teacher education with B.Ed., B.P.Ed., and integrated education degree programs at Sri Satya Sai University. NCTE recognized curriculum and teaching practicals.",
+        "meta_keywords": "B.Ed college in MP, teacher training institute, B.P.Ed physical education, NCTE approved, SSSUTMS education faculty",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Management": {
+        "file": "Academic/FacultiesAndDepartments/Management.php",
+        "title": "Management - SSSUTMS",
+        "banner_title": "Management",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Management Studies",
+        "institute_name": "School of Management Studies",
+        "dean_name": "Dr. Hemant Sharma",
+        "dean_designation": "Dean, Faculty of Management",
+        "dean_photo": "assets/images/Files/Link/dean_mgmt.jpg",
+        "stats": [
+            {
+                "label": "MBA Specializations",
+                "value": "Dual & Core",
+                "icon": "fa-briefcase"
+            },
+            {
+                "label": "UG Programs",
+                "value": "BBA & B.Com",
+                "icon": "fa-chart-line"
+            },
+            {
+                "label": "Industry Tie-ups",
+                "value": "Active MoUs",
+                "icon": "fa-handshake"
+            },
+            {
+                "label": "Placements",
+                "value": "100% Assistance",
+                "icon": "fa-user-tie"
+            }
+        ],
+        "doc_key": "faculty_Management",
+        "content_html": "<!-- ===== INSTITUTE 1: School of Management Studies ===== -->\r\n            <div class=\"mgmt-institute-block\">\r\n              <div class=\"mgmt-institute-icon\"><i class=\"fa-solid fa-school\"></i></div>\r\n              <div>\r\n                <div class=\"mgmt-institute-block-title\">Institute Name</div>\r\n                <div class=\"mgmt-institute-block-name\">School of Management Studies</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"mgmt-course-label\">\r\n              <div class=\"mgmt-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> MBA</div>\r\n              <div class=\"mgmt-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"mgmt-table-wrapper mb-4\">\r\n              <table class=\"mgmt-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>MBA</td>\r\n                    <td>Management</td>\r\n                    <td><span class=\"mgmt-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 2: School of Engineering ===== -->\r\n            <div class=\"mgmt-institute-block\">\r\n              <div class=\"mgmt-institute-icon\"><i class=\"fa-solid fa-gear\"></i></div>\r\n              <div>\r\n                <div class=\"mgmt-institute-block-title\">Institute Name</div>\r\n                <div class=\"mgmt-institute-block-name\">School of Engineering</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"mgmt-course-label\">\r\n              <div class=\"mgmt-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> MBA</div>\r\n              <div class=\"mgmt-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"mgmt-table-wrapper mb-4\">\r\n              <table class=\"mgmt-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>MBA</td>\r\n                    <td>Management</td>\r\n                    <td><span class=\"mgmt-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 3: School of Computer Application ===== -->\r\n            <div class=\"mgmt-institute-block\">\r\n              <div class=\"mgmt-institute-icon\"><i class=\"fa-solid fa-desktop\"></i></div>\r\n              <div>\r\n                <div class=\"mgmt-institute-block-title\">Institute Name</div>\r\n                <div class=\"mgmt-institute-block-name\">School of Computer Application</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"mgmt-course-label\">\r\n              <div class=\"mgmt-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> MBA</div>\r\n              <div class=\"mgmt-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"mgmt-table-wrapper mb-4\">\r\n              <table class=\"mgmt-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>MBA</td>\r\n                    <td>Management</td>\r\n                    <td><span class=\"mgmt-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 4: School of Hotel Management ===== -->\r\n            <div class=\"mgmt-institute-block\">\r\n              <div class=\"mgmt-institute-icon\"><i class=\"fa-solid fa-hotel\"></i></div>\r\n              <div>\r\n                <div class=\"mgmt-institute-block-title\">Institute Name</div>\r\n                <div class=\"mgmt-institute-block-name\">School of Hotel Management</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"mgmt-course-label\">\r\n              <div class=\"mgmt-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> BHMCT</div>\r\n              <div class=\"mgmt-course-label-duration\">4 Years</div>\r\n            </div>\r\n            <div class=\"mgmt-table-wrapper mb-4\">\r\n              <table class=\"mgmt-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>BHMCT</td>\r\n                    <td>Hotel Management and Catering</td>\r\n                    <td><span class=\"mgmt-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== INSTITUTE 5: Faculty of Education ===== -->\r\n            <div class=\"mgmt-institute-block\">\r\n              <div class=\"mgmt-institute-icon\"><i class=\"fa-solid fa-chalkboard-teacher\"></i></div>\r\n              <div>\r\n                <div class=\"mgmt-institute-block-title\">Institute Name</div>\r\n                <div class=\"mgmt-institute-block-name\">Faculty of Education</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"mgmt-course-label\">\r\n              <div class=\"mgmt-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> BBA</div>\r\n              <div class=\"mgmt-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"mgmt-table-wrapper mb-2\">\r\n              <table class=\"mgmt-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>BBA</td>\r\n                    <td>Management</td>\r\n                    <td><span class=\"mgmt-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Management Studies - MBA, BBA & Executive Programs | SSSUTMS",
+        "meta_description": "Advance your career with MBA and BBA programs in Marketing, Finance, HR, and Banking at SSSUTMS. Corporate internships, industry mentorship, and campus placement drives.",
+        "meta_keywords": "MBA colleges in MP, BBA admission 2026, business school Sehore Bhopal, top management institutes MP, SSSUTMS MBA",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Design": {
+        "file": "Academic/FacultiesAndDepartments/Design.php",
+        "title": "Design - SSSUTMS",
+        "banner_title": "Design",
+        "banner_category": "Academic",
+        "faculty_name": "School of Design",
+        "institute_name": "Faculty of Design",
+        "dean_name": "Prof. Ananya Roy",
+        "dean_designation": "Head, School of Design",
+        "dean_photo": "assets/images/Files/Link/dean_design.jpg",
+        "stats": [
+            {
+                "label": "Programs",
+                "value": "B.Des & M.Des",
+                "icon": "fa-compass-drafting"
+            },
+            {
+                "label": "Studios",
+                "value": "Creative Labs",
+                "icon": "fa-palette"
+            },
+            {
+                "label": "Focus",
+                "value": "Interior & Fashion",
+                "icon": "fa-shirt"
+            },
+            {
+                "label": "Exhibitions",
+                "value": "Annual Showcases",
+                "icon": "fa-image"
+            }
+        ],
+        "doc_key": "faculty_Design",
+        "content_html": "<!-- ===== INSTITUTE: SCHOOL OF DESIGN ===== -->\r\n            <div class=\"des-institute-block\">\r\n              <div class=\"des-institute-icon\"><i class=\"fa-solid fa-pen-ruler\"></i></div>\r\n              <div>\r\n                <div class=\"des-institute-block-title\">Institute Name</div>\r\n                <div class=\"des-institute-block-name\">School of Design</div>\r\n              </div>\r\n            </div>\r\n\r\n            <!-- Bachelor of Design -->\r\n            <div class=\"des-course-label\">\r\n              <div class=\"des-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> Bachelor of Design</div>\r\n              <div class=\"des-course-label-duration\">4 Years</div>\r\n            </div>\r\n            <div class=\"des-table-wrapper mb-4\">\r\n              <table class=\"des-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Specialization</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Design</td>\r\n                    <td>Industrial Design</td>\r\n                    <td><span class=\"des-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Design</td>\r\n                    <td>Communication Design</td>\r\n                    <td><span class=\"des-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Design</td>\r\n                    <td>Textile Design</td>\r\n                    <td><span class=\"des-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Design</td>\r\n                    <td>Interior Design</td>\r\n                    <td><span class=\"des-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Design</td>\r\n                    <td>Product Design</td>\r\n                    <td><span class=\"des-badge-duration\">4 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- Bachelor of Architecture -->\r\n            <div class=\"des-course-label\">\r\n              <div class=\"des-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> Bachelor of Architecture</div>\r\n              <div class=\"des-course-label-duration\">5 Years</div>\r\n            </div>\r\n            <div class=\"des-table-wrapper mb-2\">\r\n              <table class=\"des-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Specialization</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Architecture</td>\r\n                    <td>Architecture</td>\r\n                    <td><span class=\"des-badge-duration\">5 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "School of Design - B.Des, Fashion & Interior Design Courses | SSSUTMS",
+        "meta_description": "Unleash your creativity at the School of Design, SSSUTMS. Innovative undergraduate programs in Fashion Design, Interior Design, and Visual Communication with modern design studios.",
+        "meta_keywords": "Design college in MP, B.Des admission, fashion design institute, interior design courses, creative design university MP, SSSUTMS design",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "HumanitiesAndLanguages": {
+        "file": "Academic/FacultiesAndDepartments/HumanitiesAndLanguages.php",
+        "title": "Humanities And Languages - SSSUTMS",
+        "banner_title": "Humanities & Languages",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Humanities and Languages",
+        "institute_name": "School of Humanities & Social Sciences",
+        "dean_name": "Dr. Sunita Saxena",
+        "dean_designation": "Dean, Humanities & Languages",
+        "dean_photo": "assets/images/Files/Link/dean_humanities.jpg",
+        "stats": [
+            {
+                "label": "UG Degrees",
+                "value": "B.A. Multidisciplinary",
+                "icon": "fa-landmark"
+            },
+            {
+                "label": "PG Degrees",
+                "value": "M.A. English / Hindi",
+                "icon": "fa-language"
+            },
+            {
+                "label": "Research",
+                "value": "Social Sciences",
+                "icon": "fa-book"
+            },
+            {
+                "label": "Library",
+                "value": "Rich Literature",
+                "icon": "fa-book-bookmark"
+            }
+        ],
+        "doc_key": "faculty_HumanitiesAndLanguages",
+        "content_html": "<!-- ===== M.A. ===== -->\r\n            <div class=\"hum-course-label\">\r\n              <div class=\"hum-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> M.A. (Master of Arts)</div>\r\n              <div class=\"hum-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"hum-table-wrapper mb-4\">\r\n              <table class=\"hum-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Branch</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Hindi</td>\r\n                    <td><span class=\"hum-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>English</td>\r\n                    <td><span class=\"hum-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>History</td>\r\n                    <td><span class=\"hum-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Political Science</td>\r\n                    <td><span class=\"hum-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Sociology</td>\r\n                    <td><span class=\"hum-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Psychology</td>\r\n                    <td><span class=\"hum-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== B.A. ===== -->\r\n            <div class=\"hum-course-label\">\r\n              <div class=\"hum-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> B.A. (Bachelor of Arts)</div>\r\n              <div class=\"hum-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"hum-table-wrapper mb-2\">\r\n              <table class=\"hum-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Branch</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Arts with Computer Applications</td>\r\n                    <td><span class=\"hum-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Bachelor of Arts (Plain)</td>\r\n                    <td><span class=\"hum-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Humanities & Languages - BA, MA & Language Studies | SSSUTMS",
+        "meta_description": "Explore rich academic programs in English, Hindi, History, Sociology, and Political Science at SSSUTMS Faculty of Humanities. Comprehensive arts and liberal education.",
+        "meta_keywords": "BA courses in MP, MA humanities, arts college Sehore, literature and language degrees, SSSUTMS arts faculty",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "ComputerScienceAndApplication": {
+        "file": "Academic/FacultiesAndDepartments/ComputerScienceAndApplication.php",
+        "title": "Computer Science & Application - SSSUTMS",
+        "banner_title": "Computer Science & Application",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Computer Science & Application",
+        "institute_name": "School of Computer Applications",
+        "dean_name": "Dr. Rajesh Patel",
+        "dean_designation": "Dean, Computer Applications",
+        "dean_photo": "assets/images/Files/Link/dean_cs.jpg",
+        "stats": [
+            {
+                "label": "Programs",
+                "value": "BCA, MCA, PGDCA",
+                "icon": "fa-laptop-code"
+            },
+            {
+                "label": "Computer Labs",
+                "value": "Hi-Speed Wi-Fi",
+                "icon": "fa-server"
+            },
+            {
+                "label": "Trending Tech",
+                "value": "AI, ML, Cloud",
+                "icon": "fa-brain"
+            },
+            {
+                "label": "Hackathons",
+                "value": "Coding Clubs",
+                "icon": "fa-code"
+            }
+        ],
+        "doc_key": "faculty_ComputerScienceAndApplication",
+        "content_html": "<!-- ===== M.C.A ===== -->\r\n            <div class=\"csa-course-label\">\r\n              <div class=\"csa-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> M.C.A (Master of Computer Application)</div>\r\n              <div class=\"csa-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"csa-table-wrapper mb-4\">\r\n              <table class=\"csa-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:55%;\">Branch</th>\r\n                    <th style=\"width:25%;\">Duration</th>\r\n                    <th style=\"width:20%;\">Intake</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Master of Computer Application</td>\r\n                    <td><span class=\"csa-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"csa-badge-intake\">120</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== B.C.A ===== -->\r\n            <div class=\"csa-course-label\">\r\n              <div class=\"csa-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> B.C.A (Bachelor of Computer Application)</div>\r\n              <div class=\"csa-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"csa-table-wrapper mb-2\">\r\n              <table class=\"csa-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:55%;\">Branch</th>\r\n                    <th style=\"width:25%;\">Duration</th>\r\n                    <th style=\"width:20%;\">Intake</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Computer Application</td>\r\n                    <td><span class=\"csa-badge-duration\">3 Yrs.</span></td>\r\n                    <td><span class=\"csa-badge-intake\">60</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Computer Science & Application - MCA & BCA Admissions | SSSUTMS",
+        "meta_description": "Master computing technologies with BCA and MCA degree programs at SSSUTMS. AI, Data Science, Web Development, and Cloud Computing with high-tech software laboratories.",
+        "meta_keywords": "BCA colleges in MP, MCA admission 2026, computer science degrees, software engineering college Bhopal Sehore, SSSUTMS BCA MCA",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Commerce": {
+        "file": "Academic/FacultiesAndDepartments/Commerce.php",
+        "title": "Commerce - SSSUTMS",
+        "banner_title": "Commerce",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Commerce",
+        "institute_name": "School of Commerce",
+        "dean_name": "Dr. Arvind Joshi",
+        "dean_designation": "Dean, Faculty of Commerce",
+        "dean_photo": "assets/images/Files/Link/dean_commerce.jpg",
+        "stats": [
+            {
+                "label": "Programs",
+                "value": "B.Com & M.Com",
+                "icon": "fa-coins"
+            },
+            {
+                "label": "Specialization",
+                "value": "Banking & Taxation",
+                "icon": "fa-calculator"
+            },
+            {
+                "label": "Skill Labs",
+                "value": "Tally & FinTech",
+                "icon": "fa-receipt"
+            },
+            {
+                "label": "Internships",
+                "value": "Corporate Firms",
+                "icon": "fa-building-columns"
+            }
+        ],
+        "doc_key": "faculty_Commerce",
+        "content_html": "<!-- ===== M.Com. ===== -->\r\n            <div class=\"com-course-label\">\r\n              <div class=\"com-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> M.Com. (Master of Commerce)</div>\r\n              <div class=\"com-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"com-table-wrapper mb-4\">\r\n              <table class=\"com-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Branch</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Commerce</td>\r\n                    <td><span class=\"com-badge-duration\">2 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== B.Com ===== -->\r\n            <div class=\"com-course-label\">\r\n              <div class=\"com-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> B.Com (Bachelor of Commerce)</div>\r\n              <div class=\"com-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"com-table-wrapper mb-2\">\r\n              <table class=\"com-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:70%;\">Branch</th>\r\n                    <th style=\"width:30%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Plain</td>\r\n                    <td><span class=\"com-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Computer Application</td>\r\n                    <td><span class=\"com-badge-duration\">3 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Commerce - B.Com & M.Com Accounting & Finance | SSSUTMS",
+        "meta_description": "Gain strong foundation in Accounting, Taxation, Banking, and Business Economics with B.Com and M.Com programs at Sri Satya Sai University of Technology & Medical Sciences.",
+        "meta_keywords": "B.Com college in MP, M.Com finance, commerce degree admissions, accounting and banking courses, SSSUTMS commerce",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Science": {
+        "file": "Academic/FacultiesAndDepartments/Science.php",
+        "title": "Science - SSSUTMS",
+        "banner_title": "Science",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Science",
+        "institute_name": "School of Basic & Applied Sciences",
+        "dean_name": "Dr. S. K. Singh",
+        "dean_designation": "Dean, Faculty of Science",
+        "dean_photo": "assets/images/Files/Link/dean_science.jpg",
+        "stats": [
+            {
+                "label": "Disciplines",
+                "value": "Physics, Chem, Math, Bio",
+                "icon": "fa-atom"
+            },
+            {
+                "label": "Degrees",
+                "value": "B.Sc. & M.Sc.",
+                "icon": "fa-dna"
+            },
+            {
+                "label": "Laboratories",
+                "value": "Well-Equipped Wet Labs",
+                "icon": "fa-vial-virus"
+            },
+            {
+                "label": "Research",
+                "value": "Publications & Grants",
+                "icon": "fa-newspaper"
+            }
+        ],
+        "doc_key": "faculty_Science",
+        "content_html": "<!-- ===== M.Sc. ===== -->\r\n            <div class=\"sci-course-label\">\r\n              <div class=\"sci-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> M.Sc. (Master of Science)</div>\r\n              <div class=\"sci-course-label-duration\">2 Years</div>\r\n            </div>\r\n            <div class=\"sci-table-wrapper mb-4\">\r\n              <table class=\"sci-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:55%;\">Branch</th>\r\n                    <th style=\"width:25%;\">Duration</th>\r\n                    <th style=\"width:20%;\">Intake</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Physics</td>\r\n                    <td><span class=\"sci-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">20</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Chemistry</td>\r\n                    <td><span class=\"sci-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">20</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Computer Science</td>\r\n                    <td><span class=\"sci-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">20</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Mathematics</td>\r\n                    <td><span class=\"sci-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">20</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Botany</td>\r\n                    <td><span class=\"sci-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">20</span></td>\r\n                  </tr>\r\n                  <tr>\r\n                    <td>Zoology</td>\r\n                    <td><span class=\"sci-badge-duration\">2 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">20</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n\r\n            <!-- ===== B.Sc. ===== -->\r\n            <div class=\"sci-course-label\">\r\n              <div class=\"sci-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> B.Sc. (Bachelor of Science)</div>\r\n              <div class=\"sci-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"sci-table-wrapper mb-2\">\r\n              <table class=\"sci-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:55%;\">Branch</th>\r\n                    <th style=\"width:25%;\">Duration</th>\r\n                    <th style=\"width:20%;\">Intake</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Science in CS / IT / Bio / Maths / Microbiology / Biochemistry</td>\r\n                    <td><span class=\"sci-badge-duration\">3 Yrs.</span></td>\r\n                    <td><span class=\"sci-badge-intake\">120</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Science - B.Sc. & M.Sc. Programs in Physics, Chem, Maths | SSSUTMS",
+        "meta_description": "Pursue excellence in basic and applied sciences with B.Sc. and M.Sc. degrees at SSSUTMS. Advanced research labs, expert faculty, and interdisciplinary scientific projects.",
+        "meta_keywords": "B.Sc college in MP, M.Sc science courses, physics chemistry biology mathematics degrees, SSSUTMS science faculty",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Ayurveda": {
+        "file": "Academic/FacultiesAndDepartments/Ayurveda.php",
+        "title": "Ayurveda - SSSUTMS",
+        "banner_title": "Ayurveda",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Ayurveda & Siddha Studies",
+        "institute_name": "School of Ayurveda",
+        "dean_name": "Dr. R. C. Agrawal",
+        "dean_designation": "Principal / Dean, Ayurveda",
+        "dean_photo": "assets/images/Files/Link/dean_ayurveda.jpg",
+        "stats": [
+            {
+                "label": "NCISM Approved",
+                "value": "Recognized BAMS",
+                "icon": "fa-certificate"
+            },
+            {
+                "label": "Hospital",
+                "value": "100+ Bedded Ayurvedic Hosp",
+                "icon": "fa-hospital"
+            },
+            {
+                "label": "Herbal Garden",
+                "value": "500+ Medicinal Species",
+                "icon": "fa-seedling"
+            },
+            {
+                "label": "Panchakarma",
+                "value": "Full Clinical Training",
+                "icon": "fa-spa"
+            }
+        ],
+        "doc_key": "faculty_Ayurveda",
+        "content_html": "<!-- ===== INSTITUTE: School of Ayurveda & Siddha Studies ===== -->\r\n            <div class=\"ayu-institute-block\">\r\n              <div class=\"ayu-institute-icon\"><i class=\"fa-solid fa-leaf\"></i></div>\r\n              <div>\r\n                <div class=\"ayu-institute-block-title\">Institute Name</div>\r\n                <div class=\"ayu-institute-block-name\">School of Ayurveda &amp; Siddha Studies</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"ayu-course-label\">\r\n              <div class=\"ayu-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> B.A.M.S.</div>\r\n              <div class=\"ayu-course-label-duration\">5.5 Years</div>\r\n            </div>\r\n            <div class=\"ayu-table-wrapper mb-2\">\r\n              <table class=\"ayu-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>B.A.M.S.</td>\r\n                    <td>Ayurveda</td>\r\n                    <td><span class=\"ayu-badge-duration\">5.5 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Ayurveda - BAMS & Ayurvedic Medicine Studies | SSSUTMS",
+        "meta_description": "Study authentic Ayurvedic medicine and surgery (BAMS) with hands-on hospital clinical training at Sri Satya Sai University. NCISM recognized herbal hospital and pharmacy.",
+        "meta_keywords": "BAMS college in MP, ayurvedic medical college Sehore, BAMS admission 2026, ayurveda hospital training, SSSUTMS ayurveda",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Law": {
+        "file": "Academic/FacultiesAndDepartments/Law.php",
+        "title": "Law - SSSUTMS",
+        "banner_title": "Law",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Law",
+        "institute_name": "School of Law",
+        "dean_name": "Prof. K. N. Mishra",
+        "dean_designation": "Dean, Faculty of Law",
+        "dean_photo": "assets/images/Files/Link/dean_law.jpg",
+        "stats": [
+            {
+                "label": "BCI Approved",
+                "value": "Bar Council Recognized",
+                "icon": "fa-scale-balanced"
+            },
+            {
+                "label": "Programs",
+                "value": "LL.B. (3 Yr) & B.A. LL.B.",
+                "icon": "fa-gavel"
+            },
+            {
+                "label": "Moot Court",
+                "value": "Realistic Practice Room",
+                "icon": "fa-landmark-dome"
+            },
+            {
+                "label": "Legal Aid",
+                "value": "Active Community Clinic",
+                "icon": "fa-hand-holding-heart"
+            }
+        ],
+        "doc_key": "faculty_Law",
+        "content_html": "<!-- ===== L.L.B. ===== -->\r\n            <div class=\"law-course-label\">\r\n              <div class=\"law-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> L.L.B. (Bachelor of Law)</div>\r\n              <div class=\"law-course-label-duration\">3 Years</div>\r\n            </div>\r\n            <div class=\"law-table-wrapper mb-2\">\r\n              <table class=\"law-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:55%;\">Branch</th>\r\n                    <th style=\"width:25%;\">Duration</th>\r\n                    <th style=\"width:20%;\">Intake</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>Bachelor of Law</td>\r\n                    <td><span class=\"law-badge-duration\">3 Yrs.</span></td>\r\n                    <td><span class=\"law-badge-intake\">120</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Law - BA LLB, BBA LLB & LL.B. Legal Education | SSSUTMS",
+        "meta_description": "Prepare for prestigious legal careers with BCI-approved integrated law programs at SSSUTMS. Moot court training, legal aid clinics, and constitutional law expertise.",
+        "meta_keywords": "Law college in MP, BA LLB admission, LLB degree course, BCI approved law university, moot court SSSUTMS law",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Homeopathy": {
+        "file": "Academic/FacultiesAndDepartments/Homeopathy.php",
+        "title": "Homeopathy - SSSUTMS",
+        "banner_title": "Homeopathy",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Homoeopathy",
+        "institute_name": "School of Homoeopathy",
+        "dean_name": "Dr. V. K. Jain",
+        "dean_designation": "Principal / Dean, Homoeopathy",
+        "dean_photo": "assets/images/Files/Link/dean_homoeopathy.jpg",
+        "stats": [
+            {
+                "label": "NCH Approved",
+                "value": "Recognized BHMS",
+                "icon": "fa-certificate"
+            },
+            {
+                "label": "Hospital",
+                "value": "OPD & IPD Facilities",
+                "icon": "fa-hospital-user"
+            },
+            {
+                "label": "Pharmacy",
+                "value": "Dispensing Laboratory",
+                "icon": "fa-prescription-bottle-medical"
+            },
+            {
+                "label": "Internships",
+                "value": "Rotatory Clinical Postings",
+                "icon": "fa-stethoscope"
+            }
+        ],
+        "doc_key": "faculty_Homeopathy",
+        "content_html": "<!-- ===== INSTITUTE: School of Homeopathy ===== -->\r\n            <div class=\"hom-institute-block\">\r\n              <div class=\"hom-institute-icon\"><i class=\"fa-solid fa-hand-holding-medical\"></i></div>\r\n              <div>\r\n                <div class=\"hom-institute-block-title\">Institute Name</div>\r\n                <div class=\"hom-institute-block-name\">School of Homeopathy</div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"hom-course-label\">\r\n              <div class=\"hom-course-label-pill\"><i class=\"fa-solid fa-layer-group\"></i> BHMS</div>\r\n              <div class=\"hom-course-label-duration\">5.5 Years</div>\r\n            </div>\r\n            <div class=\"hom-table-wrapper mb-2\">\r\n              <table class=\"hom-course-table\">\r\n                <thead>\r\n                  <tr>\r\n                    <th style=\"width:50%;\">Course</th>\r\n                    <th style=\"width:35%;\">Branch</th>\r\n                    <th style=\"width:15%;\">Duration</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr>\r\n                    <td>BHMS</td>\r\n                    <td>Homeopathy</td>\r\n                    <td><span class=\"hom-badge-duration\">5.5 Yrs.</span></td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>",
+        "meta_title": "Faculty of Homoeopathy - BHMS Medical Degree Programs | SSSUTMS",
+        "meta_description": "Accredited BHMS medical education with multi-specialty clinical hospital exposure at SSSUTMS Faculty of Homoeopathy. Holistic healing and homeopathic healthcare practice.",
+        "meta_keywords": "BHMS college in MP, homeopathic medical admission, BHMS doctor degree, homoeopathy hospital Sehore, SSSUTMS BHMS",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Paramedical": {
+        "file": "Academic/FacultiesAndDepartments/Paramedical.php",
+        "title": "Paramedical - SSSUTMS",
+        "banner_title": "Paramedical",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Paramedical Studies",
+        "institute_name": "School of Paramedical Sciences",
+        "dean_name": "Dr. Amit Trivedi",
+        "dean_designation": "Head, Paramedical Studies",
+        "dean_photo": "assets/images/Files/Link/dean_paramedical.jpg",
+        "stats": [
+            {
+                "label": "State Council",
+                "value": "Recognized Courses",
+                "icon": "fa-shield-halved"
+            },
+            {
+                "label": "Degree & Diploma",
+                "value": "BMLT, DMLT, X-Ray",
+                "icon": "fa-vials"
+            },
+            {
+                "label": "Diagnostic Labs",
+                "value": "Clinical Pathology",
+                "icon": "fa-microscope"
+            },
+            {
+                "label": "Hospital Training",
+                "value": "Live Patient Exposure",
+                "icon": "fa-bed-pulse"
+            }
+        ],
+        "doc_key": "faculty_Paramedical",
+        "content_html": "<div class=\"para-institute-block\">\n              <div class=\"para-institute-icon\">\n                <i class=\"fa-solid fa-hospital-user\"></i>\n              </div>\n              <div>\n                <div class=\"para-institute-block-title\">Institute Name</div>\n                <div class=\"para-institute-block-name\">School of Paramedical Sciences</div>\n              </div>\n            </div>\n\n            <!-- Paramedical Degree Table -->\n            <div class=\"para-course-label\">\n              <div class=\"para-course-label-pill\">\n                <i class=\"fa-solid fa-layer-group\"></i>\n                Bachelor Degree Programs\n              </div>\n              <div class=\"para-course-label-duration\">3 - 3.5 Years</div>\n            </div>\n            <div class=\"para-table-wrapper mb-4\">\n              <table class=\"para-course-table\">\n                <thead>\n                  <tr>\n                    <th style=\"width:40%;\">Course Name</th>\n                    <th style=\"width:40%;\">Discipline / Specialization</th>\n                    <th style=\"width:20%;\">Duration</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <td>BMLT</td>\n                    <td>Bachelor in Medical Laboratory Technology</td>\n                    <td><span class=\"para-badge-duration\">3 Yrs. + 6 Mo.</span></td>\n                  </tr>\n                  <tr>\n                    <td>BPT</td>\n                    <td>Bachelor of Physiotherapy</td>\n                    <td><span class=\"para-badge-duration\">4 Yrs. + 6 Mo.</span></td>\n                  </tr>\n                  <tr>\n                    <td>B.Sc. Dialysis Technology</td>\n                    <td>Renal Replacement &amp; Dialysis Care</td>\n                    <td><span class=\"para-badge-duration\">3 Yrs.</span></td>\n                  </tr>\n                  <tr>\n                    <td>B.Sc. X-Ray &amp; Imaging</td>\n                    <td>Radiography &amp; Radiodiagnostics</td>\n                    <td><span class=\"para-badge-duration\">3 Yrs.</span></td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n\n            <!-- Paramedical Diploma Table -->\n            <div class=\"para-course-label\">\n              <div class=\"para-course-label-pill\">\n                <i class=\"fa-solid fa-graduation-cap\"></i>\n                Diploma Programs\n              </div>\n              <div class=\"para-course-label-duration\">2 Years</div>\n            </div>\n            <div class=\"para-table-wrapper mb-4\">\n              <table class=\"para-course-table\">\n                <thead>\n                  <tr>\n                    <th style=\"width:40%;\">Course Name</th>\n                    <th style=\"width:40%;\">Discipline / Specialization</th>\n                    <th style=\"width:20%;\">Duration</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <td>DMLT</td>\n                    <td>Diploma in Medical Laboratory Technology</td>\n                    <td><span class=\"para-badge-duration\">2 Yrs.</span></td>\n                  </tr>\n                  <tr>\n                    <td>Diploma in X-Ray Technician</td>\n                    <td>Radiography &amp; Radiodiagnostics Technician</td>\n                    <td><span class=\"para-badge-duration\">2 Yrs.</span></td>\n                  </tr>\n                  <tr>\n                    <td>Diploma in Operation Theatre Technician</td>\n                    <td>O.T. Care &amp; Surgical Assistance</td>\n                    <td><span class=\"para-badge-duration\">2 Yrs.</span></td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>",
+        "meta_title": "Faculty of Paramedical Studies - BMLT, DMLT & Healthcare Courses | SSSUTMS",
+        "meta_description": "Career-oriented allied health and paramedical science programs at SSSUTMS. Practical laboratory training, hospital rotations, and pathology diagnostic skill development.",
+        "meta_keywords": "Paramedical college in MP, BMLT admission, DMLT courses, allied health sciences, medical lab technology SSSUTMS",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    },
+    "Nursing": {
+        "file": "Academic/FacultiesAndDepartments/Nursing.php",
+        "title": "Nursing - SSSUTMS",
+        "banner_title": "Nursing",
+        "banner_category": "Academic",
+        "faculty_name": "Faculty of Nursing Sciences",
+        "institute_name": "School of Nursing",
+        "dean_name": "Prof. Meena Kumari",
+        "dean_designation": "Principal, School of Nursing",
+        "dean_photo": "assets/images/Files/Link/dean_nursing.jpg",
+        "stats": [
+            {
+                "label": "INC Approved",
+                "value": "Nursing Council Recognized",
+                "icon": "fa-certificate"
+            },
+            {
+                "label": "Programs",
+                "value": "B.Sc. Nursing, GNM, ANM",
+                "icon": "fa-user-nurse"
+            },
+            {
+                "label": "Skills Lab",
+                "value": "Anatomy & Simulation",
+                "icon": "fa-heart-pulse"
+            },
+            {
+                "label": "Clinical Tie-ups",
+                "value": "Multi-Speciality Hospitals",
+                "icon": "fa-hospital"
+            }
+        ],
+        "doc_key": "faculty_Nursing",
+        "content_html": "<div class=\"nurs-institute-block\">\n              <div class=\"nurs-institute-icon\">\n                <i class=\"fa-solid fa-school\"></i>\n              </div>\n              <div>\n                <div class=\"nurs-institute-block-title\">Institute Name</div>\n                <div class=\"nurs-institute-block-name\">School of Nursing</div>\n              </div>\n            </div>\n\n            <!-- Nursing Degree Table -->\n            <div class=\"nurs-course-label\">\n              <div class=\"nurs-course-label-pill\">\n                <i class=\"fa-solid fa-layer-group\"></i>\n                Degree Programs\n              </div>\n              <div class=\"nurs-course-label-duration\">4 Years</div>\n            </div>\n            <div class=\"para-table-wrapper mb-4\">\n              <table class=\"nurs-course-table\">\n                <thead>\n                  <tr>\n                    <th style=\"width:40%;\">Course Name</th>\n                    <th style=\"width:40%;\">Discipline / Specialization</th>\n                    <th style=\"width:20%;\">Duration</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <td>B.Sc. Nursing</td>\n                    <td>Bachelor of Science in Nursing</td>\n                    <td><span class=\"nurs-badge-duration\">4 Yrs.</span></td>\n                  </tr>\n                  <tr>\n                    <td>Post Basic B.Sc. Nursing</td>\n                    <td>P.B.B.Sc. Nursing</td>\n                    <td><span class=\"nurs-badge-duration\">2 Yrs.</span></td>\n                  </tr>\n                  <tr>\n                    <td>M.Sc. Nursing</td>\n                    <td>Medical-Surgical / Community / Paediatric</td>\n                    <td><span class=\"nurs-badge-duration\">2 Yrs.</span></td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n\n            <!-- Nursing Diploma Table -->\n            <div class=\"nurs-course-label\">\n              <div class=\"nurs-course-label-pill\">\n                <i class=\"fa-solid fa-graduation-cap\"></i>\n                Diploma Programs\n              </div>\n              <div class=\"nurs-course-label-duration\">2 - 3 Years</div>\n            </div>\n            <div class=\"nurs-table-wrapper mb-4\">\n              <table class=\"nurs-course-table\">\n                <thead>\n                  <tr>\n                    <th style=\"width:40%;\">Course Name</th>\n                    <th style=\"width:40%;\">Discipline / Specialization</th>\n                    <th style=\"width:20%;\">Duration</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <td>G.N.M.</td>\n                    <td>General Nursing &amp; Midwifery</td>\n                    <td><span class=\"nurs-badge-duration\">3 Yrs.</span></td>\n                  </tr>\n                  <tr>\n                    <td>A.N.M.</td>\n                    <td>Auxiliary Nurse Midwife</td>\n                    <td><span class=\"nurs-badge-duration\">2 Yrs.</span></td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>",
+        "meta_title": "Faculty of Nursing Sciences - B.Sc. Nursing & GNM Programs | SSSUTMS",
+        "meta_description": "Comprehensive nursing education and compassionate clinical patient care training at SSSUTMS. INC recognized B.Sc. Nursing and healthcare clinical rotations.",
+        "meta_keywords": "Nursing college in MP, B.Sc nursing admission 2026, GNM nursing diploma, INC approved nursing institute, SSSUTMS nursing",
+        "canonical_url": "",
+        "og_image": "assets/images/gallery/1/img-25.jpg"
+    }
+}

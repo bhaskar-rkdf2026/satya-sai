@@ -74,6 +74,7 @@ $uploadDirs = [
     UPLOAD_DIR . '/documents',
     UPLOAD_DIR . '/home',
     UPLOAD_DIR . '/about',
+    UPLOAD_DIR . '/faculties',
 ];
 foreach ($uploadDirs as $ud) {
     if (!is_dir($ud)) {
@@ -178,6 +179,43 @@ function get_public_disclosures($forceReload = false) {
 function save_public_disclosures($data) {
     $res = save_json_data('public_disclosure.json', $data);
     get_public_disclosures(true); // Reset cache
+    return $res;
+}
+
+/**
+ * Helper to get a specific Faculty/Department page data
+ */
+function get_faculty_page($slug, $default = [], $forceReload = false) {
+    static $facultiesData = null;
+    if ($facultiesData === null || $forceReload) {
+        $facultiesData = get_json_data('academic_faculties.json', []);
+    }
+    if (empty($slug)) {
+        return $facultiesData;
+    }
+    return $facultiesData[$slug] ?? $default;
+}
+
+/**
+ * Helper to get all Faculty/Department pages
+ */
+function get_all_faculty_pages($forceReload = false) {
+    return get_faculty_page('', [], $forceReload);
+}
+
+/**
+ * Helper to save a Faculty/Department page
+ */
+function save_faculty_page($slug, $data) {
+    $faculties = get_json_data('academic_faculties.json', []);
+    if (isset($faculties[$slug])) {
+        $faculties[$slug] = array_merge($faculties[$slug], $data);
+    } else {
+        $faculties[$slug] = $data;
+    }
+    $faculties[$slug]['updated_at'] = date('Y-m-d H:i:s');
+    $res = save_json_data('academic_faculties.json', $faculties);
+    get_faculty_page('', [], true); // Reset cache
     return $res;
 }
 

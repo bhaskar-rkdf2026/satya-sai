@@ -3,8 +3,82 @@ if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/../config.php';
 }
 
-$page_title = isset($page_title) ? $page_title . ' | ' . SITE_NAME : SITE_NAME . ' - Official University Portal';
-$page_desc = isset($page_desc) ? $page_desc : 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS), Sehore (M.P.). Leading institution for Engineering, Medical, Ayurveda, Pharmacy, Management, and Science.';
+// 1. Resolve dynamic data object if present ($faculty_page, $about_page, $page_data, $page)
+$active_meta = [];
+if (isset($faculty_page) && is_array($faculty_page)) {
+    $active_meta = $faculty_page;
+} elseif (isset($about_page) && is_array($about_page)) {
+    $active_meta = $about_page;
+} elseif (isset($page_data) && is_array($page_data)) {
+    $active_meta = $page_data;
+} elseif (isset($page) && is_array($page)) {
+    $active_meta = $page;
+}
+
+// 2. Resolve Meta Title
+if (!empty($meta_title)) {
+    $final_title = $meta_title;
+} elseif (!empty($active_meta['meta_title'])) {
+    $final_title = $active_meta['meta_title'];
+} elseif (!empty($page_title)) {
+    $final_title = $page_title;
+} elseif (!empty($active_meta['title'])) {
+    $final_title = $active_meta['title'];
+} else {
+    $final_title = SITE_NAME . ' - Official University Portal';
+}
+
+// Ensure clean brand suffix on title
+if (strpos($final_title, SITE_NAME) === false && strpos($final_title, SITE_SHORT_NAME) === false) {
+    $final_title = $final_title . ' | ' . SITE_NAME;
+}
+
+// 3. Resolve Meta Description
+if (!empty($meta_description)) {
+    $final_desc = $meta_description;
+} elseif (!empty($active_meta['meta_description'])) {
+    $final_desc = $active_meta['meta_description'];
+} elseif (!empty($page_desc)) {
+    $final_desc = $page_desc;
+} else {
+    $final_desc = 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS), Sehore (M.P.). Leading institution for Engineering, Medical, Ayurveda, Pharmacy, Management, and Science.';
+}
+
+// 4. Resolve Meta Keywords
+if (!empty($meta_keywords)) {
+    $final_keywords = $meta_keywords;
+} elseif (!empty($active_meta['meta_keywords'])) {
+    $final_keywords = $active_meta['meta_keywords'];
+} elseif (!empty($page_keywords)) {
+    $final_keywords = $page_keywords;
+} else {
+    $final_keywords = 'SSSUTMS, Sri Satya Sai University, Engineering Colleges in MP, Medical Colleges Sehore, Pharmacy, Ayurveda BAMS, BHMS, Admission 2026-27';
+}
+
+// 5. Canonical URL
+$curr_protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://' : 'http://';
+$curr_host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$curr_uri = $_SERVER['REQUEST_URI'] ?? '';
+$default_canonical = $curr_protocol . $curr_host . $curr_uri;
+
+if (!empty($canonical_url)) {
+    $final_canonical = $canonical_url;
+} elseif (!empty($active_meta['canonical_url'])) {
+    $final_canonical = $active_meta['canonical_url'];
+} else {
+    $final_canonical = $default_canonical;
+}
+
+// 6. Social Share / OG Image
+$default_og_image = BASE_URL . 'assets/images/logo/logo.jpg';
+if (!empty($og_image)) {
+    $final_og_image = (strpos($og_image, 'http') === 0) ? $og_image : BASE_URL . ltrim($og_image, '/');
+} elseif (!empty($active_meta['og_image'])) {
+    $final_og_image = (strpos($active_meta['og_image'], 'http') === 0) ? $active_meta['og_image'] : BASE_URL . ltrim($active_meta['og_image'], '/');
+} else {
+    $final_og_image = $default_og_image;
+}
+
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 <!DOCTYPE html>
@@ -14,11 +88,33 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
-  <title><?php echo htmlspecialchars($page_title); ?></title>
-  <meta name="description" content="<?php echo htmlspecialchars($page_desc); ?>">
-  <meta name="keywords" content="SSSUTMS, Sri Satya Sai University, Engineering Colleges in MP, Medical Colleges Sehore, Pharmacy, Ayurveda BAMS, BHMS, Admission 2026-27">
-  <meta name="author" content="Sri Satya Sai University of Technology & Medical Sciences">
+  <!-- Primary Meta Tags -->
+  <title><?php echo htmlspecialchars($final_title); ?></title>
+  <meta name="title" content="<?php echo htmlspecialchars($final_title); ?>">
+  <meta name="description" content="<?php echo htmlspecialchars($final_desc); ?>">
+  <meta name="keywords" content="<?php echo htmlspecialchars($final_keywords); ?>">
+  <meta name="author" content="Sri Satya Sai University of Technology &amp; Medical Sciences">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b2545">
+
+  <?php if (!empty($final_canonical)): ?>
+  <link rel="canonical" href="<?php echo htmlspecialchars($final_canonical); ?>">
+  <?php endif; ?>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<?php echo htmlspecialchars($final_canonical); ?>">
+  <meta property="og:title" content="<?php echo htmlspecialchars($final_title); ?>">
+  <meta property="og:description" content="<?php echo htmlspecialchars($final_desc); ?>">
+  <meta property="og:image" content="<?php echo htmlspecialchars($final_og_image); ?>">
+  <meta property="og:site_name" content="<?php echo htmlspecialchars(SITE_NAME); ?>">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="<?php echo htmlspecialchars($final_canonical); ?>">
+  <meta property="twitter:title" content="<?php echo htmlspecialchars($final_title); ?>">
+  <meta property="twitter:description" content="<?php echo htmlspecialchars($final_desc); ?>">
+  <meta property="twitter:image" content="<?php echo htmlspecialchars($final_og_image); ?>">
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="<?php echo BASE_URL; ?>assets/images/logo/logo.jpg">

@@ -1,9 +1,11 @@
 ﻿<?php
-$page_title = 'Law - SSSUTMS';
-$banner_title = 'Law';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../../config.php';
+$faculty_page = get_faculty_page('Law');
+$page_title = (!empty($faculty_page['title']) ? $faculty_page['title'] : 'Law - SSSUTMS');
+$banner_title = $faculty_page['banner_title'] ?? 'Law';
+$banner_category = $faculty_page['banner_category'] ?? 'Academic';
+$facultyDocs = get_page_documents('faculty_Law');
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -134,7 +136,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
                 <i class="fa-solid fa-scale-balanced me-1"></i> Faculties &amp; Departments
               </span>
-              <h3 class="fw-bold text-white mb-0 fs-3">FACULTY OF LAW</h3>
+              <h3 class="fw-bold text-white mb-0 fs-3"><?php echo htmlspecialchars($faculty_page['faculty_name'] ?? 'FACULTY OF LAW'); ?></h3>
             </div>
           </div>
 
@@ -172,32 +174,36 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               </div>
             </div>
 
-            <!-- ===== L.L.B. ===== -->
-            <div class="law-course-label">
-              <div class="law-course-label-pill"><i class="fa-solid fa-layer-group"></i> L.L.B. (Bachelor of Law)</div>
-              <div class="law-course-label-duration">3 Years</div>
-            </div>
-            <div class="law-table-wrapper mb-2">
-              <table class="law-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:55%;">Branch</th>
-                    <th style="width:25%;">Duration</th>
-                    <th style="width:20%;">Intake</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Bachelor of Law</td>
-                    <td><span class="law-badge-duration">3 Yrs.</span></td>
-                    <td><span class="law-badge-intake">120</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            
+            <?php if (!empty($faculty_page['content_html'])): ?>
+            <?php echo $faculty_page['content_html']; ?>
+            <?php endif; ?>
+        
+        
 
-          </div>
-        </div><!-- end law-main-card -->
+            <?php if (!empty($facultyDocs)): ?>
+            <!-- Attached Downloads & Documents -->
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-file-pdf text-danger me-2"></i>Curriculum, Syllabus &amp; Documents</h5>
+              <div class="list-group shadow-sm">
+                <?php foreach ($facultyDocs as $doc): ?>
+                  <a href="<?php echo BASE_URL . htmlspecialchars($doc['file'] ?? '#'); ?>" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf text-danger fs-5"></i>
+                      <div>
+                        <span class="fw-bold text-dark d-block"><?php echo htmlspecialchars($doc['title'] ?? ''); ?></span>
+                        <small class="text-muted"><?php echo htmlspecialchars($doc['category'] ?? 'Academic'); ?> &bull; <?php echo htmlspecialchars($doc['date'] ?? ''); ?></small>
+                      </div>
+                    </div>
+                    <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa fa-download me-1"></i> Download</span>
+                  </a>
+                <?php endforeach; ?>
+              </div>
+            </div>
+            <?php endif; ?>
+
+          </div><!-- close body p-4 -->
+          </div><!-- end law-main-card -->
       </div><!-- end col-lg-8 -->
 
       <!-- Sticky Sidebar (Right) -->

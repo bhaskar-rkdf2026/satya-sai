@@ -1,9 +1,11 @@
 ﻿<?php
-$page_title = 'Science - SSSUTMS';
-$banner_title = 'Science';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../../config.php';
+$faculty_page = get_faculty_page('Science');
+$page_title = (!empty($faculty_page['title']) ? $faculty_page['title'] : 'Science - SSSUTMS');
+$banner_title = $faculty_page['banner_title'] ?? 'Science';
+$banner_category = $faculty_page['banner_category'] ?? 'Academic';
+$facultyDocs = get_page_documents('faculty_Science');
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -134,7 +136,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
                 <i class="fa-solid fa-flask me-1"></i> Faculties &amp; Departments
               </span>
-              <h3 class="fw-bold text-white mb-0 fs-3">FACULTY OF SCIENCE</h3>
+              <h3 class="fw-bold text-white mb-0 fs-3"><?php echo htmlspecialchars($faculty_page['faculty_name'] ?? 'FACULTY OF SCIENCE'); ?></h3>
             </div>
           </div>
 
@@ -181,81 +183,36 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               </div>
             </div>
 
-            <!-- ===== M.Sc. ===== -->
-            <div class="sci-course-label">
-              <div class="sci-course-label-pill"><i class="fa-solid fa-layer-group"></i> M.Sc. (Master of Science)</div>
-              <div class="sci-course-label-duration">2 Years</div>
-            </div>
-            <div class="sci-table-wrapper mb-4">
-              <table class="sci-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:55%;">Branch</th>
-                    <th style="width:25%;">Duration</th>
-                    <th style="width:20%;">Intake</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Physics</td>
-                    <td><span class="sci-badge-duration">2 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">20</span></td>
-                  </tr>
-                  <tr>
-                    <td>Chemistry</td>
-                    <td><span class="sci-badge-duration">2 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">20</span></td>
-                  </tr>
-                  <tr>
-                    <td>Computer Science</td>
-                    <td><span class="sci-badge-duration">2 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">20</span></td>
-                  </tr>
-                  <tr>
-                    <td>Mathematics</td>
-                    <td><span class="sci-badge-duration">2 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">20</span></td>
-                  </tr>
-                  <tr>
-                    <td>Botany</td>
-                    <td><span class="sci-badge-duration">2 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">20</span></td>
-                  </tr>
-                  <tr>
-                    <td>Zoology</td>
-                    <td><span class="sci-badge-duration">2 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">20</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            
+            <?php if (!empty($faculty_page['content_html'])): ?>
+            <?php echo $faculty_page['content_html']; ?>
+            <?php endif; ?>
+        
+        
 
-            <!-- ===== B.Sc. ===== -->
-            <div class="sci-course-label">
-              <div class="sci-course-label-pill"><i class="fa-solid fa-layer-group"></i> B.Sc. (Bachelor of Science)</div>
-              <div class="sci-course-label-duration">3 Years</div>
+            <?php if (!empty($facultyDocs)): ?>
+            <!-- Attached Downloads & Documents -->
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-file-pdf text-danger me-2"></i>Curriculum, Syllabus &amp; Documents</h5>
+              <div class="list-group shadow-sm">
+                <?php foreach ($facultyDocs as $doc): ?>
+                  <a href="<?php echo BASE_URL . htmlspecialchars($doc['file'] ?? '#'); ?>" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf text-danger fs-5"></i>
+                      <div>
+                        <span class="fw-bold text-dark d-block"><?php echo htmlspecialchars($doc['title'] ?? ''); ?></span>
+                        <small class="text-muted"><?php echo htmlspecialchars($doc['category'] ?? 'Academic'); ?> &bull; <?php echo htmlspecialchars($doc['date'] ?? ''); ?></small>
+                      </div>
+                    </div>
+                    <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa fa-download me-1"></i> Download</span>
+                  </a>
+                <?php endforeach; ?>
+              </div>
             </div>
-            <div class="sci-table-wrapper mb-2">
-              <table class="sci-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:55%;">Branch</th>
-                    <th style="width:25%;">Duration</th>
-                    <th style="width:20%;">Intake</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Bachelor of Science in CS / IT / Bio / Maths / Microbiology / Biochemistry</td>
-                    <td><span class="sci-badge-duration">3 Yrs.</span></td>
-                    <td><span class="sci-badge-intake">120</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <?php endif; ?>
 
-          </div>
-        </div><!-- end sci-main-card -->
+          </div><!-- close body p-4 -->
+          </div><!-- end sci-main-card -->
       </div><!-- end col-lg-8 -->
 
       <!-- Sticky Sidebar (Right) -->

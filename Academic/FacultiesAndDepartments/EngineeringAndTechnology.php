@@ -1,9 +1,11 @@
 <?php
-$page_title = 'Engineering & Technology - SSSUTMS';
-$banner_title = 'Engineering & Technology';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../../config.php';
+$faculty_page = get_faculty_page('EngineeringAndTechnology');
+$page_title = (!empty($faculty_page['title']) ? $faculty_page['title'] : 'Engineering & Technology - SSSUTMS');
+$banner_title = $faculty_page['banner_title'] ?? 'Engineering & Technology';
+$banner_category = $faculty_page['banner_category'] ?? 'Academic';
+$facultyDocs = get_page_documents('faculty_EngineeringAndTechnology');
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -64,7 +66,6 @@ require_once __DIR__ . '/../../includes/page-banner.php';
   font-size: 1.25rem;
   flex-shrink: 0;
 }
-
 
 /* === Institute Section Header === */
 .eng-institute-block {
@@ -211,7 +212,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
               <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
                 <i class="fa-solid fa-gear me-1"></i> Faculties &amp; Departments
               </span>
-              <h3 class="fw-bold text-white mb-0 fs-3">SCHOOL OF ENGINEERING &amp; TECHNOLOGY</h3>
+              <h3 class="fw-bold text-white mb-0 fs-3"><?php echo htmlspecialchars($faculty_page['faculty_name'] ?? 'SCHOOL OF ENGINEERING & TECHNOLOGY'); ?></h3>
             </div>
           </div>
 
@@ -260,231 +261,34 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
 
 
-            <!-- ===== SCHOOL OF ENGINEERING ===== -->
-            <div class="eng-institute-block">
-              <div class="eng-institute-icon">
-                <i class="fa-solid fa-school"></i>
-              </div>
-              <div>
-                <div class="eng-institute-block-title">Institute Name</div>
-                <div class="eng-institute-block-name">School of Engineering</div>
-              </div>
-            </div>
+            
+            <?php if (!empty($faculty_page['content_html'])): ?>
+            <?php echo $faculty_page['content_html']; ?>
+            <?php endif; ?>
 
-            <!-- Bachelor of Engineering Label + Table -->
-            <div class="eng-course-label">
-              <div class="eng-course-label-pill">
-                <i class="fa-solid fa-layer-group"></i>
-                Bachelor of Engineering (B.E.)
+            <?php if (!empty($facultyDocs)): ?>
+            <!-- Attached Downloads & Documents -->
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-file-pdf text-danger me-2"></i>Curriculum, Syllabus &amp; Documents</h5>
+              <div class="list-group shadow-sm">
+                <?php foreach ($facultyDocs as $doc): ?>
+                  <a href="<?php echo BASE_URL . htmlspecialchars($doc['file'] ?? '#'); ?>" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf text-danger fs-5"></i>
+                      <div>
+                        <span class="fw-bold text-dark d-block"><?php echo htmlspecialchars($doc['title'] ?? ''); ?></span>
+                        <small class="text-muted"><?php echo htmlspecialchars($doc['category'] ?? 'Academic'); ?> &bull; <?php echo htmlspecialchars($doc['date'] ?? ''); ?></small>
+                      </div>
+                    </div>
+                    <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa fa-download me-1"></i> Download</span>
+                  </a>
+                <?php endforeach; ?>
               </div>
-              <div class="eng-course-label-duration">4 Years</div>
             </div>
-            <div class="eng-table-wrapper mb-4">
-              <table class="eng-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:50%;">Course Name</th>
-                    <th style="width:35%;">Branch / Specialization</th>
-                    <th style="width:15%;">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Aeronautical Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Chemical Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Civil Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Computer Science and Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Electrical and Electronics Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Electrical Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Electronic &amp; Communication Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Electronics &amp; Instrumentation Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Information Technology</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Mechanical Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Bachelor of Engineering</td>
-                    <td>Mining Engineering</td>
-                    <td><span class="eng-badge-duration">4 Yrs.</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <?php endif; ?>
 
-            <!-- Master of Technology Label + Table -->
-            <div class="eng-course-label">
-              <div class="eng-course-label-pill">
-                <i class="fa-solid fa-layer-group"></i>
-                Master of Technology (M.Tech.)
-              </div>
-              <div class="eng-course-label-duration">2 Years</div>
-            </div>
-            <div class="eng-table-wrapper mb-4">
-              <table class="eng-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:50%;">Course Name</th>
-                    <th style="width:35%;">Branch / Specialization</th>
-                    <th style="width:15%;">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Computer Science and Engineering</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Computer Technology &amp; Applications</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Digital Communication</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Electrical Power System</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Industrial Design</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Information Technology</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Power Electronics</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Software Engineering</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Structural Design</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>Thermal Engineering</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Master of Technology</td>
-                    <td>VLSI</td>
-                    <td><span class="eng-badge-duration">2 Yrs.</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- ===== POLYTECHNIC ENGINEERING ===== -->
-            <div class="eng-institute-block">
-              <div class="eng-institute-icon">
-                <i class="fa-solid fa-school-flag"></i>
-              </div>
-              <div>
-                <div class="eng-institute-block-title">Institute Name</div>
-                <div class="eng-institute-block-name">Polytechnic Engineering</div>
-              </div>
-            </div>
-
-            <!-- Diploma Engineering Label + Table -->
-            <div class="eng-course-label">
-              <div class="eng-course-label-pill">
-                <i class="fa-solid fa-layer-group"></i>
-                Diploma Engineering
-              </div>
-              <div class="eng-course-label-duration">3 Years</div>
-            </div>
-            <div class="eng-table-wrapper mb-2">
-              <table class="eng-course-table">
-                <thead>
-                  <tr>
-                    <th style="width:50%;">Institute Name</th>
-                    <th style="width:35%;">Branch / Specialization</th>
-                    <th style="width:15%;">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Diploma Engineering</td>
-                    <td>Computer Science &amp; Engineering</td>
-                    <td><span class="eng-badge-duration">3 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Diploma Engineering</td>
-                    <td>Electrical Engineering</td>
-                    <td><span class="eng-badge-duration">3 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Diploma Engineering</td>
-                    <td>Civil Engineering</td>
-                    <td><span class="eng-badge-duration">3 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Diploma Engineering</td>
-                    <td>Mechanical Engineering</td>
-                    <td><span class="eng-badge-duration">3 Yrs.</span></td>
-                  </tr>
-                  <tr>
-                    <td>Diploma Engineering</td>
-                    <td>Chemical Engineering</td>
-                    <td><span class="eng-badge-duration">3 Yrs.</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-        </div><!-- end eng-main-card -->
+          </div><!-- close body p-4 -->
+          </div><!-- end eng-main-card -->
 
       </div><!-- end col-lg-8 -->
 
