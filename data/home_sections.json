@@ -1,0 +1,499 @@
+{
+    "hero": {
+        "background_image": "assets/images/slider/IMG-20260112-WA0044.jpg",
+        "badge_text": "Admissions Open 2026-27",
+        "title_main": "",
+        "title_highlight": "",
+        "desc": "",
+        "btn_primary_text": "",
+        "btn_primary_link": "",
+        "btn_secondary_text": "",
+        "btn_secondary_link": "",
+        "mini_stats": [
+            {
+                "icon": "fa-building-columns",
+                "num": "14+",
+                "lbl": "Institutes"
+            },
+            {
+                "icon": "fa-briefcase",
+                "num": "100+",
+                "lbl": "Recruiters"
+            },
+            {
+                "icon": "fa-award",
+                "num": "UGC",
+                "lbl": "Approved"
+            }
+        ],
+        "enquiry_eyebrow": "Enquire Now",
+        "enquiry_title": "Admission Enquiry Form",
+        "enquiry_sub": "Speak with our academic counselors today."
+    },
+    "quick_access": [
+        {
+            "icon": "",
+            "title": "",
+            "desc": "",
+            "link": ""
+        },
+        {
+            "icon": "",
+            "title": "",
+            "desc": "",
+            "link": ""
+        },
+        {
+            "icon": "",
+            "title": "",
+            "desc": "",
+            "link": ""
+        },
+        {
+            "icon": "",
+            "title": "",
+            "desc": "",
+            "link": ""
+        }
+    ],
+    "stats": [
+        {
+            "num": "100",
+            "plus": "+",
+            "lbl": "Acres Green Campus"
+        },
+        {
+            "num": "14",
+            "plus": "+",
+            "lbl": "Institutes & Faculties"
+        },
+        {
+            "num": "100",
+            "plus": "+",
+            "lbl": "Corporate Recruiters"
+        },
+        {
+            "num": "6",
+            "plus": "+",
+            "lbl": "Statutory Approvals (UGC, AICTE, PCI, NCISM, INC, NCH and more)"
+        }
+    ],
+    "why_sssutms": {
+        "eyebrow": "Why SSSUTMS",
+        "title_main": "A University Built on",
+        "title_highlight": "Values, Vision & Vigour",
+        "features": [
+            {
+                "icon": "fa-award",
+                "title": "UGC & AICTE Approved",
+                "desc": "Recognized under Section 2(f) of UGC Act, 1956"
+            },
+            {
+                "icon": "fa-seedling",
+                "title": "100+ Acre Green Campus",
+                "desc": "Lush, sustainable & eco-friendly infrastructure"
+            },
+            {
+                "icon": "fa-building-columns",
+                "title": "14 Institutes & Faculties",
+                "desc": "Engineering, Medical, Ayurveda, Pharmacy & Management"
+            },
+            {
+                "icon": "fa-hospital",
+                "title": "NCISM & NCH Approved",
+                "desc": "Multi-speciality teaching hospitals for BAMS & BHMS"
+            },
+            {
+                "icon": "fa-briefcase",
+                "title": "100% Placement Support",
+                "desc": "Dedicated T&P Cell with 100+ recruiting partners"
+            },
+            {
+                "icon": "fa-globe",
+                "title": "Global Collaborations",
+                "desc": "MoUs with universities across countries"
+            }
+        ],
+        "media_main": "assets/images/slider/IMG-20260112-WA0044.jpg",
+        "media_main_fallback": "assets/images/slider/slide1.jpg",
+        "badge_grade": "UGC & AICTE",
+        "badge_sub": "Approved University",
+        "media_side1": "assets/images/slider/IMG-20250829-WA0023.jpg",
+        "media_side1_fallback": "assets/images/slider/AARAMBH.jpg",
+        "media_side2": "assets/images/slider/IMG-20260112-WA0037.jpg",
+        "media_side2_fallback": "assets/images/slider/aamh(2).jpg"
+    },
+    "about_vc": {
+        "eyebrow": "About Our University",
+        "title_main": "Welcome to",
+        "title_highlight": "Sri Satya Sai University",
+        "intro": "An institution where knowledge, innovation and human values come together to shape responsible professionals.",
+        "vc_kicker": "Leadership Message",
+        "vc_title": "From the Vice Chancellor's Desk",
+        "vc_para1": "Since its founding in 2013 by merging of several multi-disciplinary institutions, <strong>Sri Satya Sai University of Technology and Medical Sciences Sehore, Bhopal (MP)</strong> is acclaimed for its outstanding contribution to teaching, research and service in Nation building. Today, the University stands to meet the enormous aspirations and expectations of society. Society wants us to nurture professionals and scholars of high caliber, who can offer solutions to a broad range of issues. This requires excellence in teaching and research at par with the best in the world.",
+        "vc_para2": "We, at Sri Satya Sai University of Technology and Medical Sciences, continuously aspire to be a breeding ground for positive ideas and emerge as a symbol of openness of thoughts, cultural pluralism and celebrating the unity in the diversity of India. We endeavour to touch the lives of every student by inculcating prudence, efficiency, creativity and compassion to work for the betterment of the marginalized sections of society. We attempt to kindle their sense of responsibility, honesty, conscience, justice and above all commitment to human values.",
+        "vc_para3": "We aim to expand our reach to the inaccessible regions through virtual presence and become a center of knowledge osmosis. We seek to empower every inquisitive soul with the best available human resources. We intend to intensify our endeavors to mobilize more resources and create conducive ambience for our faculty, students and staff to actualize their potential.",
+        "vc_name": "Dr. Mukesh Tiwari",
+        "vc_designation": "Vice Chancellor, SSSUTMS",
+        "vc_emblem": "assets/images/logo/logo.jpg",
+        "campus_image": "assets/images/home/campus-entrance-enhanced.jpg",
+        "campus_location": "Sehore, Madhya Pradesh",
+        "campus_eyebrow": "Discover SSSUTMS",
+        "campus_heading": "A welcoming campus for ambitious minds",
+        "campus_desc": "Purpose-built spaces for learning, research, healthcare and a vibrant student experience.",
+        "campus_fact1_bold": "100+",
+        "campus_fact1_text": "acre campus",
+        "campus_fact2_bold": "Since 2013",
+        "campus_fact2_text": "shaping futures"
+    },
+    "press_media": {
+        "section_pill": "Media",
+        "section_title_accent": "Press",
+        "section_title_rest": "& Media",
+        "live_badge": "LIVE",
+        "image": "assets/images/PressAndMedia.jpg",
+        "image_fallback": "assets/images/slider/HorizonsofAyurved.jpg",
+        "title": "University News & Press Releases",
+        "subtitle": "State & National Media Coverage",
+        "btn_text": "View More",
+        "btn_link": "PressMedia.php"
+    },
+    "institutes": {
+        "eyebrow": "Academic Excellence",
+        "title": "Institutes That Shape Careers",
+        "subtitle": "Multi-disciplinary institutes offering UG, PG, and Ph.D. programs across engineering, medical sciences, and allied disciplines.",
+        "items": [
+            {
+                "title": "Engineering & Technology",
+                "desc": "B.Tech, M.Tech across multiple branches",
+                "image": "assets/images/gallery/1/SSSUTMS_Building(8).jpg",
+                "image_fallback": "assets/images/slider/IMG-20260112-WA0044.jpg",
+                "link": "Academic/FacultiesAndDepartments/EngineeringAndTechnology.php"
+            },
+            {
+                "title": "Medical Sciences",
+                "desc": "BAMS, BHMS & Allied Health (NCISM & NCH approved)",
+                "image": "assets/images/slider/HorizonsofAyurved.jpg",
+                "image_fallback": "assets/images/slider/aamh(2).jpg",
+                "link": "Academic/FacultiesAndDepartments/Ayurveda.php"
+            },
+            {
+                "title": "Pharmacy",
+                "desc": "B.Pharm, M.Pharm, D.Pharm",
+                "image": "assets/images/gallery/2/img-27.jpg",
+                "image_fallback": "assets/images/slider/IMG-20250829-WA0023.jpg",
+                "link": "Academic/FacultiesAndDepartments/Pharmacy.php"
+            },
+            {
+                "title": "Management",
+                "desc": "BBA, MBA, Executive Programs",
+                "image": "assets/images/gallery/3/img-26.jpg",
+                "image_fallback": "assets/images/slider/slide1.jpg",
+                "link": "Academic/FacultiesAndDepartments/Management.php"
+            },
+            {
+                "title": "Law",
+                "desc": "BA LLB, LLM & Legal Research",
+                "image": "assets/images/gallery/4/img-19.jpg",
+                "image_fallback": "assets/images/slider/IMG-20260112-WA0037.jpg",
+                "link": "Academic/FacultiesAndDepartments/Law.php"
+            },
+            {
+                "title": "Computer Applications",
+                "desc": "BCA, MCA, Data Science",
+                "image": "assets/images/gallery/4/img-13.jpg",
+                "image_fallback": "assets/images/slider/HorizonsofAyurved.jpg",
+                "link": "Academic/FacultiesAndDepartments/ComputerScienceAndApplication.php"
+            }
+        ]
+    },
+    "recruiters": {
+        "eyebrow": "Career Success",
+        "title": "Our Top Recruiters",
+        "report_text": "View placement report →",
+        "report_link": "Academic/TrainingAndPlacement/TrainingAndPlacementCell.php",
+        "logos": [
+            {
+                "file": "TCSLogo.jpg",
+                "name": "TCS"
+            },
+            {
+                "file": "IBM.jpg",
+                "name": "IBM"
+            },
+            {
+                "file": "InfosysLogo.jpg",
+                "name": "Infosys"
+            },
+            {
+                "file": "WpiroLogo.jpg",
+                "name": "Wipro"
+            },
+            {
+                "file": "Accenture.jpg",
+                "name": "Accenture"
+            },
+            {
+                "file": "BajajLogo.jpg",
+                "name": "Bajaj"
+            }
+        ]
+    },
+    "campus_visit": {
+        "eyebrow": "Campus Visit",
+        "title_main": "Experience the",
+        "title_highlight": "SSSUTMS Campus",
+        "title_end": "in Person",
+        "desc": "Walk through our 100+ acre green campus, meet faculty, tour our labs, hostels, and sports complex — schedule a personal visit and see your future unfold.",
+        "info_items": [
+            {
+                "icon": "fa-location-dot",
+                "lbl": "Location",
+                "val": "Sehore, Madhya Pradesh"
+            },
+            {
+                "icon": "fa-calendar-days",
+                "lbl": "Open Days",
+                "val": "Mon – Sat"
+            },
+            {
+                "icon": "fa-clock",
+                "lbl": "Visit Slots",
+                "val": "10 AM – 5 PM"
+            }
+        ],
+        "btn_primary_text": "Schedule a Visit",
+        "btn_primary_link": "contact.php",
+        "btn_primary_icon": "fa-calendar-check",
+        "btn_secondary_text": "Virtual Tour",
+        "btn_secondary_link": "gallery.php",
+        "btn_secondary_icon": "fa-photo-film",
+        "media_tag": "Campus View",
+        "image": "assets/images/slider/AARAMBH.jpg",
+        "image_fallback": "assets/images/slider/IMG-20260112-WA0037.jpg"
+    },
+    "latest_updates_header": {
+        "eyebrow": "Latest Updates",
+        "title": "News, Events & Campus Stories",
+        "view_all_text": "View all posts →",
+        "view_all_link": "EVENTS.php"
+    },
+    "resource_center": {
+        "eyebrow": "Academic & Institutional Portals",
+        "title": "Quick Access & Resource Center",
+        "subtitle": "Instant access to regulatory guidelines, examination results, statutory bodies, syllabus downloads, and student portals.",
+        "column1": {
+            "theme": "blue",
+            "icon": "fa-star",
+            "title": "Important Links",
+            "subtitle": "Government & University Portals",
+            "links": [
+                {
+                    "icon": "fa-file-shield",
+                    "text": "NEP 2020-27 Policy Guidelines",
+                    "url": "assets/images/Files/Link/NEP%202020%2027%20university%2014-compressed.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-scale-balanced",
+                    "text": "UGC e-Samadhan Portal",
+                    "url": "https://samadhaan.ugc.ac.in/",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-square-poll-vertical",
+                    "text": "B.A. B.Ed. VII Semester Examination Results",
+                    "url": "Examination/Results.php",
+                    "is_external": false
+                },
+                {
+                    "icon": "fa-laptop-code",
+                    "text": "E-Content & Digital Learning Portal",
+                    "url": "Download/E-Content.php",
+                    "is_external": false
+                },
+                {
+                    "icon": "fa-hands-holding-child",
+                    "text": "Unnat Bharat Abhiyan Cell",
+                    "url": "https://unnatbharatabhiyan.gov.in:8443/new-website/",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-landmark",
+                    "text": "Madhya Pradesh Board (MPBSE)",
+                    "url": "http://www.mpbse.nic.in/",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-building-columns",
+                    "text": "University Grants Commission (UGC)",
+                    "url": "https://www.ugc.ac.in/",
+                    "is_external": true
+                }
+            ]
+        },
+        "column2": {
+            "theme": "green",
+            "icon": "fa-bolt",
+            "title": "Quick Links",
+            "subtitle": "Notifications, Rankings & Results",
+            "links": [
+                {
+                    "icon": "fa-graduation-cap",
+                    "text": "Ph.D Entrance Examination 2026",
+                    "url": "assets/images/Files/Link/Notification%20exam%20dec2025/notificationentance.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-landmark",
+                    "text": "नारी शक्ति वंदन सम्मेलन",
+                    "url": "https://pmindiawebcast.nic.in/",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-user-doctor",
+                    "text": "Supplementary Exam – Feb 2026 (MBBS First Prof)",
+                    "url": "assets/images/Files/Link/MBBS_FIRST_PROFESSIONAL_FEB-2026_17022026_0824.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-building",
+                    "text": "B.Voc in Building & Construction Tech Admission Notice",
+                    "url": "assets/images/Files/Link/Draft-Admission_Notice_Sri_Satya_Sai_University_12092025_0417.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-chart-line",
+                    "text": "National Institutional Ranking (NIRF)",
+                    "url": "Research/NIRF.php",
+                    "is_external": false
+                },
+                {
+                    "icon": "fa-user-tie",
+                    "text": "Appointment Notice (School of Homoeopathy)",
+                    "url": "assets/images/Files/Link/Appointment_Add_BHMS_PG_04102023_0923.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-square-poll-vertical",
+                    "text": "Examination Results Declared",
+                    "url": "Examination/Results.php",
+                    "is_external": false
+                }
+            ]
+        },
+        "column3": {
+            "theme": "orange",
+            "icon": "fa-circle-down",
+            "title": "Download Links",
+            "subtitle": "Examination Notifications & Timetables",
+            "links": [
+                {
+                    "icon": "fa-file-arrow-down",
+                    "text": "Supplementary Exam Notification (D. Pharma & BPES)",
+                    "url": "assets/images/Files/Widget/Download/2465_Whatsapp_Scan_17_August_2026.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-file-arrow-down",
+                    "text": "Examination Notification (Paramedical Courses) Sep 2026",
+                    "url": "assets/images/Files/Widget/Download/2464_paramedical_notification.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-file-arrow-down",
+                    "text": "First Professional Supplementary BAMS (2024–25 Batch)",
+                    "url": "assets/images/Files/Widget/Download/2463_Whatsapp_Scan_7_August_2026.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-file-arrow-down",
+                    "text": "Examination Notification BAMS II Professional",
+                    "url": "assets/images/Files/Widget/Download/2462_Whatsapp_Scan_7_August_2026.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-clock",
+                    "text": "Supplementary Examination BHMS Aug–2026 (Time Table)",
+                    "url": "assets/images/Files/Widget/Download/SUPPLEMENTARY_EXAM_BHMS_2ND_YEAR.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-file-arrow-down",
+                    "text": "Exam Notification BAMS I Professional Supp. Exam",
+                    "url": "assets/images/Files/Widget/Download/2460_Adobe_Scan_24_Jul_2026.pdf",
+                    "is_external": true
+                },
+                {
+                    "icon": "fa-file-arrow-down",
+                    "text": "Exam Notification BHMS II Year Supp. Exam",
+                    "url": "assets/images/Files/Widget/Download/2459_Adobe_Scan_24_Jul_2026.pdf",
+                    "is_external": true
+                }
+            ]
+        }
+    },
+    "gallery_glimpses": {
+        "eyebrow": "Campus Life & Highlights",
+        "title": "Glimpses of SSSUTMS Campus",
+        "explore_btn_text": "Explore Full Gallery",
+        "explore_btn_link": "gallery.php",
+        "items": [
+            {
+                "badge": "Infrastructure",
+                "icon": "fa-building",
+                "title": "Campus Infrastructure",
+                "image": "assets/images/gallery/1/SSSUTMS_Building(8).jpg",
+                "image_fallback": "assets/images/slider/IMG-20260112-WA0044.jpg",
+                "link": "gallery.php"
+            },
+            {
+                "badge": "Student Living",
+                "icon": "fa-hotel",
+                "title": "Hostel Facilities",
+                "image": "assets/images/gallery/2/img-27.jpg",
+                "image_fallback": "assets/images/slider/IMG-20250829-WA0023.jpg",
+                "link": "gallery.php"
+            },
+            {
+                "badge": "Research & Labs",
+                "icon": "fa-flask",
+                "title": "Modern Laboratories",
+                "image": "assets/images/gallery/3/img-26.jpg",
+                "image_fallback": "assets/images/slider/slide1.jpg",
+                "link": "gallery.php"
+            },
+            {
+                "badge": "Knowledge Hub",
+                "icon": "fa-book-open",
+                "title": "Central Library",
+                "image": "assets/images/gallery/4/img-19.jpg",
+                "image_fallback": "assets/images/slider/IMG-20260112-WA0037.jpg",
+                "link": "gallery.php"
+            },
+            {
+                "badge": "Placements",
+                "icon": "fa-briefcase",
+                "title": "Rojgar Mela 2026",
+                "image": "assets/images/events/rec.jpg",
+                "image_fallback": "assets/images/slider/HorizonsofAyurved.jpg",
+                "link": "gallery.php"
+            },
+            {
+                "badge": "Cultural Fest",
+                "icon": "fa-masks-theater",
+                "title": "Youth Festival (Aarambh)",
+                "image": "assets/images/slider/aamh(2).jpg",
+                "image_fallback": "assets/images/slider/AARAMBH.jpg",
+                "link": "gallery.php"
+            }
+        ]
+    },
+    "floating_box": {
+        "is_enabled": true,
+        "title": "🎓 Admission Session 2026-27",
+        "desc": "Online applications are open for Undergraduate, Postgraduate, and Ph.D. programs.",
+        "btn_text": "Apply Online (E-Pravesh)",
+        "btn_link": "Admission/AdmissionRegistration.php"
+    }
+}

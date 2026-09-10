@@ -72,6 +72,7 @@ $uploadDirs = [
     UPLOAD_DIR . '/events',
     UPLOAD_DIR . '/schemes',
     UPLOAD_DIR . '/documents',
+    UPLOAD_DIR . '/home',
 ];
 foreach ($uploadDirs as $ud) {
     if (!is_dir($ud)) {
@@ -88,6 +89,37 @@ function save_json_data($filename, $data) {
         mkdir(DATA_DIR, 0777, true);
     }
     return file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+}
+
+/**
+ * Helper to get home page section data with fallback
+ */
+function get_home_section($section_key, $default = [], $forceReload = false) {
+    static $homeData = null;
+    if ($homeData === null || $forceReload) {
+        $homeData = get_json_data('home_sections.json', []);
+    }
+    return $homeData[$section_key] ?? $default;
+}
+
+/**
+ * Helper to save a single home page section
+ */
+function save_home_section($section_key, $section_data) {
+    $homeData = get_json_data('home_sections.json', []);
+    $homeData[$section_key] = $section_data;
+    $res = save_json_data('home_sections.json', $homeData);
+    get_home_section($section_key, [], true); // Reset static cache
+    return $res;
+}
+
+/**
+ * Helper to save all home sections at once
+ */
+function save_all_home_sections($all_data) {
+    $res = save_json_data('home_sections.json', $all_data);
+    get_home_section('', [], true); // Reset static cache
+    return $res;
 }
 
 /**
