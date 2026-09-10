@@ -1918,9 +1918,9 @@ img.loaded, img:not([loading="lazy"]) {
 }
 
 /* PDF and document pill badges */
-.content-card-body a[href$=".pdf"],
-.content-card-body a[href*=".pdf"],
-.content-card-body a[target="_blank"]:not(.btn) {
+.content-card-body a[href$=".pdf"]:not(.syl-btn):not(.btn),
+.content-card-body a[href*=".pdf"]:not(.syl-btn):not(.btn),
+.content-card-body a[target="_blank"]:not(.syl-btn):not(.btn) {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1937,17 +1937,17 @@ img.loaded, img:not([loading="lazy"]) {
   transition: all 0.2s ease;
 }
 
-.content-card-body a[href$=".pdf"]:hover,
-.content-card-body a[href*=".pdf"]:hover,
-.content-card-body a[target="_blank"]:not(.btn):hover {
+.content-card-body a[href$=".pdf"]:not(.syl-btn):not(.btn):hover,
+.content-card-body a[href*=".pdf"]:not(.syl-btn):not(.btn):hover,
+.content-card-body a[target="_blank"]:not(.syl-btn):not(.btn):hover {
   background: #e11d48;
   color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(225, 29, 72, 0.25);
 }
 
-.content-card-body a[href$=".pdf"]::before,
-.content-card-body a[href*=".pdf"]::before {
+.content-card-body a[href$=".pdf"]:not(.syl-btn):not(.btn)::before,
+.content-card-body a[href*=".pdf"]:not(.syl-btn):not(.btn)::before {
   content: '\f1c1';
   font-family: 'Font Awesome 5 Free', 'Font Awesome 6 Free';
   font-weight: 900;

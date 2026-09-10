@@ -77,8 +77,27 @@ require_once __DIR__ . '/../includes/page-banner.php';
   margin: 0 auto 10px;
 }
 .principal-info p { font-size: 0.82rem; color: #6b7280; margin: 0; text-align: center !important; }
-.principal-info a { color: #2563a8; text-decoration: none; }
-.principal-info a:hover { text-decoration: underline; }
+.principal-info a {
+  display: inline-block;
+  color: #ffffff !important;
+  background: #0b2545;
+  border: 1px solid #0b2545;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 50px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  line-height: 1.4;
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
+}
+.principal-info a:hover {
+  background: #d97706;
+  border-color: #d97706;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+}
 .message-card {
   background: #fff;
   border-radius: 20px;
@@ -200,39 +219,82 @@ require_once __DIR__ . '/../includes/page-banner.php';
 .doc-link-list li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px !important;
-  border-radius: 10px;
-  margin-bottom: 8px !important;
-  background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%);
-  border: 1.5px solid #dce8f8;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 18px !important;
+  border-radius: 12px;
+  margin-bottom: 10px !important;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.03);
 }
 .doc-link-list li::before {
   display: none !important;
   content: none !important;
 }
 .doc-link-list li:hover {
-  background: linear-gradient(135deg, #eef4ff 0%, #dce8f8 100%);
-  border-color: #2563a8;
-  transform: translateX(4px);
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.08);
+  transform: translateY(-2px);
 }
-.doc-link-list li .doc-arrow {
-  width: 32px; height: 32px;
-  background: linear-gradient(135deg, #e87722, #f4a942);
+.doc-link-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.doc-num-badge {
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
+  background: #0b2545;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
   flex-shrink: 0;
 }
-.doc-link-list li .doc-arrow i { color: #fff; font-size: 0.85rem; }
-.doc-link-list li a {
-  color: #1a3c6e;
+.doc-title-text {
+  font-size: 0.95rem;
   font-weight: 600;
-  font-size: 0.93rem;
-  text-decoration: none;
-  transition: color 0.2s;
+  color: #1e293b;
 }
-.doc-link-list li a:hover { color: #e87722; }
+.content-card-body .syl-btn,
+.content-card-body a.syl-btn,
+.syl-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: #0b2545 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  padding: 8px 18px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2) !important;
+  border: 1px solid #0b2545 !important;
+  white-space: nowrap !important;
+}
+.content-card-body a.syl-btn::before,
+.syl-btn::before {
+  content: none !important;
+  display: none !important;
+}
+.content-card-body .syl-btn:hover,
+.content-card-body a.syl-btn:hover,
+.syl-btn:hover {
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35) !important;
+}
 </style>
 
 <section class="subpage-main-section py-4 bg-light">
@@ -257,13 +319,13 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <div class="principal-card h-100">
                   <div class="principal-img-wrap">
                     <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-02-10_at_12.55.44_PM_10022026_0101.jpg"
-                         alt="Principal Ã¢â‚¬â€œ Faculty of Education"
+                         alt="Principal – Faculty of Education"
                          onerror="this.src='<?php echo BASE_URL; ?>assets/images/Files/Link/principal_dummy_male.jpg'">
                   </div>
                   <div class="principal-info">
                     <h5>Principal</h5>
                     <div class="orange-line"></div>
-                    <p><a href="<?php echo BASE_URL; ?>assets/pdf/193" target="_blank" rel="noopener">Faculty of Education</a></p>
+                    <p><a href="#">Faculty of Education</a></p>
                   </div>
                 </div>
               </div>
@@ -314,44 +376,94 @@ require_once __DIR__ . '/../includes/page-banner.php';
               </div>
               <ul class="doc-link-list">
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/intake.pdf" target="_blank" rel="noopener">Annual Intake</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">01</span>
+                    <span class="doc-title-text">Annual Intake</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/intake.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/BABED_ITEP_STAFF_LIST_2026_final_19052026_0207.pdf" target="_blank" rel="noopener">Teaching Faculty</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">02</span>
+                    <span class="doc-title-text">Teaching Faculty</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/BABED_ITEP_STAFF_LIST_2026_final_19052026_0207.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/BABED_ITEP_STAFF_LIST_2026_final_-_join_last_quterly_23052026_1116.xlsx" target="_blank" rel="noopener">Join in the last Quarter</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">03</span>
+                    <span class="doc-title-text">Join in the last Quarter</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/BABED_ITEP_STAFF_LIST_2026_final_-_join_last_quterly_23052026_1116.xlsx" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-excel"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/students_list__22052026_0410.pdf" target="_blank" rel="noopener">Students Admitted</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">04</span>
+                    <span class="doc-title-text">Students Admitted</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/students_list__22052026_0410.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/fee_structure.pdf" target="_blank" rel="noopener">Fee Structure</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">05</span>
+                    <span class="doc-title-text">Fee Structure</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/fee_structure.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/NCTE_Regulation_2014_Clouse_7_14_F_infra_.pdf" target="_blank" rel="noopener">Infrastructural Facilities</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">06</span>
+                    <span class="doc-title-text">Infrastructural Facilities</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/NCTE_Regulation_2014_Clouse_7_14_F_infra_.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/Library_Information_18052026_0134.pdf" target="_blank" rel="noopener">Library Information</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">07</span>
+                    <span class="doc-title-text">Library Information</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/Library_Information_18052026_0134.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/Affidavit__22052026_0411.pdf" target="_blank" rel="noopener">Affidavit</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">08</span>
+                    <span class="doc-title-text">Affidavit</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/Affidavit__22052026_0411.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/mandatory_disc_osre.pdf" target="_blank" rel="noopener">Mandatory Disclosure</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">09</span>
+                    <span class="doc-title-text">Mandatory Disclosure</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/mandatory_disc_osre.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
                 <li>
-                  <div class="doc-arrow"><i class="fa fa-arrow-right"></i></div>
-                  <a href="<?php echo BASE_URL; ?>assets/pdf/audit_report.pdf" target="_blank" rel="noopener">Audit Report</a>
+                  <div class="doc-link-left">
+                    <span class="doc-num-badge">10</span>
+                    <span class="doc-title-text">Audit Report</span>
+                  </div>
+                  <a href="<?php echo BASE_URL; ?>assets/pdf/audit_report.pdf" target="_blank" rel="noopener" class="syl-btn">
+                    <i class="fa fa-file-pdf"></i> Download
+                  </a>
                 </li>
               </ul>
             </div>
