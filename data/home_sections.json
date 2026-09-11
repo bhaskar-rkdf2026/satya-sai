@@ -495,5 +495,15 @@
         "desc": "Online applications are open for Undergraduate, Postgraduate, and Ph.D. programs.",
         "btn_text": "Apply Online (E-Pravesh)",
         "btn_link": "Admission/AdmissionRegistration.php"
+    },
+    "seo": {
+        "meta_title": "Sri Satya Sai University of Technology &amp; Medical Sciences (SSSUTMS)",
+        "meta_description": "Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH. Leading University for Engineering, Medical, Pharmacy &amp; Management.",
+        "meta_keywords": "SSSUTMS, Sri Satya Sai University, Engineering Colleges in MP, Medical Colleges Sehore, Pharmacy, Ayurveda BAMS, BHMS, Admission 2026-27",
+        "canonical_url": "",
+        "og_image": "assets/images/logo/logo.jpg",
+        "og_title": "",
+        "og_description": "",
+        "robots": "noindex, follow"
     }
 }

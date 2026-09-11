@@ -1,9 +1,22 @@
 <?php
-$page_title = 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)';
-$page_desc = 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH.';
+require_once __DIR__ . '/config.php';
+
+// Dynamic SEO & Meta configuration for Home Page from Admin Panel
+$home_seo = get_home_section('seo', []);
+
+$meta_title = !empty($home_seo['meta_title']) ? $home_seo['meta_title'] : 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)';
+$meta_description = !empty($home_seo['meta_description']) ? $home_seo['meta_description'] : 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH. Leading University for Engineering, Medical, Pharmacy & Management.';
+$meta_keywords = !empty($home_seo['meta_keywords']) ? $home_seo['meta_keywords'] : 'SSSUTMS, Sri Satya Sai University, Engineering Colleges in MP, Medical Colleges Sehore, Pharmacy, Ayurveda BAMS, BHMS, Admission 2026-27';
+$canonical_url = !empty($home_seo['canonical_url']) ? $home_seo['canonical_url'] : '';
+$og_image = !empty($home_seo['og_image']) ? $home_seo['og_image'] : 'assets/images/logo/logo.jpg';
+$og_title = !empty($home_seo['og_title']) ? $home_seo['og_title'] : '';
+$og_description = !empty($home_seo['og_description']) ? $home_seo['og_description'] : '';
+$meta_robots = !empty($home_seo['robots']) ? $home_seo['robots'] : 'index, follow';
+
+$page_title = $meta_title;
+$page_desc = $meta_description;
 $body_class = 'home-page';
 
-require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/topbar.php';
 require_once __DIR__ . '/includes/navbar.php';
@@ -35,12 +48,14 @@ $news_badge_colors = [
 ];
 
 // Helper for relative / absolute URL resolution
-function home_url($link) {
-  if (empty($link)) return '#';
-  if (strpos($link, 'http://') === 0 || strpos($link, 'https://') === 0) {
-    return $link;
+if (!function_exists('home_url')) {
+  function home_url($link) {
+    if (empty($link)) return '#';
+    if (strpos($link, 'http://') === 0 || strpos($link, 'https://') === 0) {
+      return $link;
+    }
+    return BASE_URL . ltrim($link, '/');
   }
-  return BASE_URL . ltrim($link, '/');
 }
 ?>
 

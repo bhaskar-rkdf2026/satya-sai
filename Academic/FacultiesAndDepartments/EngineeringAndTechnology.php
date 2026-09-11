@@ -30,6 +30,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
   padding: 2rem;
   position: relative;
 }
+
 .eng-header-banner::after {
   content: '';
   position: absolute;

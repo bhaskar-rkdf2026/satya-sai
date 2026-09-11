@@ -277,6 +277,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
       </div>
 
+      <!-- Home Page SEO Quick Access Card -->
+      <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
+        <div class="d-flex align-items-center gap-3 mb-2">
+          <div class="rounded-circle bg-success bg-opacity-10 p-2 text-success d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+            <i class="fa-solid fa-magnifying-glass-chart fs-5"></i>
+          </div>
+          <div>
+            <h6 class="fw-bold mb-0">Home Page SEO &amp; Meta</h6>
+            <small class="text-muted">Google search snippet &amp; OG cards</small>
+          </div>
+        </div>
+        <p class="small text-muted mb-3">Manage the homepage meta title, description, keywords, robots indexing, and social preview images directly in the Home Page Editor.</p>
+        <a href="home.php?tab=seo" class="btn btn-outline-success btn-sm rounded-pill w-100 fw-semibold">
+          <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Edit Home Page SEO Tags
+        </a>
+      </div>
+
       <!-- Quick Info Card -->
       <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
         <h6 class="fw-bold text-primary mb-2"><i class="fa fa-circle-info text-primary me-2"></i> Real-time Sync Information</h6>

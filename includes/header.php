@@ -3,7 +3,7 @@ if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/../config.php';
 }
 
-// 1. Resolve dynamic data object if present ($faculty_page, $about_page, $page_data, $page)
+// 1. Resolve dynamic data object if present ($faculty_page, $about_page, $page_data, $page, $home_seo)
 $active_meta = [];
 if (isset($faculty_page) && is_array($faculty_page)) {
     $active_meta = $faculty_page;
@@ -13,6 +13,8 @@ if (isset($faculty_page) && is_array($faculty_page)) {
     $active_meta = $page_data;
 } elseif (isset($page) && is_array($page)) {
     $active_meta = $page;
+} elseif (isset($home_seo) && is_array($home_seo)) {
+    $active_meta = $home_seo;
 }
 
 // 2. Resolve Meta Title
@@ -29,7 +31,12 @@ if (!empty($meta_title)) {
 }
 
 // Ensure clean brand suffix on title
-if (strpos($final_title, SITE_NAME) === false && strpos($final_title, SITE_SHORT_NAME) === false) {
+$has_brand = (strpos($final_title, SITE_NAME) !== false) ||
+             (strpos($final_title, SITE_SHORT_NAME) !== false) ||
+             (stripos($final_title, 'SSSUTMS') !== false) ||
+             (stripos($final_title, 'Satya Sai') !== false);
+
+if (!$has_brand) {
     $final_title = $final_title . ' | ' . SITE_NAME;
 }
 
@@ -79,6 +86,11 @@ if (!empty($og_image)) {
     $final_og_image = $default_og_image;
 }
 
+// 7. Social Titles & Directives
+$final_og_title = !empty($og_title) ? $og_title : (!empty($active_meta['og_title']) ? $active_meta['og_title'] : $final_title);
+$final_og_desc = !empty($og_description) ? $og_description : (!empty($og_desc) ? $og_desc : (!empty($active_meta['og_description']) ? $active_meta['og_description'] : $final_desc));
+$final_robots = !empty($meta_robots) ? $meta_robots : (!empty($active_meta['robots']) ? $active_meta['robots'] : 'index, follow');
+
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 <!DOCTYPE html>
@@ -94,7 +106,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
   <meta name="description" content="<?php echo htmlspecialchars($final_desc); ?>">
   <meta name="keywords" content="<?php echo htmlspecialchars($final_keywords); ?>">
   <meta name="author" content="Sri Satya Sai University of Technology &amp; Medical Sciences">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="<?php echo htmlspecialchars($final_robots); ?>">
   <meta name="theme-color" content="#0b2545">
 
   <?php if (!empty($final_canonical)): ?>
@@ -104,16 +116,16 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo htmlspecialchars($final_canonical); ?>">
-  <meta property="og:title" content="<?php echo htmlspecialchars($final_title); ?>">
-  <meta property="og:description" content="<?php echo htmlspecialchars($final_desc); ?>">
+  <meta property="og:title" content="<?php echo htmlspecialchars($final_og_title); ?>">
+  <meta property="og:description" content="<?php echo htmlspecialchars($final_og_desc); ?>">
   <meta property="og:image" content="<?php echo htmlspecialchars($final_og_image); ?>">
   <meta property="og:site_name" content="<?php echo htmlspecialchars(SITE_NAME); ?>">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="<?php echo htmlspecialchars($final_canonical); ?>">
-  <meta property="twitter:title" content="<?php echo htmlspecialchars($final_title); ?>">
-  <meta property="twitter:description" content="<?php echo htmlspecialchars($final_desc); ?>">
+  <meta property="twitter:title" content="<?php echo htmlspecialchars($final_og_title); ?>">
+  <meta property="twitter:description" content="<?php echo htmlspecialchars($final_og_desc); ?>">
   <meta property="twitter:image" content="<?php echo htmlspecialchars($final_og_image); ?>">
 
   <!-- Favicon -->

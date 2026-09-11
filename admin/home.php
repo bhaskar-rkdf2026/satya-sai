@@ -56,6 +56,16 @@ $latest_updates_header = get_home_section('latest_updates_header', []);
 $resource_center = get_home_section('resource_center', []);
 $gallery_glimpses = get_home_section('gallery_glimpses', []);
 $floating_box = get_home_section('floating_box', []);
+$seo = get_home_section('seo', [
+    'meta_title' => 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)',
+    'meta_description' => 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH. Leading University for Engineering, Medical, Pharmacy & Management.',
+    'meta_keywords' => 'SSSUTMS, Sri Satya Sai University, Engineering Colleges in MP, Medical Colleges Sehore, Pharmacy, Ayurveda BAMS, BHMS, Admission 2026-27',
+    'canonical_url' => '',
+    'og_image' => 'assets/images/logo/logo.jpg',
+    'og_title' => '',
+    'og_description' => '',
+    'robots' => 'index, follow'
+]);
 
 // Helper for file upload
 function handle_home_upload($fileKey, $defaultPath = '') {
@@ -383,6 +393,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $msg = 'Resource Center Links & Campus Glimpses Gallery saved successfully!';
     }
+
+    // 7. SAVE HOME PAGE SEO & META TAGS
+    if ($action === 'save_seo') {
+        $activeTab = 'seo';
+
+        $existingOg = $seo['og_image'] ?? 'assets/images/logo/logo.jpg';
+        $uploadedOg = handle_home_upload('og_image_file', trim($_POST['og_image_text'] ?? $existingOg));
+
+        $seo = [
+            'meta_title' => clean_input($_POST['meta_title'] ?? ''),
+            'meta_description' => clean_input($_POST['meta_description'] ?? ''),
+            'meta_keywords' => clean_input($_POST['meta_keywords'] ?? ''),
+            'canonical_url' => clean_input($_POST['canonical_url'] ?? ''),
+            'og_image' => !empty($uploadedOg) ? $uploadedOg : 'assets/images/logo/logo.jpg',
+            'og_title' => clean_input($_POST['og_title'] ?? ''),
+            'og_description' => clean_input($_POST['og_description'] ?? ''),
+            'robots' => clean_input($_POST['robots'] ?? 'index, follow')
+        ];
+
+        save_home_section('seo', $seo);
+        $msg = 'Home Page SEO Meta Tags & Social Sharing updated successfully! Changes are immediately live on the main website.';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -533,6 +565,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </button>
           <button class="home-tab-btn <?php echo $activeTab === 'resources' ? 'active' : ''; ?>" data-tab="tab-resources" type="button">
             <i class="fa fa-link me-1"></i> 6. Resource Center & Gallery
+          </button>
+          <button class="home-tab-btn <?php echo $activeTab === 'seo' ? 'active' : ''; ?>" data-tab="tab-seo" type="button">
+            <i class="fa-solid fa-magnifying-glass-chart text-success me-1"></i> 7. SEO &amp; Meta Tags
           </button>
         </div>
       </div>
@@ -1366,6 +1401,216 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
     </div>
 
+    <!-- =========================================================================
+         TAB 7: SEO & META TAGS
+         ========================================================================= -->
+    <div class="tab-pane-content <?php echo $activeTab === 'seo' ? '' : 'd-none'; ?>" id="tab-seo">
+      <form method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="action" value="save_seo">
+
+        <!-- Top Overview Header Card -->
+        <div class="section-field-card mb-4" style="background: linear-gradient(135deg, #0b2545 0%, #133a68 100%); color: #ffffff; border: none;">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <span class="badge bg-warning text-dark px-3 py-1 mb-2 fw-bold text-uppercase" style="letter-spacing: 0.5px; font-size: 11px;">
+                <i class="fa-solid fa-bolt me-1"></i> Search Engine Optimization
+              </span>
+              <h4 class="fw-bold mb-1 text-white">Home Page SEO &amp; Social Previews</h4>
+              <p class="text-white-50 mb-0 small" style="max-width: 680px;">
+                Optimize your university homepage for Google, Bing, and Yahoo search snippets, as well as social media platforms (WhatsApp, Facebook, LinkedIn, X/Twitter). All changes update immediately.
+              </p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <button type="button" class="btn btn-sm btn-light fw-bold" onclick="populateSeoPresets()">
+                <i class="fa-solid fa-wand-magic-sparkles text-primary me-1"></i> Load Recommended Presets
+              </button>
+              <a href="../index.php" target="_blank" class="btn btn-sm btn-outline-light fw-bold">
+                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> View Live Homepage
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Live Previews -->
+          <div class="col-lg-5">
+            <!-- Google Search Live Snippet Card -->
+            <div class="section-field-card mb-4">
+              <h6 class="mb-3">
+                <i class="fa-brands fa-google text-danger"></i> Google Search Snippet Preview
+                <span class="badge bg-light text-dark border ms-auto small" style="font-size: 10px;">SERP Preview</span>
+              </h6>
+              
+              <div class="p-3 bg-white border rounded-3 shadow-xs" style="font-family: Arial, sans-serif; background: #ffffff;">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center overflow-hidden" style="width: 26px; height: 26px;">
+                    <img src="../assets/images/logo/logo.jpg" alt="Favicon" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div style="line-height: 1.2;">
+                    <div class="text-dark fw-semibold" style="font-size: 13px;">Sri Satya Sai University</div>
+                    <div class="text-muted" style="font-size: 11px;">https://sssutms.co.in</div>
+                  </div>
+                </div>
+                <h5 id="seoGoogleTitle" class="fw-normal mb-1" style="color: #1a0dab; font-size: 19px; line-height: 1.3; cursor: pointer; text-decoration: none;">
+                  <?php echo htmlspecialchars(!empty($seo['meta_title']) ? $seo['meta_title'] : 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)'); ?>
+                </h5>
+                <p id="seoGoogleDesc" class="mb-0" style="color: #4d5156; font-size: 13px; line-height: 1.55;">
+                  <?php echo htmlspecialchars(!empty($seo['meta_description']) ? $seo['meta_description'] : 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH.'); ?>
+                </p>
+              </div>
+              <small class="text-muted d-block mt-2" style="font-size: 11px;">
+                <i class="fa fa-circle-info text-info me-1"></i> Real-time emulation of how Google highlights this page in search results.
+              </small>
+            </div>
+
+            <!-- Social Media Share Card Preview -->
+            <div class="section-field-card mb-4">
+              <h6 class="mb-3">
+                <i class="fa-solid fa-share-nodes text-primary"></i> Social Share Preview (WhatsApp / FB / X)
+              </h6>
+              <div class="border rounded-3 overflow-hidden bg-light shadow-xs">
+                <div style="height: 170px; background: #0b2545; overflow: hidden; position: relative;">
+                  <img id="seoOgImgPreview" src="../<?php echo htmlspecialchars(!empty($seo['og_image']) ? $seo['og_image'] : 'assets/images/logo/logo.jpg'); ?>" alt="Social Preview" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='../assets/images/logo/logo.jpg'">
+                  <div class="position-absolute bottom-0 start-0 w-100 p-2 text-white" style="background: linear-gradient(transparent, rgba(0,0,0,0.7)); font-size: 11px;">
+                    <i class="fa-solid fa-camera me-1"></i> Preview Share Image (1200x630 px)
+                  </div>
+                </div>
+                <div class="p-3 bg-white border-top">
+                  <div class="text-uppercase text-muted fw-bold mb-1" style="font-size: 10px; letter-spacing: 0.5px;">SSSUTMS.CO.IN</div>
+                  <div id="seoOgTitlePreview" class="fw-bold text-dark mb-1" style="font-size: 14px; line-height: 1.35;">
+                    <?php echo htmlspecialchars(!empty($seo['og_title']) ? $seo['og_title'] : (!empty($seo['meta_title']) ? $seo['meta_title'] : 'Sri Satya Sai University of Technology & Medical Sciences')); ?>
+                  </div>
+                  <div id="seoOgDescPreview" class="text-muted small text-truncate" style="font-size: 12px;">
+                    <?php echo htmlspecialchars(!empty($seo['og_description']) ? $seo['og_description'] : (!empty($seo['meta_description']) ? $seo['meta_description'] : 'Welcome to Sri Satya Sai University of Technology and Medical Sciences')); ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Best Practices Card -->
+            <div class="section-field-card bg-light border-dashed">
+              <h6 class="text-dark mb-2"><i class="fa-solid fa-lightbulb text-warning me-1"></i> SEO Best Practices Tip</h6>
+              <ul class="small text-muted ps-3 mb-0" style="line-height: 1.6;">
+                <li>Keep Title under <strong>60 characters</strong> to prevent truncation in Google SERP.</li>
+                <li>Write a compelling Meta Description between <strong>140-160 characters</strong> with high-intent keywords like <em>Admissions, Engineering, Medical, Sehore</em>.</li>
+                <li>Use high quality landscape images (1200x630) for social thumbnails to drive higher click-through rates.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column: SEO Form Fields -->
+          <div class="col-lg-7">
+            <!-- 1. Primary Meta Tags -->
+            <div class="section-field-card mb-4">
+              <h6><i class="fa-solid fa-heading text-primary"></i> 1. Primary Page Title &amp; Snippet</h6>
+              
+              <!-- Meta Title -->
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label small fw-bold mb-0">
+                    SEO Meta Title (Browser &amp; Search Title) <span class="text-danger">*</span>
+                  </label>
+                  <small><span id="homeTitleCount" class="fw-bold text-success">0</span> / 60 chars <span id="homeTitleBadge" class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                </div>
+                <input type="text" name="meta_title" id="homeInputMetaTitle" class="form-control" value="<?php echo htmlspecialchars($seo['meta_title'] ?? ''); ?>" placeholder="e.g. Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)" required oninput="updateHomeSeoLive()">
+                <small class="text-muted">The main clickable headline seen in search engine results and browser tabs.</small>
+              </div>
+
+              <!-- Meta Description -->
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label small fw-bold mb-0">
+                    SEO Meta Description <span class="text-danger">*</span>
+                  </label>
+                  <small><span id="homeDescCount" class="fw-bold text-success">0</span> / 160 chars <span id="homeDescBadge" class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                </div>
+                <textarea name="meta_description" id="homeInputMetaDesc" class="form-control" rows="3" placeholder="Provide a compelling 150-160 character description of Sri Satya Sai University..." required oninput="updateHomeSeoLive()"><?php echo htmlspecialchars($seo['meta_description'] ?? ''); ?></textarea>
+                <small class="text-muted">Summary snippet shown by Google beneath your title to attract student admissions &amp; visitors.</small>
+              </div>
+
+              <!-- Meta Keywords -->
+              <div class="mb-0">
+                <label class="form-label small fw-bold mb-1">
+                  <i class="fa-solid fa-tags text-warning me-1"></i> Target Meta Keywords (Comma Separated)
+                </label>
+                <input type="text" name="meta_keywords" id="homeInputKeywords" class="form-control" value="<?php echo htmlspecialchars($seo['meta_keywords'] ?? ''); ?>" placeholder="SSSUTMS, Sri Satya Sai University, Engineering Colleges MP, Medical Sehore, BAMS, BHMS">
+                <small class="text-muted">Relevant search terms and course keywords separated by commas.</small>
+              </div>
+            </div>
+
+            <!-- 2. Social Sharing & Open Graph -->
+            <div class="section-field-card mb-4">
+              <h6><i class="fa-solid fa-share-from-square text-success"></i> 2. Social Sharing Media (Open Graph &amp; Twitter)</h6>
+              
+              <!-- OG Image Upload & URL -->
+              <div class="mb-3">
+                <label class="form-label small fw-bold">Social Share Image (og:image) - Upload New File</label>
+                <input type="file" name="og_image_file" id="homeOgFile" class="form-control" accept="image/*" onchange="previewHomeOgFile(this)">
+                <small class="text-muted">Upload high resolution image (recommended 1200x630 or 800x800, max 2MB).</small>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label small fw-bold">Or Image Relative / Absolute Path</label>
+                <input type="text" name="og_image_text" id="homeInputOgImg" class="form-control" value="<?php echo htmlspecialchars($seo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>" placeholder="assets/images/logo/logo.jpg" oninput="updateHomeSeoLive()">
+                <small class="text-muted">Path relative to site root or external https:// image URL.</small>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">Custom Social Title (Optional)</label>
+                  <input type="text" name="og_title" id="homeInputOgTitle" class="form-control" value="<?php echo htmlspecialchars($seo['og_title'] ?? ''); ?>" placeholder="Leave blank to use Meta Title" oninput="updateHomeSeoLive()">
+                  <small class="text-muted">Overrides title only for social cards if specified.</small>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">Custom Social Description (Optional)</label>
+                  <input type="text" name="og_description" id="homeInputOgDesc" class="form-control" value="<?php echo htmlspecialchars($seo['og_description'] ?? ''); ?>" placeholder="Leave blank to use Meta Description" oninput="updateHomeSeoLive()">
+                  <small class="text-muted">Overrides description only for social cards if specified.</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Advanced Indexing & Canonical -->
+            <div class="section-field-card mb-4">
+              <h6><i class="fa-solid fa-gears text-secondary"></i> 3. Search Engine Directives &amp; Canonical URL</h6>
+              
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">
+                    <i class="fa-solid fa-robot me-1 text-info"></i> Robots Indexing Directive
+                  </label>
+                  <select name="robots" class="form-select">
+                    <?php $currRobots = $seo['robots'] ?? 'index, follow'; ?>
+                    <option value="index, follow" <?php echo $currRobots === 'index, follow' ? 'selected' : ''; ?>>index, follow (Standard / Recommended)</option>
+                    <option value="noindex, follow" <?php echo $currRobots === 'noindex, follow' ? 'selected' : ''; ?>>noindex, follow (Don't index, follow links)</option>
+                    <option value="index, nofollow" <?php echo $currRobots === 'index, nofollow' ? 'selected' : ''; ?>>index, nofollow (Index, don't follow links)</option>
+                    <option value="noindex, nofollow" <?php echo $currRobots === 'noindex, nofollow' ? 'selected' : ''; ?>>noindex, nofollow (Block all indexing)</option>
+                  </select>
+                  <small class="text-muted">Instructs search engine web crawlers whether to index this page.</small>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">
+                    <i class="fa-solid fa-link me-1 text-primary"></i> Canonical URL Override (Optional)
+                  </label>
+                  <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($seo['canonical_url'] ?? ''); ?>" placeholder="Auto-detected from domain if blank">
+                  <small class="text-muted">Leave empty to automatically point to current domain homepage.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <button type="submit" class="btn btn-success px-4 py-2 fw-bold shadow-sm">
+                <i class="fa-solid fa-floppy-disk me-1"></i> Save Home Page SEO Settings
+              </button>
+              <button type="button" class="btn btn-outline-secondary px-3 py-2 fw-semibold" onclick="populateSeoPresets()">
+                <i class="fa-solid fa-rotate-left me-1"></i> Reset to Recommended
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
   </div><!-- /.admin-content-inner -->
 </main>
 
@@ -1382,6 +1627,113 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       const pane = document.getElementById(targetId);
       if (pane) pane.classList.remove('d-none');
     });
+  });
+
+  // Home Page SEO Live Preview and Character Counters
+  function updateHomeSeoLive() {
+    const titleInput = document.getElementById('homeInputMetaTitle');
+    const descInput = document.getElementById('homeInputMetaDesc');
+    const ogTitleInput = document.getElementById('homeInputOgTitle');
+    const ogDescInput = document.getElementById('homeInputOgDesc');
+    const ogImgInput = document.getElementById('homeInputOgImg');
+
+    const googleTitle = document.getElementById('seoGoogleTitle');
+    const googleDesc = document.getElementById('seoGoogleDesc');
+    const ogTitlePreview = document.getElementById('seoOgTitlePreview');
+    const ogDescPreview = document.getElementById('seoOgDescPreview');
+    const ogImgPreview = document.getElementById('seoOgImgPreview');
+
+    const titleCount = document.getElementById('homeTitleCount');
+    const descCount = document.getElementById('homeDescCount');
+    const titleBadge = document.getElementById('homeTitleBadge');
+    const descBadge = document.getElementById('homeDescBadge');
+
+    const defaultTitle = 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)';
+    const defaultDesc = 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH.';
+
+    if (titleInput && googleTitle) {
+      const val = titleInput.value.trim();
+      const len = titleInput.value.length;
+      googleTitle.textContent = val || defaultTitle;
+      if (ogTitlePreview) {
+        const ogVal = (ogTitleInput && ogTitleInput.value.trim()) ? ogTitleInput.value.trim() : (val || defaultTitle);
+        ogTitlePreview.textContent = ogVal;
+      }
+      if (titleCount) {
+        titleCount.textContent = len;
+        if (len >= 45 && len <= 65) {
+          titleCount.className = 'fw-bold text-success';
+          if (titleBadge) { titleBadge.className = 'badge bg-success ms-1'; titleBadge.textContent = 'Optimal Length'; }
+        } else if (len > 65) {
+          titleCount.className = 'fw-bold text-danger';
+          if (titleBadge) { titleBadge.className = 'badge bg-danger ms-1'; titleBadge.textContent = 'Too Long (Truncated)'; }
+        } else {
+          titleCount.className = 'fw-bold text-warning';
+          if (titleBadge) { titleBadge.className = 'badge bg-warning text-dark ms-1'; titleBadge.textContent = 'A bit short'; }
+        }
+      }
+    }
+
+    if (descInput && googleDesc) {
+      const val = descInput.value.trim();
+      const len = descInput.value.length;
+      googleDesc.textContent = val || defaultDesc;
+      if (ogDescPreview) {
+        const ogVal = (ogDescInput && ogDescInput.value.trim()) ? ogDescInput.value.trim() : (val || defaultDesc);
+        ogDescPreview.textContent = ogVal;
+      }
+      if (descCount) {
+        descCount.textContent = len;
+        if (len >= 130 && len <= 165) {
+          descCount.className = 'fw-bold text-success';
+          if (descBadge) { descBadge.className = 'badge bg-success ms-1'; descBadge.textContent = 'Optimal Length'; }
+        } else if (len > 165) {
+          descCount.className = 'fw-bold text-danger';
+          if (descBadge) { descBadge.className = 'badge bg-danger ms-1'; descBadge.textContent = 'Too Long (Truncated)'; }
+        } else {
+          descCount.className = 'fw-bold text-warning';
+          if (descBadge) { descBadge.className = 'badge bg-warning text-dark ms-1'; descBadge.textContent = 'A bit short'; }
+        }
+      }
+    }
+
+    if (ogImgInput && ogImgPreview) {
+      const path = ogImgInput.value.trim();
+      if (path) {
+        ogImgPreview.src = (path.startsWith('http://') || path.startsWith('https://')) ? path : ('../' + path.replace(/^\//, ''));
+      }
+    }
+  }
+
+  function previewHomeOgFile(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById('seoOgImgPreview');
+        if (preview) preview.src = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function populateSeoPresets() {
+    document.getElementById('homeInputMetaTitle').value = 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)';
+    document.getElementById('homeInputMetaDesc').value = 'Welcome to Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore (Bhopal, MP). Approved by UGC, AICTE, PCI, NCISM, INC, NCH. Leading University for Engineering, Medical, Pharmacy & Management.';
+    document.getElementById('homeInputKeywords').value = 'SSSUTMS, Sri Satya Sai University, Engineering Colleges in MP, Medical Colleges Sehore, Pharmacy, Ayurveda BAMS, BHMS, Admission 2026-27';
+    document.getElementById('homeInputOgImg').value = 'assets/images/logo/logo.jpg';
+    if (document.getElementById('homeInputOgTitle')) document.getElementById('homeInputOgTitle').value = '';
+    if (document.getElementById('homeInputOgDesc')) document.getElementById('homeInputOgDesc').value = '';
+    updateHomeSeoLive();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    updateHomeSeoLive();
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam === 'seo' || window.location.hash === '#seo') {
+      const seoBtn = document.querySelector('[data-tab="tab-seo"]');
+      if (seoBtn) seoBtn.click();
+    }
   });
 </script>
 </body>
