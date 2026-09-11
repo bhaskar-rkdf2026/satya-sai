@@ -9,7 +9,13 @@ require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 
-$pdf_path = BASE_URL . 'assets/images/Files/Link/RESEARCH_POLICIES_3.1.1_(1)_24062024_1034.pdf';
+// Fetch dynamic policy PDF from Admin
+$policies = get_page_documents('ResearchPolicies');
+$firstPolicy = !empty($policies) ? $policies[0] : null;
+$pdf_path = !empty($firstPolicy['file']) ? $firstPolicy['file'] : (BASE_URL . 'assets/uploads/documents/RESEARCH_POLICIES_3.1.1_(1)_24062024_1034.pdf');
+if (strpos($pdf_path, 'http') !== 0) {
+  $pdf_path = BASE_URL . ltrim($pdf_path, '/');
+}
 ?>
 
 <style>

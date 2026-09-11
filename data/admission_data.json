@@ -1,0 +1,839 @@
+{
+    "AdmissionProcedure": {
+        "page_title": "Admission Procedure",
+        "lead_title": "Admission Procedure",
+        "description": "Admissions to various Technical, Professional & General Courses will be made in accordance with the guidelines provided by University Regulatory Authority, M.P. & State Government of Madhya Pradesh, as amended or suggested from time to time. The fees charged for all the courses will be as per approval accorded by Madhya Pradesh Niji Vishwavidyalaya Niyamak Aayog , Bhopal (Madhya Pradesh)",
+        "pdf_link": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/adm_procedure.pdf",
+        "pdf_label": "Admission Procedure (Click Here)",
+        "image": "assets\/images\/admission\/AdmissionProcedure_img_0.jpg"
+    },
+    "AdmissionNotice": {
+        "page_title": "Admission Notice",
+        "heading": "Admission Notice (2026-27)",
+        "subtitle": "Official Notifications, Circulars & Entrance Exam Schedules",
+        "notices": [
+            {
+                "id": 2000,
+                "title": "Enrollment Form Open Notification (Session 2026-27)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Adobe_Scan_21_Jul_2026__1__21072026_0937.pdf",
+                "date": "2026-07-21",
+                "is_new": true,
+                "session": "2026-27",
+                "category": "Admission"
+            },
+            {
+                "id": 2001,
+                "title": "प्रवेश अधिसूचना - 3 (2026-27)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/प्रवेश_अधिसूचना_-_3_(2026-27)_08072026_0226.pdf",
+                "date": "2026-07-21",
+                "is_new": true,
+                "session": "2026-27",
+                "category": "Admission"
+            },
+            {
+                "id": 2002,
+                "title": "प्रवेश अधिसूचना - 2 (2026-27)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/प्रवेश_अधिसूचना_-_2_(2026-27)_08072026_0225.pdf",
+                "date": "2026-07-21",
+                "is_new": true,
+                "session": "2026-27",
+                "category": "Admission"
+            },
+            {
+                "id": 2003,
+                "title": "आवश्यक सुचना - Important Admission Notice (2026-27)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/imp_notice_16032026_0424.pdf",
+                "date": "2026-07-21",
+                "is_new": true,
+                "session": "2026-27",
+                "category": "Admission"
+            },
+            {
+                "id": 2004,
+                "title": "admission notification 01 (2026-27)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/WhatsApp_Image_2026-02-14_at_1.44_14022026_1125.pdf",
+                "date": "2026-07-21",
+                "is_new": true,
+                "session": "2026-27",
+                "category": "Admission"
+            },
+            {
+                "id": 2005,
+                "title": "SSSUTMS-CIDC Draft Admission Notice (Session 2025-26)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Draft-Admission_Notice_Sri_Satya_Sai_University_12092025_0417.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2025-26",
+                "category": "Admission"
+            },
+            {
+                "id": 2006,
+                "title": "Notification (Student Registration & Enrollment)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Widget\/Download\/Notifica.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "Archived",
+                "category": "Admission"
+            },
+            {
+                "id": 2007,
+                "title": "admission notification 01 (2025-26)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Adobe_Scan_01_Aug_2025_(1)_01082025_0412.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2025-26",
+                "category": "Admission"
+            },
+            {
+                "id": 2008,
+                "title": "प्रवेश अधिसूचना 03 (Session 2025-26)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/03_01082025_0411.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2025-26",
+                "category": "Admission"
+            },
+            {
+                "id": 2009,
+                "title": "प्रवेश अधिसूचना - 2 (2025-26)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/AD2_01082025_0419.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2025-26",
+                "category": "Admission"
+            },
+            {
+                "id": 2010,
+                "title": "admission notification 01 (2025-26)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/ADMISSION_NOTIFICATION_1_31072025_0425.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2025-26",
+                "category": "Admission"
+            },
+            {
+                "id": 2011,
+                "title": "notification",
+                "url": "https:\/\/sssutms.co.in\/cms\/Areas\/Website\/Files\/Widget\/Download\/IMG.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "Archived",
+                "category": "Admission"
+            },
+            {
+                "id": 2012,
+                "title": "प्रवेश अधिसूचना - 3 (Session 2024-25)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Widget\/Download\/TapScanner_08-21-2024-11%EA%9E%8949.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2024-25",
+                "category": "Admission"
+            },
+            {
+                "id": 2013,
+                "title": "admission notification 01 (2024-25)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/IMG_0001_31032024_1157.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2024-25",
+                "category": "Admission"
+            },
+            {
+                "id": 2014,
+                "title": "प्रवेश अधिसूचना - 2 (2024-25)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/IMG_0002_31032024_1151.pdf",
+                "date": "2025-08-01",
+                "is_new": false,
+                "session": "2024-25",
+                "category": "Admission"
+            },
+            {
+                "id": 2015,
+                "title": "NRI ADMISSION NOTIFICATION (2024-25)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2024-25",
+                "category": "Admission"
+            },
+            {
+                "id": 2016,
+                "title": "Admission Notification- 2 (2023-24) (B.E\/B.PHARMA\/D.PHARMA\/M.TECH\/M.PHARMA\/MBA\/MCA\/BHMCT\/ B. Arch. \/ B. Design\/D",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission_Notification_2023-24_01_04112023_0304.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2023-24",
+                "category": "Admission"
+            },
+            {
+                "id": 2017,
+                "title": "NOTIFICATION (Enrollment)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/IMG_0001_29082023_1156.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Archived",
+                "category": "Admission"
+            },
+            {
+                "id": 2018,
+                "title": "Admission Notification -01 (2023-24)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/admission%202023-24\/IMG.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2023-24",
+                "category": "Admission"
+            },
+            {
+                "id": 2019,
+                "title": "Admission Notification (2023-24)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Widget\/Download\/IMG_0001.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2023-24",
+                "category": "Admission"
+            },
+            {
+                "id": 2020,
+                "title": "Admission Notification- 2 (2022-23) (B.E\/B.PHARMA\/D.PHARMA\/M.TECH\/M.PHARMA\/MBA\/MCA\/BHMCT\/ B. Arch. \/ B. Design\/D",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Widget\/Download\/Admission_notification.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2022-23",
+                "category": "Admission"
+            },
+            {
+                "id": 2021,
+                "title": "Admission Notification for NRI Candidate (2022-23)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Con_NRI_2022-23_20082022_0446.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2022-23",
+                "category": "Admission"
+            },
+            {
+                "id": 2022,
+                "title": "Admission Notification- I (2022-23)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/2022-23\/admission_notification_2022-23.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2022-23",
+                "category": "Admission"
+            },
+            {
+                "id": 2023,
+                "title": "Notification For Online Entrance Examination 2022-23",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/2022-23\/Entrance_Exam_Admission%20notification.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2022-23",
+                "category": "Entrance Exam"
+            },
+            {
+                "id": 2024,
+                "title": "Enrollment form Open (2021-22)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Notice\/Enrollment_Notification21_22.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2025,
+                "title": "Notice for Student Enrollment (Pharmacy ) (2021-22)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Notice\/FOP.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2026,
+                "title": "Notice for Student Enrollment",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Notice\/AAA_ENROLLMENT_NUR.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Archived",
+                "category": "Admission"
+            },
+            {
+                "id": 2027,
+                "title": "Notice for Student Enrollment (2021-22) For B.Ed.",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Notice\/AAA_ENROLLMENT_BEd.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2028,
+                "title": "Admission Notice for Technical Courses (2021-22)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/AAdmission_Notice_technical_courses.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2029,
+                "title": "Admission Notice for NRI (2021-22)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/NRI%20admission.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2030,
+                "title": "Admission Counseling Schedule 2021-22 (Notification-3 )",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/ad_notificaron3_05022022_1245.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2031,
+                "title": "Admission Counseling Schedule 2021-22 (Notification 2)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/ad_notification2_05022022_1241.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2032,
+                "title": "Admission Counseling Schedule 2021-22",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/admission notification II 2021_22R.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2033,
+                "title": "Admission Counseling Schedule 2021-22",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/admission notification III 2021_22.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2034,
+                "title": "Admission Counseling Schedule 2021-22",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Admission_utd_2021_22.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Admission"
+            },
+            {
+                "id": 2035,
+                "title": "Download Paramedical Admission Form",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Download\/Para_Admission_Form_New.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            },
+            {
+                "id": 2036,
+                "title": "Notification For Online Entrance Examination 2021-22",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Admission_Entrance_Exam_2021_22.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "2021-22",
+                "category": "Entrance Exam"
+            },
+            {
+                "id": 2037,
+                "title": "Admission Counseling Schedule 2020-21",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Admission1.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Archived",
+                "category": "Admission"
+            },
+            {
+                "id": 2038,
+                "title": "Notification for Entrance Examination (2020-21)",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Entrance_20_21.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Archived",
+                "category": "Entrance Exam"
+            },
+            {
+                "id": 2039,
+                "title": "Paramedical Admission Counseling Schedule 2019-20",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/paramedical_2019.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            },
+            {
+                "id": 2040,
+                "title": "Paramedical Admission Counseling Schedule 2018-19",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Para_2018_19N.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            },
+            {
+                "id": 2041,
+                "title": "Paramedical Admission Counseling Schedule 2017-18",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Para_2017_18.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            },
+            {
+                "id": 2042,
+                "title": "Paramedical Admission Counseling Schedule 2016-17",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Para_2016_17.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            },
+            {
+                "id": 2043,
+                "title": "Paramedical Admission Counseling Schedule 2015-16",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Para_2015_16.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            },
+            {
+                "id": 2044,
+                "title": "Paramedical Admission Counseling Schedule 2014-15",
+                "url": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Admission\/Para_2014_15.pdf",
+                "date": "2024-03-31",
+                "is_new": false,
+                "session": "Paramedical",
+                "category": "Paramedical"
+            }
+        ]
+    },
+    "Brochures": {
+        "page_title": "Brochures",
+        "heading": "ADMISSION BROCHURE",
+        "prospectus_pdf": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/MAIN_19112025_0435.pdf",
+        "prospectus_label": "Prospectus (Click Here)",
+        "cover_image": "assets\/images\/admission\/Brochures_img_2.png",
+        "folder_icon": "assets\/images\/admission\/Brochures_img_0.png",
+        "arrow_icon": "assets\/images\/admission\/Brochures_img_1.png"
+    },
+    "FeesStructure": {
+        "page_title": "Fee Structure and Fees Refund Policy",
+        "subtitle": "Eligibility Criteria & Fees Structure",
+        "refund_policy_pdf": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/Fees_Refund_Policy_04012025_0322.pdf",
+        "refund_policy_label": "Download Official Fees Refund Policy (PDF)",
+        "fees": [
+            {
+                "id": 3001,
+                "sno": 1,
+                "course": "BE",
+                "tuition": "54000",
+                "eligibility": "10+2 (PCM) With 45% (UR), 40% (ST\/SC\/OBC)",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3002,
+                "sno": 2,
+                "course": "M. Tech.",
+                "tuition": "63000",
+                "eligibility": "BE\/B.Tech.\/MCA  With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs,"
+            },
+            {
+                "id": 3003,
+                "sno": 3,
+                "course": "B. Arch.",
+                "tuition": "65000",
+                "eligibility": "10+2 (PCM) With 50% In Each Subject (UR\/ST\/SC\/OBC)",
+                "duration": "5 Yrs,"
+            },
+            {
+                "id": 3004,
+                "sno": 4,
+                "course": "B. Design",
+                "tuition": "70000",
+                "eligibility": "10+2  (Any Discipline ) With 45% (UR), 40% (ST\/SC\/OBC)",
+                "duration": "4 Yrs,"
+            },
+            {
+                "id": 3005,
+                "sno": 5,
+                "course": "MBA (Full Time)",
+                "tuition": "50000",
+                "eligibility": "Graduate In Any Discipline With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3006,
+                "sno": 6,
+                "course": "MCA",
+                "tuition": "40000",
+                "eligibility": "A Student Who Has Passed 10+2 Examination Of Secondary School Education Board, Bhopal With Mathematics As One Of The Subject At 10+2 Examinations Or Its Equivalent And Have Passed B.Sc \/ B.Com\/ BCA. With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3007,
+                "sno": 7,
+                "course": "B. Pharma",
+                "tuition": "55000",
+                "eligibility": "10+2 (PCM\/PCB) With 45% (UR), 40% (ST\/SC\/OBC)",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3008,
+                "sno": 8,
+                "course": "M. Pharma",
+                "tuition": "154000",
+                "eligibility": "B. Pharma With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3009,
+                "sno": 9,
+                "course": "D. Pharma",
+                "tuition": "75000",
+                "eligibility": "10+2 (PCM\/PCB) With 45% (UR), 40% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3010,
+                "sno": 10,
+                "course": "B.Ed.",
+                "tuition": "41000",
+                "eligibility": "Graduate In Any Discipline With 50% (UR\/OBC), 45% (ST\/SC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3011,
+                "sno": 11,
+                "course": "B.A. B. Ed. (4Year Integrated Course)",
+                "tuition": "30000",
+                "eligibility": "10+2 Any Discipline With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3012,
+                "sno": 12,
+                "course": "B.P. Ed.",
+                "tuition": "40000",
+                "eligibility": "Graduate In Any Discipline With 50% (UR\/OBC\/AI), 45% (ST\/SC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3013,
+                "sno": 13,
+                "course": "B.P.E.S. ",
+                "tuition": "41000",
+                "eligibility": "10+2 Or Its Equivalent With 45%",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3014,
+                "sno": 14,
+                "course": "BHMCT",
+                "tuition": "62000",
+                "eligibility": "10+2 Or Its Equivalent With 45% (UR),  40%(ST\/SC\/OBC)",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3015,
+                "sno": 15,
+                "course": "B.Sc. (Nursing)",
+                "tuition": "80000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3016,
+                "sno": 16,
+                "course": "BBA",
+                "tuition": "21000",
+                "eligibility": "10+2 Or Its Equivalent With 40% (UR\/OBC), 35% (ST\/SC)",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3017,
+                "sno": 17,
+                "course": "BCA",
+                "tuition": "21000",
+                "eligibility": "10+2 (PCM) Or Its Equivalent With 50% (UR\/OBC), 45% (ST\/SC)",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3018,
+                "sno": 18,
+                "course": "B.Sc. ",
+                "tuition": "16000",
+                "eligibility": "10+2 (PCM\/PCB\/Agri.) With 40% (UR), 33% (ST\/SC\/OBC)",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3019,
+                "sno": 19,
+                "course": "B.A.",
+                "tuition": "13000",
+                "eligibility": "10+2 Or Its Equivalent With 40% (UR), 33% (ST\/SC\/OBC)",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3020,
+                "sno": 20,
+                "course": "B.Com.",
+                "tuition": "16000",
+                "eligibility": "10+2 (PCM\/PCB\/Comm.) With 40% (UR), 33% (ST\/SC\/OBC)",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3021,
+                "sno": 21,
+                "course": "M.Sc.",
+                "tuition": "26000",
+                "eligibility": "B.Sc. (Hons) Maths\/CS\/IT\/Physics\/Chemistry\/Biology As One Subject In B.Sc. With 40% (UR), 33% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3022,
+                "sno": 22,
+                "course": "M.A.",
+                "tuition": "26000",
+                "eligibility": "UG With 40% For All Categories",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3023,
+                "sno": 23,
+                "course": "M.COM.",
+                "tuition": "26000",
+                "eligibility": "B.COM Passed For All Categories",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3024,
+                "sno": 24,
+                "course": "PGDCA",
+                "tuition": "21000",
+                "eligibility": "A Student Who Has Passes 10+2 Examination Of Secondary School Education Board, Bhopal With Mathematics As One Of The Subject At 10+2 Examinations Or Its Equivalent And Have Passed BA\/B.Sc \/ B.Com\/ BCA. With 40% (UR), 33% (ST\/SC\/OBC)",
+                "duration": "1 Yr."
+            },
+            {
+                "id": 3025,
+                "sno": 25,
+                "course": "Bachelor Of Physiotherapy",
+                "tuition": "42000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "4½ Yrs."
+            },
+            {
+                "id": 3026,
+                "sno": 26,
+                "course": "Diploma In X-Ray Radiographer Technician",
+                "tuition": "30000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3027,
+                "sno": 27,
+                "course": "D. Pharma (Ayurved)",
+                "tuition": "40000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3028,
+                "sno": 28,
+                "course": "DMLT",
+                "tuition": "37000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 40% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3029,
+                "sno": 29,
+                "course": "Dialysis Technician",
+                "tuition": "40000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3030,
+                "sno": 30,
+                "course": "Diploma In Human Nutrition",
+                "tuition": "28000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3031,
+                "sno": 31,
+                "course": "Diploma In Blood Transfusion Technician",
+                "tuition": "38000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3032,
+                "sno": 32,
+                "course": "Diploma In Yoga",
+                "tuition": "30000",
+                "eligibility": "10+2 (PCB) With 50% (UR), 45% (ST\/SC\/OBC)",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3033,
+                "sno": 33,
+                "course": "Medical Laboratory Technology [Haematology] MMLT]",
+                "tuition": "125000",
+                "eligibility": "BMLT With 50% For All Category",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3034,
+                "sno": 34,
+                "course": "Master Of Physiotherapy [MPT]",
+                "tuition": "120000",
+                "eligibility": "BPT With 50% For All Category",
+                "duration": "2 Yrs."
+            },
+            {
+                "id": 3035,
+                "sno": 35,
+                "course": "B.Sc. (Hons.) Agriculture",
+                "tuition": "61000",
+                "eligibility": "10+2 In PCM\/PCB\/ Agriculture With 45% ",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3036,
+                "sno": 36,
+                "course": "B. Tech. (Dairy Technology)",
+                "tuition": "25000",
+                "eligibility": "10+2 (PCM\/PCB\/Agri.) With 50% (UR),, 45% (OBC), 33% (ST\/SC)",
+                "duration": "4 Yrs."
+            },
+            {
+                "id": 3037,
+                "sno": 37,
+                "course": "Diploma(Engineering)",
+                "tuition": "30000",
+                "eligibility": "10th Or Equivalent Examination Passed ",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3038,
+                "sno": 38,
+                "course": "L.L.B.",
+                "tuition": "25600",
+                "eligibility": "Graduate In Any Discipline With 45% (UR\/OBC), 40% (ST\/SC)",
+                "duration": "3 Yrs."
+            },
+            {
+                "id": 3039,
+                "sno": 39,
+                "course": "B.A.LL.B.",
+                "tuition": "22000",
+                "eligibility": "10+2 Any Discipline With 45% (UR), 40% (ST\/SC\/OBC)",
+                "duration": "5 Yrs."
+            },
+            {
+                "id": 3040,
+                "sno": 40,
+                "course": "B. Lib.",
+                "tuition": "15000",
+                "eligibility": "Graduate In Any Discipline",
+                "duration": "1 Yr."
+            },
+            {
+                "id": 3041,
+                "sno": 41,
+                "course": "B.H.M.S.",
+                "tuition": "150000",
+                "eligibility": "10+2 In PCB With Minimum 45% For SC\/ST\/OBC And 50% For UR",
+                "duration": "5.5 Yrs."
+            },
+            {
+                "id": 3042,
+                "sno": 42,
+                "course": "B.A.M.S.",
+                "tuition": "247300",
+                "eligibility": "10+2 In PCB With Minimum 45% For SC\/ST\/OBC And 50% For UR",
+                "duration": "5.5 Yrs."
+            }
+        ]
+    },
+    "UniversityAccountDetail": {
+        "page_title": "University Account Detail",
+        "bank_title": "Bank Detail",
+        "bank_desc": "Sri Satya Sai Group of Institutions has a full-fledged branch of Punjab National Bank and its ATM in the college premises. It is a Nationalized Bank which has given all kinds of transactional facility to students and staff. The bank also provides zero balance accounts to students, helps them in procuring Education loan and promotes their students friendly schemes.",
+        "bank_name": "Punjab National Bank",
+        "account_name": "SSSUTMS",
+        "account_number": "7162002100000506",
+        "ifsc_code": "PUNB0716200",
+        "branch": "SSSUTMS Campus, Sehore (M.P.)",
+        "online_banking_url": "https:\/\/sssutms.payjix.com\/",
+        "qr_image": "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpeg",
+        "charges": [
+            {
+                "instrument": "UPI",
+                "charges": "No Charges"
+            },
+            {
+                "instrument": "Debit Card (Rupay Card)",
+                "charges": "No Charges"
+            },
+            {
+                "instrument": "Debit Card (Other Cards)",
+                "charges": "0.40% <= INR 2000 per transaction \/ 0.90% > INR 2000 per transaction"
+            },
+            {
+                "instrument": "Credit Card",
+                "charges": "1.1% per transaction"
+            },
+            {
+                "instrument": "Netbanking",
+                "charges": "INR 15 per transaction"
+            },
+            {
+                "instrument": "Wallet",
+                "charges": "1.50% per transaction"
+            }
+        ]
+    },
+    "AdmissionRegistration": {
+        "page_title": "Admission Registration",
+        "heading": "Admission Registration (Session 2026-27)",
+        "epravesh_label": "E-Pravesh 2026 (Online Registration & Enquiry Form)",
+        "epravesh_url": "https:\/\/www.sssutms.co.in\/erp\/Student\/Registration\/Index\/ojdZaOYsXtpmswGfjiVVww%3d%3d",
+        "instructions": [
+            "Click on the official E-Pravesh registration portal link above.",
+            "Select your desired Course \/ Faculty \/ Department.",
+            "Fill in candidate details, qualifications, and upload required credentials.",
+            "Submit the form and retain the generated application number for counselling."
+        ]
+    },
+    "Admission_Enquiry": {
+        "page_title": "Admission Enquiry",
+        "contact_heading": "For Admission 2026-27 Enquiry Please Contact",
+        "phone_numbers": [
+            "(+91) 07562-292740",
+            "(+91) 07562-292720",
+            "(+91) 07562-292204",
+            "(+91) 07562-292205",
+            "(+91) 7748900028"
+        ],
+        "timings": "From 10:00 AM to 5:00 PM only",
+        "email": "info@sssutms.co.in",
+        "address": "Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P), Pin - 466001"
+    }
+}

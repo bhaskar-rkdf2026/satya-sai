@@ -1,279 +1,253 @@
 <?php
-$page_title = 'University Account Detail - SSSUTMS';
-$banner_title = 'University Account Detail';
+require_once __DIR__ . '/../config.php';
+
+// Load dynamic data from JSON
+$admissionData = get_json_data('admission_data.json', []);
+$accData = $admissionData['UniversityAccountDetail'] ?? [
+    'page_title' => 'University Account Detail',
+    'bank_title' => 'Bank Detail',
+    'bank_desc' => 'Sri Satya Sai Group of Institutions has a full-fledged branch of Punjab National Bank and its ATM in the college premises. It is a Nationalized Bank which has given all kinds of transactional facility to students and staff. The bank also provides zero balance accounts to students, helps them in procuring Education loan and promotes their students friendly schemes.',
+    'bank_name' => 'Punjab National Bank',
+    'account_name' => 'SSSUTMS',
+    'account_number' => '7162002100000506',
+    'ifsc_code' => 'PUNB0716200',
+    'branch' => 'SSSUTMS Campus, Sehore (M.P.)',
+    'online_banking_url' => 'https://sssutms.payjix.com/',
+    'qr_image' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpeg',
+    'charges' => [
+        ['instrument' => 'UPI', 'charges' => 'No Charges'],
+        ['instrument' => 'Debit Card (Rupay Card)', 'charges' => 'No Charges'],
+        ['instrument' => 'Debit Card (Other Cards)', 'charges' => '0.40% <= INR 2000 per transaction / 0.90% > INR 2000 per transaction'],
+        ['instrument' => 'Credit Card', 'charges' => '1.1% per transaction'],
+        ['instrument' => 'Netbanking', 'charges' => 'INR 15 per transaction'],
+        ['instrument' => 'Wallet', 'charges' => '1.50% per transaction']
+    ]
+];
+
+$page_title = ($accData['page_title'] ?? 'University Account Detail') . ' - SSSUTMS';
+$banner_title = $accData['page_title'] ?? 'University Account Detail';
 $banner_category = 'Admission';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
-.uad-section { background-color: #f8fafc; }
-.uad-main-card {
+.adm-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   overflow: hidden;
-  margin-bottom: 2rem;
 }
-.uad-header-banner {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
+.adm-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  padding: 1.5rem 2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
 }
-.uad-header-banner::after {
+.adm-card-header::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.uad-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+.adm-card-header h2,
+.adm-card-header h2 i {
+  color: #ffffff !important;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
-.uad-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
+.adm-card-header span,
+.adm-card-header small {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
-.uad-stat-icon {
-  width: 48px; height: 48px;
+.bank-info-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border: 1px solid #cbd5e1;
+  border-left: 5px solid #0b2545;
   border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
-.uad-card {
+.qr-card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 2px dashed #0b2545;
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-  margin-bottom: 1.75rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
-.uad-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 2px solid #f1f5f9;
-}
-.uad-card-header i {
-  color: #f59e0b;
-  font-size: 1.3rem;
-}
-.uad-bank-box {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
-  color: #ffffff;
-  border-radius: 16px;
-  padding: 1.75rem;
-  box-shadow: 0 8px 24px rgba(11,37,69,0.15);
-}
-.uad-qr-img {
-  max-width: 320px;
-  width: 100%;
-  border-radius: 14px;
-  border: 3px solid #e2e8f0;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-.uad-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
-}
-.uad-table th {
-  background: #0b2545;
-  color: #ffffff;
-  padding: 12px 16px;
+.charges-table th {
+  background-color: #0b2545 !important;
+  color: #ffffff !important;
   font-weight: 700;
-  font-size: 0.9rem;
-  border: 1px solid #1e3a5f;
+  padding: 10px 14px;
 }
-.uad-table td {
-  padding: 12px 16px;
-  border: 1px solid #e2e8f0;
-  color: #334155;
-  font-size: 0.92rem;
-}
-.uad-table tbody tr:nth-child(even) {
-  background-color: #f8fafc;
+.charges-table td {
+  padding: 10px 14px;
+  vertical-align: middle;
 }
 </style>
 
-<section class="subpage-main-section uad-section py-4">
+<section class="py-5 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-
-      <!-- Main Content Area (Left) -->
+      
+      <!-- Main Content (Left Column) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="uad-main-card">
-
-          <!-- Header Banner -->
-          <div class="uad-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div class="adm-card">
+          <div class="adm-card-header">
             <div>
-              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
-                <i class="fa-solid fa-building-columns me-1"></i> PNB On-Campus Branch &amp; Online Gateway
-              </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">UNIVERSITY BANK &amp; ACCOUNT DETAILS</h3>
-              <p class="text-white-50 mb-0 small">Official NEFT/RTGS Account Numbers, BHIM UPI QR Code &amp; Gateway Charges</p>
+              <h2 class="fs-4 mb-0 fw-bold d-flex align-items-center">
+                <i class="bi bi-journal-text me-2"></i> <?php echo htmlspecialchars($accData['page_title'] ?? 'University Account Detail'); ?>
+              </h2>
+              <span class="text-white-50 extra-small">Official Punjab National Bank &amp; Online Payment Gateway</span>
             </div>
-            <div>
-              <a href="https://sssutms.payjix.com/" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3">
-                <i class="fa-solid fa-qrcode me-1"></i> Pay Fee Online (Payjix Portal)
-              </a>
-            </div>
+            <a href="<?php echo htmlspecialchars($accData['online_banking_url'] ?? '#'); ?>" target="_blank" rel="noopener" class="btn btn-warning btn-sm rounded-pill fw-bold px-3">
+              <i class="fa-solid fa-lock me-1"></i> Pay Online
+            </a>
           </div>
 
-          <!-- Content Body -->
-          <div class="p-4">
+          <div class="card-body p-4 p-md-5">
+            <article class="fs-5 lh-lg text-secondary">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="uad-stat-chip">
-                  <div class="uad-stat-icon"><i class="fa-solid fa-landmark"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Campus Bank</div>
-                    <div class="fw-bold text-dark fs-6">Punjab National Bank</div>
-                  </div>
-                </div>
+              <!-- Section Heading -->
+              <div class="text-center mb-4">
+                <h3 class="fw-bold mb-1" style="color: #ff9c00;">
+                  <?php echo htmlspecialchars($accData['bank_title'] ?? 'Bank Detail'); ?>
+                </h3>
+                <p class="text-muted small">Official Bank Particulars for Tuition Fee Deposit &amp; Electronic Transfers</p>
               </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="uad-stat-chip">
-                  <div class="uad-stat-icon"><i class="fa-solid fa-vault"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Student Facilities</div>
-                    <div class="fw-bold text-dark fs-6">Zero Balance &amp; ATM</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="uad-stat-chip">
-                  <div class="uad-stat-icon"><i class="fa-solid fa-qrcode"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">UPI Mode</div>
-                    <div class="fw-bold text-dark fs-6">Zero Convenience Fee</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="uad-stat-chip">
-                  <div class="uad-stat-icon"><i class="fa-solid fa-credit-card"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Online Gateway</div>
-                    <div class="fw-bold text-dark fs-6">Netbanking &amp; Cards</div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Overview & PNB Bank Card -->
-            <div class="uad-card">
-              <div class="uad-card-header">
-                <i class="fa-solid fa-building-columns text-warning"></i>
-                <h5 class="fw-bold text-dark mb-0">On-Campus Banking Facilities</h5>
+              <!-- Bank Description -->
+              <div class="p-3.5 p-md-4 rounded-3 mb-4 bg-light border border-slate-200">
+                <p class="text-dark mb-0 fs-6 lh-base" style="text-align: justify;">
+                  <?php echo nl2br(htmlspecialchars($accData['bank_desc'] ?? '')); ?>
+                </p>
               </div>
-              <p class="text-dark lh-lg mb-3" style="text-align: justify;">
-                Sri Satya Sai Group of Institutions has a full-fledged branch of <strong>Punjab National Bank (PNB)</strong> and an <strong>ATM</strong> within the college premises. This nationalized bank provides all transactional facilities for students and staff, including zero balance accounts, educational loan procurement support, and student-friendly schemes.
-              </p>
 
-              <!-- Bank Account Details Box -->
-              <div class="uad-bank-box">
-                <span class="badge bg-warning text-dark fw-bold mb-2">Official University Account for NEFT / RTGS / IMPS</span>
-                <h4 class="fw-bold text-white mb-3">Sri Satya Sai University of Technology &amp; Medical Sciences (SSSUTMS)</h4>
+              <!-- Bank Particulars Grid -->
+              <div class="bank-info-box">
+                <h5 class="fw-bold text-dark mb-3">
+                  <i class="fa-solid fa-building-columns text-primary me-2"></i>Bank Account Detail (Punjab National Bank)
+                </h5>
                 <div class="row g-3">
                   <div class="col-sm-6">
-                    <div class="small text-white-50 uppercase fw-bold">Bank Name</div>
-                    <div class="fs-6 fw-bold text-white"><i class="fa-solid fa-landmark text-warning me-1"></i> Punjab National Bank (PNB)</div>
+                    <span class="text-muted small d-block">Account Name / Beneficiary</span>
+                    <strong class="text-dark fs-5"><?php echo htmlspecialchars($accData['account_name'] ?? 'SSSUTMS'); ?></strong>
                   </div>
                   <div class="col-sm-6">
-                    <div class="small text-white-50 uppercase fw-bold">Account Name</div>
-                    <div class="fs-6 fw-bold text-white"><i class="fa-solid fa-user text-warning me-1"></i> SSSUTMS</div>
+                    <span class="text-muted small d-block">Bank Name</span>
+                    <strong class="text-dark fs-5"><?php echo htmlspecialchars($accData['bank_name'] ?? 'Punjab National Bank'); ?></strong>
                   </div>
                   <div class="col-sm-6">
-                    <div class="small text-white-50 uppercase fw-bold">Account Number</div>
-                    <div class="fs-5 fw-bold text-warning font-monospace"><i class="fa-solid fa-credit-card text-warning me-1"></i> 7162002100000506</div>
+                    <span class="text-muted small d-block">Account Number</span>
+                    <strong class="text-primary fs-4 fw-bold font-monospace"><?php echo htmlspecialchars($accData['account_number'] ?? '7162002100000506'); ?></strong>
                   </div>
                   <div class="col-sm-6">
-                    <div class="small text-white-50 uppercase fw-bold">IFSC Code</div>
-                    <div class="fs-5 fw-bold text-warning font-monospace"><i class="fa-solid fa-code text-warning me-1"></i> PUNB0716200</div>
+                    <span class="text-muted small d-block">IFSC Code</span>
+                    <strong class="text-dark fs-4 fw-bold font-monospace"><?php echo htmlspecialchars($accData['ifsc_code'] ?? 'PUNB0716200'); ?></strong>
+                  </div>
+                  <div class="col-12">
+                    <span class="text-muted small d-block">Branch Location</span>
+                    <span class="text-dark fw-semibold"><?php echo htmlspecialchars($accData['branch'] ?? 'SSSUTMS Campus, Sehore (M.P.)'); ?></span>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- UPI Scan & Pay Section -->
-            <div class="uad-card">
-              <div class="uad-card-header">
-                <i class="fa-solid fa-qrcode text-warning"></i>
-                <h5 class="fw-bold text-dark mb-0">Scan &amp; Pay Using Any BHIM UPI</h5>
-              </div>
-              <div class="row align-items-center g-4">
-                <div class="col-md-5 text-center">
-                  <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpg" alt="BHIM UPI QR Code" class="uad-qr-img">
-                </div>
-                <div class="col-md-7">
-                  <span class="badge bg-success text-white fw-bold px-3 py-2 rounded-pill mb-2"><i class="fa-solid fa-check me-1"></i> Direct Merchant UPI Payment</span>
-                  <h5 class="fw-bold text-dark mb-2">Scan QR Code via PhonePe, Google Pay, Paytm, or BHIM</h5>
-                  <p class="text-muted small mb-3">Pay tuition fees directly through any UPI app with 0% extra charges for instant receipt generation.</p>
-                  <a href="https://sssutms.payjix.com/" target="_blank" rel="noopener" class="btn btn-primary fw-bold px-4 py-2 rounded-3">
-                    <i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Open Online Payjix Portal
+              <!-- Online Banking & UPI Section -->
+              <div class="row g-4 align-items-center mb-5">
+                <div class="col-md-6">
+                  <h4 class="fw-bold text-dark mb-3" style="color: #7b3900 !important;">
+                    <i class="fa-solid fa-globe text-primary me-2"></i>Online Payment Gateway
+                  </h4>
+                  <p class="text-muted small mb-3">
+                    Students can securely pay fees online using Debit Cards, Credit Cards, Netbanking, UPI, or Digital Wallets through our payment portal.
+                  </p>
+                  <div class="p-3 rounded-3 bg-light border mb-3">
+                    <span class="small text-muted d-block fw-bold">Official Payment URL:</span>
+                    <a href="<?php echo htmlspecialchars($accData['online_banking_url'] ?? '#'); ?>" target="_blank" rel="noopener" class="fw-bold text-primary fs-6 text-break">
+                      <?php echo htmlspecialchars($accData['online_banking_url'] ?? 'https://sssutms.payjix.com/'); ?>
+                      <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
+                    </a>
+                  </div>
+                  <a href="<?php echo htmlspecialchars($accData['online_banking_url'] ?? '#'); ?>" target="_blank" rel="noopener" class="btn btn-primary px-4 py-2 fw-bold rounded-pill">
+                    <i class="fa-solid fa-credit-card me-1"></i> Proceed to Pay Online
                   </a>
                 </div>
-              </div>
-            </div>
 
-            <!-- Payment Instruments & Transaction Charges Table -->
-            <div class="uad-card mb-0">
-              <div class="uad-card-header">
-                <i class="fa-solid fa-receipt text-warning"></i>
-                <h5 class="fw-bold text-dark mb-0">Online Payment Instruments &amp; Convenience Charges</h5>
+                <div class="col-md-6">
+                  <div class="qr-card">
+                    <h6 class="fw-bold text-dark mb-2 text-uppercase">
+                      <i class="fa-solid fa-qrcode text-warning me-1"></i> SCAN &amp; PAY USING ANY BHIM UPI
+                    </h6>
+                    <p class="text-muted extra-small mb-3">GPay, PhonePe, Paytm, BHIM or any Banking UPI App</p>
+                    <?php if (!empty($accData['qr_image'])): ?>
+                      <img src="<?php echo htmlspecialchars($accData['qr_image']); ?>" 
+                           alt="BHIM UPI QR Code" 
+                           class="img-fluid rounded border shadow-sm"
+                           style="max-height: 280px;"
+                           onerror="this.src='https://www.sssutms.co.in/cms/Areas/Website/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpeg'">
+                    <?php endif; ?>
+                  </div>
+                </div>
               </div>
-              <div class="table-responsive">
-                <table class="uad-table">
+
+              <!-- Payment Gateway Charges Table -->
+              <h5 class="fw-bold text-dark mb-3">
+                <i class="fa-solid fa-receipt text-primary me-2"></i>Online Payment Transaction Charges
+              </h5>
+              <div class="table-responsive border rounded-3 shadow-sm mb-4">
+                <table class="table table-striped table-hover align-middle mb-0 charges-table">
                   <thead>
                     <tr>
                       <th style="width: 50%;">Payment Instrument</th>
-                      <th class="text-center" style="width: 50%;">Transaction Charges</th>
+                      <th style="width: 50%;">Convenience / Processing Charges</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td><strong>UPI (BHIM, GPay, PhonePe, Paytm)</strong></td><td class="text-center text-success fw-bold"><i class="fa-solid fa-circle-check me-1"></i> No Charges (0%)</td></tr>
-                    <tr><td><strong>Debit Card (Rupay Card)</strong></td><td class="text-center text-success fw-bold"><i class="fa-solid fa-circle-check me-1"></i> No Charges (0%)</td></tr>
-                    <tr><td><strong>Debit Card (Other Visa/MasterCard &lt;= ₹2000)</strong></td><td class="text-center">0.40% per transaction</td></tr>
-                    <tr><td><strong>Debit Card (Other Visa/MasterCard &gt; ₹2000)</strong></td><td class="text-center">0.90% per transaction</td></tr>
-                    <tr><td><strong>Credit Card (All Cards)</strong></td><td class="text-center">1.10% per transaction</td></tr>
-                    <tr><td><strong>Netbanking (All Banks)</strong></td><td class="text-center">₹15 per transaction</td></tr>
-                    <tr><td><strong>Digital Wallets</strong></td><td class="text-center">1.50% per transaction</td></tr>
+                    <?php 
+                    $charges = $accData['charges'] ?? [];
+                    if (!empty($charges)):
+                      foreach ($charges as $ch):
+                    ?>
+                      <tr>
+                        <td class="fw-bold text-dark"><?php echo htmlspecialchars($ch['instrument']); ?></td>
+                        <td>
+                          <?php if (strpos($ch['charges'], 'No Charges') !== false): ?>
+                            <span class="badge bg-success-subtle text-success fw-bold px-2 py-1">No Charges</span>
+                          <?php else: ?>
+                            <span class="text-dark fw-semibold"><?php echo htmlspecialchars($ch['charges']); ?></span>
+                          <?php endif; ?>
+                        </td>
+                      </tr>
+                    <?php 
+                      endforeach;
+                    endif; 
+                    ?>
                   </tbody>
                 </table>
               </div>
-            </div>
 
+            </article>
           </div>
-        </div><!-- end uad-main-card -->
-      </div><!-- end col-lg-8 -->
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+        </div>
       </div>
+
+      <!-- Right Column: Reusable Admission Sidebar -->
+      <?php require_once __DIR__ . '/includes/admission_sidebar.php'; ?>
 
     </div>
   </div>

@@ -1,312 +1,172 @@
 <?php
-$page_title = 'Brochures & Prospectus - SSSUTMS';
-$banner_title = 'Brochures & Prospectus';
+require_once __DIR__ . '/../config.php';
+
+// Load dynamic data from JSON
+$admissionData = get_json_data('admission_data.json', []);
+$broData = $admissionData['Brochures'] ?? [
+    'page_title' => 'Brochures',
+    'heading' => 'ADMISSION BROCHURE',
+    'prospectus_pdf' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/MAIN_19112025_0435.pdf',
+    'prospectus_label' => 'Prospectus (Click Here)',
+    'cover_image' => 'assets/images/admission/Brochures_img_2.png'
+];
+
+$page_title = ($broData['page_title'] ?? 'Brochures') . ' - SSSUTMS';
+$banner_title = $broData['page_title'] ?? 'Brochures';
 $banner_category = 'Admission';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
-
-$prospectus_pdf = BASE_URL . 'assets/images/Files/Link/IQAC/NAAC/Criteria%201/prospectus%20%20Final.pdf';
 ?>
 
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
-.br-section { background-color: #f8fafc; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-.br-main-card {
+.adm-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   overflow: hidden;
-  margin-bottom: 2rem;
 }
-.br-header-banner {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
+.adm-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  padding: 1.5rem 2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
 }
-.br-header-banner::after {
+.adm-card-header::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.br-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex; align-items: center; gap: 11px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-.br-stat-chip:hover {
-  border-color: #f59e0b;
-  box-shadow: 0 6px 16px rgba(11,37,69,0.08);
-  transform: translateY(-2px);
-}
-.br-stat-icon {
-  width: 42px; height: 42px;
-  border-radius: 10px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; flex-shrink: 0;
-}
-.br-featured-box {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
-  color: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 24px rgba(11,37,69,0.15);
-  margin-bottom: 2rem;
-}
-.br-card-item {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1.5rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.02);
-  transition: all 0.25s ease;
-}
-.br-card-item:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 8px 24px rgba(11,37,69,0.08);
-  transform: translateY(-3px);
-}
-.br-card-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: #f1f5f9;
-  color: #0b2545;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem;
-  margin-bottom: 1rem;
-}
-.br-btn-download {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+.adm-card-header h2,
+.adm-card-header h2 i {
   color: #ffffff !important;
-  font-size: 0.88rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid rgba(245,158,11,0.4);
-  text-decoration: none !important;
+  letter-spacing: -0.02em;
+}
+.adm-card-header span,
+.adm-card-header small {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.brochure-download-box {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.brochure-download-box:hover {
+  border-color: #0b2545;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(11, 37, 69, 0.08);
+}
+.brochure-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(11,37,69,0.15);
-  transition: all 0.2s ease;
-}
-.br-btn-download i {
-  color: #fbbf24 !important;
-}
-.br-btn-download:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  gap: 10px;
+  background: linear-gradient(135deg, #085294 0%, #0b2545 100%);
   color: #ffffff !important;
-  border-color: #d97706;
-  box-shadow: 0 4px 12px rgba(217,119,6,0.3);
-  transform: translateY(-1px);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(8, 82, 148, 0.3);
+  transition: all 0.25s ease;
+}
+.brochure-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(8, 82, 148, 0.4);
+  color: #ffbe0b !important;
+}
+.cover-img-preview {
+  max-width: 550px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.cover-img-preview:hover {
+  transform: scale(1.02);
 }
 </style>
 
-<section class="subpage-main-section br-section py-4">
+<section class="py-5 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-
-      <!-- Main Content Area (Left) -->
+      
+      <!-- Main Content (Left Column) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="br-main-card">
-
-          <!-- Header Banner -->
-          <div class="br-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
-            <div>
-              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
-                <i class="fa-solid fa-book-open me-1"></i> Information &amp; Academic Guides
-              </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">UNIVERSITY PROSPECTUS &amp; BROCHURES</h3>
-              <p class="text-white-50 mb-0 small">Download Official Course Curriculum Brochures, Prospectus &amp; Institute Guides for Session 2026-27</p>
-            </div>
+        <div class="adm-card">
+          <div class="adm-card-header">
+            <h2 class="fs-4 mb-0 fw-bold d-flex align-items-center">
+              <i class="bi bi-journal-text me-2"></i> <?php echo htmlspecialchars($broData['page_title'] ?? 'Brochures'); ?>
+            </h2>
+            <a href="<?php echo htmlspecialchars($broData['prospectus_pdf'] ?? '#'); ?>" target="_blank" rel="noopener" class="btn btn-warning btn-sm rounded-pill fw-bold px-3">
+              <i class="fa-solid fa-file-arrow-down me-1"></i> Download Prospectus
+            </a>
           </div>
 
-          <!-- Content Body -->
-          <div class="p-4">
+          <div class="card-body p-4 p-md-5">
+            <article class="fs-5 lh-lg text-secondary">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="br-stat-chip">
-                  <div class="br-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Academic Session</span>
-                    <strong class="text-dark fs-6">2026 – 2027</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="br-stat-chip">
-                  <div class="br-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Constituent Units</span>
-                    <strong class="text-dark fs-6">15 Institutes</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="br-stat-chip">
-                  <div class="br-stat-icon"><i class="fa-solid fa-file-pdf"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Main Prospectus</span>
-                    <strong class="text-dark fs-6">Full University Guide</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="br-stat-chip">
-                  <div class="br-stat-icon"><i class="fa-solid fa-download"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Digital Format</span>
-                    <strong class="text-dark fs-6">Free PDF Download</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Featured Master Prospectus Box -->
-            <div class="br-featured-box">
-              <div class="row align-items-center g-4">
-                <div class="col-md-8">
-                  <span class="badge bg-warning text-dark fw-bold px-3 py-1 mb-2 rounded-pill"><i class="fa-solid fa-star me-1"></i> Official Publication</span>
-                  <h4 class="fw-bold text-white mb-2">Sri Satya Sai University Master Prospectus 2026-27</h4>
-                  <p class="text-white-50 small mb-0 lh-base">Comprehensive handbook containing complete details on university infrastructure, constituent schools, programs offered, admission criteria, fee structure, hostel amenities, and career placements.</p>
-                </div>
-                <div class="col-md-4 text-md-end">
-                  <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 py-2.5 text-dark rounded-3 shadow">
-                    <i class="fa-solid fa-file-pdf me-1"></i> Download Prospectus
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Departmental Brochures Grid -->
-            <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-layer-group text-warning me-2"></i>Faculty &amp; School Information Guides</h5>
-            <div class="row g-3">
-              
-              <!-- 1. Engineering -->
-              <div class="col-md-6 col-lg-4">
-                <div class="br-card-item">
-                  <div>
-                    <div class="br-card-icon"><i class="fa-solid fa-gears text-primary"></i></div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Faculty of Engineering &amp; Tech</h5>
-                    <p class="text-muted small mb-3">B.E. / B.Tech (Aeronautical, CSE, Civil, Mech, EE, EC, IT) &amp; M.Tech programs guide.</p>
-                  </div>
-                  <div>
-                    <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="br-btn-download w-100 justify-content-center">
-                      <i class="fa-solid fa-file-pdf"></i> View Information
-                    </a>
-                  </div>
-                </div>
+              <!-- Heading with Icon -->
+              <div class="text-center mb-4">
+                <h3 class="fw-bold d-inline-flex align-items-center gap-2" style="color: #e79439;">
+                  <i class="fa-solid fa-folder-open text-warning fs-3"></i>
+                  <span><?php echo htmlspecialchars($broData['heading'] ?? 'ADMISSION BROCHURE'); ?></span>
+                </h3>
+                <p class="text-muted small mt-1">Official University Information Brochure &amp; Academic Prospectus</p>
               </div>
 
-              <!-- 2. Pharmacy -->
-              <div class="col-md-6 col-lg-4">
-                <div class="br-card-item">
-                  <div>
-                    <div class="br-card-icon"><i class="fa-solid fa-pills text-success"></i></div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">School of Pharmacy</h5>
-                    <p class="text-muted small mb-3">B.Pharm, D.Pharm, M.Pharm (Pharmaceutics / Pharmacology) detailed curriculum.</p>
-                  </div>
-                  <div>
-                    <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="br-btn-download w-100 justify-content-center">
-                      <i class="fa-solid fa-file-pdf"></i> View Information
-                    </a>
-                  </div>
+              <!-- Prospectus Download Box -->
+              <div class="brochure-download-box my-4">
+                <div class="mb-3">
+                  <i class="fa-solid fa-book-bookmark text-primary" style="font-size: 3rem;"></i>
                 </div>
+                <h4 class="fw-bold text-dark mb-3">Comprehensive Admissions Prospectus</h4>
+                <p class="text-muted small mb-4 mx-auto" style="max-width: 600px;">
+                  Explore faculties, degree programs, intake capacity, campus facilities, training and placement records, and examination regulations in the official prospectus.
+                </p>
+                <a href="<?php echo htmlspecialchars($broData['prospectus_pdf'] ?? '#'); ?>" target="_blank" rel="noopener" class="brochure-btn">
+                  <i class="fa-solid fa-file-pdf"></i>
+                  <span><?php echo htmlspecialchars($broData['prospectus_label'] ?? 'Prospectus (Click Here)'); ?></span>
+                </a>
               </div>
 
-              <!-- 3. Medical Sciences -->
-              <div class="col-md-6 col-lg-4">
-                <div class="br-card-item">
-                  <div>
-                    <div class="br-card-icon"><i class="fa-solid fa-heart-pulse text-danger"></i></div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Ayush &amp; Medical Sciences</h5>
-                    <p class="text-muted small mb-3">BAMS (Ayurveda) &amp; BHMS (Homeopathy) hospital training and clinical facilities.</p>
+              <!-- Brochure Cover / Preview Image -->
+              <?php if (!empty($broData['cover_image'])): ?>
+                <div class="text-center mt-5 mb-4">
+                  <div class="small fw-bold text-muted uppercase mb-3 letter-spacing-1">
+                    <i class="fa-solid fa-image me-1"></i> Program Brochure Highlights
                   </div>
-                  <div>
-                    <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="br-btn-download w-100 justify-content-center">
-                      <i class="fa-solid fa-file-pdf"></i> View Information
-                    </a>
-                  </div>
+                  <img src="../<?php echo htmlspecialchars($broData['cover_image']); ?>" 
+                       alt="University Brochure Cover" 
+                       class="cover-img-preview img-fluid">
                 </div>
-              </div>
+              <?php endif; ?>
 
-              <!-- 4. Management & IT -->
-              <div class="col-md-6 col-lg-4">
-                <div class="br-card-item">
-                  <div>
-                    <div class="br-card-icon"><i class="fa-solid fa-briefcase text-warning"></i></div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Management &amp; Computer Apps</h5>
-                    <p class="text-muted small mb-3">MBA, BBA, MCA &amp; BCA industry-aligned corporate specialization tracks.</p>
-                  </div>
-                  <div>
-                    <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="br-btn-download w-100 justify-content-center">
-                      <i class="fa-solid fa-file-pdf"></i> View Information
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 5. Nursing & Paramedical -->
-              <div class="col-md-6 col-lg-4">
-                <div class="br-card-item">
-                  <div>
-                    <div class="br-card-icon"><i class="fa-solid fa-user-nurse text-info"></i></div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Nursing &amp; Paramedical</h5>
-                    <p class="text-muted small mb-3">B.Sc. Nursing, GNM, Post Basic, MPT, BPT, BMLT &amp; DMLT healthcare certifications.</p>
-                  </div>
-                  <div>
-                    <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="br-btn-download w-100 justify-content-center">
-                      <i class="fa-solid fa-file-pdf"></i> View Information
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 6. Law & Humanities -->
-              <div class="col-md-6 col-lg-4">
-                <div class="br-card-item">
-                  <div>
-                    <div class="br-card-icon"><i class="fa-solid fa-scale-balanced text-primary"></i></div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">School of Law &amp; Agriculture</h5>
-                    <p class="text-muted small mb-3">BA LLB, B.Com LLB, LLB, LLM, B.Sc (Hons) Ag &amp; Education programs prospectus.</p>
-                  </div>
-                  <div>
-                    <a href="<?php echo $prospectus_pdf; ?>" target="_blank" rel="noopener" class="br-btn-download w-100 justify-content-center">
-                      <i class="fa-solid fa-file-pdf"></i> View Information
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
+            </article>
           </div>
-        </div><!-- end br-main-card -->
-      </div><!-- end col-lg-8 -->
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+        </div>
       </div>
+
+      <!-- Right Column: Reusable Admission Sidebar -->
+      <?php require_once __DIR__ . '/includes/admission_sidebar.php'; ?>
 
     </div>
   </div>

@@ -1,0 +1,638 @@
+{
+    "committee_count": 18,
+    "advisory_count": 30,
+    "patents_count": 28,
+    "eresources_count": 14,
+    "committee": [
+        {
+            "sno": "1",
+            "name": "Prof Hemant Kumar Sharma (Chairman)",
+            "role": "Chairman",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "2",
+            "name": "Prof&nbsp; Santosh Rai (Convenor)",
+            "role": "Convenor",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "3",
+            "name": "Prof. Alka Thakur (Convenor)",
+            "role": "Convenor",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "4",
+            "name": "Prof. Narendra Sharma",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "5",
+            "name": "Prof. Neelesh Choubey",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "6",
+            "name": "Prof Prabodh Khamparia",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "7",
+            "name": "Prof. Neelu Jain",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "8",
+            "name": "Prof. Geeta Khoobchandani",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "9",
+            "name": "Prof. Gajraj Singh Ahirwar",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "10",
+            "name": "Prof. Pradeep Maheshwari",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "11",
+            "name": "Prof. Harsh Lohiya",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "12",
+            "name": "Prof. Abhilasha Pathak",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "13",
+            "name": "Prof. Pradeep Kumar Patra",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "14",
+            "name": "Prof. Kanchan Shrivastava",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "15",
+            "name": "Prof. M D Singh",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "16",
+            "name": "Prof. Dhiraj Shinde",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "17",
+            "name": "Prof. Rishikesh&nbsp; Yadav",
+            "role": "Member",
+            "category": "Executive Committee"
+        },
+        {
+            "sno": "18",
+            "name": "Prof. Mamta Vyas",
+            "role": "Member",
+            "category": "Executive Committee"
+        }
+    ],
+    "advisory": [
+        {
+            "sno": "1",
+            "name": "Image Processing",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "2",
+            "name": "Design and Production Engineering",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "3",
+            "name": "Radar, Semi-Conductor Technology, Nano technology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "4",
+            "name": "Distributed database system, IOT",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "5",
+            "name": "Power System",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "6",
+            "name": "Coordination chemistry, Environmental chemistry, Chemical Science",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "7",
+            "name": "Cleaner production and clean technology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "8",
+            "name": "Space Science",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "9",
+            "name": "Ionosphere",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "10",
+            "name": "Soil Chemistry, inorganic chemistry, Applied chemistry",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "11",
+            "name": "Applied&nbsp; Economics, Business management",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "12",
+            "name": "Retail Marketing",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "13",
+            "name": "Service Marketing",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "14",
+            "name": "Pharmacognosy",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "15",
+            "name": "Sub sociology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "16",
+            "name": "Pharmaceutics",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "17",
+            "name": "Pharmacology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "18",
+            "name": "Pharmaceutical Chemistry",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "19",
+            "name": "Pharmaceutical formulation and manufacturing&nbsp;",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "20",
+            "name": "Rural-economics",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "21",
+            "name": "Agronomy",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "22",
+            "name": "Education contribution to society",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "23",
+            "name": "Rural and Urban Education System",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "24",
+            "name": "Toxicology and Pharmacology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "25",
+            "name": "Prashanik Adyyan",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "26",
+            "name": "Interpersonal relationship in psychology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "27",
+            "name": "Case study method",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "28",
+            "name": "Physical Education",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "29",
+            "name": "Environmental education, Education Psychology",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        },
+        {
+            "sno": "30",
+            "name": "Special Education",
+            "role": "Subject Expert \/ Advisory Board",
+            "category": "Advisory Board"
+        }
+    ],
+    "patents": [
+        {
+            "id": "pat_1",
+            "sno": "1",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "&nbsp;Adjustable&nbsp; Laptop Table",
+            "app_no": "391559-001",
+            "status": "Filed &amp; Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_2",
+            "sno": "2.",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "An intelligent waste \/garbage disposal system based on internet of things (IOT)&nbsp;",
+            "app_no": "202221065208\r\n&nbsp;",
+            "status": "Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_3",
+            "sno": "3.",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "Smart Meditation And Rest Table",
+            "app_no": "391547-001",
+            "status": "Filed &amp; Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_4",
+            "sno": "4",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "DEEP DRAWING PUNCH WITH SENSORS",
+            "app_no": "398305-001",
+            "status": "Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_5",
+            "sno": "5",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "MANUALLY OPERATED DEEP DRAWING MACHINE",
+            "app_no": "391560-001",
+            "status": "Filed &amp; Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_6",
+            "sno": "6",
+            "inventors": "Mr. Manoj Kumar Yadav",
+            "title": "DEEP DRAWING DIE WITH SENSORS",
+            "app_no": "394723-001",
+            "status": "Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_7",
+            "sno": "7",
+            "inventors": "Dr Gajraj Singh Ahirwar",
+            "title": "FINGER SLEEVE FOR MOBILE SCREEN",
+            "app_no": "398306-001",
+            "status": "Filed &amp; Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_8",
+            "sno": "8",
+            "inventors": "Dr. Santosh Jagwani&nbsp;&nbsp;",
+            "title": "COAL BURNER &amp; HANDLING APPARATUS WITH SMOKE SEPARATION CHAMBER",
+            "app_no": "394722-001",
+            "status": "Filed &amp; Published",
+            "category": "Published (2023-2024)"
+        },
+        {
+            "id": "pat_9",
+            "sno": "1",
+            "inventors": "Dr. C. K Tyagi",
+            "title": "ENGINEERED CYCLODEXTRIN NANOSPONGES FOR THE DELIVERY OF ANTIRETROVIRAL DRUG",
+            "app_no": "202221001859A",
+            "status": "Filed &amp; Published",
+            "category": "Granted Patents"
+        },
+        {
+            "id": "pat_10",
+            "sno": "2.",
+            "inventors": "Dr. Jitendra Sheetlani",
+            "title": "METHOD OF GARBAGE MONITORING AND CLEARING PROCESS BY IOT\r\n&nbsp;",
+            "app_no": "2021104892\r\n&nbsp;",
+            "status": "Granted",
+            "category": "Granted Patents"
+        },
+        {
+            "id": "pat_11",
+            "sno": "3.",
+            "inventors": "Dr. Kailash Patdar",
+            "title": "A NOVEL BRAIN ADEQUACY TEST SYSTEM TO IMPROVE COGNITIVE INDEX OF YOUTH USING NON-INVASIVE BRAIN SENSORS AND ARTIFICIAL NEURAL NETWORKS",
+            "app_no": "202241029374",
+            "status": "Filed &amp; Published",
+            "category": "Granted Patents"
+        },
+        {
+            "id": "pat_12",
+            "sno": "1",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "INTELLIGENT GREEN HOUSE USING IOT",
+            "app_no": "2021100630",
+            "status": "&nbsp;Granted",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_13",
+            "sno": "2",
+            "inventors": "Dr. C. K Tyagi",
+            "title": "LAGERSTROEMIA MICROCARPA WIGHT EXTRACT FOR THE TREATMENT OF DIABETES INDUCED BY STZ",
+            "app_no": "2021105435\r\n&nbsp;",
+            "status": "Granted",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_14",
+            "sno": "3",
+            "inventors": "Dr. Sunil Kumar Shah",
+            "title": "A METHOD FOR THE SIMULTANEOUS ESTIMATION OF ACECLOFENAC AND TRAMADOL BY RP-HPLC IN BULK AND TABLET DOSAGE FORMS",
+            "app_no": "2021106980",
+            "status": "Granted",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_15",
+            "sno": "4",
+            "inventors": "Dr. Jitendra Sheetlani",
+            "title": "SMART AND INTELLIGENT MEDICAL BED FOR CHILD PATIENT CARE",
+            "app_no": "2021105547",
+            "status": "Granted",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_16",
+            "sno": "5.",
+            "inventors": "Dr. Sunil Kumar Shah",
+            "title": "A METHOD OF PREPARATION OF AQUEOUS EXTRACT OF SIDA RHOMBIFOLIA LINN FOR ANTIBACTERIAL ACTIVITY",
+            "app_no": "2021103621",
+            "status": "Granted",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_17",
+            "sno": "6.",
+            "inventors": "Dr.&nbsp;Minakshi Pathak",
+            "title": "A METHOD OF PREPARATION OF EMBELIA TSJERIAM COTTAM FOR PRELIMINARY AND PHYTOCHEMICAL STUDIES",
+            "app_no": "2021106614",
+            "status": "Granted",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_18",
+            "sno": "7.",
+            "inventors": "Dr. Mukesh Tiwari",
+            "title": "EFFICIENT&nbsp; ALGORITHM FOR TACKING OF OBJECTS IN VIDEO CAMERA NETWORK AND THEIR ESTABLISHMENT THEREOF",
+            "app_no": "202021055337",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_19",
+            "sno": "8.",
+            "inventors": "Dr. C. K Tyagi",
+            "title": "&ldquo;PREPARATION OF SELF-MICRO EMULSIFYING DRUG SYSTEM OF OLMESARTAN MEDOXOMILAND THEIR EVALUATION THEREOF&rdquo;",
+            "app_no": "20202150733",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_20",
+            "sno": "9.",
+            "inventors": "Dr. C. K Tyagi",
+            "title": "&ldquo;NOVEL METHOD DEVELOPMENT TO ESTIMATE PARACETAMOL AND ETODOLAC AND THEIR VALIDATION THEREOF&rdquo;",
+            "app_no": "202021051205",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_21",
+            "sno": "10.",
+            "inventors": "Dr. Jitendra Sheetlani",
+            "title": "GARBAGE MONITORING AND CLEARING PROCESS BY IOT",
+            "app_no": "2021100426\r\n&nbsp;",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_22",
+            "sno": "11.",
+            "inventors": "Dr. C. K Tyagi",
+            "title": "EUPHORBIA THYMIFOLIA LINN EXTRACT FOR THE TREATMENT OF HYPERLIPIDEMIA AND DIABETES",
+            "app_no": "202121043044\r\n&nbsp;",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_23",
+            "sno": "12.",
+            "inventors": "Dr. Harsh Pratap Singh",
+            "title": "A SMART DUSTBIN FOR DISABLED PEOPLE",
+            "app_no": "202141001895",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_24",
+            "sno": "13.",
+            "inventors": "Dr. PRABODH KUMAR KHAMPARIYA",
+            "title": "SOLAR POWERED ESCALATOR",
+            "app_no": "202141017941",
+            "status": "Filed &amp; Published",
+            "category": "Published (2022-2023)"
+        },
+        {
+            "id": "pat_25",
+            "sno": "1",
+            "inventors": "Dr. G R Selokar",
+            "title": "Non- Conventional grooved stepped shoe ribs",
+            "app_no": "202021003931",
+            "status": "Filed &amp; Published",
+            "category": "Other Registered Patents"
+        },
+        {
+            "id": "pat_26",
+            "sno": "2",
+            "inventors": "Dr. Jiterndra Sheetlani",
+            "title": "Night Patrol System Based On Iot And Radio Frequency Identification",
+            "app_no": "202021039031",
+            "status": "Filed &amp; Published",
+            "category": "Other Registered Patents"
+        },
+        {
+            "id": "pat_27",
+            "sno": "3",
+            "inventors": "Dr. Neelesh Choubey",
+            "title": "A Poly herbal formulation for treatment of liver disorder and method of preparation",
+            "app_no": "202021051557",
+            "status": "Filed &amp; Published",
+            "category": "Other Registered Patents"
+        },
+        {
+            "id": "pat_28",
+            "sno": "4",
+            "inventors": "Dr. C. K Tyagi",
+            "title": "&ldquo;A pharmaceutical composition comprising a compressed polyherbal tablets for the treatment of infections caused by helminthes&rdquo;",
+            "app_no": "202021042927",
+            "status": "Filed &amp; Published",
+            "category": "Other Registered Patents"
+        }
+    ],
+    "eresources": [
+        {
+            "title": "Project Gutenberg",
+            "url": "http:\/\/www.gutenberg.org\/",
+            "category": "Free Domain Books",
+            "desc": "Over 70,000 free eBooks in public domain."
+        },
+        {
+            "title": "ManyBooks",
+            "url": "http:\/\/www.manybooks.net\/",
+            "category": "Free Domain Books",
+            "desc": "Extensive digital library of downloadable classics."
+        },
+        {
+            "title": "Planet eBook",
+            "url": "http:\/\/www.planetebook.com\/",
+            "category": "Free Domain Books",
+            "desc": "Free classic literature ebooks."
+        },
+        {
+            "title": "Feedbooks Public Domain",
+            "url": "http:\/\/www.feedbooks.com\/publicdomin",
+            "category": "Free Domain Books",
+            "desc": "Free high quality public domain books."
+        },
+        {
+            "title": "Open Culture Free Audio & eBooks",
+            "url": "http:\/\/www.openculture.com\/free_ebooks",
+            "category": "Free Domain Books",
+            "desc": "Free educational and cultural media."
+        },
+        {
+            "title": "Authorama Public Domain Books",
+            "url": "http:\/\/www.authorama.com\/",
+            "category": "Free Domain Books",
+            "desc": "Completely free books from a variety of authors."
+        },
+        {
+            "title": "INDEST-AICTE Consortium",
+            "url": "http:\/\/www.indest.iitd.ac.in\/",
+            "category": "Academic E-Content",
+            "desc": "Indian National Digital Library in Engineering Sciences and Technology."
+        },
+        {
+            "title": "NPTEL Online Portal",
+            "url": "http:\/\/nptel.iitm.ac.in\/",
+            "category": "Academic E-Content",
+            "desc": "National Programme on Technology Enhanced Learning courses."
+        },
+        {
+            "title": "INFLIBNET Centre",
+            "url": "http:\/\/www.inflibnet.ac.in\/",
+            "category": "Academic E-Content",
+            "desc": "Information and Library Network Centre - UGC autonomous inter-university centre."
+        },
+        {
+            "title": "Vidyanidhi Digital Library",
+            "url": "http:\/\/www.vidyanidhi.org.in\/",
+            "category": "Academic E-Content",
+            "desc": "Indian digital library of doctoral dissertations."
+        },
+        {
+            "title": "Digital Library of India (ERNET)",
+            "url": "http:\/\/www.digitallibrary.ernet.in",
+            "category": "Academic E-Content",
+            "desc": "Digitized collection of Indian heritage and knowledge."
+        },
+        {
+            "title": "NISCAIR Online Periodicals Repository",
+            "url": "http:\/\/www.niscair.res.in",
+            "category": "Academic E-Content",
+            "desc": "National Institute of Science Communication and Information Resources."
+        },
+        {
+            "title": "Google Scholar",
+            "url": "https:\/\/scholar.google.co.in\/",
+            "category": "Academic E-Content",
+            "desc": "Search across many disciplines and sources: articles, theses, books."
+        },
+        {
+            "title": "INDEST Membership Brochure (PDF)",
+            "url": "assets\/uploads\/documents\/brochureforcoremembers.pdf",
+            "category": "PDF Brochures",
+            "desc": "Brochure for core members of INDEST-AICTE Consortium."
+        }
+    ]
+}

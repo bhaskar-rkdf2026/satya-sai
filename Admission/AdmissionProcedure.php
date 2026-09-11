@@ -1,296 +1,164 @@
 <?php
-$page_title = 'Admission Procedure - SSSUTMS';
-$banner_title = 'Admission Procedure';
+require_once __DIR__ . '/../config.php';
+
+// Load dynamic data from JSON
+$admissionData = get_json_data('admission_data.json', []);
+$procData = $admissionData['AdmissionProcedure'] ?? [
+    'page_title' => 'Admission Procedure',
+    'lead_title' => 'Admission Procedure',
+    'description' => 'Admissions to various Technical, Professional & General Courses will be made in accordance with the guidelines provided by University Regulatory Authority, M.P. & State Government of Madhya Pradesh, as amended or suggested from time to time. The fees charged for all the courses will be as per approval accorded by Madhya Pradesh Niji Vishwavidyalaya Niyamak Aayog , Bhopal (Madhya Pradesh)',
+    'pdf_link' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/adm_procedure.pdf',
+    'pdf_label' => 'Admission Procedure(Click Here)',
+    'image' => 'assets/images/admission/AdmissionProcedure_img_0.jpg'
+];
+
+$page_title = ($procData['page_title'] ?? 'Admission Procedure') . ' - SSSUTMS';
+$banner_title = $procData['page_title'] ?? 'Admission Procedure';
 $banner_category = 'Admission';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
-.ap-section { background-color: #f8fafc; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-.ap-main-card {
+.adm-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   overflow: hidden;
-  margin-bottom: 2rem;
 }
-.ap-header-banner {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
+.adm-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  padding: 1.5rem 2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
 }
-.ap-header-banner::after {
+.adm-card-header::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.ap-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex; align-items: center; gap: 11px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-.ap-stat-chip:hover {
-  border-color: #f59e0b;
-  box-shadow: 0 6px 16px rgba(11,37,69,0.08);
-  transform: translateY(-2px);
-}
-.ap-stat-icon {
-  width: 42px; height: 42px;
-  border-radius: 10px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; flex-shrink: 0;
-}
-.ap-step-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid #0b2545;
-  border-radius: 14px;
-  padding: 1.5rem;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.02);
-  transition: all 0.25s ease;
-}
-.ap-step-card:hover {
-  border-left-color: #f59e0b;
-  box-shadow: 0 8px 24px rgba(11,37,69,0.08);
-  transform: translateY(-2px);
-}
-.ap-step-num {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
-  color: #fbbf24;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 1rem;
-  flex-shrink: 0;
-}
-.ap-doc-item {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 12px 16px;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 0.92rem;
-  color: #334155;
-  transition: all 0.2s ease;
-}
-.ap-doc-item:hover {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 12px rgba(11,37,69,0.05);
-}
-.ap-doc-item i {
-  color: #10b981;
-  font-size: 1.1rem;
-}
-.ap-pdf-btn {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+.adm-card-header h2,
+.adm-card-header h2 i {
   color: #ffffff !important;
+  font-size: 1.45rem;
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 12px 24px;
-  border-radius: 10px;
-  border: 1px solid rgba(245,158,11,0.4);
-  text-decoration: none !important;
-  display: inline-flex; align-items: center; gap: 10px;
-  box-shadow: 0 4px 14px rgba(11,37,69,0.15);
-  transition: all 0.25s ease;
+  letter-spacing: -0.02em;
 }
-.ap-pdf-btn i {
-  color: #fbbf24 !important;
+.adm-card-header span,
+.adm-card-header small {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
-.ap-pdf-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+.adm-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e03e2d;
   color: #ffffff !important;
-  border-color: #d97706;
-  box-shadow: 0 6px 18px rgba(217,119,6,0.35);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(224, 62, 45, 0.25);
+}
+.adm-pdf-btn:hover {
+  background: #c03223;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(224, 62, 45, 0.35);
+}
+.adm-banner-img {
+  width: 100%;
+  max-width: 980px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
+}
+.adm-banner-img:hover {
+  transform: scale(1.005);
 }
 </style>
 
-<section class="subpage-main-section ap-section py-4">
+<section class="py-5 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-
-      <!-- Main Content Area (Left) -->
+      
+      <!-- Main Content (Left Column) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="ap-main-card">
-
-          <!-- Header Banner -->
-          <div class="ap-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
-            <div>
-              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
-                <i class="fa-solid fa-route me-1"></i> Step-by-Step Admission Guide
-              </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">ADMISSION PROCEDURE 2026-27</h3>
-              <p class="text-white-50 mb-0 small">Guidelines, Eligibility Norms, Verification Process &amp; Required Documents</p>
-            </div>
-            <div>
-              <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/adm_procedure.pdf" target="_blank" rel="noopener" class="ap-pdf-btn">
-                <i class="fa-solid fa-file-pdf fs-5"></i> Official Procedure PDF
-              </a>
-            </div>
+        <div class="adm-card">
+          <div class="adm-card-header">
+            <h2 class="fs-4 mb-0 fw-bold d-flex align-items-center">
+              <i class="bi bi-journal-text me-2"></i> <?php echo htmlspecialchars($procData['page_title'] ?? 'Admission Procedure'); ?>
+            </h2>
+            <a href="<?php echo htmlspecialchars($procData['pdf_link'] ?? '#'); ?>" target="_blank" rel="noopener" class="adm-pdf-btn d-none d-sm-inline-flex">
+              <i class="fa-solid fa-file-pdf"></i> Download PDF
+            </a>
           </div>
 
-          <!-- Content Body -->
-          <div class="p-4">
+          <div class="card-body p-4 p-md-5">
+            <article class="fs-5 lh-lg text-secondary">
+              
+              <!-- Section Lead Title -->
+              <h4 class="text-center fw-bold text-dark mb-4 pb-2 border-bottom border-warning d-inline-block mx-auto" style="border-width: 3px !important;">
+                <?php echo htmlspecialchars($procData['lead_title'] ?? 'Admission Procedure'); ?>
+              </h4>
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="ap-stat-chip">
-                  <div class="ap-stat-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Process</span>
-                    <strong class="text-dark fs-6">4 Simple Steps</strong>
-                  </div>
-                </div>
+              <!-- Statutory / Regulatory Approval Text -->
+              <div class="p-4 rounded-3 mb-4 bg-light border border-slate-200">
+                <p class="text-dark mb-0 fs-6 lh-base text-justify" style="text-align: justify;">
+                  <?php echo nl2br(htmlspecialchars($procData['description'] ?? '')); ?>
+                </p>
               </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ap-stat-chip">
-                  <div class="ap-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Regulatory Norms</span>
-                    <strong class="text-dark fs-6">MP Purv Niyamak</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ap-stat-chip">
-                  <div class="ap-stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Mode</span>
-                    <strong class="text-dark fs-6">Online &amp; Campus</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ap-stat-chip">
-                  <div class="ap-stat-icon"><i class="fa-solid fa-headset"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Help Desk</span>
-                    <strong class="text-dark fs-6">Counseling Cell</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Regulatory Statement -->
-            <div class="p-3.5 p-md-4 rounded-3 mb-4 bg-light border border-slate-200">
-              <h5 class="fw-bold text-dark mb-2"><i class="fa-solid fa-scale-balanced text-warning me-2"></i>Regulatory Framework &amp; Fee Norms</h5>
-              <p class="text-dark mb-0 lh-lg" style="text-align: justify;">
-                Admissions to various Technical, Professional, Medical &amp; General Courses are conducted strictly in accordance with guidelines provided by the <strong>University Regulatory Authority, M.P.</strong> and the <strong>State Government of Madhya Pradesh</strong>, as amended or suggested from time to time. The fees charged for all programs conform to the approvals accorded by <em>Madhya Pradesh Niji Vishwavidyalaya Niyamak Aayog, Bhopal (M.P.)</em>.
-              </p>
-            </div>
-
-            <!-- 4-Step Roadmap -->
-            <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-stairs text-warning me-2"></i>Admission Steps for Aspirants</h5>
-
-            <!-- Step 1 -->
-            <div class="ap-step-card">
-              <div class="d-flex align-items-start gap-3">
-                <div class="ap-step-num">1</div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1">Online / Offline Registration</h5>
-                  <p class="text-muted small mb-0">Fill out the online application form via E-Pravesh portal or submit the registration form at the University Admission Cell with basic academic details and chosen course stream.</p>
-                </div>
+              <!-- Official PDF Action Link -->
+              <div class="mb-4 text-center text-md-start">
+                <a href="<?php echo htmlspecialchars($procData['pdf_link'] ?? '#'); ?>" target="_blank" rel="noopener" class="adm-pdf-btn">
+                  <i class="fa-solid fa-file-arrow-down"></i>
+                  <em><strong><?php echo htmlspecialchars($procData['pdf_label'] ?? 'Admission Procedure(Click Here)'); ?></strong></em>
+                </a>
               </div>
-            </div>
 
-            <!-- Step 2 -->
-            <div class="ap-step-card">
-              <div class="d-flex align-items-start gap-3">
-                <div class="ap-step-num">2</div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1">Counseling &amp; Merit Seat Allocation</h5>
-                  <p class="text-muted small mb-0">Merit list and counseling schedules are published on the website. Candidates participate in counseling sessions based on qualifying exam scores (or entrance test ranks for Ph.D./BAMS/BHMS).</p>
+              <!-- Official Step-by-Step Flowchart Image -->
+              <?php if (!empty($procData['image'])): ?>
+                <div class="text-center my-4">
+                  <img src="../<?php echo htmlspecialchars($procData['image']); ?>" 
+                       alt="Admission Procedure Diagram" 
+                       class="adm-banner-img img-fluid"
+                       onerror="this.src='https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Adm_Adv.jpg'">
                 </div>
+              <?php endif; ?>
+
+              <!-- Quick Links Footer within Card -->
+              <div class="pt-4 mt-4 border-top d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <span class="small text-muted">
+                  <i class="fa-solid fa-shield-halved text-success me-1"></i> Approved by M.P. Niji Vishwavidyalaya Niyamak Aayog
+                </span>
+                <a href="FeesStructure.php" class="btn btn-outline-primary btn-sm rounded-pill fw-bold">
+                  View Fee Structure <i class="fa-solid fa-arrow-right ms-1"></i>
+                </a>
               </div>
-            </div>
 
-            <!-- Step 3 -->
-            <div class="ap-step-card">
-              <div class="d-flex align-items-start gap-3">
-                <div class="ap-step-num">3</div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1">Document Verification</h5>
-                  <p class="text-muted small mb-0">Verification of original certificates, transfer/migration documents, category certificates, and eligibility proofs at the central verification counter.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="ap-step-card">
-              <div class="d-flex align-items-start gap-3">
-                <div class="ap-step-num">4</div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1">Fee Payment &amp; Enrollment Confirmation</h5>
-                  <p class="text-muted small mb-0">Payment of approved tuition &amp; college fees through online gateway / PNB on-campus bank branch, followed by generation of official student ID and enrollment number.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mandatory Documents Checklist -->
-            <div class="mt-4 pt-2">
-              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-folder-open text-warning me-2"></i>Mandatory Documents Required at Admission</h5>
-              <div class="row g-2.5 g-md-3">
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> 10th (High School) Marksheet &amp; Certificate</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> 12th (Higher Secondary) Marksheet</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Graduation Marksheets &amp; Degree (for PG/Ph.D.)</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Transfer Certificate (TC) in Original</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Migration Certificate in Original</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Character Certificate from Last Institution</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Caste &amp; Domicile Certificate (if applicable)</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Recent Passport Size Color Photographs (6 Copies)</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Aadhaar Card Copy of Candidate &amp; Parents</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="ap-doc-item"><i class="fa-solid fa-circle-check"></i> Income Certificate (for Scholarship / Reserved)</div>
-                </div>
-              </div>
-            </div>
-
+            </article>
           </div>
-        </div><!-- end ap-main-card -->
-      </div><!-- end col-lg-8 -->
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+        </div>
       </div>
+
+      <!-- Right Column: Reusable Admission Sidebar -->
+      <?php require_once __DIR__ . '/includes/admission_sidebar.php'; ?>
 
     </div>
   </div>

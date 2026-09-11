@@ -1,853 +1,453 @@
 <?php
-$page_title = 'Admission Notice - SSSUTMS';
-$banner_title = 'Admission Notice';
+require_once __DIR__ . '/../config.php';
+
+// Load dynamic data from JSON
+$admissionData = get_json_data('admission_data.json', []);
+$noticePageData = $admissionData['AdmissionNotice'] ?? [];
+$notices = $noticePageData['notices'] ?? [];
+
+$page_title = ($noticePageData['page_title'] ?? 'Admission Notice') . ' - SSSUTMS';
+$banner_title = $noticePageData['page_title'] ?? 'Admission Notice';
 $banner_category = 'Admission';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 ?>
 
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
-.an-section { background-color: #f8fafc; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-.an-main-card {
+/* Card Container */
+.adm-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
   overflow: hidden;
-  margin-bottom: 2rem;
 }
-.an-header-banner {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
+
+/* Card Header */
+.adm-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #173d72 100%);
+  padding: 1.6rem 2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
 }
-.an-header-banner::after {
+.adm-card-header::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.an-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex; align-items: center; gap: 11px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-.an-stat-chip:hover {
-  border-color: #f59e0b;
-  box-shadow: 0 6px 16px rgba(11,37,69,0.08);
-  transform: translateY(-2px);
-}
-.an-stat-icon {
-  width: 42px; height: 42px;
-  border-radius: 10px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; flex-shrink: 0;
-}
-.an-session-block {
-  margin-bottom: 2rem;
-}
-.an-session-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #0b2545;
-  padding-bottom: 0.6rem;
-  border-bottom: 2px solid #e2e8f0;
-  margin-bottom: 1rem;
-}
-.an-session-title i {
-  color: #f59e0b;
-}
-.an-item-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-}
-.an-item-card:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.an-item-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #1e293b;
-  margin-bottom: 0;
-}
-.an-badge-new {
-  background: #fee2e2;
-  color: #dc2626;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  border: 1px solid #fca5a5;
-  margin-right: 8px;
-}
-.an-btn {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+.adm-card-header h2,
+.adm-card-header h2 i {
   color: #ffffff !important;
-  font-size: 0.82rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  padding: 7px 15px;
-  border-radius: 8px;
-  border: 1px solid rgba(245,158,11,0.35);
-  text-decoration: none !important;
+  letter-spacing: -0.01em;
+}
+.adm-card-header span,
+.adm-card-header small {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Filter Navigation Tabs */
+.notice-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef2f6;
+}
+.filter-tab-btn {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(11,37,69,0.12);
+  gap: 8px;
   transition: all 0.2s ease;
+  user-select: none;
 }
-.an-btn i {
-  color: #fbbf24 !important;
+.filter-tab-btn:hover {
+  background: #f1f5f9;
+  color: #0b2545;
+  border-color: #cbd5e1;
 }
-.an-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
-  color: #ffffff !important;
-  border-color: #d97706;
-  box-shadow: 0 4px 12px rgba(217,119,6,0.3);
-  transform: translateY(-1px);
+.filter-tab-btn.active {
+  background: #0b2545;
+  color: #ffffff;
+  border-color: #0b2545;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.2);
 }
-.an-search-box {
+.filter-tab-btn .tab-count {
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.08);
+}
+.filter-tab-btn.active .tab-count {
+  background: #f59e0b;
+  color: #0b2545;
+  font-weight: 700;
+}
+
+/* Search Bar */
+.notice-search-box {
   position: relative;
-  max-width: 380px;
+  margin-bottom: 1.5rem;
 }
-.an-search-box input {
-  padding-left: 2.5rem;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
+.notice-search-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: #ffffff;
 }
-.an-search-box i {
+.notice-search-input:focus {
+  outline: none;
+  border-color: #0b2545;
+  box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.08);
+}
+.search-icon-pos {
   position: absolute;
-  left: 0.9rem;
+  left: 1rem;
   top: 50%;
   transform: translateY(-50%);
   color: #94a3b8;
+  pointer-events: none;
+}
+.search-clear-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  cursor: pointer;
+  display: none;
+  border: none;
+  background: transparent;
+  padding: 4px;
+}
+.search-clear-btn:hover {
+  color: #475569;
+}
+
+/* Notice Cards */
+.notice-item-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.notice-item-card:hover {
+  border-color: #cbd5e1;
+  background-color: #fcfdfe;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+.notice-item-card.is-current-session {
+  border-left: 4px solid #0b2545;
+}
+.notice-item-card.is-new-notice {
+  border-left: 4px solid #0b2545;
+}
+
+/* Notice Icon Box - Dark Blue Theme */
+.notice-icon-box {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 10px;
+  background: #e8eff8;
+  color: #0b2545;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.25s ease;
+}
+.notice-item-card:hover .notice-icon-box {
+  background: #0b2545;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Notice Title & Meta */
+.notice-title-link {
+  color: #0b2545;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.15s ease;
+}
+.notice-title-link:hover {
+  color: #173d72;
+}
+.notice-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.meta-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.meta-tag-date {
+  background: #f1f5f9;
+  color: #64748b;
+}
+.meta-tag-session {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+.meta-tag-category {
+  background: #fef3c7;
+  color: #92400e;
+}
+.meta-tag-new {
+  background: #0b2545;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 2px 7px;
+  letter-spacing: 0.02em;
+}
+
+/* Download Button - University Dark Blue Theme */
+.btn-notice-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffffff;
+  color: #0b2545;
+  border: 1.5px solid #0b2545;
+  padding: 0.48rem 1.05rem;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.btn-notice-download:hover {
+  background: #0b2545;
+  color: #ffffff;
+  border-color: #0b2545;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Empty / No Results State */
+.notices-empty-state {
+  display: none;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .notice-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .notice-item-card .btn-notice-download {
+    width: 100%;
+    justify-content: center;
+  }
 }
 </style>
 
-<section class="subpage-main-section an-section py-4">
+<section class="py-5 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-
-      <!-- Main Content Area (Left) -->
+      
+      <!-- Main Content (Left Column) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="an-main-card">
-
-          <!-- Header Banner -->
-          <div class="an-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div class="adm-card">
+          
+          <!-- Card Header -->
+          <div class="adm-card-header">
             <div>
-              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
-                <i class="fa-solid fa-bullhorn me-1"></i> Official Admission Circulars
-              </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">ADMISSION NOTICES &amp; COUNSELING SCHEDULES</h3>
-              <p class="text-white-50 mb-0 small">Official Announcements, Eligibility Criteria &amp; Admission Counseling Notifications</p>
+              <h2 class="fs-4 mb-0 fw-bold d-flex align-items-center">
+                <i class="fa-solid fa-bullhorn me-2 text-warning"></i> <?php echo htmlspecialchars($noticePageData['page_title'] ?? 'Admission Notice'); ?>
+              </h2>
+              <span class="text-white-50 extra-small">Official Session Circulars, Counseling Schedules &amp; Entrance Notifications</span>
             </div>
-            <div>
-              <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3 shadow-sm">
-                <i class="fa-solid fa-pen-nib me-1"></i> Apply Online
-              </a>
-            </div>
+            <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill shadow-sm">
+              <i class="fa-regular fa-file-lines me-1"></i> <span id="totalNoticesCounter"><?php echo count($notices); ?></span> Notifications
+            </span>
           </div>
 
-          <!-- Content Body -->
-          <div class="p-4">
+          <div class="card-body p-4 p-md-5">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="an-stat-chip">
-                  <div class="an-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Active Session</span>
-                    <strong class="text-dark fs-6">2026 – 2027</strong>
-                  </div>
+            <!-- Filter Navigation Tabs -->
+            <div class="notice-filter-tabs">
+              <button type="button" class="filter-tab-btn active" data-filter="all">
+                <i class="fa-solid fa-layer-group"></i> All Circulars
+                <span class="tab-count"><?php echo count($notices); ?></span>
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="2026-27">
+                <i class="fa-solid fa-circle text-success" style="font-size: 8px;"></i> Session 2026-27
+                <span class="tab-count">5</span>
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="2025-26">
+                Session 2025-26
+                <span class="tab-count">5</span>
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="2024-25">
+                Session 2024-25
+                <span class="tab-count">4</span>
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="Paramedical">
+                <i class="fa-solid fa-user-doctor" style="font-size: 11px;"></i> Paramedical
+                <span class="tab-count">7</span>
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="archived">
+                <i class="fa-solid fa-box-archive" style="font-size: 11px;"></i> Archived
+                <span class="tab-count">24</span>
+              </button>
+            </div>
+
+            <!-- Search Bar & Results Counter Bar -->
+            <div class="row align-items-center g-3 mb-4">
+              <div class="col-md-8">
+                <div class="notice-search-box">
+                  <i class="fa-solid fa-magnifying-glass search-icon-pos"></i>
+                  <input type="text" id="noticeSearchInput" class="notice-search-input" placeholder="Search notices by keyword, session (e.g. 2026-27, B.Ed, Entrance)...">
+                  <button type="button" id="searchClearBtn" class="search-clear-btn" title="Clear search">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="an-stat-chip">
-                  <div class="an-stat-icon"><i class="fa-solid fa-bell"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Total Notices</span>
-                    <strong class="text-dark fs-6">50 Circulars</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="an-stat-chip">
-                  <div class="an-stat-icon"><i class="fa-solid fa-stethoscope"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Specialized</span>
-                    <strong class="text-dark fs-6">Medical &amp; Allied</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="an-stat-chip">
-                  <div class="an-stat-icon"><i class="fa-solid fa-file-pdf"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Format</span>
-                    <strong class="text-dark fs-6">Official PDF</strong>
-                  </div>
-                </div>
+              <div class="col-md-4 text-md-end">
+                <span class="text-muted small fw-medium">
+                  Showing <strong id="visibleCount" class="text-dark"><?php echo count($notices); ?></strong> of <?php echo count($notices); ?> circulars
+                </span>
               </div>
             </div>
 
-            <!-- Search Toolbar -->
-            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-              <div class="an-search-box flex-grow-1">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="noticeSearchInput" class="form-control" placeholder="Search notices (e.g. 2026, Enrollment, B.Tech, NRI)...">
-              </div>
-              <div class="small text-muted">
-                Showing <strong id="noticeCount">50</strong> notifications
-              </div>
-            </div>
+            <!-- Notices List Container -->
+            <div id="noticesContainer">
+              <?php if (!empty($notices)): ?>
+                <?php foreach ($notices as $idx => $n): 
+                  $sessionTag = $n['session'] ?? 'Archived';
+                  $isCurrent = ($sessionTag === '2026-27');
+                  $isNew = !empty($n['is_new']) || $isCurrent;
+                  $category = $n['category'] ?? 'Admission';
+                ?>
+                  <div class="notice-item-card notice-entry <?php echo $isCurrent ? 'is-current-session' : ''; ?> <?php echo $isNew ? 'is-new-notice' : ''; ?>"
+                       data-session="<?php echo htmlspecialchars($sessionTag); ?>"
+                       data-category="<?php echo htmlspecialchars($category); ?>">
+                    
+                    <div class="d-flex align-items-center gap-3 flex-grow-1">
+                      <div class="notice-icon-box flex-shrink-0">
+                        <i class="fa-solid fa-file-pdf"></i>
+                      </div>
+                      <div>
+                        <a href="<?php echo htmlspecialchars($n['url']); ?>" target="_blank" rel="noopener" class="notice-title-link">
+                          <?php echo htmlspecialchars($n['title']); ?>
+                        </a>
+                        <div class="notice-meta-tags">
+                          <span class="meta-tag meta-tag-date">
+                            <i class="fa-regular fa-calendar-days"></i> <?php echo htmlspecialchars($n['date']); ?>
+                          </span>
+                          
+                          <?php if ($sessionTag !== 'Archived'): ?>
+                            <span class="meta-tag meta-tag-session">
+                              <i class="fa-solid fa-graduation-cap"></i> <?php echo htmlspecialchars($sessionTag); ?>
+                            </span>
+                          <?php else: ?>
+                            <span class="meta-tag bg-light text-muted">
+                              <i class="fa-solid fa-box-archive"></i> Archive
+                            </span>
+                          <?php endif; ?>
 
-            <!-- Notices Grouped by Session -->
-            <div id="noticeContainer">
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Session 2026-27
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      <span class="an-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span>
-                      <p class="an-item-title">Enrollment form Open (2026-27) </p>
+                          <?php if ($category !== 'Admission'): ?>
+                            <span class="meta-tag meta-tag-category">
+                              <?php echo htmlspecialchars($category); ?>
+                            </span>
+                          <?php endif; ?>
+
+                          <?php if ($isNew): ?>
+                            <span class="meta-tag meta-tag-new">
+                              <i class="fa-solid fa-sparkles"></i> NEW
+                            </span>
+                          <?php endif; ?>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Adobe_Scan_21_Jul_2026__1__21072026_0937.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
+
+                    <div class="flex-shrink-0">
+                      <a href="<?php echo htmlspecialchars($n['url']); ?>" target="_blank" rel="noopener" class="btn-notice-download">
+                        <i class="fa-solid fa-arrow-down-to-line"></i> Download PDF
                       </a>
                     </div>
                   </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      <span class="an-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span>
-                      <p class="an-item-title">प्रवेश अधिसूचना - 3 (2026-27) </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/प्रवेश_अधिसूचना_-_3_(2026-27)_08072026_0226.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      <span class="an-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span>
-                      <p class="an-item-title">प्रवेश अधिसूचना - 2 (2026-27)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/प्रवेश_अधिसूचना_-_2_(2026-27)_08072026_0225.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      <span class="an-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span>
-                      <p class="an-item-title">आवश्यक सुचना</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/imp_notice_16032026_0424.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      <span class="an-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span>
-                      <p class="an-item-title">admission notification 01 (2026-27)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/WhatsApp_Image_2026-02-14_at_1.44_14022026_1125.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <div class="p-5 text-center text-muted">
+                  <i class="fa-regular fa-folder-open fs-1 text-muted mb-3 d-block"></i>
+                  No admission notices available at this moment.
                 </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Session 2025-26
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">SSSUTMS-CIDC Draft Admission Notice (Session 2025-26)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Draft-Admission_Notice_Sri_Satya_Sai_University_12092025_0417.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">admission notification 01 (2025-26)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Adobe_Scan_01_Aug_2025_(1)_01082025_0412.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">प्रवेश अधिसूचना - 2 (2025-26)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/AD2_01082025_0419.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">प्रवेश अधिसूचना - 3 (2025-26)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/03_01082025_0411.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">admission notification 01 (2025-26) </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ADMISSION_NOTIFICATION_1_31072025_0425.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Archive Notifications
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">NOTIFICATION (Registration &amp; Enrollment) </p>
-                    </div>
-                    <div>
-                      <a href="&lt;?php echo BASE_URL; ?&gt;assets/images/Files/Widget/Download/Notifica.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">notification  </p>
-                    </div>
-                    <div>
-                      <a href="&lt;?php echo BASE_URL; ?&gt;assets/images/Files/Widget/Download/IMG.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">iploma Engineering)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Widget/Download/Admission_notification.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Student Login 2021</p>
-                    </div>
-                    <div>
-                      <a href="https://www.universitymanagementsystem.in/SatyaSai" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Notice for Student Enrollment</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Notice/AAA_ENROLLMENT_NUR.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Counseling Schedule 2020-21</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Admission1.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">tification for Entrance Examination -2020 </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Entrance_20_21.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Session 2024-25
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">प्रवेश अधिसूचना - 3 (2024-25)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Widget/Download/TapScanner_08-21-2024-11꞉49.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">admission notification 01 (2024-25) </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IMG_0001_31032024_1157.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">प्रवेश अधिसूचना - 2 (2024-25)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IMG_0002_31032024_1151.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">NRI ADMISSION  NOTIFICATION (2024-25)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/INTERNATIONAL_ADMISSION_05_07122024_0637.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Session 2023-24
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notification- 2 (2023-24)  (B.E/B.PHARMA/D.PHARMA/M.TECH/M.PHARMA/MBA/MCA/BHMCT/ B. Arch. / B. Design/D</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission_Notification_2023-24_01_04112023_0304.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">iploma Engineering)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission_Notification_2023-24_01_04112023_0304.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">NOTIFICATION (Enrollment)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/IMG_0001_29082023_1156.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notification -01 (2023-24)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/admission 2023-24/IMG.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notification (2023-24) </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Widget/Download/IMG_0001.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Session 2022-23
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notification- 2 (2022-23)  (B.E/B.PHARMA/D.PHARMA/M.TECH/M.PHARMA/MBA/MCA/BHMCT/ B. Arch. / B. Design/D</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Widget/Download/Admission_notification.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notification for NRI Candidate (2022-23)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Con_NRI_2022-23_20082022_0446.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notification- I (2022-23)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/2022-23/admission_notification_2022-23.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">  Notification For Online Entrance Examination 2022-23</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/2022-23/Entrance_Exam_Admission notification.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Counseling Schedule 2021-22 (Notification-3 )</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ad_notificaron3_05022022_1245.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Counseling Schedule 2021-22 (Notification 2)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/ad_notification2_05022022_1241.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Session 2021-22
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Enrollment form Open (2021-22)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Notice/Enrollment_Notification21_22.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Notice for Student Enrollment (Pharmacy ) (2021-22)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Notice/FOP.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">(2021-22) For B.Sc.(Nursing  </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Notice/AAA_ENROLLMENT_NUR.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Notice for Student Enrollment (2021-22) For B.Ed. </p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Notice/AAA_ENROLLMENT_BEd.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notice for Technical Courses (2021-22)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/AAdmission_Notice_technical_courses.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Notice for NRI (2021-22)</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/NRI admission.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Counseling Schedule 2021-22</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/admission notification II 2021_22R.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Counseling Schedule 2021-22</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/admission notification III 2021_22.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Admission Counseling Schedule 2021-22</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Admission_utd_2021_22.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">B. Design. Admission Open 2021-22 Session</p>
-                    </div>
-                    <div>
-                      <a href="&lt;?php echo BASE_URL; ?&gt;assets/images/Files/Link/Admission/SOD.jpg" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Notification For Online Entrance Examination 2021-22</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Admission_Entrance_Exam_2021_22.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="an-session-block">
-                <h5 class="an-session-title">
-                  <i class="fa-solid fa-calendar-check"></i> Paramedical Counseling Schedules
-                </h5>
-                <div class="an-items-list">
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Download Paramedical Admission Form</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Download/Para_Admission_Form_New.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Paramedical Admission Counseling Schedule 2019-20</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/paramedical_2019.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Paramedical Admission Counseling Schedule 2018-19</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Para_2018_19N.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Paramedical Admission Counseling Schedule 2017-18</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Para_2017_18.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Paramedical Admission Counseling Schedule 2016-17</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Para_2016_17.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Paramedical Admission Counseling Schedule 2015-16</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Para_2015_16.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                  <div class="an-item-card">
-                    <div class="d-flex align-items-center">
-                      
-                      <p class="an-item-title">Paramedical Admission Counseling Schedule 2014-15</p>
-                    </div>
-                    <div>
-                      <a href="https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Admission/Para_2014_15.pdf" target="_blank" rel="noopener" class="an-btn">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              <?php endif; ?>
+
+              <!-- No Results State (Hidden by default) -->
+              <div id="noticesEmptyState" class="notices-empty-state">
+                <i class="fa-solid fa-file-circle-question fs-1 text-muted mb-2 d-block"></i>
+                <h5 class="fw-bold text-dark mb-1">No Matching Circulars Found</h5>
+                <p class="text-muted small mb-3">Try adjusting your keyword search or select a different session tab.</p>
+                <button type="button" id="resetFiltersBtn" class="btn btn-sm btn-outline-primary rounded-pill px-4 fw-semibold">
+                  <i class="fa-solid fa-rotate-left me-1"></i> Reset Filters
+                </button>
               </div>
             </div>
 
           </div>
-        </div><!-- end an-main-card -->
-      </div><!-- end col-lg-8 -->
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+        </div>
       </div>
+
+      <!-- Right Column: Reusable Admission Sidebar -->
+      <?php require_once __DIR__ . '/includes/admission_sidebar.php'; ?>
 
     </div>
   </div>
@@ -855,34 +455,92 @@ require_once __DIR__ . '/../includes/page-banner.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var searchInput = document.getElementById('noticeSearchInput');
-  var container = document.getElementById('noticeContainer');
-  var countBadge = document.getElementById('noticeCount');
-  if (searchInput && container) {
-    var cards = container.querySelectorAll('.an-item-card');
-    var blocks = container.querySelectorAll('.an-session-block');
-    searchInput.addEventListener('input', function() {
-      var query = this.value.toLowerCase().trim();
-      var visible = 0;
-      cards.forEach(function(card) {
-        var text = card.textContent.toLowerCase();
-        if (text.indexOf(query) !== -1) {
-          card.style.display = '';
-          visible++;
-        } else {
-          card.style.display = 'none';
-        }
+  const searchInput = document.getElementById('noticeSearchInput');
+  const searchClearBtn = document.getElementById('searchClearBtn');
+  const tabButtons = document.querySelectorAll('.filter-tab-btn');
+  const noticeCards = document.querySelectorAll('.notice-entry');
+  const visibleCountEl = document.getElementById('visibleCount');
+  const emptyStateEl = document.getElementById('noticesEmptyState');
+  const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+  let currentTab = 'all';
+
+  function filterNotices() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    let visibleCount = 0;
+
+    // Show/hide clear button
+    if (searchClearBtn) {
+      searchClearBtn.style.display = query.length > 0 ? 'block' : 'none';
+    }
+
+    noticeCards.forEach(card => {
+      const session = card.getAttribute('data-session') || '';
+      const text = card.textContent.toLowerCase();
+      
+      // Check tab filter
+      let matchesTab = false;
+      if (currentTab === 'all') {
+        matchesTab = true;
+      } else if (currentTab === 'archived') {
+        matchesTab = (session === 'Archived' || session === '2023-24' || session === '2022-23' || session === '2021-22');
+      } else {
+        matchesTab = (session === currentTab);
+      }
+
+      // Check search filter
+      const matchesSearch = query === '' || text.includes(query);
+
+      if (matchesTab && matchesSearch) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (visibleCountEl) {
+      visibleCountEl.textContent = visibleCount;
+    }
+
+    if (emptyStateEl) {
+      emptyStateEl.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+  }
+
+  // Search input listener
+  if (searchInput) {
+    searchInput.addEventListener('input', filterNotices);
+  }
+
+  // Search clear button listener
+  if (searchClearBtn) {
+    searchClearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      searchInput.focus();
+      filterNotices();
+    });
+  }
+
+  // Tab click listeners
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentTab = this.getAttribute('data-filter');
+      filterNotices();
+    });
+  });
+
+  // Reset filters listener
+  if (resetFiltersBtn) {
+    resetFiltersBtn.addEventListener('click', function() {
+      if (searchInput) searchInput.value = '';
+      currentTab = 'all';
+      tabButtons.forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
       });
-      // Hide empty session blocks
-      blocks.forEach(function(b) {
-        var visibleCards = b.querySelectorAll('.an-item-card[style=""]');
-        if (visibleCards.length === 0 && query !== '') {
-          b.style.display = 'none';
-        } else {
-          b.style.display = '';
-        }
-      });
-      if (countBadge) countBadge.textContent = visible;
+      filterNotices();
     });
   }
 });

@@ -352,7 +352,13 @@ function get_schemes($faculty = 'all') {
  */
 function get_page_documents($page_key, $category = 'all') {
     $allDocs = get_json_data('page_documents.json', []);
-    $pageDocs = $allDocs[$page_key]['documents'] ?? [];
+    if (isset($allDocs[$page_key]['documents']) && is_array($allDocs[$page_key]['documents'])) {
+        $pageDocs = $allDocs[$page_key]['documents'];
+    } elseif (isset($allDocs[$page_key]) && is_array($allDocs[$page_key])) {
+        $pageDocs = $allDocs[$page_key];
+    } else {
+        $pageDocs = [];
+    }
     if ($category !== 'all' && !empty($category)) {
         $pageDocs = array_filter($pageDocs, function($d) use ($category) {
             return isset($d['category']) && (strcasecmp($d['category'], $category) === 0 || stripos($d['category'], $category) !== false);

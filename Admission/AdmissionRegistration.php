@@ -1,196 +1,192 @@
 <?php
-$page_title = 'Admission Registration - SSSUTMS';
-$banner_title = 'Admission Registration';
+require_once __DIR__ . '/../config.php';
+
+// Load dynamic data from JSON
+$admissionData = get_json_data('admission_data.json', []);
+$regData = $admissionData['AdmissionRegistration'] ?? [
+    'page_title' => 'Admission Registration',
+    'heading' => 'Admission Registration (Session 2026-27)',
+    'epravesh_label' => 'E-Pravesh 2026(Online Enquiry Form)',
+    'epravesh_url' => 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d',
+    'instructions' => [
+        'Click on the official E-Pravesh registration portal link above.',
+        'Select your desired Course / Faculty / Department.',
+        'Fill in candidate details, qualifications, and upload required credentials.',
+        'Submit the form and retain the generated application number for counselling.'
+    ]
+];
+
+$page_title = ($regData['page_title'] ?? 'Admission Registration') . ' - SSSUTMS';
+$banner_title = $regData['page_title'] ?? 'Admission Registration';
 $banner_category = 'Admission';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
-
-$registration_url = 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d';
 ?>
 
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
-.ar-section { background-color: #f8fafc; }
-.ar-main-card {
+.adm-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   overflow: hidden;
-  margin-bottom: 2rem;
 }
-.ar-header-banner {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
+.adm-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  padding: 1.5rem 2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
 }
-.ar-header-banner::after {
+.adm-card-header::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.ar-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex; align-items: center; gap: 11px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.02);
-}
-.ar-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 16px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.ar-stat-icon {
-  width: 42px; height: 42px;
-  border-radius: 10px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; flex-shrink: 0;
-}
-.ar-chip-label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #64748b;
-  line-height: 1.2;
-}
-.ar-chip-val {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1.25;
-}
-.ar-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.75rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-  margin-bottom: 0;
-}
-.ar-portal-btn {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
+.adm-card-header h2,
+.adm-card-header h2 i {
   color: #ffffff !important;
-  font-size: 1.1rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  padding: 16px 32px;
-  border-radius: 12px;
-  border: 1px solid rgba(245,158,11,0.4);
-  text-decoration: none !important;
+  letter-spacing: -0.02em;
+}
+.adm-card-header span,
+.adm-card-header small {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.epravesh-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #86efac;
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.1);
+  margin-bottom: 2rem;
+}
+.epravesh-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: 0 6px 20px rgba(11,37,69,0.18);
+  gap: 10px;
+  background: #16a34a;
+  color: #ffffff !important;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
   transition: all 0.25s ease;
 }
-.ar-portal-btn i {
-  color: #fbbf24 !important;
-}
-.ar-portal-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
-  color: #ffffff !important;
-  border-color: #d97706;
-  box-shadow: 0 8px 24px rgba(217,119,6,0.35);
+.epravesh-btn:hover {
+  background: #15803d;
   transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.45);
+}
+.instruction-step {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0b2545;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 </style>
 
-<section class="subpage-main-section ar-section py-4">
+<section class="py-5 bg-light">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-
-      <!-- Main Content Area (Left) -->
+      
+      <!-- Main Content (Left Column) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="ar-main-card">
-
-          <!-- Header Banner -->
-          <div class="ar-header-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div class="adm-card">
+          <div class="adm-card-header">
             <div>
-              <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
-                <i class="fa-solid fa-user-pen me-1"></i> E-Pravesh Online Portal
-              </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">ADMISSION REGISTRATION 2026-27</h3>
-              <p class="text-white-50 mb-0 small">Direct Application Portal for Undergraduate, Postgraduate &amp; Diploma Courses</p>
+              <h2 class="fs-4 mb-0 fw-bold d-flex align-items-center">
+                <i class="bi bi-journal-text me-2"></i> <?php echo htmlspecialchars($regData['page_title'] ?? 'Admission Registration'); ?>
+              </h2>
+              <span class="text-white-50 extra-small">Online Application, Seat Reservation &amp; Document Submission</span>
             </div>
+            <span class="badge bg-success text-white fw-bold px-3 py-1.5 rounded-pill">
+              <i class="fa-solid fa-circle-check me-1"></i> Open for 2026-27
+            </span>
           </div>
 
-          <!-- Content Body -->
-          <div class="p-4">
+          <div class="card-body p-4 p-md-5">
+            <article class="fs-5 lh-lg text-secondary">
 
-            <!-- Compact Stat Chips -->
-            <div class="row g-2 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="ar-stat-chip">
-                  <div class="ar-stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                  <div>
-                    <div class="ar-chip-label">Portal</div>
-                    <div class="ar-chip-val">E-Pravesh 2026</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ar-stat-chip">
-                  <div class="ar-stat-icon"><i class="fa-solid fa-bolt"></i></div>
-                  <div>
-                    <div class="ar-chip-label">Registration</div>
-                    <div class="ar-chip-val">Instant Application</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ar-stat-chip">
-                  <div class="ar-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                  <div>
-                    <div class="ar-chip-label">Scope</div>
-                    <div class="ar-chip-val">All Disciplines</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="ar-stat-chip">
-                  <div class="ar-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                  <div>
-                    <div class="ar-chip-label">Security</div>
-                    <div class="ar-chip-val">Encrypted ERP Portal</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Portal Access Card -->
-            <div class="ar-card text-center py-5">
-              <div class="mb-3">
-                <span class="badge bg-warning text-dark fw-bold px-3 py-2 fs-6 rounded-pill mb-2"><i class="fa-solid fa-pen-to-square me-1"></i> E-Pravesh 2026 (Online Enquiry &amp; Registration Form)</span>
-                <h4 class="fw-bold text-dark mb-2">Apply Online for Session 2026-27</h4>
-                <p class="text-muted small max-w-lg mx-auto mb-4">Click below to access the University's official student registration ERP portal for course selection and document submission.</p>
+              <!-- Heading -->
+              <div class="text-center mb-4">
+                <h3 class="fw-bold mb-1" style="color: #ff9c00;">
+                  <?php echo htmlspecialchars($regData['heading'] ?? 'Admission Registration'); ?>
+                </h3>
+                <p class="text-muted small">Centralized Online Admission Registration via E-Pravesh Portal</p>
               </div>
 
-              <div>
-                <a href="<?php echo $registration_url; ?>" target="_blank" rel="noopener" class="ar-portal-btn">
-                  <i class="fa-solid fa-right-to-bracket fs-4"></i> Proceed to Online Registration Portal
+              <!-- Live E-Pravesh Box -->
+              <div class="epravesh-box">
+                <div class="mb-3">
+                  <i class="fa-solid fa-graduation-cap text-success" style="font-size: 3.2rem;"></i>
+                </div>
+                <h4 class="fw-bold text-dark mb-2">Online Registration &amp; Admission Enquiry Portal</h4>
+                <p class="text-muted small mb-4 mx-auto" style="max-width: 620px;">
+                  Prospective applicants seeking admission to Undergraduate, Postgraduate, Diploma, and Ph.D. programs can submit applications directly online.
+                </p>
+                <a href="<?php echo htmlspecialchars($regData['epravesh_url'] ?? 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d'); ?>" target="_blank" rel="noopener" class="epravesh-btn">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span><?php echo htmlspecialchars($regData['epravesh_label'] ?? 'E-Pravesh 2026(Online Enquiry Form)'); ?></span>
                 </a>
               </div>
-            </div>
 
+              <!-- Application Instructions -->
+              <h5 class="fw-bold text-dark mb-3">
+                <i class="fa-solid fa-list-check text-primary me-2"></i>Step-by-Step Registration Instructions
+              </h5>
+              <div class="mb-4">
+                <?php 
+                $instructions = $regData['instructions'] ?? [];
+                foreach ($instructions as $idx => $inst): 
+                ?>
+                  <div class="instruction-step">
+                    <div class="badge rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; flex-shrink: 0;">
+                      <?php echo $idx + 1; ?>
+                    </div>
+                    <span class="text-dark small fw-semibold"><?php echo htmlspecialchars($inst); ?></span>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+
+              <!-- Support Help -->
+              <div class="p-3.5 p-md-4 rounded-3 bg-light border border-slate-200 d-flex align-items-center justify-content-between flex-wrap gap-3">
+                <div>
+                  <h6 class="fw-bold text-dark mb-1">Facing technical issues during registration?</h6>
+                  <p class="text-muted small mb-0">Our admission counseling team is available Monday to Saturday (10 AM - 5 PM).</p>
+                </div>
+                <a href="Admission_Enquiry.php" class="btn btn-outline-primary btn-sm rounded-pill fw-bold px-3">
+                  <i class="fa-solid fa-headset me-1"></i> Contact Helpline
+                </a>
+              </div>
+
+            </article>
           </div>
-        </div><!-- end ar-main-card -->
-      </div><!-- end col-lg-8 -->
-
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+        </div>
       </div>
+
+      <!-- Right Column: Reusable Admission Sidebar -->
+      <?php require_once __DIR__ . '/includes/admission_sidebar.php'; ?>
 
     </div>
   </div>

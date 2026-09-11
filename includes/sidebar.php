@@ -84,6 +84,7 @@ $sidebar_menus = [
             'Collaborations & MoUs' => 'Research/CollaborationandMou.php',
             'Institution Innovation Council (IIC)' => 'Research/Iic_Cell.php',
             'E-Resources Portal' => 'Research/E-Resources.php',
+            'Exposition' => 'Research/Exposition.php',
             'UG/PG Scholars Projects' => 'Research/UGAndPGScholarsProject.php',
             'NPTEL Local Chapter' => 'Research/NPTEL.php'
         ]

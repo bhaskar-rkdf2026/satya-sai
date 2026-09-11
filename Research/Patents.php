@@ -8,6 +8,17 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic patents from Admin
+$allPatents = get_page_documents('ResearchPatents');
+$patentsByCategory = [];
+foreach ($allPatents as $p) {
+  $cat = !empty($p['category']) ? $p['category'] : 'Patents';
+  if (!isset($patentsByCategory[$cat])) {
+    $patentsByCategory[$cat] = [];
+  }
+  $patentsByCategory[$cat][] = $p;
+}
 ?>
 
 <style>
@@ -33,94 +44,59 @@ require_once __DIR__ . '/../includes/page-banner.php';
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.pat-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-.pat-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.pat-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
-}
 .pat-objective-box {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border: 1px solid #e2e8f0;
   border-left: 4px solid #f59e0b;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.25rem 1.5rem;
-  margin-bottom: 2rem;
-}
-.pat-year-badge {
-  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
-  color: #ffffff;
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 3px 10px rgba(11,37,69,0.15);
+  margin-bottom: 1.75rem;
 }
 .pat-modern-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 0;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
-  margin-bottom: 2.5rem;
-  background: #ffffff;
-  box-shadow: 0 4px 14px rgba(15,23,42,0.03);
 }
-.pat-modern-table thead th {
-  background: #0b2545 !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  font-size: 0.85rem !important;
+.pat-modern-table th {
+  background: #0b2545;
+  color: #ffffff;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 14px 16px !important;
-  border: none !important;
-  vertical-align: middle;
 }
-.pat-modern-table tbody td {
-  padding: 14px 16px !important;
-  border-bottom: 1px solid #f1f5f9 !important;
-  border-right: 1px solid #f1f5f9 !important;
+.pat-modern-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
   font-size: 0.9rem;
   color: #334155;
   vertical-align: middle;
 }
-.pat-modern-table tbody tr:last-child td {
-  border-bottom: none !important;
-}
-.pat-modern-table tbody tr:hover td {
+.pat-modern-table tbody tr:hover {
   background-color: #f8fafc;
 }
+.pat-year-badge {
+  background: #0b2545;
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .pat-badge-status {
-  padding: 5px 12px;
+  display: inline-block;
+  padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.78rem;
   font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 .pat-badge-published {
   background: #eff6ff;
@@ -151,50 +127,15 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-1 fs-3">PATENTS – FROM FILING TO GRANT</h3>
               <p class="text-white-50 mb-0 small">Patented Innovations &amp; Granted Technological Rights by SSSUTMS Researchers</p>
             </div>
+            <div>
+              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold fs-6">
+                <i class="fa-solid fa-award me-1"></i> <?php echo count($allPatents); ?> Total Patents
+              </span>
+            </div>
           </div>
 
           <!-- Content Body -->
           <div class="p-4 pat-content-body">
-
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="pat-stat-chip">
-                  <div class="pat-stat-icon"><i class="fa-solid fa-certificate"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Innovations</div>
-                    <div class="fw-bold text-dark fs-6">28+ Filed/Granted</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="pat-stat-chip">
-                  <div class="pat-stat-icon"><i class="fa-solid fa-microchip"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Domains</div>
-                    <div class="fw-bold text-dark fs-6">IoT &amp; Engineering</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="pat-stat-chip">
-                  <div class="pat-stat-icon"><i class="fa-solid fa-pills"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Pharma</div>
-                    <div class="fw-bold text-dark fs-6">Medical Devices</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="pat-stat-chip">
-                  <div class="pat-stat-icon"><i class="fa-solid fa-file-signature"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">IPR Cell</div>
-                    <div class="fw-bold text-dark fs-6">Filing Support</div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- Objective Box -->
             <div class="pat-objective-box">
@@ -210,19 +151,13 @@ require_once __DIR__ . '/../includes/page-banner.php';
             <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
               <div class="position-relative flex-grow-1" style="max-width: 380px;">
                 <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.9rem;"></i>
-                <input type="text" id="patentSearchInput" class="form-control ps-5 py-2 rounded-pill border" placeholder="Search by inventor, title, or patent no...">
+                <input type="text" id="patentSearchInput" class="form-control ps-5 py-2 rounded-pill border" placeholder="Search by inventor, title, or patent no..." onkeyup="filterPatents()">
               </div>
               <span class="text-muted extra-small">
                 <i class="fa-solid fa-shield-check text-success me-1"></i> Verified Official Records
               </span>
             </div>
 
-            <!-- Year Section: 2023 -->
-            <div class="pat-year-group mb-4" data-year="2023">
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <span class="pat-year-badge">
-                  <i class="fa-regular fa-calendar-check"></i> Year 2023
-                </span>
                 <span class="text-muted extra-small fw-semibold">8 Patent Records</span>
               </div>
 

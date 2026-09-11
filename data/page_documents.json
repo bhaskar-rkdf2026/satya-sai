@@ -8210,5 +8210,1143 @@
                 "desc": "Portal login for students admitted in 2014-2015 & 2015-2016 sessions."
             }
         ]
-    }
+    },
+    "ResearchPolicies": {
+        "title": "Research Promotion Policies & Guidelines",
+        "section": "Research",
+        "source_file": "Research/ResearchPromotionPolicy.php",
+        "documents": [
+            {
+                "id": "rpol_01",
+                "title": "Policies and Regulations for Conducting Research and Consultancy (Policy 3.1.1)",
+                "category": "Research Promotion Policy",
+                "file": "assets/uploads/documents/RESEARCH_POLICIES_3.1.1_(1)_24062024_1034.pdf",
+                "date": "2024-06-24",
+                "status": "Active",
+                "desc": "Official statutory policy covering seed money grants, research ethics, incentive scheme, patent filing support, and consultancy revenue sharing."
+            }
+        ]
+    },
+    "CouncilForResearch": {
+        "title": "Council for Research Members & Advisory Board",
+        "section": "Research",
+        "source_file": "Research/CouncilForResearch.php",
+        "documents": [
+            {
+                "id": "cfr_c_1",
+                "title": "Prof Hemant Kumar Sharma (Chairman)",
+                "category": "Executive Committee",
+                "role": "Chairman",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_2",
+                "title": "Prof&nbsp; Santosh Rai (Convenor)",
+                "category": "Executive Committee",
+                "role": "Convenor",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_3",
+                "title": "Prof. Alka Thakur (Convenor)",
+                "category": "Executive Committee",
+                "role": "Convenor",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_4",
+                "title": "Prof. Narendra Sharma",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_5",
+                "title": "Prof. Neelesh Choubey",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_6",
+                "title": "Prof Prabodh Khamparia",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_7",
+                "title": "Prof. Neelu Jain",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_8",
+                "title": "Prof. Geeta Khoobchandani",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_9",
+                "title": "Prof. Gajraj Singh Ahirwar",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_10",
+                "title": "Prof. Pradeep Maheshwari",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_11",
+                "title": "Prof. Harsh Lohiya",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_12",
+                "title": "Prof. Abhilasha Pathak",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_13",
+                "title": "Prof. Pradeep Kumar Patra",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_14",
+                "title": "Prof. Kanchan Shrivastava",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_15",
+                "title": "Prof. M D Singh",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_16",
+                "title": "Prof. Dhiraj Shinde",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_17",
+                "title": "Prof. Rishikesh&nbsp; Yadav",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_c_18",
+                "title": "Prof. Mamta Vyas",
+                "category": "Executive Committee",
+                "role": "Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Member of Council for Research Executive Committee"
+            },
+            {
+                "id": "cfr_a_1",
+                "title": "Image Processing",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_2",
+                "title": "Design and Production Engineering",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_3",
+                "title": "Radar, Semi-Conductor Technology, Nano technology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_4",
+                "title": "Distributed database system, IOT",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_5",
+                "title": "Power System",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_6",
+                "title": "Coordination chemistry, Environmental chemistry, Chemical Science",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_7",
+                "title": "Cleaner production and clean technology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_8",
+                "title": "Space Science",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_9",
+                "title": "Ionosphere",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_10",
+                "title": "Soil Chemistry, inorganic chemistry, Applied chemistry",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_11",
+                "title": "Applied&nbsp; Economics, Business management",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_12",
+                "title": "Retail Marketing",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_13",
+                "title": "Service Marketing",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_14",
+                "title": "Pharmacognosy",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_15",
+                "title": "Sub sociology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_16",
+                "title": "Pharmaceutics",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_17",
+                "title": "Pharmacology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_18",
+                "title": "Pharmaceutical Chemistry",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_19",
+                "title": "Pharmaceutical formulation and manufacturing&nbsp;",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_20",
+                "title": "Rural-economics",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_21",
+                "title": "Agronomy",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_22",
+                "title": "Education contribution to society",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_23",
+                "title": "Rural and Urban Education System",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_24",
+                "title": "Toxicology and Pharmacology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_25",
+                "title": "Prashanik Adyyan",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_26",
+                "title": "Interpersonal relationship in psychology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_27",
+                "title": "Case study method",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_28",
+                "title": "Physical Education",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_29",
+                "title": "Environmental education, Education Psychology",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            },
+            {
+                "id": "cfr_a_30",
+                "title": "Special Education",
+                "category": "Advisory Board",
+                "role": "Subject Expert / Advisory Member",
+                "file": "#",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Subject Expert & Advisory Board Member for Interdisciplinary Research"
+            }
+        ]
+    },
+    "ResearchPatents": {
+        "title": "Intellectual Property Rights & Patents",
+        "section": "Research",
+        "source_file": "Research/Patents.php",
+        "documents": [
+            {
+                "id": "pat_1",
+                "title": "&nbsp;Adjustable&nbsp; Laptop Table",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "391559-001",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 391559-001 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_2",
+                "title": "An intelligent waste /garbage disposal system based on internet of things (IOT)&nbsp;",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "202221065208\r\n&nbsp;",
+                "status": "Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 202221065208\r\n&nbsp; | Status: Published"
+            },
+            {
+                "id": "pat_3",
+                "title": "Smart Meditation And Rest Table",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "391547-001",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 391547-001 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_4",
+                "title": "DEEP DRAWING PUNCH WITH SENSORS",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "398305-001",
+                "status": "Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 398305-001 | Status: Published"
+            },
+            {
+                "id": "pat_5",
+                "title": "MANUALLY OPERATED DEEP DRAWING MACHINE",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "391560-001",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 391560-001 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_6",
+                "title": "DEEP DRAWING DIE WITH SENSORS",
+                "category": "Published (2023-2024)",
+                "inventors": "Mr. Manoj Kumar Yadav",
+                "app_no": "394723-001",
+                "status": "Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Mr. Manoj Kumar Yadav | App/Patent No: 394723-001 | Status: Published"
+            },
+            {
+                "id": "pat_7",
+                "title": "FINGER SLEEVE FOR MOBILE SCREEN",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr Gajraj Singh Ahirwar",
+                "app_no": "398306-001",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr Gajraj Singh Ahirwar | App/Patent No: 398306-001 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_8",
+                "title": "COAL BURNER &amp; HANDLING APPARATUS WITH SMOKE SEPARATION CHAMBER",
+                "category": "Published (2023-2024)",
+                "inventors": "Dr. Santosh Jagwani&nbsp;&nbsp;",
+                "app_no": "394722-001",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Santosh Jagwani&nbsp;&nbsp; | App/Patent No: 394722-001 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_9",
+                "title": "ENGINEERED CYCLODEXTRIN NANOSPONGES FOR THE DELIVERY OF ANTIRETROVIRAL DRUG",
+                "category": "Granted Patents",
+                "inventors": "Dr. C. K Tyagi",
+                "app_no": "202221001859A",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. C. K Tyagi | App/Patent No: 202221001859A | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_10",
+                "title": "METHOD OF GARBAGE MONITORING AND CLEARING PROCESS BY IOT\r\n&nbsp;",
+                "category": "Granted Patents",
+                "inventors": "Dr. Jitendra Sheetlani",
+                "app_no": "2021104892\r\n&nbsp;",
+                "status": "Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Jitendra Sheetlani | App/Patent No: 2021104892\r\n&nbsp; | Status: Granted"
+            },
+            {
+                "id": "pat_11",
+                "title": "A NOVEL BRAIN ADEQUACY TEST SYSTEM TO IMPROVE COGNITIVE INDEX OF YOUTH USING NON-INVASIVE BRAIN SENSORS AND ARTIFICIAL NEURAL NETWORKS",
+                "category": "Granted Patents",
+                "inventors": "Dr. Kailash Patdar",
+                "app_no": "202241029374",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Kailash Patdar | App/Patent No: 202241029374 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_12",
+                "title": "INTELLIGENT GREEN HOUSE USING IOT",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "2021100630",
+                "status": "&nbsp;Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 2021100630 | Status: &nbsp;Granted"
+            },
+            {
+                "id": "pat_13",
+                "title": "LAGERSTROEMIA MICROCARPA WIGHT EXTRACT FOR THE TREATMENT OF DIABETES INDUCED BY STZ",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. C. K Tyagi",
+                "app_no": "2021105435\r\n&nbsp;",
+                "status": "Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. C. K Tyagi | App/Patent No: 2021105435\r\n&nbsp; | Status: Granted"
+            },
+            {
+                "id": "pat_14",
+                "title": "A METHOD FOR THE SIMULTANEOUS ESTIMATION OF ACECLOFENAC AND TRAMADOL BY RP-HPLC IN BULK AND TABLET DOSAGE FORMS",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Sunil Kumar Shah",
+                "app_no": "2021106980",
+                "status": "Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Sunil Kumar Shah | App/Patent No: 2021106980 | Status: Granted"
+            },
+            {
+                "id": "pat_15",
+                "title": "SMART AND INTELLIGENT MEDICAL BED FOR CHILD PATIENT CARE",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Jitendra Sheetlani",
+                "app_no": "2021105547",
+                "status": "Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Jitendra Sheetlani | App/Patent No: 2021105547 | Status: Granted"
+            },
+            {
+                "id": "pat_16",
+                "title": "A METHOD OF PREPARATION OF AQUEOUS EXTRACT OF SIDA RHOMBIFOLIA LINN FOR ANTIBACTERIAL ACTIVITY",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Sunil Kumar Shah",
+                "app_no": "2021103621",
+                "status": "Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Sunil Kumar Shah | App/Patent No: 2021103621 | Status: Granted"
+            },
+            {
+                "id": "pat_17",
+                "title": "A METHOD OF PREPARATION OF EMBELIA TSJERIAM COTTAM FOR PRELIMINARY AND PHYTOCHEMICAL STUDIES",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr.&nbsp;Minakshi Pathak",
+                "app_no": "2021106614",
+                "status": "Granted",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr.&nbsp;Minakshi Pathak | App/Patent No: 2021106614 | Status: Granted"
+            },
+            {
+                "id": "pat_18",
+                "title": "EFFICIENT&nbsp; ALGORITHM FOR TACKING OF OBJECTS IN VIDEO CAMERA NETWORK AND THEIR ESTABLISHMENT THEREOF",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Mukesh Tiwari",
+                "app_no": "202021055337",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Mukesh Tiwari | App/Patent No: 202021055337 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_19",
+                "title": "&ldquo;PREPARATION OF SELF-MICRO EMULSIFYING DRUG SYSTEM OF OLMESARTAN MEDOXOMILAND THEIR EVALUATION THEREOF&rdquo;",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. C. K Tyagi",
+                "app_no": "20202150733",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. C. K Tyagi | App/Patent No: 20202150733 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_20",
+                "title": "&ldquo;NOVEL METHOD DEVELOPMENT TO ESTIMATE PARACETAMOL AND ETODOLAC AND THEIR VALIDATION THEREOF&rdquo;",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. C. K Tyagi",
+                "app_no": "202021051205",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. C. K Tyagi | App/Patent No: 202021051205 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_21",
+                "title": "GARBAGE MONITORING AND CLEARING PROCESS BY IOT",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Jitendra Sheetlani",
+                "app_no": "2021100426\r\n&nbsp;",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Jitendra Sheetlani | App/Patent No: 2021100426\r\n&nbsp; | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_22",
+                "title": "EUPHORBIA THYMIFOLIA LINN EXTRACT FOR THE TREATMENT OF HYPERLIPIDEMIA AND DIABETES",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. C. K Tyagi",
+                "app_no": "202121043044\r\n&nbsp;",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. C. K Tyagi | App/Patent No: 202121043044\r\n&nbsp; | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_23",
+                "title": "A SMART DUSTBIN FOR DISABLED PEOPLE",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. Harsh Pratap Singh",
+                "app_no": "202141001895",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Harsh Pratap Singh | App/Patent No: 202141001895 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_24",
+                "title": "SOLAR POWERED ESCALATOR",
+                "category": "Published (2022-2023)",
+                "inventors": "Dr. PRABODH KUMAR KHAMPARIYA",
+                "app_no": "202141017941",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. PRABODH KUMAR KHAMPARIYA | App/Patent No: 202141017941 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_25",
+                "title": "Non- Conventional grooved stepped shoe ribs",
+                "category": "Other Registered Patents",
+                "inventors": "Dr. G R Selokar",
+                "app_no": "202021003931",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. G R Selokar | App/Patent No: 202021003931 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_26",
+                "title": "Night Patrol System Based On Iot And Radio Frequency Identification",
+                "category": "Other Registered Patents",
+                "inventors": "Dr. Jiterndra Sheetlani",
+                "app_no": "202021039031",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Jiterndra Sheetlani | App/Patent No: 202021039031 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_27",
+                "title": "A Poly herbal formulation for treatment of liver disorder and method of preparation",
+                "category": "Other Registered Patents",
+                "inventors": "Dr. Neelesh Choubey",
+                "app_no": "202021051557",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. Neelesh Choubey | App/Patent No: 202021051557 | Status: Filed &amp; Published"
+            },
+            {
+                "id": "pat_28",
+                "title": "&ldquo;A pharmaceutical composition comprising a compressed polyherbal tablets for the treatment of infections caused by helminthes&rdquo;",
+                "category": "Other Registered Patents",
+                "inventors": "Dr. C. K Tyagi",
+                "app_no": "202021042927",
+                "status": "Filed &amp; Published",
+                "file": "#",
+                "date": "2024-01-01",
+                "desc": "Inventors: Dr. C. K Tyagi | App/Patent No: 202021042927 | Status: Filed &amp; Published"
+            }
+        ]
+    },
+    "ResearchEResources": {
+        "title": "Digital Libraries & Research E-Resources",
+        "section": "Research",
+        "source_file": "Research/E-Resources.php",
+        "documents": [
+            {
+                "id": "eres_1",
+                "title": "Project Gutenberg",
+                "category": "Free Domain Books",
+                "file": "http://www.gutenberg.org/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Over 70,000 free eBooks in public domain."
+            },
+            {
+                "id": "eres_2",
+                "title": "ManyBooks",
+                "category": "Free Domain Books",
+                "file": "http://www.manybooks.net/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Extensive digital library of downloadable classics."
+            },
+            {
+                "id": "eres_3",
+                "title": "Planet eBook",
+                "category": "Free Domain Books",
+                "file": "http://www.planetebook.com/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Free classic literature ebooks."
+            },
+            {
+                "id": "eres_4",
+                "title": "Feedbooks Public Domain",
+                "category": "Free Domain Books",
+                "file": "http://www.feedbooks.com/publicdomin",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Free high quality public domain books."
+            },
+            {
+                "id": "eres_5",
+                "title": "Open Culture Free Audio & eBooks",
+                "category": "Free Domain Books",
+                "file": "http://www.openculture.com/free_ebooks",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Free educational and cultural media."
+            },
+            {
+                "id": "eres_6",
+                "title": "Authorama Public Domain Books",
+                "category": "Free Domain Books",
+                "file": "http://www.authorama.com/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Completely free books from a variety of authors."
+            },
+            {
+                "id": "eres_7",
+                "title": "INDEST-AICTE Consortium",
+                "category": "Academic E-Content",
+                "file": "http://www.indest.iitd.ac.in/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Indian National Digital Library in Engineering Sciences and Technology."
+            },
+            {
+                "id": "eres_8",
+                "title": "NPTEL Online Portal",
+                "category": "Academic E-Content",
+                "file": "http://nptel.iitm.ac.in/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "National Programme on Technology Enhanced Learning courses."
+            },
+            {
+                "id": "eres_9",
+                "title": "INFLIBNET Centre",
+                "category": "Academic E-Content",
+                "file": "http://www.inflibnet.ac.in/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Information and Library Network Centre - UGC autonomous inter-university centre."
+            },
+            {
+                "id": "eres_10",
+                "title": "Vidyanidhi Digital Library",
+                "category": "Academic E-Content",
+                "file": "http://www.vidyanidhi.org.in/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Indian digital library of doctoral dissertations."
+            },
+            {
+                "id": "eres_11",
+                "title": "Digital Library of India (ERNET)",
+                "category": "Academic E-Content",
+                "file": "http://www.digitallibrary.ernet.in",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Digitized collection of Indian heritage and knowledge."
+            },
+            {
+                "id": "eres_12",
+                "title": "NISCAIR Online Periodicals Repository",
+                "category": "Academic E-Content",
+                "file": "http://www.niscair.res.in",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "National Institute of Science Communication and Information Resources."
+            },
+            {
+                "id": "eres_13",
+                "title": "Google Scholar",
+                "category": "Academic E-Content",
+                "file": "https://scholar.google.co.in/",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Search across many disciplines and sources: articles, theses, books."
+            },
+            {
+                "id": "eres_14",
+                "title": "INDEST Membership Brochure (PDF)",
+                "category": "PDF Brochures",
+                "file": "assets/uploads/documents/brochureforcoremembers.pdf",
+                "date": "2024-01-01",
+                "status": "Active",
+                "desc": "Brochure for core members of INDEST-AICTE Consortium."
+            }
+        ]
+    },
+    "DirectorRD": [
+        {
+            "id": "1",
+            "name": "Dr. Hemant Kumar Sharma",
+            "designation": "Director (R & D)",
+            "university": "Sri Satya Sai University of Technology & Medical Sciences",
+            "photo": "assets/images/research/h.k.SHARMA_05042022_1258.jpg",
+            "quote": "Our endeavor is to make our system effective and sensitive to the requirements of all stakeholders by undertaking collaborations with industry and fostering engineering, pharmacy, science, and medical research as an integral part of quality education.",
+            "message": "<p>Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS) is a multi-disciplinary University comprising various disciplines of Technology as well as Medical Sciences, established in 2013 to offer quality education among the deserving youth of India and abroad.</p>\n<p>It has immense Research potential, as evident from the spontaneous Research activities performed by the Students and the Faculties. So far more than 1500 Research Papers have been published by research aspirants in reputed Foreign and Indian Journals. We intend to form an R & D unit of International standing by striving continuously in pursuit of excellence in education, research, entrepreneurship, technology implementation, and other related fields for the services of society. We promise to provide high quality education in all our Constituent schools/units of our University from undergraduate to doctoral levels through a creative balance of academic, professional, as well as extracurricular programs.</p>\n<p>The SSSUTMS Research and Development Cell operates with an objective to promote research activities among faculty members to achieve academic excellence. In our endeavor to make our system effective and sensitive to the requirements of all stakeholders, we undertake collaboration with industry to foster Engineering, Pharmacy, Science, and Medical research which is an integral part of quality education.</p>\n<p>We conduct research-oriented workshops, seminars, and development programs to augment the quality of research being conducted by various faculties of SSSUTMS.</p>",
+            "updated_at": "2026-09-11 12:10:51"
+        }
+    ],
+    "RAndDCell": [
+        {
+            "id": "1",
+            "title": "R & D Cell Objectives & Preamble",
+            "preamble": "Research and Development cell (R & D Cell) operates with the following objectives to promote research activities among faculty members to achieve academic excellence.",
+            "objectives": [
+                "To promote research activities in rugged areas of engineering, science, pharmacy, and medical technology.",
+                "To encourage and support faculty members and students to publish papers in reputed National and International Conferences and Journals.",
+                "To motivate and mentor scholars for filing National and International Patents.",
+                "To support faculty members for applying for research grants and projects from various government and non-government funding agencies (DST, SERB, AICTE, ICMR, etc.).",
+                "To establish Centres of Excellence in cutting-edge research domains.",
+                "To conduct Faculty Development Programmes (FDPs), workshops, and technical training on modern scientific tools.",
+                "To build industry-academia linkages and facilitate commercialization of innovative student research."
+            ],
+            "updated_at": "2026-09-11 12:25:35"
+        }
+    ],
+    "ConsultancyServices": [
+        {
+            "id": "1",
+            "title": "CONSULTANCY SERVICES",
+            "subtitle": "Transferring Academic Knowledge & Infrastructure for Industrial Solutions",
+            "intro": "SSSUTMS University has strong focus on meaningful research activities which should benefit society. It also believes that expertise gained by the university should not only be used in improving teaching - learning and research system within the university but also should be used to benefit larger part of the society. In order to motivate university staff to share their knowledge and expertise for betterment of Society, University shall permit consultancy and project/work in industry, corporate sectors and other organisations by the university staff. The staff may use material resources of the University for such Consultancy Work. The university shall share the monitoring benefits occurring out of such work/association/assignments with the concerned staff.",
+            "resource_sharing": "University permits staff to utilize academic facilities, physical infrastructure, and specialized laboratories for consultancy assignments.",
+            "revenue_sharing": "The net gain as worked out (Money Received from the client minus all incidental charges incurred for the consultation work) will be divided in ratio of 60:40 i.e. 60% of the gain will be paid to the faculty/staff who worked for the project and 40% will be retained by the university. University will plough back the share received by it in developing facilities to improve consultancy infrastructure.",
+            "process_sop": "Research & Development Department (RDD) in the university will be the nodal agency for any consultancy activity in the university RDD. It will be the custodian of all documents for consultancy. Any staff, department or faculty may initiate the ground work and explore such possibilities. After the basic ground work it should be reported to RDD who will put it on their record. RDD will do the initial survey/preliminary inquiry and put up the matter to the DIRECTOR, who may form a team for further discussion with the client or he may himself discuss it with the client. After negotiation, an Agreement Form will be signed by the client and Registrar on behalf of the university. The payment received for consultancy will be deposited by the client/RDD in university bank account as per terms of the agreement.",
+            "objectives": [
+                "To effectively utilize the University academic facilities, physical infrastructure including the engineering and scientific infrastructure, the available expertise to enter into an arrangement / interaction with the industry, other institutions or the bodies as the University may deem fit, in a manner consistent with the primary mission of teaching, research and public service;",
+                "To enrich the experience and knowledge of the Professionals in the knowledge sphere and provide an opportunity of finding solutions to the problems of industries / enterprises.",
+                "To provide opportunities to the Professionals to apply their knowledge and skill in real work situations.",
+                "To supplement the University financial resources to the possible extent."
+            ],
+            "partners": [
+                "Total Diagnosis Pvt. Ltd.",
+                "Shruti media Services",
+                "Siddhart Kapoor Infrastructure Pvt. Ltd.",
+                "Double Tick Media Pvt. Ltd.",
+                "New Life Laboratories Pvt. Ltd.",
+                "Aran Pharmaceuticals",
+                "Sunrise Textiles, Mandideep, Raisen",
+                "LUNIA Law Associate, Bhopal",
+                "Noble Hospital, Bhopal",
+                "Ganga Hospital, Bhopal",
+                "Konark Consultancy, Bhopal"
+            ],
+            "updated_at": "2026-09-11 12:29:36"
+        }
+    ],
+    "CollaborationandMou": [
+        {
+            "id": "1",
+            "title": "COLLABORATIONS & MEMORANDUMS OF UNDERSTANDING",
+            "subtitle": "Fostering National & International Academic, Research, and Industrial Synergies",
+            "overview": "<p>Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS) actively collaborates with leading national and international universities, research organizations, corporate houses, and government agencies to bridge academic theory with industry practice.</p><p>These strategic alliances aim to facilitate joint research projects, exchange of academic materials, student and faculty exchange programs, industrial training, joint organization of conferences, and technology transfer for community benefit.</p>",
+            "joint_rd": "Collaborative scientific investigation and sponsored research projects with government funding bodies and industrial partners.",
+            "industrial_training": "Providing real-world exposure, practical skill development, and industry mentor-guided internships for undergraduate and postgraduate scholars.",
+            "faculty_exchange": "Academic exchange programs enabling faculty members and research scholars to share expertise and utilize specialized laboratories.",
+            "tech_comm": "Translating laboratory patent innovations into market-ready commercial products through corporate licensing agreements.",
+            "updated_at": "2026-09-11 12:29:36"
+        }
+    ],
+    "Iic_Cell": [
+        {
+            "id": "1",
+            "title": "INSTITUTION'S INNOVATION COUNCIL (IIC) CELL",
+            "subtitle": "Fostering Entrepreneurship, Student Start-ups & Intellectual Property Awareness",
+            "vision": "To promote innovation, entrepreneurial skills, and the growth of student start-ups.",
+            "missions": [
+                "To nurture a culture of innovation among students.",
+                "To instill and cultivate entrepreneurial abilities and competencies among students.",
+                "To encourage the progress and advancement of student-led startups."
+            ],
+            "gallery": [
+                {
+                    "title": "IIC Establishment Certificate",
+                    "image": "assets/images/research/iic/certificate_06072023_1205.jpg"
+                },
+                {
+                    "title": "Innovation Cell Initiative",
+                    "image": "assets/images/research/iic/inno_06072023_1207.jpg"
+                },
+                {
+                    "title": "Entrepreneurship Development",
+                    "image": "assets/images/research/iic/entr_06072023_1209.jpg"
+                },
+                {
+                    "title": "IIC Workshop Event",
+                    "image": "assets/images/research/iic/WhatsApp_Image_2023-09-26_at_15.01.28_26092023_0425.jpg"
+                },
+                {
+                    "title": "COMSOL Multiphysics Workshop",
+                    "image": "assets/images/research/iic/COMSOL_Workshop_10072023_1027.jpg"
+                },
+                {
+                    "title": "National IP Awareness Mission (NIPAM)",
+                    "image": "assets/images/research/iic/NIPAM_workshop_10072023_1029.jpg"
+                },
+                {
+                    "title": "NIPAM Intellectual Property Program",
+                    "image": "assets/images/research/iic/NIPAM_10072023_1029.jpg"
+                },
+                {
+                    "title": "UIT Innovation Appreciation Certificate",
+                    "image": "assets/images/research/iic/certificate_uit_10072023_1033.jpg"
+                }
+            ],
+            "updated_at": "2026-09-11 12:29:36"
+        }
+    ],
+    "Exposition": [
+        {
+            "id": "1",
+            "title": "EXPOSITION: A CARNIVAL OF INNOVATION",
+            "subtitle": "Annual Mega Exhibition of Student Creativity, Robotics, Drones & Project Innovations",
+            "intro": "Exposition – The mega fest of energy and ideas of 20,000 students from more than 300 schools and colleges in Madhya Pradesh is hosted at the SSSUTMS University campus, Sehore. The seeds of Exposition were sown in the year 2017, and since then there has been no turning back.",
+            "body": "<p>Exposition, as the name suggests, is an amalgamation of Creation and Exposure. Young minds use their inventiveness and fervor to create new projects that find solutions to real life issues. Exposition is fundamental to research innovation, economic vitality, and a healthy environment, rooted in inter-disciplinary efforts.</p><p>Faculties and students from various schools and colleges of Madhya Pradesh participate in this three-day event, displaying projects covering science, technology, arts, law, and commerce.</p>",
+            "quote": "Exposition is in true sense the carnival of innovations.",
+            "highlight_nukkad": "Street performances highlighting social causes like Beti Bachao Beti Padhao, harmful effects of plastic, ground water depletion, and pollution awareness.",
+            "highlight_robotics": "Action-packed competitions including Robo-War, Robo-Race, and autonomous robot challenges intriguing thousands of visitors.",
+            "highlight_drones": "Aerial drone racing, aerodynamic model testing, and aerial photography challenges showcasing cutting-edge drone technology.",
+            "highlight_stalls": "Over 250 interactive stalls featuring scientific prototypes, green energy solutions, and interdisciplinary engineering projects.",
+            "updated_at": "2026-09-11 12:29:36"
+        }
+    ],
+    "UGAndPGScholarsProject": [
+        {
+            "id": "1",
+            "title": "UG & PG SCHOLARS PROJECT",
+            "subtitle": "Nurturing Early Curiosity, Scientific Methodology & Student Research Papers",
+            "philosophy": "<p>SSSUTMS University aims at sculpting young creative professionals with an intellect to thoroughly know the past, critically analyze the present, and creatively shape the future. The idea of teaching is not conventional or limiting students to passive information; rather it is progressive and creative, facilitating them to think, experiment, and discover under able guidance.</p><p>Over past years, research and innovation was the forte of postgraduate students, Ph.D. scholars, and faculty members. However, competent authorities resolved to include undergraduate scholars as well, so that the spark of curiosity is inculcated at the earliest possible stage.</p><p>The University Scholars Hub includes academic rank holders from various faculties. As part of hub activities, academic research projects, short studies, and field surveys are carried out by groups of scholars under designated faculty mentors, compiling results into scientific papers.</p>",
+            "quote_text": "Excellence is a continuous process and not an accident.",
+            "quote_author": "Dr. A.P.J. Abdul Kalam",
+            "notice": "Department-wise list of abstracts and research compendiums are compiled and published annually under the Directorate of Research & Development.",
+            "updated_at": "2026-09-11 12:29:36"
+        }
+    ],
+    "NPTEL": [
+        {
+            "id": "1",
+            "title": "NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)",
+            "subtitle": "SSSUTMS Local Chapter for IIT Online Certification Courses & FDPs",
+            "about_text": "<p>The National Programme on Technology Enhanced Learning (NPTEL) is a project initiated and handled by seven Indian Institute of Technology (IIT-Bombay, Delhi, Kanpur, Kharagpur, Madras, Roorkee and Guwahati) and Indian Institute of Science, Bangalore. It is a project funded by MHRD, Government of India, to develop and promote multimedia and web technology-based learning open for all.</p><p>Currently more than 940 courses are available on web portal http://nptel.ac.in for viewing and downloading. NPTEL has also initiated open online courses with certification where courses in different domains are regularly launched. Courses are free to enroll and are available at http://onlinecourses.nptel.ac.in. At the end of the course a certification exam (optional) is held on specific dates at specific centers. Certificate from IIT is awarded to those who register and appear for the examination. These exams have nominal fees with facility of scholarship and partial fee waiver for SC/ST candidates.</p>",
+            "portal_url": "https://onlinecourses.nptel.ac.in/",
+            "guidelines": [
+                "Use a unique email id throughout the course run.",
+                "Select 'Yes' to the query - Are you a part of NPTEL Local Chapter.",
+                "Choose the correct Local Chapter from the drop-down list while enrolling.",
+                "Students - Enter college roll number (college id number).",
+                "Faculty - Enter college Employee id no."
+            ],
+            "links": [
+                {
+                    "title": "Video on How to Enroll to the NPTEL Online Courses",
+                    "url": "http://nptel.ac.in/LocalChapter/videos.php"
+                },
+                {
+                    "title": "Link for NPTEL Brochures and Booklet",
+                    "url": "http://nptel.ac.in/Brochures/"
+                },
+                {
+                    "title": "How do students select their mentors",
+                    "url": "https://drive.google.com/file/d/1JFS3yGPkMSeQZ3UHIZo8vrq9Z1LI6UCp/view"
+                },
+                {
+                    "title": "Guidelines for Mentors",
+                    "url": "https://drive.google.com/file/d/1RukTlxUWN-XmBXCeVzP4o20b5fo1gGOe/view"
+                },
+                {
+                    "title": "Mentors flow in NPTEL Local Chapters",
+                    "url": "https://drive.google.com/file/d/1NTIlO45DtQtJBCWZeDx9oWFHMZD2m9Wq/view"
+                }
+            ],
+            "updated_at": "2026-09-11 12:29:36"
+        }
+    ]
 }

@@ -8,6 +8,28 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic NPTEL data from Admin
+$nptelData = function_exists('get_page_documents') ? get_page_documents('NPTEL') : [];
+$nptel = !empty($nptelData[0]) ? $nptelData[0] : [];
+$nptelTitle = !empty($nptel['title']) ? $nptel['title'] : 'NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)';
+$nptelSubtitle = !empty($nptel['subtitle']) ? $nptel['subtitle'] : 'SSSUTMS Local Chapter for IIT Online Certification Courses & FDPs';
+$nptelPortalUrl = !empty($nptel['portal_url']) ? $nptel['portal_url'] : 'https://onlinecourses.nptel.ac.in/';
+$nptelAbout = !empty($nptel['about_text']) ? $nptel['about_text'] : '<p>The National Programme on Technology Enhanced Learning (NPTEL) is a project initiated and handled by seven Indian Institute of Technology (IIT-Bombay, Delhi, Kanpur, Kharagpur, Madras, Roorkee and Guwahati) and Indian Institute of Science, Bangalore. It is a project funded by MHRD, Government of India, to develop and promote multimedia and web technology-based learning open for all.</p><p>Currently more than 940 courses are available on web portal http://nptel.ac.in for viewing and downloading. NPTEL has also initiated open online courses with certification where courses in different domains are regularly launched. Courses are free to enroll and are available at http://onlinecourses.nptel.ac.in. At the end of the course a certification exam (optional) is held on specific dates at specific centers. Certificate from IIT is awarded to those who register and appear for the examination. These exams have nominal fees with facility of scholarship and partial fee waiver for SC/ST candidates.</p>';
+$nptelGuidelines = !empty($nptel['guidelines']) && is_array($nptel['guidelines']) ? $nptel['guidelines'] : [
+    'Use a unique email id throughout the course run.',
+    'Select \'Yes\' to the query - Are you a part of NPTEL Local Chapter.',
+    'Choose the correct Local Chapter from the drop-down list while enrolling.',
+    'Students - Enter college roll number (college id number).',
+    'Faculty - Enter college Employee id no.'
+];
+$nptelLinks = !empty($nptel['links']) && is_array($nptel['links']) ? $nptel['links'] : [
+    ['title' => 'Video on How to Enroll to the NPTEL Online Courses', 'url' => 'http://nptel.ac.in/LocalChapter/videos.php'],
+    ['title' => 'Link for NPTEL Brochures and Booklet', 'url' => 'http://nptel.ac.in/Brochures/'],
+    ['title' => 'How do students select their mentors', 'url' => 'https://drive.google.com/file/d/1JFS3yGPkMSeQZ3UHIZo8vrq9Z1LI6UCp/view'],
+    ['title' => 'Guidelines for Mentors', 'url' => 'https://drive.google.com/file/d/1RukTlxUWN-XmBXCeVzP4o20b5fo1gGOe/view'],
+    ['title' => 'Mentors flow in NPTEL Local Chapters', 'url' => 'https://drive.google.com/file/d/1NTIlO45DtQtJBCWZeDx9oWFHMZD2m9Wq/view']
+];
 ?>
 
 <style>
@@ -33,29 +55,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.nptel-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-.nptel-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.nptel-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
-}
+
 .nptel-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -113,11 +113,11 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
                 <i class="fa-solid fa-laptop-file me-1"></i> IIT &amp; IISc E-Learning Initiative
               </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)</h3>
-              <p class="text-white-50 mb-0 small">SSSUTMS Local Chapter for IIT Online Certification Courses &amp; FDPs</p>
+              <h3 class="fw-bold text-white mb-1 fs-3"><?php echo htmlspecialchars($nptelTitle); ?></h3>
+              <p class="text-white-50 mb-0 small"><?php echo htmlspecialchars($nptelSubtitle); ?></p>
             </div>
             <div>
-              <a href="https://onlinecourses.nptel.ac.in/" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3">
+              <a href="<?php echo htmlspecialchars($nptelPortalUrl); ?>" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3">
                 <i class="fa-solid fa-arrow-right-from-bracket me-1"></i> SWAYAM NPTEL Portal
               </a>
             </div>
@@ -126,46 +126,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="nptel-stat-chip">
-                  <div class="nptel-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Initiated By</div>
-                    <div class="fw-bold text-dark fs-6">7 IITs &amp; IISc</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="nptel-stat-chip">
-                  <div class="nptel-stat-icon"><i class="fa-solid fa-book-open"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Courses</div>
-                    <div class="fw-bold text-dark fs-6">940+ E-Courses</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="nptel-stat-chip">
-                  <div class="nptel-stat-icon"><i class="fa-solid fa-hand-holding-hand"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Waivers</div>
-                    <div class="fw-bold text-dark fs-6">SC/ST Scholarship</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="nptel-stat-chip">
-                  <div class="nptel-stat-icon"><i class="fa-solid fa-certificate"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Certificates</div>
-                    <div class="fw-bold text-dark fs-6">IIT Certification</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- About NPTEL Section -->
             <div class="nptel-card">
               <div class="nptel-card-header">
@@ -173,9 +133,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">About NPTEL</h5>
               </div>
               <div class="lh-lg text-dark" style="text-align: justify;">
-                <p>The National Programme on Technology Enhanced Learning (NPTEL) is a project initiated and handled by seven Indian Institutes of Technology (IIT Bombay, Delhi, Kanpur, Kharagpur, Madras, Roorkee, and Guwahati) and Indian Institute of Science, Bangalore. It is funded by MHRD, Government of India, to develop and promote multimedia and web technology-based learning open for all.</p>
-
-                <p class="mb-0">Currently more than 940 courses are available on the portal for viewing and downloading. NPTEL online courses offer optional certification exams held at specific centers with nominal fees, SC/ST fee waiver, and university credit transfer options. Certificates from IITs are awarded to candidates passing the proctored examination.</p>
+                <?php echo $nptelAbout; ?>
               </div>
             </div>
 
@@ -186,11 +144,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">Important Guidelines While Enrolling</h5>
               </div>
               <ul class="list-group list-group-flush border rounded-3">
-                <li class="list-group-item p-3"><i class="fa-solid fa-check text-success me-2"></i> Use a unique, permanent email ID throughout the course run.</li>
-                <li class="list-group-item p-3"><i class="fa-solid fa-check text-success me-2"></i> Select <strong>'Yes'</strong> to the query: <em>Are you a part of NPTEL Local Chapter?</em></li>
-                <li class="list-group-item p-3"><i class="fa-solid fa-check text-success me-2"></i> Choose <strong>Sri Satya Sai University of Technology and Medical Sciences</strong> from the drop-down list.</li>
-                <li class="list-group-item p-3"><i class="fa-solid fa-check text-success me-2"></i> <strong>Students:</strong> Enter your official college enrollment / roll number.</li>
-                <li class="list-group-item p-3"><i class="fa-solid fa-check text-success me-2"></i> <strong>Faculty:</strong> Enter your official college Employee ID number.</li>
+                <?php foreach ($nptelGuidelines as $gLine): ?>
+                  <li class="list-group-item p-3"><i class="fa-solid fa-check text-success me-2"></i> <?php echo htmlspecialchars($gLine); ?></li>
+                <?php endforeach; ?>
               </ul>
             </div>
 
@@ -201,30 +157,12 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">Important NPTEL Links &amp; Guides</h5>
               </div>
 
-              <a href="http://nptel.ac.in/LocalChapter/videos.php" target="_blank" rel="noopener" class="nptel-link-btn">
-                <span><i class="fa-solid fa-video text-primary me-2"></i> Video on How to Enroll to NPTEL Online Courses</span>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </a>
-
-              <a href="http://nptel.ac.in/Brochures/" target="_blank" rel="noopener" class="nptel-link-btn">
-                <span><i class="fa-solid fa-book text-primary me-2"></i> Link for NPTEL Brochures and Booklet</span>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </a>
-
-              <a href="https://drive.google.com/file/d/1JFS3yGPkMSeQZ3UHIZo8vrq9Z1LI6UCp/view" target="_blank" rel="noopener" class="nptel-link-btn">
-                <span><i class="fa-solid fa-user-check text-primary me-2"></i> How Students Select Their Mentors</span>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </a>
-
-              <a href="https://drive.google.com/file/d/1RukTlxUWN-XmBXCeVzP4o20b5fo1gGOe/view" target="_blank" rel="noopener" class="nptel-link-btn">
-                <span><i class="fa-solid fa-file-lines text-primary me-2"></i> Guidelines for Mentors</span>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </a>
-
-              <a href="https://drive.google.com/file/d/1NTIlO45DtQtJBCWZeDx9oWFHMZD2m9Wq/view" target="_blank" rel="noopener" class="nptel-link-btn mb-0">
-                <span><i class="fa-solid fa-diagram-project text-primary me-2"></i> Mentors Flow in NPTEL Local Chapters</span>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              </a>
+              <?php foreach ($nptelLinks as $lIdx => $lnk): ?>
+                <a href="<?php echo htmlspecialchars($lnk['url'] ?? '#'); ?>" target="_blank" rel="noopener" class="nptel-link-btn <?php echo ($lIdx === count($nptelLinks) - 1) ? 'mb-0' : ''; ?>">
+                  <span><i class="fa-solid fa-arrow-up-right-from-square text-primary me-2"></i> <?php echo htmlspecialchars($lnk['title'] ?? 'NPTEL Link'); ?></span>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+              <?php endforeach; ?>
             </div>
 
           </div>

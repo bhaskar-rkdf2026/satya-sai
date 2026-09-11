@@ -8,6 +8,26 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic IIC Cell data from Admin
+$iicData = function_exists('get_page_documents') ? get_page_documents('Iic_Cell') : [];
+$iic = !empty($iicData[0]) ? $iicData[0] : [];
+$iicVision = !empty($iic['vision']) ? $iic['vision'] : 'To promote innovation, entrepreneurial skills, and the growth of student start-ups.';
+$iicMissions = !empty($iic['missions']) && is_array($iic['missions']) ? $iic['missions'] : [
+    'To nurture a culture of innovation among students.',
+    'To instill and cultivate entrepreneurial abilities and competencies among students.',
+    'To encourage the progress and advancement of student-led startups.'
+];
+$iicGallery = !empty($iic['gallery']) && is_array($iic['gallery']) ? $iic['gallery'] : [
+    ['title' => 'IIC Establishment Certificate', 'image' => 'assets/images/research/iic/certificate_06072023_1205.jpg'],
+    ['title' => 'Innovation Cell Initiative', 'image' => 'assets/images/research/iic/inno_06072023_1207.jpg'],
+    ['title' => 'Entrepreneurship Development', 'image' => 'assets/images/research/iic/entr_06072023_1209.jpg'],
+    ['title' => 'IIC Workshop Event', 'image' => 'assets/images/research/iic/WhatsApp_Image_2023-09-26_at_15.01.28_26092023_0425.jpg'],
+    ['title' => 'COMSOL Multiphysics Workshop', 'image' => 'assets/images/research/iic/COMSOL_Workshop_10072023_1027.jpg'],
+    ['title' => 'National IP Awareness Mission (NIPAM)', 'image' => 'assets/images/research/iic/NIPAM_workshop_10072023_1029.jpg'],
+    ['title' => 'NIPAM Intellectual Property Program', 'image' => 'assets/images/research/iic/NIPAM_10072023_1029.jpg'],
+    ['title' => 'UIT Innovation Appreciation Certificate', 'image' => 'assets/images/research/iic/certificate_uit_10072023_1033.jpg']
+];
 ?>
 
 <style>
@@ -33,29 +53,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.iic-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-.iic-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.iic-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
-}
+
 .iic-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -120,46 +118,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="iic-stat-chip">
-                  <div class="iic-stat-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Culture</div>
-                    <div class="fw-bold text-dark fs-6">Innovation Driven</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="iic-stat-chip">
-                  <div class="iic-stat-icon"><i class="fa-solid fa-rocket"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Start-ups</div>
-                    <div class="fw-bold text-dark fs-6">Student-Led Growth</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="iic-stat-chip">
-                  <div class="iic-stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Workshops</div>
-                    <div class="fw-bold text-dark fs-6">COMSOL &amp; NIPAM</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="iic-stat-chip">
-                  <div class="iic-stat-icon"><i class="fa-solid fa-award"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Recognition</div>
-                    <div class="fw-bold text-dark fs-6">MoE IIC Ranking</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Vision & Mission Card -->
             <div class="iic-card">
               <div class="iic-card-header">
@@ -169,15 +127,15 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <div class="mb-4">
                 <h6 class="fw-bold text-primary mb-2"><i class="fa-solid fa-bullseye me-2"></i> Vision</h6>
                 <p class="text-dark fs-6 mb-0 ps-3 border-start border-3 border-warning" style="text-align: justify;">
-                  To promote innovation, entrepreneurial skills, and the growth of student start-ups.
+                  <?php echo htmlspecialchars($iicVision); ?>
                 </p>
               </div>
               <div>
                 <h6 class="fw-bold text-primary mb-2"><i class="fa-solid fa-compass me-2"></i> Mission</h6>
                 <ul class="list-group list-group-flush border rounded-3">
-                  <li class="list-group-item p-3"><i class="fa-solid fa-circle-check text-success me-2"></i> To nurture a culture of innovation among students.</li>
-                  <li class="list-group-item p-3"><i class="fa-solid fa-circle-check text-success me-2"></i> To instill and cultivate entrepreneurial abilities and competencies among students.</li>
-                  <li class="list-group-item p-3"><i class="fa-solid fa-circle-check text-success me-2"></i> To encourage the progress and advancement of student-led startups.</li>
+                  <?php foreach ($iicMissions as $msn): ?>
+                    <li class="list-group-item p-3"><i class="fa-solid fa-circle-check text-success me-2"></i> <?php echo htmlspecialchars($msn); ?></li>
+                  <?php endforeach; ?>
                 </ul>
               </div>
             </div>
@@ -190,61 +148,22 @@ require_once __DIR__ . '/../includes/page-banner.php';
               </div>
 
               <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/certificate_06072023_1205.jpg" alt="IIC Certificate">
-                    <div class="mt-2 fw-bold text-dark small">IIC Establishment Certificate</div>
+                <?php foreach ($iicGallery as $item): 
+                  $imgSrc = !empty($item['image']) ? $item['image'] : '';
+                  if (!preg_match('#^https?://#i', $imgSrc)) {
+                    $imgSrc = BASE_URL . ltrim($imgSrc, '/');
+                  }
+                  $itemTitle = $item['title'] ?? 'IIC Gallery Event';
+                ?>
+                  <div class="col-md-6">
+                    <div class="iic-img-card">
+                      <a href="<?php echo htmlspecialchars($imgSrc); ?>" target="_blank" title="Click to view full size">
+                        <img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($itemTitle); ?>" class="img-fluid rounded">
+                      </a>
+                      <div class="mt-2 fw-bold text-dark small"><?php echo htmlspecialchars($itemTitle); ?></div>
+                    </div>
                   </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/inno_06072023_1207.jpg" alt="Innovation Banner">
-                    <div class="mt-2 fw-bold text-dark small">Innovation Cell Initiative</div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/entr_06072023_1209.jpg" alt="Entrepreneurship">
-                    <div class="mt-2 fw-bold text-dark small">Entrepreneurship Development</div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2023-09-26_at_15.01.28_26092023_0425.jpg" alt="IIC Event">
-                    <div class="mt-2 fw-bold text-dark small">IIC Workshop Event</div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/COMSOL_Workshop_10072023_1027.jpg" alt="COMSOL Workshop">
-                    <div class="mt-2 fw-bold text-dark small">COMSOL Multiphysics Workshop</div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/NIPAM_workshop_10072023_1029.jpg" alt="NIPAM Workshop">
-                    <div class="mt-2 fw-bold text-dark small">National IP Awareness Mission (NIPAM)</div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/NIPAM_10072023_1029.jpg" alt="NIPAM Event">
-                    <div class="mt-2 fw-bold text-dark small">NIPAM Intellectual Property Program</div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="iic-img-card">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/certificate_uit_10072023_1033.jpg" alt="UIT Certificate">
-                    <div class="mt-2 fw-bold text-dark small">UIT Innovation Appreciation Certificate</div>
-                  </div>
-                </div>
+                <?php endforeach; ?>
               </div>
 
             </div>

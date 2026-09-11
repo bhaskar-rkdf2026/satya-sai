@@ -8,6 +8,33 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic Consultancy data from Admin
+$csData = function_exists('get_page_documents') ? get_page_documents('ConsultancyServices') : [];
+$cs = !empty($csData[0]) ? $csData[0] : [];
+$csIntro = !empty($cs['intro']) ? $cs['intro'] : 'SSSUTMS University has strong focus on meaningful research activities which should benefit society. It also believes that expertise gained by the university should not only be used in improving teaching - learning and research system within the university but also should be used to benefit larger part of the society. In order to motivate university staff to share their knowledge and expertise for betterment of Society, University shall permit consultancy and project/work in industry, corporate sectors and other organisations by the university staff. The staff may use material resources of the University for such Consultancy Work. The university shall share the monitoring benefits occurring out of such work/association/assignments with the concerned staff.';
+$csResourceSharing = !empty($cs['resource_sharing']) ? $cs['resource_sharing'] : 'University permits staff to utilize academic facilities, physical infrastructure, and specialized laboratories for consultancy assignments.';
+$csRevenueSharing = !empty($cs['revenue_sharing']) ? $cs['revenue_sharing'] : 'The net gain as worked out (Money Received from the client minus all incidental charges incurred for the consultation work) will be divided in ratio of 60:40 i.e. 60% of the gain will be paid to the faculty/staff who worked for the project and 40% will be retained by the university. University will plough back the share received by it in developing facilities to improve consultancy infrastructure.';
+$csProcessSop = !empty($cs['process_sop']) ? $cs['process_sop'] : 'Research & Development Department (RDD) in the university will be the nodal agency for any consultancy activity in the university RDD. It will be the custodian of all documents for consultancy. Any staff, department or faculty may initiate the ground work and explore such possibilities. After the basic ground work it should be reported to RDD who will put it on their record. RDD will do the initial survey/preliminary inquiry and put up the matter to the DIRECTOR, who may form a team for further discussion with the client or he may himself discuss it with the client. After negotiation, an Agreement Form will be signed by the client and Registrar.';
+$csObjectives = !empty($cs['objectives']) && is_array($cs['objectives']) ? $cs['objectives'] : [
+    'To effectively utilize the University academic facilities, physical infrastructure including the engineering and scientific infrastructure, the available expertise to enter into an arrangement / interaction with the industry, other institutions or the bodies as the University may deem fit, in a manner consistent with the primary mission of teaching, research and public service;',
+    'To enrich the experience and knowledge of the Professionals in the knowledge sphere and provide an opportunity of finding solutions to the problems of industries / enterprises.',
+    'To provide opportunities to the Professionals to apply their knowledge and skill in real work situations.',
+    'To supplement the University financial resources to the possible extent.'
+];
+$csPartners = !empty($cs['partners']) && is_array($cs['partners']) ? $cs['partners'] : [
+    'Total Diagnosis Pvt. Ltd.',
+    'Shruti media Services',
+    'Siddhart Kapoor Infrastructure Pvt. Ltd.',
+    'Double Tick Media Pvt. Ltd.',
+    'New Life Laboratories Pvt. Ltd.',
+    'Aran Pharmaceuticals',
+    'Sunrise Textiles, Mandideep, Raisen',
+    'LUNIA Law Associate, Bhopal',
+    'Noble Hospital, Bhopal',
+    'Ganga Hospital, Bhopal',
+    'Konark Consultancy, Bhopal'
+];
 ?>
 
 <style>
@@ -183,46 +210,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Outer Body -->
           <div class="p-3.5 p-md-4">
 
-            <!-- Stat Chips Row -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="cs-stat-card">
-                  <div class="cs-stat-icon"><i class="fa-solid fa-percent"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Revenue Share</span>
-                    <strong class="text-dark fs-6">60% Staff : 40% Univ</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="cs-stat-card">
-                  <div class="cs-stat-icon"><i class="fa-solid fa-building"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Partnerships</span>
-                    <strong class="text-dark fs-6">11 Active Clients</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="cs-stat-card">
-                  <div class="cs-stat-icon"><i class="fa-solid fa-sitemap"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Nodal Agency</span>
-                    <strong class="text-dark fs-6">R&amp;D Department</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="cs-stat-card">
-                  <div class="cs-stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-                  <div>
-                    <span class="text-muted extra-small uppercase fw-bold d-block">Appraisal</span>
-                    <strong class="text-dark fs-6">Performance Index</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Interactive Pill Navigation Tabs -->
             <ul class="nav nav-pills cs-nav-pills flex-column flex-sm-row" id="csTabs" role="tablist">
               <li class="nav-item" role="presentation">
@@ -257,7 +244,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-compass text-warning me-2"></i>Institutional Vision &amp; Background
                   </h6>
                   <p class="mb-0 text-secondary small lh-base" style="font-size: 0.925rem;">
-                    SSSUTMS University has strong focus on meaningful research activities which should benefit society. It also believes that expertise gained by the university should not only be used in improving teaching - learning and research system within the university but also should be used to benefit larger part of the society. In order to motivate university staff to share their knowledge and expertise for betterment of Society, University shall permit consultancy and project/work in industry, corporate sectors and other organisations by the university staff. The staff may use material resources of the University for such Consultancy Work. The university shall share the monitoring benefits occurring out of such work/association/assignments with the concerned staff.
+                    <?php echo htmlspecialchars($csIntro); ?>
                   </p>
                 </div>
 
@@ -269,7 +256,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                         <h6 class="fw-bold text-dark mb-0">Resource Sharing</h6>
                       </div>
                       <p class="mb-0 small text-muted lh-base">
-                        University permits staff to utilize academic facilities, physical infrastructure, and specialized laboratories for consultancy assignments.
+                        <?php echo htmlspecialchars($csResourceSharing); ?>
                       </p>
                     </div>
                   </div>
@@ -360,15 +347,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-sitemap text-warning fs-5"></i>
                     <h6 class="fw-bold text-dark mb-0">Consultancy Process &amp; Nodal Agency</h6>
                   </div>
-                  <p class="mb-2 small text-dark lh-base">
-                    Research &amp; Development Department (RDD) in the university will be the nodal agency for any consultancy activity in the university RDD. It will be the custodian of all documents for consultancy. Any staff, department or faculty may initiate the ground work and explore such possibilities. After the basic ground work it should be reported to RDD who will put it on their record. RDD will do the initial survey/preliminary inquiry and put up the matter to the DIRECTOR, who may form a team for further discussion with the client or he may himself discuss it with the client.
-                  </p>
-                  <p class="mb-2 small text-dark lh-base">
-                    After the negotiation and on arrival on agreement an Agreement Form will be initiated as per the format of the RDD. The format gives just the guidelines. It may be changed at the discretion of the DIRECTOR. It will be signed by the client and Registrar on behalf of the university. The payment received for consultancy will be deposited by the client/RDD in university bank account as per terms of the agreement.
-                  </p>
-                  <p class="mb-0 small text-dark lh-base">
-                    In case of faculty and/or university staff going for chairing an expert session, expert discourse on behalf of the university agreement form will not be raised. Money received from such consultancy event will be deposited in the university Account Section.
-                  </p>
+                  <div class="lh-base text-dark small">
+                    <?php echo nl2br(htmlspecialchars($csProcessSop)); ?>
+                  </div>
                 </div>
 
                 <!-- 60:40 Ratio Callout -->
@@ -378,7 +359,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <h6 class="fw-bold text-dark mb-0">Sharing Policy (60:40 Ratio)</h6>
                   </div>
                   <p class="mb-0 small text-dark lh-base">
-                    The net gain as worked out (Money Received from the client minus all incidental charges incurred for the consultation work) will be divided in ratio of <strong>60:40</strong> i.e. <strong>60% of the gain will be paid to the faculty/staff</strong> who worked for the project and <strong>40% will be retained by the university</strong>. University will plough back the share received by it in developing facilities to improve consultancy infrastructure.
+                    <?php echo htmlspecialchars($csRevenueSharing); ?>
                   </p>
                 </div>
 
@@ -417,59 +398,28 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-bullseye text-warning me-2"></i>Objectives of Consultancy Services</h6>
 
                 <div class="d-flex flex-column gap-2 mb-4">
-                  <div class="cs-feature-row d-flex align-items-start gap-3 mb-0">
-                    <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center flex-shrink-0 mt-0.5" style="width: 32px; height: 32px; border: 1px solid #fde68a;">
-                      <i class="fa-solid fa-check fs-6 fw-bold"></i>
+                  <?php foreach ($csObjectives as $obj): ?>
+                    <div class="cs-feature-row d-flex align-items-start gap-3 mb-0">
+                      <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center flex-shrink-0 mt-0.5" style="width: 32px; height: 32px; border: 1px solid #fde68a;">
+                        <i class="fa-solid fa-check fs-6 fw-bold"></i>
+                      </div>
+                      <p class="mb-0 text-dark small lh-base" style="font-size: 0.92rem;">
+                        <?php echo htmlspecialchars($obj); ?>
+                      </p>
                     </div>
-                    <p class="mb-0 text-dark small lh-base" style="font-size: 0.92rem;">
-                      To effectively utilize the University’s academic facilities, physical infrastructure including the engineering and scientific infrastructure, the available expertise to enter into an arrangement / interaction with the industry, other institutions or the bodies as the University may deem fit, in a manner consistent with the primary mission of teaching, research and public service;
-                    </p>
-                  </div>
-
-                  <div class="cs-feature-row d-flex align-items-start gap-3 mb-0">
-                    <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center flex-shrink-0 mt-0.5" style="width: 32px; height: 32px; border: 1px solid #fde68a;">
-                      <i class="fa-solid fa-check fs-6 fw-bold"></i>
-                    </div>
-                    <p class="mb-0 text-dark small lh-base" style="font-size: 0.92rem;">
-                      To enrich the experience and knowledge of the Professionals in the knowledge sphere and provide an opportunity of finding solutions to the problems of industries / enterprises.
-                    </p>
-                  </div>
-
-                  <div class="cs-feature-row d-flex align-items-start gap-3 mb-0">
-                    <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center flex-shrink-0 mt-0.5" style="width: 32px; height: 32px; border: 1px solid #fde68a;">
-                      <i class="fa-solid fa-check fs-6 fw-bold"></i>
-                    </div>
-                    <p class="mb-0 text-dark small lh-base" style="font-size: 0.92rem;">
-                      To provide opportunities to the Professionals to apply their knowledge and skill in real work situations.
-                    </p>
-                  </div>
-
-                  <div class="cs-feature-row d-flex align-items-start gap-3 mb-0">
-                    <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center flex-shrink-0 mt-0.5" style="width: 32px; height: 32px; border: 1px solid #fde68a;">
-                      <i class="fa-solid fa-check fs-6 fw-bold"></i>
-                    </div>
-                    <p class="mb-0 text-dark small lh-base" style="font-size: 0.92rem;">
-                      To supplement the University’s financial resources to the possible extent.
-                    </p>
-                  </div>
+                  <?php endforeach; ?>
                 </div>
 
                 <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-handshake text-warning me-2"></i>Agencies / Organisations Involved in Consultancy Services</h6>
                 <p class="small text-muted mb-3">Key external firms and healthcare/industrial partners collaborating with SSSUTMS:</p>
 
                 <div class="d-flex flex-wrap gap-2.5">
-                  <span class="cs-partner-badge"><i class="fa-solid fa-hospital-user text-warning"></i> Total Diagnosis Pvt. Ltd.</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-photo-film text-warning"></i> Shruti media Services</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-compass-drafting text-warning"></i> Siddhart Kapoor Infrastructure Pvt. Ltd.</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-hashtag text-warning"></i> Double Tick Media Pvt. Ltd.</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-vial-circle-check text-warning"></i> New Life Laboratories Pvt. Ltd.</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-capsules text-warning"></i> Aran Pharmaceuticals</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-shirt text-warning"></i> Sunrise Textiles, Mandideep, Raisen</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-scale-balanced text-warning"></i> LUNIA Law Associate, Bhopal</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-square-h text-warning"></i> Noble Hospital, Bhopal</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-hospital text-warning"></i> Ganga Hospital, Bhopal</span>
-                  <span class="cs-partner-badge"><i class="fa-solid fa-user-gear text-warning"></i> Konark Consultancy, Bhopal</span>
+                  <?php foreach ($csPartners as $partner): ?>
+                    <span class="cs-partner-badge"><i class="fa-solid fa-handshake text-warning"></i> <?php echo htmlspecialchars($partner); ?></span>
+                  <?php endforeach; ?>
                 </div>
+
+              </div>
 
               </div>
 

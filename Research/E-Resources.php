@@ -8,6 +8,47 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+// Fetch E-Resources from Admin Page Documents
+$allEResources = [];
+if (function_exists('get_page_documents')) {
+    $allEResources = get_page_documents('ResearchEResources');
+}
+
+// Fallback if empty
+if (empty($allEResources)) {
+    $allEResources = [
+        ['title' => 'Project Gutenberg', 'file_path' => 'http://www.gutenberg.org/', 'category' => 'Free Domain Books', 'document_no' => 'www.gutenberg.org'],
+        ['title' => 'ManyBooks', 'file_path' => 'http://www.manybooks.net/', 'category' => 'Free Domain Books', 'document_no' => 'www.manybooks.net'],
+        ['title' => 'BooksInMyPhone', 'file_path' => 'http://www.booksinmyphone.com/', 'category' => 'Free Domain Books', 'document_no' => 'www.booksinmyphone.com'],
+        ['title' => 'Planet eBook', 'file_path' => 'http://www.planetebook.com/', 'category' => 'Free Domain Books', 'document_no' => 'www.planetebook.com'],
+        ['title' => 'Book Depository Free', 'file_path' => 'http://www.bookdepository.com/free', 'category' => 'Free Domain Books', 'document_no' => 'www.bookdepository.com/free'],
+        ['title' => 'Feedbooks Public Domain', 'file_path' => 'http://www.feedbooks.com/publicdomin', 'category' => 'Free Domain Books', 'document_no' => 'www.feedbooks.com/publicdomin'],
+        ['title' => 'New Free Books', 'file_path' => 'http://newfreebooks.com/', 'category' => 'Free Domain Books', 'document_no' => 'http://newfreebooks.com'],
+        ['title' => 'Scribd', 'file_path' => 'http://www.scribd.com/', 'category' => 'Free Domain Books', 'document_no' => 'www.scribd.com'],
+        ['title' => 'Open Culture Free eBooks', 'file_path' => 'http://www.openculture.com/free_ebooks', 'category' => 'Free Domain Books', 'document_no' => 'www.openculture.com/free_ebooks'],
+        ['title' => 'Authorama', 'file_path' => 'http://www.authorama.com/', 'category' => 'Free Domain Books', 'document_no' => 'www.authorama.com'],
+        ['title' => 'Alison Free Courses', 'file_path' => 'http://alison.com/', 'category' => 'Free Domain Books', 'document_no' => 'http://alison.com/'],
+        ['title' => 'NPTEL IIT Madras', 'file_path' => 'http://nptel.iitm.ac.in/', 'category' => 'Academic E-Content', 'document_no' => 'http://nptel.iitm.ac.in/'],
+        ['title' => 'INDEST Core Members Brochure', 'file_path' => 'http://paniit.iitd.ac.in/indest/downloads/brochureforcoremembers.pdf', 'category' => 'Academic E-Content', 'document_no' => 'brochureforcoremembers.pdf'],
+        ['title' => 'INDEST Consortium IIT Delhi', 'file_path' => 'http://www.indest.iitd.ac.in/', 'category' => 'Academic E-Content', 'document_no' => 'www.indest.iitd.ac.in'],
+        ['title' => 'Indira Gandhi National Centre for Arts', 'file_path' => 'http://www.ignca.gov.in/', 'category' => 'Academic E-Content', 'document_no' => 'www.ignca.gov.in'],
+        ['title' => 'Vidyanidhi Indian Theses Repository', 'file_path' => 'http://www.vidyanidhi.org.in/', 'category' => 'Academic E-Content', 'document_no' => 'www.vidyanidhi.org.in'],
+        ['title' => 'Digital Library of India (ERNET)', 'file_path' => 'http://www.digitallibrary.ernet.in/', 'category' => 'Academic E-Content', 'document_no' => 'http://www.digitallibrary.ernet.in'],
+        ['title' => 'INFLIBNET Centre', 'file_path' => 'http://www.inflibnet.ac.in/', 'category' => 'Academic E-Content', 'document_no' => 'www.inflibnet.ac.in'],
+        ['title' => 'NISCAIR CSIR', 'file_path' => 'http://www.niscair.res.in/', 'category' => 'Academic E-Content', 'document_no' => 'http://www.niscair.res.in'],
+        ['title' => 'VVGNLI Ministry of Labour', 'file_path' => 'http://www.vvgnli.org/', 'category' => 'Academic E-Content', 'document_no' => 'www.vvgnli.org'],
+        ['title' => 'Google Scholar (All Subjects Search)', 'file_path' => 'https://scholar.google.co.in/', 'category' => 'Academic E-Content', 'document_no' => 'http://scholar.google.co.in']
+    ];
+}
+
+$freeBooks = array_filter($allEResources, function($r) {
+    return (isset($r['category']) && (stripos($r['category'], 'Free') !== false || stripos($r['category'], 'Book') !== false || stripos($r['category'], 'Domain') !== false));
+});
+if (empty($freeBooks)) $freeBooks = $allEResources;
+
+$eContent = array_filter($allEResources, function($r) {
+    return (isset($r['category']) && (stripos($r['category'], 'Academic') !== false || stripos($r['category'], 'Content') !== false || stripos($r['category'], 'Brochure') !== false));
+});
 ?>
 
 <style>
@@ -33,29 +74,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.er-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-.er-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.er-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
-}
+
 .er-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -134,146 +153,58 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="er-stat-chip">
-                  <div class="er-stat-icon"><i class="fa-solid fa-book-open-reader"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Public Domain</div>
-                    <div class="fw-bold text-dark fs-6">Free E-Books</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="er-stat-chip">
-                  <div class="er-stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">IIT Portal</div>
-                    <div class="fw-bold text-dark fs-6">NPTEL Courses</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="er-stat-chip">
-                  <div class="er-stat-icon"><i class="fa-solid fa-building-columns"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Consortium</div>
-                    <div class="fw-bold text-dark fs-6">INFLIBNET &amp; INDEST</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="er-stat-chip">
-                  <div class="er-stat-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Search</div>
-                    <div class="fw-bold text-dark fs-6">Google Scholar</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Public Domain Books Section -->
             <div class="er-card">
               <div class="er-card-header">
                 <i class="fa-solid fa-book text-warning"></i>
-                <h5 class="fw-bold text-dark mb-0">Copyright Free &amp; Public Domain Book Links</h5>
+                <h5 class="fw-bold text-dark mb-0">Places for Access copyright Free or Public Domain Books Link</h5>
               </div>
 
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Project Gutenberg</span>
-                <a href="http://www.gutenberg.org/" target="_blank" rel="noopener" class="er-access-btn">www.gutenberg.org <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> ManyBooks</span>
-                <a href="http://www.manybooks.net/" target="_blank" rel="noopener" class="er-access-btn">www.manybooks.net <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> BooksInMyPhone</span>
-                <a href="http://www.booksinmyphone.com/" target="_blank" rel="noopener" class="er-access-btn">www.booksinmyphone.com <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Planet eBook</span>
-                <a href="http://www.planetebook.com/" target="_blank" rel="noopener" class="er-access-btn">www.planetebook.com <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Book Depository Free</span>
-                <a href="http://www.bookdepository.com/free" target="_blank" rel="noopener" class="er-access-btn">www.bookdepository.com/free <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Feedbooks Public Domain</span>
-                <a href="http://www.feedbooks.com/publicdomin" target="_blank" rel="noopener" class="er-access-btn">www.feedbooks.com/publicdomin <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> New Free Books</span>
-                <a href="http://newfreebooks.com/" target="_blank" rel="noopener" class="er-access-btn">newfreebooks.com <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Scribd</span>
-                <a href="http://www.scribd.com/" target="_blank" rel="noopener" class="er-access-btn">www.scribd.com <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Open Culture Free eBooks</span>
-                <a href="http://www.openculture.com/free_ebooks" target="_blank" rel="noopener" class="er-access-btn">www.openculture.com/free_ebooks <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Authorama</span>
-                <a href="http://www.authorama.com/" target="_blank" rel="noopener" class="er-access-btn">www.authorama.com <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item mb-0">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-link text-primary me-2"></i> Alison Free Courses</span>
-                <a href="http://alison.com/" target="_blank" rel="noopener" class="er-access-btn">alison.com <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
+              <?php if (!empty($freeBooks)): ?>
+                <?php foreach ($freeBooks as $item): 
+                  $url = !empty($item['file_path']) ? $item['file_path'] : (!empty($item['url']) ? $item['url'] : '#');
+                  $title = !empty($item['title']) ? $item['title'] : 'Free Book Portal';
+                  $label = !empty($item['document_no']) ? $item['document_no'] : preg_replace('#^https?://#', '', rtrim($url, '/'));
+                ?>
+                  <div class="er-link-item">
+                    <span class="fw-bold text-dark"><i class="fa-solid fa-book-open-reader text-primary me-2"></i> <?php echo htmlspecialchars($title); ?></span>
+                    <a href="<?php echo htmlspecialchars($url); ?>" target="_blank" rel="noopener noreferrer" class="er-access-btn">
+                      <?php echo htmlspecialchars($label); ?> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <p class="text-muted p-3">No public domain links found.</p>
+              <?php endif; ?>
             </div>
 
             <!-- E-Content & Repositories Section -->
             <div class="er-card mb-0">
               <div class="er-card-header">
                 <i class="fa-solid fa-database text-warning"></i>
-                <h5 class="fw-bold text-dark mb-0">E-Content &amp; National Digital Repositories</h5>
+                <h5 class="fw-bold text-dark mb-0">E-Content</h5>
               </div>
 
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-graduation-cap text-warning me-2"></i> NPTEL IIT Madras</span>
-                <a href="http://nptel.iitm.ac.in/" target="_blank" rel="noopener" class="er-access-btn">nptel.iitm.ac.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-file-pdf text-danger me-2"></i> INDEST Core Members Brochure</span>
-                <a href="http://paniit.iitd.ac.in/indest/downloads/brochureforcoremembers.pdf" target="_blank" rel="noopener" class="er-access-btn">Download PDF <i class="fa-solid fa-download"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-building-columns text-warning me-2"></i> INDEST Consortium IIT Delhi</span>
-                <a href="http://www.indest.iitd.ac.in/" target="_blank" rel="noopener" class="er-access-btn">www.indest.iitd.ac.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-landmark text-warning me-2"></i> Indira Gandhi National Centre for Arts</span>
-                <a href="http://www.ignca.gov.in/" target="_blank" rel="noopener" class="er-access-btn">www.ignca.gov.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-scroll text-warning me-2"></i> Vidyanidhi Indian Theses Repository</span>
-                <a href="http://www.vidyanidhi.org.in/" target="_blank" rel="noopener" class="er-access-btn">www.vidyanidhi.org.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-network-wired text-warning me-2"></i> Digital Library of India (ERNET)</span>
-                <a href="http://www.digitallibrary.ernet.in/" target="_blank" rel="noopener" class="er-access-btn">digitallibrary.ernet.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-server text-warning me-2"></i> INFLIBNET Centre</span>
-                <a href="http://www.inflibnet.ac.in/" target="_blank" rel="noopener" class="er-access-btn">www.inflibnet.ac.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-newspaper text-warning me-2"></i> NISCAIR CSIR</span>
-                <a href="http://www.niscair.res.in/" target="_blank" rel="noopener" class="er-access-btn">www.niscair.res.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-user-shield text-warning me-2"></i> VVGNLI Ministry of Labour</span>
-                <a href="http://www.vvgnli.org/" target="_blank" rel="noopener" class="er-access-btn">www.vvgnli.org <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
-              <div class="er-link-item mb-0">
-                <span class="fw-bold text-dark"><i class="fa-solid fa-magnifying-glass text-warning me-2"></i> Google Scholar (All Subjects Search)</span>
-                <a href="https://scholar.google.co.in/" target="_blank" rel="noopener" class="er-access-btn">scholar.google.co.in <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-              </div>
+              <?php if (!empty($eContent)): ?>
+                <?php foreach ($eContent as $item): 
+                  $url = !empty($item['file_path']) ? $item['file_path'] : (!empty($item['url']) ? $item['url'] : '#');
+                  $title = !empty($item['title']) ? $item['title'] : 'Academic Portal';
+                  $label = !empty($item['document_no']) ? $item['document_no'] : preg_replace('#^https?://#', '', rtrim($url, '/'));
+                  $isPdf = stripos($url, '.pdf') !== false;
+                ?>
+                  <div class="er-link-item">
+                    <span class="fw-bold text-dark">
+                      <i class="fa-solid <?php echo $isPdf ? 'fa-file-pdf text-danger' : 'fa-building-columns text-warning'; ?> me-2"></i> 
+                      <?php echo htmlspecialchars($title); ?>
+                    </span>
+                    <a href="<?php echo htmlspecialchars($url); ?>" target="_blank" rel="noopener noreferrer" class="er-access-btn">
+                      <?php echo htmlspecialchars($label); ?> <i class="fa-solid <?php echo $isPdf ? 'fa-download' : 'fa-arrow-up-right-from-square'; ?>"></i>
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <p class="text-muted p-3">No e-content links found.</p>
+              <?php endif; ?>
             </div>
 
           </div>

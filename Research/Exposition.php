@@ -8,6 +8,19 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic Exposition data from Admin
+$expData = function_exists('get_page_documents') ? get_page_documents('Exposition') : [];
+$exp = !empty($expData[0]) ? $expData[0] : [];
+$expTitle = !empty($exp['title']) ? $exp['title'] : 'EXPOSITION: A CARNIVAL OF INNOVATION';
+$expSubtitle = !empty($exp['subtitle']) ? $exp['subtitle'] : 'Annual Mega Exhibition of Student Creativity, Robotics, Drones & Project Innovations';
+$expIntro = !empty($exp['intro']) ? $exp['intro'] : 'Exposition – The mega fest of energy and ideas of 20,000 students from more than 300 schools and colleges in Madhya Pradesh is hosted at the SSSUTMS University campus, Sehore. The seeds of Exposition were sown in the year 2017, and since then there has been no turning back.';
+$expBody = !empty($exp['body']) ? $exp['body'] : '<p>Exposition, as the name suggests, is an amalgamation of Creation and Exposure. Young minds use their inventiveness and fervor to create new projects that find solutions to real life issues. Exposition is fundamental to research innovation, economic vitality, and a healthy environment, rooted in inter-disciplinary efforts.</p><p>Faculties and students from various schools and colleges of Madhya Pradesh participate in this three-day event, displaying projects covering science, technology, arts, law, and commerce.</p>';
+$expQuote = !empty($exp['quote']) ? $exp['quote'] : 'Exposition is in true sense the carnival of innovations.';
+$expNukkad = !empty($exp['highlight_nukkad']) ? $exp['highlight_nukkad'] : 'Street performances highlighting social causes like Beti Bachao Beti Padhao, harmful effects of plastic, ground water depletion, and pollution awareness.';
+$expRobotics = !empty($exp['highlight_robotics']) ? $exp['highlight_robotics'] : 'Action-packed competitions including Robo-War, Robo-Race, and autonomous robot challenges intriguing thousands of visitors.';
+$expDrones = !empty($exp['highlight_drones']) ? $exp['highlight_drones'] : 'Aerial drone racing, aerodynamic model testing, and aerial photography challenges showcasing cutting-edge drone technology.';
+$expStalls = !empty($exp['highlight_stalls']) ? $exp['highlight_stalls'] : 'Over 250 interactive stalls featuring scientific prototypes, green energy solutions, and interdisciplinary engineering projects.';
 ?>
 
 <style>
@@ -33,29 +46,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
-.exp-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-.exp-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.exp-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
-}
+
 .exp-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -103,53 +94,13 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <span class="badge text-white fw-bold uppercase mb-2 px-3 py-2 rounded-pill" style="background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.4);">
                 <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Annual Student Innovation Fest
               </span>
-              <h3 class="fw-bold text-white mb-1 fs-3">EXPOSITION: A CARNIVAL OF INNOVATION</h3>
-              <p class="text-white-50 mb-0 small">Annual Mega Exhibition of Student Creativity, Robotics, Drones &amp; Project Innovations</p>
+              <h3 class="fw-bold text-white mb-1 fs-3"><?php echo htmlspecialchars($expTitle); ?></h3>
+              <p class="text-white-50 mb-0 small"><?php echo htmlspecialchars($expSubtitle); ?></p>
             </div>
           </div>
 
           <!-- Content Body -->
           <div class="p-4">
-
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="exp-stat-chip">
-                  <div class="exp-stat-icon"><i class="fa-solid fa-users"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Footfall</div>
-                    <div class="fw-bold text-dark fs-6">20,000+ Students</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="exp-stat-chip">
-                  <div class="exp-stat-icon"><i class="fa-solid fa-school"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Participation</div>
-                    <div class="fw-bold text-dark fs-6">300+ Institutes</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="exp-stat-chip">
-                  <div class="exp-stat-icon"><i class="fa-solid fa-store"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Display</div>
-                    <div class="fw-bold text-dark fs-6">250+ Project Stalls</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="exp-stat-chip">
-                  <div class="exp-stat-icon"><i class="fa-solid fa-robot"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Events</div>
-                    <div class="fw-bold text-dark fs-6">Robo-War &amp; Drones</div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- About Exposition Card -->
             <div class="exp-card">
@@ -158,11 +109,8 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">The Legacy of Exposition</h5>
               </div>
               <div class="lh-lg text-dark" style="text-align: justify;">
-                <p><strong>Exposition</strong> – The mega fest of energy and ideas of 20,000 students from more than 300 schools and colleges in Madhya Pradesh is hosted at the SSSUTMS University campus, Sehore. The seeds of Exposition were sown in the year 2017, and since then there has been no turning back.</p>
-
-                <p>Exposition, as the name suggests, is an amalgamation of Creation and Exposure. Young minds use their inventiveness and fervor to create new projects that find solutions to real life issues. Exposition is fundamental to research innovation, economic vitality, and a healthy environment, rooted in inter-disciplinary efforts.</p>
-
-                <p class="mb-0">Faculties and students from various schools and colleges of Madhya Pradesh participate in this three-day event, displaying projects covering science, technology, arts, law, and commerce.</p>
+                <p class="lead fs-6 mb-3"><strong>Exposition:</strong> <?php echo htmlspecialchars($expIntro); ?></p>
+                <?php echo $expBody; ?>
               </div>
             </div>
 
@@ -177,34 +125,34 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <div class="col-md-6">
                   <div class="exp-feature-box h-100">
                     <h6 class="fw-bold text-primary mb-2"><i class="fa-solid fa-masks-theater text-warning me-2"></i> Nukkad Nataks (Street Plays)</h6>
-                    <p class="small text-muted mb-0">Street performances highlighting social causes like Beti Bachao Beti Padhao, harmful effects of plastic, ground water depletion, and pollution awareness.</p>
+                    <p class="small text-muted mb-0"><?php echo htmlspecialchars($expNukkad); ?></p>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="exp-feature-box h-100">
                     <h6 class="fw-bold text-primary mb-2"><i class="fa-solid fa-robot text-warning me-2"></i> Robotics &amp; Robo-Wars</h6>
-                    <p class="small text-muted mb-0">Action-packed competitions including Robo-War, Robo-Race, and autonomous robot challenges intriguing thousands of visitors.</p>
+                    <p class="small text-muted mb-0"><?php echo htmlspecialchars($expRobotics); ?></p>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="exp-feature-box h-100">
                     <h6 class="fw-bold text-primary mb-2"><i class="fa-solid fa-plane text-warning me-2"></i> War of Wings &amp; Drone Competitions</h6>
-                    <p class="small text-muted mb-0">Aerial drone racing, aerodynamic model testing, and aerial photography challenges showcasing cutting-edge drone technology.</p>
+                    <p class="small text-muted mb-0"><?php echo htmlspecialchars($expDrones); ?></p>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="exp-feature-box h-100">
                     <h6 class="fw-bold text-primary mb-2"><i class="fa-solid fa-lightbulb text-warning me-2"></i> Project Innovations &amp; Stalls</h6>
-                    <p class="small text-muted mb-0">Over 250 interactive stalls featuring scientific prototypes, green energy solutions, and interdisciplinary engineering projects.</p>
+                    <p class="small text-muted mb-0"><?php echo htmlspecialchars($expStalls); ?></p>
                   </div>
                 </div>
               </div>
 
               <div class="mt-4 p-3 bg-light border border-warning rounded-3 text-center">
-                <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-quote-left me-2 text-warning"></i> Exposition is in true sense the carnival of innovations. <i class="fa-solid fa-quote-right ms-2 text-warning"></i></h6>
+                <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-quote-left me-2 text-warning"></i> <?php echo htmlspecialchars($expQuote); ?> <i class="fa-solid fa-quote-right ms-2 text-warning"></i></h6>
               </div>
             </div>
 

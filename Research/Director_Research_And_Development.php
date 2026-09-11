@@ -8,6 +8,23 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic Director Data from Admin Panel (page_documents.json -> DirectorRD)
+$directorData = function_exists('get_page_documents') ? get_page_documents('DirectorRD') : [];
+$director = !empty($directorData[0]) ? $directorData[0] : [
+    'name' => 'Dr. Hemant Kumar Sharma',
+    'designation' => 'Director (R & D)',
+    'university' => 'Sri Satya Sai University of Technology & Medical Sciences',
+    'photo' => 'assets/images/research/h.k.SHARMA_05042022_1258.jpg',
+    'quote' => 'Our endeavor is to make our system effective and sensitive to the requirements of all stakeholders by undertaking collaborations with industry and fostering engineering, pharmacy, science, and medical research as an integral part of quality education.',
+    'message' => "<p>Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS) is a multi-disciplinary University comprising various disciplines of Technology as well as Medical Sciences, established in 2013 to offer quality education among the deserving youth of India and abroad.</p><p>It has immense Research potential, as evident from the spontaneous Research activities performed by the Students and the Faculties. So far more than 1500 Research Papers have been published by research aspirants in reputed Foreign and Indian Journals. We intend to form an R & D unit of International standing by striving continuously in pursuit of excellence in education, research, entrepreneurship, technology implementation, and other related fields for the services of society. We promise to provide high quality education in all our Constituent schools/units of our University from undergraduate to doctoral levels through a creative balance of academic, professional, as well as extracurricular programs.</p><p>The SSSUTMS Research and Development Cell operates with an objective to promote research activities among faculty members to achieve academic excellence. In our endeavor to make our system effective and sensitive to the requirements of all stakeholders, we undertake collaboration with industry to foster Engineering, Pharmacy, Science, and Medical research which is an integral part of quality education.</p><p class=\"mb-0\">We conduct research-oriented workshops, seminars, and development programs to augment the quality of research being conducted by various faculties of SSSUTMS.</p>"
+];
+
+// Normalize photo path
+$photoSrc = !empty($director['photo']) ? $director['photo'] : 'assets/images/research/h.k.SHARMA_05042022_1258.jpg';
+if (!preg_match('#^https?://#i', $photoSrc)) {
+    $photoSrc = BASE_URL . ltrim($photoSrc, '/');
+}
 ?>
 
 <style>
@@ -60,12 +77,12 @@ require_once __DIR__ . '/../includes/page-banner.php';
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: 1.75rem;
-  margin-bottom: 1.75rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 .rd-director-img {
-  width: 190px;
-  height: 230px;
+  width: 140px;
+  height: 170px;
   object-fit: cover;
   border-radius: 14px;
   border: 4px solid #ffffff;
@@ -95,68 +112,24 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="rd-stat-chip">
-                  <div class="rd-stat-icon"><i class="fa-solid fa-newspaper"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Publications</div>
-                    <div class="fw-bold text-dark fs-6">1500+ Papers</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="rd-stat-chip">
-                  <div class="rd-stat-icon"><i class="fa-solid fa-microscope"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Focus</div>
-                    <div class="fw-bold text-dark fs-6">Multi-Disciplinary</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="rd-stat-chip">
-                  <div class="rd-stat-icon"><i class="fa-solid fa-handshake-simple"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Linkages</div>
-                    <div class="fw-bold text-dark fs-6">Industry MoUs</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="rd-stat-chip">
-                  <div class="rd-stat-icon"><i class="fa-solid fa-award"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Programs</div>
-                    <div class="fw-bold text-dark fs-6">Ph.D. &amp; FDPs</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Profile Banner Card -->
             <div class="rd-profile-card d-flex align-items-center flex-column flex-md-row gap-4">
-              <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/h.k.SHARMA_05042022_1258.jpg" alt="Dr. Hemant Kumar Sharma" class="rd-director-img">
+              <img src="<?php echo htmlspecialchars($photoSrc); ?>" alt="<?php echo htmlspecialchars($director['name'] ?? 'Director'); ?>" class="rd-director-img">
               <div>
-                <span class="badge bg-primary px-3 py-1 mb-2 fw-bold">Director (R &amp; D)</span>
-                <h4 class="fw-bold text-dark mb-1">Dr. Hemant Kumar Sharma</h4>
-                <p class="text-muted small mb-3"><i class="fa-solid fa-building-columns me-1 text-warning"></i> Sri Satya Sai University of Technology &amp; Medical Sciences</p>
+                <span class="badge bg-primary px-3 py-1 mb-2 fw-bold"><?php echo htmlspecialchars($director['designation'] ?? 'Director (R & D)'); ?></span>
+                <h4 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($director['name'] ?? ''); ?></h4>
+                <p class="text-muted small mb-3"><i class="fa-solid fa-building-columns me-1 text-warning"></i> <?php echo htmlspecialchars($director['university'] ?? 'Sri Satya Sai University of Technology & Medical Sciences'); ?></p>
+                <?php if (!empty($director['quote'])): ?>
                 <p class="text-dark mb-0 fs-6 lh-base" style="text-align: justify;">
-                  "Our endeavor is to make our system effective and sensitive to the requirements of all stakeholders by undertaking collaborations with industry and fostering engineering, pharmacy, science, and medical research as an integral part of quality education."
+                  "<?php echo htmlspecialchars($director['quote']); ?>"
                 </p>
+                <?php endif; ?>
               </div>
             </div>
 
             <!-- Detailed Message Body -->
             <div class="lh-lg text-dark" style="text-align: justify;">
-              <p>Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS) is a multi-disciplinary University comprising various disciplines of Technology as well as Medical Sciences, established in 2013 to offer quality education among the deserving youth of India and abroad.</p>
-
-              <p>It has immense Research potential, as evident from the spontaneous Research activities performed by the Students and the Faculties. So far more than 1500 Research Papers have been published by research aspirants in reputed Foreign and Indian Journals. We intend to form an R &amp; D unit of International standing by striving continuously in pursuit of excellence in education, research, entrepreneurship, technology implementation, and other related fields for the services of society. We promise to provide high quality education in all our Constituent schools/units of our University from undergraduate to doctoral levels through a creative balance of academic, professional, as well as extracurricular programs.</p>
-
-              <p>The SSSUTMS Research and Development Cell operates with an objective to promote research activities among faculty members to achieve academic excellence. In our endeavor to make our system effective and sensitive to the requirements of all stakeholders, we undertake collaboration with industry to foster Engineering, Pharmacy, Science, and Medical research which is an integral part of quality education.</p>
-
-              <p class="mb-0">We conduct research-oriented workshops, seminars, and development programs to augment the quality of research being conducted by various faculties of SSSUTMS.</p>
+              <?php echo $director['message'] ?? ''; ?>
             </div>
 
           </div>

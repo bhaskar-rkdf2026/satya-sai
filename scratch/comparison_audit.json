@@ -1,0 +1,139 @@
+{
+    "Director_Research_And_Development": {
+        "live_text_length": 1739,
+        "local_text_length": 249,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/h.k.SHARMA_05042022_1258.jpg"
+        ],
+        "is_connected_to_admin": false
+    },
+    "RAndDCell": {
+        "live_text_length": 3638,
+        "local_text_length": 3090,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "CouncilForResearch": {
+        "live_text_length": 1540,
+        "local_text_length": 1709,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 2,
+        "local_tables": 2,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "ResearchPromotionPolicy": {
+        "live_text_length": 10871,
+        "local_text_length": 5554,
+        "live_pdfs": [
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/RESEARCH_POLICIES_3.1.1_(1)_24062024_1034.pdf"
+        ],
+        "local_has_pdf": true,
+        "live_tables": 0,
+        "local_tables": 1,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "ConsultancyServices": {
+        "live_text_length": 5608,
+        "local_text_length": 9034,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "Patents": {
+        "live_text_length": 4278,
+        "local_text_length": 4989,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 4,
+        "local_tables": 4,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "CollaborationandMou": {
+        "live_text_length": 193,
+        "local_text_length": 1492,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "Iic_Cell": {
+        "live_text_length": 414,
+        "local_text_length": 635,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/certificate_06072023_1205.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/inno_06072023_1207.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/entr_06072023_1209.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/WhatsApp_Image_2023-09-26_at_15.01.28_26092023_0425.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/COMSOL_Workshop_10072023_1027.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/NIPAM_workshop_10072023_1029.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/NIPAM_10072023_1029.jpg",
+            "https:\/\/www.sssutms.co.in\/cms\/Areas\/Website\/Files\/Link\/certificate_uit_10072023_1033.jpg"
+        ],
+        "is_connected_to_admin": false
+    },
+    "E-Resources": {
+        "live_text_length": 686,
+        "local_text_length": 1214,
+        "live_pdfs": [
+            "http:\/\/paniit.iitd.ac.in\/indest\/downloads\/brochureforcoremembers.pdf"
+        ],
+        "local_has_pdf": true,
+        "live_tables": 2,
+        "local_tables": 0,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "Exposition": {
+        "live_text_length": 2020,
+        "local_text_length": 1824,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "UGAndPGScholarsProject": {
+        "live_text_length": 1801,
+        "local_text_length": 1485,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [],
+        "is_connected_to_admin": false
+    },
+    "NPTEL": {
+        "live_text_length": 1619,
+        "local_text_length": 1606,
+        "live_pdfs": [],
+        "local_has_pdf": false,
+        "live_tables": 0,
+        "local_tables": 0,
+        "live_images": [
+            "https:\/\/ci6.googleusercontent.com\/proxy\/z9Icbvd4mEHgtc4jkEPh71bde_4xOMnhWBY64FsBjCDke9C5MH3I_S_vyM569Vh3MbTZ8Whvs5XBmdnFJWjnt6iCNxi4ajnx9NBPD1zLDoZCCcm8_T3x1qNY9b9PVwkyMSp1BIDB5scOzgRsuNY=s0-d-e1-ft#http:\/\/www.sanjayghodawatuniversity.ac.in\/departments\/electrical-engi\/images\/nptel-Logo.png"
+        ],
+        "is_connected_to_admin": false
+    }
+}

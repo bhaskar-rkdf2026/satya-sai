@@ -490,7 +490,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <ul class="admin-nav">
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link active"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
+    <li><a href="admission.php" class="nav-link"><i class="fa fa-user-graduate"></i> Admission Cell (7)</a></li>
     <li><a href="examination.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Examination Cell (5)</a></li>
+    <li><a href="research.php" class="nav-link"><i class="fa fa-flask"></i> Research Cell (12)</a></li>
     <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
     <li><a href="faculties.php" class="nav-link"><i class="fa fa-chalkboard-user"></i> Faculties & Depts (14)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals & NAAC Docs</a></li>

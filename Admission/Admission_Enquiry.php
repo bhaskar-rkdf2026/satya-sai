@@ -1,9 +1,25 @@
 <?php
-$page_title = 'Admission Enquiry - SSSUTMS';
-$banner_title = 'Admission Enquiry';
+require_once __DIR__ . '/../config.php';
+
+// Load dynamic admission data
+$admissionData = get_json_data('admission_data.json', []);
+$enqData = $admissionData['Admission_Enquiry'] ?? [
+    'page_title' => 'Admission Enquiry',
+    'contact_heading' => 'For Admission 2026-27 Enquiry Please Contact',
+    'phone_numbers' => [
+        '(+91) 07562-292740',
+        '(+91) 07562-292720',
+        '(+91) 07562-292204',
+        '(+91) 07562-292205',
+        '(+91) 7748900028'
+    ],
+    'timings' => 'From 10:00 AM to 5:00 PM only'
+];
+
+$page_title = ($enqData['page_title'] ?? 'Admission Enquiry') . ' - SSSUTMS';
+$banner_title = $enqData['page_title'] ?? 'Admission Enquiry';
 $banner_category = 'Admission';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -27,7 +43,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
 
 .ae-header-banner {
   background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
   padding: 2.2rem 2rem;
   position: relative;
 }
@@ -37,6 +52,15 @@ require_once __DIR__ . '/../includes/page-banner.php';
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.ae-header-banner h3,
+.ae-header-banner h3 i {
+  color: #ffffff !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.ae-header-banner p {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .ae-stat-card {
@@ -222,70 +246,31 @@ require_once __DIR__ . '/../includes/page-banner.php';
                     <i class="fa-solid fa-headset me-1 text-warning"></i> Admission Helpdesk
                   </span>
                   <h4 class="fw-bold text-dark mb-0 fs-5 mt-1">
-                    For Admission 2026–27 Enquiry Please Contact
+                    <?php echo htmlspecialchars($enqData['contact_heading'] ?? 'For Admission 2026–27 Enquiry Please Contact'); ?>
                   </h4>
                 </div>
                 <div class="ae-timing-chip">
                   <i class="fa-solid fa-clock text-warning"></i>
-                  <span><strong>Calling Hours:</strong> 10:00 AM to 5:00 PM only</span>
+                  <span><strong>Calling Hours:</strong> <?php echo htmlspecialchars($enqData['timings'] ?? 'From 10:00 AM to 5:00 PM only'); ?></span>
                 </div>
               </div>
 
               <div class="row g-3">
-                <!-- Contact Desk 1 -->
-                <div class="col-sm-6 col-lg-4">
-                  <a href="tel:07562292740" class="ae-contact-tile">
-                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                      <span class="ae-contact-label">Admission Desk 1</span>
-                      <strong class="ae-contact-number">(+91) 07562-292740</strong>
-                    </div>
-                  </a>
-                </div>
-
-                <!-- Contact Desk 2 -->
-                <div class="col-sm-6 col-lg-4">
-                  <a href="tel:07562292720" class="ae-contact-tile">
-                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                      <span class="ae-contact-label">Admission Desk 2</span>
-                      <strong class="ae-contact-number">(+91) 07562-292720</strong>
-                    </div>
-                  </a>
-                </div>
-
-                <!-- Contact Desk 3 -->
-                <div class="col-sm-6 col-lg-4">
-                  <a href="tel:07562292204" class="ae-contact-tile">
-                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                      <span class="ae-contact-label">Admission Desk 3</span>
-                      <strong class="ae-contact-number">(+91) 07562-292204</strong>
-                    </div>
-                  </a>
-                </div>
-
-                <!-- Contact Desk 4 -->
-                <div class="col-sm-6 col-lg-4">
-                  <a href="tel:07562292205" class="ae-contact-tile">
-                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                      <span class="ae-contact-label">Admission Desk 4</span>
-                      <strong class="ae-contact-number">(+91) 07562-292205</strong>
-                    </div>
-                  </a>
-                </div>
-
-                <!-- Contact Desk 5 -->
-                <div class="col-sm-6 col-lg-4">
-                  <a href="tel:7748900028" class="ae-contact-tile">
-                    <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                      <span class="ae-contact-label">Admission Desk 5</span>
-                      <strong class="ae-contact-number">(+91) 7748900028</strong>
-                    </div>
-                  </a>
-                </div>
+                <?php 
+                $phones = $enqData['phone_numbers'] ?? [];
+                foreach ($phones as $pIdx => $phone):
+                  $telNum = preg_replace('/[^0-9]/', '', $phone);
+                ?>
+                  <div class="col-sm-6 col-lg-4">
+                    <a href="tel:<?php echo $telNum; ?>" class="ae-contact-tile">
+                      <div class="ae-contact-tile-icon"><i class="fa-solid fa-phone"></i></div>
+                      <div>
+                        <span class="ae-contact-label">Admission Helpline <?php echo $pIdx + 1; ?></span>
+                        <strong class="ae-contact-number"><?php echo htmlspecialchars($phone); ?></strong>
+                      </div>
+                    </a>
+                  </div>
+                <?php endforeach; ?>
               </div>
             </div>
 
@@ -395,10 +380,8 @@ require_once __DIR__ . '/../includes/page-banner.php';
         </div><!-- end ae-main-wrapper -->
       </div><!-- end col-lg-8 -->
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
-      </div>
+      <!-- Sticky Admission Navigation Sidebar (Right) -->
+      <?php require_once __DIR__ . '/includes/admission_sidebar.php'; ?>
 
     </div>
   </div>

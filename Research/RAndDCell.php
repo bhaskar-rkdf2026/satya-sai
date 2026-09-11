@@ -8,6 +8,22 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic R&D Cell data from Admin Panel
+$rdCellData = function_exists('get_page_documents') ? get_page_documents('RAndDCell') : [];
+$rdCell = !empty($rdCellData[0]) ? $rdCellData[0] : [
+    'title' => 'RESEARCH & DEVELOPMENT (R&D) CELL',
+    'preamble' => "<p>Research, which is a scholarly and creative endeavor of faculty leading to innovations and development, is a major pillar of strength in a University system. Advancement achieved through research and development contributes significantly to academic excellence. However, in a multi-disciplinary and diversified university organizational set up, nurturing and promoting scientific & technological excellence through faculty-driven research is a vital task. In this regard, the Council for Research (CFR) of SSSUTMS plays a key role in providing focused attention in guiding and coordinating research activities of various departments and centers.</p><p>The mission of the council is to provide an encouraging ecosystem for promotion of research excellence. This is achieved through multifaceted tasks including facilitating the initiation, organization, and monitoring of research projects and student research. The Council also plays a major role in encouraging faculty to attract extramural funding support by providing linkages, collaborative support, and streamlining procedural guidelines.</p><p class=\"mb-0\">The Council is transforming into a single-window operating system for timely and effective action with the sole aim of encouraging and promoting quality research. With marked growth in student enrollment for Ph.D. programs, the Council for Research is committed to providing a platform for solving procedural issues associated with research. Within the established framework of the University system, the Council strives to transform the University into a leading destination for quality research and education in the country.</p>",
+    'objectives' => [
+        'Promote and facilitate collaborative and interdisciplinary research while enhancing research networking capacity and infrastructure.',
+        'Effectively manage resources and research support for all members and throughout the University community.',
+        'Provide education and training in research and related skills, especially for postgraduate and undergraduate scholars, augmenting constituent academic programs.',
+        "Contribute effectively to the University's strategic educational and research missions, supporting synergies between research, teaching, and learning.",
+        'Transfer and disseminate knowledge gained through research for societal benefit through various practical mechanisms.',
+        'Enhance the reputation of members, constituent academic units, and the University through high-quality research outputs.',
+        'Ensure strict integrity, quality, and ethical standards across all research activities.'
+    ]
+];
 ?>
 
 <style>
@@ -32,29 +48,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
   bottom: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
-}
-.rdcell-stat-chip {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 14px;
-  display: flex; align-items: center; gap: 12px;
-  height: 100%;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-.rdcell-stat-chip:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(11,37,69,0.07);
-  transform: translateY(-2px);
-}
-.rdcell-stat-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(245,158,11,0.12);
-  color: #d97706;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; flex-shrink: 0;
 }
 .rdcell-card {
   background: #ffffff;
@@ -129,46 +122,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="rdcell-stat-chip">
-                  <div class="rdcell-stat-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Ecosystem</div>
-                    <div class="fw-bold text-dark fs-6">Innovation Driven</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="rdcell-stat-chip">
-                  <div class="rdcell-stat-icon"><i class="fa-solid fa-network-wired"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Networking</div>
-                    <div class="fw-bold text-dark fs-6">Interdisciplinary</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="rdcell-stat-chip">
-                  <div class="rdcell-stat-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Funding</div>
-                    <div class="fw-bold text-dark fs-6">Extramural Support</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="rdcell-stat-chip">
-                  <div class="rdcell-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Standards</div>
-                    <div class="fw-bold text-dark fs-6">Integrity &amp; Ethics</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Overview Section -->
             <div class="rdcell-card">
               <div class="rdcell-card-header">
@@ -176,11 +129,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">Overview of R&amp;D Operations</h5>
               </div>
               <div class="lh-lg text-dark" style="text-align: justify;">
-                <p>Research, which is a scholarly and creative endeavor of faculty leading to innovations and development, is a major pillar of strength in a University system. Advancement achieved through research and development contributes significantly to academic excellence. However, in a multi-disciplinary and diversified university organizational set up, nurturing and promoting scientific &amp; technological excellence through faculty-driven research is a vital task. In this regard, the Council for Research (CFR) of SSSUTMS plays a key role in providing focused attention in guiding and coordinating research activities of various departments and centers.</p>
-
-                <p>The mission of the council is to provide an encouraging ecosystem for promotion of research excellence. This is achieved through multifaceted tasks including facilitating the initiation, organization, and monitoring of research projects and student research. The Council also plays a major role in encouraging faculty to attract extramural funding support by providing linkages, collaborative support, and streamlining procedural guidelines.</p>
-
-                <p>The Council is transforming into a single-window operating system for timely and effective action with the sole aim of encouraging and promoting quality research. With marked growth in student enrollment for Ph.D. programs, the Council for Research is committed to providing a platform for solving procedural issues associated with research. Within the established framework of the University system, the Council strives to transform the University into a leading destination for quality research and education in the country.</p>
+                <?php echo $rdCell['preamble'] ?? ''; ?>
               </div>
             </div>
 
@@ -191,34 +140,14 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h5 class="fw-bold text-dark mb-0">Objectives of the R&amp;D Cell</h5>
               </div>
               <ul class="rdcell-obj-list">
-                <li>
-                  <span class="rdcell-obj-num">1</span>
-                  <div><strong>Collaborative &amp; Interdisciplinary Research:</strong> Promote and facilitate collaborative and interdisciplinary research while enhancing research networking capacity and infrastructure.</div>
-                </li>
-                <li>
-                  <span class="rdcell-obj-num">2</span>
-                  <div><strong>Resource Management:</strong> Effectively manage resources and research support for all members and throughout the University community.</div>
-                </li>
-                <li>
-                  <span class="rdcell-obj-num">3</span>
-                  <div><strong>Education &amp; Skill Development:</strong> Provide education and training in research and related skills, especially for postgraduate and undergraduate scholars, augmenting constituent academic programs.</div>
-                </li>
-                <li>
-                  <span class="rdcell-obj-num">4</span>
-                  <div><strong>Strategic Educational Contribution:</strong> Contribute effectively to the University's strategic educational and research missions, supporting synergies between research, teaching, and learning.</div>
-                </li>
-                <li>
-                  <span class="rdcell-obj-num">5</span>
-                  <div><strong>Knowledge Transfer &amp; Dissemination:</strong> Transfer and disseminate knowledge gained through research for societal benefit through various practical mechanisms.</div>
-                </li>
-                <li>
-                  <span class="rdcell-obj-num">6</span>
-                  <div><strong>Reputation Enhancement:</strong> Enhance the reputation of members, constituent academic units, and the University through high-quality research outputs.</div>
-                </li>
-                <li>
-                  <span class="rdcell-obj-num">7</span>
-                  <div><strong>Ethics &amp; Integrity:</strong> Ensure strict integrity, quality, and ethical standards across all research activities.</div>
-                </li>
+                <?php if (!empty($rdCell['objectives']) && is_array($rdCell['objectives'])): ?>
+                  <?php foreach ($rdCell['objectives'] as $oIdx => $obj): ?>
+                    <li>
+                      <span class="rdcell-obj-num"><?php echo $oIdx + 1; ?></span>
+                      <div><?php echo htmlspecialchars($obj); ?></div>
+                    </li>
+                  <?php endforeach; ?>
+                <?php endif; ?>
               </ul>
             </div>
 
