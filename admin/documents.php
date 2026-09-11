@@ -147,13 +147,13 @@ foreach ($allData as $col) {
     </button>
   </div>
 
-  <ul class="admin-nav">
+    <ul class="admin-nav">
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
+    <li><a href="examination.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Examination Cell (5)</a></li>
     <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
-    <li><a href="faculties.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Faculties &amp; Depts (14)</a></li>
-    <li><a href="documents.php" class="nav-link active"><i class="fa fa-folder-open"></i> Documents & Page PDFs</a></li>
-    <li><a href="notices.php" class="nav-link"><i class="fa fa-bullhorn"></i> Notices & Circulars</a></li>
+    <li><a href="faculties.php" class="nav-link"><i class="fa fa-chalkboard-user"></i> Faculties & Depts (14)</a></li>
+    <li><a href="documents.php" class="nav-link active"><i class="fa fa-stamp"></i> Approvals & NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events & Workshops</a></li>
     <li><a href="schemes.php" class="nav-link"><i class="fa fa-book-open"></i> Curriculum Schemes</a></li>
     <li><a href="pages.php" class="nav-link"><i class="fa fa-file-lines"></i> Dynamic CMS Pages</a></li>
@@ -176,8 +176,8 @@ foreach ($allData as $col) {
         <i class="fa fa-bars"></i>
       </button>
       <div>
-        <h5 class="fw-bold text-dark mb-0">Documents & Page PDF Repository</h5>
-        <small class="text-muted d-none d-md-inline">Live management of 1,200+ PDF notifications, exam schedules, ordinances, approvals & research papers</small>
+        <h5 class="fw-bold text-dark mb-0">Institutional Approvals, Ordinances & NAAC Documents</h5>
+        <small class="text-muted d-none d-md-inline">Live management of statutory approvals (UGC, AICTE, PCI, NCISM), NAAC Criteria (1-7), NIRF & Ordinances</small>
       </div>
     </div>
     <div>
@@ -479,6 +479,43 @@ foreach ($allData as $col) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/admin.js"></script>
 <script>
+const allPagesData = <?php 
+  $pagesList = [];
+  foreach ($allData as $k => $v) {
+    $pagesList[] = [
+      'key' => $k,
+      'title' => $v['title'] ?? $k,
+      'section' => $v['section'] ?? 'General'
+    ];
+  }
+  echo json_encode($pagesList); 
+?>;
+
+function updatePageOptions(section) {
+  const pageSel = document.getElementById('formPageKey');
+  if (!pageSel) return;
+  pageSel.innerHTML = '';
+
+  let filtered = allPagesData;
+  if (section && section !== 'Custom' && section !== 'all') {
+    filtered = allPagesData.filter(p => (p.section || '').toLowerCase() === section.toLowerCase());
+  }
+  if (filtered.length === 0) {
+    filtered = allPagesData;
+  }
+
+  filtered.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.key;
+    opt.setAttribute('data-section', p.section);
+    opt.setAttribute('data-title', p.title);
+    opt.textContent = `${p.title} (${p.section})`;
+    pageSel.appendChild(opt);
+  });
+
+  onPageSelected(pageSel);
+}
+
 function filterByPage(pageKey) {
   const currentUrl = new URL(window.location.href);
   if (pageKey === 'all') {
@@ -504,13 +541,22 @@ function resetDocForm() {
   document.getElementById('formFileUrl').value = '';
   document.getElementById('formStatus').value = 'Active';
   document.getElementById('formDate').value = '<?php echo date('Y-m-d'); ?>';
-  onPageSelected(document.getElementById('formPageKey'));
+  
+  const currentSec = '<?php echo $selectedSection !== 'all' ? addslashes($selectedSection) : ''; ?>';
+  const secSel = document.getElementById('formSection');
+  if (currentSec && secSel) {
+    secSel.value = currentSec;
+    updatePageOptions(currentSec);
+  } else if (secSel) {
+    updatePageOptions(secSel.value);
+  }
 }
 
 function editDoc(item) {
   document.getElementById('modalTitle').textContent = 'Edit Document: ' + item.doc.title;
   document.getElementById('formDocId').value = item.doc.id || '';
   document.getElementById('formSection').value = item.section || 'General';
+  updatePageOptions(item.section || 'General');
   document.getElementById('formPageKey').value = item.page_key || '';
   document.getElementById('formPageTitle').value = item.page_title || '';
   document.getElementById('formTitle').value = item.doc.title || '';

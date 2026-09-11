@@ -4477,3 +4477,44 @@ body {
 .nav-card-icon.icon-blue { background: linear-gradient(135deg, #0b2545, #0284c7); }
 .nav-card-icon.icon-amber { background: linear-gradient(135deg, #f3752c, #f6a935); }
 .nav-card-icon.icon-emerald { background: linear-gradient(135deg, #059669, #10b981); }
+
+/* Universal Hidden Scrollbar Utility */
+.no-scrollbar,
+.es-tabs-slider-wrap,
+.en-tabs-slider-wrap,
+.res-tabs-slider-wrap {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  touch-action: pan-x;
+}
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar-track,
+.no-scrollbar::-webkit-scrollbar-thumb,
+.no-scrollbar::-webkit-scrollbar-button,
+.no-scrollbar::-webkit-scrollbar-corner,
+.es-tabs-slider-wrap::-webkit-scrollbar,
+.es-tabs-slider-wrap::-webkit-scrollbar-track,
+.es-tabs-slider-wrap::-webkit-scrollbar-thumb,
+.es-tabs-slider-wrap::-webkit-scrollbar-button,
+.es-tabs-slider-wrap::-webkit-scrollbar-corner,
+.en-tabs-slider-wrap::-webkit-scrollbar,
+.en-tabs-slider-wrap::-webkit-scrollbar-track,
+.en-tabs-slider-wrap::-webkit-scrollbar-thumb,
+.en-tabs-slider-wrap::-webkit-scrollbar-button,
+.en-tabs-slider-wrap::-webkit-scrollbar-corner,
+.res-tabs-slider-wrap::-webkit-scrollbar,
+.res-tabs-slider-wrap::-webkit-scrollbar-track,
+.res-tabs-slider-wrap::-webkit-scrollbar-thumb,
+.res-tabs-slider-wrap::-webkit-scrollbar-button,
+.res-tabs-slider-wrap::-webkit-scrollbar-corner {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}

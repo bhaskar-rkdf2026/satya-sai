@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Interface - SSSUTMS';
+$page_title = 'Examination Interface & Portals - SSSUTMS';
 $banner_title = 'Interface';
 $banner_category = 'Examination';
 
@@ -8,6 +8,9 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic interface portals from Admin / page_documents.json
+$portals = get_page_documents('Interface');
 ?>
 
 <style>
@@ -80,7 +83,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
   background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
   color: #fbbf24;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; flex-shrink: 0;
+  font-size: 1.4rem; flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(11,37,69,0.15);
 }
 .if-login-btn {
@@ -128,90 +131,66 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-1 fs-3">EXAMINATION INTERFACE &amp; PORTALS</h3>
               <p class="text-white-50 mb-0 small">Direct Access to Student Registration, Examination Forms &amp; Result Portals</p>
             </div>
+            <div>
+              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold fs-6">
+                <i class="fa-solid fa-network-wired me-1"></i> <?php echo count($portals); ?> Official Gateways
+              </span>
+            </div>
           </div>
 
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-4">
-                <div class="if-stat-chip">
-                  <div class="if-stat-icon"><i class="fa-solid fa-user-plus"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Academic Portal</div>
-                    <div class="fw-bold text-dark fs-6">Session 2021-22</div>
+            <!-- Portal Links List (Dynamically rendered from Admin) -->
+            <div class="if-portals-list">
+              <?php if (empty($portals)): ?>
+                <div class="alert alert-info text-center py-4">
+                  <i class="fa-solid fa-circle-info fa-2x mb-2 text-primary d-block"></i>
+                  <h6 class="fw-bold">No examination interfaces configured.</h6>
+                </div>
+              <?php else: ?>
+                <?php foreach ($portals as $p): 
+                  $title = $p['title'] ?? 'Portal Link';
+                  $cat = $p['category'] ?? 'General';
+                  $url = $p['file'] ?? '#';
+                  if (strpos($url, 'http') !== 0 && strpos($url, 'ftp') !== 0 && $url !== '#') {
+                    $url = BASE_URL . ltrim($url, '/');
+                  }
+                  $desc = $p['desc'] ?? 'Access official university examination and academic services.';
+                  
+                  // Pick icon based on category or title
+                  $icon = 'fa-arrow-up-right-from-square';
+                  if (stripos($title, 'Registration') !== false || stripos($cat, 'Registration') !== false) {
+                    $icon = 'fa-user-pen';
+                  } elseif (stripos($title, 'Archive') !== false) {
+                    $icon = 'fa-box-archive';
+                  } elseif (stripos($title, 'Verification') !== false) {
+                    $icon = 'fa-shield-halved';
+                  } elseif (stripos($title, 'Ph.D.') !== false || stripos($title, 'Entrance') !== false) {
+                    $icon = 'fa-graduation-cap';
+                  } elseif (stripos($title, 'Student Login') !== false || stripos($cat, 'Login') !== false) {
+                    $icon = 'fa-id-card';
+                  }
+                ?>
+                  <div class="if-portal-card">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="if-portal-icon"><i class="fa-solid <?php echo $icon; ?>"></i></div>
+                      <div>
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                          <h5 class="fw-bold text-dark mb-0 fs-6"><?php echo htmlspecialchars($title); ?></h5>
+                          <span class="badge bg-primary-subtle text-primary border small"><?php echo htmlspecialchars($cat); ?></span>
+                        </div>
+                        <p class="text-muted mb-0 small"><?php echo htmlspecialchars($desc); ?></p>
+                      </div>
+                    </div>
+                    <div>
+                      <a href="<?php echo htmlspecialchars($url); ?>" target="_blank" rel="noopener" class="if-login-btn">
+                        <i class="fa-solid fa-right-to-bracket"></i> Access Portal
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4">
-                <div class="if-stat-chip">
-                  <div class="if-stat-icon"><i class="fa-solid fa-users"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Student Login</div>
-                    <div class="fw-bold text-dark fs-6">Sessions 2016 to 2021</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4">
-                <div class="if-stat-chip">
-                  <div class="if-stat-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Archive Portal</div>
-                    <div class="fw-bold text-dark fs-6">Sessions 2014 to 2016</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Portal Links List -->
-
-            <!-- 1. Registration for Academic Session 2021-22 -->
-            <div class="if-portal-card">
-              <div class="d-flex align-items-center gap-3">
-                <div class="if-portal-icon"><i class="fa-solid fa-user-pen"></i></div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1 fs-6">Registration for Academic Session 2021-22</h5>
-                  <p class="text-muted mb-0 small">Student enrollment, profile management &amp; course registration portal.</p>
-                </div>
-              </div>
-              <div>
-                <a href="#" class="if-login-btn">
-                  <i class="fa-solid fa-right-to-bracket"></i> Access Portal
-                </a>
-              </div>
-            </div>
-
-            <!-- 2. Student Login for 2016-17 to 2020-21 -->
-            <div class="if-portal-card">
-              <div class="d-flex align-items-center gap-3">
-                <div class="if-portal-icon"><i class="fa-solid fa-id-card"></i></div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1 fs-6">Student Login (2016-17, 2017-18, 2018-19, 2019-20 &amp; 2020-21)</h5>
-                  <p class="text-muted mb-0 small">Login portal for admitted students across 2016–2021 academic sessions.</p>
-                </div>
-              </div>
-              <div>
-                <a href="#" class="if-login-btn">
-                  <i class="fa-solid fa-right-to-bracket"></i> Access Portal
-                </a>
-              </div>
-            </div>
-
-            <!-- 3. Login for 2014-15 & 2015-16 -->
-            <div class="if-portal-card mb-0">
-              <div class="d-flex align-items-center gap-3">
-                <div class="if-portal-icon"><i class="fa-solid fa-box-archive"></i></div>
-                <div>
-                  <h5 class="fw-bold text-dark mb-1 fs-6">Student Login (2014-2015 &amp; 2015-2016 Academic Sessions)</h5>
-                  <p class="text-muted mb-0 small">Archival student login for 2014–15 and 2015–16 academic batches.</p>
-                </div>
-              </div>
-              <div>
-                <a href="#" class="if-login-btn">
-                  <i class="fa-solid fa-right-to-bracket"></i> Access Portal
-                </a>
-              </div>
+                <?php endforeach; ?>
+              <?php endif; ?>
             </div>
 
           </div>

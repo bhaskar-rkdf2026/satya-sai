@@ -8,6 +8,18 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+// Fetch dynamic notifications from Admin / page_documents.json
+$allNotifs = get_page_documents('ExamNotifications');
+
+// Extract unique categories
+$categories = ['All'];
+foreach ($allNotifs as $n) {
+  $cat = !empty($n['category']) ? trim($n['category']) : 'General';
+  if (!in_array($cat, $categories)) {
+    $categories[] = $cat;
+  }
+}
 ?>
 
 <style>
@@ -88,6 +100,8 @@ require_once __DIR__ . '/../includes/page-banner.php';
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  text-wrap: nowrap;
+
 }
 .en-download-btn {
   background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%) !important;
@@ -115,6 +129,66 @@ require_once __DIR__ . '/../includes/page-banner.php';
   box-shadow: 0 4px 12px rgba(217,119,6,0.35);
   transform: translateY(-1px);
 }
+.en-tabs-slider-wrap {
+  width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  padding-bottom: 2px;
+  touch-action: pan-x;
+  cursor: grab;
+}
+.en-tabs-slider-wrap:active {
+  cursor: grabbing;
+}
+.en-tabs-slider-wrap::-webkit-scrollbar,
+.en-tabs-slider-wrap::-webkit-scrollbar-thumb,
+.en-tabs-slider-wrap::-webkit-scrollbar-track,
+.en-tabs-slider-wrap::-webkit-scrollbar-button,
+.en-tabs-slider-wrap::-webkit-scrollbar-corner {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.en-tabs-slider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.en-cat-btn {
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.en-cat-btn:hover {
+  background: #f1f5f9;
+  color: #0b2545;
+  border-color: #cbd5e1;
+}
+.en-cat-btn.active {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  color: #ffffff;
+  border-color: #0b2545;
+  box-shadow: 0 4px 12px rgba(11,37,69,0.25);
+}
 </style>
 
 <section class="subpage-main-section en-section py-4">
@@ -134,263 +208,94 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <h3 class="fw-bold text-white mb-1 fs-3">EXAM NOTIFICATIONS</h3>
               <p class="text-white-50 mb-0 small">Latest Examination Circulars, Form Dates, Supplementary Notices &amp; Guidelines</p>
             </div>
+            <div>
+              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold fs-6">
+                <i class="fa-solid fa-bullhorn me-1"></i> <?php echo count($allNotifs); ?> Notifications
+              </span>
+            </div>
           </div>
 
           <!-- Content Body -->
           <div class="p-4">
 
-            <!-- Stat Chips -->
-            <div class="row g-3 align-items-stretch mb-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="en-stat-chip">
-                  <div class="en-stat-icon"><i class="fa-solid fa-scroll"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Notifications</div>
-                    <div class="fw-bold text-dark fs-6">Official Releases</div>
-                  </div>
+            <!-- Search & Category Filters (Search on top, Single Line Tabs below) -->
+            <div class="bg-white p-3 rounded-4 border shadow-sm mb-4">
+              <!-- Search Bar -->
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0 text-muted px-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input type="text" id="notifSearchInput" class="form-control border-start-0 py-2 fs-6" placeholder="Search notifications by course, batch, semester or keyword..." onkeyup="filterNotifications()">
+                  <button class="btn btn-outline-secondary px-3" type="button" onclick="document.getElementById('notifSearchInput').value=''; filterNotifications();" title="Clear Search"><i class="fa fa-times"></i></button>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="en-stat-chip">
-                  <div class="en-stat-icon"><i class="fa-solid fa-notes-medical"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Ayush &amp; Health</div>
-                    <div class="fw-bold text-dark fs-6">BAMS / BHMS</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="en-stat-chip">
-                  <div class="en-stat-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Research</div>
-                    <div class="fw-bold text-dark fs-6">Ph.D. Coursework</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="en-stat-chip">
-                  <div class="en-stat-icon"><i class="fa-solid fa-book-open"></i></div>
-                  <div>
-                    <div class="text-muted extra-small uppercase fw-bold">Degree &amp; NEP</div>
-                    <div class="fw-bold text-dark fs-6">UG / PG Courses</div>
-                  </div>
+
+              <!-- Category Tabs (Single Line Horizontal Scroll) -->
+              <div class="en-tabs-slider-wrap">
+                <div class="en-tabs-slider">
+                  <?php foreach ($categories as $idx => $cat): ?>
+                    <button type="button" class="en-cat-btn <?php echo $idx === 0 ? 'active' : ''; ?>" onclick="setCategoryFilter('<?php echo htmlspecialchars($cat); ?>', this)">
+                      <?php echo htmlspecialchars($cat); ?>
+                    </button>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>
 
             <!-- Notifications List -->
-            <div class="en-list-group">
-
-              <!-- 1. Paramedical Sep 2026 -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="en-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Examination Notification (Paramedical Courses) Sep - 2026</h5>
-                    <p class="text-muted mb-0 small">Official notification for Paramedical diploma and degree examinations.</p>
+            <div class="en-list-group" id="notifListContainer">
+              <?php if (empty($allNotifs)): ?>
+                <div class="alert alert-info text-center py-4">
+                  <i class="fa-solid fa-circle-info fa-2x mb-2 text-primary d-block"></i>
+                  <h6 class="fw-bold">No exam notifications published at the moment.</h6>
+                  <p class="small text-muted mb-0">Please check back soon for circular updates or contact the Examination Cell.</p>
+                </div>
+              <?php else: ?>
+                <?php foreach ($allNotifs as $idx => $doc): 
+                  $title = $doc['title'] ?? 'Notification';
+                  $cat = !empty($doc['category']) ? $doc['category'] : 'General';
+                  $date = !empty($doc['date']) ? date('d M Y', strtotime($doc['date'])) : '';
+                  $file = $doc['file'] ?? '#';
+                  $fileUrl = $file;
+                  if (strpos($file, 'http') !== 0 && strpos($file, 'ftp') !== 0 && $file !== '#') {
+                    $fileUrl = BASE_URL . ltrim($file, '/');
+                  }
+                  $isNew = (isset($doc['status']) && strtolower($doc['status']) === 'new') || ($idx < 5);
+                ?>
+                  <div class="en-item-card notif-card-item" data-title="<?php echo strtolower(htmlspecialchars($title)); ?>" data-category="<?php echo htmlspecialchars($cat); ?>">
+                    <div class="d-flex align-items-start gap-3">
+                      <div class="mt-1">
+                        <?php if ($isNew): ?>
+                          <span class="en-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span>
+                        <?php else: ?>
+                          <span class="badge bg-light text-secondary border fw-bold"><?php echo htmlspecialchars($cat); ?></span>
+                        <?php endif; ?>
+                      </div>
+                      <div>
+                        <h5 class="fw-bold text-dark mb-1 fs-6"><?php echo htmlspecialchars($title); ?></h5>
+                        <div class="d-flex flex-wrap align-items-center gap-2 text-muted small">
+                          <?php if (!empty($date)): ?>
+                            <span><i class="fa-regular fa-calendar-days text-warning me-1"></i> <?php echo htmlspecialchars($date); ?></span>
+                            <span>&bull;</span>
+                          <?php endif; ?>
+                          <span class="badge bg-primary-subtle text-primary fw-medium"><?php echo htmlspecialchars($cat); ?></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="en-download-btn">
+                        <i class="fa-solid fa-file-pdf"></i> Download PDF
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/paramedical_notification_11082026_0116.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 2. BAMS II Professional -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="en-badge-new"><i class="fa-solid fa-bolt me-1"></i> New</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Examination Notification BAMS II Professional (2023–2024 Batch)</h5>
-                    <p class="text-muted mb-0 small">Schedule &amp; instructions for BAMS 2nd Professional Regular/Ex candidates.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/Whatsapp_Scan_7_August_2026_at_14.01.56_07082026_0206.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 3. BAMS I Professional Supplementary -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-secondary text-white fw-bold">Notice</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Notification of BAMS I Professional Supplementary Exam – August 2026</h5>
-                    <p class="text-muted mb-0 small">Supplementary examination form filing and dates for BAMS 1st Professional.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/Adobe_Scan_24_Jul_2026_24072026_0129.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 4. BHMS II Year Supplementary -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-secondary text-white fw-bold">Notice</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Notification of BHMS II Year Supplementary Exam – August 2026</h5>
-                    <p class="text-muted mb-0 small">Supplementary exam schedule for BHMS 2nd Year students.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/Adobe_Scan_24_Jul_2026_(1)_24072026_0124.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 5. BAMS III Professional -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-secondary text-white fw-bold">Notice</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Examination Notification BAMS III Professional (2021–2022 Batch)</h5>
-                    <p class="text-muted mb-0 small">Detailed guidelines for BAMS 3rd Professional examination.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/bams.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 6. Paramedical Supp June 2026 -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-secondary text-white fw-bold">Notice</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Paramedical Supplementary Examination Notification June – 2026</h5>
-                    <p class="text-muted mb-0 small">June 2026 supplementary exams for all paramedical streams.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/paramedical.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 7. PhD Entrance 2026 -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-primary text-white fw-bold">Ph.D.</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Ph.D Entrance Examination 2026</h5>
-                    <p class="text-muted mb-0 small">Official notification for Ph.D. Entrance Examination 2026.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/notificationentance.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 8. PhD Coursework Dec 2025 admitted -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-primary text-white fw-bold">Ph.D.</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Notification Ph.D. Course Work Examination June-2026 (Dec-2025 admitted)</h5>
-                    <p class="text-muted mb-0 small">Coursework exam notification for December 2025 admitted scholars.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/notification cw phd Dec.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 9. PhD Coursework June 2025 admitted -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-primary text-white fw-bold">Ph.D.</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Notification Ph.D. Course Work Examination June-2026 (June-2025 admitted)</h5>
-                    <p class="text-muted mb-0 small">Coursework exam notification for June 2025 admitted scholars.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/notification cw phd June.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 10. BHMS II Year June 2026 -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-secondary text-white fw-bold">BHMS</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Examination Notification for June- 2026 (BHMS – IInd year)</h5>
-                    <p class="text-muted mb-0 small">June 2026 examination schedule for BHMS 2nd Year candidates.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/NOTIFICATION_JUNE_2026_BHMS_2_ND_YEAR_14042026_0307.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 11. Important Notice June 2026 -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-warning text-dark fw-bold">Notice</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">आवश्यक सूचना: परीक्षा आवेदन जून- 2026</h5>
-                    <p class="text-muted mb-0 small">Important notice regarding submission of June 2026 Examination Form.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/imp_notice_09042026_1231.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 12. UTD NEP June 2026 -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-info text-dark fw-bold">NEP</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">Examination Notification June – 2026 [BA / B.COM / B.SC / BBA / BCA] (NEP)</h5>
-                    <p class="text-muted mb-0 small">Undergraduate NEP Semester examination notifications for UTD departments.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/UTD_NOTIFICATION_12032026_1120.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
-              <!-- 13. BHMS & MD Form Notification -->
-              <div class="en-item-card">
-                <div class="d-flex align-items-start gap-3">
-                  <div class="mt-1"><span class="badge bg-secondary text-white fw-bold">Notice</span></div>
-                  <div>
-                    <h5 class="fw-bold text-dark mb-1 fs-6">B.H.M.S And M.D Examination Form Notification – June- 2026</h5>
-                    <p class="text-muted mb-0 small">Examination form submission schedule for BHMS and M.D courses.</p>
-                  </div>
-                </div>
-                <div>
-                  <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/ExamNotifications/JUNE26_10032026_0148.pdf" target="_blank" rel="noopener" class="en-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Download PDF
-                  </a>
-                </div>
-              </div>
-
+                <?php endforeach; ?>
+              <?php endif; ?>
             </div><!-- end en-list-group -->
+
+            <div id="noResultsAlert" class="alert alert-warning text-center py-4 mt-3" style="display:none;">
+              <i class="fa-solid fa-magnifying-glass fa-2x mb-2 text-warning d-block"></i>
+              <h6 class="fw-bold">No notifications match your search query or filter.</h6>
+              <p class="small text-muted mb-0">Try clearing the search box or selecting another category.</p>
+            </div>
 
           </div>
         </div><!-- end en-main-card -->
@@ -404,5 +309,96 @@ require_once __DIR__ . '/../includes/page-banner.php';
     </div>
   </div>
 </section>
+
+<script>
+let currentCatFilter = 'All';
+
+function setCategoryFilter(category, btn) {
+  currentCatFilter = category;
+  document.querySelectorAll('.en-cat-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  filterNotifications();
+}
+
+function filterNotifications() {
+  const q = (document.getElementById('notifSearchInput')?.value || '').toLowerCase().trim();
+  const items = document.querySelectorAll('.notif-card-item');
+  let visibleCount = 0;
+
+  items.forEach(item => {
+    const title = (item.getAttribute('data-title') || '').toLowerCase();
+    const cat = item.getAttribute('data-category') || '';
+
+    const matchesQuery = !q || title.includes(q);
+    const matchesCat = currentCatFilter === 'All' || cat.toLowerCase() === currentCatFilter.toLowerCase();
+
+    if (matchesQuery && matchesCat) {
+      item.style.display = 'flex';
+      visibleCount++;
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  const noRes = document.getElementById('noResultsAlert');
+  if (noRes) {
+    noRes.style.display = (visibleCount === 0 && items.length > 0) ? 'block' : 'none';
+  }
+}
+
+// Enable smooth mouse wheel and drag scroll for single-line category chips
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.en-tabs-slider-wrap');
+  if (!slider) return;
+
+  // Convert vertical mouse wheel to horizontal scroll smoothly
+  slider.addEventListener('wheel', function(e) {
+    if (e.deltaY !== 0) {
+      e.preventDefault();
+      slider.scrollLeft += (e.deltaY * 1.5);
+    }
+  }, { passive: false });
+
+  // Mouse drag to scroll
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let dragged = false;
+
+  slider.addEventListener('mousedown', function(e) {
+    isDown = true;
+    dragged = false;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', function() {
+    isDown = false;
+  });
+
+  slider.addEventListener('mouseleave', function() {
+    isDown = false;
+  });
+
+  slider.addEventListener('mousemove', function(e) {
+    if (!isDown) return;
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX);
+    if (Math.abs(walk) > 5) {
+      dragged = true;
+    }
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Prevent accidental button clicks when user was dragging
+  slider.addEventListener('click', function(e) {
+    if (dragged) {
+      e.stopPropagation();
+      e.preventDefault();
+      dragged = false;
+    }
+  }, true);
+});
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

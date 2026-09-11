@@ -1,4 +1,5 @@
-<?php $page_title = 'Examination Results - SSSUTMS';
+<?php
+$page_title = 'Examination Results - SSSUTMS';
 $banner_title = 'Examination Results';
 $banner_category = 'Examination';
 
@@ -7,7 +8,32 @@ require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
-?><style>
+
+// Fetch dynamic results from Admin / page_documents.json
+$allResults = get_page_documents('Results');
+
+// Extract unique categories
+$categories = ['All'];
+foreach ($allResults as $res) {
+  $c = !empty($res['category']) ? trim($res['category']) : 'General';
+  if (!in_array($c, $categories)) {
+    $categories[] = $c;
+  }
+}
+
+// Group results by date
+$resultsByDate = [];
+foreach ($allResults as $res) {
+  $rawDate = $res['date'] ?? '';
+  $dateLabel = (!empty($rawDate) && $rawDate !== '2026-09-11') ? date('d M Y', strtotime($rawDate)) : 'Recent Results';
+  if (!isset($resultsByDate[$dateLabel])) {
+    $resultsByDate[$dateLabel] = [];
+  }
+  $resultsByDate[$dateLabel][] = $res;
+}
+?>
+
+<style>
 .naac-section { 
   background-color: #f8fafc;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -44,28 +70,14 @@ require_once __DIR__ . '/../includes/page-banner.php';
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
 }
 
-/* Card Body & Typography Enhancements */
 .naac-card-body { 
   padding: 2rem; 
   color: #1e293b !important;
   font-size: 0.975rem !important;
   line-height: 1.65 !important;
 }
-.naac-card-body p {
-  color: #1e293b !important;
-  font-size: 0.975rem !important;
-  line-height: 1.65 !important;
-  margin-bottom: 1rem;
-}
-.naac-card-body strong,
-.naac-card-body b {
-  color: #0f172a !important;
-  font-weight: 700 !important;
-}
 
-/* Stat Chips (Medium Sized & Balanced) */
-.res-stat-chip,
-.es-stat-chip {
+.res-stat-chip {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -77,27 +89,24 @@ require_once __DIR__ . '/../includes/page-banner.php';
   transition: all 0.2s ease;
   box-shadow: 0 2px 6px rgba(15,23,42,0.03);
 }
-.res-stat-chip:hover,
-.es-stat-chip:hover {
+.res-stat-chip:hover {
   border-color: #cbd5e1;
   box-shadow: 0 4px 14px rgba(11,37,69,0.06);
   transform: translateY(-2px);
 }
-.res-stat-icon,
-.es-stat-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
+.res-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   background: rgba(245,158,11,0.12);
   color: #d97706;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   flex-shrink: 0;
 }
-.res-stat-label,
-.es-stat-label {
+.res-stat-label {
   font-size: 0.75rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -106,42 +115,41 @@ require_once __DIR__ . '/../includes/page-banner.php';
   line-height: 1.25 !important;
   margin-bottom: 2px !important;
 }
-.res-stat-value,
-.es-stat-value {
+.res-stat-value {
   font-size: 0.88rem !important;
   font-weight: 700 !important;
   color: #0f172a !important;
   line-height: 1.3 !important;
 }
 
-/* Date Group Card Component */
 .res-group-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+  padding: 1.5rem;
   margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.03);
 }
 .res-date-badge {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  font-weight: 700;
-  padding: 6px 16px;
-  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  background: #f1f5f9;
+  color: #0b2545;
+  font-weight: 700;
   font-size: 0.88rem;
-  margin-bottom: 1rem;
+  padding: 6px 14px;
+  border-radius: 8px;
   border-left: 3px solid #f59e0b;
+  margin-bottom: 1rem;
 }
 .res-item-list {
   list-style: none;
-  padding: 0; margin: 0;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 10px;
 }
 .res-item-list li {
   background: #f8fafc;
@@ -155,9 +163,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
   transition: all 0.2s ease;
 }
 .res-item-list li:hover {
-  background: #f1f5f9;
+  background: #ffffff;
   border-color: #cbd5e1;
-  box-shadow: 0 4px 12px rgba(11,37,69,0.05);
+  box-shadow: 0 4px 12px rgba(11,37,69,0.06);
 }
 .res-item-title {
   display: flex;
@@ -175,7 +183,6 @@ require_once __DIR__ . '/../includes/page-banner.php';
   flex-shrink: 0;
 }
 
-/* Exact Button Styling (Dark Navy Pill + Golden Border + Yellow Icon) */
 .btn-naac-portal {
   background: linear-gradient(135deg, #0b2545 0%, #173866 100%) !important;
   color: #ffffff !important;
@@ -205,8 +212,65 @@ require_once __DIR__ . '/../includes/page-banner.php';
   color: #f59e0b !important;
   font-size: 0.9rem !important;
 }
-.btn-naac-portal:hover i {
-  color: #fbbf24 !important;
+.res-tabs-slider-wrap {
+  width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  padding-bottom: 2px;
+  touch-action: pan-x;
+  cursor: grab;
+}
+.res-tabs-slider-wrap:active {
+  cursor: grabbing;
+}
+.res-tabs-slider-wrap::-webkit-scrollbar,
+.res-tabs-slider-wrap::-webkit-scrollbar-thumb,
+.res-tabs-slider-wrap::-webkit-scrollbar-track,
+.res-tabs-slider-wrap::-webkit-scrollbar-button,
+.res-tabs-slider-wrap::-webkit-scrollbar-corner {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.res-tabs-slider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.res-cat-chip {
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.res-cat-chip:hover {
+  background: #f1f5f9;
+  color: #0b2545;
+  border-color: #cbd5e1;
+}
+.res-cat-chip.active {
+  background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%);
+  color: #ffffff;
+  border-color: #0b2545;
+  box-shadow: 0 4px 12px rgba(11,37,69,0.25);
 }
 </style>
 
@@ -223,2208 +287,192 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <p class="mb-0 text-white-50">Sri Satya Sai University of Technology and Medical Sciences &bull; Official Result Declarations</p>
             </div>
             <div>
-              <a href="#" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3 shadow-sm">
+              <a href="https://www.sssutms.co.in/erp/Student/Registration/Result/" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 py-2 text-dark rounded-3 shadow-sm">
                 <i class="fa-solid fa-right-to-bracket me-1"></i> Student Result Portal
               </a>
             </div>
           </div>
           
           <div class="naac-card-body">
-            <article class="fs-5 lh-lg text-secondary">
-
-              <!-- Stat Chips (Medium) -->
-              <div class="row g-2 align-items-stretch mb-4">
-                <div class="col-sm-6 col-md-3">
-                  <div class="res-stat-chip">
-                    <div class="res-stat-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
-                    <div>
-                      <div class="res-stat-label">Declarations</div>
-                      <div class="res-stat-value">Session 2026-24</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                  <div class="res-stat-chip">
-                    <div class="res-stat-icon"><i class="fa-solid fa-laptop-medical"></i></div>
-                    <div>
-                      <div class="res-stat-label">Medical / Ayush</div>
-                      <div class="res-stat-value">MBBS / BAMS / BHMS</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                  <div class="res-stat-chip">
-                    <div class="res-stat-icon"><i class="fa-solid fa-gears"></i></div>
-                    <div>
-                      <div class="res-stat-label">Engineering / Tech</div>
-                      <div class="res-stat-value">BE / BCA / MCA</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                  <div class="res-stat-chip">
-                    <div class="res-stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <div>
-                      <div class="res-stat-label">Management / Arts</div>
-                      <div class="res-stat-value">MBA / BBA / BA</div>
-                    </div>
-                  </div>
+            <!-- Search & Filters -->
+            <div class="bg-white p-3 rounded-4 border shadow-sm mb-4">
+              <!-- Search Bar -->
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0 text-muted px-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input type="text" id="resSearchInput" class="form-control border-start-0 py-2 fs-6" placeholder="Search result by course, semester, batch or keyword..." onkeyup="filterResults()">
+                  <button class="btn btn-outline-secondary px-3" type="button" onclick="document.getElementById('resSearchInput').value=''; filterResults();" title="Clear Search"><i class="fa fa-times"></i></button>
                 </div>
               </div>
 
-              <!-- DATE GROUP 0 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 10 Aug 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering III Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering IV Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 1 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 05 Aug 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. VI Semester (Regular/Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 2 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 29 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA I Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA II Semester (Regular/Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 3 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 27 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Com. V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Com. VI Semester (Regular/Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 4 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 18 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. VI Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. VI Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 5 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 15 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Sociology) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Economics) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (English) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Hindi) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (History) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Political Science) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Psychology) IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture VI Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 6 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 14 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B. Ed VII Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B. Ed VIII Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.S. 2nd Year December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 7 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 07 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering VI Semester (Regular/Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. I Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. II Semester (Regular/Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA III Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA IV Semester (Regular/Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 8 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 06 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. III Semester (EX) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 9 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 01 July 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma in Engineering V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma in Engineering VI Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 10 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 27 June 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT VI Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 11 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 20 June 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Physical Education III Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Physical Education IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Masters in Computer Application IV Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 12 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 18 June 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B A M S First Professional Examination March 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 13 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 16 June 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Physical Education &amp; Sports II Year April 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Physical Education &amp; Sports I Year April 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Pharmacy I Year April 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 14 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 13 June 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Physical Education &amp; Sports III Year April 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Pharmacy II Year April 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Pharmacy VII Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Pharmacy VIII Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Law V Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Law VI Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 15 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 09 June 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering VII Semester (Ex) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering VIII Semester (Regular) June 2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 16 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 19 May 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBBS supplementary result Feb -2026</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 17 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 01 May 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Design I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Arch I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Arch III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Arch V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 18 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 25 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Pharmacy I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Pharmacy III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 19 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 24 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering I Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 20 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 21 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering VI Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering V Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering III Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 21 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 18 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharma V Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 22 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 15 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Ph D Coursework Result 1 &amp; 2 sem (Regular/Ex) Dec.- 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 23 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 14 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.S. 3rd Year (Supplementary) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 24 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 11 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. I Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 25 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 08 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Nursing) V Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Nursing) IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Nursing) I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Nursing) VI Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 26 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 04 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Tech I Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Tech II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 27 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 03 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 28 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 01 April 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 29 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 31 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com VI Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com I Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 30 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 25 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.C.A. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.C.A. II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 31 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 23 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Pharma III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Tech. III Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 32 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 19 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 33 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 17 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.C.A. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 34 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 15 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M Pharma I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 35 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 12 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.M.S. 2nd Prof.(Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 36 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 10 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.M.S. 2nd (Supplementary) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 37 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 05 March 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Lib I Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Lib II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Ed. I Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Ed. II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Ed. IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 38 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 28 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.L.L.B. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 39 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 23 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 40 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 18 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VII Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 41 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 17 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Medical Lab Technician II Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Medical Lab Technician I Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Ophthalmic Assistant I Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma X-Ray Technician I Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPT IV Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPT I Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MPT (Orthopaedic) I Year (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>LLB I Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>LLB I Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 42 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 12 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.B.S. I Year Regular Exam September 2025 Retotaling results</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 43 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 11 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. I Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 44 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 09 Feb 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. V Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 45 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 20 Jan 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. II Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. IV Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. V Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. VI Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. III Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. VII Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharma VII Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharma VIII Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VIII Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 46 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 13 Jan 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT VIII Semester (Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT VII Semester (Regular/Ex) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMCT III Semester (Regular) December 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 47 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 02 Jan 2026</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.M.S. 1st Prof. (Supplementary) November 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 48 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 15 Dec 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>DIPLOMA PHARMACY (AYURVED) I &amp; II Year September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 49 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 05 Dec 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.B.S. 1st Prof. (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.S. III Year (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 50 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 22 Nov 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Pharmacy I Year (Supplementary) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Pharmacy II Year (Supplementary) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPES II Year (Supplementary) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPES I Year (Supplementary) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma X-Ray Technician II Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma X-Ray Technician I Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma YOGA II Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma YOGA I Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Homoeopathy II Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Homoeopathy I Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Opthalmic Assistant I Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Medical Lab Technician II Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Medical Lab Technician I Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.T. II Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.T. I Year (Regular) September 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 51 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 21 Nov 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Bachelor of Engineering II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 52 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 20 Nov 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 53 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 13 Nov 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering IV Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>30 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>29 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. E. IV Semester (Regular/ Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc.(Nursing) IV - V Semester (Regular/ Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>28 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>25 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. NEP I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. NEP II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>24 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. NEP I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. NEP II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>18 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com NEP I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com NEP II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. NEP I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. NEP II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>14 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>10 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Economics) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (English) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Hindi) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (History) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Political Science) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Psychology) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Sociology) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>08 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BA NEP III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BA NEP IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BHMS IV Year (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (English) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Hindi) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Political Science) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MA (Psychology) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>04 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Botany) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Chemistry) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Computer Science) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Mathematics) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Microbiology) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Physics) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Zoology) II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>01 Oct 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Botany) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Chemistry) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Mathematics) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Microbiology) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Physics) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Zoology) I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 54 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 30 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Lib I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Lib II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P. Ed. I Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P. Ed. II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Arch. II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 55 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 27 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Com. II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.C.A. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.C.A. II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Pharma I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Pharma II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 56 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 26 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. NEP III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. NEP IV Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. NEP III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. NEP IV Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. NEP III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. NEP IV Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. II Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 57 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 23 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy I Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy II Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. NEP IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. NEP IV Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. NEP IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 58 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 12 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. ARCH III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. ARCH IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 59 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 11 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VI Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 60 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 08 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 61 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 05 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy IV Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 62 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 02 Sep 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 63 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 30 Aug 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. IV Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 64 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 22 Aug 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. VI Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 65 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 13 Aug 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B II Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy VI Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 66 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 01 Aug 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.M.S. I Year (Regular) March - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 67 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 30 July 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. IV Semester (Regular/Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. VII Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (English) III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Psychology) III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Economics) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (English) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Hindi) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (History) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Political Science) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 68 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 28 July 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Pharmacy I Year (Regular) April 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPES I Year (Regular) April 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 69 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 26 July 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. (NEP) VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (NEP) V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (NEP) VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Com IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. (NEP) V Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. (NEP) VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. (NEP) VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com (NEP) VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Mathematics) III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Zoology) III Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Botany) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Chemistry) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Computer Science) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Mathematics) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Microbiology) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Physics) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Zoology) IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed VIII Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy VII Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy VIII Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MCA IV Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. VIII Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VII Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VIII Semester (Ex) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>L.L.B. VI Semester (Regular) June 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.M.S. I Year (Supplementary) March - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. IV Semester (Regular) June - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture VIII Semester (Regular) June - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. III Semester (Ex) June - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. IV Semester (Regular) June - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPES III Year (Regular) April - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>BPES II Year (Regular) April - 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.S. I Year (Regular) September 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A.M.S. II Year (Regular) Jan 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Pharmacy II Year (Regular) April 2025</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering III Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy. II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. (NEP) IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (NEP) IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. (NEP) IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. B.Ed. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. III Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.P.Ed. IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A (English) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. E. III Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. E. IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>Diploma Engineering I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy III Semester (Regular/Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Arch. III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Arch. IX Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.S. II Year (Supplementary) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture VI Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture III Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Tech. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Tech. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Pharma III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 70 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 23 April 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. III Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Ed. IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 71 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 22 April 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy V Semester (Regular/Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy VI Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Pharma I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M. Pharma II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 72 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 21 April 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture V Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (Hons) Agriculture III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>MBA III Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 73 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 15 April 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B. Pharmacy VII Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. (NEP) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. (NEP) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.B.A. (NEP) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Com. (NEP) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (NEP) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.A. (NEP) V Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.C.A. (NEP) V Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.Sc. (NEP) V Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.C.A. I Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.A. (Psychology) IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Botany) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Chemistry) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Computer Science) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Mathematics) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Microbiology) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Physics) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Zoology) III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Botany) IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.Sc. (Computer Science) IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DATE GROUP 74 -->
-              <div class="res-group-card">
-                <div class="res-date-badge"><i class="fa-solid fa-calendar-day"></i> 05 March 2025</div>
-                <ul class="res-item-list">
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. II Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. IV Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.H.M.C.T. VI Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>B.E. VIII Semester (Ex) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                  <li>
-                    <div class="res-item-title"><i class="fa-solid fa-circle-check"></i> <span>M.B.A. III Semester (Regular) December 2024</span></div>
-                    <a href="#" class="btn btn-sm btn-naac-portal"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Check Result</a>
-                  </li>
-                </ul>
-              </div>
+              <!-- Category Tabs (Single Line Horizontal Scroll) -->
+              <div class="res-tabs-slider-wrap">
+                <div class="res-tabs-slider">
+                  <?php foreach ($categories as $idx => $cat): ?>
+                    <button type="button" class="res-cat-chip <?php echo $idx === 0 ? 'active' : ''; ?>" onclick="setResCat('<?php echo htmlspecialchars($cat); ?>', this)">
+                      <?php echo htmlspecialchars($cat); ?>
+                    </button>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results List Grouped by Date -->
+            <div id="resultsContainer">
+              <?php if (empty($allResults)): ?>
+                <div class="alert alert-info text-center py-4">
+                  <i class="fa-solid fa-circle-info fa-2x mb-2 text-primary d-block"></i>
+                  <h6 class="fw-bold">No examination results published at the moment.</h6>
+                  <p class="small text-muted mb-0">Please check back soon or visit the ERP Portal.</p>
+                </div>
+              <?php else: ?>
+                <?php foreach ($resultsByDate as $dateHeading => $items): ?>
+                  <div class="res-group-card res-date-section" data-date="<?php echo htmlspecialchars($dateHeading); ?>">
+                    <div class="res-date-badge"><i class="fa-solid fa-calendar-day text-warning"></i> <?php echo htmlspecialchars($dateHeading); ?></div>
+                    <ul class="res-item-list">
+                      <?php foreach ($items as $doc): 
+                        $title = $doc['title'] ?? 'Examination Result';
+                        $cat = !empty($doc['category']) ? $doc['category'] : 'General';
+                        $link = !empty($doc['file']) ? $doc['file'] : 'https://www.sssutms.co.in/erp/Student/Registration/Result/';
+                        if (strpos($link, 'http') !== 0 && strpos($link, 'ftp') !== 0 && $link !== '#') {
+                          $link = BASE_URL . ltrim($link, '/');
+                        }
+                      ?>
+                        <li class="result-item" data-title="<?php echo strtolower(htmlspecialchars($title)); ?>" data-category="<?php echo htmlspecialchars($cat); ?>">
+                          <div class="res-item-title">
+                            <i class="fa-solid fa-circle-check"></i> 
+                            <div>
+                              <span><?php echo htmlspecialchars($title); ?></span>
+                              <span class="badge bg-light text-muted border ms-2 small fw-normal"><?php echo htmlspecialchars($cat); ?></span>
+                            </div>
+                          </div>
+                          <a href="<?php echo htmlspecialchars($link); ?>" target="_blank" rel="noopener" class="btn-naac-portal">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Check Result
+                          </a>
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
+                  </div>
+                <?php endforeach; ?>
+              <?php endif; ?>
+            </div>
+
+            <div id="noResAlert" class="alert alert-warning text-center py-4 mt-3" style="display:none;">
+              <i class="fa-solid fa-magnifying-glass fa-2x mb-2 text-warning d-block"></i>
+              <h6 class="fw-bold">No results match your search query or filter.</h6>
+              <p class="small text-muted mb-0">Try clearing the search box or selecting another category.</p>
+            </div>
 
-            </article>
           </div>
         </div>
       </div>
       
-      <!-- Sidebar (Right) -->
-      <div class="col-lg-3 col-md-4">
+      <!-- Sticky Category Sidebar (Right) -->
+      <div class="col-lg-3 col-md-4 sticky-top" style="top: 20px; z-index: 10;">
         <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
       </div>
-      
+
     </div>
   </div>
 </section>
+
+<script>
+let currentResCat = 'All';
+
+function setResCat(cat, btn) {
+  currentResCat = cat;
+  document.querySelectorAll('.res-cat-chip').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  filterResults();
+}
+
+function filterResults() {
+  const q = (document.getElementById('resSearchInput')?.value || '').toLowerCase().trim();
+  const dateSections = document.querySelectorAll('.res-date-section');
+  let totalVisible = 0;
+
+  dateSections.forEach(sec => {
+    const items = sec.querySelectorAll('.result-item');
+    let secVisible = 0;
+
+    items.forEach(item => {
+      const title = (item.getAttribute('data-title') || '').toLowerCase();
+      const cat = item.getAttribute('data-category') || '';
+
+      const matchesQuery = !q || title.includes(q);
+      const matchesCat = currentResCat === 'All' || cat.toLowerCase() === currentResCat.toLowerCase();
+
+      if (matchesQuery && matchesCat) {
+        item.style.display = 'flex';
+        secVisible++;
+        totalVisible++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    sec.style.display = (secVisible > 0) ? 'block' : 'none';
+  });
+
+  const noRes = document.getElementById('noResAlert');
+  if (noRes) {
+    noRes.style.display = (totalVisible === 0 && dateSections.length > 0) ? 'block' : 'none';
+  }
+}
+
+// Enable smooth mouse wheel and drag scroll for single-line category chips
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.res-tabs-slider-wrap');
+  if (!slider) return;
+
+  // Convert vertical mouse wheel to horizontal scroll smoothly
+  slider.addEventListener('wheel', function(e) {
+    if (e.deltaY !== 0) {
+      e.preventDefault();
+      slider.scrollLeft += (e.deltaY * 1.5);
+    }
+  }, { passive: false });
+
+  // Mouse drag to scroll
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let dragged = false;
+
+  slider.addEventListener('mousedown', function(e) {
+    isDown = true;
+    dragged = false;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', function() {
+    isDown = false;
+  });
+
+  slider.addEventListener('mouseleave', function() {
+    isDown = false;
+  });
+
+  slider.addEventListener('mousemove', function(e) {
+    if (!isDown) return;
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX);
+    if (Math.abs(walk) > 5) {
+      dragged = true;
+    }
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Prevent accidental button clicks when user was dragging
+  slider.addEventListener('click', function(e) {
+    if (dragged) {
+      e.stopPropagation();
+      e.preventDefault();
+      dragged = false;
+    }
+  }, true);
+});
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

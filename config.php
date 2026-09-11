@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
 
 // Base Paths & URLs
 define('BASE_DIR', __DIR__);
+define('ROOT_DIR', __DIR__);
 define('DATA_DIR', __DIR__ . '/data');
 define('UPLOAD_DIR', __DIR__ . '/assets/uploads');
 
@@ -223,20 +224,102 @@ function save_faculty_page($slug, $data) {
  * Helper to get all notices
  */
 function get_notices($category = 'all', $limit = 0) {
-    $notices = get_json_data('notices.json', []);
+    $legacyNotices = get_json_data('notices.json', []);
+    $examNotifs = get_page_documents('ExamNotifications');
+    $alerts = get_page_documents('EntranceExamAlert');
+
+    $combined = [];
+    $seen = [];
+
+    // 1. Prioritize active Examination Notifications
+    foreach ($examNotifs as $en) {
+        $t = trim($en['title'] ?? '');
+        if (empty($t) || isset($seen[strtolower($t)])) continue;
+        $seen[strtolower($t)] = true;
+
+        $fileUrl = $en['file'] ?? '#';
+        if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0 && $fileUrl !== '#') {
+            $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+        }
+
+        $combined[] = [
+            'id' => $en['id'] ?? uniqid(),
+            'title' => $t,
+            'category' => $en['category'] ?? 'notices',
+            'date' => $en['date'] ?? date('Y-m-d'),
+            'file' => $fileUrl,
+            'link' => $fileUrl,
+            'is_new' => (isset($en['status']) && strtolower($en['status']) === 'new') || (count($combined) < 4)
+        ];
+    }
+
+    // 2. Prioritize Entrance Exam Alerts
+    foreach ($alerts as $al) {
+        $t = trim($al['title'] ?? '');
+        if (empty($t) || isset($seen[strtolower($t)])) continue;
+        $seen[strtolower($t)] = true;
+
+        $fileUrl = $al['file'] ?? '#';
+        if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0 && $fileUrl !== '#') {
+            $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+        }
+
+        $combined[] = [
+            'id' => $al['id'] ?? uniqid(),
+            'title' => $t,
+            'category' => 'admission',
+            'date' => $al['date'] ?? date('Y-m-d'),
+            'file' => $fileUrl,
+            'link' => $fileUrl,
+            'is_new' => true
+        ];
+    }
+
+    // 3. Merge legacy notices
+    foreach ($legacyNotices as $ln) {
+        $t = trim($ln['title'] ?? '');
+        if (empty($t) || isset($seen[strtolower($t)])) continue;
+        $seen[strtolower($t)] = true;
+
+        $fileUrl = $ln['link'] ?? '';
+        if (empty($fileUrl) || $fileUrl === '#') {
+            if (!empty($ln['file'])) {
+                if (file_exists(BASE_DIR . '/assets/uploads/notices/' . $ln['file'])) {
+                    $fileUrl = BASE_URL . 'assets/uploads/notices/' . $ln['file'];
+                } elseif (file_exists(BASE_DIR . '/assets/images/Files/Widget/Download/' . $ln['file'])) {
+                    $fileUrl = BASE_URL . 'assets/images/Files/Widget/Download/' . $ln['file'];
+                } elseif (file_exists(BASE_DIR . '/assets/images/Files/Notices/' . $ln['file'])) {
+                    $fileUrl = BASE_URL . 'assets/images/Files/Notices/' . $ln['file'];
+                }
+            }
+        }
+
+        $combined[] = [
+            'id' => $ln['id'] ?? uniqid(),
+            'title' => $t,
+            'category' => $ln['category'] ?? 'notices',
+            'date' => $ln['date'] ?? date('Y-m-d'),
+            'file' => $fileUrl ?: BASE_URL . 'Examination/ExamNotifications.php',
+            'link' => $fileUrl ?: BASE_URL . 'Examination/ExamNotifications.php',
+            'is_new' => !empty($ln['is_new'])
+        ];
+    }
+
     if ($category !== 'all') {
-        $notices = array_filter($notices, function($n) use ($category) {
-            return isset($n['category']) && $n['category'] === $category;
+        $combined = array_filter($combined, function($n) use ($category) {
+            return strcasecmp($n['category'] ?? '', $category) === 0;
         });
     }
+
     // Sort newest first
-    usort($notices, function($a, $b) {
+    usort($combined, function($a, $b) {
         return strtotime($b['date'] ?? '2026-01-01') - strtotime($a['date'] ?? '2026-01-01');
     });
+
     if ($limit > 0) {
-        return array_slice($notices, 0, $limit);
+        return array_slice($combined, 0, $limit);
     }
-    return $notices;
+    return $combined;
 }
 
 /**

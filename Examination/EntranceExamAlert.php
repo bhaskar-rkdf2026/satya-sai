@@ -154,21 +154,99 @@ require_once __DIR__ . '/../includes/page-banner.php';
               </div>
             </div>
 
-            <!-- Entrance Exam Alert Item Card -->
-            <div class="exam-alert-card d-flex align-items-center justify-content-between flex-wrap gap-3">
-              <div>
-                <span class="badge bg-danger mb-2 px-3 py-1 fw-bold text-uppercase">
-                  <i class="fa-solid fa-beat-fade fa-circle me-1"></i> Latest Alert
-                </span>
-                <h4 class="fw-bold text-dark mb-1 fs-5">Extended Entrance Exam (Ph.D Entrance Examination 2026)</h4>
-                <p class="text-muted mb-0 small">Official notification regarding the extension of Ph.D. Entrance Examination 2026 application deadlines and guidelines.</p>
+            <?php
+            $alerts = get_page_documents('EntranceExamAlert');
+            if (empty($alerts)) {
+                $alerts = [
+                    [
+                        'id' => 'eea_01',
+                        'title' => 'Extended Entrance Exam (Ph.D Entrance Examination 2026)',
+                        'category' => 'Ph.D.',
+                        'file' => 'assets/images/Files/Link/New_Doc_06-02-2026_14.37_02062026_0434.pdf',
+                        'date' => '2026-02-06',
+                        'is_new' => true,
+                        'desc' => 'Official notification regarding the extension of Ph.D. Entrance Examination 2026 application deadlines and guidelines.'
+                    ]
+                ];
+            }
+            ?>
+
+            <!-- Search & Filter Bar -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 p-3 bg-light rounded-3 border">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-primary px-3 py-2 fs-6"><i class="fa-solid fa-list-check me-1"></i> Total Alerts: <?php echo count($alerts); ?></span>
+                <span class="text-muted small">Live Synchronized with SSSUTMS Examination Cell</span>
               </div>
-              <div>
-                <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/New_Doc_06-02-2026_14.37_02062026_0434.pdf" target="_blank" rel="noopener" class="exam-btn">
-                  <i class="fa-solid fa-file-pdf text-warning fs-5"></i> View Official Notice
-                </a>
+              <div class="input-group" style="max-width: 320px;">
+                <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                <input type="text" id="alertSearchInput" class="form-control border-start-0" placeholder="Search entrance alerts..." onkeyup="filterAlerts()">
               </div>
             </div>
+
+            <!-- Entrance Exam Alerts Dynamic List -->
+            <div class="d-flex flex-column gap-3" id="alertsContainer">
+              <?php foreach ($alerts as $idx => $item): 
+                $fileUrl = $item['file'];
+                if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0 && strpos($fileUrl, '#') !== 0) {
+                  $fileUrl = BASE_URL . ltrim($fileUrl, '/');
+                }
+                $isPdf = (stripos($fileUrl, '.pdf') !== false);
+                $isForm = (stripos($item['title'], 'Form') !== false || stripos($fileUrl, '.aspx') !== false);
+                $isNew = !empty($item['is_new']) || ($idx < 2);
+              ?>
+                <div class="exam-alert-card d-flex align-items-center justify-content-between flex-wrap gap-3 alert-item-row" data-title="<?php echo htmlspecialchars(strtolower($item['title'] . ' ' . ($item['category'] ?? ''))); ?>">
+                  <div style="flex: 1; min-width: 280px;">
+                    <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                      <?php if ($isNew): ?>
+                        <span class="badge bg-danger px-2 py-1 fw-bold text-uppercase" style="font-size: 11px;">
+                          <i class="fa-solid fa-beat-fade fa-circle me-1"></i> New
+                        </span>
+                      <?php endif; ?>
+                      <?php if (!empty($item['category']) && $item['category'] !== 'General'): ?>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1 fw-bold" style="font-size: 11px;">
+                          <i class="fa-solid fa-tag me-1"></i> <?php echo htmlspecialchars($item['category']); ?>
+                        </span>
+                      <?php endif; ?>
+                      <?php if (!empty($item['date'])): ?>
+                        <span class="text-muted small"><i class="fa-regular fa-calendar me-1"></i> <?php echo date('d M Y', strtotime($item['date'])); ?></span>
+                      <?php endif; ?>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-1 fs-5">
+                      <i class="fa-solid fa-angles-right text-primary me-2"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </h4>
+                    <?php if (!empty($item['desc'])): ?>
+                      <p class="text-muted mb-0 small"><?php echo htmlspecialchars($item['desc']); ?></p>
+                    <?php endif; ?>
+                  </div>
+                  <div>
+                    <?php if ($isForm): ?>
+                      <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="exam-btn" style="background: linear-gradient(135deg, #059669 0%, #047857 100%) !important; border-color: #059669;">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-white fs-6"></i> Open Online Form
+                      </a>
+                    <?php else: ?>
+                      <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="exam-btn">
+                        <i class="fa-solid fa-file-pdf text-warning fs-5"></i> View Official Notice
+                      </a>
+                    <?php endif; ?>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+
+            <script>
+            function filterAlerts() {
+              const query = document.getElementById('alertSearchInput').value.toLowerCase().trim();
+              const items = document.querySelectorAll('.alert-item-row');
+              items.forEach(el => {
+                const text = el.getAttribute('data-title');
+                if (!query || text.includes(query)) {
+                  el.style.display = 'flex';
+                } else {
+                  el.style.display = 'none';
+                }
+              });
+            }
+            </script>
 
           </div>
         </div><!-- end exam-main-card -->

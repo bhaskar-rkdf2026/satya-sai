@@ -377,9 +377,22 @@ if (!function_exists('home_url')) {
           <div class="hm-notice-list">
             <?php foreach (array_slice($notices, 0, 4) as $n): ?>
               <?php
-                $pdfLink = (!empty($n['link']) && $n['link'] !== '#')
-                  ? $n['link']
-                  : BASE_URL . 'Examination/ExamNotifications.php';
+                $pdfLink = '#';
+                if (!empty($n['file'])) {
+                  if (file_exists(__DIR__ . '/assets/uploads/notices/' . $n['file'])) {
+                    $pdfLink = BASE_URL . 'assets/uploads/notices/' . $n['file'];
+                  } elseif (file_exists(__DIR__ . '/assets/images/Files/Widget/Download/' . $n['file'])) {
+                    $pdfLink = BASE_URL . 'assets/images/Files/Widget/Download/' . $n['file'];
+                  } elseif (file_exists(__DIR__ . '/assets/images/Files/Notices/' . $n['file'])) {
+                    $pdfLink = BASE_URL . 'assets/images/Files/Notices/' . $n['file'];
+                  }
+                }
+                if ($pdfLink === '#' && !empty($n['link']) && $n['link'] !== '#') {
+                  $pdfLink = $n['link'];
+                }
+                if ($pdfLink === '#') {
+                  $pdfLink = BASE_URL . 'Examination/ExamNotifications.php';
+                }
               ?>
               <div class="hm-notice-entry">
                 <div class="hm-notice-entry-dot"></div>
