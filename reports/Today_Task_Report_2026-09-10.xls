@@ -1,0 +1,1014 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9510</WindowHeight>
+  <WindowWidth>21600</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Segoe UI" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Segoe UI" ss:Size="15" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#0B2545" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Segoe UI" ss:Color="#FF9900" ss:Italic="1"/>
+   <Interior ss:Color="#07192F" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#0B2545"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#CBD5E1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#CBD5E1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#CBD5E1"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="10.5" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#134074" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="9.5" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="9.5" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="9.5" ss:Color="#993300" ss:Bold="1"/>
+   <Interior ss:Color="#FEE2E2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="9.5" ss:Color="#008080" ss:Bold="1"/>
+   <Interior ss:Color="#D1FAE5" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="9.5" ss:Color="#993300" ss:Bold="1"/>
+   <Interior ss:Color="#FEF3C7" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#0B2545"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#0B2545"/>
+   </Borders>
+   <Font ss:FontName="Segoe UI" ss:Size="10.5" ss:Color="#003366" ss:Bold="1"/>
+   <Interior ss:Color="#E2E8F0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#E2E8F0"/>
+   </Borders>
+   <Font ss:FontName="Consolas" ss:Size="9" ss:Color="#333333"/>
+   <Interior ss:Color="#F8FAFC" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Milestone Summary">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="20" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="20.0625">
+   <Column ss:Width="45"/>
+   <Column ss:Width="84.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:Width="230.25"/>
+   <Column ss:Width="360"/>
+   <Column ss:Width="230.25"/>
+   <Column ss:Width="75"/>
+   <Column ss:Width="95.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:MergeAcross="7" ss:StyleID="s63"><Data ss:Type="String">SRI SATYA SAI UNIVERSITY (SSSUTMS) - MILESTONE TASK REPORT</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="21.9375">
+    <Cell ss:MergeAcross="7" ss:StyleID="s65"><Data ss:Type="String">Date: 10-09-2026 | Total Milestones: 15 | Status: 100% Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="8.0625"/>
+   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+    <Cell ss:StyleID="s66"><Data ss:Type="String">S.No.</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Date</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Module / Category</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Task Name</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Task Details / Description</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Deliverables / Affected Files</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Priority</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Core Architecture</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Project Audit &amp; Migration Setup</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Audited workspace structure, verified data stores, and established dynamic page routing for SSSUTMS portal.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Config files, directory routes, base architecture</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Bug Fix / Frontend</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Character Entity &amp; Symbol Encoding Fix</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Resolved raw &amp;amp; character entity issues across diploma/degree course names and template outputs for clean typographical rendering.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Clean typography, proper &amp;amp; decoding in templates</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Content Sync</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Diploma &amp; Institute Name Restoration</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Fixed missing institute names in Diploma courses to strictly match the live web portal layout.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Accurate Diploma course listings with institute names</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Feature / SEO</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Dynamic SEO &amp; Meta Details System</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Implemented complete dynamic SEO system (meta title, description, keywords, canonical URL, OG social tags) across all pages.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Dynamic meta tag engine in includes/header.php</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Portal</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">SEO Tab Integration in Admin Editors</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Integrated dynamic SEO &amp; Meta Details tabs with live Google SERP preview and character counters in admin/about.php &amp; admin/faculties.php.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">SEO editor tabs in Admin panel for all pages</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Compliance</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Public Self Disclosure (45 Parameters) Sync</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Audited all 45 statutory parameters for UGC/NAAC Public Self Disclosure, connecting active live documents and internal routes.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">data/public_disclosure.json, Public_Self_Disclosure.php</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Section</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculties &amp; Departments (14 Units) Full Sync</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created and synced all 14 Faculty pages with dean profiles, department structures, stat counters, and syllabus PDF attachments.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">14 Academic faculty files, data/faculty_pages.json</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About Section</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About Pages (42 Pages) Audit &amp; Live Sync</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified and connected all 42 sub-pages and nested pages under About menu, ensuring zero broken links and 100% HTTP 200 responses.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">42 About pages, data/about_pages.json, admin/about.php</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Institutes</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Institutes Page Live Link Alignment</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Synced About/Institutes.php with live site. Only live-connected pages have anchor tags; unlinked units remain clean static cards.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Authentic link structure for 14 institutes + 4 pharmacy units</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">UI / Layout</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Institutes 2-Column Responsive Grid</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Converted Institutes page cards from single-column vertical list to modern 2-column balanced responsive grid.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Bootstrap 2-column grid layout in About/Institutes.php</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">UI / Layout</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Institutes Card Height &amp; Width Uniformity</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Engineered .institute-grid-card CSS rules (min-height: 62px, width: 100%, height: 100%) to ensure strictly identical card dimensions.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Uniform card dimensions in assets/css/style.css</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Content Cleanup</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Removal of Dummy Banners &amp; Extra Subtitles</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Removed extra dark blue top banner card and all 18 dummy subtitles, retaining strictly the authentic live portal content.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Clean live text in data/about_pages.json &amp; fallback</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">CSS Bug Fix</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Heading Accent Underline Center Alignment Fix</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Fixed CSS bug where centered headings (e.g. INSTITUTE) had orange underline stuck at left: 0. Added left: 50% with translateX(-50%).</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Symmetric heading underline centering in style.css</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Styling</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Button Brand Color Harmonization</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Styled admin primary buttons with portal dark navy gradient (#0b2545 to #134074) and gold hover accents (#f59e0b).</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Brand color button system in assets/css/admin.css</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Portal</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin About Pages Cards Redesign (Equal Height)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Redesigned all 42 page cards in admin/about.php with d-flex stretch, fixed slot heights for badges/titles/paths/desc, and fixed stat icon contrast.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">100% equal height grid cards in admin/about.php</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="26.0625">
+    <Cell ss:MergeAcross="5" ss:StyleID="s73"><Data ss:Type="String">TOTAL MILESTONES: 15 | COMPLETED: 15 | PENDING: 0</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s73"><Data ss:Type="String">100% COMPLETED</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <TopRowVisible>15</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Page-Wise Report">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="67" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="20.0625">
+   <Column ss:Width="45"/>
+   <Column ss:Width="84.75"/>
+   <Column ss:Width="159.75"/>
+   <Column ss:Width="219.75"/>
+   <Column ss:Width="260.25"/>
+   <Column ss:Width="380.25"/>
+   <Column ss:Width="75"/>
+   <Column ss:Width="95.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="36">
+    <Cell ss:MergeAcross="7" ss:StyleID="s63"><Data ss:Type="String">PAGE-WISE COMPREHENSIVE EXECUTION REPORT</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="21.9375">
+    <Cell ss:MergeAcross="7" ss:StyleID="s65"><Data ss:Type="String">Date: 10-09-2026 | Total Pages Handled: 62 | All Pages 100% Active &amp; Verified</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="8.0625"/>
+   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+    <Cell ss:StyleID="s66"><Data ss:Type="String">S.No.</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Date</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Section / Category</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Page Name</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">File Path</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Work Done &amp; Deliverables</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Priority</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Core Architecture</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Home Page &amp; Banner Slider</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">index.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Integrated dynamic CMS notices, announcements, quick links, and responsive banner slider.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Core Architecture</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Global Header &amp; SEO Engine</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">includes/header.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Integrated dynamic SEO meta engine (title, meta description, keywords, canonical URLs, OG social tags).</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Core Architecture</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Global Design System &amp; Stylesheet</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">assets/css/style.css</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Configured .institute-grid-card uniform heights/widths and centered heading underline ::after alignment.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Portal</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Styling &amp; Button Theme</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">assets/css/admin.css</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Updated brand button color system to dark navy gradient (#0b2545 to #134074) and gold hover accents (#f59e0b).</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Portal</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About Section Pages Manager</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">admin/about.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Redesigned all 42 card layouts to strictly equal height with d-flex column stretch, fixed slot heights, and dynamic SEO tabs.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Admin Portal</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculties &amp; Departments Manager</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">admin/faculties.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Integrated dynamic SEO tabs, dean profile management, stat counters, and syllabus PDF attachments.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Overview &amp; History</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Background</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Background.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Overview &amp; History</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Institutes</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Institutes.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Synced with live site; 2-column grid layout; cards with strictly equal height &amp; width; removed dummy banners &amp; extra subtitles; centered heading underline.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Overview &amp; History</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Promoting Society</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/PromotingSociety.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Overview &amp; History</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Vision &amp; Mission</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/VisionAndMission.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Overview &amp; History</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Core Values</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/CoreValues.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Overview &amp; History</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Best Practices</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/BestPractices.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Chancellor</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Chancellor.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Vice Chancellor</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/ViceChancellor.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Registrar</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Registrar.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Finance Officer</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Finance_Officer.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Deputy Registrar</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/DeputyRegistrar.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Exam Controller</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Exam_Controller.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Chief Vigilance Officer</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Chief_Vigilance_Officer.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Governing Body</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/GoverningBody.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Board of Management</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/BoardOfManagement.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Board of Studies</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Board_Of_Studies.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Council</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/AcademicCouncil.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Finance Committee</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/FinanceCommittee.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standing Committee</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/StandingCommittee.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">STATUTES</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/STATUTES.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">AUDIT REPORT</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Audit_Report.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Dean</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/Dean.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - University Officials</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Head Of The Department</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/UniversityOfficials/HeadOfTheDepartment.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Standardized profile view, dean/official bio, dynamic SEO tags, contact details, and document attachment.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Approvals &amp; Ordinances</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Approvals</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/ApprovalsAndOrdinances/Approvals.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">31</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Approvals &amp; Ordinances</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Ordinances</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/ApprovalsAndOrdinances/Ordinances.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Amenities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Transportation</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Amenities/Transportation.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">33</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Amenities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Hostel</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Amenities/Hostel.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">34</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Amenities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Library</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Amenities/Library.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">35</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Amenities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Medical Facility</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Amenities/MedicalFacility.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">36</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Amenities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Guest House</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Amenities/GuestHouse.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">37</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - MOU &amp; Activities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NCC MOU</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/NCC/MOU.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">38</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - MOU &amp; Activities</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Activity</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/NCC/Activity.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">39</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Compliance &amp; Portals</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Public Self Disclosure</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Public_Self_Disclosure.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Audited 45 statutory regulatory parameters, linked working internal pages, official portals &amp; verified live files.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">40</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Compliance &amp; Portals</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Central Facilities</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Central_Facilities.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Compliance &amp; Portals</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Institutional Development Plan</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Institutional_Development_Plan.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">42</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Compliance &amp; Portals</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Annual Reports</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Annual_Reports.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">43</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Compliance &amp; Portals</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NSS</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/NSS.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Verified HTTP 200, synchronized live portal data, connected dynamic SEO meta tags, and verified layout.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">44</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Constituent Institutes</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">College of Pharmacy</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/College_of_pharmacy.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Configured PCI/AICTE approved units with program details, prospectus links, and live external/internal URLs.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">45</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Constituent Institutes</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Education</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/Faculty_of_Education.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Configured PCI/AICTE approved units with program details, prospectus links, and live external/internal URLs.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">46</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Constituent Institutes</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Polytechnic Pharmacy</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/POLP.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Configured PCI/AICTE approved units with program details, prospectus links, and live external/internal URLs.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">47</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Constituent Institutes</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">School of Pharmacy</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/sop.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Configured PCI/AICTE approved units with program details, prospectus links, and live external/internal URLs.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">48</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">About - Constituent Institutes</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Sri Ramnath Kapoor Memorial School Of Pharmacy</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">About/srkmsop.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Configured PCI/AICTE approved units with program details, prospectus links, and live external/internal URLs.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">49</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">SCHOOL OF ENGINEERING &amp; TECHNOLOGY</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/EngineeringAndTechnology.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Engineering, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Pharmacy</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Pharmacy.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Pharmacy &amp; Research, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">51</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Education</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Education.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Education, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">52</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Management Studies</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Management.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Management Studies, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">53</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">School of Design</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Design.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with Faculty of Design, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">54</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Humanities and Languages</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/HumanitiesAndLanguages.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Humanities &amp; Social Sciences, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">55</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Computer Science &amp; Application</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/ComputerScienceAndApplication.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Computer Applications, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">56</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Commerce</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Commerce.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Commerce, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">57</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Science</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Science.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Basic &amp; Applied Sciences, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">58</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Ayurveda &amp; Siddha Studies</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Ayurveda.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Ayurveda, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">59</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Law</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Law.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Law, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Homoeopathy</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Homeopathy.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Homoeopathy, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">61</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Paramedical Studies</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Paramedical.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Paramedical Sciences, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="33.9375">
+    <Cell ss:StyleID="s67"><Data ss:Type="Number">62</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">10-09-2026</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Academic Faculties</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Faculty of Nursing Sciences</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Academic/FacultiesAndDepartments/Nursing.php</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Created &amp; verified faculty page with School of Nursing, dean profile, academic programs, department matrix &amp; syllabus PDF linkage.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="26.0625">
+    <Cell ss:MergeAcross="5" ss:StyleID="s73"><Data ss:Type="String">TOTAL PAGES VERIFIED: 62 | STATUS: 100% OPERATIONAL</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s73"><Data ss:Type="String">COMPLETED</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>0</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <TopRowVisible>27</TopRowVisible>
+   <LeftColumnVisible>3</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+     <RangeSelection>R34C4:R66C8</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
