@@ -69,7 +69,7 @@ if (!function_exists('home_url')) {
   $heroTitleHighlight = $hero['title_highlight'] ?? 'Excellence & Innovation';
   $heroDesc = $hero['desc'] ?? 'Empowering students with world-class engineering, medical, ayurveda, pharmacy, and management education across a 100+ acre lush green campus.';
   $heroBtn1Text = $hero['btn_primary_text'] ?? 'Apply Online 2026-27';
-  $heroBtn1Link = $hero['btn_primary_link'] ?? 'Admission/AdmissionRegistration.php';
+  $heroBtn1Link = $hero['btn_primary_link'] ?? 'student-registration.php';
   $heroBtn2Text = $hero['btn_secondary_text'] ?? 'Explore University';
   $heroBtn2Link = $hero['btn_secondary_link'] ?? 'About/Background.php';
   $miniStats = $hero['mini_stats'] ?? [
@@ -594,13 +594,14 @@ if (!function_exists('home_url')) {
     <div class="row g-4">
       <?php
       $colsConfig = [
-        'col1' => ['key' => 'column1', 'cls' => 'resource-card-blue', 'def_title' => 'Important Links', 'def_sub' => 'Government & University Portals', 'icon' => 'fa-star', 'wrap' => 'col-lg-4 col-md-6 d-flex'],
-        'col2' => ['key' => 'column2', 'cls' => 'resource-card-green', 'def_title' => 'Quick Links', 'def_sub' => 'Notifications, Rankings & Results', 'icon' => 'fa-bolt', 'wrap' => 'col-lg-4 col-md-6 d-flex'],
-        'col3' => ['key' => 'column3', 'cls' => 'resource-card-orange', 'def_title' => 'Download Links', 'def_sub' => 'Examination Notifications & Timetables', 'icon' => 'fa-circle-down', 'wrap' => 'col-lg-4 col-md-12 d-flex']
+        'col1' => ['key' => 'column1', 'cls' => 'resource-card-blue', 'def_title' => 'Important Links', 'def_sub' => 'Government & University Portals', 'icon' => 'fa-star', 'wrap' => 'col-lg-4 col-md-6 d-flex', 'page_url' => 'ImportantLinks.php', 'btn_text' => 'View More Important Links'],
+        'col2' => ['key' => 'column2', 'cls' => 'resource-card-green', 'def_title' => 'Quick Links', 'def_sub' => 'Notifications, Rankings & Results', 'icon' => 'fa-bolt', 'wrap' => 'col-lg-4 col-md-6 d-flex', 'page_url' => 'QuickLinks.php', 'btn_text' => 'View More Quick Links'],
+        'col3' => ['key' => 'column3', 'cls' => 'resource-card-orange', 'def_title' => 'Download Links', 'def_sub' => 'Examination Notifications & Timetables', 'icon' => 'fa-circle-down', 'wrap' => 'col-lg-4 col-md-12 d-flex', 'page_url' => 'DownloadLinks.php', 'btn_text' => 'View More Download Links']
       ];
       foreach ($colsConfig as $ck => $cfg):
         $cData = $resource_center[$cfg['key']] ?? [];
         $cLinks = $cData['links'] ?? [];
+        $targetPage = !empty($cData['page_url']) ? $cData['page_url'] : $cfg['page_url'];
       ?>
       <div class="<?php echo $cfg['wrap']; ?>">
         <div class="resource-card-v2 <?php echo $cfg['cls']; ?> flex-grow-1">
@@ -623,6 +624,12 @@ if (!function_exists('home_url')) {
               <span class="row-arrow"><i class="fa-solid <?php echo $arrowCls; ?>"></i></span>
             </a>
             <?php endforeach; ?>
+          </div>
+          <div class="resource-card-footer">
+            <a href="<?php echo htmlspecialchars(home_url($targetPage)); ?>" class="resource-view-more-btn" title="<?php echo htmlspecialchars($cfg['btn_text']); ?>">
+              <span>View More...</span>
+              <i class="fa fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -684,7 +691,7 @@ if (!function_exists('home_url')) {
   <button type="button" class="close-floating-btn" onclick="document.getElementById('floatingBox').style.display='none';">&times;</button>
   <h6 class="fw-bold text-primary mb-1"><?php echo htmlspecialchars($floating_box['title'] ?? '🎓 Admission Session 2026-27'); ?></h6>
   <p class="small text-muted mb-2"><?php echo htmlspecialchars($floating_box['desc'] ?? 'Online applications are open for Undergraduate, Postgraduate, and Ph.D. programs.'); ?></p>
-  <a href="<?php echo htmlspecialchars(home_url($floating_box['btn_link'] ?? 'Admission/AdmissionRegistration.php')); ?>" class="btn btn-warning btn-sm w-100 fw-bold text-dark rounded-pill"><?php echo htmlspecialchars($floating_box['btn_text'] ?? 'Apply Online (E-Pravesh)'); ?></a>
+  <a href="<?php echo htmlspecialchars(home_url($floating_box['btn_link'] ?? 'student-registration.php')); ?>" class="btn btn-warning btn-sm w-100 fw-bold text-dark rounded-pill"><?php echo htmlspecialchars($floating_box['btn_text'] ?? 'Apply Online (E-Pravesh)'); ?></a>
 </div>
 <?php endif; ?>
 

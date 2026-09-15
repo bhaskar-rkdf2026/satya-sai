@@ -1,10 +1,20 @@
 <?php
 require_once __DIR__ . '/../config.php';
 
-// Load dynamic data from JSON
-$admissionData = get_json_data('admission_data.json', []);
-$feePageData = $admissionData['FeesStructure'] ?? [];
-$fees = $feePageData['fees'] ?? [];
+// Load dynamic data from MySQL Database
+$pageData = get_admission_page('FeesStructure', [
+    'page_title' => 'Fee Structure and Fees Refund Policy',
+    'subheading' => 'Eligibility Criteria & Fees Structure',
+    'primary_file_url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Fees_Refund_Policy_04012025_0322.pdf',
+    'primary_file_label' => 'Download Official Fees Refund Policy (PDF)'
+]);
+$feePageData = [
+    'page_title' => $pageData['page_title'] ?? 'Fee Structure and Fees Refund Policy',
+    'subtitle' => $pageData['subheading'] ?? 'Eligibility Criteria & Fees Structure',
+    'refund_policy_pdf' => $pageData['primary_file_url'] ?? '',
+    'refund_policy_label' => $pageData['primary_file_label'] ?? 'Download Official Fees Refund Policy (PDF)'
+];
+$fees = get_admission_fees();
 
 $page_title = ($feePageData['page_title'] ?? 'Fee Structure and Fees Refund Policy') . ' - SSSUTMS';
 $banner_title = 'Fees Structure';

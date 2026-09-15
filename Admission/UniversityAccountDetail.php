@@ -1,20 +1,22 @@
 <?php
 require_once __DIR__ . '/../config.php';
 
-// Load dynamic data from JSON
-$admissionData = get_json_data('admission_data.json', []);
-$accData = $admissionData['UniversityAccountDetail'] ?? [
-    'page_title' => 'University Account Detail',
-    'bank_title' => 'Bank Detail',
-    'bank_desc' => 'Sri Satya Sai Group of Institutions has a full-fledged branch of Punjab National Bank and its ATM in the college premises. It is a Nationalized Bank which has given all kinds of transactional facility to students and staff. The bank also provides zero balance accounts to students, helps them in procuring Education loan and promotes their students friendly schemes.',
-    'bank_name' => 'Punjab National Bank',
-    'account_name' => 'SSSUTMS',
-    'account_number' => '7162002100000506',
-    'ifsc_code' => 'PUNB0716200',
-    'branch' => 'SSSUTMS Campus, Sehore (M.P.)',
-    'online_banking_url' => 'https://sssutms.payjix.com/',
-    'qr_image' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpeg',
-    'charges' => [
+// Load dynamic data from MySQL Database
+$pageData = get_admission_page('UniversityAccountDetail', []);
+$accCharges = get_admission_charges();
+
+$accData = [
+    'page_title' => $pageData['page_title'] ?? 'University Account Detail',
+    'bank_title' => $pageData['heading'] ?? 'Bank Detail',
+    'bank_desc' => $pageData['description'] ?? 'Sri Satya Sai Group of Institutions has a full-fledged branch of Punjab National Bank and its ATM in the college premises. It is a Nationalized Bank which has given all kinds of transactional facility to students and staff.',
+    'bank_name' => $pageData['bank_name'] ?? 'Punjab National Bank',
+    'account_name' => $pageData['account_name'] ?? 'SSSUTMS',
+    'account_number' => $pageData['account_number'] ?? '7162002100000506',
+    'ifsc_code' => $pageData['ifsc_code'] ?? 'PUNB0716200',
+    'branch' => $pageData['branch'] ?? 'SSSUTMS Campus, Sehore (M.P.)',
+    'online_banking_url' => $pageData['online_banking_url'] ?? 'https://sssutms.payjix.com/',
+    'qr_image' => $pageData['image_url'] ?? 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/WhatsApp_Image_2026-01-21_at_11.39.09_AM_21012026_1201.jpeg',
+    'charges' => !empty($accCharges) ? $accCharges : [
         ['instrument' => 'UPI', 'charges' => 'No Charges'],
         ['instrument' => 'Debit Card (Rupay Card)', 'charges' => 'No Charges'],
         ['instrument' => 'Debit Card (Other Cards)', 'charges' => '0.40% <= INR 2000 per transaction / 0.90% > INR 2000 per transaction'],

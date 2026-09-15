@@ -14,6 +14,49 @@ define('ROOT_DIR', __DIR__);
 define('DATA_DIR', __DIR__ . '/data');
 define('UPLOAD_DIR', __DIR__ . '/assets/uploads');
 
+// Database Configuration
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'satya_sai_db');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_CHARSET', 'utf8mb4');
+
+/**
+ * Get PDO Database Connection
+ * Automatically initializes database and creates connection
+ */
+function get_db() {
+    static $pdo = null;
+    if ($pdo !== null) {
+        return $pdo;
+    }
+    try {
+        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+        $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        return $pdo;
+    } catch (PDOException $e) {
+        // Attempt to auto-create database if not exists
+        try {
+            $initPdo = new PDO("mysql:host=" . DB_HOST . ";charset=" . DB_CHARSET, DB_USER, DB_PASS);
+            $initPdo->exec("CREATE DATABASE IF NOT EXISTS `" . DB_NAME . "` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+            $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET, DB_USER, DB_PASS, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ]);
+            return $pdo;
+        } catch (Exception $ex) {
+            error_log("Database connection failed: " . $ex->getMessage());
+            return null;
+        }
+    }
+}
+
 /**
  * Get JSON Data with error handling
  */
@@ -452,3 +495,119 @@ function require_admin_auth() {
         exit;
     }
 }
+
+/**
+ * ========================================================================
+ * ADMISSION CELL DATABASE HELPERS (MySQL / PDO)
+ * ========================================================================
+ */
+
+/**
+ * Fetch Admission Page Settings from MySQL
+ */
+function get_admission_page($pageKey, $default = []) {
+    $db = get_db();
+    if (!$db) {
+        return $default;
+    }
+    try {
+        $stmt = $db->prepare("SELECT * FROM `admission_pages` WHERE `page_key` = :pk LIMIT 1");
+        $stmt->execute([':pk' => $pageKey]);
+        $row = $stmt->fetch();
+        if ($row) {
+            return $row;
+        }
+    } catch (Exception $e) {
+        error_log("Error in get_admission_page: " . $e->getMessage());
+    }
+    return $default;
+}
+
+/**
+ * Fetch Admission Notices from MySQL
+ */
+function get_admission_notices($session = null, $category = null, $limit = null) {
+    $db = get_db();
+    if (!$db) {
+        return [];
+    }
+    try {
+        $sql = "SELECT *, `notice_date` AS `date` FROM `admission_notices` WHERE 1=1";
+        $params = [];
+        if ($session !== null && $session !== 'all') {
+            $sql .= " AND `session` = :session";
+            $params[':session'] = $session;
+        }
+        if ($category !== null && $category !== 'all') {
+            $sql .= " AND `category` = :category";
+            $params[':category'] = $category;
+        }
+        $sql .= " ORDER BY `is_new` DESC, `notice_date` DESC, `id` DESC";
+        if ($limit !== null && is_numeric($limit)) {
+            $sql .= " LIMIT " . (int)$limit;
+        }
+        $stmt = $db->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+    } catch (Exception $e) {
+        error_log("Error in get_admission_notices: " . $e->getMessage());
+        return [];
+    }
+}
+
+/**
+ * Fetch Course Fees Structure from MySQL
+ */
+function get_admission_fees() {
+    $db = get_db();
+    if (!$db) {
+        return [];
+    }
+    try {
+        $stmt = $db->query("SELECT * FROM `admission_fees` ORDER BY `sno` ASC, `id` ASC");
+        return $stmt->fetchAll();
+    } catch (Exception $e) {
+        error_log("Error in get_admission_fees: " . $e->getMessage());
+        return [];
+    }
+}
+
+/**
+ * Fetch University Bank Charges from MySQL
+ */
+function get_admission_charges() {
+    $db = get_db();
+    if (!$db) {
+        return [];
+    }
+    try {
+        $stmt = $db->query("SELECT * FROM `admission_bank_charges` ORDER BY `display_order` ASC, `id` ASC");
+        return $stmt->fetchAll();
+    } catch (Exception $e) {
+        error_log("Error in get_admission_charges: " . $e->getMessage());
+        return [];
+    }
+}
+
+/**
+ * Fetch Admission Brochures from MySQL
+ */
+function get_admission_brochures($featuredOnly = false) {
+    $db = get_db();
+    if (!$db) {
+        return [];
+    }
+    try {
+        $sql = "SELECT * FROM `admission_brochures`";
+        if ($featuredOnly) {
+            $sql .= " WHERE `is_featured` = 1";
+        }
+        $sql .= " ORDER BY `is_featured` DESC, `display_order` ASC, `id` ASC";
+        $stmt = $db->query($sql);
+        return $stmt->fetchAll();
+    } catch (Exception $e) {
+        error_log("Error in get_admission_brochures: " . $e->getMessage());
+        return [];
+    }
+}
+

@@ -1,19 +1,29 @@
 <?php
 require_once __DIR__ . '/../config.php';
 
-// Load dynamic admission data
-$admissionData = get_json_data('admission_data.json', []);
-$enqData = $admissionData['Admission_Enquiry'] ?? [
-    'page_title' => 'Admission Enquiry',
-    'contact_heading' => 'For Admission 2026-27 Enquiry Please Contact',
-    'phone_numbers' => [
+// Load dynamic admission data from MySQL Database
+$pageData = get_admission_page('Admission_Enquiry', []);
+$phonesList = [];
+if (!empty($pageData['contact_phones'])) {
+    $phonesList = array_values(array_filter(array_map('trim', explode("\n", $pageData['contact_phones']))));
+}
+if (empty($phonesList)) {
+    $phonesList = [
         '(+91) 07562-292740',
         '(+91) 07562-292720',
         '(+91) 07562-292204',
         '(+91) 07562-292205',
         '(+91) 7748900028'
-    ],
-    'timings' => 'From 10:00 AM to 5:00 PM only'
+    ];
+}
+
+$enqData = [
+    'page_title' => $pageData['page_title'] ?? 'Admission Enquiry',
+    'contact_heading' => $pageData['heading'] ?? 'For Admission 2026-27 Enquiry Please Contact',
+    'phone_numbers' => $phonesList,
+    'timings' => $pageData['contact_timings'] ?? 'From 10:00 AM to 5:00 PM only',
+    'email' => $pageData['contact_email'] ?? 'info@sssutms.co.in',
+    'address' => $pageData['contact_address'] ?? 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P), Pin - 466001'
 ];
 
 $page_title = ($enqData['page_title'] ?? 'Admission Enquiry') . ' - SSSUTMS';
@@ -229,7 +239,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
               <p class="text-white-50 mb-0 small">Get Guidance, Counseling &amp; Course Information from Academic Experts</p>
             </div>
             <div>
-              <a href="<?php echo BASE_URL; ?>Admission/AdmissionRegistration.php" class="ae-reg-btn">
+              <a href="<?php echo BASE_URL; ?>student-registration.php" class="ae-reg-btn">
                 <i class="fa-solid fa-user-plus me-1"></i> Online Admission Registration
               </a>
             </div>

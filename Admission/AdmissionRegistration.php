@@ -1,19 +1,27 @@
 <?php
 require_once __DIR__ . '/../config.php';
 
-// Load dynamic data from JSON
-$admissionData = get_json_data('admission_data.json', []);
-$regData = $admissionData['AdmissionRegistration'] ?? [
-    'page_title' => 'Admission Registration',
-    'heading' => 'Admission Registration (Session 2026-27)',
-    'epravesh_label' => 'E-Pravesh 2026(Online Enquiry Form)',
-    'epravesh_url' => 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d',
-    'instructions' => [
+// Load dynamic data from MySQL Database
+$pageData = get_admission_page('AdmissionRegistration', []);
+$instructionsList = [];
+if (!empty($pageData['instructions'])) {
+    $instructionsList = array_values(array_filter(array_map('trim', explode("\n", $pageData['instructions']))));
+}
+if (empty($instructionsList)) {
+    $instructionsList = [
         'Click on the official E-Pravesh registration portal link above.',
         'Select your desired Course / Faculty / Department.',
         'Fill in candidate details, qualifications, and upload required credentials.',
         'Submit the form and retain the generated application number for counselling.'
-    ]
+    ];
+}
+
+$regData = [
+    'page_title' => $pageData['page_title'] ?? 'Admission Registration',
+    'heading' => $pageData['heading'] ?? 'Admission Registration (Session 2026-27)',
+    'epravesh_label' => $pageData['primary_file_label'] ?? 'E-Pravesh 2026 (Online Enquiry Form)',
+    'epravesh_url' => $pageData['primary_file_url'] ?? 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d',
+    'instructions' => $instructionsList
 ];
 
 $page_title = ($regData['page_title'] ?? 'Admission Registration') . ' - SSSUTMS';
@@ -144,10 +152,15 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 <h4 class="fw-bold text-dark mb-2">Online Registration &amp; Admission Enquiry Portal</h4>
                 <p class="text-muted small mb-4 mx-auto" style="max-width: 620px;">
                   Prospective applicants seeking admission to Undergraduate, Postgraduate, Diploma, and Ph.D. programs can submit applications directly online.
-                </p>
-                <a href="<?php echo htmlspecialchars($regData['epravesh_url'] ?? 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d'); ?>" target="_blank" rel="noopener" class="epravesh-btn">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span><?php echo htmlspecialchars($regData['epravesh_label'] ?? 'E-Pravesh 2026(Online Enquiry Form)'); ?></span>
+                <?php
+                $epraveshUrl = $regData['epravesh_url'] ?? '';
+                if (empty($epraveshUrl) || strpos($epraveshUrl, 'sssutms.co.in/erp/Student/Registration/Index') !== false) {
+                    $epraveshUrl = BASE_URL . 'student-registration.php';
+                }
+                ?>
+                <a href="<?php echo htmlspecialchars($epraveshUrl); ?>" class="epravesh-btn">
+                  <i class="fa-solid fa-file-pen"></i>
+                  <span><?php echo htmlspecialchars($regData['epravesh_label'] ?? 'E-Pravesh 2026 (Online Registration Form)'); ?></span>
                 </a>
               </div>
 

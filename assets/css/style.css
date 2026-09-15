@@ -4518,3 +4518,628 @@ body {
   opacity: 0 !important;
   visibility: hidden !important;
 }
+/* ==========================================================================
+   LINKS PAGES MODERN DESIGN - DownloadLinks, QuickLinks, ImportantLinks
+   ========================================================================== */
+
+/* ----- Panel base overrides for link pages ----- */
+.panel-download > .panel-heading,
+.panel-quicklink > .panel-heading,
+.panel-importantlink > .panel-heading {
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 10px !important;
+}
+
+.panel.panel-download,
+.panel.panel-quicklink,
+.panel.panel-importantlink {
+  background: #fff !important;
+  border-radius: 10px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 6px rgba(11,37,69,0.05) !important;
+  margin-bottom: 10px !important;
+  overflow: hidden !important;
+  transition: all 0.22s cubic-bezier(0.4,0,0.2,1) !important;
+}
+.panel.panel-download:hover,
+.panel.panel-quicklink:hover,
+.panel.panel-importantlink:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(11,37,69,0.1) !important;
+  border-color: var(--secondary) !important;
+}
+
+/* Download - accent orange-left border */
+.panel.panel-download {
+  border-left: 4px solid var(--accent) !important;
+}
+.panel.panel-download:hover {
+  border-left-color: var(--accent-hover) !important;
+}
+
+/* QuickLink - accent teal/green left border */
+.panel.panel-quicklink {
+  border-left: 4px solid #0f9d6a !important;
+}
+.panel.panel-quicklink:hover {
+  border-left-color: #087a52 !important;
+}
+
+/* ImportantLink - accent blue left border */
+.panel.panel-importantlink {
+  border-left: 4px solid var(--secondary) !important;
+}
+.panel.panel-importantlink:hover {
+  border-left-color: #1338be !important;
+}
+
+/* Panel heading - reset background to white */
+.panel.panel-download > .panel-heading,
+.panel.panel-quicklink > .panel-heading,
+.panel.panel-importantlink > .panel-heading {
+  background: #fff !important;
+}
+
+/* Panel title links */
+.panel.panel-download .panel-title a,
+.panel.panel-quicklink .panel-title a,
+.panel.panel-importantlink .panel-title a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 13px 16px !important;
+  color: #1e293b !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  text-decoration: none !important;
+  transition: color 0.2s !important;
+}
+.panel.panel-download .panel-title a:hover,
+.panel.panel-quicklink .panel-title a:hover,
+.panel.panel-importantlink .panel-title a:hover {
+  color: var(--secondary) !important;
+  text-decoration: none !important;
+}
+
+/* fa icons in panel title */
+.panel.panel-download .panel-title .fa,
+.panel.panel-quicklink .panel-title .fa,
+.panel.panel-importantlink .panel-title .fa {
+  font-size: 15px !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 7px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  margin-right: 0 !important;
+  transition: all 0.22s !important;
+}
+
+.panel.panel-download .panel-title .fa {
+  color: var(--accent) !important;
+  background: rgba(243,117,44,0.10) !important;
+}
+.panel.panel-quicklink .panel-title .fa {
+  color: #0f9d6a !important;
+  background: rgba(15,157,106,0.10) !important;
+}
+.panel.panel-importantlink .panel-title .fa {
+  color: var(--secondary) !important;
+  background: rgba(29,78,216,0.10) !important;
+}
+
+.panel.panel-download:hover .panel-title .fa {
+  color: #fff !important;
+  background: var(--accent) !important;
+}
+.panel.panel-quicklink:hover .panel-title .fa {
+  color: #fff !important;
+  background: #0f9d6a !important;
+}
+.panel.panel-importantlink:hover .panel-title .fa {
+  color: #fff !important;
+  background: var(--secondary) !important;
+}
+
+/* Remove double nesting clutter */
+.search-form {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Links page content area heading */
+.line-bottom-edu {
+  font-family: var(--font-heading) !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  letter-spacing: -0.3px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 3px solid #e2e8f0 !important;
+  position: relative !important;
+}
+.line-bottom-edu::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -3px !important;
+  left: 0 !important;
+  width: 65px !important;
+  height: 3px !important;
+  background: var(--accent-gradient) !important;
+  border-radius: 3px !important;
+}
+
+/* ==========================================================================
+   PORTAL LINKS SYSTEM - Unified Modern Styling for Download, Quick & Important
+   ========================================================================== */
+
+.portal-links-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(11, 37, 69, 0.05);
+  overflow: hidden;
+}
+
+.portal-links-header {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  padding: 1.75rem 2rem;
+  position: relative;
+  color: #ffffff;
+}
+
+.portal-links-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f3752c, #f6a935);
+}
+
+.portal-links-header.theme-quick::after {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.portal-links-header.theme-important::after {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.portal-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.portal-counter-badge {
+  background: #f59e0b;
+  color: #0b2545;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+
+.portal-links-body {
+  padding: 2rem;
+  background: #f8fafc;
+}
+
+.portal-search-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(11, 37, 69, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.portal-search-box:focus-within {
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.12);
+}
+
+.portal-search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.92rem;
+  color: #0f172a;
+  background: transparent;
+}
+
+.portal-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.portal-link-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.03);
+  text-decoration: none !important;
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.portal-link-item-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: #f3752c;
+  transition: width 0.2s ease;
+}
+
+.portal-link-item-card.theme-quick::before {
+  background: #10b981;
+}
+
+.portal-link-item-card.theme-important::before {
+  background: #1d4ed8;
+}
+
+.portal-link-item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 37, 69, 0.09);
+  border-color: #cbd5e1;
+  color: #0b2545;
+}
+
+.portal-link-item-card:hover::before {
+  width: 6px;
+}
+
+.portal-item-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.portal-item-icon.icon-download {
+  background: rgba(243, 117, 44, 0.12);
+  color: #ea580c;
+}
+
+.portal-item-icon.icon-quick {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+.portal-item-icon.icon-important {
+  background: rgba(29, 78, 216, 0.12);
+  color: #1d4ed8;
+}
+
+.portal-link-item-card:hover .portal-item-icon.icon-download {
+  background: #ea580c;
+  color: #ffffff;
+}
+
+.portal-link-item-card:hover .portal-item-icon.icon-quick {
+  background: #059669;
+  color: #ffffff;
+}
+
+.portal-link-item-card:hover .portal-item-icon.icon-important {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.portal-item-title {
+  font-size: 0.91rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #0f172a;
+  margin-bottom: 3px;
+  transition: color 0.2s ease;
+}
+
+.portal-link-item-card:hover .portal-item-title {
+  color: #1d4ed8;
+}
+
+.portal-item-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #64748b;
+  display: inline-block;
+}
+
+.portal-item-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.portal-link-item-card:hover .portal-item-action {
+  background: #0b2545;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+@media (max-width: 767.98px) {
+  .portal-links-body {
+    padding: 1rem;
+  }
+  .portal-links-header {
+    padding: 1.25rem 1rem;
+  }
+  .portal-link-item-card {
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* --- Resource Card Footer & View More Button --- */
+.resource-card-footer {
+  padding: 12px 18px 18px;
+  background: #ffffff;
+  border-top: 1px dashed #e2e8f0;
+  margin-top: auto;
+}
+
+.resource-view-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.resource-view-more-btn span {
+  letter-spacing: 0.02em;
+}
+
+.resource-view-more-btn i {
+  font-size: 12px;
+  transition: transform 0.22s ease;
+}
+
+.resource-view-more-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Blue Card Button (Important Links) */
+.resource-card-blue .resource-view-more-btn {
+  background: rgba(2, 132, 199, 0.08);
+  color: #0284c7 !important;
+  border: 1px solid rgba(2, 132, 199, 0.22);
+}
+.resource-card-blue .resource-view-more-btn:hover {
+  background: linear-gradient(135deg, #0b2545 0%, #0284c7 100%) !important;
+  color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Green Card Button (Quick Links) */
+.resource-card-green .resource-view-more-btn {
+  background: rgba(16, 185, 129, 0.08);
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+}
+.resource-card-green .resource-view-more-btn:hover {
+  background: linear-gradient(135deg, #065f46 0%, #10b981 100%) !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Orange Card Button (Download Links) */
+.resource-card-orange .resource-view-more-btn {
+  background: rgba(243, 117, 44, 0.08);
+  color: #ea580c !important;
+  border: 1px solid rgba(243, 117, 44, 0.22);
+}
+.resource-card-orange .resource-view-more-btn:hover {
+  background: linear-gradient(135deg, #f3752c 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  border-color: #ea580c !important;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ADMISSION MODULE - DARK THEME BLUE CARD HEADERS
+   ========================================================================== */
+.adm-card-header {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%) !important;
+  color: #ffffff !important;
+  padding: 1.15rem 1.65rem !important;
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  border-bottom: 3.5px solid #f59e0b !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15) !important;
+}
+
+.adm-card-header h2,
+.adm-card-header h2 i,
+.adm-card-header .adm-header-title {
+  color: #ffffff !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* ==========================================================================
+   ADMISSION MODULE - BROCHURES & CONTENT STYLING
+   ========================================================================== */
+.brochure-title-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  background: #fff8f1 !important;
+  border: 1.5px solid #fed7aa !important;
+  border-radius: 9999px !important;
+  padding: 0.65rem 1.75rem !important;
+  box-shadow: 0 2px 8px rgba(231, 148, 57, 0.08) !important;
+}
+
+.brochure-title-badge img {
+  display: inline-block !important;
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+}
+
+.brochure-title-badge h3 {
+  color: #ea580c !important;
+  font-size: 1.35rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 !important;
+}
+
+.prospectus-download-card {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 0.75rem 1.6rem !important;
+  background: #ffffff !important;
+  border: 1.5px solid #fee2e2 !important;
+  border-left: 4px solid #ef4444 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.08) !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.prospectus-download-card:hover {
+  background: #fef2f2 !important;
+  border-color: #ef4444 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.16) !important;
+}
+
+.prospectus-download-card img {
+  display: inline-block !important;
+  width: 26px !important;
+  height: 20px !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+}
+
+.prospectus-download-card .prospectus-text {
+  color: #dc2626 !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+}
+
+.brochure-img-frame {
+  position: relative !important;
+  display: inline-block !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 2px solid #e2e8f0 !important;
+  box-shadow: 0 12px 32px rgba(11, 37, 69, 0.12) !important;
+  transition: all 0.3s ease !important;
+  max-width: 100% !important;
+}
+
+.brochure-img-frame:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 40px rgba(11, 37, 69, 0.18) !important;
+  border-color: #f59e0b !important;
+}
+
+.brochure-img-frame img {
+  display: block !important;
+  max-width: 540px !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.brochure-img-frame .brochure-overlay {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: rgba(11, 37, 69, 0.88) !important;
+  backdrop-filter: blur(4px) !important;
+  color: #ffffff !important;
+  padding: 0.65rem 1rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.brochure-img-frame:hover .brochure-overlay {
+  background: rgba(11, 37, 69, 0.95) !important;
+}
+
+/* Ensure all images inside admission cards center when intended */
+.card-body img.img-fluid {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+

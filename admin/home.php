@@ -366,7 +366,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'is_external' => isset($_POST["col3_link_ext_$i"])
             ];
         }
-        $resource_center['column3']['links'] = $col3_links;
+        $resource_center['column1']['page_url'] = clean_input($_POST['col1_page_url'] ?? ($resource_center['column1']['page_url'] ?? 'ImportantLinks.php'));
+        $resource_center['column2']['page_url'] = clean_input($_POST['col2_page_url'] ?? ($resource_center['column2']['page_url'] ?? 'QuickLinks.php'));
+        $resource_center['column3']['page_url'] = clean_input($_POST['col3_page_url'] ?? ($resource_center['column3']['page_url'] ?? 'DownloadLinks.php'));
         save_home_section('resource_center', $resource_center);
 
         // Campus Glimpses Gallery

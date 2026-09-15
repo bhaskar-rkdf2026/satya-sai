@@ -26,18 +26,45 @@ if ($action === 'submit_inquiry') {
         exit;
     }
 
+    $school = clean_input($_POST['school'] ?? '');
+
     $inquiries = get_json_data('inquiries.json', []);
+    $newId = 'INQ-' . (1000 + count($inquiries) + 1);
     $newInquiry = [
-        'id' => 'INQ-' . (1000 + count($inquiries) + 1),
+        'id' => $newId,
         'name' => $name,
         'phone' => $phone,
         'email' => $email,
+        'school' => $school,
         'course' => $course,
         'city' => $city,
         'message' => $message,
         'created_at' => date('Y-m-d H:i:s'),
         'status' => 'New'
     ];
+
+    // Save to MySQL DB (admission_enquiries)
+    $db = get_db();
+    if ($db) {
+        try {
+            $dbStmt = $db->prepare("
+                INSERT INTO `admission_enquiries` (`lead_id`, `name`, `phone`, `email`, `city`, `school`, `course`, `message`, `status`, `created_at`)
+                VALUES (:lid, :nm, :ph, :em, :ct, :sc, :cr, :msg, 'New', NOW())
+            ");
+            $dbStmt->execute([
+                ':lid' => $newId,
+                ':nm' => $name,
+                ':ph' => $phone,
+                ':em' => $email,
+                ':ct' => $city,
+                ':sc' => $school,
+                ':cr' => $course,
+                ':msg' => $message
+            ]);
+        } catch (Exception $ex) {
+            error_log("Failed to insert enquiry into DB: " . $ex->getMessage());
+        }
+    }
 
     array_unshift($inquiries, $newInquiry);
     save_json_data('inquiries.json', $inquiries);

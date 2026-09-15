@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . '/../config.php';
 
-// Load dynamic data from JSON
-$admissionData = get_json_data('admission_data.json', []);
-$noticePageData = $admissionData['AdmissionNotice'] ?? [];
-$notices = $noticePageData['notices'] ?? [];
+// Load dynamic data from MySQL Database
+$noticePageData = get_admission_page('AdmissionNotice', [
+    'page_title' => 'Admission Notice',
+    'heading' => 'Admission Notice (2026-27)',
+    'subheading' => 'Official Notifications, Circulars & Entrance Exam Schedules'
+]);
+$notices = get_admission_notices();
 
 $page_title = ($noticePageData['page_title'] ?? 'Admission Notice') . ' - SSSUTMS';
 $banner_title = $noticePageData['page_title'] ?? 'Admission Notice';
