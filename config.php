@@ -122,6 +122,16 @@ function base_url($path = '') {
     return BASE_URL . ltrim($path, '/');
 }
 
+if (!function_exists('home_url')) {
+    function home_url($link = '') {
+        if (empty($link)) return '#';
+        if (strpos($link, 'http://') === 0 || strpos($link, 'https://') === 0) {
+            return $link;
+        }
+        return BASE_URL . ltrim($link, '/');
+    }
+}
+
 // Ensure upload directories exist
 $uploadDirs = [
     UPLOAD_DIR,

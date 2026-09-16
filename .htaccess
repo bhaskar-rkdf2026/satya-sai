@@ -3,7 +3,11 @@ DirectoryIndex index.php index.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /sssutms/satya-sai/
+
+    # Direct pass-through for existing static files and directories (images, css, js, pdf)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
 
     # Dynamic mapping for legacy cms/Website paths to page.php
     RewriteRule ^cms/Website/([^/]+)/([^/]+)/?$ page.php?cat=$1&page=$2 [QSA,L]
