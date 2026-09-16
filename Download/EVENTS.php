@@ -142,7 +142,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
               </div>
             </div>
 
-            <div class="row g-4" id="eventsContainer">
+            <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_EVENTS'); ?>
+
+<div class="row g-4" id="eventsContainer">
               
               <!-- 1. Dr. Vivek Bindra Motivation Session -->
               <div class="col-md-6 event-card-col">

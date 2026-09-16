@@ -4,15 +4,9 @@ require_admin_auth();
 
 $notices = get_notices('all');
 $events = get_events();
-$schemes = get_json_data('schemes.json', []);
 $inquiries = get_json_data('inquiries.json', []);
 $registrations = get_json_data('registrations.json', []);
-$pagesData = get_json_data('pages.json', []);
-
-$pagesCount = 0;
-foreach ($pagesData as $cat => $items) {
-    if (is_array($items)) $pagesCount += count($items);
-}
+$aboutPages = function_exists('get_all_about_pages') ? get_all_about_pages('all') : [];
 
 // Calculate Metrics
 $totalInquiries = count($inquiries);
@@ -89,8 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     <li><a href="faculties.php" class="nav-link"><i class="fa fa-chalkboard-user"></i> Faculties & Depts (14)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals & NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events & Workshops</a></li>
-    <li><a href="schemes.php" class="nav-link"><i class="fa fa-book-open"></i> Curriculum Schemes</a></li>
-    <li><a href="pages.php" class="nav-link"><i class="fa fa-file-lines"></i> Dynamic CMS Pages</a></li>
+    <li><a href="downloads.php" class="nav-link"><i class="fa fa-folder-arrow-down"></i> Curriculum &amp; Downloads (52)</a></li>
     <li><a href="applications.php" class="nav-link"><i class="fa fa-user-graduate"></i> Student Registrations</a></li>
     <li><a href="inquiries.php" class="nav-link"><i class="fa fa-envelope-open-text"></i> Admission Leads</a></li>
     <li><a href="settings.php" class="nav-link"><i class="fa fa-sliders"></i> Portal Settings</a></li>
@@ -179,12 +172,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     <div class="col-xl-3 col-sm-6">
       <div class="admin-stat-card">
         <div>
-          <span class="stat-label">Schemes & Pages</span>
-          <h3 class="stat-value text-dark mb-1"><?php echo count($schemes) + $pagesCount; ?></h3>
-          <span class="badge bg-secondary-subtle text-secondary fw-bold"><?php echo count($schemes); ?> Schemes &bull; <?php echo $pagesCount; ?> Pages</span>
+          <span class="stat-label">Institutional Pages</span>
+          <h3 class="stat-value text-dark mb-1"><?php echo count($aboutPages); ?></h3>
+          <span class="badge bg-secondary-subtle text-secondary fw-bold">42 About Pages &bull; Fully Dynamic</span>
         </div>
         <div class="stat-icon bg-info-subtle text-info">
-          <i class="fa fa-network-wired"></i>
+          <i class="fa fa-file-circle-check"></i>
         </div>
       </div>
     </div>
@@ -340,13 +333,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             <span><i class="fa fa-calendar-days text-success me-2"></i> Campus Events</span>
             <span class="badge bg-light text-muted border"><?php echo count($events); ?></span>
           </a>
-          <a href="schemes.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0">
-            <span><i class="fa fa-book-open text-primary me-2"></i> Curriculum Schemes</span>
-            <span class="badge bg-light text-muted border"><?php echo count($schemes); ?></span>
+          <a href="about.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0">
+            <span><i class="fa fa-circle-info text-primary me-2"></i> About Pages</span>
+            <span class="badge bg-light text-muted border"><?php echo count($aboutPages); ?></span>
           </a>
-          <a href="pages.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0">
-            <span><i class="fa fa-file-lines text-info me-2"></i> Institutional Pages</span>
-            <span class="badge bg-light text-muted border"><?php echo $pagesCount; ?></span>
+          <a href="admission.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0">
+            <span><i class="fa fa-user-graduate text-info me-2"></i> Admission Cell</span>
+            <span class="badge bg-light text-muted border">7</span>
           </a>
           <a href="settings.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0">
             <span><i class="fa fa-sliders text-danger me-2"></i> Portal & Ticker Settings</span>

@@ -116,7 +116,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
             </a>
           </div>
           
-          <div class="syl-card-body">
+          <div class="syl-card-body"
+<?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_RTI'); ?>
+>
             
             <div class="rti-title-text">
               RTI &nbsp;: &nbsp;Details of Central Public Information Officer (CPIO) and Appellate Authority

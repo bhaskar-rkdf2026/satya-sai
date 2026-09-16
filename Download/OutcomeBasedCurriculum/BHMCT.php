@@ -26,6 +26,7 @@ $curricula = array (
     ),
   ),
 );
+$curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
 ?>
 
 <style>
@@ -244,20 +245,28 @@ $curricula = array (
                     } else {
                         $targetUrl = '#';
                     }
-                ?>
-                <tr data-category="<?php echo $group['filter']; ?>">
-                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>
+                <tr data-category="<?php echo $group['filter']; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?></td>
                   <td>
-                    <span class="bhmct-course-chip me-1"><?php echo $group['badge']; ?></span>
-                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
+                    <span class="bhmct-course-chip me-1"><?php echo $group['badge']; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?></span>
+                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?></span>
                   </td>
                   <td>
                     <span class="bhmct-branch-name">
-                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>
                     </span>
                   </td>
                   <td class="text-center">
-                    <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="bhmct-download-btn">
+                    <a href="<?php echo $targetUrl; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?> class="bhmct-download-btn">
                       <i class="fa fa-file-pdf"></i> Download
                     </a>
                   </td>
@@ -266,7 +275,8 @@ $curricula = array (
                     $sno++;
                   endforeach; 
                 endforeach; 
-                ?>
+                $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>
               </tbody>
             </table>
           </div>
@@ -276,7 +286,8 @@ $curricula = array (
 
       <!-- Sticky Category Sidebar (Right) -->
       <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
+        <?php require_once __DIR__ . '/../../includes/sidebar.php'; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>
       </div>
 
     </div>
@@ -324,4 +335,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/footer.php'; $curricula = (function_exists('get_dynamic_curricula')) ? get_dynamic_curricula('obc_BHMCT', $curricula) : $curricula;
+?>

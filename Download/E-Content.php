@@ -162,7 +162,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
               SSSUTMS e-Knowledge Journals &amp; Bulletins
             </h2>
           </div>
-          <div class="syl-card-body">
+          <div class="syl-card-body"
+<?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_E-Content'); ?>
+>
             <div class="table-responsive rounded-3 border">
               <table class="syl-table content-table">
                 <thead>

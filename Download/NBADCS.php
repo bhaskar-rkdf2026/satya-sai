@@ -117,7 +117,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
             </a>
           </div>
           
-          <div class="syl-card-body">
+          <div class="syl-card-body"
+<?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_NBADCS'); ?>
+>
             
             <p class="text-secondary lead fs-6 mb-4">
               Official <strong>National Board of Accreditation (NBA) Data Capture System (DCS)</strong> reports for engineering disciplines, documenting academic performance, faculty qualifications, laboratory infrastructure, research output, and student outcomes.

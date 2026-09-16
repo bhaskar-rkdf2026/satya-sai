@@ -279,7 +279,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         <!-- ==========================================
              BHMCT Scheme Table
              ========================================== -->
-        <div class="eng-table-wrapper" id="bhmct-section">
+        <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('scheme_BHMCT'); ?>
+
+<div class="eng-table-wrapper" id="bhmct-section">
           <div class="eng-section-header">
             <h5 class="eng-section-title">
               <i class="fa fa-graduation-cap text-primary"></i> Bachelor of Hotel Management &amp; Catering Technology (BHMCT)

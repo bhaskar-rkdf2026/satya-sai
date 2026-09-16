@@ -271,7 +271,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         </div>
 
         <div class="syl-table-card">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_BLibISc'); ?>
+
+<div class="syl-card-header">
             <h3><i class="fa fa-graduation-cap text-primary"></i><span>B.Lib.I.Sc. (1-Year / 2-Semester Program)</span></h3>
             <span class="syl-card-badge">CBCS Scheme</span>
           </div>

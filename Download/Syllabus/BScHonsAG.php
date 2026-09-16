@@ -275,7 +275,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         </div>
 
         <div class="syl-table-card" id="ag-cbcs">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_BScHonsAG'); ?>
+
+<div class="syl-card-header">
             <h3><i class="fa fa-graduation-cap text-primary"></i><span>B.Sc. (Hons.) Agriculture - 4-Year Degree (8 Semesters)</span></h3>
             <span class="syl-card-badge">ICAR 5th Deans Committee Compliant</span>
           </div>

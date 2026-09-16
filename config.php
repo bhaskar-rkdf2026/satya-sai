@@ -16,7 +16,7 @@ define('UPLOAD_DIR', __DIR__ . '/assets/uploads');
 
 // Database Configuration
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'satya_sai_db');
+define('DB_NAME', 'sssutms_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
@@ -91,14 +91,27 @@ define('CAMPUS_ADDRESS', get_setting('campus_address', 'Opp. Oilfed Plant, Bhopa
 define('ADMISSION_HELPLINE', get_setting('admission_helpline', '+91-7748900028'));
 define('OFFICIAL_EMAIL', get_setting('official_email', 'info@sssutms.co.in'));
 define('EXAM_EMAIL', get_setting('exam_email', 'exam@sssutms.co.in'));
-// Universal Base URL auto-detection
-$dir = str_replace('\\', '/', __DIR__);
-if (preg_match('#/htdocs(/.*)$#i', $dir, $m)) {
-    define('BASE_URL', rtrim($m[1], '/') . '/');
-} elseif (preg_match('#/(sssutms/satya-sai|sssutms/sssutms-portal|satya-sai)/?#i', $dir, $m)) {
-    define('BASE_URL', '/' . trim($m[1], '/') . '/');
-} else {
-    define('BASE_URL', '/sssutms/satya-sai/');
+// Universal Base URL auto-detection (Works seamlessly on Local XAMPP, Live cPanel public_html, and Subdomains)
+if (!defined('BASE_URL')) {
+    if (isset($_SERVER['HTTP_HOST'])) {
+        $docRoot = isset($_SERVER['DOCUMENT_ROOT']) ? str_replace('\\', '/', realpath($_SERVER['DOCUMENT_ROOT']) ?: $_SERVER['DOCUMENT_ROOT']) : '';
+        $currentDir = str_replace('\\', '/', realpath(__DIR__) ?: __DIR__);
+        
+        if ($docRoot && strpos($currentDir, $docRoot) === 0) {
+            $subPath = trim(substr($currentDir, strlen($docRoot)), '/');
+            define('BASE_URL', $subPath ? '/' . $subPath . '/' : '/');
+        } else {
+            $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '');
+            define('BASE_URL', ($scriptDir === '/' || $scriptDir === '\\' || empty($scriptDir)) ? '/' : rtrim(str_replace('\\', '/', $scriptDir), '/') . '/');
+        }
+    } else {
+        $dir = str_replace('\\', '/', __DIR__);
+        if (preg_match('#/htdocs(/.*)$#i', $dir, $m)) {
+            define('BASE_URL', rtrim($m[1], '/') . '/');
+        } else {
+            define('BASE_URL', '/');
+        }
+    }
 }
 
 /**
@@ -611,3 +624,5 @@ function get_admission_brochures($featuredOnly = false) {
     }
 }
 
+// Include Download Tab Dynamic Helper
+require_once __DIR__ . '/includes/download_helper.php';

@@ -93,12 +93,12 @@ require_once __DIR__ . '/includes/navbar.php';
                 <tr>
                   <td><strong><?php echo htmlspecialchars($displayTitle); ?> - Comprehensive Information Brochure / Circular</strong></td>
                   <td><?php echo date('d-M-Y'); ?></td>
-                  <td><a href="downloads.php" class="btn btn-sm btn-outline-primary rounded-pill px-3"><i class="fa fa-download me-1"></i> Download PDF</a></td>
+                  <td><a href="Download/Forms.php" class="btn btn-sm btn-outline-primary rounded-pill px-3"><i class="fa fa-download me-1"></i> Download PDF</a></td>
                 </tr>
                 <tr>
                   <td><strong>Academic Guidelines & Ordinances (Session 2026-27)</strong></td>
                   <td>15-Jul-2026</td>
-                  <td><a href="downloads.php" class="btn btn-sm btn-outline-secondary rounded-pill px-3"><i class="fa fa-file-lines me-1"></i> View Guidelines</a></td>
+                  <td><a href="Download/Forms.php" class="btn btn-sm btn-outline-secondary rounded-pill px-3"><i class="fa fa-file-lines me-1"></i> View Guidelines</a></td>
                 </tr>
               </tbody>
             </table>
@@ -131,7 +131,7 @@ require_once __DIR__ . '/includes/navbar.php';
           <a href="page.php?cat=Academic&page=NAAC" class="list-group-item list-group-item-action py-2">NAAC (SSR Criteria 1 to 7)</a>
           <a href="page.php?cat=Admission&page=AdmissionProcedure" class="list-group-item list-group-item-action py-2">Admission Procedure 2026-27</a>
           <a href="page.php?cat=Examination&page=Results" class="list-group-item list-group-item-action py-2">Examinations & Results</a>
-          <a href="downloads.php" class="list-group-item list-group-item-action py-2">Schemes & Syllabus Matrix</a>
+          <a href="Download/Scheme/BE.php" class="list-group-item list-group-item-action py-2">Schemes & Syllabus</a>
         </div>
 
         <hr class="my-3">

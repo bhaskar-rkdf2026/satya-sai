@@ -293,7 +293,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Table 1: B.P.Ed. -->
         <div class="syl-table-card" id="bped">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_PhysicalEducation'); ?>
+
+<div class="syl-card-header">
             <h3>
               <i class="fa fa-dumbbell text-primary"></i>
               <span>B.P.Ed. (Bachelor of Physical Education) - 2-Year Program</span>

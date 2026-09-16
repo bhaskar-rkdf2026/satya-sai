@@ -277,7 +277,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         </div>
 
         <!-- Paramedical Schemes Table -->
-        <div class="eng-table-wrapper">
+        <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('scheme_Paramedical'); ?>
+
+<div class="eng-table-wrapper">
           <div class="eng-section-header">
             <h5 class="eng-section-title">
               <i class="fa fa-stethoscope text-primary"></i> Paramedical Schemes &amp; Curriculum

@@ -273,7 +273,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         </div>
 
         <!-- Table 1: AICTE Curriculum Scheme -->
-        <div class="eng-table-wrapper">
+        <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('scheme_Polytechnic_Engineering'); ?>
+
+<div class="eng-table-wrapper">
           <div class="eng-section-header">
             <h5 class="eng-section-title">
               <i class="fa fa-graduation-cap text-primary"></i> AICTE Curriculum Scheme (Polytechnic Engineering)

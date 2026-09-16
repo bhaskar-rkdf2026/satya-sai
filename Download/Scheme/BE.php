@@ -312,7 +312,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         <!-- ==========================================
              TABLE 1: AICTE Curriculum (Session 2022-23)
              ========================================== -->
-        <div class="eng-table-wrapper" id="aicte-section">
+        <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('scheme_BE'); ?>
+
+<div class="eng-table-wrapper" id="aicte-section">
           <div class="eng-section-header">
             <h5 class="eng-section-title">
               <i class="fa fa-graduation-cap text-primary"></i> AICTE Curriculum Scheme (Session 2022-23)

@@ -335,7 +335,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
             </h5>
             <span class="edu-section-badge">2-Year Teacher Education Program</span>
           </div>
-          <div class="table-responsive">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_Education'); ?>
+
+<div class="table-responsive">
             <table class="table edu-table scheme-table">
               <thead>
                 <tr>

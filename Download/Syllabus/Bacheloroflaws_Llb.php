@@ -278,7 +278,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Table 1: LL.B. Semester Scheme -->
         <div class="syl-table-card" id="llb-sem">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_Bacheloroflaws_Llb'); ?>
+
+<div class="syl-card-header">
             <h3><i class="fa fa-gavel text-primary"></i><span>LL.B. (Bachelor of Laws) - Semester Scheme</span></h3>
             <span class="syl-card-badge">BCI Approved (Semester Pattern)</span>
           </div>

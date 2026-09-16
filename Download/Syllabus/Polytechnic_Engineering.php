@@ -277,7 +277,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Table 1: AICTE Diploma Scheme -->
         <div class="syl-table-card" id="poly-aicte">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_Polytechnic_Engineering'); ?>
+
+<div class="syl-card-header">
             <h3><i class="fa fa-drafting-compass text-primary"></i><span>Diploma in Engineering (AICTE Scheme)</span></h3>
             <span class="syl-card-badge">Latest AICTE Pattern</span>
           </div>

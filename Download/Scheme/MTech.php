@@ -279,7 +279,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         <!-- ==========================================
              M.Tech. Scheme Table
              ========================================== -->
-        <div class="eng-table-wrapper" id="mtech-section">
+        <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('scheme_MTech'); ?>
+
+<div class="eng-table-wrapper" id="mtech-section">
           <div class="eng-section-header">
             <h5 class="eng-section-title">
               <i class="fa fa-graduation-cap text-primary"></i> Master of Technology (M.Tech.) Schemes

@@ -132,7 +132,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
               The <strong>Sri Satya Sai University of Technology &amp; Medical Sciences (SSSUTMS) Alumni Association</strong> connects thousands of proud graduates across India and around the globe. Our alumni community fosters lifelong relationships, career mentorship, academic networking, and institutional growth.
             </p>
 
-            <div class="row g-4 mb-4">
+            <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_Alumni'); ?>
+
+<div class="row g-4 mb-4">
               <div class="col-md-4">
                 <div class="feature-box">
                   <div class="feature-icon"><i class="fa fa-handshake"></i></div>

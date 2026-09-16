@@ -271,7 +271,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         </div>
 
         <div class="syl-table-card">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_Paramedical'); ?>
+
+<div class="syl-card-header">
             <h3><i class="fa fa-heartbeat text-primary"></i><span>Paramedical Syllabus Packages</span></h3>
             <span class="syl-card-badge">MPPMR Approved</span>
           </div>

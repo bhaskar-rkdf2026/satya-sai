@@ -336,7 +336,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
             </h5>
             <span class="pharm-section-badge">4-Year Degree (8 Semesters)</span>
           </div>
-          <div class="table-responsive">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_Pharmacy'); ?>
+
+<div class="table-responsive">
             <table class="table pharm-table scheme-table">
               <thead>
                 <tr>

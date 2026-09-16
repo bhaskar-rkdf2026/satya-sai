@@ -9,7 +9,7 @@ require_once __DIR__ . '/../config.php';
 echo "=== SSSUTMS Admission Cell Database Migration ===\n";
 
 $dbHost = 'localhost';
-$dbName = 'satya_sai_db';
+$dbName = 'sssutms_db';
 $dbUser = 'root';
 $dbPass = '';
 
@@ -177,7 +177,7 @@ try {
         ':heading' => 'Admission Procedure',
         ':subheading' => 'Guidelines & Admission Regulations',
         ':lead_title' => $ap['lead_title'] ?? 'Admission Procedure',
-        ':description' => $ap['description'] ?? '',
+        ':description' => html_entity_decode(html_entity_decode($ap['description'] ?? '', ENT_QUOTES, 'UTF-8'), ENT_QUOTES, 'UTF-8'),
         ':primary_file_url' => $ap['pdf_link'] ?? '',
         ':primary_file_label' => $ap['pdf_label'] ?? 'Admission Procedure (Click Here)',
         ':image_url' => $ap['image'] ?? 'assets/images/admission/AdmissionProcedure_img_0.jpg',

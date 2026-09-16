@@ -292,7 +292,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Table 1: BHMCT 8 Semesters -->
         <div class="syl-table-card" id="bhmct-cbcs">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_BHMCT'); ?>
+
+<div class="syl-card-header">
             <h3>
               <i class="fa fa-graduation-cap text-primary"></i>
               <span>BHMCT (Bachelor of Hotel Management & Catering Technology)</span>

@@ -308,7 +308,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
         <!-- ==========================================
              TABLE 1: Bachelor of Pharmacy (B.Pharm)
              ========================================== -->
-        <div class="eng-table-wrapper" id="bpharm-section">
+        <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('scheme_Pharmacy'); ?>
+
+<div class="eng-table-wrapper" id="bpharm-section">
           <div class="eng-section-header">
             <h5 class="eng-section-title">
               <i class="fa fa-pills text-primary"></i> Bachelor of Pharmacy (B. Pharm)

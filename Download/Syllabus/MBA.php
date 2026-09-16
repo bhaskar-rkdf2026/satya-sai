@@ -294,7 +294,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Table 1: MBA CBCS -->
         <div class="syl-table-card" id="mba-cbcs">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_MBA'); ?>
+
+<div class="syl-card-header">
             <h3>
               <i class="fa fa-graduation-cap text-primary"></i>
               <span>MBA (CBCS Scheme) - 2-Year Program</span>

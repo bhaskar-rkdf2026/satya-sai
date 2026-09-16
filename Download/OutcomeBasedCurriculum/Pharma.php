@@ -36,6 +36,11 @@ $curricula = [
         ]
     ]
 ];
+
+if (function_exists('get_dynamic_curricula')) {
+    $curricula = get_dynamic_curricula('obc_Pharma', $curricula);
+}
+
 ?>
 
 <style>

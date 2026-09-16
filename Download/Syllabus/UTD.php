@@ -279,7 +279,9 @@ require_once __DIR__ . '/../../includes/page-banner.php';
 
         <!-- Section 1: M.Sc. -->
         <div class="syl-table-card" id="msc-sec">
-          <div class="syl-card-header">
+          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_UTD'); ?>
+
+<div class="syl-card-header">
             <h3><i class="fa fa-flask text-primary"></i><span>M.Sc. Post-Graduate Degree Programs (w.e.f. 2022-23)</span></h3>
             <span class="syl-card-badge">Faculty of Science</span>
           </div>

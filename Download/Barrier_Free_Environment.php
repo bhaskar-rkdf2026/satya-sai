@@ -132,7 +132,9 @@ require_once __DIR__ . '/../includes/page-banner.php';
               Sri Satya Sai University of Technology &amp; Medical Sciences is committed to providing an inclusive, accessible, and barrier-free learning environment for persons with disabilities (Divyangjan). All academic blocks, laboratories, libraries, administrative buildings, and hostels are equipped with barrier-free physical infrastructure.
             </p>
 
-            <div class="row g-4 mb-4">
+            <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_Barrier_Free_Environment'); ?>
+
+<div class="row g-4 mb-4">
               
               <!-- 1. Ramps and Handrails -->
               <div class="col-md-6">
