@@ -1,50 +1,43 @@
 <?php
-$page_title = 'Pharmacy - Outcome Based Curriculum - SSSUTMS';
-$banner_title = 'Pharmacy';
-$banner_category = 'Outcome Based Curriculum';
-
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/download_helper.php';
+
+$pageKey = 'obc_Pharma';
+
+$page_info = get_obe_page_info($pageKey, [
+    'page_title'     => 'Pharmacy - Outcome Based Curriculum - SSSUTMS',
+    'banner_title'   => 'Pharmacy',
+    'banner_category'=> 'Outcome Based Curriculum',
+    'heading'        => 'FACULTY OF PHARMACY',
+    'subheading'     => 'Program Educational Objectives, Program Outcomes & Course Curricula.',
+    'badge_obe'      => 'Outcome Based Education (OBE)',
+    'badge_approval' => 'PCI & UGC Approved',
+    'vision_title'   => 'VISION',
+    'vision_text'    => 'To develop pharmacists, educators and scientists whose leadership, knowledge and innovation, improve the health of our communities.',
+    'mission_title'  => 'MISSION',
+    'mission_text'   => 'To advance patient care and public health through excellence in pharmacy education, clinical practice, innovative pharmaceutical research, and community healthcare services.'
+]);
+
+$page_title = $page_info['page_title'] ?? 'Pharmacy - Outcome Based Curriculum - SSSUTMS';
+$banner_title = $page_info['banner_title'] ?? 'Pharmacy';
+$banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 
-$curricula = [
-    [
-        'category' => 'Bachelor of Pharmacy (B.Pharm)',
-        'badge' => 'B.Pharm',
-        'filter' => 'bpharm',
-        'items' => [
-            ['title' => 'Bachelor of Pharmacy (B.Pharma)', 'file' => 'Bpharma.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Bpharma.pdf'],
-        ]
-    ],
-    [
-        'category' => 'Master of Pharmacy (M.Pharm)',
-        'badge' => 'M.Pharm',
-        'filter' => 'mpharm',
-        'items' => [
-            ['title' => 'M.Pharma (Pharmacology)', 'file' => 'MPH_Pharmacology.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MPH_Pharmacology.pdf'],
-            ['title' => 'M.Pharma (Pharmaceutics)', 'file' => 'MPH_Pharmaceutics.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/MPH_Pharmaceutics.pdf'],
-        ]
-    ],
-    [
-        'category' => 'Diploma in Pharmacy (D.Pharm)',
-        'badge' => 'D.Pharm',
-        'filter' => 'dpharm',
-        'items' => [
-            ['title' => 'Diploma in Pharmacy (D.Pharma)', 'file' => 'Curr_D_Pharma.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/Curr_D_Pharma.pdf'],
-        ]
-    ]
-];
+$curricula = get_obe_curricula_grouped($pageKey, []);
 
-if (function_exists('get_dynamic_curricula')) {
-    $curricula = get_dynamic_curricula('obc_Pharma', $curricula);
+// Total active items count
+$totalItemsCount = 0;
+foreach ($curricula as $grp) {
+    $totalItemsCount += count($grp['items'] ?? []);
 }
-
 ?>
 
 <style>
-.pharma-page-container {
+.eng-page-container {
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
@@ -53,14 +46,14 @@ if (function_exists('get_dynamic_curricula')) {
   margin-bottom: 2rem;
 }
 
-.pharma-header-card {
+.eng-header-card {
   background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
   color: #ffffff;
   padding: 1.75rem 2rem;
   position: relative;
 }
 
-.pharma-header-card::after {
+.eng-header-card::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -70,7 +63,7 @@ if (function_exists('get_dynamic_curricula')) {
   background: linear-gradient(90deg, #1d4ed8, #60a5fa);
 }
 
-.pharma-vm-card {
+.eng-vm-card {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -79,20 +72,20 @@ if (function_exists('get_dynamic_curricula')) {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.pharma-vm-card.vision-card {
+.eng-vm-card.vision-card {
   border-left: 4px solid #0b2545 !important;
 }
 
-.pharma-vm-card.mission-card {
+.eng-vm-card.mission-card {
   border-left: 4px solid #134074 !important;
 }
 
-.pharma-vm-card:hover {
+.eng-vm-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(11, 37, 69, 0.06);
 }
 
-.pharma-vm-title {
+.eng-vm-title {
   color: #0b2545;
   font-size: 1.05rem;
   font-weight: 700;
@@ -102,14 +95,14 @@ if (function_exists('get_dynamic_curricula')) {
   gap: 8px;
 }
 
-.pharma-vm-text {
+.eng-vm-text {
   color: #475569;
   font-size: 0.9rem;
   line-height: 1.65;
   margin-bottom: 0;
 }
 
-.pharma-tab-btn {
+.eng-tab-btn {
   background: #f1f5f9;
   color: #0b2545;
   border: 1px solid #cbd5e1;
@@ -121,32 +114,32 @@ if (function_exists('get_dynamic_curricula')) {
   cursor: pointer;
 }
 
-.pharma-tab-btn:hover,
-.pharma-tab-btn.active {
+.eng-tab-btn:hover,
+.eng-tab-btn.active {
   background: #0b2545;
   color: #ffffff;
   border-color: #0b2545;
 }
 
-.pharma-search-box {
+.eng-search-box {
   position: relative;
   width: 100%;
   max-width: 340px;
 }
 
-.pharma-search-box input {
+.eng-search-box input {
   padding-left: 2.4rem;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
   font-size: 0.88rem;
 }
 
-.pharma-search-box input:focus {
+.eng-search-box input:focus {
   border-color: #0b2545;
   box-shadow: 0 0 0 0.2rem rgba(11, 37, 69, 0.15);
 }
 
-.pharma-search-box i {
+.eng-search-box i {
   position: absolute;
   left: 0.85rem;
   top: 50%;
@@ -155,19 +148,19 @@ if (function_exists('get_dynamic_curricula')) {
   font-size: 0.9rem;
 }
 
-.pharma-table-wrapper {
+.eng-table-wrapper {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.pharma-table {
+.eng-table {
   width: 100%;
   margin-bottom: 0;
   border-collapse: collapse;
 }
 
-.pharma-table thead th {
+.eng-table thead th {
   background: #0b2545 !important;
   color: #ffffff !important;
   font-weight: 700;
@@ -179,27 +172,27 @@ if (function_exists('get_dynamic_curricula')) {
   vertical-align: middle;
 }
 
-.pharma-table tbody tr {
+.eng-table tbody tr {
   border-bottom: 1px solid #f1f5f9;
   transition: background-color 0.15s ease;
 }
 
-.pharma-table tbody tr:hover {
+.eng-table tbody tr:hover {
   background-color: #f8fafc;
 }
 
-.pharma-table tbody tr:last-child {
+.eng-table tbody tr:last-child {
   border-bottom: none;
 }
 
-.pharma-table td {
+.eng-table td {
   padding: 13px 16px;
   font-size: 0.92rem;
   color: #334155;
   vertical-align: middle;
 }
 
-.pharma-course-chip {
+.eng-course-chip {
   display: inline-flex;
   align-items: center;
   background: #e2e8f0;
@@ -211,12 +204,12 @@ if (function_exists('get_dynamic_curricula')) {
   border: 1px solid #cbd5e1;
 }
 
-.pharma-branch-name {
+.eng-branch-name {
   font-weight: 600;
   color: #0b2545;
 }
 
-.pharma-download-btn {
+.eng-download-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -231,7 +224,7 @@ if (function_exists('get_dynamic_curricula')) {
   transition: all 0.2s ease;
 }
 
-.pharma-download-btn:hover {
+.eng-download-btn:hover {
   background: #134074;
   border-color: #134074;
   color: #ffffff !important;
@@ -251,17 +244,21 @@ if (function_exists('get_dynamic_curricula')) {
           <!-- Header Banner -->
           <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
             <div>
-              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
-                <i class="fa fa-graduation-cap me-1"></i> Outcome Based Education (OBE)
-              </span>
-              <h3 class="fw-bold mb-1" style="color: #002B5B;">FACULTY OF PHARMACY</h3>
-              <p class="text-muted small mb-0">Program Educational Objectives, Program Outcomes &amp; Course Curricula.</p>
+              <?php if (!empty($page_info['badge_obe'])): ?>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                  <i class="fa fa-graduation-cap me-1"></i> <?php echo htmlspecialchars($page_info['badge_obe']); ?>
+                </span>
+              <?php endif; ?>
+              <h3 class="fw-bold mb-1" style="color: #002B5B;"><?php echo htmlspecialchars($page_info['heading'] ?? 'FACULTY OF PHARMACY'); ?></h3>
+              <p class="text-muted small mb-0"><?php echo htmlspecialchars($page_info['subheading'] ?? 'Program Educational Objectives, Program Outcomes & Course Curricula.'); ?></p>
             </div>
-            <div class="mt-2 mt-md-0">
-              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
-                <i class="fa fa-certificate me-1"></i> PCI &amp; UGC Approved
-              </span>
-            </div>
+            <?php if (!empty($page_info['badge_approval'])): ?>
+              <div class="mt-2 mt-md-0">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                  <i class="fa fa-certificate me-1"></i> <?php echo htmlspecialchars($page_info['badge_approval']); ?>
+                </span>
+              </div>
+            <?php endif; ?>
           </div>
 
           <!-- Vision & Mission Cards -->
@@ -269,92 +266,89 @@ if (function_exists('get_dynamic_curricula')) {
             <div class="col-md-6">
               <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-left: 5px solid #002B5B !important;">
                 <h5 class="fw-bold mb-2" style="color: #002B5B;">
-                  <i class="fa fa-eye text-primary me-2"></i>VISION
+                  <i class="fa fa-eye text-primary me-2"></i><?php echo htmlspecialchars($page_info['vision_title'] ?? 'VISION'); ?>
                 </h5>
                 <p class="small text-secondary mb-0 lh-base">
-                  "To develop pharmacists, educators and scientists whose leadership, knowledge and innovation, improve the health of our communities."
+                  <?php echo nl2br(htmlspecialchars($page_info['vision_text'] ?? '')); ?>
                 </p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #fffbf0 0%, #fff6e6 100%); border-left: 5px solid #e67e23 !important;">
                 <h5 class="fw-bold mb-2" style="color: #002B5B;">
-                  <i class="fa fa-bullseye text-warning me-2"></i>MISSION
+                  <i class="fa fa-bullseye text-warning me-2"></i><?php echo htmlspecialchars($page_info['mission_title'] ?? 'MISSION'); ?>
                 </h5>
-                <div class="small text-secondary mb-0 lh-base">
-                  <p class="mb-1"><strong>M-1.</strong> To impart pharmaceutical knowledge to the students through effective teaching and learning process.</p>
-                  <p class="mb-1"><strong>M-2.</strong> To assure the availability of intellectual assets in terms of qualified faculties who are dedicated for the development of competent pharmacy graduates.</p>
-                  <p class="mb-1"><strong>M-3.</strong> To enhance human values in the students for the upliftment of society through motivational classes, industrial visits and extra-curricular activities.</p>
-                  <p class="mb-0"><strong>M-4.</strong> To make competent students for higher studies at Global level and to develop entrepreneurial abilities in order to improve their employability.</p>
-                </div>
+                <p class="small text-secondary mb-0 lh-base">
+                  <?php echo nl2br(htmlspecialchars($page_info['mission_text'] ?? '')); ?>
+                </p>
               </div>
             </div>
           </div>
 
-            <!-- Controls: Category Filter Tabs & Search -->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
-              <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
-                <button type="button" class="pharma-tab-btn active" data-filter="all">All Programs (4)</button>
-                <button type="button" class="pharma-tab-btn" data-filter="bpharm">B.Pharm (1)</button>
-                <button type="button" class="pharma-tab-btn" data-filter="mpharm">M.Pharm (2)</button>
-                <button type="button" class="pharma-tab-btn" data-filter="dpharm">D.Pharm (1)</button>
-              </div>
-              <div class="pharma-search-box">
-                <i class="fa fa-search"></i>
-                <input type="text" class="form-control obe-filter-input" placeholder="Search program or specialization...">
-              </div>
+          <!-- Controls: Category Filter Tabs & Search -->
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+            <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
+              <button type="button" class="eng-tab-btn active" data-filter="all">All Programs (<?php echo $totalItemsCount; ?>)</button>
+              <?php foreach ($curricula as $cGroup): ?>
+                <button type="button" class="eng-tab-btn" data-filter="<?php echo htmlspecialchars($cGroup['filter']); ?>">
+                  <?php echo htmlspecialchars($cGroup['badge']); ?> (<?php echo count($cGroup['items']); ?>)
+                </button>
+              <?php endforeach; ?>
             </div>
+            <div class="eng-search-box">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control obe-filter-input" placeholder="Search branch or specialization...">
+            </div>
+          </div>
 
-            <!-- Curriculum Matrix Table -->
-            <div class="table-responsive pharma-table-wrapper">
-              <table class="pharma-table obe-table">
-                <thead>
-                  <tr>
-                    <th style="width: 75px;" class="text-center">Sr. No.</th>
-                    <th style="width: 220px;">Course</th>
-                    <th>Program / Specialization</th>
-                    <th class="text-center" style="width: 150px;">Curriculum</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                  $sno = 1;
-                  foreach ($curricula as $group): 
-                    foreach ($group['items'] as $item):
-                      $localPath = __DIR__ . '/../../assets/images/Files/Link/Curriculum/' . $item['file'];
-                      if (file_exists($localPath)) {
-                          $targetUrl = BASE_URL . 'assets/images/Files/Link/Curriculum/' . rawurlencode($item['file']);
-                      } elseif (!empty($item['url']) && $item['url'] !== '#') {
-                          $targetUrl = $item['url'];
-                      } else {
-                          $targetUrl = '#';
-                      }
-                  ?>
-                  <tr data-category="<?php echo $group['filter']; ?>">
-                    <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
-                    <td>
-                      <span class="pharma-course-chip me-1"><?php echo $group['badge']; ?></span>
-                      <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
-                    </td>
-                    <td>
-                      <span class="pharma-branch-name">
-                        <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
-                      </span>
-                    </td>
-                    <td class="text-center">
-                      <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="pharma-download-btn">
-                        <i class="fa fa-file-pdf"></i> Download
+          <!-- Curriculum Matrix Table -->
+          <div class="table-responsive eng-table-wrapper">
+            <table class="eng-table obe-table">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Course / Program</th>
+                  <th>Branch / Specialization</th>
+                  <th class="text-center" style="width: 160px;">Curriculum PDF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $targetUrl = get_document_download_url($item);
+                ?>
+                <tr data-category="<?php echo htmlspecialchars($group['filter']); ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="fw-semibold text-secondary"><?php echo htmlspecialchars(!empty($group['category']) ? $group['category'] : $group['badge']); ?></span>
+                  </td>
+                  <td>
+                    <span class="eng-branch-name">
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <?php if ($targetUrl !== '#'): ?>
+                      <a href="<?php echo htmlspecialchars($targetUrl); ?>" target="_blank" class="eng-download-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
                       </a>
-                    </td>
-                  </tr>
-                  <?php 
-                      $sno++;
-                    endforeach; 
+                    <?php else: ?>
+                      <span class="badge bg-secondary-subtle text-secondary px-3 py-2">
+                        <i class="fa fa-clock me-1"></i> Available Soon
+                      </span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <?php 
+                    $sno++;
                   endforeach; 
-                  ?>
-                </tbody>
-              </table>
-            </div>
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
 
         </div>
       </div>
@@ -371,7 +365,7 @@ if (function_exists('get_dynamic_curricula')) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.querySelector('.obe-filter-input');
-  const filterButtons = document.querySelectorAll('#categoryFilters .pharma-tab-btn');
+  const filterButtons = document.querySelectorAll('#categoryFilters .eng-tab-btn');
   const tableRows = document.querySelectorAll('.obe-table tbody tr');
   
   let currentFilter = 'all';

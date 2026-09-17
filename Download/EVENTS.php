@@ -1,314 +1,464 @@
 <?php
-$page_title = 'Events & Celebrations - SSSUTMS';
-$banner_title = 'University Events & Celebrations';
+$page_title = 'Official Events Circulars - SSSUTMS';
+$banner_title = 'Official Events Circulars';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/download_helper.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+$page_key = 'doc_EVENTS';
+
+// Dynamic Page Info
+$page_info = get_obe_page_info($page_key, [
+    'heading'        => 'OFFICIAL UNIVERSITY EVENTS & NOTIFICATIONS',
+    'subheading'     => 'National Seminars, Leadership Conclaves, Youth Parliaments, Cultural Festivals & Workshops',
+    'badge_obe'      => 'Events & Cultural Cell',
+    'badge_approval' => 'University Approved',
+    'vision_title'   => 'EVENTS VISION',
+    'vision_text'    => 'To cultivate a dynamic campus culture celebrating academic excellence, leadership development, social awareness, and holistic youth empowerment.',
+    'mission_title'  => 'EVENTS MISSION',
+    'mission_text'   => 'Organize impactful national conferences, industry conclaves, cultural festivals, and skill-building workshops for holistic student growth.'
+]);
+
+// Dynamic Documents Grouped
+$curricula = get_obe_curricula_grouped($page_key, []);
+
+$totalDocs = 0;
+foreach ($curricula as $g) {
+    $totalDocs += count($g['items']);
+}
 ?>
 
 <style>
-.syl-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e2e8f0;
-  overflow: hidden;
-  margin-bottom: 2rem;
-}
-.syl-card-header {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 1.25rem 1.75rem;
-  position: relative;
-}
-.syl-card-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #f59e0b, #fbbf24);
-}
-.syl-card-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #ffffff;
-}
-.syl-card-body {
-  padding: 1.75rem;
-}
-.syl-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #0b2545;
-  color: #ffffff !important;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
-  border: 1px solid #0b2545;
-  white-space: nowrap;
-}
-.syl-btn:hover {
-  background: #d97706;
-  border-color: #d97706;
-  color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
-}
-.event-item-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.event-item-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-.event-media-wrapper {
-  position: relative;
-  background: #000;
-  overflow: hidden;
-}
-.event-media-wrapper img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.event-media-wrapper iframe {
-  width: 100%;
-  height: 220px;
-  border: 0;
-}
-.event-date-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #0b2545;
-  color: #ffffff;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
+  .eng-page-container {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .eng-header-banner {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    color: #ffffff;
+    padding: 2rem 2.25rem;
+    position: relative;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(11, 37, 69, 0.15);
+  }
+  .eng-header-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+  }
+  .eng-vm-card {
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .eng-vm-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 37, 69, 0.08);
+  }
+  .eng-vm-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eng-vm-title i {
+    color: #f59e0b;
+    font-size: 1.2rem;
+  }
+  .eng-vm-text {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .eng-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .eng-filter-btn {
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .eng-filter-btn:hover,
+  .eng-filter-btn.active {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+  }
+  .eng-search-box {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+  }
+  .eng-search-box input {
+    padding-left: 2.75rem;
+    padding-right: 2.5rem;
+    height: 44px;
+    border-radius: 50px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  .eng-search-box input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.12);
+  }
+  .eng-search-box .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  .eng-search-box .clear-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none;
+    padding: 0;
+  }
+  .eng-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .eng-table thead th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border: none;
+    vertical-align: middle;
+  }
+  .eng-table tbody tr {
+    transition: background 0.15s ease;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .eng-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  .eng-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    font-size: 0.88rem;
+    color: #334155;
+  }
+  .eng-branch-name {
+    font-weight: 600;
+    color: #0b2545;
+  }
+  .eng-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0b2545;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .eng-download-btn:hover {
+    background: #d97706;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+  }
+  .eng-sidebar-widget {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+  .eng-sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eng-sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+    background: #f8fafc;
+  }
+  .eng-sidebar-link:hover,
+  .eng-sidebar-link.active {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .no-results-box {
+    display: none;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #64748b;
+  }
 </style>
 
-<section class="subpage-main-section py-4 bg-light">
+<section class="py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Column (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="syl-card">
-          <div class="syl-card-header">
-            <h2 class="syl-card-title">
-              <i class="fa fa-calendar-star text-warning"></i>
-              University Events, Webinars &amp; Highlights
-            </h2>
-          </div>
-          
-          <div class="syl-card-body">
-            
-            <!-- Live Search Filter -->
-            <div class="row g-3 align-items-center mb-4 p-3 bg-white rounded-3 border shadow-sm">
-              <div class="col-md-7">
-                <div class="input-group">
-                  <span class="input-group-text bg-light border-end-0"><i class="fa fa-search text-muted"></i></span>
-                  <input type="text" id="tableSearchInput" class="form-control border-start-0" placeholder="Search events by title, speaker, keyword..." onkeyup="filterEvents()">
-                  <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()" title="Clear search"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="col-md-5 text-md-end text-muted small">
-                <span id="resultsCount">Showing all events</span>
-              </div>
+
+        <!-- Header Banner -->
+        <div class="eng-header-banner">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <?php if (!empty($page_info['badge_obe'])): ?>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                  <i class="fa fa-folder-open me-1"></i> <?php echo htmlspecialchars($page_info['badge_obe']); ?>
+                </span>
+              <?php endif; ?>
+              <h1 class="h3 text-white fw-bold mb-1"><?php echo htmlspecialchars($page_info['heading']); ?></h1>
+              <p class="text-white-50 mb-0 small"><?php echo htmlspecialchars($page_info['subheading']); ?></p>
             </div>
-
-            <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_EVENTS'); ?>
-
-<div class="row g-4" id="eventsContainer">
-              
-              <!-- 1. Dr. Vivek Bindra Motivation Session -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Special Event</span>
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/Vivek_Bindra_06052022_0354.jpg" alt="Dr. Vivek Bindra Session">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">Motivational &amp; Leadership Keynote: Dr. Vivek Bindra</h5>
-                      <p class="text-secondary small mb-3">Special national leadership and student empowerment keynote session at SSSUTMS campus.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Vivek_Bindra_06052022_0354.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-image"></i> View Event Poster
-                    </a>
-                  </div>
-                </div>
+            <?php if (!empty($page_info['badge_approval'])): ?>
+              <div class="text-end">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                  <i class="fa fa-certificate me-1"></i> <?php echo htmlspecialchars($page_info['badge_approval']); ?>
+                </span>
               </div>
-
-              <!-- 2. Nasha Mukti Abhiyan -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Awareness Campaign</span>
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/madya_nishedh.png" alt="Nasha Mukti Abhiyan">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">Nasha Mukti &amp; Madya Nishedh Awareness Campaign</h5>
-                      <p class="text-secondary small mb-3">Community health and social welfare outreach campaign organized by SSSUTMS volunteers.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/events/madya_nishedh.png" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-image"></i> View Poster
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 3. Youth Parliament Festival -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> National Event</span>
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/youth_parliament_2022.jpg" alt="National Youth Parliament Festival">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">National Youth Parliament Festival 2022</h5>
-                      <p class="text-secondary small mb-3">Democratic debate and parliamentary presentation by university delegates and youth parliamentarians.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/events/youth_parliament_2022.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-image"></i> View Event Details
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 4. Azadi Ka Amrit Mahotsav -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Celebration</span>
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/amrit_mahotsav_aug2021.jpg" alt="Azadi Ka Amrit Mahotsav">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">Azadi Ka Amrit Mahotsav Celebrations</h5>
-                      <p class="text-secondary small mb-3">75 Years of Indian Independence commemorative cultural programmes, parades, and historical exhibitions.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/events/amrit_mahotsav_aug2021.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-image"></i> View Event Details
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 5. Entrepreneurship Development Programme (NIESBUD) -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Skill Programme</span>
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/edp_niesbud.jpg" alt="EDP NIESBUD Programme">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">Entrepreneurship Development Programme (NIESBUD)</h5>
-                      <p class="text-secondary small mb-3">Skill development, startup creation, and MSME incubation workshop in collaboration with NIESBUD.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/events/edp_niesbud.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-image"></i> View Details
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 6. Environmental Youth Forum -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <span class="event-date-badge"><i class="fa fa-calendar-alt me-1"></i> Environmental Forum</span>
-                    <img src="<?php echo BASE_URL; ?>assets/images/events/environmental_youth_forum_2021.jpg" alt="Environmental Youth Forum 2021">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">Environmental Youth Forum 2021</h5>
-                      <p class="text-secondary small mb-3">Ecological sustainability, renewable energy awareness, and student environmental protection initiative.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/events/environmental_youth_forum_2021.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-image"></i> View Details
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 7. Video Highlight: Expert Session (YouTube) -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <iframe src="https://www.youtube.com/embed/DW6ApxPdCHM" title="SSSUTMS Event Video 1" allowfullscreen loading="lazy"></iframe>
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">University Convocation &amp; Keynote Video</h5>
-                      <p class="text-secondary small mb-3">Watch the live video coverage of university convocations and keynote sessions.</p>
-                    </div>
-                    <a href="https://www.youtube.com/watch?v=DW6ApxPdCHM" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa-brands fa-youtube"></i> Watch on YouTube
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 8. Video Highlight: Technical Workshop (YouTube) -->
-              <div class="col-md-6 event-card-col">
-                <div class="event-item-card">
-                  <div class="event-media-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dGPJD6T_0Z8" title="SSSUTMS Event Video 2" allowfullscreen loading="lazy"></iframe>
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <h5 class="fw-bold text-dark mb-2">Technical Workshop &amp; Seminar Highlights</h5>
-                      <p class="text-secondary small mb-3">Video recording of student symposiums, expert technical talks, and campus celebrations.</p>
-                    </div>
-                    <a href="https://youtu.be/dGPJD6T_0Z8" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa-brands fa-youtube"></i> Watch on YouTube
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div id="noResultsMessage" class="alert alert-warning text-center d-none my-4">
-              <i class="fa fa-search me-2"></i> No matching events found. Please try a different search term.
-            </div>
-
+            <?php endif; ?>
           </div>
         </div>
+
+        <!-- Vision & Mission Cards -->
+        <?php if (!empty($page_info['vision_text']) || !empty($page_info['mission_text'])): ?>
+          <div class="row g-3 mb-4" id="vision-mission-sec">
+            <?php if (!empty($page_info['vision_text'])): ?>
+              <div class="col-md-6">
+                <div class="eng-vm-card">
+                  <h3 class="eng-vm-title">
+                    <i class="fa fa-eye"></i> <?php echo htmlspecialchars($page_info['vision_title'] ?? 'VISION'); ?>
+                  </h3>
+                  <p class="eng-vm-text"><?php echo nl2br(htmlspecialchars($page_info['vision_text'])); ?></p>
+                </div>
+              </div>
+            <?php endif; ?>
+            <?php if (!empty($page_info['mission_text'])): ?>
+              <div class="col-md-6">
+                <div class="eng-vm-card">
+                  <h3 class="eng-vm-title">
+                    <i class="fa fa-bullseye"></i> <?php echo htmlspecialchars($page_info['mission_title'] ?? 'MISSION'); ?>
+                  </h3>
+                  <p class="eng-vm-text"><?php echo nl2br(htmlspecialchars($page_info['mission_text'])); ?></p>
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+
+        <!-- Category Filter Tabs & Quick Search -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <div class="eng-filter-tabs">
+            <button class="eng-filter-btn active" data-filter="all">
+              <i class="fa fa-list"></i> All Documents (<?php echo $totalDocs; ?>)
+            </button>
+            <?php foreach ($curricula as $cGroup): ?>
+              <button class="eng-filter-btn" data-filter="<?php echo htmlspecialchars($cGroup['filter']); ?>">
+                <?php echo htmlspecialchars($cGroup['category']); ?> (<?php echo count($cGroup['items']); ?>)
+              </button>
+            <?php endforeach; ?>
+          </div>
+
+          <div class="eng-search-box">
+            <i class="fa fa-search search-icon"></i>
+            <input type="text" id="pageDocSearch" class="form-control" placeholder="Search document, notice, or file...">
+            <button class="clear-btn" id="clearSearch" title="Clear search"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+
+        <!-- Curricula Data Table -->
+        <div class="eng-page-container">
+          <div class="table-responsive">
+            <table class="table eng-table" id="pageDocsTable">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Category</th>
+                  <th>Document / Resource Title</th>
+                  <th class="text-center" style="width: 170px;">Action / File</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $targetUrl = get_document_download_url($item);
+                    $ext = strtolower(pathinfo($item['file'] ?? '', PATHINFO_EXTENSION));
+                    $isZip = ($ext === 'zip');
+                    $isImg = in_array($ext, ['jpg', 'jpeg', 'png', 'webp']);
+                    $isVideo = in_array($ext, ['mp4', 'webm', 'avi']);
+                    $btnIcon = 'fa-file-pdf';
+                    $btnText = 'Download PDF';
+                    if ($isZip) { $btnIcon = 'fa-file-zipper'; $btnText = 'Download ZIP'; }
+                    elseif ($isImg) { $btnIcon = 'fa-image'; $btnText = 'View Document'; }
+                    elseif ($isVideo) { $btnIcon = 'fa-video'; $btnText = 'Watch Video'; }
+                ?>
+                <tr data-category="<?php echo htmlspecialchars($group['filter']); ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="fw-semibold text-secondary"><?php echo htmlspecialchars(!empty($group['category']) ? $group['category'] : $group['badge']); ?></span>
+                  </td>
+                  <td>
+                    <span class="eng-branch-name">
+                      <i class="fa <?php echo $btnIcon; ?> text-primary me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <?php if ($targetUrl !== '#'): ?>
+                      <a href="<?php echo htmlspecialchars($targetUrl); ?>" target="_blank" class="eng-download-btn">
+                        <i class="fa <?php echo $btnIcon; ?>"></i> <?php echo $btnText; ?>
+                      </a>
+                    <?php else: ?>
+                      <span class="badge bg-secondary-subtle text-secondary px-3 py-2">
+                        <i class="fa fa-clock me-1"></i> Available Soon
+                      </span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <?php 
+                  $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty Search State -->
+          <div class="no-results-box" id="noResultsBox">
+            <i class="fa fa-folder-open fa-3x mb-3 text-muted"></i>
+            <h5 class="fw-bold">No Documents Found</h5>
+            <p class="mb-0 text-muted small">No documents match your current search/filter criteria.</p>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+      <!-- Sidebar Navigation (Right) -->
+      <div class="col-lg-4 col-xl-3">
+        <div class="sticky-top" style="top: 90px;">
+          
+          <!-- Quick Actions Widget -->
+          <div class="eng-sidebar-widget">
+            <h3 class="eng-sidebar-title"><i class="fa fa-compass text-primary"></i> Quick Navigation</h3>
+            <a href="#pageDocsTable" class="eng-sidebar-link">
+              <span><i class="fa fa-table me-2 text-primary"></i> All Documents Table</span>
+              <span class="badge bg-primary text-white rounded-pill"><?php echo $totalDocs; ?></span>
+            </a>
+            <?php if (!empty($page_info['vision_text'])): ?>
+              <a href="#vision-mission-sec" class="eng-sidebar-link">
+                <span><i class="fa fa-eye me-2 text-warning"></i> Section Vision</span>
+              </a>
+            <?php endif; ?>
+            <a href="<?php echo base_url('Download/Forms.php'); ?>" class="eng-sidebar-link">
+              <span><i class="fa fa-file-invoice me-2 text-info"></i> University Forms</span>
+              <i class="fa fa-arrow-right small text-muted"></i>
+            </a>
+            <a href="<?php echo base_url('Download/NotificationOfPhdAward.php'); ?>" class="eng-sidebar-link">
+              <span><i class="fa fa-graduation-cap me-2 text-success"></i> Ph.D. Notifications</span>
+              <i class="fa fa-arrow-right small text-muted"></i>
+            </a>
+          </div>
+
+          <!-- Other Download Pages Widget -->
+          <div class="eng-sidebar-widget">
+            <h3 class="eng-sidebar-title"><i class="fa fa-folder-open text-warning"></i> Other Downloads</h3>
+            <?php 
+            $otherPages = [
+                'Forms.php'                  => 'University Forms',
+                'NotificationOfPhdAward.php' => 'Ph.D. Notifications',
+                'E-Content.php'              => 'E-Content Learning',
+                'Alumni.php'                 => 'Alumni Association',
+                'RTI.php'                    => 'Right To Information (RTI)',
+                'Barrier_Free_Environment.php' => 'Barrier Free Environment',
+                'EVENTS.php'                 => 'Events \u0026 Circulars',
+                'Announcements.php'          => 'University Announcements',
+                'NBADCS.php'                 => 'NBA \u0026 DCS Reports'
+            ];
+            $currentFile = 'EVENTS.php';
+            foreach ($otherPages as $f => $name):
+            ?>
+              <a href="<?php echo base_url('Download/' . $f); ?>" class="eng-sidebar-link <?php echo ($currentFile === $f) ? 'active' : ''; ?>">
+                <span><i class="fa fa-file-text me-2"></i> <?php echo htmlspecialchars($name); ?></span>
+                <?php if ($currentFile === $f): ?>
+                  <i class="fa fa-check-circle"></i>
+                <?php endif; ?>
+              </a>
+            <?php endforeach; ?>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -316,47 +466,74 @@ require_once __DIR__ . '/../includes/page-banner.php';
 </section>
 
 <script>
-function filterEvents() {
-  const query = document.getElementById('tableSearchInput').value.toLowerCase().trim();
-  const cards = document.querySelectorAll('.event-card-col');
-  let visibleCount = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('pageDocSearch');
+  const clearBtn = document.getElementById('clearSearch');
+  const filterBtns = document.querySelectorAll('.eng-filter-btn');
+  const tableRows = document.querySelectorAll('#pageDocsTable tbody tr');
+  const noResultsBox = document.getElementById('noResultsBox');
+  const tableWrap = document.querySelector('.table-responsive');
 
-  cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    if (text.includes(query)) {
-      card.style.display = '';
-      visibleCount++;
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    tableRows.forEach(row => {
+      const rowCategory = row.getAttribute('data-category') || '';
+      const text = row.textContent.toLowerCase();
+      
+      const matchesFilter = (activeFilter === 'all' || rowCategory === activeFilter);
+      const matchesSearch = (!query || text.includes(query));
+
+      if (matchesFilter && matchesSearch) {
+        row.style.display = '';
+        visibleCount++;
+        // Re-number visible rows
+        const snoCell = row.querySelector('td:first-child');
+        if (snoCell) snoCell.textContent = visibleCount;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      if (noResultsBox) noResultsBox.style.display = 'block';
+      if (tableWrap) tableWrap.style.display = 'none';
     } else {
-      card.style.display = 'none';
+      if (noResultsBox) noResultsBox.style.display = 'none';
+      if (tableWrap) tableWrap.style.display = '';
     }
+
+    if (clearBtn) {
+      clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeFilter = this.getAttribute('data-filter');
+      applyFilters();
+    });
   });
 
-  const counter = document.getElementById('resultsCount');
-  const noResults = document.getElementById('noResultsMessage');
-
-  if (query === '') {
-    counter.textContent = 'Showing all events';
-    if (noResults) noResults.classList.add('d-none');
-  } else {
-    counter.textContent = `Showing ${visibleCount} event${visibleCount === 1 ? '' : 's'}`;
-    if (noResults) {
-      if (visibleCount === 0) {
-        noResults.classList.remove('d-none');
-      } else {
-        noResults.classList.add('d-none');
-      }
-    }
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
   }
-}
 
-function clearSearch() {
-  const input = document.getElementById('tableSearchInput');
-  if (input) {
-    input.value = '';
-    filterEvents();
-    input.focus();
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      applyFilters();
+      searchInput.focus();
+    });
   }
-}
+});
 </script>
 
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php 
+require_once __DIR__ . '/../includes/footer.php';
+?>

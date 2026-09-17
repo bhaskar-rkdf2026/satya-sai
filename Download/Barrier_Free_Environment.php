@@ -4,6 +4,7 @@ $banner_title = 'Barrier Free Environment & Divyangjan Facilities';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/download_helper.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -58,27 +59,23 @@ require_once __DIR__ . '/../includes/page-banner.php';
   padding: 8px 18px;
   border-radius: 8px;
   text-decoration: none !important;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
-  border: 1px solid #0b2545;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 .syl-btn:hover {
   background: #d97706;
-  border-color: #d97706;
   color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
 }
 .facility-card {
-  background: #f8fafc;
+  background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .facility-card:hover {
   transform: translateY(-4px);
@@ -132,9 +129,7 @@ require_once __DIR__ . '/../includes/page-banner.php';
               Sri Satya Sai University of Technology &amp; Medical Sciences is committed to providing an inclusive, accessible, and barrier-free learning environment for persons with disabilities (Divyangjan). All academic blocks, laboratories, libraries, administrative buildings, and hostels are equipped with barrier-free physical infrastructure.
             </p>
 
-            <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_Barrier_Free_Environment'); ?>
-
-<div class="row g-4 mb-4">
+            <div class="row g-4 mb-4">
               
               <!-- 1. Ramps and Handrails -->
               <div class="col-md-6">

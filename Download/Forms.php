@@ -1,357 +1,454 @@
 <?php
 $page_title = 'Download Forms - SSSUTMS';
-$banner_title = 'University Downloadable Forms';
+$banner_title = 'Download Forms';
 $banner_category = 'Download';
 
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/download_helper.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
+
+$page_key = 'doc_Forms';
+
+// Dynamic Page Info
+$page_info = get_obe_page_info($page_key, [
+    'heading'        => 'UNIVERSITY DOWNLOADABLE FORMS',
+    'subheading'     => 'Official Student Application, Examination, Enrollment, Degree, Migration & Campus Forms',
+    'badge_obe'      => 'Student Services & Registrar Division',
+    'badge_approval' => 'Official University Formats',
+    'vision_title'   => 'SERVICES VISION',
+    'vision_text'    => 'To provide streamlined, accessible, and transparent administrative student support services and academic documentation.',
+    'mission_title'  => 'SERVICES MISSION',
+    'mission_text'   => 'Deliver prompt digital document processing, transparent verification, and hassle-free student services for alumni, applicants, and enrolled scholars.'
+]);
+
+// Dynamic Documents Grouped
+$curricula = get_obe_curricula_grouped($page_key, []);
+
+$totalDocs = 0;
+foreach ($curricula as $g) {
+    $totalDocs += count($g['items']);
+}
 ?>
 
 <style>
-.syl-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e2e8f0;
-  overflow: hidden;
-  margin-bottom: 2rem;
-}
-.syl-card-header {
-  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-  color: #ffffff;
-  padding: 1.25rem 1.75rem;
-  position: relative;
-}
-.syl-card-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #f59e0b, #fbbf24);
-}
-.syl-card-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #ffffff;
-}
-.syl-card-body {
-  padding: 1.75rem;
-}
-.syl-table {
-  width: 100%;
-  margin-bottom: 0;
-  vertical-align: middle;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-.syl-table th {
-  background: #f1f5f9;
-  color: #0f172a;
-  font-weight: 700;
-  font-size: 0.88rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 14px 18px;
-  border-top: none;
-  border-bottom: 2px solid #cbd5e1;
-}
-.syl-table td {
-  padding: 14px 18px;
-  border-bottom: 1px solid #e2e8f0;
-  color: #334155;
-  font-size: 0.95rem;
-  vertical-align: middle;
-}
-.syl-table tbody tr:hover {
-  background-color: #f8fafc;
-}
-.syl-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #0b2545;
-  color: #ffffff !important;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
-  border: 1px solid #0b2545;
-  white-space: nowrap;
-}
-.syl-btn:hover {
-  background: #d97706;
-  border-color: #d97706;
-  color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
-}
+  .eng-page-container {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .eng-header-banner {
+    background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+    color: #ffffff;
+    padding: 2rem 2.25rem;
+    position: relative;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(11, 37, 69, 0.15);
+  }
+  .eng-header-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+  }
+  .eng-vm-card {
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .eng-vm-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 37, 69, 0.08);
+  }
+  .eng-vm-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eng-vm-title i {
+    color: #f59e0b;
+    font-size: 1.2rem;
+  }
+  .eng-vm-text {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .eng-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .eng-filter-btn {
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .eng-filter-btn:hover,
+  .eng-filter-btn.active {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+  }
+  .eng-search-box {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+  }
+  .eng-search-box input {
+    padding-left: 2.75rem;
+    padding-right: 2.5rem;
+    height: 44px;
+    border-radius: 50px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  .eng-search-box input:focus {
+    border-color: #0b2545;
+    box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.12);
+  }
+  .eng-search-box .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  .eng-search-box .clear-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none;
+    padding: 0;
+  }
+  .eng-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .eng-table thead th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border: none;
+    vertical-align: middle;
+  }
+  .eng-table tbody tr {
+    transition: background 0.15s ease;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .eng-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  .eng-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    font-size: 0.88rem;
+    color: #334155;
+  }
+  .eng-branch-name {
+    font-weight: 600;
+    color: #0b2545;
+  }
+  .eng-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0b2545;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .eng-download-btn:hover {
+    background: #d97706;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+  }
+  .eng-sidebar-widget {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+  .eng-sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eng-sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+    background: #f8fafc;
+  }
+  .eng-sidebar-link:hover,
+  .eng-sidebar-link.active {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .no-results-box {
+    display: none;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #64748b;
+  }
 </style>
 
-<section class="subpage-main-section py-4 bg-light">
+<section class="py-4">
   <div class="container-fluid px-lg-5">
     <div class="row g-4 align-items-start">
-      
-      <!-- Main Content Area (Left) -->
+
+      <!-- Main Content Column (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="syl-card">
-          <div class="syl-card-header">
-            <h2 class="syl-card-title">
-              <i class="fa fa-file-invoice text-warning"></i>
-              Download Forms
-            </h2>
-          </div>
-          
-          <div class="syl-card-body"
-<?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('doc_Forms'); ?>
->
-            
-<?php 
-$dynamicForms = get_page_documents('Forms');
-$totalFormsCount = !empty($dynamicForms) ? count($dynamicForms) : 15;
-?>
-            <!-- Live Search Filter -->
-            <div class="row g-3 align-items-center mb-4 p-3 bg-white rounded-3 border shadow-sm">
-              <div class="col-md-7">
-                <div class="input-group">
-                  <span class="input-group-text bg-light border-end-0"><i class="fa fa-search text-muted"></i></span>
-                  <input type="text" id="tableSearchInput" class="form-control border-start-0" placeholder="Search forms by name, purpose, keyword..." onkeyup="filterTable()">
-                  <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()" title="Clear search"><i class="fa fa-times"></i></button>
-                </div>
+
+        <!-- Header Banner -->
+        <div class="eng-header-banner">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <?php if (!empty($page_info['badge_obe'])): ?>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                  <i class="fa fa-file-invoice me-1"></i> <?php echo htmlspecialchars($page_info['badge_obe']); ?>
+                </span>
+              <?php endif; ?>
+              <h1 class="h3 text-white fw-bold mb-1"><?php echo htmlspecialchars($page_info['heading']); ?></h1>
+              <p class="text-white-50 mb-0 small"><?php echo htmlspecialchars($page_info['subheading']); ?></p>
+            </div>
+            <?php if (!empty($page_info['badge_approval'])): ?>
+              <div class="text-end">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                  <i class="fa fa-certificate me-1"></i> <?php echo htmlspecialchars($page_info['badge_approval']); ?>
+                </span>
               </div>
-              <div class="col-md-5 text-md-end text-muted small">
-                <span id="resultsCount">Showing all <?php echo $totalFormsCount; ?> forms</span>
-              </div>
-            </div>
-
-            <div class="table-responsive rounded-3 border mb-4">
-              <table class="syl-table" id="formsTable">
-                <thead>
-                  <tr>
-                    <th style="width: 70px;" class="text-center">S.No.</th>
-                    <th>Form Description / Title</th>
-                    <th style="width: 140px;" class="text-center">Category</th>
-                    <th style="width: 180px;" class="text-center">Download Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php if (!empty($dynamicForms)): ?>
-                    <?php foreach ($dynamicForms as $idx => $f): 
-                      $fileUrl = $f['file'];
-                      if (strpos($fileUrl, 'http') !== 0 && strpos($fileUrl, 'ftp') !== 0) {
-                        $fileUrl = BASE_URL . ltrim($fileUrl, '/');
-                      }
-                      $badgeClass = 'bg-primary';
-                      $catLower = strtolower($f['category'] ?? '');
-                      if (strpos($catLower, 'campus') !== false || strpos($catLower, 'hostel') !== false) $badgeClass = 'bg-info text-dark';
-                      elseif (strpos($catLower, 'exam') !== false || strpos($catLower, 'admit') !== false) $badgeClass = 'bg-warning text-dark';
-                      elseif (strpos($catLower, 'degree') !== false || strpos($catLower, 'transcript') !== false) $badgeClass = 'bg-success';
-                      elseif (strpos($catLower, 'correct') !== false || strpos($catLower, 'duplicate') !== false) $badgeClass = 'bg-danger';
-                    ?>
-                      <tr>
-                        <td class="text-center fw-bold text-secondary"><?php echo sprintf('%02d', $idx + 1); ?></td>
-                        <td class="fw-bold text-dark"><?php echo htmlspecialchars($f['title']); ?></td>
-                        <td class="text-center"><span class="badge <?php echo $badgeClass; ?> px-2 py-1"><?php echo htmlspecialchars($f['category'] ?? 'General'); ?></span></td>
-                        <td class="text-center">
-                          <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" rel="noopener" class="syl-btn">
-                            <i class="fa fa-file-pdf"></i> Download PDF
-                          </a>
-                        </td>
-                      </tr>
-                    <?php endforeach; ?>
-                  <?php else: ?>
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">01</td>
-                    <td class="fw-bold text-dark">Application Form (AF-1)</td>
-                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Admission</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/af1.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">02</td>
-                    <td class="fw-bold text-dark">University Enrollment Form</td>
-                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Enrollment</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/University_Enrollment.PDF" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">03</td>
-                    <td class="fw-bold text-dark">Hostel Accommodation Form</td>
-                    <td class="text-center"><span class="badge bg-info text-dark px-2 py-1">Campus</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/HOSTEL.PDF" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">04</td>
-                    <td class="fw-bold text-dark">Entrance Examination Form</td>
-                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Admission</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/ENTRANCEFORM.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">05</td>
-                    <td class="fw-bold text-dark">University Examination Form</td>
-                    <td class="text-center"><span class="badge bg-success px-2 py-1">Examination</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/EXAMFORM.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">06</td>
-                    <td class="fw-bold text-dark">Revaluation &amp; Retotalling Form</td>
-                    <td class="text-center"><span class="badge bg-success px-2 py-1">Examination</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/REVAL.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">07</td>
-                    <td class="fw-bold text-dark">Degree Certificate Application Form (English)</td>
-                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/DEGREE_Eng.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">08</td>
-                    <td class="fw-bold text-dark">Degree Certificate Application Form (Hindi - उपाधि आवेदन)</td>
-                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/DEGREE_FORM_R.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">09</td>
-                    <td class="fw-bold text-dark">Migration Certificate Application Form (English)</td>
-                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/MIGRATION_Eng.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">10</td>
-                    <td class="fw-bold text-dark">Migration Certificate Application Form (Hindi - प्रव्रजन प्रमाण-पत्र)</td>
-                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Certificate</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/MIGRATION FORM.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">11</td>
-                    <td class="fw-bold text-dark">Alumni Membership &amp; Registration Form</td>
-                    <td class="text-center"><span class="badge bg-info text-dark px-2 py-1">Alumni</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/alumni-form.PDF" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">12</td>
-                    <td class="fw-bold text-dark">Transfer Certificate (TC) Application Form</td>
-                    <td class="text-center"><span class="badge bg-secondary px-2 py-1">General</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/TC.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">13</td>
-                    <td class="fw-bold text-dark">Registration in Higher Semester / Year Form</td>
-                    <td class="text-center"><span class="badge bg-primary px-2 py-1">Academic</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/Registration_higher_Sem_year_form.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">14</td>
-                    <td class="fw-bold text-dark">Official Academic Transcript Request Form</td>
-                    <td class="text-center"><span class="badge bg-warning text-dark px-2 py-1">Transcript</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Forms/Transcript.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">15</td>
-                    <td class="fw-bold text-dark">Marksheet Correction / Duplicate Marksheet Form</td>
-                    <td class="text-center"><span class="badge bg-danger px-2 py-1">Correction</span></td>
-                    <td class="text-center">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Download/Marksheet_Correction_Form.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                    </td>
-                  </tr>
-                  <?php endif; ?>
-                </tbody>
-              </table>
-            </div>
-
-            <div id="noResultsMessage" class="alert alert-warning text-center d-none my-4">
-              <i class="fa fa-search me-2"></i> No matching forms found. Please try a different search term.
-            </div>
-
+            <?php endif; ?>
           </div>
         </div>
+
+        <!-- Vision & Mission Cards -->
+        <?php if (!empty($page_info['vision_text']) || !empty($page_info['mission_text'])): ?>
+          <div class="row g-3 mb-4" id="vision-mission-sec">
+            <?php if (!empty($page_info['vision_text'])): ?>
+              <div class="col-md-6">
+                <div class="eng-vm-card">
+                  <h3 class="eng-vm-title">
+                    <i class="fa fa-eye"></i> <?php echo htmlspecialchars($page_info['vision_title'] ?? 'SERVICES VISION'); ?>
+                  </h3>
+                  <p class="eng-vm-text"><?php echo nl2br(htmlspecialchars($page_info['vision_text'])); ?></p>
+                </div>
+              </div>
+            <?php endif; ?>
+            <?php if (!empty($page_info['mission_text'])): ?>
+              <div class="col-md-6">
+                <div class="eng-vm-card">
+                  <h3 class="eng-vm-title">
+                    <i class="fa fa-bullseye"></i> <?php echo htmlspecialchars($page_info['mission_title'] ?? 'SERVICES MISSION'); ?>
+                  </h3>
+                  <p class="eng-vm-text"><?php echo nl2br(htmlspecialchars($page_info['mission_text'])); ?></p>
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+
+        <!-- Category Filter Tabs & Quick Search -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <div class="eng-filter-tabs">
+            <button class="eng-filter-btn active" data-filter="all">
+              <i class="fa fa-list"></i> All Forms (<?php echo $totalDocs; ?>)
+            </button>
+            <?php foreach ($curricula as $cGroup): ?>
+              <button class="eng-filter-btn" data-filter="<?php echo htmlspecialchars($cGroup['filter']); ?>">
+                <?php echo htmlspecialchars($cGroup['category']); ?> (<?php echo count($cGroup['items']); ?>)
+              </button>
+            <?php endforeach; ?>
+          </div>
+
+          <div class="eng-search-box">
+            <i class="fa fa-search search-icon"></i>
+            <input type="text" id="formsDocSearch" class="form-control" placeholder="Search forms by name, purpose, keyword...">
+            <button class="clear-btn" id="clearSearch" title="Clear search"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+
+        <!-- Curricula Data Table -->
+        <div class="eng-page-container">
+          <div class="table-responsive">
+            <table class="table eng-table" id="formsTable">
+              <thead>
+                <tr>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Category</th>
+                  <th>Form Description / Title</th>
+                  <th class="text-center" style="width: 170px;">Download File</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $targetUrl = get_document_download_url($item);
+                    $isZip = (strtolower(pathinfo($item['file'] ?? '', PATHINFO_EXTENSION)) === 'zip');
+                ?>
+                <tr data-category="<?php echo htmlspecialchars($group['filter']); ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="fw-semibold text-secondary"><?php echo htmlspecialchars(!empty($group['category']) ? $group['category'] : $group['badge']); ?></span>
+                  </td>
+                  <td>
+                    <span class="eng-branch-name">
+                      <i class="fa fa-file-pdf text-danger me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <?php if ($targetUrl !== '#'): ?>
+                      <a href="<?php echo htmlspecialchars($targetUrl); ?>" target="_blank" class="eng-download-btn">
+                        <i class="fa <?php echo $isZip ? 'fa-file-zipper' : 'fa-file-pdf'; ?>"></i> <?php echo $isZip ? 'Download ZIP' : 'Download PDF'; ?>
+                      </a>
+                    <?php else: ?>
+                      <span class="badge bg-secondary-subtle text-secondary px-3 py-2">
+                        <i class="fa fa-clock me-1"></i> Available Soon
+                      </span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <?php 
+                  $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty Search State -->
+          <div class="no-results-box" id="noResultsBox">
+            <i class="fa fa-folder-open fa-3x mb-3 text-muted"></i>
+            <h5 class="fw-bold">No Forms Found</h5>
+            <p class="mb-0 text-muted small">No downloadable forms match your current search/filter criteria.</p>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Sticky Category Sidebar (Right) -->
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../includes/sidebar.php'; ?>
+      <!-- Sidebar Navigation (Right) -->
+      <div class="col-lg-4 col-xl-3">
+        <div class="sticky-top" style="top: 90px;">
+          
+          <!-- Quick Actions Widget -->
+          <div class="eng-sidebar-widget">
+            <h3 class="eng-sidebar-title"><i class="fa fa-compass text-primary"></i> Quick Navigation</h3>
+            <a href="#formsTable" class="eng-sidebar-link">
+              <span><i class="fa fa-table me-2 text-primary"></i> All Forms Table</span>
+              <span class="badge bg-primary text-white rounded-pill"><?php echo $totalDocs; ?></span>
+            </a>
+            <?php if (!empty($page_info['vision_text'])): ?>
+              <a href="#vision-mission-sec" class="eng-sidebar-link">
+                <span><i class="fa fa-eye me-2 text-warning"></i> Services Vision</span>
+              </a>
+            <?php endif; ?>
+            <a href="<?php echo base_url('Download/NotificationOfPhdAward.php'); ?>" class="eng-sidebar-link">
+              <span><i class="fa fa-graduation-cap me-2 text-info"></i> Ph.D. Notifications</span>
+              <i class="fa fa-arrow-right small text-muted"></i>
+            </a>
+            <a href="<?php echo base_url('Download/E-Content.php'); ?>" class="eng-sidebar-link">
+              <span><i class="fa fa-laptop me-2 text-success"></i> E-Content & Digital Learning</span>
+              <i class="fa fa-arrow-right small text-muted"></i>
+            </a>
+          </div>
+
+          <!-- Other Download Pages Widget -->
+          <div class="eng-sidebar-widget">
+            <h3 class="eng-sidebar-title"><i class="fa fa-folder-open text-warning"></i> Other Downloads</h3>
+            <?php 
+            $otherPages = [
+                'Forms.php'                  => 'University Forms',
+                'NotificationOfPhdAward.php' => 'Ph.D. Notifications',
+                'E-Content.php'              => 'E-Content Learning',
+                'Alumni.php'                 => 'Alumni Association',
+                'RTI.php'                    => 'Right To Information (RTI)',
+                'Barrier_Free_Environment.php' => 'Barrier Free Environment',
+                'NBADCS.php'                 => 'NBA & DCS Reports'
+            ];
+            $currentFile = 'Forms.php';
+            foreach ($otherPages as $f => $name):
+            ?>
+              <a href="<?php echo base_url('Download/' . $f); ?>" class="eng-sidebar-link <?php echo ($currentFile === $f) ? 'active' : ''; ?>">
+                <span><i class="fa fa-file-text me-2"></i> <?php echo htmlspecialchars($name); ?></span>
+                <?php if ($currentFile === $f): ?>
+                  <i class="fa fa-check-circle"></i>
+                <?php endif; ?>
+              </a>
+            <?php endforeach; ?>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -359,47 +456,74 @@ $totalFormsCount = !empty($dynamicForms) ? count($dynamicForms) : 15;
 </section>
 
 <script>
-function filterTable() {
-  const query = document.getElementById('tableSearchInput').value.toLowerCase().trim();
-  const rows = document.querySelectorAll('#formsTable tbody tr');
-  let visibleCount = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('formsDocSearch');
+  const clearBtn = document.getElementById('clearSearch');
+  const filterBtns = document.querySelectorAll('.eng-filter-btn');
+  const tableRows = document.querySelectorAll('#formsTable tbody tr');
+  const noResultsBox = document.getElementById('noResultsBox');
+  const tableWrap = document.querySelector('.table-responsive');
 
-  rows.forEach(row => {
-    const text = row.innerText.toLowerCase();
-    if (text.includes(query)) {
-      row.style.display = '';
-      visibleCount++;
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    tableRows.forEach(row => {
+      const rowCategory = row.getAttribute('data-category') || '';
+      const text = row.textContent.toLowerCase();
+      
+      const matchesFilter = (activeFilter === 'all' || rowCategory === activeFilter);
+      const matchesSearch = (!query || text.includes(query));
+
+      if (matchesFilter && matchesSearch) {
+        row.style.display = '';
+        visibleCount++;
+        // Re-number visible rows
+        const snoCell = row.querySelector('td:first-child');
+        if (snoCell) snoCell.textContent = visibleCount;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      if (noResultsBox) noResultsBox.style.display = 'block';
+      if (tableWrap) tableWrap.style.display = 'none';
     } else {
-      row.style.display = 'none';
+      if (noResultsBox) noResultsBox.style.display = 'none';
+      if (tableWrap) tableWrap.style.display = '';
     }
+
+    if (clearBtn) {
+      clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeFilter = this.getAttribute('data-filter');
+      applyFilters();
+    });
   });
 
-  const counter = document.getElementById('resultsCount');
-  const noResults = document.getElementById('noResultsMessage');
-
-  if (query === '') {
-    counter.textContent = 'Showing all 15 forms';
-    if (noResults) noResults.classList.add('d-none');
-  } else {
-    counter.textContent = `Showing ${visibleCount} form${visibleCount === 1 ? '' : 's'}`;
-    if (noResults) {
-      if (visibleCount === 0) {
-        noResults.classList.remove('d-none');
-      } else {
-        noResults.classList.add('d-none');
-      }
-    }
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
   }
-}
 
-function clearSearch() {
-  const input = document.getElementById('tableSearchInput');
-  if (input) {
-    input.value = '';
-    filterTable();
-    input.focus();
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      applyFilters();
+      searchInput.focus();
+    });
   }
-}
+});
 </script>
 
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php 
+require_once __DIR__ . '/../includes/footer.php';
+?>

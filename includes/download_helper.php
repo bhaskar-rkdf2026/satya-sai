@@ -193,56 +193,176 @@ function delete_download_page_item($pageKey, $itemId) {
 }
 
 /**
- * Merge dynamic items into Outcome Based Curriculum array
+ * Get dynamic OBE page info (headings, badges, vision, mission)
  */
-function get_dynamic_curricula($pageKey, $defaultCurricula = []) {
+function get_obe_page_info($pageKey, $default = []) {
+    $all = get_json_data('download_documents.json', []);
+    return $all[$pageKey]['page_info'] ?? $default;
+}
+
+/**
+ * Save dynamic OBE page info
+ */
+function save_obe_page_info($pageKey, $infoData) {
+    $all = get_json_data('download_documents.json', []);
+    if (!isset($all[$pageKey])) {
+        $all[$pageKey] = [
+            'title' => $infoData['banner_title'] ?? 'Engineering',
+            'section' => 'Outcome Based Curriculum',
+            'updated_at' => date('Y-m-d H:i:s'),
+            'data' => []
+        ];
+    }
+    $all[$pageKey]['page_info'] = array_merge($all[$pageKey]['page_info'] ?? [], $infoData);
+    $all[$pageKey]['updated_at'] = date('Y-m-d H:i:s');
+    return save_json_data('download_documents.json', $all);
+}
+
+/**
+ * Get dynamic OBE curricula grouped by category
+ */
+function get_obe_curricula_grouped($pageKey, $defaultCurricula = []) {
     $dynamicDocs = get_download_page_data($pageKey, []);
     if (empty($dynamicDocs)) {
         return $defaultCurricula;
     }
 
-    $curricula = $defaultCurricula;
+    $grouped = [];
     foreach ($dynamicDocs as $dItem) {
         if (($dItem['status'] ?? 'Active') !== 'Active') continue;
-        
-        $catName = $dItem['category'] ?? 'General';
-        $matched = false;
-        foreach ($curricula as &$cGroup) {
-            if (strcasecmp($cGroup['category'], $catName) === 0 || stripos($cGroup['category'], $catName) !== false) {
-                // Check if title already in group
-                $exists = false;
-                foreach ($cGroup['items'] as $it) {
-                    if ($it['title'] === $dItem['title']) { $exists = true; break; }
-                }
-                if (!$exists) {
-                    $cGroup['items'][] = [
-                        'title' => $dItem['title'],
-                        'file'  => $dItem['file'],
-                        'url'   => $dItem['url']
-                    ];
-                }
-                $matched = true;
-                break;
+        $cat = $dItem['category'] ?? 'General';
+        if (!isset($grouped[$cat])) {
+            $badge = $dItem['badge'] ?? '';
+            $filter = $dItem['filter'] ?? '';
+            if (empty($badge)) {
+                if (stripos($cat, 'bachelor') !== false || stripos($cat, 'b.e') !== false) $badge = 'B.E.';
+                elseif (stripos($cat, 'master') !== false || stripos($cat, 'm.tech') !== false) $badge = 'M.Tech.';
+                elseif (stripos($cat, 'diploma') !== false) $badge = 'Diploma';
+                else $badge = 'Course';
             }
-        }
+            if (empty($filter)) {
+                if (stripos($cat, 'bachelor') !== false || stripos($cat, 'b.e') !== false) $filter = 'be';
+                elseif (stripos($cat, 'master') !== false || stripos($cat, 'm.tech') !== false) $filter = 'mtech';
+                elseif (stripos($cat, 'diploma') !== false) $filter = 'diploma';
+                else $filter = preg_replace('/[^a-z0-9]/', '', strtolower($cat));
+            }
 
-        if (!$matched) {
-            $curricula[] = [
-                'category' => $catName,
-                'badge'    => $dItem['badge'] ?? 'New',
-                'filter'   => 'custom',
-                'items'    => [
-                    [
-                        'title' => $dItem['title'],
-                        'file'  => $dItem['file'],
-                        'url'   => $dItem['url']
-                    ]
-                ]
+            $grouped[$cat] = [
+                'category' => $cat,
+                'badge' => $badge,
+                'filter' => $filter,
+                'items' => []
             ];
+        }
+        $grouped[$cat]['items'][] = [
+            'id' => $dItem['id'] ?? '',
+            'title' => $dItem['title'] ?? '',
+            'file' => $dItem['file'] ?? '',
+            'url' => $dItem['url'] ?? '',
+            'status' => $dItem['status'] ?? 'Active',
+            'date' => $dItem['date'] ?? ''
+        ];
+    }
+
+    return array_values($grouped);
+}
+
+/**
+ * Resolves a document/curriculum item to a working, verified URL.
+ * Automatically handles local path lookups, URL encoding for spaces and special characters, and remote fallback.
+ */
+function get_document_download_url($item) {
+    if (is_string($item)) {
+        $item = ['url' => $item, 'file' => basename($item)];
+    }
+
+    $url = trim($item['url'] ?? '');
+    $file = trim($item['file'] ?? '');
+
+    // If url is empty but file contains a path, treat file as path
+    if (empty($url) && !empty($file)) {
+        if (strpos($file, '/') !== false || strpos($file, '\\') !== false) {
+            $url = $file;
         }
     }
 
-    return $curricula;
+    if (empty($url) && empty($file)) {
+        return '#';
+    }
+
+    if ($url === '#' || $file === '#') {
+        return '#';
+    }
+
+    $baseDir = defined('BASE_DIR') ? BASE_DIR : realpath(__DIR__ . '/..');
+
+    // 1. If explicit relative path provided in $url, check if it physically exists on disk
+    if (!empty($url) && strpos($url, 'http') !== 0) {
+        $relPath = ltrim(rawurldecode($url), '/\\');
+        if (!empty($relPath) && file_exists($baseDir . '/' . $relPath)) {
+            $segments = explode('/', str_replace('\\', '/', $relPath));
+            return BASE_URL . implode('/', array_map('rawurlencode', $segments));
+        }
+    }
+
+    // 2. If explicit path provided in $file, check if it physically exists on disk
+    if (!empty($file) && strpos($file, 'http') !== 0) {
+        $relPath = ltrim(rawurldecode($file), '/\\');
+        if (!empty($relPath) && file_exists($baseDir . '/' . $relPath)) {
+            $segments = explode('/', str_replace('\\', '/', $relPath));
+            return BASE_URL . implode('/', array_map('rawurlencode', $segments));
+        }
+    }
+
+    // 3. Search known local folders and subfolders by filename
+    $searchFilename = !empty($file) ? basename(rawurldecode($file)) : basename(rawurldecode($url));
+    if (!empty($searchFilename) && $searchFilename !== '#' && $searchFilename !== '.') {
+        $possibleDirs = [
+            'assets/images/Files/Link/SYLLABUS',
+            'assets/images/Files/Link/SCHEME',
+            'assets/images/Files/Link/Curriculum',
+            'assets/images/Files/Link/ExamSchedules',
+            'assets/images/Files/Link/Announcements',
+            'assets/images/Files/Link',
+            'assets/uploads/documents',
+            'assets/uploads'
+        ];
+
+        foreach ($possibleDirs as $dir) {
+            $testPath = $dir . '/' . $searchFilename;
+            if (file_exists($baseDir . '/' . $testPath)) {
+                $segments = explode('/', $testPath);
+                return BASE_URL . implode('/', array_map('rawurlencode', $segments));
+            }
+        }
+    }
+
+    // 4. Fallback to external HTTP/HTTPS URL
+    if (!empty($url) && strpos($url, 'http') === 0) {
+        return $url;
+    }
+
+    // 5. Return formatted BASE_URL path if relative and non-empty
+    if (!empty($url)) {
+        $cleanUrl = ltrim(rawurldecode($url), '/\\');
+        if (!empty($cleanUrl)) {
+            $segments = explode('/', str_replace('\\', '/', $cleanUrl));
+            return BASE_URL . implode('/', array_map('rawurlencode', $segments));
+        }
+    }
+
+    return '#';
+}
+
+/**
+ * Merge dynamic items into Outcome Based Curriculum array
+ */
+function get_dynamic_curricula($pageKey, $defaultCurricula = []) {
+    $grouped = get_obe_curricula_grouped($pageKey, []);
+    if (!empty($grouped)) {
+        return $grouped;
+    }
+    return $defaultCurricula;
 }
 
 /**
@@ -293,7 +413,7 @@ function render_dynamic_scheme_table($pageKey) {
                   <?php endif; ?>
                 </td>
                 <td>
-                  <span class="eng-course-chip"><?php echo htmlspecialchars($doc['category'] ?? 'General'); ?></span>
+                  <span class="fw-semibold text-secondary"><?php echo htmlspecialchars($doc['category'] ?? 'General'); ?></span>
                 </td>
                 <td class="text-center">
                   <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" class="eng-download-btn">

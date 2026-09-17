@@ -4,14 +4,37 @@ $banner_title = 'B.Sc. (Hons.) Agriculture';
 $banner_category = 'Syllabus';
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/download_helper.php';
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
+
+$page_key = 'syllabus_BScHonsAG';
+
+// Dynamic Page Info
+$page_info = get_obe_page_info($page_key, [
+    'heading'        => 'B.SC. (HONS.) AGRICULTURE SYLLABUS',
+    'subheading'     => '5th Deans Committee Recommended 4-Year Agricultural Sciences Curriculum',
+    'badge_obe'      => 'Faculty of Agriculture',
+    'badge_approval' => 'ICAR & UGC Approved',
+    'vision_title'   => 'VISION',
+    'vision_text'    => 'To pioneer sustainable agricultural education, agritech research, and farming entrepreneurship.',
+    'mission_title'  => 'MISSION',
+    'mission_text'   => 'Equip students with advanced agronomy, horticulture, soil sciences, and crop technology expertise.'
+]);
+
+// Dynamic Curricula Items Grouped
+$curricula = get_obe_curricula_grouped($page_key, []);
+
+$totalCourses = 0;
+foreach ($curricula as $g) {
+    $totalCourses += count($g['items']);
+}
 ?>
 
 <style>
-  .syl-page-container {
+  .eng-page-container {
     background: #ffffff;
     border-radius: 14px;
     border: 1px solid #e2e8f0;
@@ -19,17 +42,16 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     overflow: hidden;
     margin-bottom: 2rem;
   }
-
-  .syl-header-banner {
+  .eng-header-banner {
     background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
     color: #ffffff;
-    padding: 1.75rem 2rem;
+    padding: 2rem 2.25rem;
     position: relative;
     border-radius: 14px;
     margin-bottom: 1.5rem;
     box-shadow: 0 8px 24px rgba(11, 37, 69, 0.15);
   }
-  .syl-header-banner::after {
+  .eng-header-banner::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -40,27 +62,72 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     border-bottom-left-radius: 14px;
     border-bottom-right-radius: 14px;
   }
-  .syl-header-badge {
-    background: rgba(245, 158, 11, 0.2);
-    border: 1px solid rgba(245, 158, 11, 0.45);
-    color: #ffffff;
-    font-size: 0.78rem;
+  .eng-vm-card {
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .eng-vm-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 37, 69, 0.08);
+  }
+  .eng-vm-title {
+    font-size: 1.05rem;
     font-weight: 700;
-    padding: 6px 16px;
+    color: #0b2545;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eng-vm-title i {
+    color: #f59e0b;
+    font-size: 1.2rem;
+  }
+  .eng-vm-text {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .eng-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .eng-filter-btn {
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 8px 16px;
     border-radius: 50px;
-    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    text-transform: uppercase;
   }
-
-  .syl-search-box {
+  .eng-filter-btn:hover,
+  .eng-filter-btn.active {
+    background: #0b2545;
+    color: #ffffff;
+    border-color: #0b2545;
+    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.2);
+  }
+  .eng-search-box {
     position: relative;
-    max-width: 460px;
+    max-width: 420px;
     width: 100%;
   }
-  .syl-search-box input {
+  .eng-search-box input {
     padding-left: 2.75rem;
     padding-right: 2.5rem;
     height: 44px;
@@ -69,11 +136,11 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     font-size: 0.9rem;
     transition: all 0.2s ease;
   }
-  .syl-search-box input:focus {
+  .eng-search-box input:focus {
     border-color: #0b2545;
     box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.12);
   }
-  .syl-search-box .search-icon {
+  .eng-search-box .search-icon {
     position: absolute;
     left: 1rem;
     top: 50%;
@@ -81,7 +148,7 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     color: #64748b;
     font-size: 0.95rem;
   }
-  .syl-search-box .clear-btn {
+  .eng-search-box .clear-btn {
     position: absolute;
     right: 1rem;
     top: 50%;
@@ -94,310 +161,378 @@ require_once __DIR__ . '/../../includes/page-banner.php';
     display: none;
     padding: 0;
   }
-  .syl-search-box .clear-btn:hover {
+  .eng-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .eng-table thead th {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border: none;
+    vertical-align: middle;
+  }
+  .eng-table tbody tr {
+    transition: background 0.15s ease;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .eng-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  .eng-table td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    font-size: 0.88rem;
+    color: #334155;
+  }
+  .eng-branch-name {
+    font-weight: 600;
     color: #0b2545;
   }
-
-  .syl-quick-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 1.5rem;
-  }
-  .syl-quick-pill {
-    background: #f1f5f9;
-    color: #334155;
-    border: 1px solid #e2e8f0;
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
+  .eng-download-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.2s ease;
-  }
-  .syl-quick-pill:hover,
-  .syl-quick-pill.active {
-    background: #0b2545;
-    color: #ffffff;
-    border-color: #0b2545;
-    transform: translateY(-1px);
-  }
-
-  .syl-table-card {
-    background: #ffffff;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-    transition: all 0.2s ease;
-  }
-  .syl-table-card:hover {
-    box-shadow: 0 6px 20px rgba(11, 37, 69, 0.08);
-  }
-  .syl-card-header {
-    background: linear-gradient(90deg, #f8fafc 0%, #edf2f7 100%);
-    border-bottom: 1px solid #e2e8f0;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .syl-card-header h3 {
-    margin: 0;
-    font-size: 1.08rem;
-    font-weight: 700;
-    color: #0b2545;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .syl-card-badge {
-    background: #0b2545;
-    color: #ffffff;
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.3px;
-  }
-
-  .syl-table-wrap {
-    overflow-x: auto;
-  }
-  .syl-table {
-    width: 100%;
-    margin-bottom: 0;
-    border-collapse: collapse;
-    font-size: 0.88rem;
-  }
-  .syl-table th {
-    background: #f8fafc;
-    color: #0b2545;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.76rem;
-    letter-spacing: 0.5px;
-    padding: 12px 14px;
-    border-bottom: 2px solid #e2e8f0;
-    white-space: nowrap;
-    text-align: center;
-  }
-  .syl-table td {
-    padding: 11px 14px;
-    vertical-align: middle;
-    border-bottom: 1px solid #f1f5f9;
-    color: #334155;
-    text-align: center;
-  }
-  .syl-table tbody tr:hover td {
-    background-color: rgba(245, 158, 11, 0.04);
-  }
-
-  .syl-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 8px 16px;
     background: #0b2545;
     color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 6px 14px;
     border-radius: 6px;
-    font-size: 0.82rem;
-    font-weight: 700;
     text-decoration: none !important;
     transition: all 0.2s ease;
-    border: none;
-    box-shadow: 0 2px 5px rgba(11, 37, 69, 0.18);
     white-space: nowrap;
   }
-  .syl-btn:hover {
+  .eng-download-btn:hover {
     background: #d97706;
     color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
   }
-
-  .syl-empty-state {
-    display: none;
-    text-align: center;
-    padding: 3rem 1.5rem;
-    background: #f8fafc;
+  .eng-sidebar-widget {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
-    border: 2px dashed #cbd5e1;
-    margin-bottom: 2rem;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
   }
-  .syl-empty-state i {
-    font-size: 2.5rem;
-    color: #94a3b8;
-    margin-bottom: 1rem;
+  .eng-sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eng-sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+    background: #f8fafc;
+  }
+  .eng-sidebar-link:hover,
+  .eng-sidebar-link.active {
+    background: #0b2545;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .no-results-box {
+    display: none;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #64748b;
   }
 </style>
+
 <section class="py-4">
-  <div class="container">
-    <div class="row g-4">
+  <div class="container-fluid px-lg-5">
+    <div class="row g-4 align-items-start">
+
+      <!-- Main Content Column (Left) -->
       <div class="col-lg-8 col-xl-9">
-        <div class="syl-header-banner">
+
+        <!-- Header Banner -->
+        <div class="eng-header-banner">
           <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
             <div>
-              <span class="syl-header-badge mb-2"><i class="fa fa-seedling"></i> Faculty of Agriculture</span>
-              <h2 class="h3 mb-1 text-white fw-bold">B.Sc. (Hons.) Agriculture Syllabus</h2>
-              <p class="mb-0 text-white-50 small">Faculty of Agriculture Syllabus Schemes (CBCS & Traditional 8 Semesters)</p>
+              <?php if (!empty($page_info['badge_obe'])): ?>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                  <i class="fa fa-book-open me-1"></i> <?php echo htmlspecialchars($page_info['badge_obe']); ?>
+                </span>
+              <?php endif; ?>
+              <h1 class="h3 text-white fw-bold mb-1"><?php echo htmlspecialchars($page_info['heading']); ?></h1>
+              <p class="text-white-50 mb-0 small"><?php echo htmlspecialchars($page_info['subheading']); ?></p>
             </div>
-            <div class="text-end">
-              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold"><i class="fa fa-file-pdf"></i> 16 Verified Syllabi</span>
-            </div>
+            <?php if (!empty($page_info['badge_approval'])): ?>
+              <div class="text-end">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                  <i class="fa fa-certificate me-1"></i> <?php echo htmlspecialchars($page_info['badge_approval']); ?>
+                </span>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
 
+        <!-- Vision & Mission Cards -->
+        <?php if (!empty($page_info['vision_text']) || !empty($page_info['mission_text'])): ?>
+          <div class="row g-3 mb-4" id="vision-mission-sec">
+            <?php if (!empty($page_info['vision_text'])): ?>
+              <div class="col-md-6">
+                <div class="eng-vm-card">
+                  <h3 class="eng-vm-title">
+                    <i class="fa fa-eye"></i> <?php echo htmlspecialchars($page_info['vision_title'] ?? 'VISION'); ?>
+                  </h3>
+                  <p class="eng-vm-text"><?php echo nl2br(htmlspecialchars($page_info['vision_text'])); ?></p>
+                </div>
+              </div>
+            <?php endif; ?>
+            <?php if (!empty($page_info['mission_text'])): ?>
+              <div class="col-md-6">
+                <div class="eng-vm-card">
+                  <h3 class="eng-vm-title">
+                    <i class="fa fa-bullseye"></i> <?php echo htmlspecialchars($page_info['mission_title'] ?? 'MISSION'); ?>
+                  </h3>
+                  <p class="eng-vm-text"><?php echo nl2br(htmlspecialchars($page_info['mission_text'])); ?></p>
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+
+        <!-- Category Filter Tabs & Quick Search -->
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
-          <div class="syl-search-box">
+          <div class="eng-filter-tabs">
+            <button class="eng-filter-btn active" data-filter="all">
+              <i class="fa fa-list"></i> All Syllabi (<?php echo $totalCourses; ?>)
+            </button>
+            <?php foreach ($curricula as $cGroup): ?>
+              <button class="eng-filter-btn" data-filter="<?php echo htmlspecialchars($cGroup['filter']); ?>">
+                <?php echo htmlspecialchars($cGroup['category']); ?> (<?php echo count($cGroup['items']); ?>)
+              </button>
+            <?php endforeach; ?>
+          </div>
+
+          <div class="eng-search-box">
             <i class="fa fa-search search-icon"></i>
-            <input type="text" id="sylSearch" class="form-control" placeholder="Search semester or scheme (e.g. CBCS, Sem IV)...">
-            <button class="clear-btn" id="sylClearSearch" title="Clear search"><i class="fa fa-times"></i></button>
+            <input type="text" id="curriculumSearch" class="form-control" placeholder="Search branch, semester, or course...">
+            <button class="clear-btn" id="clearSearch" title="Clear search"><i class="fa fa-times"></i></button>
           </div>
-          <div class="text-muted small">Showing <span id="sylCount" class="fw-bold text-dark">8</span> Semesters</div>
         </div>
 
-        <div class="syl-quick-nav">
-          <a href="#ag-cbcs" class="syl-quick-pill"><i class="fa fa-leaf text-success"></i> B.Sc. (Hons.) Agriculture (Sem I to VIII)</a>
-        </div>
-
-        <div class="syl-empty-state" id="sylEmptyState">
-          <i class="fa fa-folder-open"></i>
-          <h5 class="text-dark fw-bold">No Syllabus Found</h5>
-          <p class="text-muted mb-0">No syllabus matches your search query.</p>
-        </div>
-
-        <div class="syl-table-card" id="ag-cbcs">
-          <?php if (function_exists('render_dynamic_scheme_table')) render_dynamic_scheme_table('syllabus_BScHonsAG'); ?>
-
-<div class="syl-card-header">
-            <h3><i class="fa fa-graduation-cap text-primary"></i><span>B.Sc. (Hons.) Agriculture - 4-Year Degree (8 Semesters)</span></h3>
-            <span class="syl-card-badge">ICAR 5th Deans Committee Compliant</span>
-          </div>
-          <div class="syl-table-wrap">
-            <table class="syl-table table">
+        <!-- Curricula Data Table -->
+        <div class="eng-page-container">
+          <div class="table-responsive">
+            <table class="table eng-table" id="curriculumTable">
               <thead>
                 <tr>
-                  <th style="width: 80px;">S.No.</th>
-                  <th style="text-align: left;">Semester</th>
-                  <th>CBCS Scheme Syllabus</th>
-                  <th>Non-CBCS Scheme Syllabus</th>
+                  <th style="width: 75px;" class="text-center">Sr. No.</th>
+                  <th style="width: 220px;">Category / Regulation</th>
+                  <th>Course / Branch Title</th>
+                  <th class="text-center" style="width: 170px;">Syllabus File</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">1</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">First Semester (I Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/I_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (I Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSC(AG)In.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (I Sem)</a></td>
+                <?php 
+                $sno = 1;
+                foreach ($curricula as $group): 
+                  foreach ($group['items'] as $item):
+                    $targetUrl = get_document_download_url($item);
+                    $isZip = (strtolower(pathinfo($item['file'] ?? '', PATHINFO_EXTENSION)) === 'zip');
+                ?>
+                <tr data-category="<?php echo htmlspecialchars($group['filter']); ?>">
+                  <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
+                  <td>
+                    <span class="fw-semibold text-secondary"><?php echo htmlspecialchars(!empty($group['category']) ? $group['category'] : $group['badge']); ?></span>
+                  </td>
+                  <td>
+                    <span class="eng-branch-name">
+                      <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <?php if ($targetUrl !== '#'): ?>
+                      <a href="<?php echo htmlspecialchars($targetUrl); ?>" target="_blank" class="eng-download-btn">
+                        <i class="fa <?php echo $isZip ? 'fa-file-zipper' : 'fa-file-pdf'; ?>"></i> <?php echo $isZip ? 'Download ZIP' : 'Download PDF'; ?>
+                      </a>
+                    <?php else: ?>
+                      <span class="badge bg-secondary-subtle text-secondary px-3 py-2">
+                        <i class="fa fa-clock me-1"></i> Available Soon
+                      </span>
+                    <?php endif; ?>
+                  </td>
                 </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">2</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Second Semester (II Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/II_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (II Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSC(AG)II.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (II Sem)</a></td>
-                </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">3</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Third Semester (III Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/III_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (III Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SCHEMES/BSCAG/SYBAG_IIIrr.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (III Sem)</a></td>
-                </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">4</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Fourth Semester (IV Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/IV_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (IV Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/syllsbus_iv_sem/BSC_AG_IV.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (IV Sem)</a></td>
-                </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">5</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Fifth Semester (V Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/V_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (V Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SYBAG_V.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (V Sem)</a></td>
-                </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">6</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Sixth Semester (VI Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/VI_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (VI Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SYBAG_VI.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (VI Sem)</a></td>
-                </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">7</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Seventh Semester (VII Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/VII_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (VII Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SYBSc(Agri)_7th_ semN-CBCS.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (VII Sem)</a></td>
-                </tr>
-                <tr class="syl-row">
-                  <td class="fw-bold text-muted">8</td>
-                  <td style="text-align: left;"><span class="fw-bold text-dark">Eighth Semester (VIII Sem)</span></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/BSCAG/VIII_Sem_Fifth_Dean_Syllabus.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> CBCS Syllabus (VIII Sem)</a></td>
-                  <td><a href="<?php echo base_url('assets/images/Files/Link/SYLLABUS/SYAScAg_NonCBCS_8.pdf'); ?>" target="_blank" class="syl-btn"><i class="fa fa-file-pdf"></i> Non-CBCS (VIII Sem)</a></td>
-                </tr>
+                <?php 
+                  $sno++;
+                  endforeach; 
+                endforeach; 
+                ?>
               </tbody>
             </table>
           </div>
+
+          <!-- Empty Search State -->
+          <div class="no-results-box" id="noResultsBox">
+            <i class="fa fa-folder-open fa-3x mb-3 text-muted"></i>
+            <h5 class="fw-bold">No Syllabus Found</h5>
+            <p class="mb-0 text-muted small">No branch syllabus matches your current search/filter criteria.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar Navigation (Right) -->
+      <div class="col-lg-4 col-xl-3">
+        <div class="sticky-top" style="top: 90px;">
+          
+          <!-- Quick Actions Widget -->
+          <div class="eng-sidebar-widget">
+            <h3 class="eng-sidebar-title"><i class="fa fa-compass text-primary"></i> Quick Navigation</h3>
+            <a href="#curriculumTable" class="eng-sidebar-link">
+              <span><i class="fa fa-table me-2 text-primary"></i> All Syllabi Table</span>
+              <span class="badge bg-primary text-white rounded-pill"><?php echo $totalCourses; ?></span>
+            </a>
+            <?php if (!empty($page_info['vision_text'])): ?>
+              <a href="#vision-mission-sec" class="eng-sidebar-link">
+                <span><i class="fa fa-eye me-2 text-warning"></i> Vision &amp; Mission</span>
+              </a>
+            <?php endif; ?>
+            <a href="<?php echo base_url('Download/OutcomeBasedCurriculum/' . 'BScHonsAG.php'); ?>" class="eng-sidebar-link">
+              <span><i class="fa fa-layer-group me-2 text-info"></i> Outcome Based Curriculum</span>
+              <i class="fa fa-arrow-right small text-muted"></i>
+            </a>
+            <a href="<?php echo base_url('Download/Scheme/' . 'BScHonsAG.php'); ?>" class="eng-sidebar-link">
+              <span><i class="fa fa-book me-2 text-success"></i> Curriculum Schemes</span>
+              <i class="fa fa-arrow-right small text-muted"></i>
+            </a>
+          </div>
+
+          <!-- Other Syllabus Subpages Widget -->
+          <div class="eng-sidebar-widget">
+            <h3 class="eng-sidebar-title"><i class="fa fa-graduation-cap text-warning"></i> Other Syllabi</h3>
+            <?php 
+            $otherPages = [
+                'BE.php'                        => 'Bachelor of Engineering (B.E.)',
+                'Pharmacy.php'                  => 'Faculty of Pharmacy',
+                'MTech.php'                     => 'Master of Technology (M.Tech.)',
+                'Education.php'                 => 'Faculty of Education',
+                'BHMCT.php'                     => 'BHMCT Syllabus',
+                'MBA.php'                       => 'MBA Syllabus',
+                'MCA.php'                       => 'MCA Syllabus',
+                'PhysicalEducation.php'         => 'Physical Education',
+                'BScHonsAG.php'                 => 'B.Sc. (Hons.) Agriculture',
+                'BHMS.php'                      => 'BHMS Syllabus',
+                'UTD.php'                       => 'University Teaching Depts (UTD)',
+                'Paramedical.php'               => 'Faculty of Paramedical',
+                'Polytechnic_Engineering.php'   => 'Polytechnic Engineering',
+                'BLibISc.php'                   => 'B.Lib.I.Sc. Syllabus',
+                'Bacheloroflaws_Llb.php'        => 'Bachelor of Laws (LL.B.)',
+                'BScHMCS.php'                   => 'B.Sc. [HMCS] Syllabus'
+            ];
+            $currentFile = 'BScHonsAG.php';
+            foreach ($otherPages as $f => $name):
+            ?>
+              <a href="<?php echo base_url('Download/Syllabus/' . $f); ?>" class="eng-sidebar-link <?php echo ($currentFile === $f) ? 'active' : ''; ?>">
+                <span><i class="fa fa-file-text me-2"></i> <?php echo htmlspecialchars($name); ?></span>
+                <?php if ($currentFile === $f): ?>
+                  <i class="fa fa-check-circle"></i>
+                <?php endif; ?>
+              </a>
+            <?php endforeach; ?>
+          </div>
+
         </div>
       </div>
-      <div class="col-lg-4 col-xl-3 sticky-top" style="top: 20px; z-index: 10;">
-        <?php require_once __DIR__ . '/../../includes/sidebar.php'; ?>
-      </div>
+
     </div>
   </div>
 </section>
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('sylSearch');
-    const clearBtn = document.getElementById('sylClearSearch');
-    const rows = document.querySelectorAll('.syl-row');
-    const emptyState = document.getElementById('sylEmptyState');
-    const countDisplay = document.getElementById('sylCount');
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('curriculumSearch');
+  const clearBtn = document.getElementById('clearSearch');
+  const filterBtns = document.querySelectorAll('.eng-filter-btn');
+  const tableRows = document.querySelectorAll('#curriculumTable tbody tr');
+  const noResultsBox = document.getElementById('noResultsBox');
+  const tableWrap = document.querySelector('.table-responsive');
 
-    function filterTable() {
-      const q = searchInput.value.toLowerCase().trim();
-      let visibleCount = 0;
+  let activeFilter = 'all';
 
-      if (q.length > 0) {
-        clearBtn.style.display = 'block';
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    tableRows.forEach(row => {
+      const rowCategory = row.getAttribute('data-category') || '';
+      const text = row.textContent.toLowerCase();
+      
+      const matchesFilter = (activeFilter === 'all' || rowCategory === activeFilter);
+      const matchesSearch = (!query || text.includes(query));
+
+      if (matchesFilter && matchesSearch) {
+        row.style.display = '';
+        visibleCount++;
+        // Re-number visible rows
+        const snoCell = row.querySelector('td:first-child');
+        if (snoCell) snoCell.textContent = visibleCount;
       } else {
-        clearBtn.style.display = 'none';
+        row.style.display = 'none';
       }
+    });
 
-      rows.forEach(row => {
-        const text = row.innerText.toLowerCase();
-        if (text.includes(q)) {
-          row.style.display = '';
-          visibleCount++;
-        } else {
-          row.style.display = 'none';
-        }
-      });
-
-      if (countDisplay) countDisplay.textContent = visibleCount;
-
-      // Handle card empty visibility
-      document.querySelectorAll('.syl-table-card').forEach(card => {
-        const cardRows = card.querySelectorAll('.syl-row');
-        const hasVisible = Array.from(cardRows).some(r => r.style.display !== 'none');
-        card.style.display = hasVisible ? '' : 'none';
-      });
-
-      if (emptyState) emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    if (visibleCount === 0) {
+      if (noResultsBox) noResultsBox.style.display = 'block';
+      if (tableWrap) tableWrap.style.display = 'none';
+    } else {
+      if (noResultsBox) noResultsBox.style.display = 'none';
+      if (tableWrap) tableWrap.style.display = '';
     }
 
-    if (searchInput) searchInput.addEventListener('input', filterTable);
-    if (clearBtn) clearBtn.addEventListener('click', function() {
-      searchInput.value = '';
-      filterTable();
-      searchInput.focus();
+    if (clearBtn) {
+      clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeFilter = this.getAttribute('data-filter');
+      applyFilters();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      applyFilters();
+      searchInput.focus();
+    });
+  }
+});
 </script>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php 
+require_once __DIR__ . '/../../includes/footer.php';
+?>

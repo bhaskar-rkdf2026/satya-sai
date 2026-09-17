@@ -1,34 +1,108 @@
 <?php
-$page_title = 'Education - Outcome Based Curriculum - SSSUTMS';
-$banner_title = 'Education';
-$banner_category = 'Outcome Based Curriculum';
-
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/download_helper.php';
+
+$pageKey = 'obc_Education';
+
+$page_info = get_obe_page_info($pageKey, [
+    'page_title'     => 'Education - Outcome Based Curriculum - SSSUTMS',
+    'banner_title'   => 'Education',
+    'banner_category'=> 'Outcome Based Curriculum',
+    'heading'        => 'FACULTY OF EDUCATION',
+    'subheading'     => 'Program Educational Objectives, Program Outcomes & Course Curricula.',
+    'badge_obe'      => 'Outcome Based Education (OBE)',
+    'badge_approval' => 'NCTE & UGC Approved',
+    'vision_title'   => 'VISION',
+    'vision_text'    => 'Development of creative, human and progressive teachers acting as catalysts for social change through a distinctive teacher education program which is embedded with value and professionalism in its approach.',
+    'mission_title'  => 'MISSION',
+    'mission_text'   => 'To provide comprehensive pedagogical training, foster modern instructional competencies, and instill ethical values in aspiring educators for transformative nation building.'
+]);
+
+$page_title = $page_info['page_title'] ?? 'Education - Outcome Based Curriculum - SSSUTMS';
+$banner_title = $page_info['banner_title'] ?? 'Education';
+$banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
 require_once __DIR__ . '/../../includes/page-banner.php';
 
-$curricula = [
-    [
-        'category' => 'Bachelor of Education',
-        'badge' => 'Education',
-        'filter' => 'education',
-        'items' => [
-            ['title' => 'Bachelor of Education (B.Ed.)', 'file' => '', 'url' => '#'],
-            ['title' => 'Bachelor of Arts & Bachelor of Education (B.A.B.Ed.)', 'file' => 'BABEd.pdf', 'url' => 'https://www.sssutms.co.in/cms/Areas/Website/Files/Link/Curriculum/BABEd.pdf'],
-        ]
-    ]
-];
+$curricula = get_obe_curricula_grouped($pageKey, []);
 
-if (function_exists('get_dynamic_curricula')) {
-    $curricula = get_dynamic_curricula('obc_Education', $curricula);
+// Total active items count
+$totalItemsCount = 0;
+foreach ($curricula as $grp) {
+    $totalItemsCount += count($grp['items'] ?? []);
 }
-
 ?>
 
 <style>
-.edu-tab-btn {
+.eng-page-container {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(11, 37, 69, 0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.eng-header-card {
+  background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
+  color: #ffffff;
+  padding: 1.75rem 2rem;
+  position: relative;
+}
+
+.eng-header-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1d4ed8, #60a5fa);
+}
+
+.eng-vm-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eng-vm-card.vision-card {
+  border-left: 4px solid #0b2545 !important;
+}
+
+.eng-vm-card.mission-card {
+  border-left: 4px solid #134074 !important;
+}
+
+.eng-vm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11, 37, 69, 0.06);
+}
+
+.eng-vm-title {
+  color: #0b2545;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eng-vm-text {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.eng-tab-btn {
   background: #f1f5f9;
   color: #0b2545;
   border: 1px solid #cbd5e1;
@@ -40,32 +114,32 @@ if (function_exists('get_dynamic_curricula')) {
   cursor: pointer;
 }
 
-.edu-tab-btn:hover,
-.edu-tab-btn.active {
+.eng-tab-btn:hover,
+.eng-tab-btn.active {
   background: #0b2545;
   color: #ffffff;
   border-color: #0b2545;
 }
 
-.edu-search-box {
+.eng-search-box {
   position: relative;
   width: 100%;
   max-width: 340px;
 }
 
-.edu-search-box input {
+.eng-search-box input {
   padding-left: 2.4rem;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
   font-size: 0.88rem;
 }
 
-.edu-search-box input:focus {
+.eng-search-box input:focus {
   border-color: #0b2545;
   box-shadow: 0 0 0 0.2rem rgba(11, 37, 69, 0.15);
 }
 
-.edu-search-box i {
+.eng-search-box i {
   position: absolute;
   left: 0.85rem;
   top: 50%;
@@ -74,19 +148,19 @@ if (function_exists('get_dynamic_curricula')) {
   font-size: 0.9rem;
 }
 
-.edu-table-wrapper {
+.eng-table-wrapper {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.edu-table {
+.eng-table {
   width: 100%;
   margin-bottom: 0;
   border-collapse: collapse;
 }
 
-.edu-table thead th {
+.eng-table thead th {
   background: #0b2545 !important;
   color: #ffffff !important;
   font-weight: 700;
@@ -98,27 +172,27 @@ if (function_exists('get_dynamic_curricula')) {
   vertical-align: middle;
 }
 
-.edu-table tbody tr {
+.eng-table tbody tr {
   border-bottom: 1px solid #f1f5f9;
   transition: background-color 0.15s ease;
 }
 
-.edu-table tbody tr:hover {
+.eng-table tbody tr:hover {
   background-color: #f8fafc;
 }
 
-.edu-table tbody tr:last-child {
+.eng-table tbody tr:last-child {
   border-bottom: none;
 }
 
-.edu-table td {
+.eng-table td {
   padding: 13px 16px;
   font-size: 0.92rem;
   color: #334155;
   vertical-align: middle;
 }
 
-.edu-course-chip {
+.eng-course-chip {
   display: inline-flex;
   align-items: center;
   background: #e2e8f0;
@@ -130,12 +204,12 @@ if (function_exists('get_dynamic_curricula')) {
   border: 1px solid #cbd5e1;
 }
 
-.edu-branch-name {
+.eng-branch-name {
   font-weight: 600;
   color: #0b2545;
 }
 
-.edu-download-btn {
+.eng-download-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -150,7 +224,7 @@ if (function_exists('get_dynamic_curricula')) {
   transition: all 0.2s ease;
 }
 
-.edu-download-btn:hover {
+.eng-download-btn:hover {
   background: #134074;
   border-color: #134074;
   color: #ffffff !important;
@@ -170,17 +244,21 @@ if (function_exists('get_dynamic_curricula')) {
           <!-- Header Banner -->
           <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-4 border-bottom">
             <div>
-              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
-                <i class="fa fa-graduation-cap me-1"></i> Outcome Based Education (OBE)
-              </span>
-              <h3 class="fw-bold mb-1" style="color: #002B5B;">FACULTY OF EDUCATION</h3>
-              <p class="text-muted small mb-0">Program Educational Objectives, Program Outcomes &amp; Course Curricula.</p>
+              <?php if (!empty($page_info['badge_obe'])): ?>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+                  <i class="fa fa-graduation-cap me-1"></i> <?php echo htmlspecialchars($page_info['badge_obe']); ?>
+                </span>
+              <?php endif; ?>
+              <h3 class="fw-bold mb-1" style="color: #002B5B;"><?php echo htmlspecialchars($page_info['heading'] ?? 'FACULTY OF EDUCATION'); ?></h3>
+              <p class="text-muted small mb-0"><?php echo htmlspecialchars($page_info['subheading'] ?? 'Program Educational Objectives, Program Outcomes & Course Curricula.'); ?></p>
             </div>
-            <div class="mt-2 mt-md-0">
-              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
-                <i class="fa fa-certificate me-1"></i> NCTE &amp; UGC Approved
-              </span>
-            </div>
+            <?php if (!empty($page_info['badge_approval'])): ?>
+              <div class="mt-2 mt-md-0">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">
+                  <i class="fa fa-certificate me-1"></i> <?php echo htmlspecialchars($page_info['badge_approval']); ?>
+                </span>
+              </div>
+            <?php endif; ?>
           </div>
 
           <!-- Vision & Mission Cards -->
@@ -188,23 +266,21 @@ if (function_exists('get_dynamic_curricula')) {
             <div class="col-md-6">
               <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-left: 5px solid #002B5B !important;">
                 <h5 class="fw-bold mb-2" style="color: #002B5B;">
-                  <i class="fa fa-eye text-primary me-2"></i>VISION
+                  <i class="fa fa-eye text-primary me-2"></i><?php echo htmlspecialchars($page_info['vision_title'] ?? 'VISION'); ?>
                 </h5>
                 <p class="small text-secondary mb-0 lh-base">
-                  “Development of creative, human and progressive teachers acting as catalysts for social change through a distinctive teacher education program which is embedded with value and professionalism in its approach”
+                  <?php echo nl2br(htmlspecialchars($page_info['vision_text'] ?? '')); ?>
                 </p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="card h-100 border-0 rounded-4 p-4 shadow-sm" style="background: linear-gradient(135deg, #fffbf0 0%, #fff6e6 100%); border-left: 5px solid #e67e23 !important;">
                 <h5 class="fw-bold mb-2" style="color: #002B5B;">
-                  <i class="fa fa-bullseye text-warning me-2"></i>MISSION
+                  <i class="fa fa-bullseye text-warning me-2"></i><?php echo htmlspecialchars($page_info['mission_title'] ?? 'MISSION'); ?>
                 </h5>
-                <div class="small text-secondary mb-0 lh-base">
-                  <p class="mb-1"><strong>1.</strong> To prepare teachers excelling in teaching and research methodology.</p>
-                  <p class="mb-1"><strong>2.</strong> To foster skills and attitude for teachers to discharge their duties and functions in such a way as to provide significant inputs in school education.</p>
-                  <p class="mb-0"><strong>3.</strong> To prepare teachers to fully utilize potentialities of information technology and communication methodology.</p>
-                </div>
+                <p class="small text-secondary mb-0 lh-base">
+                  <?php echo nl2br(htmlspecialchars($page_info['mission_text'] ?? '')); ?>
+                </p>
               </div>
             </div>
           </div>
@@ -212,23 +288,28 @@ if (function_exists('get_dynamic_curricula')) {
           <!-- Controls: Category Filter Tabs & Search -->
           <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
             <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilters">
-              <button type="button" class="edu-tab-btn active" data-filter="all">All Programs (2)</button>
+              <button type="button" class="eng-tab-btn active" data-filter="all">All Programs (<?php echo $totalItemsCount; ?>)</button>
+              <?php foreach ($curricula as $cGroup): ?>
+                <button type="button" class="eng-tab-btn" data-filter="<?php echo htmlspecialchars($cGroup['filter']); ?>">
+                  <?php echo htmlspecialchars($cGroup['badge']); ?> (<?php echo count($cGroup['items']); ?>)
+                </button>
+              <?php endforeach; ?>
             </div>
-            <div class="edu-search-box">
+            <div class="eng-search-box">
               <i class="fa fa-search"></i>
-              <input type="text" class="form-control obe-filter-input" placeholder="Search program or course...">
+              <input type="text" class="form-control obe-filter-input" placeholder="Search branch or specialization...">
             </div>
           </div>
 
           <!-- Curriculum Matrix Table -->
-          <div class="table-responsive edu-table-wrapper">
-            <table class="edu-table obe-table">
+          <div class="table-responsive eng-table-wrapper">
+            <table class="eng-table obe-table">
               <thead>
                 <tr>
                   <th style="width: 75px;" class="text-center">Sr. No.</th>
-                  <th style="width: 220px;">Course</th>
-                  <th>Program / Specialization</th>
-                  <th class="text-center" style="width: 150px;">Curriculum</th>
+                  <th style="width: 220px;">Course / Program</th>
+                  <th>Branch / Specialization</th>
+                  <th class="text-center" style="width: 160px;">Curriculum PDF</th>
                 </tr>
               </thead>
               <tbody>
@@ -236,30 +317,28 @@ if (function_exists('get_dynamic_curricula')) {
                 $sno = 1;
                 foreach ($curricula as $group): 
                   foreach ($group['items'] as $item):
-                    $localPath = __DIR__ . '/../../assets/images/Files/Link/Curriculum/' . $item['file'];
-                    if (!empty($item['file']) && file_exists($localPath)) {
-                        $targetUrl = BASE_URL . 'assets/images/Files/Link/Curriculum/' . rawurlencode($item['file']);
-                    } elseif (!empty($item['url']) && $item['url'] !== '#') {
-                        $targetUrl = $item['url'];
-                    } else {
-                        $targetUrl = '#';
-                    }
+                    $targetUrl = get_document_download_url($item);
                 ?>
-                <tr data-category="<?php echo $group['filter']; ?>">
+                <tr data-category="<?php echo htmlspecialchars($group['filter']); ?>">
                   <td class="text-center fw-bold text-muted"><?php echo $sno; ?></td>
                   <td>
-                    <span class="edu-course-chip me-1"><?php echo $group['badge']; ?></span>
-                    <span class="fw-semibold text-secondary small d-none d-md-inline"><?php echo $group['category']; ?></span>
+                    <span class="fw-semibold text-secondary"><?php echo htmlspecialchars(!empty($group['category']) ? $group['category'] : $group['badge']); ?></span>
                   </td>
                   <td>
-                    <span class="edu-branch-name">
+                    <span class="eng-branch-name">
                       <i class="fa fa-graduation-cap text-muted me-1"></i><?php echo htmlspecialchars($item['title']); ?>
                     </span>
                   </td>
                   <td class="text-center">
-                    <a href="<?php echo $targetUrl; ?>" <?php echo ($targetUrl !== '#') ? 'target="_blank"' : ''; ?> class="edu-download-btn">
-                      <i class="fa fa-file-pdf"></i> Download
-                    </a>
+                    <?php if ($targetUrl !== '#'): ?>
+                      <a href="<?php echo htmlspecialchars($targetUrl); ?>" target="_blank" class="eng-download-btn">
+                        <i class="fa fa-file-pdf"></i> Download PDF
+                      </a>
+                    <?php else: ?>
+                      <span class="badge bg-secondary-subtle text-secondary px-3 py-2">
+                        <i class="fa fa-clock me-1"></i> Available Soon
+                      </span>
+                    <?php endif; ?>
                   </td>
                 </tr>
                 <?php 
@@ -286,7 +365,7 @@ if (function_exists('get_dynamic_curricula')) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.querySelector('.obe-filter-input');
-  const filterButtons = document.querySelectorAll('#categoryFilters .edu-tab-btn');
+  const filterButtons = document.querySelectorAll('#categoryFilters .eng-tab-btn');
   const tableRows = document.querySelectorAll('.obe-table tbody tr');
   
   let currentFilter = 'all';
