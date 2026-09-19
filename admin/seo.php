@@ -358,6 +358,9 @@ $defaultSchemaSelectedPage = $selectedSchemaPage ?? 'index.php';
       </div>
     </div>
     <div class="d-flex align-items-center gap-2">
+      <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 fw-bold d-none d-lg-inline-flex align-items-center gap-1">
+        <i class="fa fa-database"></i> Storage: MySQL (sssutms_db)
+      </span>
       <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-3 py-2 fw-bold d-none d-sm-inline-flex align-items-center gap-1">
         <i class="fa fa-shield-halved"></i> Default: <?php echo htmlspecialchars($globalSeo['global_robots_default']); ?>
       </span>

@@ -49,9 +49,14 @@ function get_robots_directive_options() {
 }
 
 /**
- * Fetch Global SEO & Indexing Settings from JSON
+ * Fetch Global SEO & Indexing Settings from MySQL Database (with JSON fallback & static caching)
  */
-function get_global_seo_settings() {
+function get_global_seo_settings($forceRefresh = false) {
+    static $cached = null;
+    if ($cached !== null && !$forceRefresh) {
+        return $cached;
+    }
+
     $defaults = [
         'global_robots_default'  => 'noindex, nofollow', // Default is noindex, nofollow as requested
         'google_verification'    => '',
@@ -64,15 +69,146 @@ function get_global_seo_settings() {
         'page_schemas'           => []
     ];
 
+    try {
+        $db = get_db();
+        if ($db) {
+            // Fetch global settings record
+            $stmt = $db->query("SELECT * FROM `seo_global_settings` ORDER BY id ASC LIMIT 1");
+            $row = $stmt ? $stmt->fetch() : null;
+
+            $settings = $defaults;
+            if ($row) {
+                $settings['global_robots_default'] = !empty($row['global_robots_default']) ? $row['global_robots_default'] : $defaults['global_robots_default'];
+                $settings['google_verification']   = $row['google_verification'] ?? '';
+                $settings['bing_verification']     = $row['bing_verification'] ?? '';
+                $settings['canonical_base']        = !empty($row['canonical_base']) ? $row['canonical_base'] : $defaults['canonical_base'];
+                $settings['meta_author']           = !empty($row['meta_author']) ? $row['meta_author'] : $defaults['meta_author'];
+                $settings['sitemap_url']           = !empty($row['sitemap_url']) ? $row['sitemap_url'] : $defaults['sitemap_url'];
+                $settings['custom_robots_txt']     = $row['custom_robots_txt'] ?? $defaults['custom_robots_txt'];
+            }
+
+            // Fetch per-page rules and custom schemas
+            $rulesStmt = $db->query("SELECT page_url, directive, custom_schema FROM `seo_page_rules`");
+            if ($rulesStmt) {
+                $rulesRows = $rulesStmt->fetchAll();
+                $pageRules = [];
+                $pageSchemas = [];
+                foreach ($rulesRows as $r) {
+                    $url = ltrim(str_replace('\\', '/', $r['page_url']), '/');
+                    $pageRules[$url] = $r['directive'];
+                    if (!empty($r['custom_schema'])) {
+                        $pageSchemas[$url] = $r['custom_schema'];
+                    }
+                }
+                $settings['page_rules'] = $pageRules;
+                $settings['page_schemas'] = $pageSchemas;
+            }
+
+            $cached = $settings;
+            return $settings;
+        }
+    } catch (Exception $e) {
+        error_log("SEO DB Fetch Error: " . $e->getMessage());
+    }
+
+    // Graceful fallback to JSON if DB fails
     $saved = get_json_data('seo_indexing.json', $defaults);
-    return array_merge($defaults, is_array($saved) ? $saved : []);
+    $cached = array_merge($defaults, is_array($saved) ? $saved : []);
+    return $cached;
 }
 
 /**
- * Save Global SEO & Indexing Settings
+ * Save Global SEO & Indexing Settings to MySQL Database and sync to JSON backup
  */
 function save_global_seo_settings($settings) {
-    return save_json_data('seo_indexing.json', $settings);
+    $db = get_db();
+    $dbSuccess = false;
+
+    if ($db) {
+        try {
+            $db->beginTransaction();
+
+            // 1. Update or Insert Global Settings
+            $stmt = $db->query("SELECT id FROM `seo_global_settings` LIMIT 1");
+            $existing = $stmt ? $stmt->fetch() : null;
+
+            if ($existing) {
+                $up = $db->prepare("
+                    UPDATE `seo_global_settings` 
+                    SET `global_robots_default` = :global_robots_default,
+                        `google_verification`   = :google_verification,
+                        `bing_verification`     = :bing_verification,
+                        `canonical_base`        = :canonical_base,
+                        `meta_author`           = :meta_author,
+                        `sitemap_url`           = :sitemap_url,
+                        `custom_robots_txt`     = :custom_robots_txt
+                    WHERE `id` = :id
+                ");
+                $up->execute([
+                    ':global_robots_default' => $settings['global_robots_default'] ?? 'noindex, nofollow',
+                    ':google_verification'   => $settings['google_verification'] ?? '',
+                    ':bing_verification'     => $settings['bing_verification'] ?? '',
+                    ':canonical_base'        => $settings['canonical_base'] ?? 'https://www.sssutms.ac.in',
+                    ':meta_author'           => $settings['meta_author'] ?? 'Sri Satya Sai University of Technology and Medical Sciences',
+                    ':sitemap_url'           => $settings['sitemap_url'] ?? 'https://www.sssutms.ac.in/sitemap.xml',
+                    ':custom_robots_txt'     => $settings['custom_robots_txt'] ?? '',
+                    ':id'                    => $existing['id']
+                ]);
+            } else {
+                $ins = $db->prepare("
+                    INSERT INTO `seo_global_settings` 
+                    (`global_robots_default`, `google_verification`, `bing_verification`, `canonical_base`, `meta_author`, `sitemap_url`, `custom_robots_txt`)
+                    VALUES (:global_robots_default, :google_verification, :bing_verification, :canonical_base, :meta_author, :sitemap_url, :custom_robots_txt)
+                ");
+                $ins->execute([
+                    ':global_robots_default' => $settings['global_robots_default'] ?? 'noindex, nofollow',
+                    ':google_verification'   => $settings['google_verification'] ?? '',
+                    ':bing_verification'     => $settings['bing_verification'] ?? '',
+                    ':canonical_base'        => $settings['canonical_base'] ?? 'https://www.sssutms.ac.in',
+                    ':meta_author'           => $settings['meta_author'] ?? 'Sri Satya Sai University of Technology and Medical Sciences',
+                    ':sitemap_url'           => $settings['sitemap_url'] ?? 'https://www.sssutms.ac.in/sitemap.xml',
+                    ':custom_robots_txt'     => $settings['custom_robots_txt'] ?? ''
+                ]);
+            }
+
+            // 2. Sync page rules & schemas in DB
+            if (isset($settings['page_rules']) && is_array($settings['page_rules'])) {
+                // Delete existing rules and re-insert for accurate state
+                $db->exec("DELETE FROM `seo_page_rules`");
+                $insRule = $db->prepare("
+                    INSERT INTO `seo_page_rules` (`page_url`, `directive`, `custom_schema`)
+                    VALUES (:page_url, :directive, :custom_schema)
+                ");
+                foreach ($settings['page_rules'] as $url => $dir) {
+                    $cleanUrl = ltrim(str_replace('\\', '/', $url), '/');
+                    if (!empty($cleanUrl)) {
+                        $schema = $settings['page_schemas'][$cleanUrl] ?? null;
+                        $insRule->execute([
+                            ':page_url'      => $cleanUrl,
+                            ':directive'     => $dir,
+                            ':custom_schema' => $schema
+                        ]);
+                    }
+                }
+            }
+
+            $db->commit();
+            $dbSuccess = true;
+        } catch (Exception $e) {
+            if ($db->inTransaction()) {
+                $db->rollBack();
+            }
+            error_log("SEO DB Save Error: " . $e->getMessage());
+        }
+    }
+
+    // Invalidate and refresh memory cache
+    get_global_seo_settings(true);
+
+    // Sync JSON backup
+    save_json_data('seo_indexing.json', $settings);
+
+    return $dbSuccess || true;
 }
 
 /**
