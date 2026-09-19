@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'To achieve excellence in teaching-learning, Research and development activities by creating technically capable and devoted software engineers to serve society with pride.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Computer Application - Outcome Based Curriculum - SSSUTMS';
-$banner_title = $page_info['banner_title'] ?? 'Computer Application';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Computer Application - Outcome Based Curriculum - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Computer_Application';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

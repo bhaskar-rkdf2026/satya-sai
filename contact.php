@@ -1,13 +1,29 @@
 <?php
-$page_title = 'Contact Us - SSSUTMS';
-$banner_title = 'Contact Us';
-$banner_category = 'Contact';
-
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/contact_helper.php';
+
+$page_info = get_contact_page_info();
+$cards = get_contact_info_cards();
+$officers = get_contact_officers(true);
+
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Contact Us - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Contact Us';
+$banner_category = $page_info['banner_category'] ?? 'Contact';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
+
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/topbar.php';
 require_once __DIR__ . '/includes/navbar.php';
 require_once __DIR__ . '/includes/page-banner.php';
+
+$loc = $cards['location'] ?? [];
+$emailPortal = $cards['email_portal'] ?? [];
+$helpdesk = $cards['helpdesk'] ?? [];
+$adm = $cards['admission'] ?? [];
 ?>
 
 <style>
@@ -157,7 +173,7 @@ require_once __DIR__ . '/includes/page-banner.php';
           <div class="syl-card-header">
             <h2 class="syl-card-title">
               <i class="fa fa-map-location-dot text-warning"></i>
-              Get In Touch with SSSUTMS
+              <?php echo htmlspecialchars($page_info['heading'] ?? 'Get In Touch with SSSUTMS'); ?>
             </h2>
           </div>
           
@@ -170,13 +186,13 @@ require_once __DIR__ . '/includes/page-banner.php';
               <div class="col-md-6">
                 <div class="contact-info-card">
                   <div class="contact-icon-box">
-                    <i class="fa fa-location-dot"></i>
+                    <i class="fa <?php echo htmlspecialchars($loc['icon'] ?? 'fa-location-dot'); ?>"></i>
                   </div>
                   <div>
-                    <h6 class="fw-bold text-dark mb-1">Campus Location</h6>
+                    <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($loc['title'] ?? 'Campus Location'); ?></h6>
                     <p class="text-secondary small mb-0">
-                      Sri Satya Sai University of Technology &amp; Medical Sciences (SSSUTMS)<br>
-                      Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P.) &ndash; 466001
+                      <?php echo htmlspecialchars($loc['university_name'] ?? 'Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)'); ?><br>
+                      <?php echo htmlspecialchars($loc['address'] ?? 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P.) – 466001'); ?>
                     </p>
                   </div>
                 </div>
@@ -186,15 +202,15 @@ require_once __DIR__ . '/includes/page-banner.php';
               <div class="col-md-6">
                 <div class="contact-info-card">
                   <div class="contact-icon-box">
-                    <i class="fa fa-envelope-open-text"></i>
+                    <i class="fa <?php echo htmlspecialchars($emailPortal['icon'] ?? 'fa-envelope-open-text'); ?>"></i>
                   </div>
                   <div>
-                    <h6 class="fw-bold text-dark mb-1">Email &amp; Portal</h6>
+                    <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($emailPortal['title'] ?? 'Email & Portal'); ?></h6>
                     <p class="text-secondary small mb-1">
-                      <strong>General:</strong> <a href="mailto:info@sssutms.co.in" class="text-primary text-decoration-none">info@sssutms.co.in</a><br>
-                      <strong>Registrar:</strong> <a href="mailto:registrar@sssutms.co.in" class="text-primary text-decoration-none">registrar@sssutms.co.in</a>
+                      <strong>General:</strong> <a href="mailto:<?php echo htmlspecialchars($emailPortal['general_email'] ?? 'info@sssutms.co.in'); ?>" class="text-primary text-decoration-none"><?php echo htmlspecialchars($emailPortal['general_email'] ?? 'info@sssutms.co.in'); ?></a><br>
+                      <strong>Registrar:</strong> <a href="mailto:<?php echo htmlspecialchars($emailPortal['registrar_email'] ?? 'registrar@sssutms.co.in'); ?>" class="text-primary text-decoration-none"><?php echo htmlspecialchars($emailPortal['registrar_email'] ?? 'registrar@sssutms.co.in'); ?></a>
                     </p>
-                    <p class="text-muted small mb-0"><strong>Web:</strong> www.sssutms.co.in | www.sssutms.ac.in</p>
+                    <p class="text-muted small mb-0"><strong>Web:</strong> <?php echo htmlspecialchars($emailPortal['websites'] ?? 'www.sssutms.co.in | www.sssutms.ac.in'); ?></p>
                   </div>
                 </div>
               </div>
@@ -203,14 +219,14 @@ require_once __DIR__ . '/includes/page-banner.php';
               <div class="col-md-6">
                 <div class="contact-info-card">
                   <div class="contact-icon-box">
-                    <i class="fa fa-phone-volume"></i>
+                    <i class="fa <?php echo htmlspecialchars($helpdesk['icon'] ?? 'fa-phone-volume'); ?>"></i>
                   </div>
                   <div>
-                    <h6 class="fw-bold text-dark mb-1">University Helpdesk</h6>
+                    <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($helpdesk['title'] ?? 'University Helpdesk'); ?></h6>
                     <p class="text-secondary small mb-0">
-                      <strong>Tel:</strong> +91-7562-292740<br>
-                      <strong>Board:</strong> 07562-292203, 07562-292204, 07562-292205<br>
-                      <strong>Fax:</strong> +91-07562-292201
+                      <strong>Tel:</strong> <?php echo htmlspecialchars($helpdesk['telephone'] ?? '+91-7562-292740'); ?><br>
+                      <strong>Board:</strong> <?php echo htmlspecialchars($helpdesk['board_numbers'] ?? '07562-292203, 07562-292204, 07562-292205'); ?><br>
+                      <strong>Fax:</strong> <?php echo htmlspecialchars($helpdesk['fax'] ?? '+91-07562-292201'); ?>
                     </p>
                   </div>
                 </div>
@@ -220,15 +236,15 @@ require_once __DIR__ . '/includes/page-banner.php';
               <div class="col-md-6">
                 <div class="contact-info-card">
                   <div class="contact-icon-box">
-                    <i class="fa fa-headset"></i>
+                    <i class="fa <?php echo htmlspecialchars($adm['icon'] ?? 'fa-headset'); ?>"></i>
                   </div>
                   <div>
-                    <h6 class="fw-bold text-dark mb-1">Admission Helplines</h6>
+                    <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($adm['title'] ?? 'Admission Helplines'); ?></h6>
                     <p class="text-secondary small mb-1">
-                      <strong>Toll Free / Direct:</strong> <a href="tel:+917748900028" class="text-dark fw-bold text-decoration-none">+91-7748900028</a><br>
-                      <strong>Admission Cell:</strong> <a href="tel:+917562292740" class="text-dark fw-bold text-decoration-none">+91-7562-292740</a>
+                      <strong>Toll Free / Direct:</strong> <a href="tel:<?php echo htmlspecialchars($adm['toll_free_tel'] ?? '+917748900028'); ?>" class="text-dark fw-bold text-decoration-none"><?php echo htmlspecialchars($adm['toll_free'] ?? '+91-7748900028'); ?></a><br>
+                      <strong>Admission Cell:</strong> <a href="tel:<?php echo htmlspecialchars($adm['admission_cell_tel'] ?? '+917562292740'); ?>" class="text-dark fw-bold text-decoration-none"><?php echo htmlspecialchars($adm['admission_cell'] ?? '+91-7562-292740'); ?></a>
                     </p>
-                    <span class="badge bg-success">Mon &ndash; Sat: 9:00 AM to 5:30 PM</span>
+                    <span class="badge bg-success"><?php echo htmlspecialchars($adm['timings'] ?? 'Mon – Sat: 9:00 AM to 5:30 PM'); ?></span>
                   </div>
                 </div>
               </div>
@@ -237,7 +253,7 @@ require_once __DIR__ . '/includes/page-banner.php';
 
             <!-- Important Contact Directory -->
             <div class="department-heading">
-              <i class="fa fa-address-book"></i> University Authorities &amp; Key Officers Directory
+              <i class="fa fa-address-book"></i> <?php echo htmlspecialchars($page_info['directory_heading'] ?? 'University Authorities & Key Officers Directory'); ?>
             </div>
 
             <div class="table-responsive rounded-3 border mb-4">
@@ -251,68 +267,42 @@ require_once __DIR__ . '/includes/page-banner.php';
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">01</td>
-                    <td>
-                      <div class="fw-bold text-dark">Dr. Mukesh Tiwari</div>
-                      <div class="small text-muted">Vice Chancellor</div>
-                    </td>
-                    <td class="fw-bold text-primary">07562-292203</td>
-                    <td class="text-center">
-                      <a href="tel:07562292203" class="syl-btn">
-                        <i class="fa fa-phone"></i> Call Office
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">02</td>
-                    <td>
-                      <div class="fw-bold text-dark">Dr. H. K. Sharma</div>
-                      <div class="small text-muted">Registrar</div>
-                    </td>
-                    <td class="fw-bold text-primary">07562-292204</td>
-                    <td class="text-center">
-                      <a href="tel:07562292204" class="syl-btn">
-                        <i class="fa fa-phone"></i> Call Office
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">03</td>
-                    <td>
-                      <div class="fw-bold text-dark">Dr. Kanchan Shrivastava</div>
-                      <div class="small text-muted">Deputy Registrar</div>
-                    </td>
-                    <td class="fw-bold text-primary">07562-292202</td>
-                    <td class="text-center">
-                      <a href="tel:07562292202" class="syl-btn">
-                        <i class="fa fa-phone"></i> Call Office
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="text-center fw-bold text-secondary">04</td>
-                    <td>
-                      <div class="fw-bold text-dark">Dr. Sanjay Rathore</div>
-                      <div class="small text-muted">Controller of Examinations (CoE)</div>
-                    </td>
-                    <td class="fw-bold text-primary">07562-292201</td>
-                    <td class="text-center">
-                      <a href="tel:07562292201" class="syl-btn">
-                        <i class="fa fa-phone"></i> Call Office
-                      </a>
-                    </td>
-                  </tr>
+                  <?php if (empty($officers)): ?>
+                    <tr>
+                      <td colspan="4" class="text-center py-4 text-muted">No directory entries currently available.</td>
+                    </tr>
+                  <?php else: ?>
+                    <?php 
+                    $index = 1;
+                    foreach ($officers as $off): 
+                      $sno = !empty($off['sno']) ? $off['sno'] : str_pad($index, 2, '0', STR_PAD_LEFT);
+                      $cleanTel = preg_replace('/[^0-9\+]/', '', $off['phone']);
+                    ?>
+                    <tr>
+                      <td class="text-center fw-bold text-secondary"><?php echo htmlspecialchars($sno); ?></td>
+                      <td>
+                        <div class="fw-bold text-dark"><?php echo htmlspecialchars($off['name']); ?></div>
+                        <div class="small text-muted"><?php echo htmlspecialchars($off['designation']); ?></div>
+                      </td>
+                      <td class="fw-bold text-primary"><?php echo htmlspecialchars($off['phone']); ?></td>
+                      <td class="text-center">
+                        <a href="tel:<?php echo htmlspecialchars($cleanTel); ?>" class="syl-btn">
+                          <i class="fa <?php echo htmlspecialchars($off['action_icon'] ?? 'fa-phone'); ?>"></i> <?php echo htmlspecialchars($off['action_label'] ?? 'Call Office'); ?>
+                        </a>
+                      </td>
+                    </tr>
+                    <?php 
+                      $index++;
+                    endforeach; 
+                    ?>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
 
             <!-- Quick Inquiry & Message Form -->
             <div class="department-heading">
-              <i class="fa fa-paper-plane"></i> Send Us an Inquiry / Feedback Message
+              <i class="fa fa-paper-plane"></i> <?php echo htmlspecialchars($page_info['form_heading'] ?? 'Send Us an Inquiry / Feedback Message'); ?>
             </div>
 
             <div class="p-4 bg-light rounded-3 border mb-4">
@@ -355,11 +345,11 @@ require_once __DIR__ . '/includes/page-banner.php';
 
             <!-- Campus Interactive Map -->
             <div class="department-heading">
-              <i class="fa fa-map"></i> Campus Location on Map
+              <i class="fa fa-map"></i> <?php echo htmlspecialchars($page_info['map_heading'] ?? 'Campus Location on Map'); ?>
             </div>
 
             <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4423.9559848803465!2d77.12371640709164!3d23.21561474176524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397cf4c949567e4d%3A0xc7649cfdfe73a024!2sSri%20Satya%20Sai%20University%20of%20Technology%20%26%20Medical%20Sciences%2C%20Sehore!5e0!3m2!1sen!2sin!4v1700721177302!5m2!1sen!2sin" width="100%" height="400" style="border:0; display:block;" allowfullscreen loading="lazy"></iframe>
+              <iframe src="<?php echo htmlspecialchars($page_info['map_embed_url'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4423.9559848803465!2d77.12371640709164!3d23.21561474176524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397cf4c949567e4d%3A0xc7649cfdfe73a024!2sSri%20Satya%20Sai%20University%20of%20Technology%20%26%20Medical%20Sciences%2C%20Sehore!5e0!3m2!1sen!2sin!4v1700721177302!5m2!1sen!2sin'); ?>" width="100%" height="400" style="border:0; display:block;" allowfullscreen loading="lazy"></iframe>
             </div>
 
           </div>

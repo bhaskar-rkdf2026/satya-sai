@@ -1061,7 +1061,16 @@
                 "date": "2026-09-10",
                 "status": "Active"
             }
-        ]
+        ],
+        "page_info": {
+            "page_title": "",
+            "meta_title": "Anti-Ragging Committee &amp; Flying Squad - SSSUTMS Official",
+            "meta_description": "Zero tolerance policy towards ragging. Explore Anti-Ragging committee members, contact details and guidelines at SSSUTMS.",
+            "meta_keywords": "anti ragging sssutms, committee, squad, zero tolerance",
+            "canonical_url": "https://www.sssutms.ac.in/Academic/Committee/AntiRagging.php",
+            "og_image": "assets/images/anti-ragging-banner.jpg",
+            "updated_at": "2026-09-18 11:36:47"
+        }
     },
     "Committee_Equal_Opportunity_Cell": {
         "key": "Committee_Equal_Opportunity_Cell",
@@ -4509,7 +4518,7 @@
     },
     "ExamSchedule": {
         "section": "Examination",
-        "title": "Exam Schedule",
+        "title": "Exam Schedule &amp; Timetables",
         "source_file": "Examination/ExamSchedule.php",
         "documents": [
             {
@@ -7256,7 +7265,16 @@
                 "date": "2026-09-10",
                 "status": "Active"
             }
-        ]
+        ],
+        "page_info": {
+            "page_title": "Exam Schedule &amp; Timetables",
+            "meta_title": "Exam Schedule &amp; Time Tables | Semester Timetable | SSSUTMS",
+            "meta_description": "Download official semester exam schedules, theoretical and practical examination timetables, and date sheets for all courses at SSSUTMS.",
+            "meta_keywords": "SSSUTMS Exam Schedule, University Timetable Bhopal, Semester Date Sheet SSSUTMS, Exam Timetable Sehore, Theory Exam Date Sheet",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg",
+            "updated_at": "2026-09-18 11:05:09"
+        }
     },
     "QuickLinks": {
         "key": "QuickLinks",
@@ -9310,8 +9328,8 @@
             "updated_at": "2026-09-11 12:29:36"
         }
     ],
-    "NPTEL": [
-        {
+    "NPTEL": {
+        "0": {
             "id": "1",
             "title": "NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)",
             "subtitle": "SSSUTMS Local Chapter for IIT Online Certification Courses & FDPs",
@@ -9346,7 +9364,36 @@
                     "url": "https://drive.google.com/file/d/1NTIlO45DtQtJBCWZeDx9oWFHMZD2m9Wq/view"
                 }
             ],
-            "updated_at": "2026-09-11 12:29:36"
+            "updated_at": "2026-09-18 10:56:07",
+            "page_title": "NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)",
+            "meta_title": "NPTEL &amp; SWAYAM Local Chapter | SSSUTMS",
+            "meta_description": "SSSUTMS NPTEL Local Chapter: Access IIT online certification courses, SWAYAM MOOCs, faculty development programs, and exam guidelines.",
+            "meta_keywords": "NPTEL SSSUTMS, SWAYAM Local Chapter Sehore, IIT Online Courses, NPTEL Certification Bhopal",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
+        },
+        "page_info": {
+            "page_title": "NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)",
+            "meta_title": "NPTEL &amp; SWAYAM Local Chapter | SSSUTMS",
+            "meta_description": "SSSUTMS NPTEL Local Chapter: Access IIT online certification courses, SWAYAM MOOCs, faculty development programs, and exam guidelines.",
+            "meta_keywords": "NPTEL SSSUTMS, SWAYAM Local Chapter Sehore, IIT Online Courses, NPTEL Certification Bhopal",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg",
+            "updated_at": "2026-09-18 10:56:07"
         }
-    ]
+    },
+    "AntiRagging": {
+        "title": "Anti Ragging",
+        "section": "Academic",
+        "documents": [],
+        "page_info": {
+            "page_title": "",
+            "meta_title": "Anti-Ragging Committee &amp; Flying Squad - SSSUTMS Official",
+            "meta_description": "Zero tolerance policy towards ragging. Explore Anti-Ragging committee members, contact details and guidelines at SSSUTMS.",
+            "meta_keywords": "anti ragging sssutms, committee, squad, zero tolerance",
+            "canonical_url": "https://www.sssutms.ac.in/Academic/Committee/AntiRagging.php",
+            "og_image": "assets/images/anti-ragging-banner.jpg",
+            "updated_at": "2026-09-18 11:36:47"
+        }
+    }
 }

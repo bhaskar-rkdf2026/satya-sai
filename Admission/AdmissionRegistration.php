@@ -24,7 +24,13 @@ $regData = [
     'instructions' => $instructionsList
 ];
 
-$page_title = ($regData['page_title'] ?? 'Admission Registration') . ' - SSSUTMS';
+$page_data = $pageData;
+$meta_title = !empty($pageData['meta_title']) ? $pageData['meta_title'] : (($regData['page_title'] ?? 'Admission Registration') . ' - SSSUTMS');
+$page_title = $meta_title;
+$meta_description = $pageData['meta_description'] ?? '';
+$meta_keywords = $pageData['meta_keywords'] ?? '';
+$canonical_url = $pageData['canonical_url'] ?? '';
+$og_image = $pageData['og_image'] ?? 'assets/images/logo/logo.jpg';
 $banner_title = $regData['page_title'] ?? 'Admission Registration';
 $banner_category = 'Admission';
 

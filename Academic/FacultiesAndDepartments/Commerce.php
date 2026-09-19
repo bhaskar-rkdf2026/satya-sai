@@ -1,9 +1,11 @@
-﻿<?php
-$page_title = 'Commerce - SSSUTMS';
-$banner_title = 'Commerce';
-$banner_category = 'Academic';
-
+<?php
 require_once __DIR__ . '/../../config.php';
+$faculty_page = get_faculty_page('Commerce');
+$page_title = (!empty($faculty_page['title']) ? $faculty_page['title'] : 'Commerce - SSSUTMS');
+$banner_title = $faculty_page['banner_title'] ?? 'Commerce';
+$banner_category = $faculty_page['banner_category'] ?? 'Academic';
+$facultyDocs = get_page_documents('faculty_Commerce');
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

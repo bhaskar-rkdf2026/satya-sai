@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'To nurture financial leaders, accountants, tax strategists, and business thinkers through rigorous analytical pedagogy and corporate training.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Commerce - Outcome Based Curriculum - SSSUTMS';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Commerce - Outcome Based Curriculum - SSSUTMS');
 $banner_title = $page_info['banner_title'] ?? 'Commerce';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

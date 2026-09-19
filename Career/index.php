@@ -1,9 +1,19 @@
 <?php
-$page_title = 'Career & Faculty Recruitment - SSSUTMS';
-$banner_title = 'Career & Recruitment';
-$banner_category = 'Career';
-
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/career_helper.php';
+
+$page_info = get_career_page_info();
+$openings = get_career_openings(true);
+
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Career & Faculty Recruitment - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Career & Recruitment';
+$banner_category = $page_info['banner_category'] ?? 'Career';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -130,150 +140,75 @@ require_once __DIR__ . '/../includes/page-banner.php';
           <div class="syl-card-header">
             <h2 class="syl-card-title">
               <i class="fa fa-briefcase text-warning"></i>
-              Career Opportunities &amp; Faculty Recruitment
+              <?php echo htmlspecialchars($page_info['heading'] ?? 'Career Opportunities & Faculty Recruitment'); ?>
             </h2>
           </div>
           
           <div class="syl-card-body">
             
             <!-- Recruitment Introduction -->
+            <?php if (!empty($page_info['intro_text'])): ?>
             <div class="alert alert-primary bg-light border-primary border-start border-4 rounded-3 p-3 mb-4">
               <div class="d-flex align-items-start gap-3">
                 <i class="fa fa-info-circle text-primary fa-2x mt-1"></i>
                 <div>
-                  <h6 class="fw-bold text-dark mb-1">Join Sri Satya Sai University of Technology &amp; Medical Sciences</h6>
+                  <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($page_info['intro_title'] ?? 'Join Sri Satya Sai University of Technology & Medical Sciences'); ?></h6>
                   <p class="text-secondary small mb-0">
-                    SSSUTMS invites dynamic, visionary, and qualified academic and administrative professionals to join our distinguished faculty team. We follow the reservation policy for staff recruitment in accordance with the guidelines set by the Government of Madhya Pradesh.
+                    <?php echo nl2br(htmlspecialchars($page_info['intro_text'])); ?>
                   </p>
                 </div>
               </div>
             </div>
+            <?php endif; ?>
 
             <!-- 1. Latest Recruitment Notifications -->
             <div class="department-heading">
-              <i class="fa fa-bullhorn"></i> Current Recruitment Notices &amp; Job Advertisements
+              <i class="fa fa-bullhorn"></i> <?php echo htmlspecialchars($page_info['section_heading'] ?? 'Current Recruitment Notices & Job Advertisements'); ?>
             </div>
 
             <div class="row g-4 mb-4">
               
-              <!-- School of Pharmacy Recruitment -->
+              <?php foreach ($openings as $op): 
+                $badgeColor = $op['badge_color'] ?? 'primary';
+                $buttons = $op['buttons'] ?? [];
+                $imageUrl = !empty($op['image']) ? base_url($op['image']) : '';
+              ?>
               <div class="col-md-6">
                 <div class="job-card">
+                  <?php if (!empty($imageUrl)): ?>
                   <div class="job-img-wrapper p-2">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/SCHOOL_OF_PHARMACY_23052026_0320.jpeg" alt="School of Pharmacy Recruitment">
+                    <img src="<?php echo htmlspecialchars($imageUrl); ?>" alt="<?php echo htmlspecialchars($op['title']); ?>">
                   </div>
+                  <?php endif; ?>
                   <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
                     <div>
-                      <span class="badge bg-success mb-2">Faculty Position</span>
-                      <h6 class="fw-bold text-dark mb-1">School of Pharmacy – Faculty Recruitment</h6>
-                      <p class="text-secondary small mb-3">Applications invited for Professors, Associate Professors &amp; Assistant Professors in Pharmaceutics, Pharmacology, Pharmacognosy &amp; Chemistry.</p>
+                      <?php if (!empty($op['badge'])): ?>
+                        <span class="badge bg-<?php echo htmlspecialchars($badgeColor); ?> mb-2"><?php echo htmlspecialchars($op['badge']); ?></span>
+                      <?php endif; ?>
+                      <h6 class="fw-bold text-dark mb-1"><?php echo htmlspecialchars($op['title']); ?></h6>
+                      <p class="text-secondary small mb-3"><?php echo htmlspecialchars($op['description']); ?></p>
                     </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/SCHOOL_OF_PHARMACY_23052026_0320.jpeg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-expand"></i> View Full Advertisement
-                    </a>
+                    <?php if (!empty($buttons)): ?>
+                      <?php if (count($buttons) > 1): ?>
+                        <div class="d-flex flex-wrap gap-2">
+                          <?php foreach ($buttons as $btn): ?>
+                            <a href="<?php echo htmlspecialchars(base_url($btn['url'])); ?>" target="_blank" rel="noopener" class="syl-btn">
+                              <i class="fa <?php echo htmlspecialchars($btn['icon'] ?? 'fa-file-pdf'); ?>"></i> <?php echo htmlspecialchars($btn['label']); ?>
+                            </a>
+                          <?php endforeach; ?>
+                        </div>
+                      <?php else: 
+                        $btn = $buttons[0];
+                      ?>
+                        <a href="<?php echo htmlspecialchars(base_url($btn['url'])); ?>" target="_blank" rel="noopener" class="syl-btn align-self-start">
+                          <i class="fa <?php echo htmlspecialchars($btn['icon'] ?? 'fa-expand'); ?>"></i> <?php echo htmlspecialchars($btn['label']); ?>
+                        </a>
+                      <?php endif; ?>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>
-
-              <!-- General Faculty & Staff Openings -->
-              <div class="col-md-6">
-                <div class="job-card">
-                  <div class="job-img-wrapper p-2">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/last_updated_27052026_1224.png" alt="Faculty Recruitment Openings">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <span class="badge bg-primary mb-2">Teaching &amp; Admin</span>
-                      <h6 class="fw-bold text-dark mb-1">Faculty &amp; Technical Staff Positions</h6>
-                      <p class="text-secondary small mb-3">Openings across Engineering, Computer Applications, Management, Nursing, Paramedical &amp; Basic Sciences.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/last_updated_27052026_1224.png" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-expand"></i> View Full Advertisement
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- School of Homoeopathy Appointment -->
-              <div class="col-md-6">
-                <div class="job-card">
-                  <div class="job-img-wrapper p-2">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/job_08012025_0348.jpg" alt="School of Homoeopathy Recruitment">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <span class="badge bg-danger mb-2">Medical Faculty</span>
-                      <h6 class="fw-bold text-dark mb-1">School of Homoeopathy &amp; Hospital (BHMS / MD)</h6>
-                      <p class="text-secondary small mb-3">Recruitment of Senior Consultants, Professors, Readers &amp; Lecturers for Homoeopathic Medical College.</p>
-                    </div>
-                    <div class="d-flex flex-wrap gap-2">
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Appointment_Add_BHMS_PG_04102023_0923.pdf" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-file-pdf"></i> Download PDF
-                      </a>
-                      <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/job_08012025_0348.jpg" target="_blank" rel="noopener" class="syl-btn">
-                        <i class="fa fa-image"></i> View Poster
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Medical Sciences Recruitment -->
-              <div class="col-md-6">
-                <div class="job-card">
-                  <div class="job-img-wrapper p-2">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-04-09_at_12.57.59_PM_09042026_0117.jpg" alt="Medical Sciences Requirement">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <span class="badge bg-info text-dark mb-2">Clinical &amp; Non-Clinical</span>
-                      <h6 class="fw-bold text-dark mb-1">Requirement: School of Medical Sciences</h6>
-                      <p class="text-secondary small mb-3">Positions for Medical Officers, Clinical Tutors, Resident Doctors, Nursing Staff &amp; Lab Technicians.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/WhatsApp_Image_2026-04-09_at_12.57.59_PM_09042026_0117.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-expand"></i> View Full Advertisement
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ombudsperson Appointment -->
-              <div class="col-md-6">
-                <div class="job-card">
-                  <div class="job-img-wrapper p-2">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/ad_06072023_1203.jpg" alt="Ombudsperson Appointment">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <span class="badge bg-warning text-dark mb-2">Statutory Position</span>
-                      <h6 class="fw-bold text-dark mb-1">Appointment of University OMBUDSPERSON (Part Time)</h6>
-                      <p class="text-secondary small mb-3">Applications invited for the post of Ombudsperson in compliance with UGC Student Grievance Redressal Regulations.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/career.pdf" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-file-pdf"></i> Download Notification PDF
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Vice Chancellor Appointment Notice -->
-              <div class="col-md-6">
-                <div class="job-card">
-                  <div class="job-img-wrapper p-2">
-                    <img src="<?php echo BASE_URL; ?>assets/images/Files/Link/Appointment_of_Vice-Chancellor_16082023_0445.jpg" alt="Vice Chancellor Appointment">
-                  </div>
-                  <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                      <span class="badge bg-secondary mb-2">Leadership</span>
-                      <h6 class="fw-bold text-dark mb-1">Appointment of Vice-Chancellor</h6>
-                      <p class="text-secondary small mb-3">Official search committee notification for the appointment of Vice-Chancellor at SSSUTMS.</p>
-                    </div>
-                    <a href="<?php echo BASE_URL; ?>assets/images/Files/Link/Appointment_of_Vice-Chancellor_16082023_0445.jpg" target="_blank" rel="noopener" class="syl-btn align-self-start">
-                      <i class="fa fa-expand"></i> View Full Advertisement
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <?php endforeach; ?>
 
             </div>
 

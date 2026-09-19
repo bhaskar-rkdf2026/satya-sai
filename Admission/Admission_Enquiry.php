@@ -26,7 +26,13 @@ $enqData = [
     'address' => $pageData['contact_address'] ?? 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P), Pin - 466001'
 ];
 
-$page_title = ($enqData['page_title'] ?? 'Admission Enquiry') . ' - SSSUTMS';
+$page_data = $pageData;
+$meta_title = !empty($pageData['meta_title']) ? $pageData['meta_title'] : (($enqData['page_title'] ?? 'Admission Enquiry') . ' - SSSUTMS');
+$page_title = $meta_title;
+$meta_description = $pageData['meta_description'] ?? '';
+$meta_keywords = $pageData['meta_keywords'] ?? '';
+$canonical_url = $pageData['canonical_url'] ?? '';
+$og_image = $pageData['og_image'] ?? 'assets/images/logo/logo.jpg';
 $banner_title = $enqData['page_title'] ?? 'Admission Enquiry';
 $banner_category = 'Admission';
 

@@ -1,0 +1,48 @@
+{
+    "page_info": {
+        "page_title": "ITEP - SSSUTMS",
+        "banner_title": "Integrated Teacher Education Programme (ITEP)",
+        "banner_category": "I T E P",
+        "card_title": "ITEP",
+        "card_icon": "fa-graduation-cap",
+        "program_heading": "Integrated Teacher Education Programme",
+        "program_description": "Access detailed academic information, curriculum, regulatory disclosures, and institutional details under the Faculty of Education.",
+        "button_label": "Faculty of Education",
+        "button_url": "About/Faculty_of_Education.php",
+        "button_icon": "fa-link",
+        "center_icon": "fa-university",
+        "meta_title": "ITEP - Integrated Teacher Education Programme | SSSUTMS",
+        "meta_description": "Discover the 4-Year Integrated Teacher Education Programme (ITEP) at Sri Satya Sai University (SSSUTMS). NCTE approved B.A. B.Ed. & B.Sc. B.Ed. dual-major educator degree.",
+        "meta_keywords": "ITEP SSSUTMS, Integrated Teacher Education Programme, NCTE Approved BEd Sehore, NEP 2020 Teacher Education Bhopal MP",
+        "canonical_url": "",
+        "og_image": "assets/images/logo/logo.jpg"
+    },
+    "announcements": [
+        {
+            "id": "itep_ann_01",
+            "title": "National Council for Teacher Education (NCTE) Institutional Disclosures & Approvals",
+            "category": "Regulatory Approval",
+            "date": "2026-06-01",
+            "file": "About/Faculty_of_Education.php",
+            "status": "Active"
+        },
+        {
+            "id": "itep_ann_02",
+            "title": "ITEP Dual-Major Holistic 4-Year B.Ed. Curriculum Framework (NEP 2020 Aligned)",
+            "category": "Curriculum",
+            "date": "2026-05-15",
+            "file": "About/Faculty_of_Education.php",
+            "status": "Active"
+        }
+    ],
+    "events": [
+        {
+            "id": "itep_ev_01",
+            "title": "National Workshop on NEP 2020 Pedagogical Practices in Teacher Education",
+            "date": "2026-07-20",
+            "venue": "Faculty of Education Seminar Hall, Campus",
+            "description": "Interactive faculty development session on modern pedagogical strategies, active learning, and micro-teaching methodology.",
+            "status": "Active"
+        }
+    ]
+}

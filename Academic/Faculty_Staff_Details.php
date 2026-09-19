@@ -1,9 +1,18 @@
 <?php
-$page_title = 'Faculty Staff Details - SSSUTMS';
-$banner_title = 'Faculty Staff Details';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../config.php';
+
+$pageSeo = function_exists('get_academic_page_info') ? get_academic_page_info('FacultyStaffDetails') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Faculty Staff Details - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['banner_title'] ?? ($pageSeo['page_title'] ?? 'Faculty Staff Details');
+$banner_category = $pageSeo['banner_category'] ?? 'Academic';
+$academicDocs = function_exists('get_academic_documents') ? get_academic_documents('FacultyStaffDetails') : [];
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -196,6 +205,41 @@ require_once __DIR__ . '/../includes/page-banner.php';
                 </a>
               </div>
             </div>
+
+            <!-- Dynamic Attached Orders & Documents from Admin Panel -->
+            <?php if (!empty($academicDocs)): ?>
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-top:24px;">
+              <h5 style="color:#0b2545; font-weight:700; font-size:1.05rem; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+                <i class="fa fa-folder-open text-warning"></i> Additional Faculty &amp; Staff Registers
+              </h5>
+              <div class="row g-2">
+                <?php foreach ($academicDocs as $doc): 
+                  $dTitle = !empty($doc['title']) ? $doc['title'] : 'Staff Directory Document';
+                  $dPath = !empty($doc['file_path']) ? $doc['file_path'] : (!empty($doc['url']) ? $doc['url'] : '#');
+                  if ($dPath !== '#' && !preg_match('/^https?:\/\//i', $dPath)) {
+                    $dPath = $base_url . ltrim($dPath, '/');
+                  }
+                  $dDate = !empty($doc['date']) ? $doc['date'] : '';
+                ?>
+                <div class="col-md-6">
+                  <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                    <div style="overflow:hidden;">
+                      <div style="font-weight:600; font-size:0.88rem; color:#1e293b; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">
+                        <i class="fa fa-file-pdf text-danger me-1"></i> <?= htmlspecialchars($dTitle) ?>
+                      </div>
+                      <?php if ($dDate): ?>
+                      <small style="color:#64748b; font-size:0.75rem;"><i class="fa fa-calendar-alt me-1"></i><?= htmlspecialchars($dDate) ?></small>
+                      <?php endif; ?>
+                    </div>
+                    <a href="<?= htmlspecialchars($dPath) ?>" target="_blank" class="btn btn-sm btn-outline-primary" style="font-size:0.75rem; white-space:nowrap; padding:4px 10px; border-radius:6px;">
+                      <i class="fa fa-download me-1"></i> View
+                    </a>
+                  </div>
+                </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+            <?php endif; ?>
 
           </div>
         </div><!-- end fsd-main-card -->

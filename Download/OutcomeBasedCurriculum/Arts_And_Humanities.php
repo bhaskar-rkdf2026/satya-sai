@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'To empower students with deep cultural consciousness, linguistic mastery, ethical philosophy, and social research capabilities for societal advancement.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Arts & Humanities - Outcome Based Curriculum - SSSUTMS';
-$banner_title = $page_info['banner_title'] ?? 'Arts & Humanities';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Arts & Humanities - Outcome Based Curriculum - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Arts_And_Humanities';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

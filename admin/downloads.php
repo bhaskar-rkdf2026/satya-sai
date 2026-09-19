@@ -7,22 +7,30 @@ $catalog = get_download_catalog();
 $msg = '';
 $error = '';
 
-// Handle Save Page Info (Headings, Badges, Vision, Mission)
+// Handle Save Page Info (Headings, Badges, Vision, Mission, SEO)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_page_info') {
     $pageKey = clean_input($_POST['page_key'] ?? '');
     if (!empty($pageKey)) {
         $infoData = [
-            'heading'        => clean_input($_POST['heading'] ?? ''),
-            'subheading'     => clean_input($_POST['subheading'] ?? ''),
-            'badge_obe'      => clean_input($_POST['badge_obe'] ?? ''),
-            'badge_approval' => clean_input($_POST['badge_approval'] ?? ''),
-            'vision_title'   => clean_input($_POST['vision_title'] ?? 'VISION'),
-            'vision_text'    => trim($_POST['vision_text'] ?? ''),
-            'mission_title'  => clean_input($_POST['mission_title'] ?? 'MISSION'),
-            'mission_text'   => trim($_POST['mission_text'] ?? ''),
+            'heading'          => clean_input($_POST['heading'] ?? ''),
+            'subheading'       => clean_input($_POST['subheading'] ?? ''),
+            'badge_obe'        => clean_input($_POST['badge_obe'] ?? ''),
+            'badge_approval'   => clean_input($_POST['badge_approval'] ?? ''),
+            'vision_title'     => clean_input($_POST['vision_title'] ?? 'VISION'),
+            'vision_text'      => trim($_POST['vision_text'] ?? ''),
+            'mission_title'    => clean_input($_POST['mission_title'] ?? 'MISSION'),
+            'mission_text'     => trim($_POST['mission_text'] ?? ''),
+            'page_title'       => clean_input($_POST['page_title'] ?? ''),
+            'banner_title'     => clean_input($_POST['banner_title'] ?? ''),
+            'banner_category'  => clean_input($_POST['banner_category'] ?? 'Outcome Based Curriculum'),
+            'meta_title'       => clean_input($_POST['meta_title'] ?? ''),
+            'meta_description' => clean_input($_POST['meta_description'] ?? ''),
+            'meta_keywords'    => clean_input($_POST['meta_keywords'] ?? ''),
+            'canonical_url'    => clean_input($_POST['canonical_url'] ?? ''),
+            'og_image'         => clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg')
         ];
         save_obe_page_info($pageKey, $infoData);
-        $msg = "Page details and Vision/Mission statements updated successfully!";
+        $msg = "Page details, SEO meta tags and Vision/Mission statements updated successfully!";
     }
 }
 
@@ -227,6 +235,10 @@ if (empty($existingCategories)) {
     <li><a href="faculties.php" class="nav-link"><i class="fa fa-chalkboard-user"></i> Faculties &amp; Depts (14)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals &amp; NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events &amp; Workshops</a></li>
+    <li><a href="career.php" class="nav-link"><i class="fa fa-briefcase"></i> Career &amp; Recruitment</a></li>
+    <li><a href="contact.php" class="nav-link"><i class="fa fa-phone-volume"></i> Contact &amp; Helpdesk</a></li>
+    <li><a href="itep.php" class="nav-link"><i class="fa fa-graduation-cap"></i> ITEP Cell</a></li>
+    <li><a href="gallery.php" class="nav-link"><i class="fa fa-camera-retro"></i> Photo &amp; Video Gallery</a></li>
     <li><a href="downloads.php" class="nav-link active"><i class="fa fa-folder-arrow-down"></i> Curriculum &amp; Downloads (52)</a></li>
     <li><a href="applications.php" class="nav-link"><i class="fa fa-user-graduate"></i> Student Registrations</a></li>
     <li><a href="inquiries.php" class="nav-link"><i class="fa fa-envelope-open-text"></i> Admission Leads</a></li>
@@ -403,66 +415,196 @@ if (empty($existingCategories)) {
         </div>
       </div>
 
-      <!-- Page Content & Header / Vision Settings -->
-      <div class="accordion mb-4" id="accordionPageSettings">
-        <div class="accordion-item border rounded-3 overflow-hidden">
-          <h2 class="accordion-header" id="headingPageSettings">
-            <button class="accordion-button collapsed fw-bold text-dark bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePageSettings" aria-expanded="false" aria-controls="collapsePageSettings">
-              <i class="fa fa-pen-to-square text-primary me-2"></i> Page Header &amp; Content Settings for "<?php echo htmlspecialchars($selectedPageInfo['title']); ?>"
-            </button>
-          </h2>
-          <div id="collapsePageSettings" class="accordion-collapse collapse" aria-labelledby="headingPageSettings" data-bs-parent="#accordionPageSettings">
-            <div class="accordion-body p-4 bg-white">
-              <form method="POST" action="downloads.php?sec=<?php echo urlencode($activeSection); ?>&page=<?php echo urlencode($selectedPage); ?>">
-                <input type="hidden" name="action" value="save_page_info">
-                <input type="hidden" name="page_key" value="<?php echo htmlspecialchars($selectedPage); ?>">
+      <!-- Page Content, Headers & SEO Settings Card -->
+      <div class="card border-0 shadow-sm rounded-3 mb-4 border-start border-4 border-primary">
+        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <div>
+            <span class="badge bg-primary text-white mb-1"><?php echo htmlspecialchars($activeSection); ?></span>
+            <h5 class="fw-bold mb-0 text-dark">Page Settings &amp; SEO: <?php echo htmlspecialchars($selectedPageInfo['title']); ?></h5>
+            <small class="text-muted">Target Page: <code><?php echo htmlspecialchars($selectedPageInfo['file']); ?></code></small>
+          </div>
+          <a href="<?php echo htmlspecialchars(base_url($selectedPageInfo['file'])); ?>" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+            <i class="fa fa-arrow-up-right-from-square me-1"></i> Live Page View
+          </a>
+        </div>
 
-                <div class="row g-3">
+        <div class="card-body p-4 bg-light">
+          <form method="POST" action="downloads.php?sec=<?php echo urlencode($activeSection); ?>&page=<?php echo urlencode($selectedPage); ?>">
+            <input type="hidden" name="action" value="save_page_info">
+            <input type="hidden" name="page_key" value="<?php echo htmlspecialchars($selectedPage); ?>">
+
+            <!-- Tab Navigation Header for Downloads / OBC Page -->
+            <ul class="nav nav-pills mb-4 gap-2 border-bottom pb-3" id="dlPageTabNav" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold px-4 py-2" id="tab-dl-general" data-bs-toggle="pill" data-bs-target="#pane-dl-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-2"></i>General Content &amp; Media
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold px-4 py-2" id="tab-dl-seo" data-bs-toggle="pill" data-bs-target="#pane-dl-seo" type="button" role="tab" style="background: rgba(16,185,129,0.08); color: #047857; border: 1px solid rgba(16,185,129,0.3);">
+                  <i class="fa-solid fa-magnifying-glass me-2"></i>SEO &amp; Meta Details <span class="badge bg-success ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="dlPageTabContent">
+              <!-- TAB 1: General Content & Media -->
+              <div class="tab-pane fade show active" id="pane-dl-general" role="tabpanel">
+                
+                <h6 class="fw-bold text-dark mb-3"><i class="fa fa-heading text-primary me-2"></i>Headings &amp; Banner Configurations</h6>
+
+                <div class="row g-3 mb-4">
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold small text-dark">Page Title (Browser Tab)</label>
+                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageInfo['page_title'] ?? ($selectedPageInfo['title'] . ' - Outcome Based Curriculum - SSSUTMS')); ?>">
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold small text-dark">Banner Top Title</label>
+                    <input type="text" name="banner_title" class="form-control" value="<?php echo htmlspecialchars($pageInfo['banner_title'] ?? $selectedPageInfo['title']); ?>">
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold small text-dark">Banner Category</label>
+                    <input type="text" name="banner_category" class="form-control" value="<?php echo htmlspecialchars($pageInfo['banner_category'] ?? $activeSection); ?>">
+                  </div>
+
                   <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Faculty / Page Heading</label>
+                    <label class="form-label fw-semibold small text-dark">Faculty / Page Heading</label>
                     <input type="text" name="heading" class="form-control" value="<?php echo htmlspecialchars($pageInfo['heading'] ?? ('FACULTY OF ' . strtoupper($selectedPageInfo['title']))); ?>" required>
                   </div>
 
                   <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Subheading / Description</label>
+                    <label class="form-label fw-semibold small text-dark">Subheading / Description</label>
                     <input type="text" name="subheading" class="form-control" value="<?php echo htmlspecialchars($pageInfo['subheading'] ?? 'Teaching, Examination Schemes & Detailed Course Curriculum.'); ?>" required>
                   </div>
 
                   <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Top Badge 1 (e.g. Faculties &amp; Depts / OBE)</label>
-                    <input type="text" name="badge_obe" class="form-control" value="<?php echo htmlspecialchars($pageInfo['badge_obe'] ?? 'Faculties & Departments'); ?>">
+                    <label class="form-label fw-semibold small text-dark">Top Badge 1 (e.g. OBE / Department)</label>
+                    <input type="text" name="badge_obe" class="form-control" value="<?php echo htmlspecialchars($pageInfo['badge_obe'] ?? 'Outcome Based Education (OBE)'); ?>">
                   </div>
 
                   <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Top Badge 2 (Approval Status)</label>
-                    <input type="text" name="badge_approval" class="form-control" value="<?php echo htmlspecialchars($pageInfo['badge_approval'] ?? 'UGC Approved'); ?>">
+                    <label class="form-label fw-semibold small text-dark">Top Badge 2 (Approval Status)</label>
+                    <input type="text" name="badge_approval" class="form-control" value="<?php echo htmlspecialchars($pageInfo['badge_approval'] ?? 'UGC & AICTE Approved'); ?>">
                   </div>
+                </div>
 
-                  <?php if ($activeSection === 'Outcome Based Curriculum' || !empty($pageInfo['vision_text']) || !empty($pageInfo['mission_text'])): ?>
+                <?php if ($activeSection === 'Outcome Based Curriculum' || !empty($pageInfo['vision_text']) || !empty($pageInfo['mission_text'])): ?>
+                  <h6 class="fw-bold text-dark mb-3 mt-4"><i class="fa fa-bullseye text-danger me-2"></i>Institutional Vision &amp; Mission Statements</h6>
+                  <div class="row g-3">
                     <div class="col-md-6">
-                      <label class="form-label fw-bold small text-dark">Vision Title</label>
+                      <label class="form-label fw-semibold small text-dark">Vision Title</label>
                       <input type="text" name="vision_title" class="form-control" value="<?php echo htmlspecialchars($pageInfo['vision_title'] ?? 'VISION'); ?>">
-                      <label class="form-label fw-bold small text-dark mt-2">Vision Statement Text</label>
+                      <label class="form-label fw-semibold small text-dark mt-2">Vision Statement Text</label>
                       <textarea name="vision_text" class="form-control" rows="4"><?php echo htmlspecialchars($pageInfo['vision_text'] ?? ''); ?></textarea>
                     </div>
 
                     <div class="col-md-6">
-                      <label class="form-label fw-bold small text-dark">Mission Title</label>
+                      <label class="form-label fw-semibold small text-dark">Mission Title</label>
                       <input type="text" name="mission_title" class="form-control" value="<?php echo htmlspecialchars($pageInfo['mission_title'] ?? 'MISSION'); ?>">
-                      <label class="form-label fw-bold small text-dark mt-2">Mission Statement Text</label>
+                      <label class="form-label fw-semibold small text-dark mt-2">Mission Statement Text</label>
                       <textarea name="mission_text" class="form-control" rows="4"><?php echo htmlspecialchars($pageInfo['mission_text'] ?? ''); ?></textarea>
                     </div>
-                  <?php endif; ?>
+                  </div>
+                <?php endif; ?>
 
-                  <div class="col-12 text-end mt-3">
-                    <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">
-                      <i class="fa fa-save me-1"></i> Update Page Details &amp; Headers
-                    </button>
+              </div><!-- end TAB 1 -->
+
+              <!-- TAB 2: SEO & Meta Details -->
+              <div class="tab-pane fade" id="pane-dl-seo" role="tabpanel">
+
+                <!-- Google SERP Live Snippet Preview Box -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Download › OutcomeBasedCurriculum › <?php echo htmlspecialchars($selectedPageInfo['title']); ?></span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleDl" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars(!empty($pageInfo['meta_title']) ? $pageInfo['meta_title'] : ($selectedPageInfo['title'] . ' - Outcome Based Curriculum | SSSUTMS')); ?>
+                      </h5>
+                      <p id="seoPreviewDescDl" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars(!empty($pageInfo['meta_description']) ? $pageInfo['meta_description'] : ('Explore Outcome Based Curriculum (OBE), pedagogical objectives, course outcomes, and syllabus for ' . $selectedPageInfo['title'] . ' at Sri Satya Sai University (SSSUTMS).')); ?>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </form>
+
+                <!-- SEO Form Fields -->
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountDl">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleDl" class="form-control" value="<?php echo htmlspecialchars($pageInfo['meta_title'] ?? ''); ?>" placeholder="e.g. <?php echo htmlspecialchars($selectedPageInfo['title']); ?> - Outcome Based Curriculum | SSSUTMS" oninput="updateSeoPreviewDl()">
+                    <small class="text-muted">Displayed as the main clickable headline in Google search results and browser tab.</small>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountDl">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescDl" class="form-control" rows="3" placeholder="Provide a compelling 150-160 character description of this curriculum page for Google search snippets..." oninput="updateSeoPreviewDl()"><?php echo htmlspecialchars($pageInfo['meta_description'] ?? ''); ?></textarea>
+                    <small class="text-muted">Google snippet description to entice prospective students and educators searching for syllabus/curriculum to click.</small>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords (Comma Separated)
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageInfo['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS, <?php echo htmlspecialchars($selectedPageInfo['title']); ?> Curriculum, OBE Syllabus Sehore">
+                    <small class="text-muted">Target keywords for search engine discovery and category relevance.</small>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override (Optional)
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageInfo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                    <small class="text-muted">Preferred canonical page link for duplicate prevention.</small>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageInfo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>" placeholder="e.g. assets/images/logo/logo.jpg">
+                    </div>
+                    <small class="text-muted">Image shown when curriculum page link is shared on WhatsApp, Facebook, LinkedIn, Twitter.</small>
+                  </div>
+                </div>
+
+              </div><!-- end TAB 2 -->
             </div>
-          </div>
+
+            <!-- Sticky / Prominent Save Bar -->
+            <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+              <div class="small text-muted">
+                <i class="fa fa-circle-check text-success me-1"></i> Changes will immediately update the live public website and search engine tags.
+              </div>
+              <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                <i class="fa fa-floppy-disk me-1"></i> Save Page Changes
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -768,7 +910,37 @@ document.addEventListener('DOMContentLoaded', function () {
       modal.show();
     });
   });
+
+  updateSeoPreviewDl();
 });
+
+// SEO Live Preview & Counter for Downloads & Outcome Based Curriculum Pages
+function updateSeoPreviewDl() {
+  const titleInput = document.getElementById('seoInputTitleDl');
+  const descInput = document.getElementById('seoInputDescDl');
+  const previewTitle = document.getElementById('seoPreviewTitleDl');
+  const previewDesc = document.getElementById('seoPreviewDescDl');
+  const titleCount = document.getElementById('metaTitleCountDl');
+  const descCount = document.getElementById('metaDescCountDl');
+
+  if (titleInput && previewTitle) {
+    const val = titleInput.value.trim();
+    previewTitle.textContent = val ? val : '<?php echo htmlspecialchars($selectedPageInfo['title']); ?> - Outcome Based Curriculum | SSSUTMS';
+    if (titleCount) {
+      titleCount.textContent = titleInput.value.length;
+      titleCount.className = (titleInput.value.length > 60) ? 'text-danger fw-bold' : 'text-success fw-bold';
+    }
+  }
+
+  if (descInput && previewDesc) {
+    const val = descInput.value.trim();
+    previewDesc.textContent = val ? val : 'Explore Outcome Based Curriculum (OBE), pedagogical objectives, course outcomes, and syllabus for <?php echo htmlspecialchars($selectedPageInfo['title']); ?> at Sri Satya Sai University (SSSUTMS).';
+    if (descCount) {
+      descCount.textContent = descInput.value.length;
+      descCount.className = (descInput.value.length > 160) ? 'text-danger fw-bold' : 'text-success fw-bold';
+    }
+  }
+}
 </script>
 </body>
 </html>

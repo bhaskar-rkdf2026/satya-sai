@@ -1,0 +1,166 @@
+{
+    "page_info": {
+        "page_title": "Career & Faculty Recruitment - SSSUTMS",
+        "banner_title": "Career & Recruitment",
+        "banner_category": "Career",
+        "heading": "Career Opportunities & Faculty Recruitment",
+        "intro_title": "Join Sri Satya Sai University of Technology & Medical Sciences",
+        "intro_text": "SSSUTMS invites dynamic, visionary, and qualified academic and administrative professionals to join our distinguished faculty team. We follow the reservation policy for staff recruitment in accordance with the guidelines set by the Government of Madhya Pradesh.",
+        "section_heading": "Current Recruitment Notices & Job Advertisements",
+        "meta_title": "Career Opportunities & Faculty Recruitment | Sri Satya Sai University (SSSUTMS)",
+        "meta_description": "Explore teaching, research, administrative, and healthcare job vacancies at Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS), Sehore.",
+        "meta_keywords": "SSSUTMS Career, Faculty Recruitment, Teaching Jobs Sehore, Professor Vacancies Bhopal MP, Sri Satya Sai University Jobs",
+        "canonical_url": "",
+        "og_image": "assets/images/logo/logo.jpg"
+    },
+    "openings": [
+        {
+            "id": "job_01",
+            "title": "School of Pharmacy – Faculty Recruitment",
+            "badge": "Faculty Position",
+            "badge_color": "success",
+            "description": "Applications invited for Professors, Associate Professors & Assistant Professors in Pharmaceutics, Pharmacology, Pharmacognosy & Chemistry.",
+            "image": "assets/images/Files/Link/SCHOOL_OF_PHARMACY_23052026_0320.jpeg",
+            "file": "",
+            "buttons": [
+                {
+                    "label": "View Full Advertisement",
+                    "url": "assets/images/Files/Link/SCHOOL_OF_PHARMACY_23052026_0320.jpeg",
+                    "icon": "fa-expand",
+                    "target": "_blank"
+                }
+            ],
+            "status": "Active",
+            "date": "2026-05-23"
+        },
+        {
+            "id": "job_02",
+            "title": "Faculty & Technical Staff Positions",
+            "badge": "Teaching & Admin",
+            "badge_color": "primary",
+            "description": "Openings across Engineering, Computer Applications, Management, Nursing, Paramedical & Basic Sciences.",
+            "image": "assets/images/Files/Link/last_updated_27052026_1224.png",
+            "file": "",
+            "buttons": [
+                {
+                    "label": "View Full Advertisement",
+                    "url": "assets/images/Files/Link/last_updated_27052026_1224.png",
+                    "icon": "fa-expand",
+                    "target": "_blank"
+                }
+            ],
+            "status": "Active",
+            "date": "2026-05-27"
+        },
+        {
+            "id": "job_03",
+            "title": "School of Homoeopathy & Hospital (BHMS / MD)",
+            "badge": "Medical Faculty",
+            "badge_color": "danger",
+            "description": "Recruitment of Senior Consultants, Professors, Readers & Lecturers for Homoeopathic Medical College.",
+            "image": "assets/images/Files/Link/job_08012025_0348.jpg",
+            "file": "assets/images/Files/Link/Appointment_Add_BHMS_PG_04102023_0923.pdf",
+            "buttons": [
+                {
+                    "label": "Download PDF",
+                    "url": "assets/images/Files/Link/Appointment_Add_BHMS_PG_04102023_0923.pdf",
+                    "icon": "fa-file-pdf",
+                    "target": "_blank"
+                },
+                {
+                    "label": "View Poster",
+                    "url": "assets/images/Files/Link/job_08012025_0348.jpg",
+                    "icon": "fa-image",
+                    "target": "_blank"
+                }
+            ],
+            "status": "Active",
+            "date": "2025-01-08"
+        },
+        {
+            "id": "job_04",
+            "title": "Requirement: School of Medical Sciences",
+            "badge": "Clinical & Non-Clinical",
+            "badge_color": "info",
+            "description": "Positions for Medical Officers, Clinical Tutors, Resident Doctors, Nursing Staff & Lab Technicians.",
+            "image": "assets/images/Files/Link/WhatsApp_Image_2026-04-09_at_12.57.59_PM_09042026_0117.jpg",
+            "file": "",
+            "buttons": [
+                {
+                    "label": "View Full Advertisement",
+                    "url": "assets/images/Files/Link/WhatsApp_Image_2026-04-09_at_12.57.59_PM_09042026_0117.jpg",
+                    "icon": "fa-expand",
+                    "target": "_blank"
+                }
+            ],
+            "status": "Active",
+            "date": "2026-04-09"
+        },
+        {
+            "id": "job_05",
+            "title": "Appointment of University OMBUDSPERSON (Part Time)",
+            "badge": "Statutory Position",
+            "badge_color": "warning",
+            "description": "Applications invited for the post of Ombudsperson in compliance with UGC Student Grievance Redressal Regulations.",
+            "image": "assets/images/Files/Link/ad_06072023_1203.jpg",
+            "file": "assets/images/Files/Link/career.pdf",
+            "buttons": [
+                {
+                    "label": "Download Notification PDF",
+                    "url": "assets/images/Files/Link/career.pdf",
+                    "icon": "fa-file-pdf",
+                    "target": "_blank"
+                }
+            ],
+            "status": "Active",
+            "date": "2023-07-06"
+        },
+        {
+            "id": "job_06",
+            "title": "Appointment of Vice-Chancellor",
+            "badge": "Leadership",
+            "badge_color": "secondary",
+            "description": "Official search committee notification for the appointment of Vice-Chancellor at SSSUTMS.",
+            "image": "assets/images/Files/Link/Appointment_of_Vice-Chancellor_16082023_0445.jpg",
+            "file": "",
+            "buttons": [
+                {
+                    "label": "View Full Advertisement",
+                    "url": "assets/images/Files/Link/Appointment_of_Vice-Chancellor_16082023_0445.jpg",
+                    "icon": "fa-expand",
+                    "target": "_blank"
+                }
+            ],
+            "status": "Active",
+            "date": "2023-08-16"
+        }
+    ],
+    "announcements": [
+        {
+            "id": "ca_01",
+            "title": "General Instructions & Qualification Criteria for Faculty Positions",
+            "category": "Faculty Guidelines",
+            "date": "2026-05-20",
+            "file": "assets/images/Files/Link/career.pdf",
+            "status": "Active"
+        },
+        {
+            "id": "ca_02",
+            "title": "Reservation Guidelines for Scheduled Castes, Scheduled Tribes & OBC Candidates (M.P. Govt.)",
+            "category": "Statutory Notice",
+            "date": "2026-04-15",
+            "file": "assets/images/Files/Link/career.pdf",
+            "status": "Active"
+        }
+    ],
+    "events": [
+        {
+            "id": "ce_01",
+            "title": "Walk-In Interview Drive for Clinical & Teaching Faculty",
+            "date": "2026-06-15",
+            "venue": "Administrative Block, SSSUTMS Campus, Sehore",
+            "description": "Walk-in interview selection drive for Associate Professors, Assistant Professors and Senior Residents.",
+            "status": "Active"
+        }
+    ]
+}

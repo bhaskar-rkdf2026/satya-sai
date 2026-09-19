@@ -1,0 +1,95 @@
+{
+    "page_info": {
+        "page_title": "Contact Us - SSSUTMS",
+        "banner_title": "Contact Us",
+        "banner_category": "Contact",
+        "heading": "Get In Touch with SSSUTMS",
+        "directory_heading": "University Authorities & Key Officers Directory",
+        "form_heading": "Send Us an Inquiry / Feedback Message",
+        "map_heading": "Campus Location on Map",
+        "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4423.9559848803465!2d77.12371640709164!3d23.21561474176524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397cf4c949567e4d%3A0xc7649cfdfe73a024!2sSri%20Satya%20Sai%20University%20of%20Technology%20%26%20Medical%20Sciences%2C%20Sehore!5e0!3m2!1sen!2sin!4v1700721177302!5m2!1sen!2sin",
+        "meta_title": "Contact Us & Helpdesk | Sri Satya Sai University (SSSUTMS)",
+        "meta_description": "Get in touch with Sri Satya Sai University (SSSUTMS), Sehore. Access official contact numbers, email directory, admission helplines, and campus map directions.",
+        "meta_keywords": "SSSUTMS Contact, Sri Satya Sai University Sehore Address, SSSUTMS Helpdesk, Admission Helpline Number, Registrar Contact",
+        "canonical_url": "",
+        "og_image": "assets/images/logo/logo.jpg"
+    },
+    "info_cards": {
+        "location": {
+            "title": "Campus Location",
+            "icon": "fa-location-dot",
+            "university_name": "Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS)",
+            "address": "Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P.) – 466001"
+        },
+        "email_portal": {
+            "title": "Email & Portal",
+            "icon": "fa-envelope-open-text",
+            "general_email": "info@sssutms.co.in",
+            "registrar_email": "registrar@sssutms.co.in",
+            "websites": "www.sssutms.co.in | www.sssutms.ac.in"
+        },
+        "helpdesk": {
+            "title": "University Helpdesk",
+            "icon": "fa-phone-volume",
+            "telephone": "+91-7562-292740",
+            "board_numbers": "07562-292203, 07562-292204, 07562-292205",
+            "fax": "+91-07562-292201"
+        },
+        "admission": {
+            "title": "Admission Helplines",
+            "icon": "fa-headset",
+            "toll_free": "+91-7748900028",
+            "toll_free_tel": "+917748900028",
+            "admission_cell": "+91-7562-292740",
+            "admission_cell_tel": "+917562292740",
+            "timings": "Mon – Sat: 9:00 AM to 5:30 PM"
+        }
+    },
+    "officers_directory": [
+        {
+            "id": "off_01",
+            "sno": "01",
+            "name": "Dr. Mukesh Tiwari",
+            "designation": "Vice Chancellor",
+            "phone": "07562-292203",
+            "action_label": "Call Office",
+            "action_icon": "fa-phone",
+            "status": "Active"
+        },
+        {
+            "id": "off_02",
+            "sno": "02",
+            "name": "Dr. H. K. Sharma",
+            "designation": "Registrar",
+            "phone": "07562-292204",
+            "action_label": "Call Office",
+            "action_icon": "fa-phone",
+            "status": "Active"
+        },
+        {
+            "id": "off_03",
+            "sno": "03",
+            "name": "Dr. Kanchan Shrivastava",
+            "designation": "Deputy Registrar",
+            "phone": "07562-292202",
+            "action_label": "Call Office",
+            "action_icon": "fa-phone",
+            "status": "Active"
+        },
+        {
+            "id": "off_04",
+            "sno": "04",
+            "name": "Dr. Sanjay Rathore",
+            "designation": "Controller of Examinations (CoE)",
+            "phone": "07562-292201",
+            "action_label": "Call Office",
+            "action_icon": "fa-phone",
+            "status": "Active"
+        }
+    ],
+    "inquiry_settings": {
+        "enabled": true,
+        "recipient_email": "info@sssutms.co.in",
+        "success_message": "Thank you for contacting us! Our team will get back to you shortly."
+    }
+}

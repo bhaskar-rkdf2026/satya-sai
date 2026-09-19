@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'To advance biological, biotechnological, and biomedical discoveries while fostering eco-friendly innovations and high-impact bioscience education.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Life Science - Outcome Based Curriculum - SSSUTMS';
-$banner_title = $page_info['banner_title'] ?? 'Life Science';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Life Science - Outcome Based Curriculum - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Life_Science';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

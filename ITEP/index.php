@@ -1,9 +1,18 @@
 <?php
-$page_title = 'ITEP - SSSUTMS';
-$banner_title = 'Integrated Teacher Education Programme (ITEP)';
-$banner_category = 'I T E P';
-
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/itep_helper.php';
+
+$page_info = get_itep_page_info();
+
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'ITEP - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Integrated Teacher Education Programme (ITEP)';
+$banner_category = $page_info['banner_category'] ?? 'I T E P';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -100,23 +109,23 @@ require_once __DIR__ . '/../includes/page-banner.php';
         <div class="syl-card">
           <div class="syl-card-header">
             <h2 class="syl-card-title">
-              <i class="fa fa-graduation-cap text-warning"></i>
-              ITEP
+              <i class="fa <?php echo htmlspecialchars($page_info['card_icon'] ?? 'fa-graduation-cap'); ?> text-warning"></i>
+              <?php echo htmlspecialchars($page_info['card_title'] ?? 'ITEP'); ?>
             </h2>
           </div>
           
           <div class="syl-card-body">
             <div class="redirect-box">
               <div class="redirect-icon">
-                <i class="fa fa-university"></i>
+                <i class="fa <?php echo htmlspecialchars($page_info['center_icon'] ?? 'fa-university'); ?>"></i>
               </div>
-              <h4 class="fw-bold text-dark mb-2">Integrated Teacher Education Programme</h4>
+              <h4 class="fw-bold text-dark mb-2"><?php echo htmlspecialchars($page_info['program_heading'] ?? 'Integrated Teacher Education Programme'); ?></h4>
               <p class="text-secondary mb-4" style="max-width: 580px; margin: 0 auto;">
-                Access detailed academic information, curriculum, regulatory disclosures, and institutional details under the Faculty of Education.
+                <?php echo nl2br(htmlspecialchars($page_info['program_description'] ?? 'Access detailed academic information, curriculum, regulatory disclosures, and institutional details under the Faculty of Education.')); ?>
               </p>
               <div>
-                <a href="<?php echo BASE_URL; ?>About/Faculty_of_Education.php" class="syl-btn w-100" style="max-width: 420px;">
-                  <i class="fa fa-link"></i> Faculty of Education
+                <a href="<?php echo htmlspecialchars(base_url($page_info['button_url'] ?? 'About/Faculty_of_Education.php')); ?>" class="syl-btn w-100" style="max-width: 420px;">
+                  <i class="fa <?php echo htmlspecialchars($page_info['button_icon'] ?? 'fa-link'); ?>"></i> <?php echo htmlspecialchars($page_info['button_label'] ?? 'Faculty of Education'); ?>
                 </a>
               </div>
             </div>

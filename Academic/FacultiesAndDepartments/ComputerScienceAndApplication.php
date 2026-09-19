@@ -1,9 +1,11 @@
 <?php
-$page_title = 'Computer Science & Application - SSSUTMS';
-$banner_title = 'Computer Science & Application';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../../config.php';
+$faculty_page = get_faculty_page('ComputerScienceAndApplication');
+$page_title = (!empty($faculty_page['title']) ? $faculty_page['title'] : 'Computer Science & Application - SSSUTMS');
+$banner_title = $faculty_page['banner_title'] ?? 'Computer Science & Application';
+$banner_category = $faculty_page['banner_category'] ?? 'Academic';
+$facultyDocs = get_page_documents('faculty_ComputerScienceAndApplication');
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';

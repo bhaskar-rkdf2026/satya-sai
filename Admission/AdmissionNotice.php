@@ -9,7 +9,13 @@ $noticePageData = get_admission_page('AdmissionNotice', [
 ]);
 $notices = get_admission_notices();
 
-$page_title = ($noticePageData['page_title'] ?? 'Admission Notice') . ' - SSSUTMS';
+$page_data = $noticePageData;
+$meta_title = !empty($noticePageData['meta_title']) ? $noticePageData['meta_title'] : (($noticePageData['page_title'] ?? 'Admission Notice') . ' - SSSUTMS');
+$page_title = $meta_title;
+$meta_description = $noticePageData['meta_description'] ?? '';
+$meta_keywords = $noticePageData['meta_keywords'] ?? '';
+$canonical_url = $noticePageData['canonical_url'] ?? '';
+$og_image = $noticePageData['og_image'] ?? 'assets/images/logo/logo.jpg';
 $banner_title = $noticePageData['page_title'] ?? 'Admission Notice';
 $banner_category = 'Admission';
 

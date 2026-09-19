@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'To promote physical fitness, sports science acumen, athletic leadership, and holistic well-being through advanced sports pedagogy and state-of-the-art training infrastructure.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Physical Education - Outcome Based Curriculum - SSSUTMS';
-$banner_title = $page_info['banner_title'] ?? 'Physical Education';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Physical Education - Outcome Based Curriculum - SSSUTMS');
+$banner_title = $page_info['banner_title'] ?? 'Physical_Education';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

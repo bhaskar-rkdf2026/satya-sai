@@ -3,7 +3,7 @@
         "title": "Engineering",
         "section": "Outcome Based Curriculum",
         "file": "Download/OutcomeBasedCurriculum/Engineering.php",
-        "updated_at": "2026-09-17 07:18:11",
+        "updated_at": "2026-09-18 09:13:12",
         "data": [
             {
                 "id": "obc_287c2a3a0b",
@@ -314,7 +314,12 @@
             "vision_title": "VISION",
             "vision_text": "To emerge as a \"Centre for Excellence\" offering Technical Education and Research Opportunities of very high standards to students, develop the total personality of the individual, and in still high levels of discipline and strive to set global standards, making our students technologically superior and ethically strong, who in turn shall contribute to the advancement of society and humankind.",
             "mission_title": "MISSION",
-            "mission_text": "We dedicate and commit ourselves to achieve, sustain and faster unmatched excellence in Technical Education. To this end, we will pursue continuous development of infrastructure and enhance state-of-the art Equipment to provide our students a technologically up-to-date and intellectually inspiring environment of learning, research creativity, innovation and professional activity and inculcate in them ethical and moral values."
+            "mission_text": "We dedicate and commit ourselves to achieve, sustain and faster unmatched excellence in Technical Education. To this end, we will pursue continuous development of infrastructure and enhance state-of-the art Equipment to provide our students a technologically up-to-date and intellectually inspiring environment of learning, research creativity, innovation and professional activity and inculcate in them ethical and moral values.",
+            "meta_title": "Engineering - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Explore B.E. & M.Tech Outcome Based Education (OBE) course curriculum, program educational objectives, and syllabus at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Engineering OBE Syllabus, B.E. Curriculum SSSUTMS, MTech Syllabus Sehore Bhopal, Outcome Based Education Engineering",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Pharma": {
@@ -379,7 +384,12 @@
             "vision_title": "VISION",
             "vision_text": "To develop pharmacists, educators and scientists whose leadership, knowledge and innovation, improve the health of our communities.",
             "mission_title": "MISSION",
-            "mission_text": "To advance patient care and public health through excellence in pharmacy education, clinical practice, innovative pharmaceutical research, and community healthcare services."
+            "mission_text": "To advance patient care and public health through excellence in pharmacy education, clinical practice, innovative pharmaceutical research, and community healthcare services.",
+            "meta_title": "Pharmacy - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Discover B.Pharm & M.Pharm Outcome Based Education (OBE) curriculum, PCI approved course outcomes, and syllabi at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Pharmacy OBE Curriculum, B.Pharm Syllabus SSSUTMS, M.Pharm Course Outcomes, PCI Approved Pharmacy Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Education": {
@@ -422,7 +432,12 @@
             "vision_title": "VISION",
             "vision_text": "Development of creative, human and progressive teachers acting as catalysts for social change through a distinctive teacher education program which is embedded with value and professionalism in its approach.",
             "mission_title": "MISSION",
-            "mission_text": "To provide comprehensive pedagogical training, foster modern instructional competencies, and instill ethical values in aspiring educators for transformative nation building."
+            "mission_text": "To provide comprehensive pedagogical training, foster modern instructional competencies, and instill ethical values in aspiring educators for transformative nation building.",
+            "meta_title": "Education - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Access B.Ed., M.Ed., and B.P.Ed. Outcome Based Education (OBE) curriculum, NCTE pedagogical objectives, and syllabus at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Education OBE Syllabus, BEd Curriculum SSSUTMS, MEd Course Outcomes, NCTE Approved Education Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Physical_Education": {
@@ -465,7 +480,12 @@
             "vision_title": "VISION",
             "vision_text": "To develop globally recognized world class professionals and educators in the field of sports sciences to have sustained impact on social progress and betterment.",
             "mission_title": "MISSION",
-            "mission_text": "To promote physical fitness, sports science acumen, athletic leadership, and holistic well-being through advanced sports pedagogy and state-of-the-art training infrastructure."
+            "mission_text": "To promote physical fitness, sports science acumen, athletic leadership, and holistic well-being through advanced sports pedagogy and state-of-the-art training infrastructure.",
+            "meta_title": "Physical Education - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Explore B.P.E.S. and sports sciences Outcome Based Education (OBE) curriculum, fitness training outcomes, and syllabus at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Physical Education OBE Syllabus, BPES Curriculum SSSUTMS, Sports Science Course Outcomes Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Management": {
@@ -508,7 +528,12 @@
             "vision_title": "VISION",
             "vision_text": "To be a world class school of Management Education focusing on excellence, value and ethics.",
             "mission_title": "MISSION",
-            "mission_text": "To provide an effective learning and innovative environment for transforming management experience into professionally competent, sharp leaders capable of adapting to the changing needs of industry and society."
+            "mission_text": "To provide an effective learning and innovative environment for transforming management experience into professionally competent, sharp leaders capable of adapting to the changing needs of industry and society.",
+            "meta_title": "Management - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Explore MBA & BBA Outcome Based Education (OBE) curriculum, business management competencies, and course syllabi at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Management OBE Curriculum, MBA Syllabus SSSUTMS, BBA Course Outcomes Sehore, Business School MP",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Computer_Application": {
@@ -551,7 +576,12 @@
             "vision_title": "VISION",
             "vision_text": "To be a globally recognized world class Institute for imparting IT related knowledge, Skill and attitude for entering into world of work and allied areas.",
             "mission_title": "MISSION",
-            "mission_text": "To achieve excellence in teaching-learning, Research and development activities by creating technically capable and devoted software engineers to serve society with pride."
+            "mission_text": "To achieve excellence in teaching-learning, Research and development activities by creating technically capable and devoted software engineers to serve society with pride.",
+            "meta_title": "Computer Application - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Discover MCA & BCA Outcome Based Education (OBE) curriculum, advanced computing outcomes, algorithms, and software syllabus at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Computer Application OBE Curriculum, MCA Syllabus SSSUTMS, BCA Course Outcomes Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_BHMCT": {
@@ -594,7 +624,12 @@
             "vision_title": "VISION",
             "vision_text": "To develop excellent and world class managers, professionals for hospitality and food industries worldwide.",
             "mission_title": "MISSION",
-            "mission_text": "To deliver industry-aligned hospitality management education, culinary mastery, operational training, and customer excellence skills for global careers."
+            "mission_text": "To deliver industry-aligned hospitality management education, culinary mastery, operational training, and customer excellence skills for global careers.",
+            "meta_title": "BHMCT - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Access Bachelor of Hotel Management & Catering Technology (BHMCT) OBE curriculum, culinary arts, and hospitality management syllabus at Sri Satya Sai University.",
+            "meta_keywords": "BHMCT OBE Syllabus, Hotel Management Curriculum SSSUTMS, Catering Tech Course Outcomes Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Science": {
@@ -681,7 +716,12 @@
             "vision_title": "VISION",
             "vision_text": "The Science faculty envisions itself as a dynamic community of science and mathematics faculty and students engaged in innovative research and learning with global impact.",
             "mission_title": "MISSION",
-            "mission_text": "To cultivate scientific inquiry, analytical problem-solving, laboratory proficiency, and multidisciplinary fundamental and applied science research."
+            "mission_text": "To cultivate scientific inquiry, analytical problem-solving, laboratory proficiency, and multidisciplinary fundamental and applied science research.",
+            "meta_title": "Science - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Explore B.Sc. & M.Sc. Outcome Based Education (OBE) curriculum in Physics, Chemistry, Mathematics, and applied sciences at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Science OBE Curriculum, BSc Syllabus SSSUTMS, MSc Course Outcomes, Applied Sciences Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Life_Science": {
@@ -746,7 +786,12 @@
             "vision_title": "VISION",
             "vision_text": "The Department of Biological Sciences will be a recognized regional, national, and international leader in research, and in undergraduate and graduate education in life sciences.",
             "mission_title": "MISSION",
-            "mission_text": "To advance biological, biotechnological, and biomedical discoveries while fostering eco-friendly innovations and high-impact bioscience education."
+            "mission_text": "To advance biological, biotechnological, and biomedical discoveries while fostering eco-friendly innovations and high-impact bioscience education.",
+            "meta_title": "Life Science - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Access Biotechnology, Microbiology, and Botany Outcome Based Education (OBE) curriculum and laboratory learning outcomes at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Life Science OBE Curriculum, Biotechnology Syllabus SSSUTMS, Microbiology Course Outcomes Sehore",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Arts_And_Humanities": {
@@ -932,7 +977,12 @@
             "vision_title": "VISION",
             "vision_text": "To develop the artistic sense, critical inquiry, and overall personality of the student for administrative, social, and creative excellence.",
             "mission_title": "MISSION",
-            "mission_text": "To empower students with deep cultural consciousness, linguistic mastery, ethical philosophy, and social research capabilities for societal advancement."
+            "mission_text": "To empower students with deep cultural consciousness, linguistic mastery, ethical philosophy, and social research capabilities for societal advancement.",
+            "meta_title": "Arts & Humanities - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Explore B.A. & M.A. Outcome Based Education (OBE) curriculum in literature, social sciences, history, and humanities at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Arts OBE Curriculum, BA Syllabus SSSUTMS, MA Course Outcomes, Humanities Sehore MP",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "obc_Commerce": {
@@ -997,7 +1047,12 @@
             "vision_title": "VISION",
             "vision_text": "To be an institute of academic excellence with total commitment to quality education in Commerce, financial management and related fields, with a holistic concern for better life, environment and society.",
             "mission_title": "MISSION",
-            "mission_text": "To nurture financial leaders, accountants, tax strategists, and business thinkers through rigorous analytical pedagogy and corporate training."
+            "mission_text": "To nurture financial leaders, accountants, tax strategists, and business thinkers through rigorous analytical pedagogy and corporate training.",
+            "meta_title": "Commerce - Outcome Based Curriculum (OBE) | SSSUTMS",
+            "meta_description": "Discover B.Com & M.Com Outcome Based Education (OBE) curriculum, taxation, financial accounting, and commerce syllabi at Sri Satya Sai University (SSSUTMS).",
+            "meta_keywords": "Commerce OBE Curriculum, BCom Syllabus SSSUTMS, MCom Course Outcomes, Accounting Sehore MP",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg"
         }
     },
     "scheme_BE": {
@@ -12900,7 +12955,7 @@
             },
             {
                 "id": "form_doc_08",
-                "title": "Degree Certificate Application Form (Hindi - \u0909\u092a\u093e\u0927\u093f \u0906\u0935\u0947\u0926\u0928)",
+                "title": "Degree Certificate Application Form (Hindi - उपाधि आवेदन)",
                 "category": "Certificates & Degrees",
                 "badge": "Certificate",
                 "filter": "certificates",
@@ -12922,7 +12977,7 @@
             },
             {
                 "id": "form_doc_10",
-                "title": "Migration Certificate Application Form (Hindi - \u092a\u094d\u0930\u0935\u094d\u0930\u091c\u0928 \u092a\u094d\u0930\u092e\u093e\u0923-\u092a\u0924\u094d\u0930)",
+                "title": "Migration Certificate Application Form (Hindi - प्रव्रजन प्रमाण-पत्र)",
                 "category": "Certificates & Degrees",
                 "badge": "Certificate",
                 "filter": "certificates",

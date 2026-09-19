@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'We dedicate and commit ourselves to achieve, sustain and faster unmatched excellence in Technical Education. To this end, we will pursue continuous development of infrastructure and enhance state-of-the art Equipment to provide our students a technologically up-to-date and intellectually inspiring environment of learning, research creativity, innovation and professional activity and inculcate in them ethical and moral values.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Engineering - Outcome Based Curriculum - SSSUTMS';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Engineering - Outcome Based Curriculum - SSSUTMS');
 $banner_title = $page_info['banner_title'] ?? 'Engineering';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

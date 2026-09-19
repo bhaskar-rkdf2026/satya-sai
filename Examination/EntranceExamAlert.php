@@ -1,9 +1,17 @@
 <?php
-$page_title = 'Entrance Exam Alert - SSSUTMS';
-$banner_title = 'Entrance Exam Alert';
+require_once __DIR__ . '/../config.php';
+
+$pageSeo = function_exists('get_examination_page_info') ? get_examination_page_info('EntranceExamAlert') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Entrance Exam Alert - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['page_title'] ?? 'Entrance Exam Alert';
 $banner_category = 'Examination';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';

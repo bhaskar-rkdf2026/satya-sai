@@ -1,9 +1,18 @@
 <?php
-$page_title = 'Internal Complaint Committee - SSSUTMS';
-$banner_title = 'Internal Complaint Committee';
-$banner_category = 'Academic';
-
 require_once __DIR__ . '/../../config.php';
+
+$pageSeo = function_exists('get_committee_page_info') ? get_committee_page_info('InternalComplaintCommittee') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Internal Complaint Committee - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['banner_title'] ?? ($pageSeo['page_title'] ?? 'Internal Complaint Committee');
+$banner_category = $pageSeo['banner_category'] ?? 'Academic';
+$committeeDocs = function_exists('get_committee_documents') ? get_committee_documents('InternalComplaintCommittee') : [];
+
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -317,6 +326,33 @@ require_once __DIR__ . '/../../includes/page-banner.php';
                 </table>
               </div>
             </div>
+
+            <?php if (!empty($committeeDocs)): ?>
+            <!-- Attached Orders & Documents -->
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-file-pdf text-danger me-2"></i>Official Committee Orders &amp; Documents</h5>
+              <div class="list-group shadow-sm">
+                <?php foreach ($committeeDocs as $doc): 
+                  $file = $doc['file'] ?? '#';
+                  $fileUrl = $file;
+                  if (strpos($file, 'http') !== 0 && strpos($file, 'ftp') !== 0 && $file !== '#') {
+                    $fileUrl = BASE_URL . ltrim($file, '/');
+                  }
+                ?>
+                  <a href="<?php echo htmlspecialchars($fileUrl); ?>" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-file-pdf text-danger fs-5"></i>
+                      <div>
+                        <span class="fw-bold text-dark d-block"><?php echo htmlspecialchars($doc['title'] ?? ''); ?></span>
+                        <small class="text-muted"><?php echo htmlspecialchars($doc['category'] ?? 'Order'); ?> &bull; <?php echo htmlspecialchars($doc['date'] ?? ''); ?></small>
+                      </div>
+                    </div>
+                    <span class="badge bg-danger rounded-pill px-3 py-2"><i class="fa fa-download me-1"></i> Download</span>
+                  </a>
+                <?php endforeach; ?>
+              </div>
+            </div>
+            <?php endif; ?>
 
           </div>
         </div><!-- end icc-main-card -->

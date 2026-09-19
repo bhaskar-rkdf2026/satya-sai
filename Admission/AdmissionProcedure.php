@@ -20,7 +20,13 @@ $procData = [
     'image' => $pageData['image_url'] ?? 'assets/images/admission/AdmissionProcedure_img_0.jpg'
 ];
 
-$page_title = ($procData['page_title'] ?? 'Admission Procedure') . ' - SSSUTMS';
+$page_data = $pageData;
+$meta_title = !empty($pageData['meta_title']) ? $pageData['meta_title'] : (($procData['page_title'] ?? 'Admission Procedure') . ' - SSSUTMS');
+$page_title = $meta_title;
+$meta_description = $pageData['meta_description'] ?? '';
+$meta_keywords = $pageData['meta_keywords'] ?? '';
+$canonical_url = $pageData['canonical_url'] ?? '';
+$og_image = $pageData['og_image'] ?? 'assets/images/logo/logo.jpg';
 $banner_title = $procData['page_title'] ?? 'Admission Procedure';
 $banner_category = 'Admission';
 

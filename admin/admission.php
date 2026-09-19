@@ -63,6 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdf_link = clean_input($_POST['pdf_link'] ?? '');
         $image = clean_input($_POST['image_url'] ?? '');
         
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
         // Handle PDF upload
         if (isset($_FILES['pdf_file']) && $_FILES['pdf_file']['error'] === UPLOAD_ERR_OK) {
             $up = upload_file($_FILES['pdf_file'], 'assets/pdf/admission/', ['pdf']);
@@ -84,6 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 UPDATE `admission_pages` 
                 SET `page_title` = :pt, `lead_title` = :lt, `description` = :desc,
                     `primary_file_label` = :pfl, `primary_file_url` = :pfu, `image_url` = :img,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
                     `updated_at` = NOW()
                 WHERE `page_key` = 'AdmissionProcedure'
             ");
@@ -93,16 +101,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':desc' => $description,
                 ':pfl' => $pdf_label,
                 ':pfu' => $pdf_link,
-                ':img' => $image
+                ':img' => $image,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
             ]);
-            $msg = 'Admission Procedure details successfully updated in MySQL Database!';
+            $msg = 'Admission Procedure details and SEO metadata successfully updated in MySQL Database!';
         } catch (Exception $e) {
             $error = 'Database Error: ' . $e->getMessage();
         }
     }
     
     // ------------------------------------------------------------------------
-    // 2. AdmissionNotice Actions
+    // 2. AdmissionNotice Settings & SEO Save
+    // ------------------------------------------------------------------------
+    elseif ($action === 'save_notice_settings') {
+        $page_title = clean_input($_POST['page_title'] ?? 'Admission Notice');
+        $heading = clean_input($_POST['heading'] ?? 'Admission Notice (2026-27)');
+        $subheading = clean_input($_POST['subheading'] ?? 'Official Notifications, Circulars & Entrance Exam Schedules');
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
+        try {
+            $stmt = $db->prepare("
+                UPDATE `admission_pages` 
+                SET `page_title` = :pt, `heading` = :hd, `subheading` = :sub,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
+                    `updated_at` = NOW()
+                WHERE `page_key` = 'AdmissionNotice'
+            ");
+            $stmt->execute([
+                ':pt' => $page_title,
+                ':hd' => $heading,
+                ':sub' => $subheading,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
+            ]);
+            $msg = 'Admission Notice settings and SEO metadata updated successfully in MySQL Database!';
+        } catch (Exception $e) {
+            $error = 'Database Error: ' . $e->getMessage();
+        }
+    }
+    
+    // ------------------------------------------------------------------------
+    // Notice Item Actions
     // ------------------------------------------------------------------------
     elseif ($action === 'add_notice') {
         $title = clean_input($_POST['title'] ?? '');
@@ -201,6 +252,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $refund_policy_label = clean_input($_POST['refund_policy_label'] ?? 'Download Official Fees Refund Policy (PDF)');
         $refund_policy_pdf = clean_input($_POST['refund_policy_pdf'] ?? '');
         
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
         if (isset($_FILES['refund_policy_file']) && $_FILES['refund_policy_file']['error'] === UPLOAD_ERR_OK) {
             $up = upload_file($_FILES['refund_policy_file'], 'assets/pdf/admission/', ['pdf']);
             if ($up['success']) {
@@ -212,16 +269,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $db->prepare("
                 UPDATE `admission_pages` 
                 SET `page_title` = :pt, `subheading` = :sub, `primary_file_label` = :pfl,
-                    `primary_file_url` = :pfu, `updated_at` = NOW()
+                    `primary_file_url` = :pfu,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
+                    `updated_at` = NOW()
                 WHERE `page_key` = 'FeesStructure'
             ");
             $stmt->execute([
                 ':pt' => $page_title,
                 ':sub' => $subtitle,
                 ':pfl' => $refund_policy_label,
-                ':pfu' => $refund_policy_pdf
+                ':pfu' => $refund_policy_pdf,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
             ]);
-            $msg = 'Fee Policy details updated successfully in MySQL Database!';
+            $msg = 'Fee Policy details and SEO metadata updated successfully in MySQL Database!';
         } catch (Exception $e) {
             $error = 'Database Error: ' . $e->getMessage();
         }
@@ -235,7 +300,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (!empty($course) && !empty($tuition)) {
             try {
-                // Get next sno
                 $maxSnoStmt = $db->query("SELECT MAX(`sno`) AS max_sno FROM `admission_fees`");
                 $maxRow = $maxSnoStmt->fetch();
                 $nextSno = ($maxRow && $maxRow['max_sno']) ? ((int)$maxRow['max_sno'] + 1) : 1;
@@ -319,6 +383,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $online_banking_url = clean_input($_POST['online_banking_url'] ?? 'https://sssutms.payjix.com/');
         $qr_image = clean_input($_POST['qr_image_url'] ?? '');
         
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
         if (isset($_FILES['qr_image_file']) && $_FILES['qr_image_file']['error'] === UPLOAD_ERR_OK) {
             $up = upload_file($_FILES['qr_image_file'], 'assets/images/admission/', ['jpg', 'jpeg', 'png', 'webp']);
             if ($up['success']) {
@@ -332,7 +402,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 SET `page_title` = :pt, `heading` = :bt, `description` = :desc,
                     `bank_name` = :bn, `account_name` = :an, `account_number` = :acn,
                     `ifsc_code` = :ifsc, `branch` = :br, `online_banking_url` = :url,
-                    `image_url` = :qr, `updated_at` = NOW()
+                    `image_url` = :qr,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
+                    `updated_at` = NOW()
                 WHERE `page_key` = 'UniversityAccountDetail'
             ");
             $stmt->execute([
@@ -345,9 +418,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':ifsc' => $ifsc_code,
                 ':br' => $branch,
                 ':url' => $online_banking_url,
-                ':qr' => $qr_image
+                ':qr' => $qr_image,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
             ]);
-            $msg = 'University Account Details updated successfully in MySQL Database!';
+            $msg = 'University Account Details and SEO metadata updated successfully in MySQL Database!';
         } catch (Exception $e) {
             $error = 'Database Error: ' . $e->getMessage();
         }
@@ -390,6 +468,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $prospectus_pdf = clean_input($_POST['prospectus_pdf'] ?? '');
         $cover_image = clean_input($_POST['cover_image_url'] ?? '');
         
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
         if (isset($_FILES['prospectus_file']) && $_FILES['prospectus_file']['error'] === UPLOAD_ERR_OK) {
             $up = upload_file($_FILES['prospectus_file'], 'assets/pdf/admission/', ['pdf']);
             if ($up['success']) {
@@ -407,7 +491,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $db->prepare("
                 UPDATE `admission_pages` 
                 SET `page_title` = :pt, `heading` = :hd, `primary_file_label` = :pfl,
-                    `primary_file_url` = :pfu, `image_url` = :img, `updated_at` = NOW()
+                    `primary_file_url` = :pfu, `image_url` = :img,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
+                    `updated_at` = NOW()
                 WHERE `page_key` = 'Brochures'
             ");
             $stmt->execute([
@@ -415,10 +502,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':hd' => $heading,
                 ':pfl' => $prospectus_label,
                 ':pfu' => $prospectus_pdf,
-                ':img' => $cover_image
+                ':img' => $cover_image,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
             ]);
             
-            $msg = 'Brochures page details updated successfully in MySQL Database!';
+            $msg = 'Brochures page details and SEO metadata updated successfully in MySQL Database!';
         } catch (Exception $e) {
             $error = 'Database Error: ' . $e->getMessage();
         }
@@ -434,11 +526,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $epravesh_url = clean_input($_POST['epravesh_url'] ?? '');
         $instructions = clean_input($_POST['instructions_raw'] ?? '');
         
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
         try {
             $stmt = $db->prepare("
                 UPDATE `admission_pages` 
                 SET `page_title` = :pt, `heading` = :hd, `primary_file_label` = :pfl,
-                    `primary_file_url` = :pfu, `instructions` = :inst, `updated_at` = NOW()
+                    `primary_file_url` = :pfu, `instructions` = :inst,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
+                    `updated_at` = NOW()
                 WHERE `page_key` = 'AdmissionRegistration'
             ");
             $stmt->execute([
@@ -446,9 +547,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':hd' => $heading,
                 ':pfl' => $epravesh_label,
                 ':pfu' => $epravesh_url,
-                ':inst' => $instructions
+                ':inst' => $instructions,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
             ]);
-            $msg = 'Admission Registration details updated successfully in MySQL Database!';
+            $msg = 'Admission Registration details and SEO metadata updated successfully in MySQL Database!';
         } catch (Exception $e) {
             $error = 'Database Error: ' . $e->getMessage();
         }
@@ -465,11 +571,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $address = clean_input($_POST['address'] ?? 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P), Pin - 466001');
         $phones = clean_input($_POST['phones_raw'] ?? '');
         
+        $meta_title = clean_input($_POST['meta_title'] ?? '');
+        $meta_description = clean_input($_POST['meta_description'] ?? '');
+        $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+        $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+        $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+        
         try {
             $stmt = $db->prepare("
                 UPDATE `admission_pages` 
                 SET `page_title` = :pt, `heading` = :hd, `contact_timings` = :tm,
                     `contact_email` = :em, `contact_address` = :ad, `contact_phones` = :ph,
+                    `meta_title` = :mt, `meta_description` = :md, `meta_keywords` = :mk,
+                    `canonical_url` = :can, `og_image` = :ogi,
                     `updated_at` = NOW()
                 WHERE `page_key` = 'Admission_Enquiry'
             ");
@@ -479,9 +593,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':tm' => $timings,
                 ':em' => $email,
                 ':ad' => $address,
-                ':ph' => $phones
+                ':ph' => $phones,
+                ':mt' => $meta_title,
+                ':md' => $meta_description,
+                ':mk' => $meta_keywords,
+                ':can' => $canonical_url,
+                ':ogi' => $og_image
             ]);
-            $msg = 'Admission Enquiry Desk details updated successfully in MySQL Database!';
+            $msg = 'Admission Enquiry Desk details and SEO metadata updated successfully in MySQL Database!';
         } catch (Exception $e) {
             $error = 'Database Error: ' . $e->getMessage();
         }
@@ -511,6 +630,11 @@ $totalNotices = (int)$db->query("SELECT COUNT(*) FROM `admission_notices`")->fet
 $totalFees = (int)$db->query("SELECT COUNT(*) FROM `admission_fees`")->fetchColumn();
 $totalBrochures = (int)$db->query("SELECT COUNT(*) FROM `admission_brochures`")->fetchColumn();
 $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")->fetchColumn();
+
+// Default SEO values fallback
+$defaultMetaTitle = !empty($pageMeta['meta_title']) ? $pageMeta['meta_title'] : (($pageMeta['page_title'] ?? $validTabs[$tab]) . ' - SSSUTMS');
+$defaultMetaDesc = !empty($pageMeta['meta_description']) ? $pageMeta['meta_description'] : ('Explore ' . ($pageMeta['page_title'] ?? $validTabs[$tab]) . ' at Sri Satya Sai University of Technology & Medical Sciences (SSSUTMS), Sehore (M.P.).');
+$defaultKeywords = !empty($pageMeta['meta_keywords']) ? $pageMeta['meta_keywords'] : ('SSSUTMS, ' . ($pageMeta['page_title'] ?? $validTabs[$tab]) . ', Admission 2026-27, Sehore University');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -606,6 +730,26 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
       font-size: 0.875rem;
       border-bottom: 1px solid #f1f5f9;
     }
+    .nav-pills-custom .nav-link {
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      transition: all 0.2s;
+    }
+    .nav-pills-custom .nav-link:hover {
+      background: #f8fafc;
+      color: #0b2545;
+    }
+    .nav-pills-custom .nav-link.active {
+      background: #0b2545;
+      color: #ffffff;
+      border-color: #0b2545;
+      box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -629,12 +773,18 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
     <li><a href="admission.php" class="nav-link active"><i class="fa fa-user-graduate"></i> Admission Cell (7)</a></li>
-    <li><a href="examination.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Examination Cell (5)</a></li>
+    <li><a href="academic.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Academic Cell (46)</a></li>
+    <li><a href="examination.php" class="nav-link"><i class="fa fa-file-signature"></i> Examination Cell (5)</a></li>
     <li><a href="research.php" class="nav-link"><i class="fa fa-flask"></i> Research Cell (12)</a></li>
     <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
     <li><a href="faculties.php" class="nav-link"><i class="fa fa-chalkboard-user"></i> Faculties &amp; Depts (14)</a></li>
+    <li><a href="committee.php" class="nav-link"><i class="fa fa-users-gear"></i> Statutory Committees (9)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals &amp; NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events &amp; Workshops</a></li>
+    <li><a href="career.php" class="nav-link"><i class="fa fa-briefcase"></i> Career &amp; Recruitment</a></li>
+    <li><a href="contact.php" class="nav-link"><i class="fa fa-phone-volume"></i> Contact &amp; Helpdesk</a></li>
+    <li><a href="itep.php" class="nav-link"><i class="fa fa-graduation-cap"></i> ITEP Cell</a></li>
+    <li><a href="gallery.php" class="nav-link"><i class="fa fa-camera-retro"></i> Photo &amp; Video Gallery</a></li>
     <li><a href="downloads.php" class="nav-link"><i class="fa fa-folder-arrow-down"></i> Curriculum &amp; Downloads (52)</a></li>
     <li><a href="applications.php" class="nav-link"><i class="fa fa-user-graduate"></i> Student Registrations</a></li>
     <li><a href="inquiries.php" class="nav-link"><i class="fa fa-envelope-open-text"></i> Admission Leads</a></li>
@@ -655,7 +805,7 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
       </button>
       <div>
         <h5 class="fw-bold text-dark mb-0">Admission Cell Administration</h5>
-        <small class="text-muted d-none d-md-inline">Manage All 7 Admission Pages — 100% Dynamic MySQL Database Engine</small>
+        <small class="text-muted d-none d-md-inline">Manage All 7 Admission Pages — 100% Dynamic MySQL Database Engine &amp; Full SEO Suite</small>
       </div>
     </div>
     <div class="d-flex align-items-center gap-3">
@@ -706,13 +856,13 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
     <!-- ==================================================================== -->
     <?php if ($tab === 'AdmissionProcedure'): ?>
       <div class="row g-4">
-        <!-- Main Procedure Settings Form -->
+        <!-- Main Procedure Settings Form with Sub-tabs -->
         <div class="col-lg-7">
           <div class="admission-card">
             <div class="admission-card-header">
               <div>
                 <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-route me-2 text-primary"></i> Page 1: Admission Procedure Settings</h6>
-                <small class="text-muted">Dynamic Regulatory Guidelines, Official Flowchart &amp; Downloadable Procedure PDF</small>
+                <small class="text-muted">Dynamic Regulatory Guidelines, Official Flowchart, PDF &amp; SEO Engine</small>
               </div>
               <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
             </div>
@@ -720,54 +870,158 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
               <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="save_procedure">
 
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Page Title (Browser &amp; Header)</label>
-                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Procedure'); ?>" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Lead Heading / Title</label>
-                    <input type="text" name="lead_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['lead_title'] ?? 'Admission Procedure'); ?>" required>
-                  </div>
-                </div>
+                <!-- Sub-Pill Navigation: General vs SEO -->
+                <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pill-proc-general-tab" data-bs-toggle="pill" data-bs-target="#pill-proc-general" type="button" role="tab">
+                      <i class="fa-solid fa-sliders me-1.5"></i> General Content &amp; Media
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-proc-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-proc-seo" type="button" role="tab">
+                      <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                    </button>
+                  </li>
+                </ul>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Procedure &amp; Regulatory Guidelines Text</label>
-                  <textarea name="description" class="form-control" rows="5" required><?php echo htmlspecialchars($pageMeta['description'] ?? ''); ?></textarea>
-                  <small class="text-muted">Regulatory references to MP Niji Vishwavidyalaya Niyamak Aayog and state admission norms.</small>
-                </div>
-
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">PDF Download Link Label</label>
-                    <input type="text" name="pdf_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'Admission Procedure(Click Here)'); ?>" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">PDF Document Link (URL or Upload)</label>
-                    <div class="input-group mb-2">
-                      <input type="text" name="pdf_link" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? ''); ?>" placeholder="https://...">
-                      <?php if (!empty($pageMeta['primary_file_url'])): ?>
-                        <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View PDF"><i class="fa-solid fa-eye"></i></a>
-                      <?php endif; ?>
+                <div class="tab-content">
+                  <!-- SUB-TAB 1: General Content -->
+                  <div class="tab-pane fade show active" id="pill-proc-general" role="tabpanel">
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Page Title (Browser &amp; Header)</label>
+                        <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Procedure'); ?>" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Lead Heading / Title</label>
+                        <input type="text" name="lead_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['lead_title'] ?? 'Admission Procedure'); ?>" required>
+                      </div>
                     </div>
-                    <input type="file" name="pdf_file" class="form-control form-control-sm" accept=".pdf">
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Procedure &amp; Regulatory Guidelines Text</label>
+                      <textarea name="description" class="form-control" rows="5" required><?php echo htmlspecialchars($pageMeta['description'] ?? ''); ?></textarea>
+                      <small class="text-muted">Regulatory references to MP Niji Vishwavidyalaya Niyamak Aayog and state admission norms.</small>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">PDF Download Link Label</label>
+                        <input type="text" name="pdf_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'Admission Procedure(Click Here)'); ?>" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">PDF Document Link (URL or Upload)</label>
+                        <div class="input-group mb-2">
+                          <input type="text" name="pdf_link" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? ''); ?>" placeholder="https://...">
+                          <?php if (!empty($pageMeta['primary_file_url'])): ?>
+                            <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View PDF"><i class="fa-solid fa-eye"></i></a>
+                          <?php endif; ?>
+                        </div>
+                        <input type="file" name="pdf_file" class="form-control form-control-sm" accept=".pdf">
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold small text-dark">Procedure Flowchart / Diagram Image</label>
+                      <div class="input-group mb-2">
+                        <input type="text" name="image_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['image_url'] ?? ''); ?>" placeholder="assets/images/admission/...">
+                        <?php if (!empty($pageMeta['image_url'])): ?>
+                          <a href="../<?php echo htmlspecialchars($pageMeta['image_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Image"><i class="fa-solid fa-eye"></i></a>
+                        <?php endif; ?>
+                      </div>
+                      <input type="file" name="image_file" class="form-control form-control-sm" accept="image/*">
+                    </div>
+                  </div>
+
+                  <!-- SUB-TAB 2: SEO & Meta Details -->
+                  <div class="tab-pane fade" id="pill-proc-seo" role="tabpanel">
+                    <!-- Google SERP Snippet Preview -->
+                    <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                          <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                          <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                        </div>
+                        <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                          <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                            <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                            <div>
+                              <span class="fw-semibold">Sri Satya Sai University</span>
+                              <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › AdmissionProcedure</span>
+                            </div>
+                          </div>
+                          <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                            <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                          </h5>
+                          <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                            <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- SEO Input Fields -->
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                          </label>
+                          <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                        </div>
+                        <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. Admission Procedure 2026-27 | Sri Satya Sai University (SSSUTMS)" oninput="updateSeoPreviewAdm()">
+                        <small class="text-muted">Displayed as the main clickable headline in Google search results and browser tab.</small>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                          </label>
+                          <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                        </div>
+                        <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Provide a compelling 150-160 character description of this admission page for Google search snippets..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                        <small class="text-muted">Google snippet description to entice prospective students to click.</small>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords (Comma Separated)
+                        </label>
+                        <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Admission Procedure, Admission Process Sehore, MP Private University">
+                        <small class="text-muted">Target keywords for search engine discovery and category relevance.</small>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override (Optional)
+                        </label>
+                        <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                        <small class="text-muted">Preferred canonical page link for duplicate prevention.</small>
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                          <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>" placeholder="e.g. assets/images/logo/logo.jpg">
+                        </div>
+                        <small class="text-muted">Image shown when admission page link is shared on WhatsApp, Facebook, LinkedIn, Twitter.</small>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="mb-4">
-                  <label class="form-label fw-bold small text-dark">Procedure Flowchart / Diagram Image</label>
-                  <div class="input-group mb-2">
-                    <input type="text" name="image_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['image_url'] ?? ''); ?>" placeholder="assets/images/admission/...">
-                    <?php if (!empty($pageMeta['image_url'])): ?>
-                      <a href="../<?php echo htmlspecialchars($pageMeta['image_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Image"><i class="fa-solid fa-eye"></i></a>
-                    <?php endif; ?>
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+                  <div class="small text-muted">
+                    <i class="fa fa-circle-check text-success me-1"></i> Changes will immediately update the live public website and Google search metadata.
                   </div>
-                  <input type="file" name="image_file" class="form-control form-control-sm" accept="image/*">
+                  <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                    <i class="fa-solid fa-floppy-disk me-1"></i> Save Changes to MySQL
+                  </button>
                 </div>
-
-                <button type="submit" class="btn btn-primary px-4 fw-bold">
-                  <i class="fa-solid fa-floppy-disk me-1"></i> Save Changes to MySQL
-                </button>
               </form>
             </div>
           </div>
@@ -817,6 +1071,140 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
       <?php
       $notices = $db->query("SELECT * FROM `admission_notices` ORDER BY `is_new` DESC, `notice_date` DESC, `id` DESC")->fetchAll();
       ?>
+
+      <!-- Page Settings & SEO Configuration Card -->
+      <div class="admission-card mb-4">
+        <div class="admission-card-header">
+          <div>
+            <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-gear me-2 text-primary"></i> Page 2: Admission Notice Page Settings &amp; SEO Engine</h6>
+            <small class="text-muted">Manage Header Titles, Breadcrumbs &amp; Search Engine Optimization Metadata</small>
+          </div>
+          <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
+        </div>
+        <div class="p-3 p-md-4">
+          <form method="POST">
+            <input type="hidden" name="action" value="save_notice_settings">
+
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-notice-general-tab" data-bs-toggle="pill" data-bs-target="#pill-notice-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> General Page Titles
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-notice-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-notice-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Settings -->
+              <div class="tab-pane fade show active" id="pill-notice-general" role="tabpanel">
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label class="form-label fw-bold small text-dark">Page Title (Browser &amp; Banner)</label>
+                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Notice'); ?>" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-bold small text-dark">Section Main Heading</label>
+                    <input type="text" name="heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'Admission Notice (2026-27)'); ?>" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-bold small text-dark">Subheading / Badge Text</label>
+                    <input type="text" name="subheading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['subheading'] ?? 'Official Notifications, Circulars & Entrance Exam Schedules'); ?>" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-notice-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › AdmissionNotice</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                      </h5>
+                      <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. Admission Notices & Notifications 2026-27 | SSSUTMS" oninput="updateSeoPreviewAdm()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Provide a compelling 150-160 character description of admission notices for search engines..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords (Comma Separated)
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Admission Notice, Enrollment Schedule, Entrance Notifications">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override (Optional)
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>" placeholder="e.g. assets/images/logo/logo.jpg">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+              <div class="small text-muted">
+                <i class="fa fa-circle-check text-success me-1"></i> Page settings &amp; SEO tags update the live Admission Notice page instantly.
+              </div>
+              <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                <i class="fa-solid fa-floppy-disk me-1"></i> Update Page Settings &amp; SEO
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div class="row g-4">
         <!-- Add Notice Form -->
         <div class="col-lg-4">
@@ -868,7 +1256,7 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
           <div class="admission-card">
             <div class="admission-card-header">
               <div>
-                <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-bullhorn me-2 text-primary"></i> Page 2: Admission Notices (<?php echo count($notices); ?> Total)</h6>
+                <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-bullhorn me-2 text-primary"></i> Live Admission Notices (<?php echo count($notices); ?> Total)</h6>
                 <small class="text-muted">Dynamic circulars, schedules, and notifications in MySQL database</small>
               </div>
             </div>
@@ -980,43 +1368,147 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
       <?php
       $feesList = get_admission_fees();
       ?>
-      <!-- Fee Policy Details -->
+      <!-- Fee Policy Details Card with Sub-tabs -->
       <div class="admission-card mb-4">
         <div class="admission-card-header">
-          <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-file-invoice me-2 text-primary"></i> Page 3: Official Fees Refund Policy Settings</h6>
+          <div>
+            <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-file-invoice me-2 text-primary"></i> Page 3: Official Fees Refund Policy &amp; SEO Engine</h6>
+            <small class="text-muted">Configure Policy PDF, Subtitle, and Search Engine Metadata</small>
+          </div>
+          <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
         </div>
         <div class="p-3 p-md-4">
           <form method="POST" enctype="multipart/form-data">
             <input type="hidden" name="action" value="save_fee_policy">
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">Page Title</label>
-                <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Fee Structure and Fees Refund Policy'); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">Subtitle</label>
-                <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($pageMeta['subheading'] ?? 'Eligibility Criteria & Fees Structure'); ?>" required>
-              </div>
-            </div>
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">Refund Policy Button Label</label>
-                <input type="text" name="refund_policy_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'Download Official Fees Refund Policy (PDF)'); ?>">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">Refund Policy PDF URL / Upload</label>
-                <div class="input-group mb-2">
-                  <input type="text" name="refund_policy_pdf" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? ''); ?>">
-                  <?php if (!empty($pageMeta['primary_file_url'])): ?>
-                    <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url']); ?>" target="_blank" class="btn btn-outline-secondary"><i class="fa-solid fa-eye"></i></a>
-                  <?php endif; ?>
+
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-fee-general-tab" data-bs-toggle="pill" data-bs-target="#pill-fee-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Policy Settings &amp; PDF
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-fee-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-fee-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: Policy General -->
+              <div class="tab-pane fade show active" id="pill-fee-general" role="tabpanel">
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Page Title</label>
+                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Fee Structure and Fees Refund Policy'); ?>" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Subtitle</label>
+                    <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($pageMeta['subheading'] ?? 'Eligibility Criteria & Fees Structure'); ?>" required>
+                  </div>
                 </div>
-                <input type="file" name="refund_policy_file" class="form-control form-control-sm" accept=".pdf">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Refund Policy Button Label</label>
+                    <input type="text" name="refund_policy_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'Download Official Fees Refund Policy (PDF)'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Refund Policy PDF URL / Upload</label>
+                    <div class="input-group mb-2">
+                      <input type="text" name="refund_policy_pdf" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? ''); ?>">
+                      <?php if (!empty($pageMeta['primary_file_url'])): ?>
+                        <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url']); ?>" target="_blank" class="btn btn-outline-secondary"><i class="fa-solid fa-eye"></i></a>
+                      <?php endif; ?>
+                    </div>
+                    <input type="file" name="refund_policy_file" class="form-control form-control-sm" accept=".pdf">
+                  </div>
+                </div>
+              </div>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-fee-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › FeesStructure</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                      </h5>
+                      <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. Fees Structure & Refund Policy 2026-27 | SSSUTMS" oninput="updateSeoPreviewAdm()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Provide a detailed fee structure description for search engines..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Fee Structure, B.Tech Fees, MBA Fees Sehore">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary px-4 fw-bold">
-              <i class="fa-solid fa-floppy-disk me-1"></i> Update Policy Settings
-            </button>
+
+            <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+              <div class="small text-muted">
+                <i class="fa fa-circle-check text-success me-1"></i> Policy &amp; SEO settings are updated in MySQL immediately.
+              </div>
+              <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                <i class="fa-solid fa-floppy-disk me-1"></i> Update Policy &amp; SEO Settings
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -1159,79 +1651,181 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
       $charges = get_admission_charges();
       ?>
       <div class="row g-4">
-        <!-- Bank Information Form -->
+        <!-- Bank Information Form with Sub-tabs -->
         <div class="col-lg-7">
           <div class="admission-card">
             <div class="admission-card-header">
-              <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-building-columns me-2 text-primary"></i> Page 4: Official Bank Account Information</h6>
+              <div>
+                <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-building-columns me-2 text-primary"></i> Page 4: Official Bank Account Information &amp; SEO</h6>
+                <small class="text-muted">Direct RTGS/NEFT Credentials, QR Code, Portal Link &amp; SEO</small>
+              </div>
+              <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
             </div>
             <div class="p-3 p-md-4">
               <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="save_account_detail">
 
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Page Title</label>
-                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'University Account Detail'); ?>" required>
+                <!-- Sub-Pill Navigation -->
+                <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pill-bank-general-tab" data-bs-toggle="pill" data-bs-target="#pill-bank-general" type="button" role="tab">
+                      <i class="fa-solid fa-sliders me-1.5"></i> Bank Account Information
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-bank-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-bank-seo" type="button" role="tab">
+                      <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                    </button>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  <!-- SUB-TAB 1: Bank Information -->
+                  <div class="tab-pane fade show active" id="pill-bank-general" role="tabpanel">
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Page Title</label>
+                        <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'University Account Detail'); ?>" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Bank Title</label>
+                        <input type="text" name="bank_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'Bank Detail'); ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Bank Description / Info</label>
+                      <textarea name="bank_desc" class="form-control" rows="3"><?php echo htmlspecialchars($pageMeta['description'] ?? ''); ?></textarea>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Bank Name</label>
+                        <input type="text" name="bank_name" class="form-control" value="<?php echo htmlspecialchars($pageMeta['bank_name'] ?? 'Punjab National Bank'); ?>" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Account Holder Name</label>
+                        <input type="text" name="account_name" class="form-control" value="<?php echo htmlspecialchars($pageMeta['account_name'] ?? 'SSSUTMS'); ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Account Number</label>
+                        <input type="text" name="account_number" class="form-control font-monospace fw-bold" value="<?php echo htmlspecialchars($pageMeta['account_number'] ?? '7162002100000506'); ?>" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">IFSC Code</label>
+                        <input type="text" name="ifsc_code" class="form-control font-monospace fw-bold" value="<?php echo htmlspecialchars($pageMeta['ifsc_code'] ?? 'PUNB0716200'); ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Branch</label>
+                        <input type="text" name="branch" class="form-control" value="<?php echo htmlspecialchars($pageMeta['branch'] ?? 'SSSUTMS Campus, Sehore (M.P.)'); ?>">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Online Fee Payment Portal URL</label>
+                        <input type="text" name="online_banking_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['online_banking_url'] ?? 'https://sssutms.payjix.com/'); ?>">
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold small text-dark">Official Payment QR Code Image</label>
+                      <div class="input-group mb-2">
+                        <input type="text" name="qr_image_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['image_url'] ?? ''); ?>">
+                        <?php if (!empty($pageMeta['image_url'])): ?>
+                          <a href="<?php echo htmlspecialchars($pageMeta['image_url']); ?>" target="_blank" class="btn btn-outline-secondary"><i class="fa-solid fa-eye"></i></a>
+                        <?php endif; ?>
+                      </div>
+                      <input type="file" name="qr_image_file" class="form-control form-control-sm" accept="image/*">
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Bank Title</label>
-                    <input type="text" name="bank_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'Bank Detail'); ?>" required>
+
+                  <!-- SUB-TAB 2: SEO Settings -->
+                  <div class="tab-pane fade" id="pill-bank-seo" role="tabpanel">
+                    <!-- Google SERP Snippet Preview -->
+                    <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                          <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                          <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                        </div>
+                        <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                          <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                            <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                            <div>
+                              <span class="fw-semibold">Sri Satya Sai University</span>
+                              <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › UniversityAccountDetail</span>
+                            </div>
+                          </div>
+                          <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                            <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                          </h5>
+                          <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                            <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                          </label>
+                          <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                        </div>
+                        <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. University Bank Account Details | SSSUTMS" oninput="updateSeoPreviewAdm()">
+                      </div>
+
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                          </label>
+                          <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                        </div>
+                        <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Provide verified university bank details and online fee payment instructions..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                        </label>
+                        <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Bank Account, PNB Account SSSUTMS, Fee Payment Online">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                        </label>
+                        <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                          <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Bank Description / Info</label>
-                  <textarea name="bank_desc" class="form-control" rows="3"><?php echo htmlspecialchars($pageMeta['description'] ?? ''); ?></textarea>
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+                  <div class="small text-muted">
+                    <i class="fa fa-circle-check text-success me-1"></i> Updates bank credentials &amp; SEO tags in real-time.
+                  </div>
+                  <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                    <i class="fa-solid fa-floppy-disk me-1"></i> Save Bank Details in MySQL
+                  </button>
                 </div>
-
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Bank Name</label>
-                    <input type="text" name="bank_name" class="form-control" value="<?php echo htmlspecialchars($pageMeta['bank_name'] ?? 'Punjab National Bank'); ?>" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Account Holder Name</label>
-                    <input type="text" name="account_name" class="form-control" value="<?php echo htmlspecialchars($pageMeta['account_name'] ?? 'SSSUTMS'); ?>" required>
-                  </div>
-                </div>
-
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Account Number</label>
-                    <input type="text" name="account_number" class="form-control font-monospace fw-bold" value="<?php echo htmlspecialchars($pageMeta['account_number'] ?? '7162002100000506'); ?>" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">IFSC Code</label>
-                    <input type="text" name="ifsc_code" class="form-control font-monospace fw-bold" value="<?php echo htmlspecialchars($pageMeta['ifsc_code'] ?? 'PUNB0716200'); ?>" required>
-                  </div>
-                </div>
-
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Branch</label>
-                    <input type="text" name="branch" class="form-control" value="<?php echo htmlspecialchars($pageMeta['branch'] ?? 'SSSUTMS Campus, Sehore (M.P.)'); ?>">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Online Fee Payment Portal URL</label>
-                    <input type="text" name="online_banking_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['online_banking_url'] ?? 'https://sssutms.payjix.com/'); ?>">
-                  </div>
-                </div>
-
-                <div class="mb-4">
-                  <label class="form-label fw-bold small text-dark">Official Payment QR Code Image</label>
-                  <div class="input-group mb-2">
-                    <input type="text" name="qr_image_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['image_url'] ?? ''); ?>">
-                    <?php if (!empty($pageMeta['image_url'])): ?>
-                      <a href="<?php echo htmlspecialchars($pageMeta['image_url']); ?>" target="_blank" class="btn btn-outline-secondary"><i class="fa-solid fa-eye"></i></a>
-                    <?php endif; ?>
-                  </div>
-                  <input type="file" name="qr_image_file" class="form-control form-control-sm" accept="image/*">
-                </div>
-
-                <button type="submit" class="btn btn-primary px-4 fw-bold">
-                  <i class="fa-solid fa-floppy-disk me-1"></i> Save Bank Details in MySQL
-                </button>
               </form>
             </div>
           </div>
@@ -1291,13 +1885,13 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
     <!-- ==================================================================== -->
     <?php elseif ($tab === 'Brochures'): ?>
       <div class="row g-4">
-        <!-- Main Brochures Settings Form -->
+        <!-- Main Brochures Settings Form with Sub-tabs -->
         <div class="col-lg-7">
           <div class="admission-card">
             <div class="admission-card-header">
               <div>
-                <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-book-open me-2 text-primary"></i> Page 5: Brochures Settings</h6>
-                <small class="text-muted">Dynamic Brochure Heading, Prospectus PDF &amp; Cover Image</small>
+                <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-book-open me-2 text-primary"></i> Page 5: Brochures Settings &amp; SEO</h6>
+                <small class="text-muted">Dynamic Brochure Heading, Prospectus PDF, Cover Image &amp; SEO Engine</small>
               </div>
               <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
             </div>
@@ -1305,50 +1899,147 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
               <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="save_brochures">
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Page Title (Browser Tab &amp; Header)</label>
-                  <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Brochures'); ?>" required>
-                </div>
+                <!-- Sub-Pill Navigation -->
+                <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pill-brochure-general-tab" data-bs-toggle="pill" data-bs-target="#pill-brochure-general" type="button" role="tab">
+                      <i class="fa-solid fa-sliders me-1.5"></i> General Content &amp; Media
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-brochure-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-brochure-seo" type="button" role="tab">
+                      <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                    </button>
+                  </li>
+                </ul>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Section Heading</label>
-                  <input type="text" name="heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'ADMISSION BROCHURE'); ?>" required>
-                  <small class="text-muted">Heading displayed in orange next to the folder icon.</small>
-                </div>
+                <div class="tab-content">
+                  <!-- SUB-TAB 1: General Content -->
+                  <div class="tab-pane fade show active" id="pill-brochure-general" role="tabpanel">
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Page Title (Browser Tab &amp; Header)</label>
+                      <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Brochures'); ?>" required>
+                    </div>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Prospectus Link Label</label>
-                  <input type="text" name="prospectus_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'Prospectus (Click Here)'); ?>" required>
-                  <small class="text-muted">Anchor text displayed in red bold italic next to the arrow icon.</small>
-                </div>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Section Heading</label>
+                      <input type="text" name="heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'ADMISSION BROCHURE'); ?>" required>
+                      <small class="text-muted">Heading displayed in orange next to the folder icon.</small>
+                    </div>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Prospectus PDF URL / Upload File</label>
-                  <div class="input-group mb-2">
-                    <input type="text" name="prospectus_pdf" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? ''); ?>" placeholder="https://...">
-                    <?php if (!empty($pageMeta['primary_file_url'])): ?>
-                      <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Current PDF"><i class="fa-solid fa-eye"></i></a>
-                    <?php endif; ?>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Prospectus Link Label</label>
+                      <input type="text" name="prospectus_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'Prospectus (Click Here)'); ?>" required>
+                      <small class="text-muted">Anchor text displayed in red bold italic next to the arrow icon.</small>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Prospectus PDF URL / Upload File</label>
+                      <div class="input-group mb-2">
+                        <input type="text" name="prospectus_pdf" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? ''); ?>" placeholder="https://...">
+                        <?php if (!empty($pageMeta['primary_file_url'])): ?>
+                          <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Current PDF"><i class="fa-solid fa-eye"></i></a>
+                        <?php endif; ?>
+                      </div>
+                      <input type="file" name="prospectus_file" class="form-control form-control-sm" accept=".pdf">
+                      <small class="text-muted">Enter direct PDF URL or choose a new .pdf file from your computer to upload.</small>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold small text-dark">Prospectus Cover Image</label>
+                      <div class="input-group mb-2">
+                        <input type="text" name="cover_image_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['image_url'] ?? ''); ?>" placeholder="assets/images/admission/...">
+                        <?php if (!empty($pageMeta['image_url'])): ?>
+                          <a href="../<?php echo htmlspecialchars($pageMeta['image_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Image"><i class="fa-solid fa-eye"></i></a>
+                        <?php endif; ?>
+                      </div>
+                      <input type="file" name="cover_image_file" class="form-control form-control-sm" accept="image/*">
+                    </div>
                   </div>
-                  <input type="file" name="prospectus_file" class="form-control form-control-sm" accept=".pdf">
-                  <small class="text-muted">Enter direct PDF URL or choose a new .pdf file from your computer to upload.</small>
-                </div>
 
-                <div class="mb-4">
-                  <label class="form-label fw-bold small text-dark">Prospectus Cover Image</label>
-                  <div class="input-group mb-2">
-                    <input type="text" name="cover_image_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['image_url'] ?? ''); ?>" placeholder="assets/images/admission/...">
-                    <?php if (!empty($pageMeta['image_url'])): ?>
-                      <a href="../<?php echo htmlspecialchars($pageMeta['image_url']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Image"><i class="fa-solid fa-eye"></i></a>
-                    <?php endif; ?>
+                  <!-- SUB-TAB 2: SEO Settings -->
+                  <div class="tab-pane fade" id="pill-brochure-seo" role="tabpanel">
+                    <!-- Google SERP Snippet Preview -->
+                    <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                          <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                          <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                        </div>
+                        <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                          <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                            <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                            <div>
+                              <span class="fw-semibold">Sri Satya Sai University</span>
+                              <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › Brochures</span>
+                            </div>
+                          </div>
+                          <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                            <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                          </h5>
+                          <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                            <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                          </label>
+                          <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                        </div>
+                        <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. Admission Brochures & Prospectus 2026-27 | SSSUTMS" oninput="updateSeoPreviewAdm()">
+                      </div>
+
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                          </label>
+                          <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                        </div>
+                        <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Download official admission brochure, university prospectus, and program details..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                        </label>
+                        <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Brochure, Prospectus PDF, University Information Booklet">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                        </label>
+                        <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                          <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <input type="file" name="cover_image_file" class="form-control form-control-sm" accept="image/*">
-                  <small class="text-muted">Enter image path or upload a new prospectus banner/cover image.</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary px-4 fw-bold">
-                  <i class="fa-solid fa-floppy-disk me-1"></i> Save Changes to MySQL
-                </button>
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+                  <div class="small text-muted">
+                    <i class="fa fa-circle-check text-success me-1"></i> Changes will immediately update the live public website and Google search metadata.
+                  </div>
+                  <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                    <i class="fa-solid fa-floppy-disk me-1"></i> Save Changes to MySQL
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -1393,46 +2084,148 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
     <?php elseif ($tab === 'AdmissionRegistration'): ?>
       <div class="admission-card">
         <div class="admission-card-header">
-          <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-user-pen me-2 text-primary"></i> Page 6: Admission Registration &amp; E-Pravesh Portal Settings</h6>
+          <div>
+            <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-user-pen me-2 text-primary"></i> Page 6: Admission Registration &amp; E-Pravesh Portal Settings &amp; SEO</h6>
+            <small class="text-muted">Dynamic Portal Link, Registration Instructions &amp; SEO Engine</small>
+          </div>
+          <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
         </div>
         <div class="p-3 p-md-4">
           <form method="POST">
             <input type="hidden" name="action" value="save_registration">
 
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">Page Title</label>
-                <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Registration'); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">Heading</label>
-                <input type="text" name="heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'Admission Registration (Session 2026-27)'); ?>" required>
-              </div>
-            </div>
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-reg-general-tab" data-bs-toggle="pill" data-bs-target="#pill-reg-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Registration Portal &amp; Steps
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-reg-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-reg-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
 
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">E-Pravesh Registration Button Label</label>
-                <input type="text" name="epravesh_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'E-Pravesh 2026 (Online Registration & Enquiry Form)'); ?>" required>
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-reg-general" role="tabpanel">
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Page Title</label>
+                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Registration'); ?>" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Heading</label>
+                    <input type="text" name="heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'Admission Registration (Session 2026-27)'); ?>" required>
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">E-Pravesh Registration Button Label</label>
+                    <input type="text" name="epravesh_label" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_label'] ?? 'E-Pravesh 2026 (Online Registration & Enquiry Form)'); ?>" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">E-Pravesh Official Portal URL</label>
+                    <div class="input-group">
+                      <input type="url" name="epravesh_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d'); ?>" required>
+                      <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? '#'); ?>" target="_blank" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label fw-bold small text-dark">Step-by-Step Registration Instructions (One per line)</label>
+                  <textarea name="instructions_raw" class="form-control font-monospace" rows="6"><?php echo htmlspecialchars($pageMeta['instructions'] ?? ''); ?></textarea>
+                  <small class="text-muted">Enter each instruction or guideline on a new line. They will be formatted as numbered action steps on the website.</small>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold small text-dark">E-Pravesh Official Portal URL</label>
-                <div class="input-group">
-                  <input type="url" name="epravesh_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? 'https://www.sssutms.co.in/erp/Student/Registration/Index/ojdZaOYsXtpmswGfjiVVww%3d%3d'); ?>" required>
-                  <a href="<?php echo htmlspecialchars($pageMeta['primary_file_url'] ?? '#'); ?>" target="_blank" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-reg-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › AdmissionRegistration</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                      </h5>
+                      <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. Online Admission Registration & E-Pravesh 2026-27 | SSSUTMS" oninput="updateSeoPreviewAdm()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Register online for admission 2026-27 at Sri Satya Sai University through E-Pravesh portal..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS E-Pravesh, Admission Registration, Online Form Sehore">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="mb-4">
-              <label class="form-label fw-bold small text-dark">Step-by-Step Registration Instructions (One per line)</label>
-              <textarea name="instructions_raw" class="form-control font-monospace" rows="6"><?php echo htmlspecialchars($pageMeta['instructions'] ?? ''); ?></textarea>
-              <small class="text-muted">Enter each instruction or guideline on a new line. They will be formatted as numbered action steps on the website.</small>
+            <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+              <div class="small text-muted">
+                <i class="fa fa-circle-check text-success me-1"></i> Changes will immediately update the live registration portal links &amp; metadata.
+              </div>
+              <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                <i class="fa-solid fa-floppy-disk me-1"></i> Save Registration Settings in MySQL
+              </button>
             </div>
-
-            <button type="submit" class="btn btn-primary px-4 fw-bold">
-              <i class="fa-solid fa-floppy-disk me-1"></i> Save Registration Settings in MySQL
-            </button>
           </form>
         </div>
       </div>
@@ -1445,51 +2238,153 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
       $enquiriesList = $db->query("SELECT * FROM `admission_enquiries` ORDER BY `id` DESC LIMIT 20")->fetchAll();
       ?>
       <div class="row g-4">
-        <!-- Desk Settings -->
+        <!-- Desk Settings Form with Sub-tabs -->
         <div class="col-lg-6">
           <div class="admission-card">
             <div class="admission-card-header">
-              <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-headset me-2 text-primary"></i> Page 7: Official Admission Enquiry Desk Settings</h6>
+              <div>
+                <h6 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-headset me-2 text-primary"></i> Page 7: Official Admission Enquiry Desk &amp; SEO</h6>
+                <small class="text-muted">Helpline numbers, Campus Address, Contact Timing &amp; SEO Engine</small>
+              </div>
+              <span class="badge bg-primary-subtle text-primary fw-bold">Live in Database</span>
             </div>
             <div class="p-3 p-md-4">
               <form method="POST">
                 <input type="hidden" name="action" value="save_enquiry">
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Page Title</label>
-                  <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Enquiry'); ?>" required>
-                </div>
+                <!-- Sub-Pill Navigation -->
+                <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pill-enq-general-tab" data-bs-toggle="pill" data-bs-target="#pill-enq-general" type="button" role="tab">
+                      <i class="fa-solid fa-sliders me-1.5"></i> Contact &amp; Desk Info
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-enq-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-enq-seo" type="button" role="tab">
+                      <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                    </button>
+                  </li>
+                </ul>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Contact Heading</label>
-                  <input type="text" name="contact_heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'For Admission 2026-27 Enquiry Please Contact'); ?>" required>
-                </div>
+                <div class="tab-content">
+                  <!-- SUB-TAB 1: General Desk Info -->
+                  <div class="tab-pane fade show active" id="pill-enq-general" role="tabpanel">
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Page Title</label>
+                      <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($pageMeta['page_title'] ?? 'Admission Enquiry'); ?>" required>
+                    </div>
 
-                <div class="mb-3">
-                  <label class="form-label fw-bold small text-dark">Official Contact Numbers (One per line)</label>
-                  <textarea name="phones_raw" class="form-control font-monospace" rows="5" required><?php echo htmlspecialchars($pageMeta['contact_phones'] ?? ''); ?></textarea>
-                  <small class="text-muted">Enter each telephone or helpline number on a separate line.</small>
-                </div>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Contact Heading</label>
+                      <input type="text" name="contact_heading" class="form-control" value="<?php echo htmlspecialchars($pageMeta['heading'] ?? 'For Admission 2026-27 Enquiry Please Contact'); ?>" required>
+                    </div>
 
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Office Timings</label>
-                    <input type="text" name="timings" class="form-control" value="<?php echo htmlspecialchars($pageMeta['contact_timings'] ?? 'From 10:00 AM to 5:00 PM only'); ?>" required>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-dark">Official Contact Numbers (One per line)</label>
+                      <textarea name="phones_raw" class="form-control font-monospace" rows="5" required><?php echo htmlspecialchars($pageMeta['contact_phones'] ?? ''); ?></textarea>
+                      <small class="text-muted">Enter each telephone or helpline number on a separate line.</small>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Office Timings</label>
+                        <input type="text" name="timings" class="form-control" value="<?php echo htmlspecialchars($pageMeta['contact_timings'] ?? 'From 10:00 AM to 5:00 PM only'); ?>" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold small text-dark">Official Enquiry Email</label>
+                        <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($pageMeta['contact_email'] ?? 'info@sssutms.co.in'); ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold small text-dark">Campus Address</label>
+                      <textarea name="address" class="form-control" rows="2" required><?php echo htmlspecialchars($pageMeta['contact_address'] ?? 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P), Pin - 466001'); ?></textarea>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold small text-dark">Official Enquiry Email</label>
-                    <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($pageMeta['contact_email'] ?? 'info@sssutms.co.in'); ?>" required>
+
+                  <!-- SUB-TAB 2: SEO Settings -->
+                  <div class="tab-pane fade" id="pill-enq-seo" role="tabpanel">
+                    <!-- Google SERP Snippet Preview -->
+                    <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                          <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                          <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                        </div>
+                        <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                          <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                            <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                            <div>
+                              <span class="fw-semibold">Sri Satya Sai University</span>
+                              <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Admission › Admission_Enquiry</span>
+                            </div>
+                          </div>
+                          <h5 id="seoPreviewTitleAdm" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                            <?php echo htmlspecialchars($defaultMetaTitle); ?>
+                          </h5>
+                          <p id="seoPreviewDescAdm" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                            <?php echo htmlspecialchars($defaultMetaDesc); ?>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                          </label>
+                          <small class="text-muted"><span id="metaTitleCountAdm">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                        </div>
+                        <input type="text" name="meta_title" id="seoInputTitleAdm" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_title'] ?? ''); ?>" placeholder="e.g. Admission Enquiry & Helpline Desk | SSSUTMS" oninput="updateSeoPreviewAdm()">
+                      </div>
+
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <label class="form-label small fw-bold mb-0">
+                            <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                          </label>
+                          <small class="text-muted"><span id="metaDescCountAdm">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                        </div>
+                        <textarea name="meta_description" id="seoInputDescAdm" class="form-control" rows="3" placeholder="Get in touch with SSSUTMS Admission Helpdesk for counseling, admissions queries, and assistance..." oninput="updateSeoPreviewAdm()"><?php echo htmlspecialchars($pageMeta['meta_description'] ?? ''); ?></textarea>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                        </label>
+                        <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($pageMeta['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Admission Helpline, Admission Contact Number, Sehore University Enquiry">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                        </label>
+                        <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($pageMeta['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                          <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageMeta['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="mb-4">
-                  <label class="form-label fw-bold small text-dark">Campus Address</label>
-                  <textarea name="address" class="form-control" rows="2" required><?php echo htmlspecialchars($pageMeta['contact_address'] ?? 'Opp. Oilfed Plant, Bhopal-Indore Road, Sehore (M.P), Pin - 466001'); ?></textarea>
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-4 flex-wrap gap-2">
+                  <div class="small text-muted">
+                    <i class="fa fa-circle-check text-success me-1"></i> Helpline details &amp; SEO tags update instantly on the public website.
+                  </div>
+                  <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm">
+                    <i class="fa-solid fa-floppy-disk me-1"></i> Save Enquiry Desk Info in MySQL
+                  </button>
                 </div>
-
-                <button type="submit" class="btn btn-primary px-4 fw-bold">
-                  <i class="fa-solid fa-floppy-disk me-1"></i> Save Enquiry Desk Info in MySQL
-                </button>
               </form>
             </div>
           </div>
@@ -1555,5 +2450,34 @@ $totalEnquiries = (int)$db->query("SELECT COUNT(*) FROM `admission_enquiries`")-
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function updateSeoPreviewAdm() {
+  const titleInput = document.getElementById('seoInputTitleAdm');
+  const descInput = document.getElementById('seoInputDescAdm');
+  const previewTitle = document.getElementById('seoPreviewTitleAdm');
+  const previewDesc = document.getElementById('seoPreviewDescAdm');
+  const titleCount = document.getElementById('metaTitleCountAdm');
+  const descCount = document.getElementById('metaDescCountAdm');
+
+  if (titleInput && previewTitle) {
+    const val = titleInput.value.trim();
+    previewTitle.textContent = val || titleInput.placeholder || 'Admission - Sri Satya Sai University (SSSUTMS)';
+    if (titleCount) {
+      titleCount.textContent = titleInput.value.length;
+      titleCount.className = titleInput.value.length > 60 ? 'text-danger fw-bold' : (titleInput.value.length >= 40 ? 'text-success fw-bold' : 'text-muted');
+    }
+  }
+
+  if (descInput && previewDesc) {
+    const val = descInput.value.trim();
+    previewDesc.textContent = val || descInput.placeholder || 'Explore Admission at Sri Satya Sai University of Technology and Medical Sciences (SSSUTMS), Sehore.';
+    if (descCount) {
+      descCount.textContent = descInput.value.length;
+      descCount.className = descInput.value.length > 160 ? 'text-danger fw-bold' : (descInput.value.length >= 120 ? 'text-success fw-bold' : 'text-muted');
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', updateSeoPreviewAdm);
+</script>
 </body>
 </html>

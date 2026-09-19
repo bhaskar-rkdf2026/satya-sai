@@ -1,0 +1,68 @@
+{
+    "page_info": {
+        "page_title": "Photo & Video Gallery - SSSUTMS",
+        "banner_title": "Campus Photo & Video Gallery",
+        "banner_category": "Campus Life",
+        "heading": "Campus Moments, Infrastructure & Life at SSSUTMS",
+        "video_heading": "Campus Video Tour & Convocation Highlights",
+        "meta_title": "Photo & Video Gallery | Sri Satya Sai University (SSSUTMS)",
+        "meta_description": "Experience campus life, academic infrastructure, laboratories, hostel facilities, annual convocations, and cultural events at Sri Satya Sai University (SSSUTMS).",
+        "meta_keywords": "SSSUTMS Gallery, Sri Satya Sai University Photos, Campus Tour Video, Infrastructure Pictures Sehore Bhopal",
+        "canonical_url": "",
+        "og_image": "assets/images/logo/logo.jpg"
+    },
+    "categories": {
+        "campus": {
+            "name": "Campus & Infrastructure",
+            "dir": "assets/images/gallery/1",
+            "badge": "Infrastructure",
+            "icon": "fa-building-columns",
+            "status": "Active"
+        },
+        "hostel": {
+            "name": "Hostels & Accommodation",
+            "dir": "assets/images/gallery/2",
+            "badge": "Hostel Life",
+            "icon": "fa-hotel",
+            "status": "Active"
+        },
+        "labs": {
+            "name": "Laboratories & Workshops",
+            "dir": "assets/images/gallery/3",
+            "badge": "Lab Facilities",
+            "icon": "fa-flask-vial",
+            "status": "Active"
+        },
+        "library": {
+            "name": "Central Library",
+            "dir": "assets/images/gallery/4",
+            "badge": "Learning Resources",
+            "icon": "fa-book-open",
+            "status": "Active"
+        },
+        "events": {
+            "name": "Placement Drives & Events",
+            "dir": "assets/images/gallery/6",
+            "badge": "Placements & Events",
+            "icon": "fa-award",
+            "status": "Active"
+        }
+    },
+    "custom_photos": [],
+    "videos": [
+        {
+            "id": "vid_01",
+            "title": "University Convocation & Campus Tour",
+            "description": "Experience the academic ambiance, lush green campus, and infrastructure of SSSUTMS.",
+            "embed_url": "https://www.youtube.com/embed/DW6ApxPdCHM",
+            "status": "Active"
+        },
+        {
+            "id": "vid_02",
+            "title": "Student Workshops & Campus Activities",
+            "description": "Highlights from technical symposiums, youth forums, and cultural celebrations.",
+            "embed_url": "https://www.youtube.com/embed/dGPJD6T_0Z8",
+            "status": "Active"
+        }
+    ]
+}

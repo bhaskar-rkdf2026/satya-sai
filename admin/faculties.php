@@ -6,7 +6,8 @@ $msg = '';
 $error = '';
 
 $allFaculties = get_all_faculty_pages();
-$editSlug = $_GET['edit'] ?? '';
+$editSlug = clean_input($_GET['edit'] ?? '');
+$subTab = clean_input($_GET['tab'] ?? 'general');
 
 // Helper for file uploads
 function handle_faculty_upload($fileKey, $defaultPath = '') {
@@ -416,12 +417,18 @@ foreach ($allFaculties as $s => $f) {
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
     <li><a href="admission.php" class="nav-link"><i class="fa fa-user-graduate"></i> Admission Cell (7)</a></li>
-    <li><a href="examination.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Examination Cell (5)</a></li>
+    <li><a href="academic.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Academic Cell (46)</a></li>
+    <li><a href="examination.php" class="nav-link"><i class="fa fa-file-signature"></i> Examination Cell (5)</a></li>
     <li><a href="research.php" class="nav-link"><i class="fa fa-flask"></i> Research Cell (12)</a></li>
     <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
     <li><a href="faculties.php" class="nav-link active"><i class="fa fa-chalkboard-user"></i> Faculties & Depts (14)</a></li>
+    <li><a href="committee.php" class="nav-link"><i class="fa fa-users-gear"></i> Statutory Committees (9)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals & NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events & Workshops</a></li>
+    <li><a href="career.php" class="nav-link"><i class="fa fa-briefcase"></i> Career &amp; Recruitment</a></li>
+    <li><a href="contact.php" class="nav-link"><i class="fa fa-phone-volume"></i> Contact &amp; Helpdesk</a></li>
+    <li><a href="itep.php" class="nav-link"><i class="fa fa-graduation-cap"></i> ITEP Cell</a></li>
+    <li><a href="gallery.php" class="nav-link"><i class="fa fa-camera-retro"></i> Photo &amp; Video Gallery</a></li>
     <li><a href="downloads.php" class="nav-link"><i class="fa fa-folder-arrow-down"></i> Curriculum &amp; Downloads (52)</a></li>
     <li><a href="applications.php" class="nav-link"><i class="fa fa-user-graduate"></i> Student Registrations</a></li>
     <li><a href="inquiries.php" class="nav-link"><i class="fa fa-envelope-open-text"></i> Admission Leads</a></li>
@@ -565,12 +572,12 @@ foreach ($allFaculties as $s => $f) {
             <!-- Tab Navigation Header -->
             <ul class="nav nav-pills mb-4 gap-2 border-bottom pb-3" id="facultyEditTabNav" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active fw-bold px-4 py-2" id="tab-fac-general" data-bs-toggle="pill" data-bs-target="#pane-fac-general" type="button" role="tab">
+                <button class="nav-link fw-bold px-4 py-2 <?php echo ($subTab !== 'seo') ? 'active' : ''; ?>" id="tab-fac-general" data-bs-toggle="pill" data-bs-target="#pane-fac-general" type="button" role="tab">
                   <i class="fa-solid fa-sliders me-2"></i>General Content &amp; Tables
                 </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link fw-bold px-4 py-2" id="tab-fac-seo" data-bs-toggle="pill" data-bs-target="#pane-fac-seo" type="button" role="tab" style="background: rgba(16,185,129,0.08); color: #047857; border: 1px solid rgba(16,185,129,0.3);">
+                <button class="nav-link fw-bold px-4 py-2 <?php echo ($subTab === 'seo') ? 'active' : ''; ?>" id="tab-fac-seo" data-bs-toggle="pill" data-bs-target="#pane-fac-seo" type="button" role="tab" style="background: rgba(16,185,129,0.08); color: #047857; border: 1px solid rgba(16,185,129,0.3);">
                   <i class="fa-solid fa-magnifying-glass me-2"></i>SEO &amp; Meta Details <span class="badge bg-success ms-1">SEO</span>
                 </button>
               </li>
@@ -578,7 +585,7 @@ foreach ($allFaculties as $s => $f) {
 
             <div class="tab-content" id="facultyEditTabContent">
               <!-- TAB 1: General Content & Tables -->
-              <div class="tab-pane fade show active" id="pane-fac-general" role="tabpanel">
+              <div class="tab-pane fade <?php echo ($subTab !== 'seo') ? 'show active' : ''; ?>" id="pane-fac-general" role="tabpanel">
 
                 <!-- General Header Settings -->
                 <div class="row g-3 mb-4">
@@ -681,7 +688,7 @@ foreach ($allFaculties as $s => $f) {
               </div><!-- end TAB 1 -->
 
               <!-- TAB 2: SEO & Meta Details -->
-              <div class="tab-pane fade" id="pane-fac-seo" role="tabpanel">
+              <div class="tab-pane fade <?php echo ($subTab === 'seo') ? 'show active' : ''; ?>" id="pane-fac-seo" role="tabpanel">
                 
                 <!-- Google SERP Live Snippet Preview Box -->
                 <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
@@ -924,8 +931,11 @@ foreach ($allFaculties as $s => $f) {
               <a href="../<?php echo htmlspecialchars($fac['file']); ?>" target="_blank" class="btn-view-live" title="View live faculty page">
                 <i class="fa fa-arrow-up-right-from-square me-1"></i>Live
               </a>
+              <a href="faculties.php?edit=<?php echo urlencode($slug); ?>&tab=seo" class="btn btn-sm btn-outline-success rounded-pill px-3 py-1 fw-bold me-1" title="Directly configure SEO & Meta Tags">
+                <i class="fa-solid fa-magnifying-glass me-1"></i>SEO
+              </a>
               <a href="faculties.php?edit=<?php echo urlencode($slug); ?>" class="btn-edit-faculty">
-                <i class="fa fa-pen-to-square me-1"></i>Edit Faculty
+                <i class="fa fa-pen-to-square me-1"></i>Edit
               </a>
             </div>
 
@@ -1001,7 +1011,13 @@ foreach ($allFaculties as $s => $f) {
       previewTitle.textContent = val ? val : 'Faculty Page - SSSUTMS';
       if (titleCount) {
         titleCount.textContent = titleInput.value.length;
-        titleCount.className = (titleInput.value.length > 60) ? 'text-danger fw-bold' : 'text-success fw-bold';
+        if (titleInput.value.length >= 50 && titleInput.value.length <= 60) {
+          titleCount.className = 'text-success fw-bold';
+        } else if (titleInput.value.length > 60) {
+          titleCount.className = 'text-danger fw-bold';
+        } else {
+          titleCount.className = 'text-muted';
+        }
       }
     }
 
@@ -1010,7 +1026,13 @@ foreach ($allFaculties as $s => $f) {
       previewDesc.textContent = val ? val : 'Explore world-class academic programs, state-of-the-art laboratories, and experienced faculty at Sri Satya Sai University (SSSUTMS).';
       if (descCount) {
         descCount.textContent = descInput.value.length;
-        descCount.className = (descInput.value.length > 160) ? 'text-danger fw-bold' : 'text-success fw-bold';
+        if (descInput.value.length >= 150 && descInput.value.length <= 160) {
+          descCount.className = 'text-success fw-bold';
+        } else if (descInput.value.length > 160) {
+          descCount.className = 'text-danger fw-bold';
+        } else {
+          descCount.className = 'text-muted';
+        }
       }
     }
   }

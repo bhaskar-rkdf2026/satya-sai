@@ -1,15 +1,23 @@
 <?php
-$page_title = 'Director (R&D) - SSSUTMS';
-$banner_title = 'Director (R&D)';
+require_once __DIR__ . '/../config.php';
+
+// Fetch dynamic Director Data and SEO from Admin Panel
+$pageSeo = function_exists('get_research_page_info') ? get_research_page_info('DirectorRD') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Director (R&D) - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/research/h.k.SHARMA_05042022_1258.jpg';
+$banner_title = $pageSeo['page_title'] ?? 'Director (R&D)';
 $banner_category = 'Research';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
 require_once __DIR__ . '/../includes/page-banner.php';
 
-// Fetch dynamic Director Data from Admin Panel (page_documents.json -> DirectorRD)
 $directorData = function_exists('get_page_documents') ? get_page_documents('DirectorRD') : [];
 $director = !empty($directorData[0]) ? $directorData[0] : [
     'name' => 'Dr. Hemant Kumar Sharma',

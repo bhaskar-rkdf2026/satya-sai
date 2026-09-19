@@ -1,9 +1,18 @@
 <?php
-$page_title = 'Collaboration & MoU - SSSUTMS';
-$banner_title = 'Collaboration & MoU';
+require_once __DIR__ . '/../config.php';
+
+// Fetch dynamic Collaboration & MoU page info & SEO from Admin Panel
+$pageSeo = function_exists('get_research_page_info') ? get_research_page_info('CollaborationandMou') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Collaboration & MoU - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['page_title'] ?? 'Collaboration & MoU';
 $banner_category = 'Research';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';

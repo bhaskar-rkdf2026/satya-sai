@@ -18,9 +18,14 @@ $page_info = get_obe_page_info($pageKey, [
     'mission_text'   => 'To provide comprehensive pedagogical training, foster modern instructional competencies, and instill ethical values in aspiring educators for transformative nation building.'
 ]);
 
-$page_title = $page_info['page_title'] ?? 'Education - Outcome Based Curriculum - SSSUTMS';
+$page_data = $page_info;
+$page_title = $page_info['meta_title'] ?? ($page_info['page_title'] ?? 'Education - Outcome Based Curriculum - SSSUTMS');
 $banner_title = $page_info['banner_title'] ?? 'Education';
 $banner_category = $page_info['banner_category'] ?? 'Outcome Based Curriculum';
+$meta_description = $page_info['meta_description'] ?? '';
+$meta_keywords = $page_info['meta_keywords'] ?? '';
+$canonical_url = $page_info['canonical_url'] ?? '';
+$og_image = $page_info['og_image'] ?? '';
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/topbar.php';

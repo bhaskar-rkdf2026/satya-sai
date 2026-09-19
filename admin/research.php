@@ -71,6 +71,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $message = trim($_POST['message'] ?? '');
     $photo = trim($_POST['existing_photo'] ?? 'assets/images/research/h.k.SHARMA_05042022_1258.jpg');
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/research/h.k.SHARMA_05042022_1258.jpg');
+
     if (isset($_FILES['photo_file']) && $_FILES['photo_file']['error'] === UPLOAD_ERR_OK) {
         $allowed = ['jpg', 'jpeg', 'png', 'webp'];
         $origName = $_FILES['photo_file']['name'];
@@ -99,11 +105,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
                 'photo' => $photo,
                 'quote' => $quote,
                 'message' => $message,
+                'meta_title' => $meta_title,
+                'meta_description' => $meta_description,
+                'meta_keywords' => $meta_keywords,
+                'canonical_url' => $canonical_url,
+                'og_image' => $og_image,
                 'updated_at' => date('Y-m-d H:i:s')
             ]
         ];
         save_json_data('page_documents.json', $allData);
-        $msg = 'Director (R&D) profile and message updated successfully!';
+        save_research_page_info('DirectorRD', [
+            'page_title' => 'Director (R&D)',
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image
+        ]);
+        $msg = 'Director (R&D) profile and SEO metadata updated successfully!';
     }
 }
 
@@ -116,17 +135,36 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $objectivesRaw = trim($_POST['objectives'] ?? '');
     $objectives = array_values(array_filter(array_map('trim', explode("\n", $objectivesRaw))));
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
     $allData['RAndDCell'] = [
         [
             'id' => '1',
             'title' => $title,
             'preamble' => $preamble,
             'objectives' => $objectives,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'R & D Cell details updated successfully!';
+    save_research_page_info('RAndDCell', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'R & D Cell details and SEO metadata updated successfully!';
 }
 
 // ==========================================
@@ -144,6 +182,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $partnersRaw = trim($_POST['partners'] ?? '');
     $partners = array_values(array_filter(array_map('trim', explode("\n", $partnersRaw))));
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
     $allData['ConsultancyServices'] = [
         [
             'id' => '1',
@@ -155,11 +199,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
             'process_sop' => $processSop,
             'objectives' => $objectives,
             'partners' => $partners,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'Consultancy Services details updated successfully!';
+    save_research_page_info('ConsultancyServices', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'Consultancy Services details and SEO metadata updated successfully!';
 }
 
 // ==========================================
@@ -174,6 +231,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $faculty = trim($_POST['faculty_exchange'] ?? '');
     $techComm = trim($_POST['tech_comm'] ?? '');
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
     $allData['CollaborationandMou'] = [
         [
             'id' => '1',
@@ -184,11 +247,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
             'industrial_training' => $industrial,
             'faculty_exchange' => $faculty,
             'tech_comm' => $techComm,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'Collaboration & MoU details updated successfully!';
+    save_research_page_info('CollaborationandMou', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'Collaboration & MoU details and SEO metadata updated successfully!';
 }
 
 // ==========================================
@@ -200,6 +276,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $vision = trim($_POST['vision'] ?? '');
     $missionsRaw = trim($_POST['missions'] ?? '');
     $missions = array_values(array_filter(array_map('trim', explode("\n", $missionsRaw))));
+
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
 
     // Existing gallery items
     $existingIic = $allData['Iic_Cell'][0] ?? [];
@@ -235,11 +317,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
             'vision' => $vision,
             'missions' => $missions,
             'gallery' => $gallery,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'IIC Cell details and gallery updated successfully!';
+    save_research_page_info('Iic_Cell', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'IIC Cell details, gallery, and SEO metadata updated successfully!';
 }
 
 // Delete IIC Gallery Image
@@ -266,6 +361,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $drones = trim($_POST['highlight_drones'] ?? '');
     $stalls = trim($_POST['highlight_stalls'] ?? '');
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
     $allData['Exposition'] = [
         [
             'id' => '1',
@@ -278,11 +379,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
             'highlight_robotics' => $robotics,
             'highlight_drones' => $drones,
             'highlight_stalls' => $stalls,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'Exposition event details updated successfully!';
+    save_research_page_info('Exposition', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'Exposition event details and SEO metadata updated successfully!';
 }
 
 // ==========================================
@@ -296,6 +410,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $quoteAuthor = trim($_POST['quote_author'] ?? '');
     $notice = trim($_POST['notice'] ?? '');
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
     $allData['UGAndPGScholarsProject'] = [
         [
             'id' => '1',
@@ -305,11 +425,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
             'quote_text' => $quoteText,
             'quote_author' => $quoteAuthor,
             'notice' => $notice,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'UG & PG Scholars Project details updated successfully!';
+    save_research_page_info('UGAndPGScholarsProject', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'UG & PG Scholars Project details and SEO metadata updated successfully!';
 }
 
 // ==========================================
@@ -323,7 +456,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
     $guidelinesRaw = trim($_POST['guidelines'] ?? '');
     $guidelines = array_values(array_filter(array_map('trim', explode("\n", $guidelinesRaw))));
     
-    // Parse links: each line format "Title | URL"
     $linksRaw = trim($_POST['links_raw'] ?? '');
     $links = [];
     foreach (explode("\n", $linksRaw) as $lLine) {
@@ -337,6 +469,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
         }
     }
 
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
     $allData['NPTEL'] = [
         [
             'id' => '1',
@@ -346,15 +484,51 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && 
             'about_text' => $aboutText,
             'guidelines' => $guidelines,
             'links' => $links,
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'canonical_url' => $canonical_url,
+            'og_image' => $og_image,
             'updated_at' => date('Y-m-d H:i:s')
         ]
     ];
     save_json_data('page_documents.json', $allData);
-    $msg = 'NPTEL Local Chapter details updated successfully!';
+    save_research_page_info('NPTEL', [
+        'page_title' => $title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = 'NPTEL Local Chapter details and SEO metadata updated successfully!';
 }
 
 // ==========================================
-// 9. SAVE DOCUMENT / RECORD (FOR TABLE TABS)
+// 9. SAVE TABLE TAB PAGE SETTINGS & SEO
+// ==========================================
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_table_page_info') {
+    $pageKey = clean_input($_POST['page_key'] ?? $tab);
+    $page_title = clean_input($_POST['page_title'] ?? ($validTabs[$pageKey] ?? $pageKey));
+    $meta_title = clean_input($_POST['meta_title'] ?? '');
+    $meta_description = clean_input($_POST['meta_description'] ?? '');
+    $meta_keywords = clean_input($_POST['meta_keywords'] ?? '');
+    $canonical_url = clean_input($_POST['canonical_url'] ?? '');
+    $og_image = clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg');
+
+    save_research_page_info($pageKey, [
+        'page_title' => $page_title,
+        'meta_title' => $meta_title,
+        'meta_description' => $meta_description,
+        'meta_keywords' => $meta_keywords,
+        'canonical_url' => $canonical_url,
+        'og_image' => $og_image
+    ]);
+    $msg = "Page settings and SEO metadata for " . htmlspecialchars($validTabs[$pageKey] ?? $pageKey) . " updated successfully!";
+}
+
+// ==========================================
+// 10. SAVE DOCUMENT / RECORD (FOR TABLE TABS)
 // ==========================================
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_doc') {
     $pageKey = clean_input($_POST['page_key'] ?? $tab);
@@ -452,7 +626,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && !empty($_GET['id']
     }
 }
 
-// Current tab's documents (for table tabs)
+// Refresh Data after possible POST actions
+$allData = get_json_data('page_documents.json', []);
 $currentDocs = $allData[$tab]['documents'] ?? [];
 
 // Counts for each tab
@@ -474,6 +649,9 @@ $iicInfo = $allData['Iic_Cell'][0] ?? [];
 $expInfo = $allData['Exposition'][0] ?? [];
 $ugpgInfo = $allData['UGAndPGScholarsProject'][0] ?? [];
 $nptelInfo = $allData['NPTEL'][0] ?? [];
+
+// Active Tab's SEO & Page Info
+$activeTabSeo = get_research_page_info($tab);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -535,6 +713,26 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
       align-items: center;
       gap: 8px;
     }
+    .nav-pills-custom .nav-link {
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      transition: all 0.2s;
+    }
+    .nav-pills-custom .nav-link:hover {
+      background: #f8fafc;
+      color: #0b2545;
+    }
+    .nav-pills-custom .nav-link.active {
+      background: #0b2545;
+      color: #ffffff;
+      border-color: #0b2545;
+      box-shadow: 0 2px 6px rgba(11, 37, 69, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -558,12 +756,18 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
     <li><a href="index.php" class="nav-link"><i class="fa fa-gauge"></i> Dashboard</a></li>
     <li><a href="home.php" class="nav-link"><i class="fa fa-house-chimney-window"></i> Home Page Editor</a></li>
     <li><a href="admission.php" class="nav-link"><i class="fa fa-user-graduate"></i> Admission Cell (7)</a></li>
-    <li><a href="examination.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Examination Cell (5)</a></li>
+    <li><a href="academic.php" class="nav-link"><i class="fa fa-graduation-cap"></i> Academic Cell (46)</a></li>
+    <li><a href="examination.php" class="nav-link"><i class="fa fa-file-signature"></i> Examination Cell (5)</a></li>
     <li><a href="research.php" class="nav-link active"><i class="fa fa-flask"></i> Research Cell (12)</a></li>
     <li><a href="about.php" class="nav-link"><i class="fa fa-circle-info"></i> About Pages (42)</a></li>
     <li><a href="faculties.php" class="nav-link"><i class="fa fa-chalkboard-user"></i> Faculties &amp; Depts (14)</a></li>
+    <li><a href="committee.php" class="nav-link"><i class="fa fa-users-gear"></i> Statutory Committees (9)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals &amp; NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events &amp; Workshops</a></li>
+    <li><a href="career.php" class="nav-link"><i class="fa fa-briefcase"></i> Career &amp; Recruitment</a></li>
+    <li><a href="contact.php" class="nav-link"><i class="fa fa-phone-volume"></i> Contact &amp; Helpdesk</a></li>
+    <li><a href="itep.php" class="nav-link"><i class="fa fa-graduation-cap"></i> ITEP Cell</a></li>
+    <li><a href="gallery.php" class="nav-link"><i class="fa fa-camera-retro"></i> Photo &amp; Video Gallery</a></li>
     <li><a href="downloads.php" class="nav-link"><i class="fa fa-folder-arrow-down"></i> Curriculum &amp; Downloads (52)</a></li>
     <li><a href="applications.php" class="nav-link"><i class="fa fa-user-graduate"></i> Student Registrations</a></li>
     <li><a href="inquiries.php" class="nav-link"><i class="fa fa-envelope-open-text"></i> Admission Leads</a></li>
@@ -585,7 +789,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
       </button>
       <div>
         <h5 class="fw-bold text-dark mb-0">Research Cell Management (All 12 Pages)</h5>
-        <small class="text-muted d-none d-md-inline">Every page in the Research tab has a dedicated live dynamic editor</small>
+        <small class="text-muted d-none d-md-inline">Every page in the Research tab has a dedicated live dynamic editor &amp; SEO Suite</small>
       </div>
     </div>
     <div class="d-flex gap-2">
@@ -645,52 +849,145 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
             <input type="hidden" name="action" value="save_director_rd">
             <input type="hidden" name="existing_photo" value="<?php echo htmlspecialchars($directorInfo['photo'] ?? ''); ?>">
 
-            <div class="row g-4">
-              <div class="col-lg-3 text-center border-end pe-lg-4">
-                <label class="form-label fw-bold text-dark d-block">Director Portrait</label>
-                <div class="mb-3">
-                  <img src="../<?php echo htmlspecialchars(ltrim($directorInfo['photo'] ?? 'assets/images/research/h.k.SHARMA_05042022_1258.jpg', '/')); ?>" alt="Director Photo" class="img-fluid rounded-3 border shadow-sm" style="max-height: 220px; width: auto; object-fit: cover;">
-                </div>
-                <div class="text-start">
-                  <label class="form-label small fw-bold text-secondary">Change Photo (JPG, PNG, WEBP):</label>
-                  <input type="file" name="photo_file" class="form-control form-control-sm" accept=".jpg,.jpeg,.png,.webp">
-                  <small class="text-muted extra-small d-block mt-1">Leave empty to keep existing photo.</small>
+            <!-- Sub-Pill Navigation: General vs SEO -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-dr-general-tab" data-bs-toggle="pill" data-bs-target="#pill-dr-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Profile &amp; Message Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-dr-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-dr-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-dr-general" role="tabpanel">
+                <div class="row g-4">
+                  <div class="col-lg-3 text-center border-end pe-lg-4">
+                    <label class="form-label fw-bold text-dark d-block">Director Portrait</label>
+                    <div class="mb-3">
+                      <img src="../<?php echo htmlspecialchars(ltrim($directorInfo['photo'] ?? 'assets/images/research/h.k.SHARMA_05042022_1258.jpg', '/')); ?>" alt="Director Photo" class="img-fluid rounded-3 border shadow-sm" style="max-height: 220px; width: auto; object-fit: cover;">
+                    </div>
+                    <div class="text-start">
+                      <label class="form-label small fw-bold text-secondary">Change Photo (JPG, PNG, WEBP):</label>
+                      <input type="file" name="photo_file" class="form-control form-control-sm" accept=".jpg,.jpeg,.png,.webp">
+                      <small class="text-muted extra-small d-block mt-1">Leave empty to keep existing photo.</small>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-9 ps-lg-4">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold text-dark">Director Full Name <span class="text-danger">*</span></label>
+                        <input type="text" name="name" class="form-control" required value="<?php echo htmlspecialchars($directorInfo['name'] ?? 'Dr. Hemant Kumar Sharma'); ?>">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold text-dark">Designation Title <span class="text-danger">*</span></label>
+                        <input type="text" name="designation" class="form-control" required value="<?php echo htmlspecialchars($directorInfo['designation'] ?? 'Director (R & D)'); ?>">
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label fw-bold text-dark">University / Affiliation Line</label>
+                        <input type="text" name="university" class="form-control" value="<?php echo htmlspecialchars($directorInfo['university'] ?? 'Sri Satya Sai University of Technology & Medical Sciences'); ?>">
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label fw-bold text-dark">Highlighted Quote / Excerpt</label>
+                        <textarea name="quote" class="form-control" rows="3" placeholder="Enter key quote..."><?php echo htmlspecialchars($directorInfo['quote'] ?? ''); ?></textarea>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label fw-bold text-dark">Full Message Content (HTML paragraphs)</label>
+                        <textarea name="message" class="form-control font-monospace small" rows="10" placeholder="Detailed message paragraphs..."><?php echo htmlspecialchars($directorInfo['message'] ?? ''); ?></textarea>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="col-lg-9 ps-lg-4">
+              <!-- SUB-TAB 2: SEO & Meta Details -->
+              <div class="tab-pane fade" id="pill-dr-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › Director_Research_And_Development</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold text-dark">Director Full Name <span class="text-danger">*</span></label>
-                    <input type="text" name="name" class="form-control" required value="<?php echo htmlspecialchars($directorInfo['name'] ?? 'Dr. Hemant Kumar Sharma'); ?>">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold text-dark">Designation Title <span class="text-danger">*</span></label>
-                    <input type="text" name="designation" class="form-control" required value="<?php echo htmlspecialchars($directorInfo['designation'] ?? 'Director (R & D)'); ?>">
-                  </div>
                   <div class="col-12">
-                    <label class="form-label fw-bold text-dark">University / Affiliation Line</label>
-                    <input type="text" name="university" class="form-control" value="<?php echo htmlspecialchars($directorInfo['university'] ?? 'Sri Satya Sai University of Technology & Medical Sciences'); ?>">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. Director (R&D) | Research & Development Cell | SSSUTMS" oninput="updateSeoPreviewRes()">
                   </div>
-                  <div class="col-12">
-                    <label class="form-label fw-bold text-dark">Highlighted Quote / Excerpt</label>
-                    <textarea name="quote" class="form-control" rows="3" placeholder="Enter key quote..."><?php echo htmlspecialchars($directorInfo['quote'] ?? ''); ?></textarea>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label fw-bold text-dark">Full Message Content (HTML paragraphs)</label>
-                    <textarea name="message" class="form-control font-monospace small" rows="10" placeholder="Detailed message paragraphs..."><?php echo htmlspecialchars($directorInfo['message'] ?? ''); ?></textarea>
-                  </div>
-                </div>
 
-                <div class="mt-4 pt-3 border-top d-flex align-items-center gap-2">
-                  <button type="submit" class="btn btn-primary fw-bold px-4 py-2 rounded-pill shadow-sm">
-                    <i class="fa fa-save me-1"></i> Save Live Changes
-                  </button>
-                  <a href="../Research/Director_Research_And_Development.php" target="_blank" class="btn btn-outline-secondary rounded-pill px-3">
-                    <i class="fa fa-arrow-up-right-from-square me-1"></i> View Live Page
-                  </a>
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling 150-160 character description of Director (R&D) page..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords (Comma Separated)
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. Director RD SSSUTMS, Dr Hemant Kumar Sharma, SSSUTMS Research Director">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override (Optional)
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/research/h.k.SHARMA_05042022_1258.jpg'); ?>">
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-top d-flex align-items-center gap-2">
+              <button type="submit" class="btn btn-primary fw-bold px-4 py-2 rounded-pill shadow-sm">
+                <i class="fa fa-save me-1"></i> Save Live Changes
+              </button>
+              <a href="../Research/Director_Research_And_Development.php" target="_blank" class="btn btn-outline-secondary rounded-pill px-3">
+                <i class="fa fa-arrow-up-right-from-square me-1"></i> View Live Page
+              </a>
             </div>
           </form>
         </div>
@@ -704,7 +1001,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-atom text-primary me-2"></i> R &amp; D Cell Content Editor
+              <i class="fa-solid fa-atom text-primary me-2"></i> R &amp; D Cell Content &amp; SEO Editor
             </h5>
             <small class="text-muted">Live on <code>Research/RAndDCell.php</code></small>
           </div>
@@ -714,22 +1011,115 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=RAndDCell">
             <input type="hidden" name="action" value="save_rd_cell">
 
-            <div class="row g-3 mb-4">
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Page Header Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($rdCellInfo['title'] ?? 'RESEARCH & DEVELOPMENT (R&D) CELL'); ?>">
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-rd-general-tab" data-bs-toggle="pill" data-bs-target="#pill-rd-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Cell Preamble &amp; Objectives
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-rd-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-rd-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-rd-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Page Header Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($rdCellInfo['title'] ?? 'RESEARCH & DEVELOPMENT (R&D) CELL'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Overview of R&amp;D Operations (Preamble / HTML)</label>
+                    <textarea name="preamble" class="form-control font-monospace small" rows="8" placeholder="Enter overview text..."><?php echo htmlspecialchars($rdCellInfo['preamble'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Objectives of the R&amp;D Cell <span class="text-muted fw-normal">(One objective per line)</span></label>
+                    <textarea name="objectives" class="form-control small" rows="8" placeholder="Enter each objective on a new line..."><?php 
+                      $objs = $rdCellInfo['objectives'] ?? [];
+                      echo htmlspecialchars(is_array($objs) ? implode("\n", $objs) : $objs);
+                    ?></textarea>
+                    <small class="text-muted">Every new line will appear numbered automatically on the live page.</small>
+                  </div>
+                </div>
               </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Overview of R&amp;D Operations (Preamble / HTML)</label>
-                <textarea name="preamble" class="form-control font-monospace small" rows="8" placeholder="Enter overview text..."><?php echo htmlspecialchars($rdCellInfo['preamble'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Objectives of the R&amp;D Cell <span class="text-muted fw-normal">(One objective per line)</span></label>
-                <textarea name="objectives" class="form-control small" rows="8" placeholder="Enter each objective on a new line..."><?php 
-                  $objs = $rdCellInfo['objectives'] ?? [];
-                  echo htmlspecialchars(is_array($objs) ? implode("\n", $objs) : $objs);
-                ?></textarea>
-                <small class="text-muted">Every new line will appear numbered automatically on the live page.</small>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-rd-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › RAndDCell</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. Research & Development (R&D) Cell | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling 150-160 character description of R&D Cell..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. R&D Cell SSSUTMS, Research and Development Bhopal">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -753,7 +1143,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-briefcase text-primary me-2"></i> Consultancy Services Editor
+              <i class="fa-solid fa-briefcase text-primary me-2"></i> Consultancy Services &amp; SEO Editor
             </h5>
             <small class="text-muted">Live on <code>Research/ConsultancyServices.php</code></small>
           </div>
@@ -763,44 +1153,137 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=ConsultancyServices">
             <input type="hidden" name="action" value="save_consultancy">
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Page Banner Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($csInfo['title'] ?? 'CONSULTANCY SERVICES'); ?>">
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-cs-general-tab" data-bs-toggle="pill" data-bs-target="#pill-cs-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Consultancy Details &amp; SOP
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-cs-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-cs-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-cs-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Page Banner Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($csInfo['title'] ?? 'CONSULTANCY SERVICES'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Subtitle / Tagline</label>
+                    <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($csInfo['subtitle'] ?? 'Transferring Academic Knowledge & Infrastructure for Industrial Solutions'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Institutional Vision &amp; Background</label>
+                    <textarea name="intro" class="form-control" rows="4"><?php echo htmlspecialchars($csInfo['intro'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Resource Sharing Policy Clause</label>
+                    <textarea name="resource_sharing" class="form-control" rows="3"><?php echo htmlspecialchars($csInfo['resource_sharing'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Sharing Policy (60:40 Ratio) Details</label>
+                    <textarea name="revenue_sharing" class="form-control" rows="3"><?php echo htmlspecialchars($csInfo['revenue_sharing'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Consultancy Process &amp; Nodal Agency (SOP)</label>
+                    <textarea name="process_sop" class="form-control" rows="5"><?php echo htmlspecialchars($csInfo['process_sop'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Objectives of Consultancy Services <span class="text-muted fw-normal">(One per line)</span></label>
+                    <textarea name="objectives" class="form-control small" rows="6"><?php 
+                      $cObjs = $csInfo['objectives'] ?? [];
+                      echo htmlspecialchars(is_array($cObjs) ? implode("\n", $cObjs) : $cObjs);
+                    ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Partner Agencies / Organisations <span class="text-muted fw-normal">(One per line)</span></label>
+                    <textarea name="partners" class="form-control small" rows="6"><?php 
+                      $cPartners = $csInfo['partners'] ?? [];
+                      echo htmlspecialchars(is_array($cPartners) ? implode("\n", $cPartners) : $cPartners);
+                    ?></textarea>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Subtitle / Tagline</label>
-                <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($csInfo['subtitle'] ?? 'Transferring Academic Knowledge & Infrastructure for Industrial Solutions'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Institutional Vision &amp; Background</label>
-                <textarea name="intro" class="form-control" rows="4"><?php echo htmlspecialchars($csInfo['intro'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Resource Sharing Policy Clause</label>
-                <textarea name="resource_sharing" class="form-control" rows="3"><?php echo htmlspecialchars($csInfo['resource_sharing'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Sharing Policy (60:40 Ratio) Details</label>
-                <textarea name="revenue_sharing" class="form-control" rows="3"><?php echo htmlspecialchars($csInfo['revenue_sharing'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Consultancy Process &amp; Nodal Agency (SOP)</label>
-                <textarea name="process_sop" class="form-control" rows="5"><?php echo htmlspecialchars($csInfo['process_sop'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Objectives of Consultancy Services <span class="text-muted fw-normal">(One per line)</span></label>
-                <textarea name="objectives" class="form-control small" rows="6"><?php 
-                  $cObjs = $csInfo['objectives'] ?? [];
-                  echo htmlspecialchars(is_array($cObjs) ? implode("\n", $cObjs) : $cObjs);
-                ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Partner Agencies / Organisations <span class="text-muted fw-normal">(One per line)</span></label>
-                <textarea name="partners" class="form-control small" rows="6"><?php 
-                  $cPartners = $csInfo['partners'] ?? [];
-                  echo htmlspecialchars(is_array($cPartners) ? implode("\n", $cPartners) : $cPartners);
-                ?></textarea>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-cs-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › ConsultancyServices</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. Consultancy Services & Industrial Solutions | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description of consultancy services..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Consultancy Services, Industrial Testing Sehore">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -824,7 +1307,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-handshake text-primary me-2"></i> Collaboration &amp; MoU Editor
+              <i class="fa-solid fa-handshake text-primary me-2"></i> Collaboration &amp; MoU Editor &amp; SEO
             </h5>
             <small class="text-muted">Live on <code>Research/CollaborationandMou.php</code></small>
           </div>
@@ -834,34 +1317,127 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=CollaborationandMou">
             <input type="hidden" name="action" value="save_mou">
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Page Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($mouInfo['title'] ?? 'COLLABORATIONS & MEMORANDUMS OF UNDERSTANDING'); ?>">
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-mou-general-tab" data-bs-toggle="pill" data-bs-target="#pill-mou-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> MoU Pillars &amp; Overview
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-mou-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-mou-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-mou-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Page Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($mouInfo['title'] ?? 'COLLABORATIONS & MEMORANDUMS OF UNDERSTANDING'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Subtitle</label>
+                    <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($mouInfo['subtitle'] ?? 'Fostering National & International Academic, Research, and Industrial Synergies'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Collaboration &amp; MoU Overview (HTML)</label>
+                    <textarea name="overview" class="form-control font-monospace small" rows="5"><?php echo htmlspecialchars($mouInfo['overview'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Joint R&amp;D Projects Description</label>
+                    <textarea name="joint_rd" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['joint_rd'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Industrial Training &amp; Internships Description</label>
+                    <textarea name="industrial_training" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['industrial_training'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Faculty &amp; Scholar Exchange Description</label>
+                    <textarea name="faculty_exchange" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['faculty_exchange'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Technology Commercialization Description</label>
+                    <textarea name="tech_comm" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['tech_comm'] ?? ''); ?></textarea>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Subtitle</label>
-                <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($mouInfo['subtitle'] ?? 'Fostering National & International Academic, Research, and Industrial Synergies'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Collaboration &amp; MoU Overview (HTML)</label>
-                <textarea name="overview" class="form-control font-monospace small" rows="5"><?php echo htmlspecialchars($mouInfo['overview'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Joint R&amp;D Projects Description</label>
-                <textarea name="joint_rd" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['joint_rd'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Industrial Training &amp; Internships Description</label>
-                <textarea name="industrial_training" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['industrial_training'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Faculty &amp; Scholar Exchange Description</label>
-                <textarea name="faculty_exchange" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['faculty_exchange'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Technology Commercialization Description</label>
-                <textarea name="tech_comm" class="form-control" rows="3"><?php echo htmlspecialchars($mouInfo['tech_comm'] ?? ''); ?></textarea>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-mou-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › CollaborationandMou</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. Collaborations & MoUs with Industry & Academia | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description of university collaborations and MoUs..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS MoUs, University Industry Collaboration">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -885,7 +1461,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-rocket text-primary me-2"></i> Institution's Innovation Council (IIC) Editor
+              <i class="fa-solid fa-rocket text-primary me-2"></i> Institution's Innovation Council (IIC) Editor &amp; SEO
             </h5>
             <small class="text-muted">Live on <code>Research/Iic_Cell.php</code></small>
           </div>
@@ -895,68 +1471,161 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=Iic_Cell" enctype="multipart/form-data">
             <input type="hidden" name="action" value="save_iic">
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Page Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($iicInfo['title'] ?? 'INSTITUTION\'S INNOVATION COUNCIL (IIC) CELL'); ?>">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Subtitle</label>
-                <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($iicInfo['subtitle'] ?? 'Fostering Entrepreneurship, Student Start-ups & Intellectual Property Awareness'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">IIC Vision</label>
-                <input type="text" name="vision" class="form-control" value="<?php echo htmlspecialchars($iicInfo['vision'] ?? 'To promote innovation, entrepreneurial skills, and the growth of student start-ups.'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">IIC Missions <span class="text-muted fw-normal">(One mission per line)</span></label>
-                <textarea name="missions" class="form-control" rows="4"><?php 
-                  $msns = $iicInfo['missions'] ?? [];
-                  echo htmlspecialchars(is_array($msns) ? implode("\n", $msns) : $msns);
-                ?></textarea>
-              </div>
-            </div>
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-iic-general-tab" data-bs-toggle="pill" data-bs-target="#pill-iic-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> IIC Vision, Missions &amp; Gallery
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-iic-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-iic-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
 
-            <!-- Gallery Upload Section -->
-            <div class="form-section-title">
-              <i class="fa-solid fa-images text-warning"></i> Upload New Certificate / Event Photo
-            </div>
-            <div class="row g-3 mb-4 p-3 bg-light rounded-3 border">
-              <div class="col-md-6">
-                <label class="form-label fw-bold small">Photo / Certificate Caption</label>
-                <input type="text" name="gallery_caption" class="form-control form-control-sm" placeholder="e.g. National IP Awareness Workshop">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold small">Choose Image File (JPG, PNG, WEBP)</label>
-                <input type="file" name="gallery_file" class="form-control form-control-sm" accept=".jpg,.jpeg,.png,.webp">
-              </div>
-            </div>
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-iic-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Page Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($iicInfo['title'] ?? 'INSTITUTION\'S INNOVATION COUNCIL (IIC) CELL'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Subtitle</label>
+                    <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($iicInfo['subtitle'] ?? 'Fostering Entrepreneurship, Student Start-ups & Intellectual Property Awareness'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">IIC Vision</label>
+                    <input type="text" name="vision" class="form-control" value="<?php echo htmlspecialchars($iicInfo['vision'] ?? 'To promote innovation, entrepreneurial skills, and the growth of student start-ups.'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">IIC Missions <span class="text-muted fw-normal">(One mission per line)</span></label>
+                    <textarea name="missions" class="form-control" rows="4"><?php 
+                      $msns = $iicInfo['missions'] ?? [];
+                      echo htmlspecialchars(is_array($msns) ? implode("\n", $msns) : $msns);
+                    ?></textarea>
+                  </div>
+                </div>
 
-            <!-- Existing Gallery Grid -->
-            <div class="form-section-title">
-              <i class="fa-solid fa-photo-film text-warning"></i> Current Gallery Items (<?php echo count($iicInfo['gallery'] ?? []); ?>)
-            </div>
-            <div class="row g-3 mb-4">
-              <?php if (!empty($iicInfo['gallery']) && is_array($iicInfo['gallery'])): ?>
-                <?php foreach ($iicInfo['gallery'] as $gIdx => $gItem): 
-                  $imgSrc = !empty($gItem['image']) ? $gItem['image'] : '';
-                  if (!preg_match('#^https?://#i', $imgSrc)) {
-                    $imgSrc = '../' . ltrim($imgSrc, '/');
-                  }
-                ?>
-                  <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card h-100 border shadow-sm">
-                      <img src="<?php echo htmlspecialchars($imgSrc); ?>" class="card-img-top" style="height: 140px; object-fit: cover;" alt="Gallery Photo">
-                      <div class="card-body p-2 d-flex flex-column justify-content-between">
-                        <small class="fw-bold text-dark text-truncate d-block mb-2"><?php echo htmlspecialchars($gItem['title'] ?? 'Event'); ?></small>
-                        <a href="research.php?tab=Iic_Cell&action=delete_iic_photo&index=<?php echo $gIdx; ?>" class="btn btn-sm btn-outline-danger w-100" onclick="return confirm('Remove this photo?');">
-                          <i class="fa fa-trash me-1"></i> Remove
-                        </a>
+                <!-- Gallery Upload Section -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-images text-warning"></i> Upload New Certificate / Event Photo
+                </div>
+                <div class="row g-3 mb-4 p-3 bg-light rounded-3 border">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small">Photo / Certificate Caption</label>
+                    <input type="text" name="gallery_caption" class="form-control form-control-sm" placeholder="e.g. National IP Awareness Workshop">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small">Choose Image File (JPG, PNG, WEBP)</label>
+                    <input type="file" name="gallery_file" class="form-control form-control-sm" accept=".jpg,.jpeg,.png,.webp">
+                  </div>
+                </div>
+
+                <!-- Existing Gallery Grid -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-photo-film text-warning"></i> Current Gallery Items (<?php echo count($iicInfo['gallery'] ?? []); ?>)
+                </div>
+                <div class="row g-3 mb-4">
+                  <?php if (!empty($iicInfo['gallery']) && is_array($iicInfo['gallery'])): ?>
+                    <?php foreach ($iicInfo['gallery'] as $gIdx => $gItem): 
+                      $imgSrc = !empty($gItem['image']) ? $gItem['image'] : '';
+                      if (!preg_match('#^https?://#i', $imgSrc)) {
+                        $imgSrc = '../' . ltrim($imgSrc, '/');
+                      }
+                    ?>
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 border shadow-sm">
+                          <img src="<?php echo htmlspecialchars($imgSrc); ?>" class="card-img-top" style="height: 140px; object-fit: cover;" alt="Gallery Photo">
+                          <div class="card-body p-2 d-flex flex-column justify-content-between">
+                            <small class="fw-bold text-dark text-truncate d-block mb-2"><?php echo htmlspecialchars($gItem['title'] ?? 'Event'); ?></small>
+                            <a href="research.php?tab=Iic_Cell&action=delete_iic_photo&index=<?php echo $gIdx; ?>" class="btn btn-sm btn-outline-danger w-100" onclick="return confirm('Remove this photo?');">
+                              <i class="fa fa-trash me-1"></i> Remove
+                            </a>
+                          </div>
+                        </div>
                       </div>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                </div>
+              </div>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-iic-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › Iic_Cell</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
                     </div>
                   </div>
-                <?php endforeach; ?>
-              <?php endif; ?>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. Institution's Innovation Council (IIC Cell) | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description of IIC Cell..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. IIC SSSUTMS, Institution Innovation Council">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="pt-3 border-top d-flex align-items-center gap-2">
@@ -979,7 +1648,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-wand-magic-sparkles text-primary me-2"></i> Exposition: Annual Innovation Fest Editor
+              <i class="fa-solid fa-wand-magic-sparkles text-primary me-2"></i> Exposition: Annual Innovation Fest Editor &amp; SEO
             </h5>
             <small class="text-muted">Live on <code>Research/Exposition.php</code></small>
           </div>
@@ -989,42 +1658,135 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=Exposition">
             <input type="hidden" name="action" value="save_exposition">
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Page Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($expInfo['title'] ?? 'EXPOSITION: A CARNIVAL OF INNOVATION'); ?>">
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-exp-general-tab" data-bs-toggle="pill" data-bs-target="#pill-exp-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Event Content &amp; Highlights
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-exp-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-exp-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-exp-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Page Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($expInfo['title'] ?? 'EXPOSITION: A CARNIVAL OF INNOVATION'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Subtitle</label>
+                    <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($expInfo['subtitle'] ?? 'Annual Mega Exhibition of Student Creativity, Robotics, Drones & Project Innovations'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Introduction Paragraph</label>
+                    <textarea name="intro" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['intro'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Detailed Body / Legacy Text (HTML allowed)</label>
+                    <textarea name="body" class="form-control font-monospace small" rows="6"><?php echo htmlspecialchars($expInfo['body'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Highlight Quote</label>
+                    <input type="text" name="quote" class="form-control" value="<?php echo htmlspecialchars($expInfo['quote'] ?? 'Exposition is in true sense the carnival of innovations.'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Nukkad Nataks (Street Plays) Description</label>
+                    <textarea name="highlight_nukkad" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_nukkad'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Robotics &amp; Robo-Wars Description</label>
+                    <textarea name="highlight_robotics" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_robotics'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Drone &amp; Aero Competitions Description</label>
+                    <textarea name="highlight_drones" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_drones'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Project Innovations &amp; Stalls Description</label>
+                    <textarea name="highlight_stalls" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_stalls'] ?? ''); ?></textarea>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Subtitle</label>
-                <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($expInfo['subtitle'] ?? 'Annual Mega Exhibition of Student Creativity, Robotics, Drones & Project Innovations'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Introduction Paragraph</label>
-                <textarea name="intro" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['intro'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Detailed Body / Legacy Text (HTML allowed)</label>
-                <textarea name="body" class="form-control font-monospace small" rows="6"><?php echo htmlspecialchars($expInfo['body'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Highlight Quote</label>
-                <input type="text" name="quote" class="form-control" value="<?php echo htmlspecialchars($expInfo['quote'] ?? 'Exposition is in true sense the carnival of innovations.'); ?>">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Nukkad Nataks (Street Plays) Description</label>
-                <textarea name="highlight_nukkad" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_nukkad'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Robotics &amp; Robo-Wars Description</label>
-                <textarea name="highlight_robotics" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_robotics'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Drone &amp; Aero Competitions Description</label>
-                <textarea name="highlight_drones" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_drones'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Project Innovations &amp; Stalls Description</label>
-                <textarea name="highlight_stalls" class="form-control" rows="3"><?php echo htmlspecialchars($expInfo['highlight_stalls'] ?? ''); ?></textarea>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-exp-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › Exposition</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. Exposition: Annual Innovation Carnival & Robo-Wars | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description of Exposition annual innovation fest..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS Exposition, Innovation Carnival Sehore">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1048,7 +1810,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-graduation-cap text-primary me-2"></i> UG &amp; PG Scholars Project Editor
+              <i class="fa-solid fa-graduation-cap text-primary me-2"></i> UG &amp; PG Scholars Project Editor &amp; SEO
             </h5>
             <small class="text-muted">Live on <code>Research/UGAndPGScholarsProject.php</code></small>
           </div>
@@ -1058,30 +1820,123 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=UGAndPGScholarsProject">
             <input type="hidden" name="action" value="save_ugpg">
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Page Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['title'] ?? 'UG & PG SCHOLARS PROJECT'); ?>">
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-ug-general-tab" data-bs-toggle="pill" data-bs-target="#pill-ug-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Project Philosophy &amp; Notice
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-ug-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-ug-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-ug-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Page Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['title'] ?? 'UG & PG SCHOLARS PROJECT'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Subtitle</label>
+                    <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['subtitle'] ?? 'Nurturing Early Curiosity, Scientific Methodology & Student Research Papers'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Research Philosophy &amp; Objective (HTML paragraphs)</label>
+                    <textarea name="philosophy" class="form-control font-monospace small" rows="8"><?php echo htmlspecialchars($ugpgInfo['philosophy'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label fw-bold text-dark">Inspiring Quote Text</label>
+                    <input type="text" name="quote_text" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['quote_text'] ?? 'Excellence is a continuous process and not an accident.'); ?>">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-bold text-dark">Quote Author</label>
+                    <input type="text" name="quote_author" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['quote_author'] ?? 'Dr. A.P.J. Abdul Kalam'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Compendium Notice Text</label>
+                    <textarea name="notice" class="form-control" rows="3"><?php echo htmlspecialchars($ugpgInfo['notice'] ?? ''); ?></textarea>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Subtitle</label>
-                <input type="text" name="subtitle" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['subtitle'] ?? 'Nurturing Early Curiosity, Scientific Methodology & Student Research Papers'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Research Philosophy &amp; Objective (HTML paragraphs)</label>
-                <textarea name="philosophy" class="form-control font-monospace small" rows="8"><?php echo htmlspecialchars($ugpgInfo['philosophy'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-md-8">
-                <label class="form-label fw-bold text-dark">Inspiring Quote Text</label>
-                <input type="text" name="quote_text" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['quote_text'] ?? 'Excellence is a continuous process and not an accident.'); ?>">
-              </div>
-              <div class="col-md-4">
-                <label class="form-label fw-bold text-dark">Quote Author</label>
-                <input type="text" name="quote_author" class="form-control" value="<?php echo htmlspecialchars($ugpgInfo['quote_author'] ?? 'Dr. A.P.J. Abdul Kalam'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Compendium Notice Text</label>
-                <textarea name="notice" class="form-control" rows="3"><?php echo htmlspecialchars($ugpgInfo['notice'] ?? ''); ?></textarea>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-ug-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › UGAndPGScholarsProject</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. UG & PG Scholars Research Projects | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description of UG & PG scholars projects..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. UG PG Projects SSSUTMS, Student Research Compendium">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1105,7 +1960,7 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid fa-laptop-code text-primary me-2"></i> NPTEL Local Chapter Editor
+              <i class="fa-solid fa-laptop-code text-primary me-2"></i> NPTEL Local Chapter Editor &amp; SEO
             </h5>
             <small class="text-muted">Live on <code>Research/NPTEL.php</code></small>
           </div>
@@ -1115,38 +1970,131 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
           <form method="POST" action="research.php?tab=NPTEL">
             <input type="hidden" name="action" value="save_nptel">
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Page Title</label>
-                <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($nptelInfo['title'] ?? 'NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)'); ?>">
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-nptel-general-tab" data-bs-toggle="pill" data-bs-target="#pill-nptel-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Portal Links, Guidelines &amp; About
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-nptel-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-nptel-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Content -->
+              <div class="tab-pane fade show active" id="pill-nptel-general" role="tabpanel">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">Page Title</label>
+                    <input type="text" name="title" class="form-control" value="<?php echo htmlspecialchars($nptelInfo['title'] ?? 'NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING (NPTEL)'); ?>">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold text-dark">SWAYAM / NPTEL Portal URL</label>
+                    <input type="url" name="portal_url" class="form-control" value="<?php echo htmlspecialchars($nptelInfo['portal_url'] ?? 'https://onlinecourses.nptel.ac.in/'); ?>">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">About NPTEL Description (HTML paragraphs)</label>
+                    <textarea name="about_text" class="form-control font-monospace small" rows="6"><?php echo htmlspecialchars($nptelInfo['about_text'] ?? ''); ?></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Important Guidelines While Enrolling <span class="text-muted fw-normal">(One rule per line)</span></label>
+                    <textarea name="guidelines" class="form-control small" rows="5"><?php 
+                      $gl = $nptelInfo['guidelines'] ?? [];
+                      echo htmlspecialchars(is_array($gl) ? implode("\n", $gl) : $gl);
+                    ?></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold text-dark">Important NPTEL Links <span class="text-muted fw-normal">(One per line in format: <code>Link Title | URL</code>)</span></label>
+                    <textarea name="links_raw" class="form-control font-monospace small" rows="5" placeholder="Video on How to Enroll | http://nptel.ac.in/videos.php"><?php 
+                      $lnks = $nptelInfo['links'] ?? [];
+                      $lines = [];
+                      if (is_array($lnks)) {
+                        foreach ($lnks as $lnk) {
+                          $lines[] = ($lnk['title'] ?? '') . ' | ' . ($lnk['url'] ?? '#');
+                        }
+                      }
+                      echo htmlspecialchars(implode("\n", $lines));
+                    ?></textarea>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">SWAYAM / NPTEL Portal URL</label>
-                <input type="url" name="portal_url" class="form-control" value="<?php echo htmlspecialchars($nptelInfo['portal_url'] ?? 'https://onlinecourses.nptel.ac.in/'); ?>">
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">About NPTEL Description (HTML paragraphs)</label>
-                <textarea name="about_text" class="form-control font-monospace small" rows="6"><?php echo htmlspecialchars($nptelInfo['about_text'] ?? ''); ?></textarea>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Important Guidelines While Enrolling <span class="text-muted fw-normal">(One rule per line)</span></label>
-                <textarea name="guidelines" class="form-control small" rows="5"><?php 
-                  $gl = $nptelInfo['guidelines'] ?? [];
-                  echo htmlspecialchars(is_array($gl) ? implode("\n", $gl) : $gl);
-                ?></textarea>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-bold text-dark">Important NPTEL Links <span class="text-muted fw-normal">(One per line in format: <code>Link Title | URL</code>)</span></label>
-                <textarea name="links_raw" class="form-control font-monospace small" rows="5" placeholder="Video on How to Enroll | http://nptel.ac.in/videos.php"><?php 
-                  $lnks = $nptelInfo['links'] ?? [];
-                  $lines = [];
-                  if (is_array($lnks)) {
-                    foreach ($lnks as $lnk) {
-                      $lines[] = ($lnk['title'] ?? '') . ' | ' . ($lnk['url'] ?? '#');
-                    }
-                  }
-                  echo htmlspecialchars(implode("\n", $lines));
-                ?></textarea>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-nptel-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › NPTEL</span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. NPTEL & SWAYAM Local Chapter | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description of NPTEL Local Chapter..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. NPTEL SSSUTMS, SWAYAM Local Chapter Sehore">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1166,15 +2114,150 @@ $nptelInfo = $allData['NPTEL'][0] ?? [];
     <!-- 9. TABLE TABS (CouncilForResearch, ResearchPolicies, ResearchPatents, ResearchEResources) -->
     <!-- ============================================================== -->
     <?php else: ?>
-      <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+      <!-- Page Settings & SEO Configuration Card -->
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
         <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
           <div>
             <h5 class="fw-bold text-dark mb-0">
-              <i class="fa-solid <?php echo $tabIcons[$tab] ?? 'fa-list-check'; ?> text-primary me-2"></i> <?php echo $validTabs[$tab]; ?>
+              <i class="fa-solid <?php echo $tabIcons[$tab] ?? 'fa-gear'; ?> text-primary me-2"></i> <?php echo htmlspecialchars($validTabs[$tab]); ?> Page Settings &amp; SEO
             </h5>
             <small class="text-muted">Live on <code>Research/<?php echo $activeFrontend; ?></code></small>
           </div>
-          <span class="badge bg-primary px-3 py-2 rounded-pill"><?php echo count($currentDocs); ?> Entries</span>
+          <span class="badge bg-primary px-3 py-2 rounded-pill"><?php echo count($currentDocs); ?> Records Active</span>
+        </div>
+        <div class="card-body p-4">
+          <form method="POST" action="research.php?tab=<?php echo $tab; ?>">
+            <input type="hidden" name="action" value="save_table_page_info">
+            <input type="hidden" name="page_key" value="<?php echo $tab; ?>">
+
+            <!-- Sub-Pill Navigation -->
+            <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pill-tbl-general-tab" data-bs-toggle="pill" data-bs-target="#pill-tbl-general" type="button" role="tab">
+                  <i class="fa-solid fa-sliders me-1.5"></i> Page Banner &amp; Header
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pill-tbl-seo-tab" data-bs-toggle="pill" data-bs-target="#pill-tbl-seo" type="button" role="tab">
+                  <i class="fa-solid fa-magnifying-glass me-1.5 text-info"></i> SEO &amp; Meta Details <span class="badge bg-info-subtle text-info ms-1">SEO</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- SUB-TAB 1: General Settings -->
+              <div class="tab-pane fade show active" id="pill-tbl-general" role="tabpanel">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Page Title (Browser &amp; Banner)</label>
+                    <input type="text" name="page_title" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['page_title'] ?? $validTabs[$tab]); ?>" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-dark">Section Category</label>
+                    <input type="text" class="form-control" value="Research" readonly disabled>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SUB-TAB 2: SEO Settings -->
+              <div class="tab-pane fade" id="pill-tbl-seo" role="tabpanel">
+                <!-- Google SERP Snippet Preview -->
+                <div class="card mb-4 border-0 shadow-sm" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <h6 class="fw-bold text-dark mb-0"><i class="fa-brands fa-google text-danger me-2"></i>Google Search Result (SERP Live Preview)</h6>
+                      <span class="badge bg-light text-secondary border px-3 py-1">Desktop &amp; Mobile SERP</span>
+                    </div>
+                    <div class="p-3 bg-white rounded border" style="max-width: 650px; font-family: arial, sans-serif;">
+                      <div class="d-flex align-items-center gap-2 mb-1" style="font-size: 13px; color: #202124;">
+                        <img src="../assets/images/logo/logo.jpg" alt="Google Favicon" width="18" height="18" class="rounded-circle border">
+                        <div>
+                          <span class="fw-semibold">Sri Satya Sai University</span>
+                          <span class="text-muted ms-1" style="font-size: 12px;">https://sssutms.co.in › Research › <?php echo htmlspecialchars(str_replace('.php', '', $activeFrontend)); ?></span>
+                        </div>
+                      </div>
+                      <h5 id="seoPreviewTitleRes" class="fw-normal mb-1 text-primary" style="color: #1a0dab !important; font-size: 20px; line-height: 1.3; cursor: pointer;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_title']); ?>
+                      </h5>
+                      <p id="seoPreviewDescRes" class="mb-0 text-muted" style="color: #4d5156 !important; font-size: 14px; line-height: 1.58;">
+                        <?php echo htmlspecialchars($activeTabSeo['meta_description']); ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-heading text-primary me-1"></i> SEO Meta Title (Title Tag)
+                      </label>
+                      <small class="text-muted"><span id="metaTitleCountRes">0</span> / 60 chars <span class="badge bg-secondary ms-1">Recommended: 50-60</span></small>
+                    </div>
+                    <input type="text" name="meta_title" id="seoInputTitleRes" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_title'] ?? ''); ?>" placeholder="e.g. <?php echo htmlspecialchars($validTabs[$tab]); ?> | SSSUTMS" oninput="updateSeoPreviewRes()">
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label small fw-bold mb-0">
+                        <i class="fa-solid fa-align-left text-success me-1"></i> SEO Meta Description
+                      </label>
+                      <small class="text-muted"><span id="metaDescCountRes">0</span> / 160 chars <span class="badge bg-secondary ms-1">Recommended: 150-160</span></small>
+                    </div>
+                    <textarea name="meta_description" id="seoInputDescRes" class="form-control" rows="3" placeholder="Provide a compelling description for search engine snippets..." oninput="updateSeoPreviewRes()"><?php echo htmlspecialchars($activeTabSeo['meta_description'] ?? ''); ?></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-tags text-warning me-1"></i> Target SEO Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['meta_keywords'] ?? ''); ?>" placeholder="e.g. SSSUTMS, <?php echo htmlspecialchars($validTabs[$tab]); ?>">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-link text-info me-1"></i> Canonical URL Override
+                    </label>
+                    <input type="text" name="canonical_url" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['canonical_url'] ?? ''); ?>" placeholder="Leave blank for automatic canonical URL">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-image text-danger me-1"></i> Social Sharing Preview Image (og:image)
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fa fa-share-nodes"></i></span>
+                      <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($activeTabSeo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-top mt-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <div class="small text-muted">
+                <i class="fa fa-circle-check text-success me-1"></i> Changes will immediately update the live public website and Google search metadata.
+              </div>
+              <button type="submit" class="btn btn-primary fw-bold px-4 py-2 rounded-pill shadow-sm">
+                <i class="fa fa-save me-1"></i> Update Page Settings &amp; SEO
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Documents / Records Table -->
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
+          <div>
+            <h6 class="fw-bold text-dark mb-0">
+              <i class="fa-solid fa-list text-primary me-2"></i> <?php echo htmlspecialchars($validTabs[$tab]); ?> Records Table
+            </h6>
+            <small class="text-muted">Manage all published documents and records</small>
+          </div>
+          <button class="btn btn-sm btn-primary fw-bold rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#addDocModal">
+            <i class="fa fa-plus me-1"></i> Add Record
+          </button>
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
@@ -1383,6 +2466,34 @@ if (addModalEl) {
     if (document.getElementById('modalDesc')) document.getElementById('modalDesc').value = '';
   });
 }
+
+function updateSeoPreviewRes() {
+  const titleInput = document.getElementById('seoInputTitleRes');
+  const descInput = document.getElementById('seoInputDescRes');
+  const previewTitle = document.getElementById('seoPreviewTitleRes');
+  const previewDesc = document.getElementById('seoPreviewDescRes');
+  const titleCount = document.getElementById('metaTitleCountRes');
+  const descCount = document.getElementById('metaDescCountRes');
+
+  if (titleInput && previewTitle) {
+    const val = titleInput.value.trim();
+    previewTitle.textContent = val || titleInput.placeholder || 'Research - Sri Satya Sai University (SSSUTMS)';
+    if (titleCount) {
+      titleCount.textContent = titleInput.value.length;
+      titleCount.className = titleInput.value.length > 60 ? 'text-danger fw-bold' : (titleInput.value.length >= 40 ? 'text-success fw-bold' : 'text-muted');
+    }
+  }
+
+  if (descInput && previewDesc) {
+    const val = descInput.value.trim();
+    previewDesc.textContent = val || descInput.placeholder || 'Explore research initiatives, academic publications, and innovations at Sri Satya Sai University (SSSUTMS), Sehore.';
+    if (descCount) {
+      descCount.textContent = descInput.value.length;
+      descCount.className = descInput.value.length > 160 ? 'text-danger fw-bold' : (descInput.value.length >= 120 ? 'text-success fw-bold' : 'text-muted');
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', updateSeoPreviewRes);
 </script>
 </body>
 </html>

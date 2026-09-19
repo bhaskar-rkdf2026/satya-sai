@@ -626,3 +626,15 @@ function get_admission_brochures($featuredOnly = false) {
 
 // Include Download Tab Dynamic Helper
 require_once __DIR__ . '/includes/download_helper.php';
+
+// Include Research Tab Dynamic Helper
+require_once __DIR__ . '/includes/research_helper.php';
+
+// Include Examination Tab Dynamic Helper
+require_once __DIR__ . '/includes/examination_helper.php';
+
+// Include Statutory Committees Dynamic Helper
+require_once __DIR__ . '/includes/committee_helper.php';
+
+// Include Unified Academic Tab Dynamic Helper
+require_once __DIR__ . '/includes/academic_helper.php';

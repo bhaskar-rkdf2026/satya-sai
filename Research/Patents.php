@@ -1,9 +1,18 @@
 <?php
-$page_title = 'Patents - SSSUTMS';
-$banner_title = 'Patents';
+require_once __DIR__ . '/../config.php';
+
+// Fetch dynamic Patents page info & SEO from Admin Panel
+$pageSeo = function_exists('get_research_page_info') ? get_research_page_info('ResearchPatents') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Patents - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['page_title'] ?? 'Patents';
 $banner_category = 'Research';
 
-require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';
