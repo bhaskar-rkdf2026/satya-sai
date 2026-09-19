@@ -80,8 +80,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pageData['meta_keywords'] = clean_input($_POST['meta_keywords'] ?? ($pageData['meta_keywords'] ?? ''));
             $pageData['canonical_url'] = clean_input($_POST['canonical_url'] ?? ($pageData['canonical_url'] ?? ''));
             $pageData['og_image'] = clean_input($_POST['og_image'] ?? ($pageData['og_image'] ?? ''));
+            $pageData['page_schema'] = clean_schema_json($_POST['page_schema'] ?? ($pageData['page_schema'] ?? ''));
 
             save_about_page($slug, $pageData);
+            
+            // Sync with global schema catalog if page file is mapped
+            if (!empty($pageData['file']) && function_exists('save_page_schema')) {
+                save_page_schema($pageData['file'], $pageData['page_schema']);
+            }
+
             $allPages = get_all_about_pages('all');
             $msg = 'Page "' . htmlspecialchars($pageData['banner_title']) . '" saved successfully! Reflection is live on the website.';
             $editSlug = $slug;
@@ -432,6 +439,7 @@ if ($activeGroup !== 'all' && isset($groups[$activeGroup])) {
     <li><a href="committee.php" class="nav-link"><i class="fa fa-users-gear"></i> Statutory Committees (9)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals & NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events & Workshops</a></li>
+    <li><a href="seo.php" class="nav-link"><i class="fa fa-globe"></i> Global SEO &amp; Indexing</a></li>
     <li><a href="career.php" class="nav-link"><i class="fa fa-briefcase"></i> Career &amp; Recruitment</a></li>
     <li><a href="contact.php" class="nav-link"><i class="fa fa-phone-volume"></i> Contact &amp; Helpdesk</a></li>
     <li><a href="itep.php" class="nav-link"><i class="fa fa-graduation-cap"></i> ITEP Cell</a></li>
@@ -777,6 +785,14 @@ if ($activeGroup !== 'all' && isset($groups[$activeGroup])) {
                       <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($p['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>" placeholder="e.g. assets/images/logo/logo.jpg">
                     </div>
                     <small class="text-muted">Image shown when page link is shared on WhatsApp, Facebook, LinkedIn, Twitter.</small>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-code text-success me-1"></i> Page Schema Structured Data (JSON-LD)
+                    </label>
+                    <textarea name="page_schema" class="form-control font-monospace" rows="5" placeholder="Optional custom JSON-LD schema (leave blank to use smart university default)..." style="font-size: 0.85rem; background: #fafafa;"><?php echo htmlspecialchars($p['page_schema'] ?? ''); ?></textarea>
+                    <small class="text-muted">Optional custom schema markup. Automatically embedded inside <code>&lt;script type="application/ld+json"&gt;</code> on this page.</small>
                   </div>
                 </div>
 

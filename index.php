@@ -11,7 +11,7 @@ $canonical_url = !empty($home_seo['canonical_url']) ? $home_seo['canonical_url']
 $og_image = !empty($home_seo['og_image']) ? $home_seo['og_image'] : 'assets/images/logo/logo.jpg';
 $og_title = !empty($home_seo['og_title']) ? $home_seo['og_title'] : '';
 $og_description = !empty($home_seo['og_description']) ? $home_seo['og_description'] : '';
-$meta_robots = !empty($home_seo['robots']) ? $home_seo['robots'] : 'index, follow';
+$meta_robots = function_exists('get_page_indexing_directive') ? get_page_indexing_directive('index.php', $home_seo['robots'] ?? null) : (!empty($home_seo['robots']) ? $home_seo['robots'] : 'index, follow');
 
 $page_title = $meta_title;
 $page_desc = $meta_description;

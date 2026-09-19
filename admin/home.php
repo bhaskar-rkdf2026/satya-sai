@@ -403,6 +403,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $existingOg = $seo['og_image'] ?? 'assets/images/logo/logo.jpg';
         $uploadedOg = handle_home_upload('og_image_file', trim($_POST['og_image_text'] ?? $existingOg));
 
+        $schemaMarkup = trim($_POST['page_schema'] ?? '');
+        $cleanedSchema = !empty($schemaMarkup) ? clean_schema_json($schemaMarkup) : '';
+
         $seo = [
             'meta_title' => clean_input($_POST['meta_title'] ?? ''),
             'meta_description' => clean_input($_POST['meta_description'] ?? ''),
@@ -411,11 +414,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'og_image' => !empty($uploadedOg) ? $uploadedOg : 'assets/images/logo/logo.jpg',
             'og_title' => clean_input($_POST['og_title'] ?? ''),
             'og_description' => clean_input($_POST['og_description'] ?? ''),
-            'robots' => clean_input($_POST['robots'] ?? 'index, follow')
+            'robots' => clean_input($_POST['robots'] ?? 'index, follow'),
+            'page_schema' => $cleanedSchema
         ];
 
         save_home_section('seo', $seo);
-        $msg = 'Home Page SEO Meta Tags & Social Sharing updated successfully! Changes are immediately live on the main website.';
+
+        // Synchronize with Global SEO indexing rules and schema for index.php
+        if (function_exists('get_global_seo_settings') && function_exists('save_global_seo_settings')) {
+            $globalSeo = get_global_seo_settings();
+            $globalSeo['page_rules']['index.php'] = $seo['robots'];
+            if (!empty($cleanedSchema)) {
+                $globalSeo['page_schemas']['index.php'] = $cleanedSchema;
+            } else {
+                unset($globalSeo['page_schemas']['index.php']);
+            }
+            save_global_seo_settings($globalSeo);
+        }
+
+        $msg = 'Home Page SEO Meta Tags, Robots Directives & Page Schema updated successfully! Changes are immediately live on the main website.';
     }
 }
 ?>
@@ -1605,6 +1622,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </div>
             </div>
 
+            <!-- 4. Page Schema Structured Data (JSON-LD) -->
+            <div class="section-field-card mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h6><i class="fa-solid fa-code text-success"></i> 4. Page Schema Structured Data (JSON-LD)</h6>
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="loadHomeSchemaPreset('EducationalOrganization')">
+                    <i class="fa-solid fa-wand-magic-sparkles me-1"></i> University Schema
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="loadHomeSchemaPreset('WebPage')">
+                    <i class="fa-solid fa-file-lines me-1"></i> WebPage Schema
+                  </button>
+                </div>
+              </div>
+              <p class="small text-muted mb-3">Google-compliant JSON-LD structured data for rich search engine snippets and knowledge graphs. Automatically embedded in the homepage <code>&lt;head&gt;</code>.</p>
+              
+              <div class="mb-2">
+                <?php 
+                $currHomeSchema = !empty($seo['page_schema']) ? $seo['page_schema'] : (function_exists('get_default_page_schema') ? get_default_page_schema('index.php') : '');
+                ?>
+                <textarea name="page_schema" id="homePageSchemaInput" class="form-control font-monospace" rows="8" style="font-size: 0.85rem; background: #fafafa;"><?php echo htmlspecialchars($currHomeSchema); ?></textarea>
+              </div>
+              <div class="d-flex align-items-center justify-content-between">
+                <small class="text-muted"><i class="fa-solid fa-circle-info text-info me-1"></i> Leave as valid JSON. It will be rendered inside <code>&lt;script type="application/ld+json"&gt;</code>.</small>
+                <button type="button" class="btn btn-link btn-sm text-decoration-none p-0 text-muted" onclick="formatHomeSchema()">
+                  <i class="fa-solid fa-indent me-1"></i> Format JSON
+                </button>
+              </div>
+            </div>
+
             <div class="d-flex align-items-center gap-3">
               <button type="submit" class="btn btn-success px-4 py-2 fw-bold shadow-sm">
                 <i class="fa-solid fa-floppy-disk me-1"></i> Save Home Page SEO Settings
@@ -1731,6 +1777,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (document.getElementById('homeInputOgTitle')) document.getElementById('homeInputOgTitle').value = '';
     if (document.getElementById('homeInputOgDesc')) document.getElementById('homeInputOgDesc').value = '';
     updateHomeSeoLive();
+  }
+
+  const homeSchemaTemplates = <?php echo json_encode(function_exists('get_schema_templates') ? get_schema_templates() : []); ?>;
+
+  function loadHomeSchemaPreset(type) {
+    const input = document.getElementById('homePageSchemaInput');
+    if (input && homeSchemaTemplates[type]) {
+      input.value = JSON.stringify(homeSchemaTemplates[type].schema, null, 2);
+    }
+  }
+
+  function formatHomeSchema() {
+    const input = document.getElementById('homePageSchemaInput');
+    if (!input || !input.value.trim()) return;
+    try {
+      const obj = JSON.parse(input.value.trim());
+      input.value = JSON.stringify(obj, null, 2);
+    } catch (e) {
+      alert('Cannot format invalid JSON: ' + e.message);
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {

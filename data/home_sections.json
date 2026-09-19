@@ -507,6 +507,6 @@
         "og_image": "assets/images/logo/logo.jpg",
         "og_title": "",
         "og_description": "",
-        "robots": "noindex, follow"
+        "robots": "noindex, nofollow"
     }
 }

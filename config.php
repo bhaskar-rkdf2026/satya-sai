@@ -638,3 +638,9 @@ require_once __DIR__ . '/includes/committee_helper.php';
 
 // Include Unified Academic Tab Dynamic Helper
 require_once __DIR__ . '/includes/academic_helper.php';
+
+// Include Events & Workshops Tab Dynamic Helper
+require_once __DIR__ . '/includes/events_helper.php';
+
+// Include Global SEO & Page Indexing Dynamic Helper
+require_once __DIR__ . '/includes/seo_helper.php';

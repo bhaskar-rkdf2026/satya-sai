@@ -51,11 +51,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         'canonical_url' => trim($_POST['canonical_url'] ?? ''),
         'og_image' => trim($_POST['og_image'] ?? 'assets/images/logo/logo.jpg'),
         'banner_title' => clean_input($_POST['banner_title'] ?? ''),
-        'banner_category' => clean_input($_POST['banner_category'] ?? ($pageMeta['category'] ?? 'Academic'))
+        'banner_category' => clean_input($_POST['banner_category'] ?? ($pageMeta['category'] ?? 'Academic')),
+        'page_schema' => clean_schema_json($_POST['page_schema'] ?? '')
     ];
 
     if (save_academic_page_info($tab, $seoData)) {
-        $msg = 'SEO & Meta Details saved successfully for ' . htmlspecialchars($pageMeta['title']) . '! Changes are now live on the public site.';
+        if (!empty($pageMeta['slug']) && function_exists('save_page_schema')) {
+            save_page_schema($pageMeta['slug'], $seoData['page_schema']);
+        }
+        $msg = 'SEO Meta & Page Schema saved successfully for ' . htmlspecialchars($pageMeta['title']) . '! Changes are now live on the public site.';
     } else {
         $error = 'Failed to save SEO settings. Please verify data permissions.';
     }
@@ -332,6 +336,7 @@ $totalAcademicPages = count($catalog);
     <li><a href="committee.php" class="nav-link"><i class="fa fa-users-gear"></i> Statutory Committees (9)</a></li>
     <li><a href="documents.php" class="nav-link"><i class="fa fa-stamp"></i> Approvals &amp; NAAC Docs</a></li>
     <li><a href="events.php" class="nav-link"><i class="fa fa-calendar-days"></i> Events &amp; Workshops</a></li>
+    <li><a href="seo.php" class="nav-link"><i class="fa fa-globe"></i> Global SEO &amp; Indexing</a></li>
     <li><a href="career.php" class="nav-link"><i class="fa fa-briefcase"></i> Career &amp; Recruitment</a></li>
     <li><a href="contact.php" class="nav-link"><i class="fa fa-phone-volume"></i> Contact &amp; Helpdesk</a></li>
     <li><a href="itep.php" class="nav-link"><i class="fa fa-graduation-cap"></i> ITEP Cell</a></li>
@@ -612,9 +617,18 @@ $totalAcademicPages = count($catalog);
                 </div>
               </div>
 
+              <!-- Page Schema (JSON-LD) -->
+              <div class="mb-4">
+                <label class="form-label fw-bold text-dark">
+                  <i class="fa-solid fa-code text-success me-1"></i> Page Schema Structured Data (JSON-LD)
+                </label>
+                <textarea name="page_schema" class="form-control font-monospace" rows="5" placeholder="Optional custom JSON-LD schema (leave blank for smart default)..." style="font-size: 0.85rem; background: #fafafa;"><?php echo htmlspecialchars($currentSeo['page_schema'] ?? (function_exists('get_page_schema') ? get_page_schema($pageMeta['slug']) : '')); ?></textarea>
+                <small class="text-muted">Optional custom schema markup. Automatically embedded inside <code>&lt;script type="application/ld+json"&gt;</code> on this page.</small>
+              </div>
+
               <div class="d-flex align-items-center justify-content-end gap-2 pt-3 border-top">
                 <button type="submit" class="btn btn-primary px-4 py-2 fw-bold rounded-pill shadow-sm" style="background: linear-gradient(135deg, #0b2545 0%, #1e4d8c 100%); border: none;">
-                  <i class="fa fa-floppy-disk me-1"></i> Save SEO &amp; Meta Details
+                  <i class="fa-floppy-disk me-1"></i> Save SEO &amp; Schema Details
                 </button>
               </div>
 

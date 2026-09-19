@@ -20,10 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         'meta_description' => clean_input($_POST['meta_description'] ?? ''),
         'meta_keywords'    => clean_input($_POST['meta_keywords'] ?? ''),
         'canonical_url'    => clean_input($_POST['canonical_url'] ?? ''),
-        'og_image'         => clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg')
+        'og_image'         => clean_input($_POST['og_image'] ?? 'assets/images/logo/logo.jpg'),
+        'page_schema'      => clean_schema_json($_POST['page_schema'] ?? '')
     ];
     if (save_career_page_info($infoData)) {
-        $msg = 'Career page information and SEO meta tags updated successfully!';
+        if (function_exists('save_page_schema')) {
+            save_page_schema('Career/index.php', $infoData['page_schema']);
+            save_page_schema('career.php', $infoData['page_schema']);
+        }
+        $msg = 'Career page information, SEO meta tags & Page Schema updated successfully!';
     } else {
         $error = 'Failed to update page information.';
     }
@@ -699,6 +704,14 @@ $totalEvents = count($events);
                           <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($pageInfo['og_image'] ?? 'assets/images/logo/logo.jpg'); ?>" placeholder="e.g. assets/images/logo/logo.jpg">
                         </div>
                         <small class="text-muted">Image shown when page link is shared on WhatsApp, Facebook, LinkedIn, Twitter.</small>
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label small fw-bold">
+                          <i class="fa-solid fa-code text-success me-1"></i> Page Schema Structured Data (JSON-LD)
+                        </label>
+                        <textarea name="page_schema" class="form-control font-monospace" rows="5" placeholder="Optional custom JSON-LD schema (leave blank for smart default)..." style="font-size: 0.85rem; background: #fafafa;"><?php echo htmlspecialchars($pageInfo['page_schema'] ?? (function_exists('get_page_schema') ? get_page_schema('Career/index.php') : '')); ?></textarea>
+                        <small class="text-muted">Optional custom schema markup (e.g. JobPosting). Automatically embedded inside <code>&lt;script type="application/ld+json"&gt;</code> on this page.</small>
                       </div>
                     </div>
 

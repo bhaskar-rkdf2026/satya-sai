@@ -89,7 +89,20 @@ if (!empty($og_image)) {
 // 7. Social Titles & Directives
 $final_og_title = !empty($og_title) ? $og_title : (!empty($active_meta['og_title']) ? $active_meta['og_title'] : $final_title);
 $final_og_desc = !empty($og_description) ? $og_description : (!empty($og_desc) ? $og_desc : (!empty($active_meta['og_description']) ? $active_meta['og_description'] : $final_desc));
-$final_robots = !empty($meta_robots) ? $meta_robots : (!empty($active_meta['robots']) ? $active_meta['robots'] : 'index, follow');
+
+// Resolve Robots Indexing Directive (Priority: SEO Console page_rules -> page-level override -> global default)
+if (function_exists('get_page_indexing_directive')) {
+    $fallbackRobots = !empty($meta_robots) ? $meta_robots : (!empty($active_meta['robots']) ? $active_meta['robots'] : null);
+    $final_robots = get_page_indexing_directive(null, $fallbackRobots);
+} elseif (!empty($meta_robots)) {
+    $final_robots = $meta_robots;
+} elseif (!empty($active_meta['robots'])) {
+    $final_robots = $active_meta['robots'];
+} else {
+    $final_robots = 'noindex, nofollow';
+}
+
+$globalSeoMeta = function_exists('get_global_seo_settings') ? get_global_seo_settings() : [];
 
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
@@ -105,9 +118,16 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
   <meta name="title" content="<?php echo htmlspecialchars($final_title); ?>">
   <meta name="description" content="<?php echo htmlspecialchars($final_desc); ?>">
   <meta name="keywords" content="<?php echo htmlspecialchars($final_keywords); ?>">
-  <meta name="author" content="Sri Satya Sai University of Technology &amp; Medical Sciences">
+  <meta name="author" content="<?php echo htmlspecialchars(!empty($globalSeoMeta['meta_author']) ? $globalSeoMeta['meta_author'] : 'Sri Satya Sai University of Technology & Medical Sciences'); ?>">
   <meta name="robots" content="<?php echo htmlspecialchars($final_robots); ?>">
   <meta name="theme-color" content="#0b2545">
+
+  <?php if (!empty($globalSeoMeta['google_verification'])): ?>
+  <meta name="google-site-verification" content="<?php echo htmlspecialchars($globalSeoMeta['google_verification']); ?>">
+  <?php endif; ?>
+  <?php if (!empty($globalSeoMeta['bing_verification'])): ?>
+  <meta name="msvalidate.01" content="<?php echo htmlspecialchars($globalSeoMeta['bing_verification']); ?>">
+  <?php endif; ?>
 
   <?php if (!empty($final_canonical)): ?>
   <link rel="canonical" href="<?php echo htmlspecialchars($final_canonical); ?>">
@@ -146,5 +166,16 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
 
   <!-- Custom Modern Portal CSS -->
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css?v=<?php echo filemtime(__DIR__ . '/../assets/css/style.css'); ?>">
+
+  <!-- Page Schema Structured Data (JSON-LD) -->
+  <?php 
+  if (function_exists('get_resolved_page_schema')) {
+      $explicitSchema = !empty($page_schema) ? $page_schema : (!empty($active_meta['page_schema']) ? $active_meta['page_schema'] : (!empty($schema_markup) ? $schema_markup : (!empty($active_meta['schema_markup']) ? $active_meta['schema_markup'] : null)));
+      $resolvedSchema = get_resolved_page_schema($explicitSchema);
+      if (!empty($resolvedSchema)) {
+          echo "\n  <script type=\"application/ld+json\">\n" . $resolvedSchema . "\n  </script>\n";
+      }
+  }
+  ?>
 </head>
 <body<?php echo !empty($body_class) ? ' class="' . htmlspecialchars($body_class, ENT_QUOTES, 'UTF-8') . '"' : ''; ?>>

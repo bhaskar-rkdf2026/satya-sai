@@ -72,8 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $facData['meta_keywords'] = clean_input($_POST['meta_keywords'] ?? ($facData['meta_keywords'] ?? ''));
             $facData['canonical_url'] = clean_input($_POST['canonical_url'] ?? ($facData['canonical_url'] ?? ''));
             $facData['og_image'] = clean_input($_POST['og_image'] ?? ($facData['og_image'] ?? ''));
+            $facData['page_schema'] = clean_schema_json($_POST['page_schema'] ?? ($facData['page_schema'] ?? ''));
 
             save_faculty_page($slug, $facData);
+            
+            if (!empty($facData['file']) && function_exists('save_page_schema')) {
+                save_page_schema($facData['file'], $facData['page_schema']);
+            }
+
             $allFaculties = get_all_faculty_pages(true);
             $msg = 'Faculty "' . htmlspecialchars($facData['faculty_name']) . '" updated successfully! Live page updated.';
             $editSlug = $slug;
@@ -765,6 +771,14 @@ foreach ($allFaculties as $s => $f) {
                       <input type="text" name="og_image" class="form-control" value="<?php echo htmlspecialchars($f['og_image'] ?? 'assets/images/gallery/1/img-25.jpg'); ?>" placeholder="e.g. assets/images/gallery/1/img-25.jpg or full URL">
                     </div>
                     <small class="text-muted">This image appears when the page link is shared on WhatsApp, Facebook, LinkedIn, or Twitter.</small>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">
+                      <i class="fa-solid fa-code text-success me-1"></i> Page Schema Structured Data (JSON-LD)
+                    </label>
+                    <textarea name="page_schema" class="form-control font-monospace" rows="5" placeholder="Optional custom JSON-LD schema (e.g. Course/Department, leave blank for smart default)..." style="font-size: 0.85rem; background: #fafafa;"><?php echo htmlspecialchars($f['page_schema'] ?? ''); ?></textarea>
+                    <small class="text-muted">Optional custom schema markup. Automatically embedded inside <code>&lt;script type="application/ld+json"&gt;</code> on this department page.</small>
                   </div>
                 </div>
 

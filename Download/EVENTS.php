@@ -1,10 +1,18 @@
 <?php
-$page_title = 'Official Events Circulars - SSSUTMS';
-$banner_title = 'Official Events Circulars';
-$banner_category = 'Download';
-
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/download_helper.php';
+
+$pageSeo = function_exists('get_events_page_info') ? get_events_page_info('EVENTS') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Official Events Circulars - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['banner_title'] ?? 'Official Events Circulars';
+$banner_category = $pageSeo['banner_category'] ?? 'Download';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/topbar.php';
 require_once __DIR__ . '/../includes/navbar.php';

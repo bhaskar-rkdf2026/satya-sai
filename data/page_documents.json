@@ -9395,5 +9395,37 @@
             "og_image": "assets/images/anti-ragging-banner.jpg",
             "updated_at": "2026-09-18 11:36:47"
         }
+    },
+    "Events_EVENTS": {
+        "title": "Official University Events & Circulars",
+        "section": "Events",
+        "documents": [],
+        "page_info": {
+            "page_title": "Official Events & Circulars",
+            "meta_title": "University Events, Seminars & Workshops | SSSUTMS",
+            "meta_description": "Official notifications, schedules, circulars, and details for national seminars, conferences, cultural festivals, and university events at SSSUTMS.",
+            "meta_keywords": "sssutms events, university circulars, national conference, college fest",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg",
+            "banner_title": "Official University Events",
+            "banner_category": "University Events",
+            "updated_at": "2026-09-19 08:14:59"
+        }
+    },
+    "EVENTS": {
+        "title": "Official University Events & Circulars",
+        "section": "Events",
+        "documents": [],
+        "page_info": {
+            "page_title": "Official Events & Circulars",
+            "meta_title": "University Events, Seminars & Workshops | SSSUTMS",
+            "meta_description": "Official notifications, schedules, circulars, and details for national seminars, conferences, cultural festivals, and university events at SSSUTMS.",
+            "meta_keywords": "sssutms events, university circulars, national conference, college fest",
+            "canonical_url": "",
+            "og_image": "assets/images/logo/logo.jpg",
+            "banner_title": "Official University Events",
+            "banner_category": "University Events",
+            "updated_at": "2026-09-19 08:14:59"
+        }
     }
 }

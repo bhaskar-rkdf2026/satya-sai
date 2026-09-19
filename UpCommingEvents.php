@@ -1,9 +1,17 @@
-﻿<?php
-$page_title = 'Upcomming Events - SSSUTMS';
-$banner_title = 'Upcomming Events';
-$banner_category = 'SSSUTMS';
-
+<?php
 require_once __DIR__ . '/./config.php';
+
+$pageSeo = function_exists('get_events_page_info') ? get_events_page_info('UpCommingEvents') : [];
+$page_data = $pageSeo;
+$meta_title = !empty($pageSeo['meta_title']) ? $pageSeo['meta_title'] : 'Upcomming Events - SSSUTMS';
+$page_title = $meta_title;
+$meta_description = $pageSeo['meta_description'] ?? '';
+$meta_keywords = $pageSeo['meta_keywords'] ?? '';
+$canonical_url = $pageSeo['canonical_url'] ?? '';
+$og_image = $pageSeo['og_image'] ?? 'assets/images/logo/logo.jpg';
+$banner_title = $pageSeo['banner_title'] ?? 'Upcomming Events';
+$banner_category = $pageSeo['banner_category'] ?? 'Campus Life';
+
 require_once __DIR__ . '/./includes/header.php';
 require_once __DIR__ . '/./includes/topbar.php';
 require_once __DIR__ . '/./includes/navbar.php';
