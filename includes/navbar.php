@@ -36,6 +36,7 @@
           <ul class="dropdown-menu shadow border-0">
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>About/Background.php">Background</a></li>
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>About/Institutes.php">Institutes</a></li>
+            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php#virtual-tour"><i class="fa fa-video me-1 text-danger"></i> Virtual Campus Tour (360°)</a></li>
             
             <!-- University Officials Submenu -->
             <li class="dropdown-submenu">

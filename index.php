@@ -34,6 +34,7 @@ $press_media = get_home_section('press_media', []);
 $institutes = get_home_section('institutes', []);
 $recruiters = get_home_section('recruiters', []);
 $campus_visit = get_home_section('campus_visit', []);
+$virtual_tour = get_home_section('virtual_tour', []);
 $latest_updates_header = get_home_section('latest_updates_header', []);
 $resource_center = get_home_section('resource_center', []);
 $gallery_glimpses = get_home_section('gallery_glimpses', []);
@@ -79,7 +80,12 @@ if (!function_exists('home_url')) {
   ];
 ?>
 <section id="home" class="hero-v2">
-  <div style="position:absolute; inset:0; background-image:url('<?php echo htmlspecialchars(home_url($heroBg)); ?>'); background-size:cover; background-position:center;"></div>
+  <div class="hero-video-bg-wrap">
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" poster="<?php echo htmlspecialchars(home_url($heroBg)); ?>">
+      <source src="<?php echo BASE_URL; ?>assets/videos/drone.mp4" type="video/mp4">
+      <source src="<?php echo BASE_URL; ?>drone.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-v2-overlay"></div>
   <div class="container-fluid px-lg-5 position-relative">
     <div class="row align-items-center g-4">
@@ -327,6 +333,213 @@ if (!function_exists('home_url')) {
 </section><!-- /#about -->
 
 <!-- ==========================================================================
+     VIRTUAL CAMPUS TOUR (4K AERIAL DRONE SHOWCASE)
+     ========================================================================== -->
+<?php
+  $vtBadge = $virtual_tour['badge_text'] ?? '360° Aerial Drone Tour';
+  $vtTitleMain = $virtual_tour['title_main'] ?? 'Virtual Campus Tour —';
+  $vtTitleHighlight = $virtual_tour['title_highlight'] ?? 'Explore From The Skies';
+  $vtDesc = $virtual_tour['desc'] ?? 'Take a cinematic bird’s-eye flight across our 100+ acre lush green campus in Sehore (Bhopal, MP). Discover modern academic faculties, high-tech engineering & medical laboratories, multi-speciality teaching hospitals, sports arenas, and residential hostels.';
+  $vtVideo = !empty($virtual_tour['video_url']) ? $virtual_tour['video_url'] : 'assets/videos/drone.mp4';
+  $vtPoster = !empty($virtual_tour['poster_image']) ? $virtual_tour['poster_image'] : 'assets/images/slider/IMG-20260112-WA0044.jpg';
+  $vtHighlights = !empty($virtual_tour['highlights']) ? $virtual_tour['highlights'] : [
+    ['icon' => 'fa-tree', 'title' => '100+ Acre Green Campus', 'desc' => 'Lush, eco-conscious landscape with expansive academic squares, gardens, and avenues.'],
+    ['icon' => 'fa-microscope', 'title' => 'Cutting-Edge Laboratories', 'desc' => 'Advanced research centers for AI, Robotics, Computer Engineering, Pharmacy & Biotech.'],
+    ['icon' => 'fa-hospital-user', 'title' => 'Multi-Speciality Hospitals', 'desc' => 'Integrated Ayurvedic & Homeopathic clinical teaching hospitals for medical scholars.'],
+    ['icon' => 'fa-building-columns', 'title' => 'World-Class Infrastructure', 'desc' => 'Smart classrooms, central digital library, indoor/outdoor sports arenas, and safe hostels.']
+  ];
+?>
+<section id="virtual-tour" class="virtual-tour-section">
+  <div class="container-fluid px-lg-5">
+    <div class="vt-showcase-card">
+      <div class="vt-card-glow"></div>
+      <div class="row align-items-center g-4 position-relative">
+        
+        <!-- Left Column: Content & Details -->
+        <div class="col-lg-5">
+          <span class="vt-kicker-pill">
+            <span class="vt-kicker-dot"></span> 360° Drone View
+          </span>
+          <h2 class="vt-title">
+            Virtual Campus Tour <span class="vt-title-accent">From The Skies</span>
+          </h2>
+          <p class="vt-desc">
+            Take a cinematic bird’s-eye flight across our 100+ acre lush green campus in Sehore. Explore world-class faculties, research labs, teaching hospitals &amp; student living.
+          </p>
+
+          <!-- 2 Key Value Props -->
+          <div class="vt-stats-grid">
+            <div class="vt-stat-badge">
+              <i class="fa fa-tree"></i>
+              <div class="stat-text">
+                <strong>100+ Acres</strong>
+                <span>Lush Green Campus</span>
+              </div>
+            </div>
+            <div class="vt-stat-badge">
+              <i class="fa fa-hospital"></i>
+              <div class="stat-text">
+                <strong>Multi-Speciality</strong>
+                <span>Teaching Hospitals</span>
+              </div>
+            </div>
+            <div class="vt-stat-badge">
+              <i class="fa fa-microscope"></i>
+              <div class="stat-text">
+                <strong>Advanced Labs</strong>
+                <span>AI &amp; Research Wings</span>
+              </div>
+            </div>
+            <div class="vt-stat-badge">
+              <i class="fa fa-building-columns"></i>
+              <div class="stat-text">
+                <strong>Modern Hostels</strong>
+                <span>Sports &amp; Amenities</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct CTAs -->
+          <div class="d-flex flex-wrap gap-2">
+            <a href="<?php echo htmlspecialchars(home_url('contact.php')); ?>" class="vt-btn-primary">
+              <i class="fa fa-calendar-check me-2"></i>Schedule Visit
+            </a>
+            <a href="<?php echo htmlspecialchars(home_url('gallery.php')); ?>" class="vt-btn-secondary">
+              <i class="fa fa-photo-film me-2"></i>Photo Gallery
+            </a>
+            <a href="<?php echo htmlspecialchars(home_url('student-registration.php')); ?>" class="vt-btn-secondary" style="color: #f6a935 !important; border-color: rgba(246, 169, 53, 0.4);">
+              <i class="fa fa-graduation-cap me-2"></i>Apply 2026-27
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Clean Cinematic Video Frame -->
+        <div class="col-lg-7">
+          <div class="vt-video-frame">
+            <span class="vt-glass-tag vt-glass-tag-left">
+              <span class="vt-kicker-dot"></span> 4K Drone Footage
+            </span>
+            <span class="vt-glass-tag vt-glass-tag-right">
+              <i class="fa fa-location-dot me-1"></i> Sehore Campus • 100+ Acres
+            </span>
+            <video id="campusDroneVideo" class="virtual-tour-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo htmlspecialchars(home_url($vtPoster)); ?>">
+              <source src="<?php echo htmlspecialchars(home_url($vtVideo)); ?>" type="video/mp4">
+              <source src="<?php echo BASE_URL; ?>drone.mp4" type="video/mp4">
+              Your browser does not support high-definition HTML5 video.
+            </video>
+            <div class="vt-glass-controls">
+              <button type="button" class="vt-ctrl-btn" id="vtPlayPauseBtn" title="Play / Pause Video" aria-label="Play / Pause Video">
+                <i class="fa fa-pause"></i>
+              </button>
+              <button type="button" class="vt-ctrl-btn" id="vtMuteBtn" title="Unmute / Mute Audio" aria-label="Unmute / Mute Audio">
+                <i class="fa fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="vt-ctrl-btn" id="vtFullscreenBtn" title="Fullscreen View" aria-label="Fullscreen View">
+                <i class="fa fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Virtual Tour Interactive Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var video = document.getElementById('campusDroneVideo');
+  var playPauseBtn = document.getElementById('vtPlayPauseBtn');
+  var muteBtn = document.getElementById('vtMuteBtn');
+  var fullscreenBtn = document.getElementById('vtFullscreenBtn');
+
+  if (!video) return;
+
+  // Play / Pause Toggle
+  if (playPauseBtn) {
+    playPauseBtn.addEventListener('click', function () {
+      if (video.paused || video.ended) {
+        video.play();
+        playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';
+      } else {
+        video.pause();
+        playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
+      }
+    });
+
+    video.addEventListener('play', function () {
+      playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';
+    });
+    video.addEventListener('pause', function () {
+      playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
+    });
+  }
+
+  // Mute / Unmute Toggle
+  if (muteBtn) {
+    muteBtn.addEventListener('click', function () {
+      video.muted = !video.muted;
+      if (video.muted) {
+        muteBtn.innerHTML = '<i class="fa fa-volume-xmark"></i>';
+      } else {
+        muteBtn.innerHTML = '<i class="fa fa-volume-high"></i>';
+      }
+    });
+  }
+
+  // Fullscreen Toggle
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', function () {
+      var wrapper = video.closest('.vt-video-inner') || video;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+        if (wrapper.requestFullscreen) {
+          wrapper.requestFullscreen();
+        } else if (wrapper.webkitRequestFullscreen) {
+          wrapper.webkitRequestFullscreen();
+        } else if (wrapper.mozRequestFullScreen) {
+          wrapper.mozRequestFullScreen();
+        } else if (wrapper.msRequestFullscreen) {
+          wrapper.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    });
+  }
+
+  // Optimize performance: pause video if scrolled far away from view
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          if (!video.paused) {
+            video.pause();
+          }
+        } else {
+          if (video.paused && !video.dataset.userPaused) {
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(function () {});
+            }
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+    observer.observe(video);
+  }
+});
+</script>
+
+<!-- ==========================================================================
      PRESS & MEDIA + NOTICE BOARD
      ========================================================================== -->
 <section class="section-padding bg-light home-press-notice-section">
@@ -528,7 +741,7 @@ if (!function_exists('home_url')) {
 
           <div class="d-flex flex-wrap gap-3">
             <a href="<?php echo htmlspecialchars(home_url($campus_visit['btn_primary_link'] ?? 'contact.php')); ?>" class="btn-hero-primary"><i class="fa <?php echo htmlspecialchars($campus_visit['btn_primary_icon'] ?? 'fa-calendar-check'); ?> me-1"></i> <?php echo htmlspecialchars($campus_visit['btn_primary_text'] ?? 'Schedule a Visit'); ?></a>
-            <a href="<?php echo htmlspecialchars(home_url($campus_visit['btn_secondary_link'] ?? 'gallery.php')); ?>" class="btn-hero-outline"><i class="fa <?php echo htmlspecialchars($campus_visit['btn_secondary_icon'] ?? 'fa-photo-film'); ?> me-1"></i> <?php echo htmlspecialchars($campus_visit['btn_secondary_text'] ?? 'Virtual Tour'); ?></a>
+            <a href="<?php echo htmlspecialchars(!empty($campus_visit['btn_secondary_link']) && $campus_visit['btn_secondary_link'] !== 'gallery.php' ? home_url($campus_visit['btn_secondary_link']) : '#virtual-tour'); ?>" class="btn-hero-outline"><i class="fa <?php echo htmlspecialchars($campus_visit['btn_secondary_icon'] ?? 'fa-photo-film'); ?> me-1"></i> <?php echo htmlspecialchars($campus_visit['btn_secondary_text'] ?? 'Virtual Tour'); ?></a>
           </div>
         </div>
 
